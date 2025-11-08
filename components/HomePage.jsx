@@ -138,15 +138,15 @@ export default function HomePage() {
       <div className="w-full pl-40 pr-20 mt-5 mb-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-center">
           {/* Box 1 */}
-          <div className="flex items-center justify-center gap-3 border border-green-200 rounded-xl h-[120px] bg-green-100 px-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
-            <SquareUserRound size={28} className="text-green-700" />
+          <div className="flex items-center justify-center gap-3 border border-green-200 rounded-xl h-[100px] bg-green-100 px-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+            <SquareUserRound size={36} className="text-green-700" />
             <p className="text-green-700 text-md font-semibold px-2">
               1:1 Free Counselling Call
             </p>
           </div>
 
           {/* Box 2 */}
-          <div className="flex items-center justify-center gap-3 border border-green-200 rounded-xl h-[120px] bg-green-100 px-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+          <div className="flex items-center justify-center gap-3 border border-green-200 rounded-xl h-[100px] bg-green-100 px-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
             <FileText size={28} className="text-green-700" />
             <p className="text-green-700 text-md font-semibold px-2">
               Data Driven Insights
@@ -154,8 +154,8 @@ export default function HomePage() {
           </div>
 
           {/* Box 3 - wraps text now */}
-          <div className="flex items-center justify-center gap-3 border border-green-200 rounded-xl h-[120px] bg-green-100 px-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg text-center">
-            <BriefcaseBusiness size={28} className="text-green-700" />
+          <div className="flex items-center justify-center gap-3 border border-green-200 rounded-xl h-[100px] bg-green-100 px-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg text-center">
+            <BriefcaseBusiness size={40} className="text-green-700" />
             <p className="text-green-700 text-md font-semibold leading-snug px-2">
               Select Best Fit Before You Commit
             </p>

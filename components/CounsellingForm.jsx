@@ -1,7 +1,10 @@
 "use client";
 import { useState } from "react";
+import { createSupabaseClient } from "@/lib/supabaseClient";
 
 export default function CounsellingForm({ onClose }) {
+  const supabase = createSupabaseClient();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,32 +14,60 @@ export default function CounsellingForm({ onClose }) {
     phone: "",
   });
 
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) newErrors.name = "Name is required.";
+    if (!formData.email.trim()) newErrors.email = "Email is required.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+      newErrors.email = "Enter a valid email address.";
+
+    if (!formData.university) newErrors.university = "Select a university.";
+    if (!formData.course) newErrors.course = "Select a course.";
+
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required.";
+    else if (!/^\d{10}$/.test(formData.phone))
+      newErrors.phone = "Phone number must be exactly 10 digits.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-      try {
-    const response = await fetch("/api/counselling", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    if (!validateForm()) return;
 
-    const result = await response.json();
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.from("counselling_form").insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          university: formData.university,
+          course: formData.course,
+          phone: `${formData.phoneCode} ${formData.phone}`,
+        },
+      ]);
 
-    if (result.success) {
-      alert("Form submitted successfully!");
-      console.log("Supabase Response:", result.data);
-    } else {
-      alert("Error submitting form: " + result.error);
+      if (error) throw error;
+
+      alert("✅ Form submitted successfully!");
+      console.log("Supabase Response:", data);
+      onClose();
+    } catch (error) {
+      console.error("Supabase Error:", error.message);
+      alert("Error submitting form: " + error.message);
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error("Network Error:", error);
-    alert("Network error. Please try again.");
-  }
   };
 
   const countryCodes = [
@@ -44,34 +75,12 @@ export default function CounsellingForm({ onClose }) {
     { code: "+1", flag: "🇺🇸", name: "United States" },
     { code: "+44", flag: "🇬🇧", name: "United Kingdom" },
     { code: "+61", flag: "🇦🇺", name: "Australia" },
-    { code: "+81", flag: "🇯🇵", name: "Japan" },
-    { code: "+49", flag: "🇩🇪", name: "Germany" },
-    { code: "+33", flag: "🇫🇷", name: "France" },
     { code: "+971", flag: "🇦🇪", name: "UAE" },
-    { code: "+94", flag: "🇱🇰", name: "Sri Lanka" },
-    { code: "+880", flag: "🇧🇩", name: "Bangladesh" },
-    { code: "+92", flag: "🇵🇰", name: "Pakistan" },
-    { code: "+65", flag: "🇸🇬", name: "Singapore" },
-    { code: "+60", flag: "🇲🇾", name: "Malaysia" },
-    { code: "+254", flag: "🇰🇪", name: "Kenya" },
-    { code: "+27", flag: "🇿🇦", name: "South Africa" },
-    { code: "+34", flag: "🇪🇸", name: "Spain" },
-    { code: "+39", flag: "🇮🇹", name: "Italy" },
-    { code: "+7", flag: "🇷🇺", name: "Russia" },
-    { code: "+86", flag: "🇨🇳", name: "China" },
-    { code: "+82", flag: "🇰🇷", name: "South Korea" },
-    { code: "+62", flag: "🇮🇩", name: "Indonesia" },
-    { code: "+63", flag: "🇵🇭", name: "Philippines" },
-    { code: "+90", flag: "🇹🇷", name: "Turkey" },
-    { code: "+31", flag: "🇳🇱", name: "Netherlands" },
-    { code: "+32", flag: "🇧🇪", name: "Belgium" },
-    { code: "+46", flag: "🇸🇪", name: "Sweden" },
-    { code: "+41", flag: "🇨🇭", name: "Switzerland" },
   ];
 
   return (
-    <div className="fixed inset-0 z-50  flex justify-center items-center bg-black/40 px-4 overflow-hidden">
-      <div className="relative w-[30%]  max-w-md h-[700px] backdrop-blur-3xl border border-gray-400 shadow-lg rounded-2xl p-6 sm:p-5 max-h-[95vh] overflow-hidden">
+    <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/40 px-4 overflow-hidden">
+      <div className="relative w-full sm:w-[85%] md:w-[65%] lg:w-[33%] max-w-md h-[95vh] overflow-y-auto no-scrollbar backdrop-blur-lg background-blur/40 border border-gray-300 shadow-xl rounded-2xl p-6 sm:p-5">
         <button
           onClick={onClose}
           className="absolute top-2 right-3 text-gray-500 hover:text-gray-700 text-2xl font-bold"
@@ -103,7 +112,9 @@ export default function CounsellingForm({ onClose }) {
         >
           {/* Name */}
           <div>
-            <label className="block text-gray-800 font-medium mb-1 text-sm">Name</label>
+            <label className="block text-gray-800 font-medium mb-1 text-sm">
+              Name
+            </label>
             <input
               type="text"
               name="name"
@@ -112,6 +123,9 @@ export default function CounsellingForm({ onClose }) {
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-lg px-3 py-1.5 bg-white text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none text-sm"
             />
+            {errors.name && (
+              <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+            )}
           </div>
 
           {/* Email */}
@@ -127,6 +141,9 @@ export default function CounsellingForm({ onClose }) {
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-lg px-3 py-1.5 bg-white text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none text-sm"
             />
+            {errors.email && (
+              <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+            )}
           </div>
 
           {/* University */}
@@ -140,24 +157,15 @@ export default function CounsellingForm({ onClose }) {
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-lg px-3 py-1.5 bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 outline-none text-sm"
             >
-              <option value="" disabled>
-                Select University
-              </option>
+              <option value="">Select University</option>
               <option>Manipal University Jaipur</option>
-              <option>Sikkim Manipal University</option>
               <option>NMIMS</option>
-              <option>Vivekanand Global University</option>
-              <option>MIT Pune</option>
-              <option>Alliance University Bangalore</option>
-              <option>VIT</option>
-              <option>Sharda University</option>
-              <option>Jain University Bangalore</option>
-              <option>Shoolini University</option>
-              <option>Symbiosis University</option>
               <option>Amity University</option>
-              <option>LPU</option>
-              <option>Chandigarh University</option>
+              <option>VIT</option>
             </select>
+            {errors.university && (
+              <p className="text-red-500 text-xs mt-1">{errors.university}</p>
+            )}
           </div>
 
           {/* Course */}
@@ -171,19 +179,15 @@ export default function CounsellingForm({ onClose }) {
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-lg px-3 py-1.5 bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 outline-none text-sm"
             >
-              <option value="" disabled>
-                Select Course
-              </option>
+              <option value="">Select Course</option>
               <option>MBA</option>
               <option>BBA</option>
               <option>BCA</option>
               <option>MCA</option>
-              <option>BA</option>
-              <option>MA</option>
-              <option>Diploma</option>
-              <option>MA-JMC</option>
-              <option>BA-JMC</option>
             </select>
+            {errors.course && (
+              <p className="text-red-500 text-xs mt-1">{errors.course}</p>
+            )}
           </div>
 
           {/* Phone */}
@@ -207,20 +211,28 @@ export default function CounsellingForm({ onClose }) {
               <input
                 type="tel"
                 name="phone"
-                placeholder="(555) 000-0000"
+                placeholder="10-digit number"
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-3 py-1.5 bg-white text-gray-800 placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               />
             </div>
+            {errors.phone && (
+              <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+            )}
           </div>
 
-          {/* Submit */}
+          {/* Submit Button */}
           <button
             type="submit"
-            className="mt-3 w-full bg-blue-700 text-white font-medium py-2 rounded-lg hover:bg-blue-800 transition duration-200 text-sm"
+            disabled={loading}
+            className={`mt-3 w-full py-2 rounded-lg font-medium text-sm transition duration-200 ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-blue-700 text-white hover:bg-blue-800"
+            }`}
           >
-            Secure Your Seat Today →
+            {loading ? "Submitting..." : "Secure Your Seat Today →"}
           </button>
         </form>
       </div>

@@ -1,8 +1,62 @@
 "use client";
-import Image from "next/image";
+import { useState } from "react";
 import { Mail, Phone, Clock, MapPin } from "lucide-react";
+import { createSupabaseClient } from "@/lib/supabaseClient";
 
 export default function ContactPage() {
+  const supabase = createSupabaseClient();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+
+    const { firstName, lastName, email, phone, message } = formData;
+
+    // ✅ Insert form data into Supabase
+    const { error } = await supabase.from("contact_messages").insert([
+      {
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        phone,
+        message,
+      },
+    ]);
+
+    if (error) {
+      console.error("❌ Error inserting data:", error);
+      setStatus("Something went wrong. Please try again!");
+    } else {
+      setStatus("✅ Message sent successfully!");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    }
+
+    setLoading(false);
+  };
+
   return (
     <div className="w-full">
       {/* Top Header Section */}
@@ -79,7 +133,7 @@ export default function ContactPage() {
           </h3>
           <p className="text-black text-center mb-6">Send us a message</p>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-black font-medium mb-2">
@@ -87,8 +141,12 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   placeholder="First Name"
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
                 />
               </div>
               <div>
@@ -97,8 +155,12 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
                   placeholder="Last Name"
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
                 />
               </div>
             </div>
@@ -109,8 +171,12 @@ export default function ContactPage() {
               </label>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Your E-mail address"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
             </div>
 
@@ -120,7 +186,10 @@ export default function ContactPage() {
               </label>
               <input
                 type="tel"
-                placeholder="+91 XXXXXXXXXX"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="XXXXXXXXXX"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black placeholder-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -130,6 +199,9 @@ export default function ContactPage() {
                 Message
               </label>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Your message..."
                 rows={4}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black placeholder-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -138,10 +210,21 @@ export default function ContactPage() {
 
             <button
               type="submit"
+              disabled={loading}
               className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
+
+            {status && (
+              <p
+                className={`text-center mt-3 font-medium ${
+                  status.startsWith("✅") ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {status}
+              </p>
+            )}
           </form>
         </div>
       </div>

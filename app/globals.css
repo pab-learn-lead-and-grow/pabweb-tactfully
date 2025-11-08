@@ -7,6 +7,8 @@
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+  width: 0;
+  background: transparent;
 }
 .no-scrollbar {
   -ms-overflow-style: none;
@@ -22,7 +24,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
