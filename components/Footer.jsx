@@ -7,12 +7,13 @@ export default function Footer() {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/AboutUs" },
     { name: "Careers", href: "/Career" },
-    { name: "Contact Us", href: "/ContactUS" },
+    { name: "Blogs", href: "/#knowledge" },
+    { name: "Contact Us", href: "/ContactUs" },
   ];
 
   return (
     <footer
-      className="w-full bg-white flex items-center"
+      className="w-full bg-white px-6 flex items-center"
       style={{
         borderTop: "2px solid #064E924D",
         minHeight: "70vh",
@@ -23,6 +24,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 border-b pb-4">
           {/* --- Left Section (Logo, Social, Address) --- */}
           <div className="col-span-2">
+            <div className="col-span-2 flex justify-start items-start text-left!">
+
             <Image
               src="/pablogo.png"
               alt="PAB Logo"
@@ -30,6 +33,7 @@ export default function Footer() {
               height={100}
               className="mb-4"
             />
+            </div>
 
             {/* Social Icons */}
             <div className="flex justify-start md:justify-start sm:justify-start space-x-3 mb-5">

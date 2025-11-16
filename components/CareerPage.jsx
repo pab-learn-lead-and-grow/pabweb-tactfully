@@ -1,35 +1,44 @@
 "use client";
 import Image from "next/image";
 import { Briefcase, Clock, MapPin, Wallet } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function CareerPage() {
+  const router = useRouter();
+
   const career = [
     {
       time: "10 min ago",
       title: "Inside Sales Executive",
       description:
         "Lead generation, cold calling, counseling prospects, end-to-end sales.",
-      tags: ["Fresher", "Full time"],
+      tags: "Fresher",
+      duration : "Full time",
       salary: "₹2,40,000-3,00,000",
       location: "Indore, Madhya Pradesh",
+      link: "/InsideSalesFr",
     },
     {
       time: "12 min ago",
       title: "Digital Marketing Specialist (Google Ads & Meta Ads)",
       description:
         "Plan/execute Google + Meta campaigns, build multi-layered funnels, optimize for ROI, collaborate across teams.",
-      tags: ["3-5 years", "Full time"],
+      tags: "3-5 years",
+      duration : "Full time",
       salary: "₹2,40,000-3,00,000",
       location: "Indore, Madhya Pradesh",
+      link: "/DigitalMarketing",
     },
     {
       time: "15 min ago",
       title: "Inside Sales Executive",
       description:
         "Lead generation, cold calling, counseling prospects, end-to-end sales.",
-      tags: ["3-5 years", "Full time"],
+      tags: "3-5 years",
+      duration : "Full time",
       salary: "₹2,40,000-3,00,000",
       location: "Indore, Madhya Pradesh",
+      link: "/InsideSalesEx",
     },
   ];
 
@@ -76,12 +85,7 @@ export default function CareerPage() {
             <h2 className="text-3xl font-semibold text-black">
               Recent Jobs Available
             </h2>
-            <a href="#" className="text-blue-900 hover:underline text-sm">
-              View all
-            </a>
           </div>
-
-          {/* Job Cards */}
           <div className="space-y-5">
             {career.map((job, index) => (
               <div
@@ -102,15 +106,14 @@ export default function CareerPage() {
                 </h3>
                 <p className="text-black text-sm mb-3">{job.description}</p>
 
-                {/* Tags */}
                 <div className="flex flex-wrap items-center gap-4 text-sm text-black">
                   <div className="flex items-center gap-1">
                     <Briefcase size={16} className="text-blue-900" />{" "}
-                    {job.tags.join(" • ")}
+                    {job.tags}
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock size={16} className="text-blue-900" />{" "}
-                    {job.tags.join(" • ")}
+                    {job.duration}
                   </div>
                   <div className="flex items-center gap-1">
                     <Wallet size={16} className="text-blue-900" /> {job.salary}
@@ -119,7 +122,10 @@ export default function CareerPage() {
                     <MapPin size={16} className="text-blue-900" />{" "}
                     {job.location}
                   </div>
-                  <button className="ml-auto bg-[#003087] text-white px-4 py-1.5 rounded-md text-xs hover:bg-[#00246e] transition">
+                  <button
+                    onClick={() => router.push(job.link)}
+                    className="ml-auto bg-[#003087] text-white px-4 py-1.5 rounded-md text-xs hover:bg-[#00246e] transition"
+                  >
                     Job Details
                   </button>
                 </div>

@@ -21,7 +21,7 @@ export default function AboutUs() {
         <div className="flex flex-col md:flex-row md:items-start md:gap-10 ">
           {/* Left Section */}
           <div className="shrink-0">
-            <h2 className="text-2xl md:text-3xl font-semibold flex items-center justify-center space-x-2 px-4 py-6 text-center md:text-left min-h-[80px] lg:min-h-[280px]">
+            <h2 className="text-2xl md:text-3xl font-semibold flex items-center justify-center space-x-2 px-4 py-6 text-center md:text-left min-h-20 lg:min-h-65">
               <span className="text-green-600">At</span>
               <span className="text-blue-600">PAB</span>
             </h2>
@@ -68,9 +68,9 @@ export default function AboutUs() {
 
       {/* Philosophy Heading */}
       <div className="text-center mt-12 mb-8 px-4">
-        <h2 className="text-2xl md:text-3xl font-semibold text-[#003366]">
+        <h2 className="text-2xl md:text-3xl font-semibold text-blue-900">
           Our Philosophy{" "}
-          <span className="text-[#007BFF]">Learn. Lead. Grow.</span>
+          <span className="text-blue-900">Learn.Lead.Grow.</span>
         </h2>
       </div>
 
