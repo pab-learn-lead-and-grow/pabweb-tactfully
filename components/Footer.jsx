@@ -13,10 +13,9 @@ export default function Footer() {
 
   return (
     <footer
-      className="w-full bg-white px-6 flex items-center"
+      className="w-full bg-white px-6 flex lg:min-h-[70vh] min-h-auto items-center"
       style={{
         borderTop: "2px solid #064E924D",
-        minHeight: "70vh",
       }}
     >
       <div className="max-w-7xl mx-auto w-full px-5">
@@ -24,7 +23,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 border-b pb-4">
           {/* --- Left Section (Logo, Social, Address) --- */}
           <div className="col-span-2">
-            <div className="col-span-2 flex justify-start items-start text-left!">
+            <div className="col-span-2 flex justify-start items-start text-left -mx-10">
 
             <Image
               src="/pablogo.png"

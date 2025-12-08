@@ -71,10 +71,10 @@ export default function ContactPage() {
         </h1>
       </div>
 
-      {/* Contact Content Section */}
-      <div className="max-w-7xl mx-auto px-5 md:px-10 py-12 bg-white grid grid-cols-1 md:grid-cols-2 gap-10">
+      {/* CONTACT CONTENT SECTION */}
+      <div className="max-w-7xl mx-auto md:px-10 py-12 bg-white grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Left Info Section */}
-        <div className="flex flex-col bg-white justify-center space-y-6">
+        <div className="flex flex-col px-25 bg-white justify-center space-y-3">
           <h2 className="text-3xl md:text-4xl font-bold leading-snug text-black">
             You Will Grow, You Will Succeed.
             <br /> We Promise That
@@ -82,52 +82,56 @@ export default function ContactPage() {
           <p className="text-black font-medium">PAB Learn Lead and Grow</p>
 
           {/* Info Items */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-8">
             {/* Call */}
-            <div className="flex flex-col space-y-2">
-              <div className="flex items-center space-x-3">
+            <div className="flex flex-col space-y-3">
+              <div className="flex items-center space-x-4">
                 <Phone className="text-[#345895] w-6 h-6" />
-                
               </div>
-              <span className="font-semibold text-black">Call for inquiry</span>
-              <span className="text-black">+91 9999999999</span>
+              <span className="font-semibold text-lg text-black">
+                Call for inquiry
+              </span>
+              <span className="text-black text-sm">+91 9999999999</span>
             </div>
 
             {/* Email */}
-            <div className="flex flex-col space-y-2">
-              <div className="flex items-center space-x-3">
+            <div className="flex flex-col space-y-3">
+              <div className="flex items-center space-x-4">
                 <Mail className="text-[#345895] w-6 h-6" />
-                
               </div>
-              <span className="font-semibold text-black">Send us email</span>
-              <span className="text-black">info@pab.com</span>
+              <span className="font-semibold text-lg text-black">
+                Send us email
+              </span>
+              <span className="text-black text-sm">info@pab.com</span>
             </div>
 
             {/* Hours */}
-            <div className="flex flex-col space-y-2">
-              <div className="flex items-center space-x-3">
+            <div className="flex flex-col space-y-3">
+              <div className="flex items-center space-x-4">
                 <Clock className="text-[#345895] w-6 h-6" />
-                
               </div>
-              <span className="font-semibold text-black">Opening hours</span>
-              <span className="text-black">Mon - Sat: 10AM - 10PM</span>
+              <span className="font-semibold text-lg text-black">
+                Opening hours
+              </span>
+              <span className="text-black text-sm whitespace-nowrap">
+                Mon - Sat: 10AM - 10PM
+              </span>
             </div>
 
             {/* Office */}
-            <div className="flex flex-col space-y-2">
-              <div className="flex items-center space-x-3">
+            <div className="flex flex-col space-y-3">
+              <div className="flex items-center space-x-4">
                 <MapPin className="text-[#345895] w-6 h-6" />
-                
               </div>
-              <span className="font-semibold text-black">Office</span>
-              <span className="text-black">Indore, MP</span>
+              <span className="font-semibold text-lg text-black">Office</span>
+              <span className="text-black text-sm">Indore, MP</span>
             </div>
           </div>
         </div>
 
         {/* Right Form Section */}
         <div
-          className="bg-blue-50 p-8 rounded-2xl shadow-md"
+          className="bg-blue-50 w-[500px] p-8 rounded-2xl shadow-md"
           style={{
             backgroundColor: "rgba(6, 78, 146, 0.1)",
           }}

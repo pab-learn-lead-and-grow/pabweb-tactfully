@@ -14,39 +14,43 @@ const CATEGORIES = [
       {
         id: "nmims-mba",
         university: "NMIMS Mumbai",
-        programTitle: "Masters of Business Administration",
-        description: "A comprehensive MBA program designed for working professionals.",
+        programTitle: "Master of Business Administration",
         badges: [
           "Most-Loved",
-          "Grade A+",
-          "Ranked top 100 by NIRF",
-          "Autonomy",
+          "Mumbai",
+          "NAAC A++",
+          "Ranked top 30 by NIRF",
+          "500+ Hiring Partners",
         ],
         image: "/nmims.png",
       },
       {
         id: "manipal-mba",
         university: "Manipal Jaipur",
-        programTitle: "Masters of Business Administration",
-        description: "A comprehensive MBA program designed for working professionals.",
-        badges: ["Most-Loved", "NAAC A+", "Top 20 by career360"],
+        programTitle: "Master of Business Administration",
+        badges: ["BestSeller","Jaipur", "NAAC A+", "Top 20 by career360", "Super/Dual Specialization"],
         image: "/manipal.png",
       },
       {
         id: "amity-mba",
         university: "Amity University",
-        description: "A comprehensive MBA program designed for working professionals.",
-        programTitle: "Masters of Business Administration",
+        programTitle: "Master of Business Administration",
         badges: ["Asia Pacific Top 10", "Global", "Internship opportunities"],
         image: "/amity.png",
       },
        {
         id: "jain-mba",
         university: "Jain University",
-        description: "A comprehensive MBA program designed for working professionals.",
-        programTitle: "Masters of Business Administration",
-        badges: ["Asia Pacific Top 10", "Global", "Internship opportunities"],
+        programTitle: "Master of Business Administration",
+        badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
         image: "/Jain.png",
+      },
+      {
+        id: "smu-mba",
+        university: "Sikkim Manipal",
+        programTitle: "Master of Business Administration",
+        badges: ["NAAC A+", "Sikkim","IIRF Rank 1"],
+        image: "/smu.png",
       },
       // add more sample programs if needed
     ],
@@ -57,19 +61,10 @@ const CATEGORIES = [
     programs: [
       {
         id: "exec-1",
-        university: "Executive Univ",
-        programTitle: "Executive MBA (Part-time)",
-        description: "A comprehensive MBA program designed for working professionals.",
-        badges: ["Work-friendly", "Industry mentors"],
-        image: "/professional.png",
-      },
-      {
-        id: "exec-2",
-        university: "Leader School",
-        programTitle: "Global Executive MBA",
-        description: "A comprehensive MBA program designed for working professionals.",
-        badges: ["Global immersion", "Senior cohorts"],
-        image: "/professional.png",
+        university: "NMIMS Mumbai",
+        programTitle: "Master of Business Administration WX",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/nmims.png",
       },
     ],
   },
@@ -79,10 +74,31 @@ const CATEGORIES = [
     programs: [
       {
         id: "mca-1",
-        university: "Tech Institute",
-        programTitle: "MCA Online",
-        badges: ["Placements", "Hands-on labs"],
-        image: "/professional.png",
+        university: "Manipal Jaipur",
+        programTitle: "Master of Computer Applications",
+        badges: ["Bestseller", "NAAC A+", "Jaipur", "Top 20 by career 360", "Super/Dual specialization"],
+        image: "/manipal.png",
+      },
+      {
+        id: "mca-2",
+        university: "Amity university",
+        programTitle: "Master of Computer Applications",
+        badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship opportunities"],
+        image: "/amity.png",
+      },
+      {
+        id: "mca-3",
+        university: "Jain university",
+        programTitle: "Master of Computer Applications",
+        badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
+        image: "/jain.png",
+      },
+      {
+        id: "mca-4",
+        university: "Sikkim Manipal",
+        programTitle: "Master of Computer Applications",
+        badges: ["Sikkim", "IIRF Rank 1","NAAC A+"],
+        image: "/smu.png",
       },
     ],
   },
@@ -92,9 +108,9 @@ const CATEGORIES = [
     programs: [
       {
         id: "bajmc-1",
-        university: "Media College",
-        programTitle: "BAJMC Online",
-        badges: ["Journalism", "Field projects"],
+        university: "Manipal Jaipur",
+        programTitle: "Bachelor of Arts in Journalism and Mass Communication",
+        badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
         image: "/professional.png",
       },
     ],
@@ -105,10 +121,24 @@ const CATEGORIES = [
     programs: [
       {
         id: "ba-1",
-        university: "Media College",
-        programTitle: "BAJMC Online",
-        badges: ["Journalism", "Field projects"],
-        image: "/professional.png",
+        university: "Manipal Jaipur",
+        programTitle: "Bachelor of Arts",
+        badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
+        image: "/manipal.png",
+      },
+      {
+        id: "ba-2",
+        university: "Amity University",
+        programTitle: "Bachelor of Arts",
+        badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
+        image: "/amity.png",
+      },
+      {
+        id: "ba-3",
+        university: "Sikkim Manipal",
+        programTitle: "Bachelor of Arts",
+        badges: ["Sikkim", "IIRF Rank 1","NAAC A+"],
+        image: "/smu.png",
       },
     ],
   },
@@ -118,10 +148,31 @@ const CATEGORIES = [
     programs: [
       {
         id: "ma-1",
-        university: "Media College",
-        programTitle: "MA Online",
-        badges: ["Journalism", "Field projects"],
-        image: "/professional.png",
+        university: "Manipal Jaipur",
+        programTitle: "Master of Arts",
+        badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
+        image: "/manipal.png",
+      },
+      {
+        id: "ma-2",
+        university: "Amity University",
+        programTitle: "Master of Arts",
+        badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
+        image: "/amity.png",
+      },
+      {
+        id: "ma-3",
+        university: "Jain university",
+        programTitle: "Master of Arts",
+        badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
+        image: "/jain.png",
+      },
+      {
+        id: "ma-4",
+        university: "Sikkim Manipal",
+        programTitle: "Master of Arts",
+        badges: ["Sikkim", "IIRF Rank 1","NAAC A+"],
+        image: "/smu.png",
       },
     ],
   },
@@ -129,12 +180,33 @@ const CATEGORIES = [
     id: "mcom",
     label: "M.COM",
     programs: [
-      {
+     {
         id: "mcom-1",
-        university: "Media College",
-        programTitle: "MA Online",
-        badges: ["Journalism", "Field projects"],
-        image: "/professional.png",
+        university: "Manipal Jaipur",
+        programTitle: "Master of Commerce",
+        badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
+        image: "/manipal.png",
+      },
+      {
+        id: "mcom-2",
+        university: "Amity University",
+        programTitle: "Master of Commerce",
+        badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
+        image: "/jain.png",
+      },
+      {
+        id: "mcom-3",
+        university: "Jain university",
+        programTitle: "Master of Commerce",
+        badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
+        image: "/jain.png",
+      },
+      {
+        id: "mcom-4",
+        university: "Sikkim Manipal",
+        programTitle: "Master of Commerce",
+        badges: ["Sikkim", "IIRF Rank 1","NAAC A+"],
+        image: "/smu.png",
       },
     ],
   },
@@ -144,24 +216,45 @@ const CATEGORIES = [
     programs: [
       {
         id: "majmc-1",
-        university: "Media College",
-        programTitle: "MA Online",
-        badges: ["Journalism", "Field projects"],
+        university: "Manipal Jaipur",
+        programTitle: "Master of Arts in Journalism and Mass Communication",
+        badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
         image: "/professional.png",
       },
     ],
   },
   {
-    id: "bcom-bba",
-    label: "B.COM/BBA",
+    id: "bba",
+    label: "BBA",
     programs: [
       {
-        id: "bcom-bba-1",
-        university: "Media College",
-        programTitle: "MA Online",
-        badges: ["Journalism", "Field projects"],
-        image: "/professional.png",
+        id: "bba-1",
+        university: "Nmims Mumbai",
+        programTitle: "Bachelor of Business Administration",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/manipal.png",
       },
+      {
+        id: "bba-2",
+        university: "Manipal Jaipur",
+        programTitle: "Bachelor of Business Administration",
+        badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
+        image: "/manipal.png",
+      },
+      {
+        id: "bba-3",
+        university: "Amity University",
+        programTitle: "Bachelor of Business Administration",
+        badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
+        image: "/amity.png",
+      },
+      {
+        id: "bba-4",
+        university: "Jain university",
+        programTitle: "Bachelor of Business Administration",
+        badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
+        image: "/jain.png",
+      },  
     ],
   },
   {
@@ -170,11 +263,66 @@ const CATEGORIES = [
     programs: [
       {
         id: "bca-1",
-        university: "Media College",
-        programTitle: "MA Online",
-        badges: ["Journalism", "Field projects"],
-        image: "/professional.png",
+        university: "Manipal Jaipur",
+        programTitle: "Bachelor of Computer Application",
+        badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
+        image: "/manipal.png",
       },
+      {
+        id: "bca-2",
+        university: "Amity University",
+        programTitle: "Bachelor of Computer Application",
+        badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
+        image: "/amity.png",
+      },
+      {
+        id: "bca-3",
+        university: "Jain university",
+        programTitle: "Bachelor of Computer Application",
+        badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
+        image: "/jain.png",
+      },
+    ],
+  },
+  {
+    id: "bcom",
+    label: "B.COM",
+    programs: [
+      {
+        id: "bcom-1",
+        university: "Nmims Mumbai",
+        programTitle: "Bachelor of Commerce",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/nmims.png",
+      },
+      {
+        id: "bcom-2",
+        university: "Manipal Jaipur",
+        programTitle: "Bachelor of Commerce",
+        badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
+        image: "/manipal.png",
+      },
+      {
+        id: "bcom-3",
+        university: "Amity University",
+        programTitle: "Bachelor of Commerce",
+        badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
+        image: "/amity.png",
+      },
+      {
+        id: "bcom-4",
+        university: "Jain university",
+        programTitle: "Bachelor of Commerce",
+        badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
+        image: "/jain.png",
+      },  
+      {
+        id: "bcom-5",
+        university: "Sikkim Manipal",
+        programTitle: "Bachelor of Commerce",
+        badges: ["Sikkim","NAAC A+", "IIRF Rank 1"],
+        image: "/smu.png",
+      },  
     ],
   },
   {
@@ -183,23 +331,72 @@ const CATEGORIES = [
     programs: [
       {
         id: "diploma-1",
-        university: "Media College",
-        programTitle: "MA Online",
-        badges: ["Journalism", "Field projects"],
-        image: "/professional.png",
+        university: "Nmims Mumbai",
+        programTitle: "Financial Management",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/nmims.png",
       },
+      {
+        id: "diploma-2",
+        university: "Nmims Mumbai",
+        programTitle: "Marketing Management",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/nmims.png",
+      },
+      {
+        id: "diploma-3",
+        university: "Nmims Mumbai",
+        programTitle: "Business Management",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/nmims.png",
+      },
+      {
+        id: "diploma-4",
+        university: "Nmims Mumbai",
+        programTitle: "Operations Management",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/nmims.png",
+      },
+      {
+        id: "diploma-5",
+        university: "Nmims Mumbai",
+        programTitle: "Human Resource Management",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/nmims.png",
+      },
+      
     ],
   },
   {
     id: "certificates",
-    label: "certifications",
+    label: "Certifications",
     programs: [
       {
         id: "cetificate-1",
-        university: "Media College",
-        programTitle: "MA Online",
-        badges: ["Journalism", "Field projects"],
-        image: "/professional.png",
+        university: "NMIMS Mumbai",
+        programTitle: "Business Management",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/nmims.png",
+      },
+    ],
+  },
+  {
+    id: "integ_prog",
+    label: "Integrated Prog.",
+    programs: [
+      {
+        id: "integ-1",
+        university: "NMIMS Mumbai",
+        programTitle: "BBA + MBA",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/nmims.png",
+      },
+      {
+        id: "integ-2",
+        university: "NMIMS Mumbai",
+        programTitle: "B.COM + MBA",
+        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        image: "/nmims.png",
       },
     ],
   },
@@ -486,14 +683,14 @@ function ProgramCard({ program, onDive, onDownload }) {
 
         {/* Title label and vertical tag area */}
         <div className="mb-2">
-          <div className="text-xs text-gray-500 mb-2">Title</div>
-          <div className="flex flex-wrap items-start gap-2">
             {/* primary/special tag (first badge) */}
             {program.badges?.[0] && (
               <span className="inline-block text-xs px-3 py-1 rounded-full text-[#1e40af] bg-[#e6f0ff]">
                 {program.badges[0]}
               </span>
             )}
+          <div className="flex flex-wrap items-start mt-2 gap-2">
+          
 
             {/* remaining tags - one per row, width fits text */}
             {program.badges?.slice(1).map((b, i) => (
@@ -514,13 +711,13 @@ function ProgramCard({ program, onDive, onDownload }) {
         <div className="mt-2 flex items-center gap-3 flex-nowrap">
           <button
             onClick={onDive}
-            className="text-sm px-3 py-1.5 rounded-md bg-[#4D964F] text-white font-medium shadow-sm hover:shadow-md whitespace-nowrap"
+            className="text-sm px-3 py-1.5 rounded-xl bg-[#4D964F] text-white font-medium shadow-sm hover:shadow-md whitespace-nowrap"
           >
             Dive Deeper
           </button>
           <button
             onClick={onDownload}
-            className="text-sm px-3 py-1.5 rounded-md bg-[#345895] text-white font-medium shadow-sm hover:shadow-md whitespace-nowrap"
+            className="text-sm px-3 py-1.5 rounded-xl bg-[#345895] text-white font-medium shadow-sm hover:shadow-md whitespace-nowrap"
           >
             Download Brochure
           </button>

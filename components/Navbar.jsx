@@ -9,18 +9,28 @@ import CounsellingForm from "./CounsellingForm";
 import { createSupabaseClient } from "@/lib/supabaseClient";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); // mobile menu
-  const [showForm, setShowForm] = useState(false); // counselling modal
+  const [isOpen, setIsOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [user, setUser] = useState(null);
+
+  // desktop dropdown states
   const [exploreOpen, setExploreOpen] = useState(false);
   const [topUnivOpen, setTopUnivOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
 
-  // new: which left category is selected (default Online MBA)
+  // mobile-specific dropdown states
+  const [mobileExploreOpen, setMobileExploreOpen] = useState(false);
+  const [mobileTopUnivOpen, setMobileTopUnivOpen] = useState(false);
+
   const [selectedCategory, setSelectedCategory] = useState("Online MBA");
+  const [selectedExploreCategory, setSelectedExploreCategory] =
+    useState("PG Courses");
+  const [selectedExploreSubCategory, setSelectedExploreSubCategory] =
+    useState(null);
 
   const router = useRouter();
   const supabase = createSupabaseClient();
+
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await supabase.auth.getUser();
@@ -37,7 +47,6 @@ export default function Navbar() {
     return () => listener.subscription.unsubscribe();
   }, [supabase]);
 
-  // lock body scroll while topUnivOpen
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (topUnivOpen) {
@@ -50,139 +59,467 @@ export default function Navbar() {
     };
   }, [topUnivOpen]);
 
-  // ✅ Logout handler (kept)
+  // Close dropdowns when clicking outside (desktop-targeted)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        topUnivOpen &&
+        !event.target.closest(".top-univ-dropdown") &&
+        !event.target.closest('[aria-expanded="true"]')
+      ) {
+        setTopUnivOpen(false);
+      }
+      if (
+        exploreOpen &&
+        !event.target.closest(".explore-programs-dropdown") &&
+        !event.target.closest('[aria-expanded="true"]')
+      ) {
+        setExploreOpen(false);
+      }
+    };
+
+    if (topUnivOpen || exploreOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [topUnivOpen, exploreOpen]);
+
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(null);
     router.push("/login");
   };
 
-  // Dynamic data structure for categories and their programs
+  // Helper to close all mobile + desktop dropdowns when navigating / applying
+  const handleMobileCloseAll = () => {
+    setIsOpen(false);
+    setMobileExploreOpen(false);
+    setMobileTopUnivOpen(false);
+    setExploreOpen(false);
+    setTopUnivOpen(false);
+    setMoreOpen(false);
+  };
+
+  // Top Universities data structure
   const categoryData = {
     "Online MBA": {
       label: "PG Courses",
       programs: [
-        { id: 1, title: "Finance Management", universities: 27, logo: "/nmims.png" },
-        { id: 2, title: "Business Analytics", universities: 11, logo: "/nmims.png" },
-        { id: 3, title: "Healthcare Management", universities: 4, logo: "/nmims.png" },
-        { id: 4, title: "Hospital Management", universities: 2, logo: "/nmims.png" },
-        { id: 5, title: "HR Management", universities: 19, logo: "/nmims.png" },
-        { id: 6, title: "Operations Management", universities: 12, logo: "/nmims.png" },
-        { id: 7, title: "Marketing Management", universities: 15, logo: "/nmims.png" },
-        { id: 8, title: "Digital Marketing", universities: 8, logo: "/nmims.png" },
-      ]
+        {
+          id: 1,
+          title: "Masters of Business Administration",
+          logo: "/nmims.png",
+        },
+        {
+          id: 2,
+          title: "Masters of Business Administration",
+          logo: "/amity.png",
+        },
+        {
+          id: 3,
+          title: "Masters of Business Administration",
+          logo: "/manipal.png",
+        },
+        {
+          id: 4,
+          title: "Masters of Business Administration",
+          logo: "/jain.png",
+        },
+        {
+          id: 5,
+          title: "Masters of Business Administration",
+          logo: "/smu.png",
+        },
+      ],
     },
     "Executive MBA": {
       label: "Executive Programs",
       programs: [
-        { id: 1, title: "Executive MBA - General", universities: 5, logo: "/nmims.png" },
-        { id: 2, title: "Executive MBA - Leadership", universities: 3, logo: "/nmims.png" },
-        { id: 3, title: "Executive MBA - Strategy", universities: 2, logo: "/nmims.png" },
-      ]
+        { id: 1, title: "Marketing Management", logo: "/nmims.png" },
+        { id: 2, title: "Leadership & Strategy", logo: "/nmims.png" },
+        { id: 3, title: "Operations & Supply Chain Management", logo: "/nmims.png" },
+        { id: 4, title: "Applied Finance ", logo: "/nmims.png" },
+        { id: 5, title: "Digital Marketing", logo: "/nmims.png" },
+
+      ],
     },
-    "MCA": {
+    "Online MCA": {
       label: "PG Courses",
       programs: [
-        { id: 1, title: "Master of Computer Applications", universities: 24, logo: "/nmims.png" },
-        { id: 2, title: "MCA - Data Science", universities: 8, logo: "/nmims.png" },
-        { id: 3, title: "MCA - AI & ML", universities: 6, logo: "/nmims.png" },
-        { id: 4, title: "MCA - Cloud Computing", universities: 4, logo: "/nmims.png" },
-      ]
+        { id: 1, title: "Master of Computer Applications", logo: "/amity.png" },
+        {
+          id: 2,
+          title: "Master of Computer Applications",
+          logo: "/manipal.png",
+        },
+        { id: 3, title: "Master of Computer Applications", logo: "/jain.png" },
+        { id: 4, title: "Master of Computer Applications", logo: "/smu.png" },
+      ],
     },
-    "MA": {
+    "Online MA": {
       label: "PG Courses",
       programs: [
-        { id: 1, title: "MA in English", universities: 12, logo: "/nmims.png" },
-        { id: 2, title: "MA in Psychology", universities: 8, logo: "/nmims.png" },
-        { id: 3, title: "MA in Economics", universities: 10, logo: "/nmims.png" },
-      ]
+        { id: 1, title: "Master of Arts", logo: "/manipal.png" },
+        { id: 2, title: "Master of Arts", logo: "/jain.png" },
+        { id: 3, title: "Master of Arts", logo: "/amity.png" },
+        { id: 4, title: "Master of Arts", logo: "/smu.png" },
+      ],
     },
-    "MAJMC": {
+    "Online MAJMC": {
       label: "PG Courses",
       programs: [
-        { id: 1, title: "MA in Journalism & Mass Communication", universities: 15, logo: "/nmims.png" },
-      ]
+        {
+          id: 1,
+          title: "MA in Journalism & Mass Communication",
+          logo: "/manipal.png",
+        },
+      ],
     },
-    "M.COM": {
+    "Online M.COM": {
       label: "PG Courses",
       programs: [
-        { id: 1, title: "M.COM - General", universities: 18, logo: "/nmims.png" },
-        { id: 2, title: "M.COM - Finance", universities: 9, logo: "/nmims.png" },
-      ]
+        { id: 1, title: "Master of Commerce", logo: "/amity.png" },
+        { id: 2, title: "Master of Commerce", logo: "/manipal.png" },
+        { id: 3, title: "Master of Commerce", logo: "/smu.png" },
+        { id: 4, title: "Master of Commerce", logo: "/jain.png" },
+      ],
     },
-    "BBA": {
+    "Online BBA": {
       label: "UG Courses",
       programs: [
-        { id: 1, title: "Bachelor of Business Administration", universities: 22, logo: "/nmims.png" },
-        { id: 2, title: "BBA - Marketing", universities: 6, logo: "/nmims.png" },
-        { id: 3, title: "BBA - Finance", universities: 5, logo: "/nmims.png" },
-        { id: 4, title: "BBA - HR", universities: 4, logo: "/nmims.png" },
-      ]
+        {
+          id: 1,
+          title: "Bachelor of Business Administration",
+          logo: "/nmims.png",
+        },
+        {
+          id: 2,
+          title: "Bachelor of Business Administration",
+          logo: "/amity.png",
+        },
+        {
+          id: 3,
+          title: "Bachelor of Business Administration",
+          logo: "/manipal.png",
+        },
+        {
+          id: 4,
+          title: "Bachelor of Business Administration",
+          logo: "/jain.png",
+        },
+      ],
     },
-    "B.COM": {
+    "Online B.COM": {
       label: "UG Courses",
       programs: [
-        { id: 1, title: "B.COM - General", universities: 25, logo: "/nmims.png" },
-        { id: 2, title: "B.COM - Accounting", universities: 12, logo: "/nmims.png" },
-      ]
+        { id: 1, title: "Bachelor of Commerce", logo: "/nmims.png" },
+        { id: 2, title: "Bachelor of commerce", logo: "/amity.png" },
+        { id: 3, title: "Bachelor of Commerce", logo: "/manipal.png" },
+        { id: 4, title: "Bachelor of Commerce", logo: "/jain.png" },
+        { id: 5, title: "Bachelor of Commerce", logo: "/smu.png" },
+      ],
     },
-    "BCA": {
+    "Online BCA": {
       label: "UG Courses",
       programs: [
-        { id: 1, title: "Bachelor of Computer Applications", universities: 20, logo: "/nmims.png" },
-        { id: 2, title: "BCA - Data Analytics", universities: 7, logo: "/nmims.png" },
-      ]
+        {
+          id: 1,
+          title: "Bachelor of Computer Applications",
+          logo: "/nmims.png",
+        },
+        {
+          id: 2,
+          title: "Bachelor of Computer Applications",
+          logo: "/manipal.png",
+        },
+        {
+          id: 3,
+          title: "Bachelor of Computer Applications",
+          logo: "/jain.png",
+        },
+      ],
     },
-    "BAJMC": {
+    "Online BAJMC": {
       label: "UG Courses",
       programs: [
-        { id: 1, title: "BA in Journalism & Mass Communication", universities: 14, logo: "/nmims.png" },
-      ]
+        {
+          id: 1,
+          title: "BA in Journalism & Mass Communication",
+          logo: "/manipal.png",
+        },
+      ],
     },
-    "BA": {
+    "Online BA": {
       label: "UG Courses",
       programs: [
-        { id: 1, title: "BA in English", universities: 16, logo: "/nmims.png" },
-        { id: 2, title: "BA in Political Science", universities: 10, logo: "/nmims.png" },
-        { id: 3, title: "BA in History", universities: 8, logo: "/nmims.png" },
-      ]
+        { id: 1, title: "Bachelor of Arts", logo: "/manipal.png" },
+        { id: 2, title: "Bachelor of Arts", logo: "/amity.png" },
+        { id: 3, title: "Bachelor of Arts", logo: "/smu.png" },
+      ],
     },
-    "Diploma": {
+    "Online Diploma": {
       label: "Diploma Programs",
       programs: [
-        { id: 1, title: "Diploma in Digital Marketing", universities: 12, logo: "/nmims.png" },
-        { id: 2, title: "Diploma in Financial Management", universities: 8, logo: "/nmims.png" },
-        { id: 3, title: "Diploma in HR Management", universities: 6, logo: "/nmims.png" },
-      ]
+        { id: 1, title: "Diploma in Marketing Management", logo: "/nmims.png" },
+        { id: 2, title: "Diploma in Financial Management", logo: "/nmims.png" },
+        {
+          id: 3,
+          title: "Diploma in Human Resource Management",
+          logo: "/nmims.png",
+        },
+        { id: 4, title: "Diploma in Business Management", logo: "/nmims.png" },
+        {
+          id: 5,
+          title: "Diploma in Operations Management",
+          logo: "/nmims.png",
+        },
+      ],
     },
-    "Certifications": {
+    "Online Certification": {
       label: "Certificate Programs",
       programs: [
-        { id: 1, title: "Data Science Certification", universities: 5, logo: "/nmims.png" },
-        { id: 2, title: "Digital Marketing Certification", universities: 4, logo: "/nmims.png" },
-      ]
+        {
+          id: 1,
+          title: "Business Management Certification",
+          logo: "/nmims.png",
+        },
+        { id: 2, title: "AI for Product Managers", logo: "/amity.png" },
+        {
+          id: 3,
+          title: "Agentic AI and Autonomous Systems",
+          logo: "/amity.png",
+        },
+        { id: 4, title: "AI in BFSI", logo: "/amity.png" },
+        { id: 5, title: "AI for Business Leaders", logo: "/amity.png" },
+        {
+          id: 6,
+          title: "AI in Finance and Risk Management",
+          logo: "/amity.png",
+        },
+        { id: 7, title: "AI for Marketing & Sales", logo: "/amity.png" },
+        { id: 8, title: "AI in Healthcare", logo: "/amity.png" },
+        { id: 9, title: "AI in Executive Strategy", logo: "/amity.png" },
+        { id: 10, title: "AI for HR & Talent Management", logo: "/amity.png" },
+        { id: 11, title: "AI in Manufacturing", logo: "/amity.png" },
+        { id: 12, title: "AI in Education", logo: "/amity.png" },
+        {
+          id: 13,
+          title: "Predictive Analytics Using Python",
+          logo: "/amity.png",
+        },
+        {
+          id: 14,
+          title: "Programming for Data Analytics Using Python",
+          logo: "/amity.png",
+        },
+        { id: 15, title: "Applied Data Engineering", logo: "/amity.png" },
+        {
+          id: 16,
+          title: "Business Analytics Professional",
+          logo: "/amity.png",
+        },
+        {
+          id: 17,
+          title: "Descriptive Analytics and Data Pre-processing using Python",
+          logo: "/amity.png",
+        },
+        { id: 18, title: "Time Series Forecasting", logo: "/amity.png" },
+        { id: 19, title: "Social Media Analytics", logo: "/amity.png" },
+        { id: 20, title: "Text Mining and NLP", logo: "/amity.png" },
+        {
+          id: 21,
+          title: "Artificial Intelligence and Deep Learning using Python",
+          logo: "/amity.png",
+        },
+        { id: 22, title: "Big Data Analytics", logo: "/amity.png" },
+        {
+          id: 23,
+          title: "Spreadsheet Modelling using Excel",
+          logo: "/amity.png",
+        },
+        {
+          id: 24,
+          title: "Financial Modelling using Excel",
+          logo: "/amity.png",
+        },
+        { id: 25, title: "HR Analytics", logo: "/amity.png" },
+        { id: 26, title: "Financial Analytics", logo: "/amity.png" },
+        { id: 27, title: "Marketing Analytics", logo: "/amity.png" },
+        {
+          id: 28,
+          title: "Dashboarding and Storytelling using Tableau",
+          logo: "/amity.png",
+        },
+        {
+          id: 29,
+          title: "Dashboarding and Storytelling using PowerBI",
+          logo: "/amity.png",
+        },
+        {
+          id: 30,
+          title: "Database Management using SQL and MongoDB",
+          logo: "/amity.png",
+        },
+      ],
     },
-    "Integrated Prog.": {
+    "Integrated Programs": {
       label: "Integrated Programs",
       programs: [
-        { id: 1, title: "BBA + MBA Integrated", universities: 7, logo: "/nmims.png" },
-        { id: 2, title: "B.Tech + MBA Integrated", universities: 4, logo: "/nmims.png" },
-      ]
+        { id: 1, title: "BBA + MBA Integrated", logo: "/amity.png" },
+        { id: 2, title: "B.COM + MBA Integrated", logo: "/amity.png" },
+      ],
     },
   };
 
-  // Get left list items from categoryData keys
-  const leftItems = Object.keys(categoryData);
+  // Explore Programs data structure
+  const exploreProgramsData = {
+    "PG Courses": {
+      categories: [
+        {
+          id: "online-mba",
+          title: "Online MBA",
+          subtitle: "View Specialization",
+          categoryKey: "Online MBA",
+        },
+        {
+          id: "online-mca",
+          title: "Online MCA",
+          subtitle: "View Specialization",
+          categoryKey: "Online MCA",
+        },
+        {
+          id: "online-ma",
+          title: "OnlineMA",
+          subtitle: "View Specialization",
+          categoryKey: "Online MA",
+        },
+        {
+          id: "online-majmc",
+          title: "Online MAJMC",
+          subtitle: "View Specialization",
+          categoryKey: "Online MAJMC",
+        },
+        {
+          id: "online-mcom",
+          title: "Online M.COM",
+          subtitle: "View Specialization",
+          categoryKey: "Online M.COM",
+        },
+      ],
+    },
+    Executive: {
+      categories: [
+        {
+          id: "executive-mba",
+          title: "Executive MBA",
+          subtitle: "View Specialization",
+          categoryKey: "Executive MBA",
+        },
+      ],
+    },
+    "UG Courses": {
+      categories: [
+        {
+          id: "online-bba",
+          title: "Online BBA",
+          subtitle: "View Specialization",
+          categoryKey: "Online BBA",
+        },
+        {
+          id: "online-bcom",
+          title: "Online B.COM",
+          subtitle: "View Specialization",
+          categoryKey: "Online B.COM",
+        },
+        {
+          id: "online-bca",
+          title: "Online BCA",
+          subtitle: "View Specialization",
+          categoryKey: "Online BCA",
+        },
+        {
+          id: "online-bajmc",
+          title: "Online BAJMC",
+          subtitle: "View Specialization",
+          categoryKey: "Online BAJMC",
+        },
+        {
+          id: "online-ba",
+          title: "Online BA",
+          subtitle: "View Specialization",
+          categoryKey: "Online BA",
+        },
+      ],
+    },
+    Diploma: {
+      categories: [
+        {
+          id: "online-diploma",
+          title: "Online Diploma",
+          subtitle: "View Specialization",
+          categoryKey: "Online Diploma",
+        },
+      ],
+    },
+    Certifications: {
+      categories: [
+        {
+          id: "certification-program",
+          title: "Online Certification",
+          subtitle: "View Specialization",
+          categoryKey: "Online Certification",
+        },
+      ],
+    },
+    "Integrated Programs": {
+      categories: [
+        {
+          id: "integrated-program",
+          title: "Integrated Programs",
+          subtitle: "View Specialization",
+          categoryKey: "Integrated Programs",
+        },
+      ],
+    },
+  };
 
-  // Get current category programs
+  const leftItems = Object.keys(categoryData);
   const currentPrograms = categoryData[selectedCategory]?.programs || [];
   const currentLabel = categoryData[selectedCategory]?.label || "Courses";
 
+  const exploreLeftItems = Object.keys(exploreProgramsData);
+  const currentExploreCategories =
+    exploreProgramsData[selectedExploreCategory]?.categories || [];
+
+  // Get programs for selected subcategory in Explore Programs
+  const currentExplorePrograms = selectedExploreSubCategory
+    ? categoryData[selectedExploreSubCategory]?.programs || []
+    : [];
+
+  const handleExploreCategoryClick = (categoryKey) => {
+    setSelectedExploreSubCategory(categoryKey);
+  };
+
+  const handleExploreBack = () => {
+    setSelectedExploreSubCategory(null);
+  };
+
+  // Close all dropdowns when navigating to a page (desktop-focused)
+  const handleLinkClick = () => {
+    setIsOpen(false);
+    setExploreOpen(false);
+    setTopUnivOpen(false);
+    setMoreOpen(false);
+    // Note: mobile close handled separately with handleMobileCloseAll when needed
+  };
+
   return (
-    <div className="px-9 fixed top-0 left-0 right-0 z-50">
+    <div className="px-9 fixed top-0 left-0 right-0 z-100">
       <nav className="w-full h-[72px] bg-[rgba(255,255,255,0.33)] backdrop-blur-3xl rounded-4xl shadow-sm border border-white/20 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between h-full px-6">
-          {/* LEFT: Logo + primary dropdowns */}
           <div className="flex items-center gap-4">
             <a href="/" className="block">
               <Image
@@ -194,12 +531,11 @@ export default function Navbar() {
               />
             </a>
 
-            {/* Explore Program (blue pill) */}
+            {/* Explore Program (desktop) */}
             <div className="relative hidden md:block">
               <button
                 onClick={() => {
                   setExploreOpen((v) => !v);
-                  // close others
                   setTopUnivOpen(false);
                   setMoreOpen(false);
                 }}
@@ -207,47 +543,182 @@ export default function Navbar() {
                 aria-expanded={exploreOpen}
               >
                 Explore Program
-                <div className="flex items-center justify-center">
-                  <ChevronDown
-                    size={20}
-                    strokeWidth={3}
-                    className="relative top-3px"
-                  />
-                </div>
+                <ChevronDown size={20} strokeWidth={3} />
               </button>
 
               {exploreOpen && (
-                <div
-                  onMouseLeave={() => setExploreOpen(false)}
-                  className="absolute left-0 mt-2 w-56 bg-white/95 text-black rounded-lg shadow-lg border border-gray-100 p-3"
-                >
-                  <a
-                    className="block py-2 px-3 rounded hover:bg-gray-100"
-                    href="/programs"
+                <>
+                  <div
+                    onClick={() => setExploreOpen(false)}
+                    className="fixed inset-0 bg-black/30 z-40 md:block hidden"
+                    aria-hidden="true"
+                  />
+
+                  <div
+                    className="explore-programs-dropdown absolute left-0 mt-2 z-50 w-[75vw] max-w-[900px] bg-white/95 text-black rounded-lg shadow-lg border border-gray-100 p-6 overflow-x-hidden"
+                    role="dialog"
+                    aria-modal="true"
                   >
-                    All Programs
-                  </a>
-                  <a
-                    className="block py-2 px-3 rounded hover:bg-gray-100"
-                    href="/programs/mba"
-                  >
-                    MBA
-                  </a>
-                  <a
-                    className="block py-2 px-3 rounded hover:bg-gray-100"
-                    href="/programs/executive"
-                  >
-                    Executive Programs
-                  </a>
-                </div>
+                    <div className="flex gap-6">
+                      <div className="w-48 max-h-[70vh] overflow-y-auto pr-4 shrink-0">
+                        <ul className="space-y-1 text-sm">
+                          {exploreLeftItems.map((item) => (
+                            <li key={item}>
+                              <button
+                                onClick={() => {
+                                  setSelectedExploreCategory(item);
+                                  setSelectedExploreSubCategory(null);
+                                }}
+                                className={`w-full text-left block py-3 px-3 rounded-md transition ${
+                                  selectedExploreCategory === item
+                                    ? "bg-blue-50 border-l-4 border-[#345895] pl-4"
+                                    : "hover:bg-gray-50"
+                                }`}
+                              >
+                                <div className="font-medium text-gray-900">
+                                  {item}
+                                </div>
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        <div className="mb-3 text-sm text-gray-500">
+                          Explore Programs &gt;{" "}
+                          <span className="font-semibold text-[#345895]">
+                            {selectedExploreCategory}
+                          </span>
+                          {selectedExploreSubCategory && (
+                            <>
+                              {" "}
+                              &gt;{" "}
+                              <span className="font-semibold text-[#345895]">
+                                {selectedExploreSubCategory}
+                              </span>
+                            </>
+                          )}
+                        </div>
+
+                        <div className="max-h-[60vh] overflow-y-auto overflow-x-hidden pr-2">
+                          {!selectedExploreSubCategory ? (
+                            currentExploreCategories.length === 0 ? (
+                              <div className="text-center py-12 text-gray-500">
+                                No programs available
+                              </div>
+                            ) : (
+                              <div className="grid grid-cols-3 sm:grid-cols-3 gap-4">
+                                {currentExploreCategories.map((category) => (
+                                  <button
+                                    key={category.id}
+                                    onClick={() =>
+                                      handleExploreCategoryClick(
+                                        category.categoryKey
+                                      )
+                                    }
+                                    className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow text-left w-full min-w-0"
+                                  >
+                                    <div className="h-16 mb-3 rounded flex items-center justify-center overflow-hidden">
+                                      <span className="text-2xl text-blue-600">
+                                        🎓
+                                      </span>
+                                    </div>
+                                    <div className="text-sm font-semibold leading-snug mb-2 grow min-h-10 text-gray-900">
+                                      {category.title}
+                                    </div>
+                                    <div className="text-xs text-green-600 font-medium">
+                                      {category.subtitle}
+                                    </div>
+                                  </button>
+                                ))}
+                              </div>
+                            )
+                          ) : (
+                            <div>
+                              <button
+                                onClick={handleExploreBack}
+                                className="mb-4 text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                              >
+                                ← Back to {selectedExploreCategory}
+                              </button>
+
+                              {currentExplorePrograms.length === 0 ? (
+                                <div className="text-center py-12 text-gray-500">
+                                  No specializations available
+                                </div>
+                              ) : (
+                                <div className="grid grid-cols-3 sm:grid-cols-3 gap-4">
+                                  {currentExplorePrograms.map((program) => (
+                                    <div
+                                      key={program.id}
+                                      className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow w-full min-w-0"
+                                    >
+                                      <div className="h-16 mb-3 rounded flex items-center justify-center overflow-hidden">
+                                        <Image
+                                          src={program.logo}
+                                          alt={program.title}
+                                          width={120}
+                                          height={64}
+                                          className="object-contain w-full h-full"
+                                        />
+                                      </div>
+                                      <div className="text-sm font-semibold leading-snug mb-3 grow min-h-10 text-gray-900">
+                                        {program.title}
+                                      </div>
+                                      <div>
+                                        <button
+                                          onClick={() => {
+                                            // close desktop dropdowns and keep mobile untouched
+                                            handleLinkClick();
+                                          }}
+                                          className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition"
+                                        >
+                                          Apply Now
+                                        </button>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="mt-3 text-xs text-gray-500">
+                          {!selectedExploreSubCategory
+                            ? currentExploreCategories.length > 0 && (
+                                <>
+                                  Showing {currentExploreCategories.length}{" "}
+                                  {currentExploreCategories.length === 1
+                                    ? "category"
+                                    : "categories"}{" "}
+                                  for <strong>{selectedExploreCategory}</strong>
+                                  .
+                                </>
+                              )
+                            : currentExplorePrograms.length > 0 && (
+                                <>
+                                  Showing {currentExplorePrograms.length}{" "}
+                                  {currentExplorePrograms.length === 1
+                                    ? "specialization"
+                                    : "specializations"}{" "}
+                                  for{" "}
+                                  <strong>{selectedExploreSubCategory}</strong>.
+                                </>
+                              )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
               )}
             </div>
 
-            {/* Top Universities (click to open, left list controls right strip) */}
+            {/* Top Universities (desktop) */}
             <div className="relative hidden md:block">
               <button
-                onClick={(e) => {
-                  // open/close on click (desktop + accessibility)
+                onClick={() => {
                   setTopUnivOpen((v) => !v);
                   setExploreOpen(false);
                   setMoreOpen(false);
@@ -261,21 +732,18 @@ export default function Navbar() {
 
               {topUnivOpen && (
                 <>
-                  {/* backdrop darkens page; clicking it closes the dropdown */}
                   <div
                     onClick={() => setTopUnivOpen(false)}
                     className="fixed inset-0 bg-black/30 z-40 md:block hidden"
                     aria-hidden="true"
                   />
 
-                  {/* dropdown container — left list + right grid */}
                   <div
-                    className="absolute left-0 mt-2 z-50 w-[75vw] max-w-[900px] bg-white/95 text-black rounded-lg shadow-lg border border-gray-100 p-6"
+                    className="top-univ-dropdown absolute left-0 mt-2 z-50 w-[75vw] max-w-[900px] bg-white/95 text-black rounded-lg shadow-lg border border-gray-100 p-6 overflow-x-hidden"
                     role="dialog"
                     aria-modal="true"
                   >
                     <div className="flex gap-6">
-                      {/* LEFT: categories list (clickable) */}
                       <div className="w-64 max-h-[70vh] overflow-y-auto pr-4 shrink-0">
                         <ul className="space-y-1 text-sm">
                           {leftItems.map((item) => {
@@ -283,17 +751,14 @@ export default function Navbar() {
                             return (
                               <li key={item}>
                                 <button
-                                  onClick={() => {
-                                    setSelectedCategory(item);
-                                    // Keep dropdown open - don't call setTopUnivOpen
-                                  }}
+                                  onClick={() => setSelectedCategory(item)}
                                   className={`w-full text-left block py-3 px-3 rounded-md transition ${
                                     selectedCategory === item
                                       ? "bg-blue-50 border-l-4 border-[#345895] pl-4"
                                       : "hover:bg-gray-50"
                                   }`}
                                 >
-                                  <div className="font-medium text-gray-800">
+                                  <div className="font-medium text-gray-900">
                                     {item}
                                   </div>
                                   <div className="text-xs text-blue-600">
@@ -306,48 +771,45 @@ export default function Navbar() {
                         </ul>
                       </div>
 
-                      {/* RIGHT: grid layout with vertical scrolling */}
                       <div className="flex-1 min-w-0">
                         <div className="mb-3 text-sm text-gray-500">
-                          {/* breadcrumb like text — shows selected category */}
-                          Top Universities &nbsp;&gt;&nbsp;{" "}
+                          Top Universities &gt;{" "}
                           <span className="font-semibold text-[#345895]">
                             {selectedCategory}
                           </span>
                         </div>
 
-                        {/* The grid: vertically scrollable, dynamic columns based on content */}
                         <div className="max-h-[60vh] overflow-y-auto overflow-x-hidden pr-2">
                           {currentPrograms.length === 0 ? (
                             <div className="text-center py-12 text-gray-500">
                               No programs available for this category
                             </div>
                           ) : (
-                            <div className={`grid gap-4 ${
-                              currentPrograms.length === 1 ? 'grid-cols-1 max-w-sm' :
-                              currentPrograms.length === 2 ? 'grid-cols-2 max-w-md' :
-                              'grid-cols-3'
-                            }`}>
+                            <div className="grid grid-cols-3 sm:grid-cols-3 gap-4">
                               {currentPrograms.map((program) => (
                                 <div
                                   key={program.id}
-                                  className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow"
+                                  className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow w-full min-w-0"
                                 >
-                                    <div className="h-16 mb-3 bg-linear-to-br from-blue-50 to-blue-100 rounded flex items-center justify-center overflow-hidden">
+                                  <div className="h-16 mb-3 rounded flex items-center justify-center overflow-hidden">
                                     <Image
                                       src={program.logo}
                                       alt={program.title}
-                                      width={80}
-                                      height={80}
-                                      className="object-contain"
+                                      width={120}
+                                      height={64}
+                                      className="object-contain w-full h-full"
                                     />
                                   </div>
-                                  <div className="text-sm font-semibold leading-snug mb-2 grow">
+                                  <div className="text-sm font-semibold leading-snug mb-3 grow min-h-10 text-gray-900">
                                     {program.title}
                                   </div>
-                                  
                                   <div>
-                                    <button className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition">
+                                    <button
+                                      onClick={() => {
+                                        handleLinkClick();
+                                      }}
+                                      className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition"
+                                    >
                                       Apply Now
                                     </button>
                                   </div>
@@ -357,10 +819,13 @@ export default function Navbar() {
                           )}
                         </div>
 
-                        {/* small pager / hint (optional) */}
                         {currentPrograms.length > 0 && (
                           <div className="mt-3 text-xs text-gray-500">
-                            Showing {currentPrograms.length} {currentPrograms.length === 1 ? 'program' : 'programs'} for <strong>{selectedCategory}</strong>.
+                            Showing {currentPrograms.length}{" "}
+                            {currentPrograms.length === 1
+                              ? "program"
+                              : "programs"}{" "}
+                            for <strong>{selectedCategory}</strong>.
                           </div>
                         )}
                       </div>
@@ -371,14 +836,14 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* CENTER spacer */}
           <div className="flex-1" />
 
-          {/* RIGHT: About us + More moved here, plus CTAs / mobile icon */}
           <div className="flex items-center gap-3">
-            {/* Desktop small links including About us and More (moved to right) */}
             <div className="hidden md:flex items-center gap-3 text-sm text-gray-800">
-              <Link href="/#knowledge" className="hover:text-blue-900 font-medium scroll-true">
+              <Link
+                href="/#knowledge"
+                className="hover:text-blue-900 font-medium scroll-true"
+              >
                 Blogs
               </Link>
 
@@ -430,7 +895,6 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Desktop CTAs */}
             <div className="hidden sm:flex items-center gap-2">
               <button
                 onClick={() => setShowForm(true)}
@@ -456,15 +920,11 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Mobile menu icon */}
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => {
                   setIsOpen((v) => !v);
-                  // close desktop dropdowns when opening mobile
-                  setExploreOpen(false);
-                  setTopUnivOpen(false);
-                  setMoreOpen(false);
+                  // intentionally do NOT toggle desktop dropdown states here
                 }}
                 aria-label="Toggle menu"
                 className="p-2 rounded-md"
@@ -475,134 +935,256 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* MOBILE DROPDOWN PANEL (under nav) */}
+        {/* MOBILE DROPDOWN (mobile-scoped behavior + improved responsive cards) */}
         <div
-          className={`md:hidden ${isOpen ? "block" : "hidden"} bg-white/95 border-t border-gray-100 shadow-md`}
+          className={`md:hidden ${
+            isOpen ? "block" : "hidden"
+          } bg-white/95 border-t border-gray-100 shadow-md`}
         >
-          <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className=" mx-auto px-4 py-4">
             <div className="flex flex-col gap-3">
               {/* Mobile: Explore */}
-              <button
-                onClick={() => setExploreOpen((v) => !v)}
-                className="flex items-center justify-between w-full text-gray-800 px-3 py-2 rounded hover:bg-gray-100"
-              >
-                <span>Explore Program</span>
-                <ChevronDown size={24} strokeWidth={5} />
-              </button>
-              {exploreOpen && (
-                <div className="pl-4">
-                  <a
-                    className="block py-2 px-2 rounded hover:bg-gray-100"
-                    href="/programs"
-                  >
-                    All Programs
-                  </a>
-                  <a
-                    className="block py-2 px-2 rounded hover:bg-gray-100"
-                    href="/programs/mba"
-                  >
-                    MBA
-                  </a>
-                  <a
-                    className="block py-2 px-2 rounded hover:bg-gray-100"
-                    href="/programs/executive"
-                  >
-                    Executive Programs
-                  </a>
-                </div>
-              )}
+              <div className="mobile-dropdown-section">
+                <button
+                  onClick={() => {
+                    setMobileExploreOpen((v) => !v);
+                    setMobileTopUnivOpen(false);
+                  }}
+                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-gray-100 font-medium"
+                >
+                  <span>Explore Program</span>
+                  <ChevronDown
+                    size={24}
+                    className={`transition-transform ${
+                      mobileExploreOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {mobileExploreOpen && (
+                  // remove extra left padding and prevent accidental body-level closing
+                  <div className="mt-2 w-full overflow-x-hidden ">
+                    <div className="mb-3 px-3">
+                      <select
+                        value={selectedExploreCategory}
+                        onChange={(e) => {
+                          setSelectedExploreCategory(e.target.value);
+                          setSelectedExploreSubCategory(null);
+                        }}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-900"
+                      >
+                        {exploreLeftItems.map((item) => (
+                          <option key={item} value={item}>
+                            {item}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {!selectedExploreSubCategory ? (
+                      // mobile-friendly grid: single column on tiny screens, 2 columns on small+
+                      <div className="px-3 grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto pb-4">
+                        {currentExploreCategories.map((category) => (
+                          <button
+                            key={category.id}
+                            onClick={() =>
+                              handleExploreCategoryClick(category.categoryKey)
+                            }
+                            type="button"
+                            className="bg-white rounded-lg p-3 shadow-sm border border-gray-100 text-left w-full min-w-0"
+                          >
+                            <div className="h-12 mb-2 rounded flex items-center justify-center">
+                              <span className="text-xl text-blue-600">🎓</span>
+                            </div>
+                            <div className="text-xs font-semibold leading-tight mb-2 text-gray-900">
+                              {category.title}
+                            </div>
+                            <div className="text-xs text-green-600">
+                              {category.subtitle}
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="px-3">
+                        <button
+                          onClick={handleExploreBack}
+                          type="button"
+                          className="mb-3 text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                        >
+                          ← Back
+                        </button>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto pb-4">
+                          {currentExplorePrograms.map((program) => (
+                            <div
+                              key={program.id}
+                              className="bg-white rounded-lg p-3 shadow-sm border border-gray-100 w-full min-w-0"
+                            >
+                              <div className="h-12 mb-2 rounded flex items-center justify-center overflow-hidden">
+                                <Image
+                                  src={program.logo}
+                                  alt={program.title}
+                                  width={80}
+                                  height={48}
+                                  className="object-contain w-full h-full"
+                                />
+                              </div>
+                              <div className="text-xs font-semibold leading-tight mb-2 text-gray-900">
+                                {program.title}
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  // close mobile nav after Apply Now
+                                  handleLinkClick();
+                                  handleMobileCloseAll();
+                                }}
+                                className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded"
+                              >
+                                Apply Now
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
 
               {/* Mobile: Top Universities */}
-              <button
-                onClick={() => setTopUnivOpen((v) => !v)}
-                className="flex items-center justify-between w-full text-gray-800 px-3 py-2 rounded hover:bg-gray-100"
-              >
-                <span>Top Universities</span>
-                <ChevronDown size={24} />
-              </button>
-              {topUnivOpen && (
-                <div className="pl-4">
-                  {/* Mobile: Show category selection */}
-                  <div className="mb-3">
-                    <select
-                      value={selectedCategory}
-                      onChange={(e) => setSelectedCategory(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
-                    >
-                      {leftItems.map((item) => (
-                        <option key={item} value={item}>
-                          {item}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  {/* Mobile: Show cards in responsive grid */}
-                  <div className={`grid gap-3 max-h-[400px] overflow-y-auto ${
-                    currentPrograms.length === 1 ? 'grid-cols-1' : 'grid-cols-2'
-                  }`}>
-                    {currentPrograms.map((program) => (
-                      <div
-                        key={program.id}
-                        className="bg-white rounded-lg p-3 shadow-sm border border-gray-100"
+              <div className="mobile-dropdown-section">
+                <button
+                  onClick={() => {
+                    setMobileTopUnivOpen((v) => !v);
+                    setMobileExploreOpen(false);
+                  }}
+                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-gray-100 font-medium"
+                >
+                  <span>Top Universities</span>
+                  <ChevronDown
+                    size={24}
+                    className={`transition-transform ${
+                      mobileTopUnivOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {mobileTopUnivOpen && (
+                  <div className="mt-2 w-full overflow-x-hidden">
+                    <div className="mb-3 px-3">
+                      <select
+                        value={selectedCategory}
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-900"
                       >
-                        <div className="h-12 mb-2 bg-linear-to-br from-blue-50 to-blue-100 rounded flex items-center justify-center">
-                          <span className="text-xs text-blue-600 font-semibold">🎓</span>
+                        {leftItems.map((item) => (
+                          <option key={item} value={item}>
+                            {item}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="px-3 grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto pb-4">
+                      {currentPrograms.map((program) => (
+                        <div
+                          key={program.id}
+                          className="bg-white rounded-lg p-3 shadow-sm border border-gray-100 w-full min-w-0"
+                        >
+                          <div className="h-12 mb-2 rounded flex items-center justify-center overflow-hidden">
+                            <Image
+                              src={program.logo}
+                              alt={program.title}
+                              width={80}
+                              height={48}
+                              className="object-contain w-full h-full"
+                            />
+                          </div>
+                          <div className="text-xs font-semibold leading-tight mb-2 text-gray-900">
+                            {program.title}
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              // close mobile nav after Apply Now
+                              handleLinkClick();
+                              handleMobileCloseAll();
+                            }}
+                            className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded"
+                          >
+                            Apply Now
+                          </button>
                         </div>
-                        <div className="text-xs font-semibold leading-tight mb-2">
-                          {program.title}
-                        </div>
-                        <div className="text-xs text-gray-600 mb-2">
-                          {program.universities} Universities
-                        </div>
-                        <button className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded">
-                          Apply Now
-                        </button>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
 
-              {/* Mobile: Gallery */}
-              <a
-                href="/Gallery"
-                className="text-gray-800 px-3 py-2 rounded hover:bg-gray-100"
+              <Link
+                href="/#knowledge"
+                onClick={() => {
+                  handleLinkClick();
+                  handleMobileCloseAll();
+                }}
+                className="text-gray-900 px-3 py-2 rounded hover:bg-gray-100 font-medium"
               >
-                Gallery
-              </a>
+                Blogs
+              </Link>
 
-              {/* Mobile: More (now contains Gallery / Contact us / About Us / Careers) */}
               <div>
                 <button
                   onClick={() => setMoreOpen((v) => !v)}
-                  className="flex items-center justify-between w-full text-gray-800 px-3 py-2 rounded hover:bg-gray-100"
+                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-gray-100 font-medium"
                 >
                   <span>More</span>
-                  <ChevronDown size={14} />
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform ${
+                      moreOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
                 {moreOpen && (
                   <div className="pl-4">
-                    <a
-                      className="block py-2 px-2 rounded hover:bg-gray-100"
+                    <Link
+                      className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
                       href="/Gallery"
+                      onClick={() => {
+                        handleLinkClick();
+                        handleMobileCloseAll();
+                      }}
                     >
                       Gallery
-                    </a>
+                    </Link>
                     <Link
-                      className="block py-2 px-2 rounded hover:bg-gray-100"
+                      className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
                       href="/ContactUs"
+                      onClick={() => {
+                        handleLinkClick();
+                        handleMobileCloseAll();
+                      }}
                     >
                       Contact us
                     </Link>
                     <Link
-                      className="block py-2 px-2 rounded hover:bg-gray-100"
+                      className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
                       href="/Career"
+                      onClick={() => {
+                        handleLinkClick();
+                        handleMobileCloseAll();
+                      }}
                     >
                       Careers
                     </Link>
                     <Link
-                      className="block py-2 px-2 rounded hover:bg-gray-100"
+                      className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
                       href="/AboutUs"
+                      onClick={() => {
+                        handleLinkClick();
+                        handleMobileCloseAll();
+                      }}
                     >
                       About us
                     </Link>
@@ -614,7 +1196,7 @@ export default function Navbar() {
                 <button
                   onClick={() => {
                     setShowForm(true);
-                    setIsOpen(false);
+                    handleMobileCloseAll();
                   }}
                   className="flex-1 text-center py-2 rounded bg-[#4D964F] text-white"
                 >
@@ -625,7 +1207,7 @@ export default function Navbar() {
                   <button
                     onClick={() => {
                       router.push("/login");
-                      setIsOpen(false);
+                      handleMobileCloseAll();
                     }}
                     className="flex-1 text-center py-2 rounded bg-[#345895] text-white"
                   >
@@ -635,7 +1217,7 @@ export default function Navbar() {
                   <button
                     onClick={() => {
                       handleLogout();
-                      setIsOpen(false);
+                      handleMobileCloseAll();
                     }}
                     className="flex-1 text-center py-2 rounded-full bg-red-600 text-white"
                   >
@@ -647,8 +1229,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-
-      {/* Counselling Form Modal (kept logic) */}
       {showForm && <CounsellingForm onClose={() => setShowForm(false)} />}
     </div>
   );

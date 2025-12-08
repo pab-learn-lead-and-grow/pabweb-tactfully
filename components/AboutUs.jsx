@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export default function AboutUs() {
   return (
-    <section className="w-full flex flex-col items-center bg-white">
+    <section className="w-full flex flex-col items-center py-18 bg-white">
       {/* Hero Section */}
       <div
-        className="w-full h-[40vh] md:h-[50vh] bg-cover bg-center flex justify-center items-center"
+        className="w-full h-[60vh] md:h-[30vh] bg-cover bg-center flex justify-center items-center"
         style={{
           backgroundImage: "url('/Aboutpab.png')",
         }}
@@ -17,41 +17,42 @@ export default function AboutUs() {
       </div>
 
       {/* About Section */}
-      <div className="max-w-6xl mx-auto px-6 md:px-10 py-12">
-        <div className="flex flex-col md:flex-row md:items-start md:gap-10 ">
-          {/* Left Section */}
-          <div className="shrink-0">
-            <h2 className="text-2xl md:text-3xl font-semibold flex items-center justify-center space-x-2 px-4 py-6 text-center md:text-left min-h-20 lg:min-h-65">
-              <span className="text-green-600">At</span>
-              <span className="text-blue-600">PAB</span>
-            </h2>
-          </div>
+      <div className="max-w-4xl mx-auto px-5 md:px-10 py-18 text-black">
+        {/* Heading Centered */}
+        <div className="flex justify-center">
+          <h2 className="text-4xl md:text-5xl font-bold flex items-center gap-3 text-center">
+            <span className="text-[#4d964f]">At</span>
+          
+            <span className="text-[#345895]">PAB</span>
+          </h2>
+        </div>
 
-          {/* Right Section */}
-          <div className="md:w-3/4 text-sm md:text-base text-gray-700 leading-relaxed">
-            <p>
-              At PAB Learn Lead and Grow, we believe that real education isn't
-              about collecting degrees — it's about achieving return on
-              learning.
-            </p>
-            <p className="mt-3">
-              We exist to help working professionals make smarter, more
-              rewarding education choices that directly translate into
-              measurable career ROI — better roles, higher salaries, and
-              stronger leadership impact.
-            </p>
-            <p className="mt-3">
-              In a world where online education is everywhere, PAB stands apart
-              by making learning deeply personal, practical, and purpose-driven.
-            </p>
-            <p className="mt-3">
-              We don't sell courses. We understand ambitions.
-            </p>
-            <p className="mt-3">
-              We don't push universities. We match professionals to the right
-              learning paths that elevate both their knowledge and their income.
-            </p>
-          </div>
+        {/* Paragraphs Left-Aligned */}
+        <div className="mt-6 text-left">
+          <p>
+            At PAB Learn Lead and Grow, we believe that real education isn't
+            about collecting degrees — it's about achieving return on learning.
+          </p>
+
+          <p className="mt-3">
+            We exist to help working professionals make smarter, more rewarding
+            education choices that directly translate into measurable career ROI
+            — better roles, higher salaries, and stronger leadership impact.
+          </p>
+
+          <p className="mt-3">
+            In a world where online education is everywhere, PAB stands apart by
+            making learning deeply personal, practical, and purpose-driven.
+          </p>
+
+          <p className="mt-3">
+            We don't sell courses. We understand ambitions.
+          </p>
+
+          <p className="mt-3">
+            We don't push universities. We match professionals to the right
+            learning paths that elevate both their knowledge and their income.
+          </p>
         </div>
       </div>
 
@@ -69,8 +70,7 @@ export default function AboutUs() {
       {/* Philosophy Heading */}
       <div className="text-center mt-12 mb-8 px-4">
         <h2 className="text-2xl md:text-3xl font-semibold text-blue-900">
-          Our Philosophy{" "}
-          <span className="text-blue-900">Learn.Lead.Grow.</span>
+          Our Philosophy <span className="text-blue-900">Learn.Lead.Grow.</span>
         </h2>
       </div>
 

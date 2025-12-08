@@ -43,7 +43,7 @@ export default function CareerPage() {
   ];
 
   return (
-    <section className="w-full bg-white py-10">
+    <section className="w-full bg-white py-15">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* --- Hero Row --- */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">

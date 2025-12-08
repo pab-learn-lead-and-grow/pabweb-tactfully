@@ -1,10 +1,29 @@
+
+@import 'https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap';
 @import "tailwindcss";
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
    --font-sans: var(--font-inter), sans-serif;
 }
+
+/* Hide scrollbar for Chrome, Safari and Edge */
+.scrollbar-hide::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+/* Chrome, Safari, Edge */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari + Chrome */
+}
+
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -34,3 +53,32 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  will-change: transform;
+}
+
+.marquee-viewport:hover .marquee-track {
+  animation-play-state: paused !important;
+}
+
+.marquee-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.marquee-viewport {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+}
+

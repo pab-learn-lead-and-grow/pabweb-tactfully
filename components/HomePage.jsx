@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import HeroSection from "./HeroSection";
-import { useState, useEffect } from "react";
-import { IoIosStarOutline } from "react-icons/io";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Mail, Phone, Clock, MapPin } from "lucide-react";
 import { createSupabaseClient } from "@/lib/supabaseClient";
 import AllInOneSection from "./All-in-one";
@@ -16,7 +16,8 @@ export default function HomePage() {
       id: 1,
       topic: "Topic",
       date: "12 Aug 2023",
-      title: "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
+      title:
+        "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       image: "/professional.png",
     },
@@ -24,19 +25,22 @@ export default function HomePage() {
       id: 2,
       topic: "Topic",
       date: "12 Aug 2023",
-      title: "Lorem ipsum dolor sit amet, consecr adipiscing elit.",
+      title:
+        "Online MBA for Career Growth: How an Online MBA Helps You Rise from Employee to Leader.",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "professional.png",
+      image: "/professional.png",
     },
     {
       id: 3,
       topic: "Topic",
       date: "12 Aug 2023",
-      title: "Lorem ipsum dolor sit amet, consecr adipiscing elit.",
+      title:
+        "Choosing the Right Specialisation in an Online MBA: A Step-by-Step Guide.",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "professional.png",
+      image: "/professional.png",
     },
   ];
+
   const supabase = createSupabaseClient();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -94,23 +98,21 @@ export default function HomePage() {
     }
   };
 
-  // logo paths (assumes images are in public/logos/)
-  const logos = ["/nmims.png", "/manipal.png", "/amity.png", "/jain.png"];
+  // logo paths (assumes images are in public/)
+  const logos = ["/nmims.png", "/manipal.png", "/amity.png", "/jain.png", "/smu.png"];
 
   // duplicate for seamless loop
   const repeated = [...logos, ...logos];
 
   // tweak these to change size/visible count/speed
-  const logoWidth = 250; // px - width of each logo box
+  const logoWidth = 230; // px - width of each logo box
   const logoHeight = 100; // px - height of each logo box
   const visibleCount = 4; // how many logos are visible at once
-  const gap = 30; // px gap between logos
+  const gap = 40; // px gap between logos
   const durationSeconds = 10; // animation duration (lower = faster)
 
   // computed viewport width to ensure only `visibleCount` logos are visible
   const viewportWidth = visibleCount * logoWidth + (visibleCount - 1) * gap;
-
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
     {
@@ -124,99 +126,79 @@ export default function HomePage() {
       id: 2,
       name: "Priya Nayar",
       title: "Business Analyst, Infosync Analytics",
-      text: "“As a working professional with a full-time job, I never thought I could manage an MBA. PAB made the process simple, from selecting the university to scheduling sessions. The ROI guidance was a game-changer — it felt like a career investment, not just education.",
+      text: "As a working professional with a full-time job, I never thought I could manage an MBA. PAB made the process simple, from selecting the university to scheduling sessions. The ROI guidance was a game-changer — it felt like a career investment, not just education.",
       rating: 5,
     },
     {
       id: 3,
       name: "Arjun Kapoor",
       title: "Operations Lead, WareConnect India",
-      text: "“What I liked most about PAB was their honest approach — no hard selling, just clear insights about what would work for my profile. The Learn–Lead–Grow structure made me see how each skill ties to real outcomes.",
+      text: "What I liked most about PAB was their honest approach — no hard selling, just clear insights about what would work for my profile. The Learn–Lead–Grow structure made me see how each skill ties to real outcomes.",
       rating: 5,
     },
     {
       id: 4,
       name: "Sneha Reddy",
       title: "HR Specialist, PeopleFirst Consulting",
-      text: "The mentorship from PAB gave me the clarity I needed. I didn’t just pick an MBA program; I understood how it would impact my career ROI. Within months, I started seeing improvements at work.",
+      text: "The mentorship from PAB gave me the clarity I needed. I didn't just pick an MBA program; I understood how it would impact my career ROI. Within months, I started seeing improvements at work.",
       rating: 5,
     },
     {
       id: 5,
       name: "Vivek Joshi",
       title: "Finance Executive, Axis Bank",
-      text: "I’ve seen many education platforms, but PAB stands out for one reason — they understand working professionals. Everything, from the call with the counsellor to the study guidance, felt designed for my schedule.",
+      text: "I've seen many education platforms, but PAB stands out for one reason — they understand working professionals. Everything, from the call with the counsellor to the study guidance, felt designed for my schedule.",
       rating: 5,
     },
+    
     {
       id: 6,
       name: "Divya Sharma",
       title: "Digital Strategist, Creatify Media",
       text: "Choosing the NMIMS Online MBA through PAB was one of my best career decisions. The counsellor helped me choose the right specialisation, and the guidance on practical application made all the difference.",
-      rating: 5,
+      rating: 4,
     },
+     {
+      id: 7,
+      name: "Divya Sharma",
+      title: "Digital Strategist, Creatify Media",
+      text: "Choosing the NMIMS Online MBA through PAB was one of my best career decisions. The counsellor helped me choose the right specialisation, and the guidance on practical application made all the difference.",
+      rating: 4,
+    },
+     
   ];
 
-  const cardsPerView = {
-    mobile: 1,
-    tablet: 2,
-    desktop: 3,
-  };
+  // pagination logic: 6 cards per "page"
+  const CARDS_PER_PAGE = 6;
+  const [currentPage, setCurrentPage] = useState(0);
+  const totalPages = Math.max(1, Math.ceil(testimonials.length / CARDS_PER_PAGE));
 
-  const getCardsToShow = () => {
-    if (typeof window === "undefined") return 3;
-    if (window.innerWidth < 640) return 1; // Mobile
-    if (window.innerWidth < 1024) return 2; // Tablet
-    return 3; // Desktop
-  };
+  const startIndex = currentPage * CARDS_PER_PAGE;
+  const visibleTestimonials = testimonials.slice(
+    startIndex,
+    startIndex + CARDS_PER_PAGE
+  );
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => {
-      if (prev === 0) return Math.max(0, testimonials.length - cardsToShow);
-      return prev - 1;
-    });
+    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => {
-      if (prev >= testimonials.length - cardsToShow) return 0;
-      return prev + 1;
-    });
+    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
   };
-
-  const [cardsToShow, setCardsToShow] = useState(getCardsToShow());
-
-  // Update cards to show on window resize
-  // Update cards to show on window resize
-  useEffect(() => {
-    // Guard for SSR
-    if (typeof window === "undefined") return;
-
-    const handleResize = () => {
-      setCardsToShow(getCardsToShow());
-    };
-
-    // Run once immediately
-    handleResize();
-
-    // Add resize listener
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans">
-      <HeroSection />
+      <HeroSection className="min-h-[650px] md:min-h-[750px]" />
+
 
       {/* LOGO MARQUEE SECTION */}
-      <div className="w-full bg-transparent py-6">
-        <div className="mx-auto px-4" style={{ maxWidth: "100%" }}>
+      <div className="w-full bg-transparent py-4">
+        <div className="mx-auto px-3" style={{ maxWidth: "100%" }}>
           {/* VIEWPORT: fixed width so only `visibleCount` logos are visible */}
           <div
-            className="relative overflow-hidden mx-auto marquee-viewport"
-            style={{ width: viewportWidth }}
+            className="relative overflow-hidden mx-auto marquee-viewport rounded-full"
+            style={{ width: viewportWidth, height: logoHeight }}
             aria-label="Partner logos carousel"
             role="region"
           >
@@ -225,7 +207,6 @@ export default function HomePage() {
               className="marquee-track flex items-center whitespace-nowrap"
               style={{
                 gap: `${gap}px`,
-                // inline animation string; actual keyframes defined in jsx style below
                 animation: `marquee ${durationSeconds}s linear infinite`,
               }}
             >
@@ -252,6 +233,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
       {/* ======= Courses SECTION ======= */}
       <CoursesSection />
 
@@ -259,7 +241,6 @@ export default function HomePage() {
       <AllInOneSection />
 
       {/* ======= BLOG SECTION ======= */}
-      {/* Header Section */}
       <section id="knowledge">
         <div className="bg-white p-15 mb-2">
           <div className="flex flex-col gap-6 mb-8">
@@ -286,13 +267,15 @@ export default function HomePage() {
             {blogs.map((blog) => (
               <div key={blog.id} className="bg-white">
                 {/* Image */}
-                <div className="relative h-55 bg-gray-200 rounded-t-xl overflow-hidden">
-                  <img
-                    src={blog.image}
-                    alt={blog.title}
-                    className="w-full h-full object-cover "
-                  />
-                </div>
+                <div className="relative h-[220px] bg-gray-200 rounded-t-xl overflow-hidden">
+  <Image
+    src={blog.image}
+    alt={blog.title}
+    width={400}
+    height={220}
+    className="w-full h-full object-cover"
+  />
+</div>
 
                 {/* Content */}
                 <div className="p-6">
@@ -320,6 +303,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ======= TESTIMONIAL SECTION ======= */}
       <div className="w-full bg-white px-4 sm:px-6 lg:px-15">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
@@ -329,104 +313,64 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* Testimonial Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-4 gap-4">
-            {testimonials
-              .slice(currentIndex, currentIndex + cardsToShow)
-              .map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="bg-[#345895] text-white rounded-xl p-6 sm:p-8 flex flex-col"
-                >
-                  {/* Testimonial Text */}
-                  <p className="text-white text-sm sm:text-base leading-relaxed mb-8 grow">
-                    "{testimonial.text}"
-                  </p>
-
-                  {/* Name, Title and Rating */}
-                  <div className="flex flex-col">
-                    {/* Top row: name left, stars right */}
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-white font-bold text-base sm:text-lg">
-                        {testimonial.name}
-                      </h4>
-                      <div className="flex gap-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <IoIosStarOutline
-                            key={i}
-                            size={16}
-                            className="fill-yellow-400 text-yellow-400"
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Bottom row: title aligned left */}
-                    <p className="text-blue-200 text-xs sm:text-sm mt-1">
-                      {testimonial.title}
-                    </p>
-                  </div>
-                </div>
-              ))}
-          </div>
-
+          {/* Testimonial Cards – show up to 6 per page */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-4 gap-4 mb-10">
-            {testimonials
-              .slice(currentIndex, currentIndex + cardsToShow)
-              .map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="bg-[#345895] text-white rounded-xl p-6 sm:p-8 flex flex-col"
-                >
-                  {/* Testimonial Text */}
-                  <p className="text-white text-sm sm:text-base leading-relaxed mb-8 grow">
-                    "{testimonial.text}"
-                  </p>
+            {visibleTestimonials.map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="bg-[#345895] text-white rounded-xl p-6 sm:p-8 flex flex-col"
+              >
+                {/* Testimonial Text */}
+                <p className="text-white text-sm sm:text-base leading-relaxed mb-8 grow">
+                  "{testimonial.text}"
+                </p>
 
-                  {/* Name, Title and Rating */}
-                  <div className="flex flex-col">
-                    {/* Top row: name left, stars right */}
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-white font-bold text-base sm:text-lg">
-                        {testimonial.name}
-                      </h4>
-                      <div className="flex gap-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <IoIosStarOutline
-                            key={i}
-                            size={16}
-                            className="fill-yellow-400 text-yellow-400"
-                          />
-                        ))}
-                      </div>
+                {/* Name, Title and Rating */}
+                <div className="flex flex-col">
+                  {/* Top row: name left, stars right */}
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-white font-bold text-base sm:text-lg">
+                      {testimonial.name}
+                    </h4>
+                    <div className="flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={16}
+                          className="fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
                     </div>
-
-                    {/* Bottom row: title aligned left */}
-                    <p className="text-blue-200 text-xs sm:text-sm mt-1">
-                      {testimonial.title}
-                    </p>
                   </div>
+
+                  {/* Bottom row: title aligned left */}
+                  <p className="text-blue-200 text-xs sm:text-sm mt-1">
+                    {testimonial.title}
+                  </p>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex justify-center items-center gap-4">
-            <button
-              onClick={handlePrev}
-              className="border-2 border-[#E6F1FE] bg-[#E6F1FE] hover:border-blue-300 rounded-full p-3 transition-colors duration-200"
-              aria-label="Previous testimonials"
-            >
-              <ChevronLeft size={24} className="text-[#345895]" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="border-2 border-[#E6F1FE] bg-[#E6F1FE] hover:border-blue-300 rounded-full p-3 transition-colors duration-200"
-              aria-label="Next testimonials"
-            >
-              <ChevronRight size={24} className="text-[#345895]" />
-            </button>
-          </div>
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-4 mb-10">
+              <button
+                onClick={handlePrev}
+                className="border-2 border-[#E6F1FE] bg-[#E6F1FE] hover:border-blue-300 rounded-full p-3 transition-colors duration-200"
+                aria-label="Previous testimonials"
+              >
+                <ChevronLeft size={24} className="text-[#345895]" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="border-2 border-[#E6F1FE] bg-[#E6F1FE] hover:border-blue-300 rounded-full p-3 transition-colors duration-200"
+                aria-label="Next testimonials"
+              >
+                <ChevronRight size={24} className="text-[#345895]" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -595,6 +539,7 @@ export default function HomePage() {
           </form>
         </div>
       </div>
+
       <div className="w-full bg-white mt-5">
         <FaqSection />
       </div>
@@ -612,47 +557,6 @@ export default function HomePage() {
           What's My Fit?
         </button>
       </section>
-
-      {/* local styles: keyframes, pause-on-hover, reduced-motion support */}
-      <style jsx>{`
-        /* keyframes translate left by 50% (because repeated = [...logos, ...logos]) */
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        /* apply animation to track (class selector scoped to this component) */
-        .marquee-track {
-          will-change: transform;
-        }
-
-        /* pause animation when hovered anywhere inside the viewport (including children) */
-        .marquee-viewport:hover .marquee-track {
-          animation-play-state: paused !important;
-        }
-
-        /* hide scrollbar in case of any scrollable element fallback (no global CSS edits) */
-        .marquee-viewport::-webkit-scrollbar {
-          display: none;
-          width: 0;
-          background: transparent;
-        }
-        .marquee-viewport {
-          -ms-overflow-style: none; /* IE 10+ */
-          scrollbar-width: none; /* Firefox */
-        }
-
-        /* supports reduced motion preference */
-        @media (prefers-reduced-motion: reduce) {
-          .marquee-track {
-            animation: none !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }

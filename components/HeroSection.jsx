@@ -4,8 +4,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(90deg,rgba(77,150,79,0.1)_-1.12%,rgba(52,88,149,0.1)_98.88%)] rounded-b-[100px]">
-      {/* container */}
-      <div className="max-w-6xl mx-auto mt-[140px] px-6">
+      <div className="max-w-6xl mx-auto pt-[140px] px-6">
         {/* Headline + CTAs */}
         <div className="text-center">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight text-gray-900">
@@ -30,14 +29,16 @@ export default function Hero() {
               Talk to an Expert →
             </button>
           </div>
-           <div className="flex mt-2 item-center justify-center">
-              <Image
-                src="/heroImage.png"
-                alt="HeroImage"
-                width={600}
-                height={600}
-              />
-            </div>
+
+          {/* FIXED: items-center instead of item-center */}
+          <div className="flex mt-2 items-center justify-center min-h-[300px]">
+            <Image
+              src="/heroImage.png"
+              alt="HeroImage"
+              width={600}
+              height={600}
+            />
+          </div>
         </div>
       </div>
     </section>
