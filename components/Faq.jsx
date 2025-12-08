@@ -31,7 +31,7 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-5 px-2 sm:px-6 lg:px-4">
+    <div className="min-h-screen bg-white py-5 px-6 sm:px-8 lg:px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <h2 className="text-5xl sm:text-5xl lg:text-9xl font-extrabold text-[#345895] mb-8 leading-tight">

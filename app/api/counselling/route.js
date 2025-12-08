@@ -4,13 +4,13 @@ import { createSupabaseClient } from "@/lib/supabaseClient";
 /**
  * POST /api/counselling
  * Expects JSON body:
- * { name, email, university, course, phoneCode, phone }
+ * { name, email, university, course, phoneCode, phone, message }
  */
 
 export async function POST(request) {
   try {
     const formData = await request.json();
-    const { name, email, university, course, phoneCode, phone } = formData || {};
+    const { name, email, university, course, phoneCode, phone, message } = formData || {};
 
     // Basic validation
     if (!name || !email || !phone) {
@@ -34,6 +34,7 @@ export async function POST(request) {
           course: course || null,
           phone_code: phoneCode || null,
           phone,
+          message: message || null,
         },
       ])
       .select(); // return inserted rows

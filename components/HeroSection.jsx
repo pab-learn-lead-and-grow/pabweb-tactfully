@@ -22,16 +22,16 @@ export default function Hero() {
           </p>
 
           <div className="mt-6 flex items-center justify-center gap-4">
-            <button className="px-4 md:px-6 py-2 rounded-lg bg-[#4D964F] text-white font-medium shadow hover:opacity-95">
+            <button className="px-3 py-1 md:px-4 md:py-2 text-[12px] md:text-md rounded-lg bg-[#4D964F] text-white font-medium shadow hover:opacity-95">
               Explore Programs →
             </button>
-            <button className="px-4 md:px-6 py-2 rounded-lg bg-[#345895] text-white font-medium shadow hover:opacity-95">
+            <button className="px-3 py-1 md:px-4 md:py-2 text-[12px] md:text-md rounded-lg bg-[#345895] text-white font-medium shadow hover:opacity-95">
               Talk to an Expert →
             </button>
           </div>
 
-          {/* FIXED: items-center instead of item-center */}
-          <div className="flex mt-2 items-center justify-center min-h-[300px]">
+          {/* FIXED: items-center instead of item-center */} 
+          <div className="flex -mt-8 md:mt-2 items-center justify-center min-h-[300px]">
             <Image
               src="/heroImage.png"
               alt="HeroImage"

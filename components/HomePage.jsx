@@ -198,7 +198,7 @@ export default function HomePage() {
           {/* VIEWPORT: fixed width so only `visibleCount` logos are visible */}
           <div
             className="relative overflow-hidden mx-auto marquee-viewport rounded-full"
-            style={{ width: viewportWidth, height: logoHeight }}
+            style={{height: logoHeight }}
             aria-label="Partner logos carousel"
             role="region"
           >
@@ -208,6 +208,7 @@ export default function HomePage() {
               style={{
                 gap: `${gap}px`,
                 animation: `marquee ${durationSeconds}s linear infinite`,
+                 width: `${repeated.length * (logoWidth + gap)}px`,
               }}
             >
               {repeated.map((src, idx) => (
@@ -246,7 +247,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-6 mb-8">
             {/* First Row: Heading and Description side by side */}
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-              <h1 className="text-4xl md:text-5xl font-bold text-[#064E92]">
+              <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold text-[#064E92]">
                 Knowledge Corner
               </h1>
               <p className="text-black text-sm md:text-base w-[220px] word-break lg:text-left text-align-left">
@@ -308,7 +309,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="p-6 mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#345895] text-left">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-bold text-[#345895] text-left">
               Learners Love Wall
             </h2>
           </div>
@@ -375,170 +376,161 @@ export default function HomePage() {
       </div>
 
       {/* CONTACT CONTENT SECTION */}
-      <div className="max-w-7xl mx-auto md:px-10 py-12 bg-white grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Left Info Section */}
-        <div className="flex flex-col px-25 bg-white justify-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold leading-snug text-black">
-            You Will Grow, You Will Succeed.
-            <br /> We Promise That
-          </h2>
-          <p className="text-black font-medium">PAB Learn Lead and Grow</p>
+     <div className="max-w-7xl mx-auto px-8 md:px-10 py-12 bg-white grid grid-cols-1 md:grid-cols-2 gap-10">
 
-          {/* Info Items */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-8">
-            {/* Call */}
-            <div className="flex flex-col space-y-3">
-              <div className="flex items-center space-x-4">
-                <Phone className="text-[#345895] w-6 h-6" />
-              </div>
-              <span className="font-semibold text-lg text-black">
-                Call for inquiry
-              </span>
-              <span className="text-black text-sm">+91 9999999999</span>
-            </div>
+  {/* LEFT SECTION */}
+  <div className="flex flex-col bg-white justify-center space-y-3">
+    <h2 className="text-3xl md:text-4xl font-bold leading-snug text-black">
+      You Will Grow, You Will Succeed.
+      <br /> We Promise That
+    </h2>
 
-            {/* Email */}
-            <div className="flex flex-col space-y-3">
-              <div className="flex items-center space-x-4">
-                <Mail className="text-[#345895] w-6 h-6" />
-              </div>
-              <span className="font-semibold text-lg text-black">
-                Send us email
-              </span>
-              <span className="text-black text-sm">info@pab.com</span>
-            </div>
+    <p className="text-black font-medium">PAB Learn Lead and Grow</p>
 
-            {/* Hours */}
-            <div className="flex flex-col space-y-3">
-              <div className="flex items-center space-x-4">
-                <Clock className="text-[#345895] w-6 h-6" />
-              </div>
-              <span className="font-semibold text-lg text-black">
-                Opening hours
-              </span>
-              <span className="text-black text-sm whitespace-nowrap">
-                Mon - Sat: 10AM - 10PM
-              </span>
-            </div>
+    {/* FIXED: ALWAYS 2×2 GRID */}
+    <div className="grid grid-cols-2  gap-6 mt-8">
 
-            {/* Office */}
-            <div className="flex flex-col space-y-3">
-              <div className="flex items-center space-x-4">
-                <MapPin className="text-[#345895] w-6 h-6" />
-              </div>
-              <span className="font-semibold text-lg text-black">Office</span>
-              <span className="text-black text-sm">Indore, MP</span>
-            </div>
-          </div>
+      {/* Call */}
+      <div className="flex flex-col space-y-2">
+        <Phone className="text-[#345895] w-6 h-6" />
+        <span className="font-semibold text-lg text-black">Call for inquiry</span>
+        <span className="text-black text-sm">+91 9999999999</span>
+      </div>
+
+      {/* Email */}
+      <div className="flex flex-col space-y-2">
+        <Mail className="text-[#345895] w-6 h-6" />
+        <span className="font-semibold text-lg text-black">Send us email</span>
+        <span className="text-black text-sm">info@pab.com</span>
+      </div>
+
+      {/* Hours */}
+      <div className="flex flex-col space-y-2">
+        <Clock className="text-[#345895] w-6 h-6" />
+        <span className="font-semibold text-lg text-black">Opening hours</span>
+        <span className="text-black text-sm whitespace-nowrap">
+          Mon - Sat: 10AM - 10PM
+        </span>
+      </div>
+
+      {/* Office */}
+      <div className="flex flex-col space-y-2">
+        <MapPin className="text-[#345895] w-6 h-6" />
+        <span className="font-semibold text-lg text-black">Office</span>
+        <span className="text-black text-sm">Indore, MP</span>
+      </div>
+
+    </div>
+  </div>
+
+  {/* RIGHT — FORM SECTION */}
+  <div
+    className="
+      p-8 rounded-2xl shadow-md
+      w-[90%] mx-auto          /* mobile width */
+      md:w-full md:mx-0        /* correct width on desktop */
+      bg-[rgba(6,78,146,0.1)]
+    "
+  >
+    <h3 className="text-2xl font-semibold text-center text-black mb-1">
+      Contact Info
+    </h3>
+    <p className="text-black text-center mb-6">Send us a message</p>
+
+    <form className="space-y-4" onSubmit={handleSubmit}>
+
+      {/* FIRST + LAST NAME */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-black font-medium mb-2">First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            placeholder="First Name"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500"
+            required
+          />
         </div>
 
-        {/* Right Form Section */}
-        <div
-          className="bg-blue-50 w-[500px] p-8 rounded-2xl shadow-md"
-          style={{
-            backgroundColor: "rgba(6, 78, 146, 0.1)",
-          }}
-        >
-          <h3 className="text-2xl font-semibold text-center text-black mb-1">
-            Contact Info
-          </h3>
-          <p className="text-black text-center mb-6">Send us a message</p>
-
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-black font-medium mb-2">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  placeholder="First Name"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-black font-medium mb-2">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  placeholder="Last Name"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-black font-medium mb-2">
-                Email Address
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your E-mail address"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-black font-medium mb-2">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="XXXXXXXXXX"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black placeholder-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-black font-medium mb-2">
-                Message
-              </label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your message..."
-                rows={4}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black placeholder-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-[#345895] text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
-            >
-              {loading ? "Sending..." : "Send Message"}
-            </button>
-
-            {status && (
-              <p
-                className={`text-center mt-3 font-medium ${
-                  status.startsWith("✅") ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {status}
-              </p>
-            )}
-          </form>
+        <div>
+          <label className="block text-black font-medium mb-2">Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            placeholder="Last Name"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500"
+            required
+          />
         </div>
       </div>
+
+      {/* EMAIL */}
+      <div>
+        <label className="block text-black font-medium mb-2">Email Address</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Your E-mail address"
+          className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500"
+          required
+        />
+      </div>
+
+      {/* PHONE */}
+      <div>
+        <label className="block text-black font-medium mb-2">Phone Number</label>
+        <input
+          type="tel"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          placeholder="XXXXXXXXXX"
+          className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* MESSAGE */}
+      <div>
+        <label className="block text-black font-medium mb-2">Message</label>
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Your message..."
+          rows={4}
+          className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* SUBMIT */}
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-[#345895] text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
+      >
+        {loading ? "Sending..." : "Send Message"}
+      </button>
+
+      {/* STATUS MESSAGE */}
+      {status && (
+        <p
+          className={`text-center mt-3 font-medium ${
+            status.startsWith("✅") ? "text-green-600" : "text-red-600"
+          }`}
+        >
+          {status}
+        </p>
+      )}
+    </form>
+  </div>
+</div>
+
 
       <div className="w-full bg-white mt-5">
         <FaqSection />

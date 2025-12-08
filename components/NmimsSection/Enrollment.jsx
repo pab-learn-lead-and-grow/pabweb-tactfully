@@ -27,7 +27,7 @@ export default function Enrollment({ title, subtitle, steps, defaultOpen = 0 }) 
         </div>
 
         {/* STEPS */}
-        <div className="flex flex-col gap-10 max-w-xl ml-100 mx-auto">
+        <div className="flex flex-col gap-10 max-w-[470px] mx-auto">
           {steps.map((step, i) => {
             const isOpen = activeIndex === i;
 

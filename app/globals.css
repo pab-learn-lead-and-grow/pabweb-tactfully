@@ -24,6 +24,33 @@
   display: none; /* Safari + Chrome */
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
+.handdrawn-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* Hand-drawn curved stroke */
+.handdrawn-underline::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  width: 80%;
+  height: 12px;
+  
+  
+  border-bottom: 3px solid #4D964F;
+  border-radius: 100%;
+
+  transform: rotate(-2deg);
+  opacity: 0.9;
+}
+
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;

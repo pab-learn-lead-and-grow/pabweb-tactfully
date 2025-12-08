@@ -517,9 +517,9 @@ export default function Navbar() {
   };
 
   return (
-    <div className="px-9 fixed top-0 left-0 right-0 z-100">
-      <nav className="w-full h-[72px] bg-[rgba(255,255,255,0.33)] backdrop-blur-3xl rounded-4xl shadow-sm border border-white/20 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between h-full px-6">
+    <div className="fixed top-0 left-0 right-0 md:px-9 z-50">
+      <nav className="w-[90%] mx-auto md:w-full h-[72px] bg-[rgba(255,255,255,0.33)] backdrop-blur-3xl rounded-4xl shadow-sm border border-white/20 sticky top-0 z-50">
+        <div className="w-full mx-auto flex items-center justify-between h-full px-8">
           <div className="flex items-center gap-4">
             <a href="/" className="block">
               <Image
@@ -674,7 +674,7 @@ export default function Navbar() {
                                           }}
                                           className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition"
                                         >
-                                          Apply Now
+                                          View Course
                                         </button>
                                       </div>
                                     </div>
@@ -810,7 +810,7 @@ export default function Navbar() {
                                       }}
                                       className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition"
                                     >
-                                      Apply Now
+                                      View Course
                                     </button>
                                   </div>
                                 </div>
@@ -1035,13 +1035,13 @@ export default function Navbar() {
                               <button
                                 type="button"
                                 onClick={() => {
-                                  // close mobile nav after Apply Now
+                                  // close mobile nav after vieww course
                                   handleLinkClick();
                                   handleMobileCloseAll();
                                 }}
                                 className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded"
                               >
-                                Apply Now
+                                View Course 
                               </button>
                             </div>
                           ))}
@@ -1113,7 +1113,7 @@ export default function Navbar() {
                             }}
                             className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded"
                           >
-                            Apply Now
+                            View Course
                           </button>
                         </div>
                       ))}

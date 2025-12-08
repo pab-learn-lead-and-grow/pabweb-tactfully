@@ -12,6 +12,7 @@ export default function CounsellingForm({ onClose }) {
     course: "",
     phoneCode: "+91",
     phone: "",
+    message: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -54,6 +55,7 @@ export default function CounsellingForm({ onClose }) {
           university: formData.university,
           course: formData.course,
           phone: `${formData.phoneCode} ${formData.phone}`,
+          queries: formData.message,
         },
       ]);
 
@@ -79,163 +81,206 @@ export default function CounsellingForm({ onClose }) {
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/40 px-4 overflow-hidden">
-      <div className="relative w-full sm:w-[85%] md:w-[65%] lg:w-[33%] max-w-md h-[95vh] overflow-y-auto no-scrollbar backdrop-blur-lg background-blur/40 border border-gray-300 shadow-xl rounded-2xl p-6 sm:p-5">
-        <button
+    <div className="fixed inset-0 w-screen min-h-screen flex font-[Inter] items-start justify-center pt-18 lg:pt-24 backdrop-blur-2xl overflow-y-auto">
+     <div className="absolute w-full max-w-5xl bg-[#E0ECF8] rounded-3xl shadow-2xl overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] lg:h-[600px]">
+          {/* Left Side - Illustration */}
+          <div className="bg-[#E0ECF8] p-6 flex flex-col justify-center items-center relative">
+            <div className="text-center mb-4">
+              <h2 className="text-[36px] font-semibold leading-tight text-[#345895] italic">
+                Stuck & Confused?<br/> Tell us, we'll help.
+              </h2>
+              
+            </div>
+            
+            <div className="relative max-w-sm ">
+              <img 
+                src="counsellingForm.jpg" 
+                alt="Confused you ?"
+                className="w-full h-auto"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextElementSibling.style.display = 'flex';
+                }}
+              />
+            </div>
+
+            <p className="text-xs text-[#345895] mb-10 text-center italic px-2">
+              Share a few details & get honest guidance.<br/> No spam, no random calls
+            </p>
+          </div>
+
+          {/* Right Side - Form */}
+          <div className=" bg-[#E0ECF8] m-6 relative">
+             <button
           onClick={onClose}
-          className="absolute top-2 right-3 text-gray-500 hover:text-gray-700 text-2xl font-bold"
+          className="absolute top-4 right-4 text-black hover:text-black text-2xl font-bold w-8 h-8 flex items-center justify-center"
         >
           ×
         </button>
+            <div className="space-y-4 bg-white p-6 rounded-2xl shadow-md">
+              {/* Name */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-2 text-sm">
+                  Full Name*
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-white text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+                )}
+              </div>
 
-        {/* Header */}
-        <div className="text-center">
-          <p className="text-xs text-[#170F49] font-medium">
-            2D : 12H : 20M{" "}
-            <span className="ml-2 bg-white text-blue-700 text-xs px-2 py-0.5 rounded-full">
-              Limited time
-            </span>
-          </p>
-          <h2 className="text-lg md:text-xl font-semibold text-blue-900 mt-1">
-            Last Chance! Early Bird Admissions Closing Shortly
-          </h2>
-          <p className="text-[#170F49] text-xs mt-1">
-            Get personalized guidance from our counsellor.
-          </p>
-        </div>
+              {/* Email and Phone Row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Email */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2 text-sm">
+                    Email Id*
+                  </label>
+                  <p className="text-[10px] text-gray-500 mb-1">
+                    We'll send course comparisons & guidance.
+                  </p>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="name@gmail.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-white text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                  )}
+                </div>
 
-        {/* Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-2 mt-3 bg-white/10 p-2 rounded-2xl backdrop-blur-md"
-          autoComplete="off"
-        >
-          {/* Name */}
-          <div>
-            <label className="block text-gray-800 font-medium mb-1 text-sm">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-3 py-1.5 bg-white text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none text-sm"
-            />
-            {errors.name && (
-              <p className="text-red-500 text-xs mt-1">{errors.name}</p>
-            )}
-          </div>
+                 {/* Phone with country code */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2 text-sm">
+                    Contact Number*
+                  </label>
+                  <p className="text-[10px] text-gray-500 mb-1">
+                    We hate annoying calls too. No spam, no sales calls
+                  </p>
 
-          {/* Email */}
-          <div>
-            <label className="block text-gray-800 font-medium mb-1 text-sm">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Your email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-3 py-1.5 bg-white text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none text-sm"
-            />
-            {errors.email && (
-              <p className="text-red-500 text-xs mt-1">{errors.email}</p>
-            )}
-          </div>
+                  <div className="flex border border-gray-300 rounded-lg overflow-hidden bg-white">
+                    <select
+                      name="phoneCode"
+                      value={formData.phoneCode}
+                      onChange={handleChange}
+                      className="bg-gray-50 px-2 py-2.5 text-gray-700 text-sm outline-none border-r border-gray-300 min-w-[60px]"
+                    >
+                      {countryCodes.map((c) => (
+                        <option key={c.code} value={c.code}>
+                          {c.code}
+                        </option>
+                      ))}
+                    </select>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="10-digit number"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2.5 bg-white text-gray-800 placeholder-gray-400 outline-none text-sm"
+                    />
+                  </div>
 
-          {/* University */}
-          <div>
-            <label className="block text-gray-800 font-medium mb-1 text-sm">
-              University
-            </label>
-            <select
-              name="university"
-              value={formData.university}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-3 py-1.5 bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 outline-none text-sm"
-            >
-              <option value="">Select University</option>
-              <option>Manipal University Jaipur</option>
-              <option>NMIMS</option>
-              <option>Amity University</option>
-              <option>VIT</option>
-            </select>
-            {errors.university && (
-              <p className="text-red-500 text-xs mt-1">{errors.university}</p>
-            )}
-          </div>
+                  {errors.phone && (
+                    <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+                  )}
+                </div>
+              </div>
 
-          {/* Course */}
-          <div>
-            <label className="block text-gray-800 font-medium mb-1 text-sm">
-              Course
-            </label>
-            <select
-              name="course"
-              value={formData.course}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-3 py-1.5 bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 outline-none text-sm"
-            >
-              <option value="">Select Course</option>
-              <option>MBA</option>
-              <option>BBA</option>
-              <option>BCA</option>
-              <option>MCA</option>
-            </select>
-            {errors.course && (
-              <p className="text-red-500 text-xs mt-1">{errors.course}</p>
-            )}
-          </div>
+              {/* University and Course Row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* University */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2 text-sm">
+                    University*
+                  </label>
+                  <p className="text-[10px] text-gray-500 mb-1">
+                    Let's take a better choice 💡
+                  </p>
+                  <input
+                    type="text"
+                    name="university"
+                    placeholder="Search for University"
+                    value={formData.university}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-white text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                  />
+                  {errors.university && (
+                    <p className="text-red-500 text-xs mt-1">{errors.university}</p>
+                  )}
+                </div>
 
-          {/* Phone */}
-          <div>
-            <label className="block text-gray-800 font-medium mb-1 text-sm">
-              Phone
-            </label>
-            <div className="flex border border-gray-300 rounded-lg overflow-hidden">
-              <select
-                name="phoneCode"
-                value={formData.phoneCode}
-                onChange={handleChange}
-                className="bg-gray-50 border-r border-gray-300 px-2 py-1.5 text-gray-700 text-sm outline-none focus:ring-2 focus:ring-blue-500 w-24"
+                {/* Course */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2 text-sm">
+                    Online Course*
+                  </label>
+                  <p className="text-[10px] text-gray-500 mb-1">
+                    Go for the right path for you
+                  </p>
+                  <select
+                    name="course"
+                    value={formData.course}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                  >
+                    <option value="">Select Course</option>
+                    <option value="MBA">MBA</option>
+                    <option value="BBA">BBA</option>
+                    <option value="BCA">BCA</option>
+                    <option value="MCA">MCA</option>
+                    <option value="B.COM">B.COM</option>
+                    <option value="M.COM">M.COM</option>
+                  </select>
+                  {errors.course && (
+                    <p className="text-red-500 text-xs mt-1">{errors.course}</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Message */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-2 text-sm">
+                  What do you need help with?
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="e.g. Stuck in low package / Want to switch career / Confused which course is right for me..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="3"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-white text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm resize-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                onClick={handleSubmit}
+                disabled={loading}
+                className={`w-full py-3 rounded-lg font-semibold text-sm transition duration-200 ${
+                  loading
+                    ? "bg-gray-400 cursor-not-allowed text-white"
+                    : "bg-linear-to-r from-[#345895] to-[#0B2131] text-white hover:bg-[#345895]"
+                }`}
               >
-                {countryCodes.map((c) => (
-                  <option key={c.code} value={c.code}>
-                    {c.flag} {c.code}
-                  </option>
-                ))}
-              </select>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="10-digit number"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-3 py-1.5 bg-white text-gray-800 placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-              />
+                {loading ? "Submitting..." : "Get My Guidance"}
+              </button>
             </div>
-            {errors.phone && (
-              <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
-            )}
           </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={loading}
-            className={`mt-3 w-full py-2 rounded-lg font-medium text-sm transition duration-200 ${
-              loading
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-700 text-white hover:bg-blue-800"
-            }`}
-          >
-            {loading ? "Submitting..." : "Secure Your Seat Today →"}
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   );
-}
+};
+

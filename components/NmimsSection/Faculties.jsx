@@ -21,8 +21,15 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start mb-6 sm:mb-8 md:mb-10">
           {/* Left Column - Heading (dynamic) */}
           <div className="lg:pr-8">
-            <h1 className="text-white font-[Inter] text-xl sm:text-2xl md:text-3xl lg:text-[42px] font-semibold leading-tight">
-              {heading}
+          <h1 className="
+  text-white font-[Inter] 
+  text-xl                 /* mobile */
+  sm:text-2xl             /* small screens */
+  md:text-3xl             /* tablets */
+  lg:text-[32px]         /* desktop */
+  xl:text-[40px]         /* large desktop */
+  font-semibold leading-tight
+">{heading}
             </h1>
           </div>
 

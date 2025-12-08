@@ -22,7 +22,7 @@ export default function AllInOneSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 bg-white text-center">
 
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#345895] text-center mx-auto leading-snug">
+        <h2 className="text-2xl sm:text-3xl md:text-[50px] font-extrabold text-[#345895] text-center mx-auto leading-snug">
   {TITLE}
         </h2>
 

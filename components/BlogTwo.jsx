@@ -10,12 +10,30 @@ export default function Page() {
   };
 
   const blogs = [
-  { id: 1, title: "Online MBA For Career Growth: How An Online MBA Helps You Raise From Employee To Leader", image: "/professional.png" },
-  { id: 2, title: "Why NMIMS Is The Top Choice For Working Professionals In India", image: "/professional.png" },
-  { id: 3, title: "How Online MBA’s Are Reshaping Global Careers With Data, Trends & Inspiring Success Stories", image: "/professional.png" },
-  { id: 4, title: "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility", image: "/professional.png" },
-];
-
+    {
+      id: 1,
+      title:
+        "Online MBA For Career Growth: How An Online MBA Helps You Raise From Employee To Leader",
+      image: "/professional.png",
+    },
+    {
+      id: 2,
+      title: "Why NMIMS Is The Top Choice For Working Professionals In India",
+      image: "/professional.png",
+    },
+    {
+      id: 3,
+      title:
+        "How Online MBA’s Are Reshaping Global Careers With Data, Trends & Inspiring Success Stories",
+      image: "/professional.png",
+    },
+    {
+      id: 4,
+      title:
+        "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility",
+      image: "/professional.png",
+    },
+  ];
 
   const rows = [
     {
@@ -63,7 +81,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[8%_68%_24%] gap-5 mt-20 md:mt-10 lg:mt-0 xl:mt-20 px-4">
+      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[8%_68%_24%] gap-5 mt-20 md:mt-10 lg:mt-0 xl:mt-20 px-4 ">
         {/* LEFT SOCIAL ICONS */}
         <div
           className="
@@ -423,42 +441,48 @@ export default function Page() {
         </motion.div>
 
         {/* RIGHT SIDE BLOG LINKS */}
-       <div className="flex flex-col gap-3 lg:mt-5 w-full pr-10">
-    {blogs.map((blog) => (
-    <motion.a
-      href="#"
-      key={blog.id}
-      variants={cardVariants}
-      initial="hidden"
-      animate="show"
-      className="w-full flex items-center gap-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-400 transition overflow-hidden"
-    >
-      {/* IMAGE */}
-      <div className="w-25 h-25 bg-gray-300 rounded overflow-hidden shrink-0">
-        <Image
-          src={blog.image}
-          alt={blog.title}
-          width={80}
-          height={80}
-          className="object-cover w-full h-full"
-        />
-      </div>
+        <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl overflow-hidden shadow-lg p-4">
+          <h2 className="text-2xl font-bold text-[#1a2332] mb-2">
+            Related Articles
+          </h2>
 
-      {/* CONTENT */}
-      <div className="flex-1">
-        <p className="text-[10px] break-word text-[#001A57]">
-          {blog.title}
-        </p>
+          {blogs.map((blog) => (
+            <motion.div
+              key={blog.id}
+              variants={cardVariants}
+              initial="hidden"
+              animate="show"
+              className="flex gap-3 pb-4 border-gray-200"
+            >
+              {/* IMAGE */}
+              <div className="w-[100px] h-[70px] rounded-lg overflow-hidden shrink-0">
+                <Image
+                  src={blog.image}
+                  alt={blog.title}
+                  width={100}
+                  height={70}
+                  className="object-cover w-full h-full"
+                />
+              </div>
 
-        <button className="mt-2 text-white bg-[#064E92] text-xs px-4 py-1 flex items-center gap-1 rounded-lg">
-          View
-          <ChevronRight size={12} />
-        </button>
-      </div>
-    </motion.a>
-  ))}
-</div>
+              {/* CONTENT */}
+              <div className="flex-1 min-w-0 flex flex-col justify-between">
+                <p className="text-[10px] leading-[1.4] text-[#1e5a9e] break-word">
+                  {blog.title}
+                </p>
 
+                <button className="mt-2 w-fit text-white bg-[#1e5a9e] text-[10px] px-3 py-1 rounded hover:bg-[#164a82] transition">
+                  Learnmore
+                </button>
+              </div>
+            </motion.div>
+          ))}
+
+          <button className="w-full mt-2 bg-linear-to-r from-[#5a9f5c] to-[#4a8f4c] text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:from-[#4a8f4c] hover:to-[#3a7f3c] transition">
+            View More
+            <ChevronRight size={18} />
+          </button>
+        </div>
       </div>
     </section>
   );

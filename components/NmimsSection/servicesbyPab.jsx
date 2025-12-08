@@ -41,7 +41,7 @@ export default function ServicesByPAB() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-[#345895] text-[64px] md:text-[64px] font-bold font-[Inter] leading-10 whitespace-nowrap"
+            className="text-[#345895] text-[36px] lg:text-[64px] md:text-[48px] font-bold font-[Inter] leading-10 whitespace-nowrap"
           >
             Services by PAB
           </motion.h2>
@@ -84,7 +84,7 @@ export default function ServicesByPAB() {
                 className="flex gap-4"
               >
                 {/* NUMBER */}
-                <p className="text-[#4D964F] text-9xl md:text-8xl ">
+                <p className="text-[#4D964F] text-6xl md:text-8xl lg:text-9xl ">
                   {item.num}
                 </p>
 

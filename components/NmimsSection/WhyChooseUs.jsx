@@ -29,7 +29,7 @@ export default function WhyChooseUs({ cards = [] }) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         viewport={{ once: false }}
-        className="text-[64px] font-[Inter] flex items-center justify-center text-left md:text-[64px] font-extrabold text-[#345895] mb-10"
+        className="text-[32px] font-[Inter] flex items-center justify-center text-left md:text-[64px] font-extrabold text-[#345895] mb-10"
       >
         Why Choose Us
       </motion.h2>
@@ -52,7 +52,7 @@ export default function WhyChooseUs({ cards = [] }) {
 
             {/* Dynamic Title + Subheading */}
             <div className="w-[70%]">
-              <h3 className="text-3xl font-semibold text-white text-left mt-2 mb-2">
+              <h3 className="text-[20px] md:text-3xl font-semibold text-white text-left mt-2 mb-2">
                 {card.heading}
               </h3>
               <p className="text-white text-left pb-2 text-xs">

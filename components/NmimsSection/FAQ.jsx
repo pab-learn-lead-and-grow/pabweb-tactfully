@@ -12,7 +12,7 @@ export default function FAQ({ faqs }) {
   };
 
   return (
-    <section className="w-full bg-white px-10 md:px-50 py-20">
+    <section className="w-full bg-white px-10 md:px-10 py-20">
       
       {/* FIXED TITLE (not from props) */}
       <motion.h2

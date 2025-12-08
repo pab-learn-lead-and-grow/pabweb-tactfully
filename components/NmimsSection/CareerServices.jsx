@@ -42,7 +42,7 @@ export default function CareerServices() {
   return (
     <section className="w-full bg-white mt-15 py-5 px-6 md:px-12 lg:px-20">
       {/* Heading */}
-      <h2 className="text-center text-[#345895] font-[Inter] text-5xl md:text-5xl font-extrabold mb-12">
+      <h2 className="text-center text-[#345895] font-[Inter] text-[32px] md:text-5xl font-extrabold mb-12">
         Career Services
       </h2>
 
