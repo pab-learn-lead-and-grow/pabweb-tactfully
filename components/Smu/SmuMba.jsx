@@ -46,6 +46,7 @@ import React from "react";
 import ServicesByPAB from "../NmimsSection/servicesbyPab";
 import Enrollment from "../NmimsSection/Enrollment";
 import LearningApproach from "../NmimsSection/LearningApproach";
+import MujCareerServices from "../MujCareerServices";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
 import Faculties from "../NmimsSection/Faculties";
 import ConnectToday from "../NmimsSection/ConnectToday";
@@ -263,16 +264,104 @@ export default function Page() {
     },
   ];
 
+  /* fees crousel */
+  function FeesCarousel() {
+    const cards = [
+      {
+        title: "Annual Payment",
+        amount: "₹1,10,000/-",
+        sub: "Inclusive of all taxes",
+      },
+      {
+        title: "Semester Wise",
+        amount: "₹27,500/-",
+        sub: "Inclusive of all taxes",
+      },
+      {
+        title: "EMI starting at",
+        amount: "₹4,583/-",
+        sub: "per month [Terms & Conditions apply]",
+      },
+    ];
+
+    const [index, setIndex] = useState(0);
+
+    // Auto-scroll every 3 seconds
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setIndex((prev) => (prev + 1) % cards.length);
+      }, 3000);
+
+      return () => clearInterval(timer);
+    }, []);
+
+    return (
+      <div className="w-full flex flex-col items-center">
+        {/* CARD */}
+        <div className="relative w-full flex justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -80 }}
+              transition={{ duration: 0.6 }}
+              className="
+                        bg-linear-to-b from-[#345895] to-[#101C2F]
+                        rounded-2xl shadow-lg p-8 
+                        w-[80%] md:w-[60%] lg:w-[80%]
+                        h-[260px]
+                        flex flex-col justify-between text-center
+                      "
+            >
+              <div>
+                <p className="font-semibold text-white">{cards[index].title}</p>
+                <p className="text-xs text-white mt-1">(in INR)</p>
+                <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">MBA</p>
+                <div className="w-12 mx-auto h-0.5 bg-white mt-3" />
+              </div>
+
+              <p className="text-2xl font-medium text-white mt-4">
+                {cards[index].amount}
+              </p>
+
+              {cards[index].sub && (
+                <p className="text-xs text-white italic whitespace-pre-line">
+                  {cards[index].sub}
+                </p>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* DOTS */}
+        <div className="flex gap-2 mt-4">
+          {cards.map((_, i) => (
+            <motion.button
+              key={i}
+              onClick={() => setIndex(i)}
+              animate={{
+                scale: index === i ? 1.2 : 1,
+                backgroundColor: index === i ? "#345895" : "#d1d5db",
+              }}
+              className="w-3 h-3 rounded-full"
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   const topFaculty = [
     {
       name: "Dr. Ishwer Shivakoti",
       title: "Assistant Prof. (SG) & Assistant Director",
-      image: "/professional.png",
+      image: "/smu/faculties/ishwer.png",
     },
     {
       name: "Ms. Samu Kharel",
       title: "Assistant Professor",
-      image: "/professional.png",
+      image: "/smu/faculties/samu.png",
     },
   ];
 
@@ -280,22 +369,22 @@ export default function Page() {
     {
       name: "Dr. Anupam K Pandey",
       title: "Assistant Prof.(SG)",
-      image: "/professional.png",
+      image: "/smu/faculties/anupam.png",
     },
     {
       name: "Ms. Shushmita Prasad",
       title: "Assistant Professor",
-      image: "/professional.png",
+      image: "/smu/faculties/sushmita.png",
     },
     {
       name: "Mr. Vivek Pandey",
       title: "Assistant Professor",
-      image: "/professional.png",
+      image: "/smu/faculties/vivek.png",
     },
     {
       name: "Ms.Tshering G Bhutia",
       title: "Assistant Professor",
-      image: "/professional.png",
+      image: "/smu/faculties/tshering.png",
     },
   ];
 
@@ -394,11 +483,11 @@ export default function Page() {
     { value: "2", label: "Years Duration" },
     { value: "4", label: "Semesters" },
     { value: "102", label: "Credits" },
-    { value: "Dual", label: "Specialization" },
+    { value: "15-20", label: "hours per week" },
   ];
   return (
     <main className="flex flex-col items-center w-full bg-white">
-      <section className="relative min-h-[650px] md:min-h-[750px] w-full overflow-hidden">
+      <section className="relative min-h-[650px] md:min-h-[750px] w-full">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -409,7 +498,7 @@ export default function Page() {
           />
         </div>
         {/* LOGO – move to left screen edge, keep same height */}
-        <div className="relative z-10 w-full mt-35">
+        <div className="relative z-10 w-full mt-28">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -417,10 +506,10 @@ export default function Page() {
             viewport={{ once: true }}
             className="flex"
           >
-            <div className="bg-white rounded-r-2xl shadow-md h-[100px] px-5 -mb-8 flex items-center">
+            <div className="bg-white rounded-r-xl shadow-md h-[100px] -mb-5 px-2 flex items-center">
               <Image
                 src="/smu.png"
-                alt="manipal Jaipur Logo"
+                alt="sikkim manipal Logo"
                 width={260}
                 height={100}
                 className="object-contain"
@@ -430,14 +519,14 @@ export default function Page() {
         </div>
 
         {/* CONTENT WRAPPER */}
-        <div className="relative z-10 max-w-7xl mx-auto p-6 sm:p-10">
+        <div className="relative z-10 max-w-7xl mx-auto p-6 sm:10">
           {/* Most Loved */}
           <motion.span
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-[#4d964f] text-white text-[18px] sm:text-[18px] mt-6 mb-2 px-5 py-2 rounded-full"
+            className="inline-flex items-center gap-2 bg-[#4d964f] text-white text-[18px] sm:text-[18px] mt-6 mb-2 px-4 py-1 rounded-full"
           >
             4.5 <Star size={15} />
           </motion.span>
@@ -450,7 +539,7 @@ export default function Page() {
             viewport={{ once: true }}
             className="text-white text-[16px] sm:text-[16px] italic font-light"
           >
-            (Master of Business Administration)
+            Master of Business Administration
           </motion.p>
 
           {/* TITLE + DESCRIPTION */}
@@ -460,7 +549,7 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="text-white text-4xl sm:text-5xl md:text-6xl font-[Inter] lg:text-[62px] font-bold -mt-2 leading-tight"
+              className="text-white text-4xl sm:text-5xl md:text-5xl font-[Inter] lg:text-[64px] font-bold -mt-1 leading-tight"
             >
               Online MBA with Dual Specialization
             </motion.h1>
@@ -470,14 +559,13 @@ export default function Page() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-gray-200 text-left text-[16px] sm:text-[18px] md:text-[18px] max-w-6xl mt-0 mb-10 leading-relaxed"
+              className="text-gray-200 text-left text-[16px] sm:text-[12px] md:text-[18px] max-w-5xl mt-0 mb-10 leading-relaxed"
             >
-              Step into the future of work with the UGC-entitled Online MBA from
-              Manipal University Jaipur (NAAC A+ & QS-ranked). Choose from 13
-              specializations, including Digital Marketing and Data Science,
-              with the option for super or dual specialization in Semester 3.
-              Gain Coursera access, industry certificates, placement support,
-              and the strength of the global Manipal Alumni network.
+              SMU’s NAAC A+ accredited online MBA lets working professionals
+              pick any two specializations while learning flexibly through an
+              affordable, AI-enabled platform. With expert faculty, 24/7
+              resources, and remote-proctored exams, it builds essential
+              management skills for today’s business world.
             </motion.p>
 
             {/* STATS */}
@@ -486,21 +574,20 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="grid grid-cols-2 mt-5 md:grid-cols-4 -mx-8 gap-y-6 w-5xl"
+              className="grid grid-cols-2 mt-2 md:grid-cols-2 lg:grid-cols-4  gap-y-5 w-full"
             >
               {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className={`text-center px-5 py-6 ${
-                    idx !== stats.length - 1
-                      ? "md:border-r-2 md:border-white"
-                      : ""
-                  }`}
+                  className={`text-center py-6 
+  ${idx % 2 === 0 ? "md:border-r-2 md:border-white" : ""} 
+  ${idx !== stats.length - 1 ? "lg:border-r-2 lg:border-white" : ""}
+`}
                 >
-                  <p className="text-3xl sm:text-4xl md:text-5xl font-[Inter] font-bold text-white mb-1">
+                  <p className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-white mb-1">
                     {stat.value}
                   </p>
-                  <p className="text-white text-[22px] font-bold font-[Inter] sm:text-base">
+                  <p className="text-gray-200 md:text-3xl font-bold sm:text-base">
                     {stat.label}
                   </p>
                 </div>
@@ -529,16 +616,16 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="w-full bg-white pl-6 pt-0 md:px-16">
+      <section className="w-full bg-white p-10 pt-0">
         {/* ======= ABOUT NMIMS SECTION ======= */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
+        <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#345895] mb-6">
+            <h2 className="text-[32px] md:text-4xl mt-15 lg:text-[64px] font-bold text-[#345895] mb-6">
               About <span className="text-[#B35531] ">SMU </span>
             </h2>
 
-            <p className="text-black leading-relaxed text-sm md:text-base">
+            <p className="text-black leading-relaxed text-xs lg:text-[18px] mb-10">
               Sikkim Manipal University (SMU), established in 1995, is a NAAC A+
               accredited and UGC-entitled institution known for its academic
               credibility and technology-enabled education. SMU provides
@@ -548,61 +635,96 @@ export default function Page() {
           </div>
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
-          <div className="relative w-full h-full flex md:justify-end  ">
-            <div className="w-full md:w-[90%] overflow-hidden mr-0 rounded-bl-full">
+          <div className="relative w-full h-full flex md:justify-end ">
+            <div className="max-w-7xl overflow-hidden md:-mr-10 xl:-mr-16">
               <img
-                src="/professional.png"
+                src="/smu/aboutSmu.jpeg"
                 alt="Students"
-                className="w-full h-full object-cover"
+                className="w-full h-full rounded-2xl md:rounded-bl-full object-cover"
               />
             </div>
           </div>
         </div>
       </section>
       {/* ======= SNAPSHOT SECTION ======= */}
-      <section className="w-full mt-16 px-4 md:px-18">
+      <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-10 font-[Inter]">
+          {/* HEADING */}
+          <motion.h2
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
+          >
             A Snapshot of Success
-          </h2>
+          </motion.h2>
 
           {/* BLUE BAR */}
-          <div className="bg-[#064E92] rounded-tr-full rounded-bl-full py-10 px-6 md:px-16">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+          >
+            {/* ALWAYS 3 COLUMNS */}
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
               {/* STAT 1 */}
-              <div>
-                <h3 className="text-4xl font-bold mb-2">NAAC A+</h3>
-                <p className="text-sm md:text-base font-medium opacity-90">
-                  Rajsthan's First
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[18px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-bold mb-1">
+                  NAAC A+
+                </h3>
+                <p className="text-[8px]  md:text-sm font-bold opacity-90 leading-tight">
+                  accredited
                 </p>
-              </div>
+              </motion.div>
 
               {/* STAT 2 */}
-              <div>
-                <h3 className="text-4xl font-bold mb-2">UGC</h3>
-                <p className="text-sm md:text-base font-medium opacity-90">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-bold mb-1">
+                  UGC
+                </h3>
+                <p className="text-[8px]  md:text-sm font-bold opacity-90 leading-tight">
                   Entitled Degree
                 </p>
-              </div>
+              </motion.div>
 
               {/* STAT 3 */}
-              <div>
-                <h3 className="text-4xl font-bold mb-2">#9</h3>
-                <p className="text-sm md:text-base font-medium opacity-90">
-                  Rank By Careers360
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-bold mb-1">
+                  Rank 1
+                </h3>
+                <p className="text-[8px]  md:text-sm font-bold opacity-90 leading-tight">
+                  in North East by IIRF
                 </p>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="w-full bg-white px-2 md:px-12 lg:px-20 py-12 flex flex-col gap-8">
+      <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
         {/* ===== Top Text Section ===== */}
-        <div className="max-w-232 text-left mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-[40px] leading-snug text-gray-900">
+        <div className="max-w-6xl text-left mx-auto">
+          <h2 className="text-xl md:text-2xl font-regular lg:text-[49px] leading-normal text-gray-900">
             <span className="text-[#B35531] ">
-              SMU's online MBA with dual specialization, offered by a NAAC A+
+              SMU’s online MBA with dual specialization, offered by a NAAC A+
               accredited university, prepares professionals with essential
               management skills to thrive in today’s business world.{" "}
             </span>
@@ -617,20 +739,20 @@ export default function Page() {
         </div>
 
         {/* ===== Bottom Card Section ===== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-8 max-w-6xl mx-auto">
           {/* Card 1 */}
-          <div className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-[rgba(6,78,146,0.02)] hover:bg-[rgba(6,78,146,0.05)] shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="flex flex-col gap-4 p-4 sm:p-6">
             {/* Icon */}
-            <div className="shrink-0 text-[#345895] rounded-full w-12 h-12 flex items-center justify-center">
-              <Ungroup size={70} strokeWidth={1.0} />
+            <div className="shrink-0 text-black w-15 h-15 flex items-center justify-center">
+              <Ungroup size={72} strokeWidth={1.0} />
             </div>
 
             {/* Content */}
             <div>
-              <h3 className="text-lg text-[#064E92] mb-1">
+              <h3 className="lg:text-2xl text-[#345895] mb-1">
                 Dual-Specialization Flexibility
               </h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
                  The program lets you specialise in two domains with Marketing
                 as a core specialisation plus a second area of your choice such
                 as Finance, Human Resources, Systems, Operations & Supply Chain
@@ -641,18 +763,18 @@ export default function Page() {
           </div>
 
           {/* Card 2 */}
-          <div className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-[rgba(6,78,146,0.02)] hover:bg-[rgba(6,78,146,0.05)] shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="flex flex-col gap-4 p-4 sm:p-6 ">
             {/* Icon */}
-            <div className="shrink-0 text-[#345895] rounded-full w-12 h-12 flex items-center justify-center">
-              <BookText size={70} strokeWidth={1.0} />
+            <div className="shrink-0 text-black w-12 h-12 flex items-center justify-center">
+              <BookText size={72} strokeWidth={1.0} />
             </div>
 
             {/* Content */}
             <div>
-              <h3 className="text-lg text-[#064E92] mb-1">
+              <h3 className="lg:text-2xl text-[#345895] mb-1">
                 Fully Online, Highly Flexible & Accessible
               </h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
                 Delivered entirely online via an AI-enabled learning platform,
                 the MBA allows professionals to study from anywhere, blending
                 live and recorded classes, digital resources, remote-proctored
@@ -663,7 +785,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-
       <WhyChooseUs cards={whyCards} />
 
       <CourseCurriculumSection years={[1, 2]} data={curriculumData} />
@@ -671,21 +792,21 @@ export default function Page() {
       <section className="w-full font-[Inter] px-4 md:px-10 lg:px-20 py-12">
         <div className="p-6 md:p-10">
           {/* Heading */}
-          <h2 className="text-3xl md:text-[64px] font-bold text-[#345895] mb-7">
+          <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#345895] mb-4 md:mb-7">
             Eligibility Criteria
           </h2>
 
           {/* Indian Students */}
           <div className="mb-5">
-            <h3 className="text-xl md:text-5xl italic text-[#345895] mb-4">
+            <h3 className="text-[20px] md:text-3xl lg:text-5xl italic text-[#345895] md:mb-4">
               For Indian students
             </h3>
 
             {/* Educational Qualification */}
-            <h4 className="font-bold text-[36px] text-[#1F284E] mb-1">
+            <h4 className="font-bold text-[16px] md:text-2xl xl:text-[36px] text-[#1F284E] mb-1">
               Educational qualification
             </h4>
-            <p className="text-[#1F284E] text-[32px] mb-5 leading-tight">
+            <p className="text-[#1F284E] text-[12px] md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               Candidates must have completed 10+2+3-year or 10+2+4-year or
               10+3+3-year bachelor's degree in any discipline from a recognized
               university/institution, or an equivalent qualification as
@@ -694,10 +815,10 @@ export default function Page() {
             </p>
 
             {/* Grades */}
-            <h4 className="font-bold text-[36px] text-[#1F284E] mb-1">
+            <h4 className="font-bold text-[16px] md:text-2xl xl:text-[36px] text-[#1F284E] mb-1">
               Grades
             </h4>
-            <p className="text-[#1F284E] text-[32px] mb-8 leading-tight">
+            <p className="text-[#1F284E] text-[12px] md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               Candidates must have a minimum of 50% marks in aggregate in
               graduation (45% for reserved categories).
             </p>
@@ -705,15 +826,15 @@ export default function Page() {
 
           {/* NRI & Foreign Students */}
           <div className="mb-5">
-            <h3 className="text-xl md:text-5xl italic text-[#345895] mb-4">
+            <h3 className="text-[20px] md:text-3xl lg:text-5xl italic text-[#345895] md:mb-4">
               For NRI & foreign students
             </h3>
 
             {/* Educational Qualification */}
-            <h4 className="font-bold text-[36px] text-[#1F284E] mb-1">
+            <h4 className="font-bold text-[16px] md:text-2xl xl:text-[36px] text-[#1F284E] mb-1">
               Educational qualification
             </h4>
-            <ul className="text-[#1F284E] text-[32px] mb-5 list-disc px-5 leading-tight">
+            <ul className="text-[#1F284E] text-[12px] list-disc px-5 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               <li>
                 Candidates must have completed 10+2+3-year or 10+2+4-year or
                 10+3+3-year bachelor's degree in any discipline from a
@@ -729,19 +850,19 @@ export default function Page() {
             </ul>
 
             {/* Grades */}
-            <h4 className="font-bold text-[32px] text-[#1F284E] mb-1">
+            <h4 className="font-bold text-[16px] md:text-2xl xl:text-[36px] text-[#1F284E] mb-1">
               Grades
             </h4>
-            <p className="text-[#1F284E] text-[32px] leading-tight mb-5">
+            <p className="text-[#1F284E] text-[12px] md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               Candidates must have a minimum of 50% marks in aggregate in
               graduation.
             </p>
 
             {/* Other Requirements */}
-            <h4 className="font-bold text-[36px] text-[#1F284E] mb-1">
+            <h4 className="font-bold text-[16px] md:text-2xl xl:text-[36px] text-[#1F284E] mb-1">
               Other requirements
             </h4>
-            <p className="text-[#1F284E] text-[32px] leading-tight mb-8">
+            <p className="text-[#1F284E] text-[12px] md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               Candidates who are not Indian citizens or residing outside India
               and holding NRE or PIO status will be billed an international fee
               for respective degrees & may need to submit documents mentioned
@@ -761,7 +882,7 @@ export default function Page() {
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
         {/* Faded Background Heading */}
-        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[66px] md:text-[66px] text-[rgba(6, 78, 146, 0.1)] opacity-90 select-none tracking-tight whitespace-nowrap">
+        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[rgba(6, 78, 146, 0.1)] opacity-90 select-none tracking-tight whitespace-nowrap">
           EXAMINATION PROCESS
         </h1>
 
@@ -772,7 +893,7 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-[48px] md:text-[62px] font-bold text-center text-[#345895] mb-6"
+            className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#345895] mb-6"
           >
             EXAMINATION PROCESS
           </motion.h2>
@@ -785,7 +906,7 @@ export default function Page() {
             viewport={{ once: true }}
             className="text-left text-[#345895] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
           >
-            The Sikkim Manipal Univeristy Online MBA follows a structured and
+            The Sikkim Manipal University Online MBA follows a structured and
             transparent examination process designed to evaluate learners
             through continuous assessments and end-term evaluations.
           </motion.p>
@@ -800,7 +921,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
             >
-              <h3 className="text-2xl font-semibold italic mb-5">
+              <h3 className=" text-md md:text-2xl font-semibold italic mb-5">
                 Exam Slot Booking
               </h3>
 
@@ -808,8 +929,8 @@ export default function Page() {
               <div className="space-y-5 text-lg leading-relaxed max-w-[380] mx-auto">
                 {/* POINT 1 */}
                 <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                  <span className="text-2xl leading-none">✦</span>
-                  <p className="text-left mb-6">
+                  <span className="text-lg lg:text-2xl leading-none">✦</span>
+                  <p className="text-left text-lg lg:text-2xl mb-6">
                     Learners must book their examination slots through the SMU
                     Student Portal.
                   </p>
@@ -817,8 +938,8 @@ export default function Page() {
 
                 {/* POINT 2 */}
                 <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                  <span className="text-2xl leading-no">✦</span>
-                  <p className="text-left">
+                  <span className="text-lg lg:text-2xl leading-no">✦</span>
+                  <p className="text-lg lg:text-2xl text-left">
                     All exam slot details are shared well in advance, allowing
                     candidates to schedule their tests conveniently.
                   </p>
@@ -834,11 +955,11 @@ export default function Page() {
               viewport={{ once: true }}
               className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
             >
-              <h3 className="text-2xl font-semibold italic mb-5">
+              <h3 className="text-md md:text-2xl font-semibold italic mb-5">
                 Exam Slot Timings
               </h3>
 
-              <p className="text-lg max-w-[380] mb-6 text-center">
+              <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-center">
                 For end-term examinations, SMU provides three available slots:
               </p>
 
@@ -854,7 +975,7 @@ export default function Page() {
                 ))}
               </div>
 
-              <p className="text-lg max-w-[380] text-center">
+              <p className="text-lg lg:text-[2xl] max-w-[380] text-center">
                 Candidates may choose their preferred slot based on
                 availability.
               </p>
@@ -864,196 +985,95 @@ export default function Page() {
       </section>
 
       <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
-        <div className="max-w-4xl mx-auto p-6 md:p-10">
-          {/* Heading */}
-          <h2 className="text-4xl md:text-[40] font-bold italic text-[#345895] mb-12 text-center">
+        <div className="max-w-6xl mx-auto p-6 md:p-10">
+          {/* HEADING */}
+          <h2 className="text-[24px] md:text-[40px] font-bold italic text-[#345895] mb-12 text-center">
             ASSESSMENT STRUCTURE (100 MARKS)
           </h2>
 
-          {/* Two Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
-            {/* Left Category */}
-            <div className="space-y-2">
+          {/* TWO CATEGORIES */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* LEFT CATEGORY */}
+            <div className="space-y-2 w-full">
               <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
-                End-term Examination (70 Marks)
+                External Assessment – 70 Marks
               </div>
 
-              <div className="flex flex-cols-2 gap-1">
-                <div className="rounded-lg border border-[#345895] py-3 px-2 text-sm text-center text-[#345895] bg-white">
+              {/* FULL-WIDTH SPLIT ROW */}
+              <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
                   MCQ (40 Marks)
                 </div>
-                <div className="rounded-lg border border-[#345895] py-3 px-3 text-sm text-center text-[#345895] bg-white">
+                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
                   Descriptive Answers (30 Marks)
                 </div>
               </div>
             </div>
 
-            {/* Right Category */}
-            <div className="space-y-2">
+            {/* RIGHT CATEGORY */}
+            <div className="space-y-2 w-full">
               <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
-                Internal Assessment (30 Marks)
+                Internal Assessment – 30 Marks
               </div>
 
-              <div className="flex flex-cols-2 gap-2">
-                <div className="rounded-lg border border-[#345895] py-3 px-16 text-sm text-center text-[#345895] bg-white">
+              {/* FULL-WIDTH SPLIT ROW */}
+              <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
                   Quiz
                 </div>
-                <div className="rounded-lg border border-[#345895] py-3 px-16 text-sm text-center text-[#345895] bg-white">
+                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
                   Assignment
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Passing Criteria Box */}
-          <div className="border border-[#e5e7eb] rounded-lg p-5 mt-15 bg-white">
+          {/* PASSING CRITERIA */}
+          <div className="border border-[#e5e7eb] rounded-lg p-5 mt-12 bg-white">
             <p className="font-semibold text-black mb-1">Passing Criteria</p>
-            <ul className="list-disc pl-8 text-[#345895] text-lg">
+            <ul className="list-disc pl-6 text-[#345895] text-sm md:text-lg">
               <li>
                 A candidate must secure a minimum of 40% to successfully pass
-                the course
+                the course.
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section className="w-full bg-white mt-15 py-5 px-6 md:px-12 lg:px-20">
-        {/* Heading */}
-        <h2 className="text-center text-[#345895] font-[Inter] text-6xl md:text-5xl font-extrabold mb-12">
-          Career Services
-        </h2>
-
-        {/* Main rounded container */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto bg-white shadow-xl rounded-3xl p-10 md:p-14"
-        >
-          {/* ALL 6 BENEFITS — 3 ON TOP, 3 BELOW */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-            {benefits.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center flex flex-col items-center"
-              >
-                <div className="mb-4">{item.icon}</div>
-                <h3 className="text-[#345895] font-extrabold font-[Inter] text-xl mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-[#345895] text-sm max-w-60 mx-auto leading-relaxed">
-                  {item.text}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <div className="flex justify-center mt-12">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-[#4D964F] text-white mt-4 px-6 py-2 rounded-lg text-sm 
-              bg-linear-to-r from-[#4D964F] to-[#193019] border-0
-              shadow-[#1C361D] shadow-md transform hover:scale-105 
-              duration-200 flex items-center justify-center gap-4 transition"
-            >
-              Explore Your Benefits
-              <ArrowRight size={16} />
-            </motion.button>
-          </div>
-        </motion.div>
-      </section>
+      <MujCareerServices benefits={benefits} />
 
       <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
-        {/* CONTAINER BORDER BOX */}
-        <div className="px-2">
-          {/* FLEX WRAPPER */}
-          <div className="flex flex-row justify-center items-center gap-10">
+        <div className="px-2 w-full">
+          <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
             {/* LEFT SIDE TEXT */}
-            <div className="w-full lg:w-[45%] flex flex-col justify-center">
-              <h2 className="text-[#064E92] text-[42px] md:text-[52px] font-extrabold leading-[110%] mb-6">
+            <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
+              <h2 className="text-[#064E92] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4 md:mb-10">
                 Fees Structure
               </h2>
 
-              <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-xl mb-6">
-                Convenient Fee Payment Option:
+              {/* Subtitle */}
+              <p className="text-gray-700 text-sm md:text-base leading-tight lg:max-w-xl md:mb-10">
+                Convenient Fee payment option:
                 <br />
                 Choose your preferred fee payment option
               </p>
 
-              <button className=" text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] mt-5 font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration 200 flex items-center justify-center w-fit">
+              {/* CTA visible only on large screens */}
+              <button className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
                 Compare all Plans
               </button>
             </div>
 
             {/* RIGHT SIDE CARDS */}
-            <div className="flex flex-row items-start justify-center font-[Inter] gap-6 lg:w-[35%] pr-25">
-              {/* Annual PAYMENT CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] border rounded-xl shadow-sm px-6 py-8 w-[100px] md:w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center ">
-                  <p className="font-semibold text-white">Annual Payment</p>
-                  <p className="text-xs text-white mt-1">in INR</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">
-                    MBA
-                  </p>
-                  <div className="w-30 mx-auto h-0.5 bg-white mt-3" />
-                </div>
-
-                <p className="text-2xl md:text-3xl font-bold text-white text-center mt-5">
-                  1,10,000/-
-                </p>
-                <p className="text-xs text-white text-center italic mb-5 ">
-                  inclusive of all taxes
-                </p>
-              </div>
-              {/* Semester wise CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] border rounded-xl shadow-sm px-6 py-8 w-[100px] md:w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center ">
-                  <p className="font-semibold text-white">Semester wise</p>
-                  <p className="text-xs text-white mt-1">in INR</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">
-                    MBA
-                  </p>
-                  <div className="w-30 mx-auto h-0.5 bg-white mt-3" />
-                </div>
-
-                <p className="text-2xl md:text-3xl font-bold text-white text-center mt-5">
-                  27,500/-
-                </p>
-                <p className="text-xs text-white text-center italic mb-5 ">
-                  inclusive of all taxes
-                </p>
-              </div>
-
-              {/* EMI CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] rounded-xl shadow-md px-6 py-8 w-[100px] md:w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center">
-                  <p className="font-semibold text-white">EMI Strating at </p>
-                  <p className="text-xs text-white mt-1">in INR</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">
-                    MBA
-                  </p>
-                  <div className="w-30 mx-auto h-0.5 bg-white mt-3" />
-                </div>
-
-                <p className="text-2xl md:text-3xl font-bold text-white text-center mt-5">
-                  4,583/-
-                </p>
-                <p className="text-xs text-white text-center italic mb-5 ">
-                  per month
-                </p>
-                <p className="text-xs text-white text-center italic mb-5 ">
-                  T&C apply
-                </p>
-              </div>
+            <div className="w-full lg:w-[35%] flex justify-center">
+              <FeesCarousel />
             </div>
+
+            {/* CTA below carousel on mobile only */}
+            <button className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+              Compare all Plans
+            </button>
           </div>
         </div>
       </section>
@@ -1101,37 +1121,46 @@ export default function Page() {
         defaultOpen={0}
       />
 
-      <section className="w-full mt-20">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[60%_40%] items-center font-[Inter] gap-6">
+      <section className="w-full flex items-center justify-center px-6 md:px-18">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-20">
           {/* LEFT CONTENT */}
-          <div className="space-y-4 pr-4">
-            <p className="text-[#1F1717] text-sm font-medium">Degree Sample</p>
-
-            {/* FIXED THREE-LINE HEADING WITH SMOOTH LINE-HEIGHT */}
-            <h2 className="text-[#345895] text-[46px] md:text-[52px] lg:text-[62px] font-bold leading-[1.05] max-w-[720px]">
-              <span className="block">Sikkim Manipal</span>
-              <span className="block">University Online</span>
-              <span className="block">MBA Certificate</span>
-            </h2>
-
-            <p className="text-[#3C3C43] max-w-[530px] text-base leading-relaxed">
-              Graduate with UGC-entitled and
-              <br />
-              internationally accepted online degrees.
+          <div className="space-y-5">
+            <p className="text-[#1F1717] mb-1 mt-5 text-sm font-medium">
+              Degree Sample
             </p>
 
-            <button className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] border-0 shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center">
+            <h2 className="text-[#345895] text-[32px] md:text-[40px] lg:text-[64px] font-bold leading-tight">
+              Sikkim Manipal<br/>
+               University Online <br />
+              MBA Certificate
+            </h2>
+
+            <p className="text-[#3C3C43] max-w-[350px] text-base">
+              Graduate with UGC-entitled and
+              <br /> internationally accepted online degrees.
+            </p>
+
+            {/* IMAGE that appears ONLY on mobile, above CTA */}
+            <div className="md:hidden flex justify-center">
+              <img
+                src="/smu/smuMbaDegree.png"
+                alt="Certificate Preview"
+                className="w-full max-w-xs rounded-lg shadow-sm"
+              />
+            </div>
+
+            {/* CTA BUTTON */}
+            <button className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center">
               Know more
             </button>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="flex justify-end">
+          {/* RIGHT IMAGE (visible only on md+ screens) */}
+          <div className="hidden md:flex justify-center mt-5">
             <img
-              src="/office.png"
+              src="/smu/smuMbaDegree.png"
               alt="Certificate Preview"
-              className="rounded-lg shadow-sm object-cover"
-              style={{ width: "484px", height: "343px" }}
+              className="w-full max-w-sm rounded-lg shadow-sm"
             />
           </div>
         </div>
@@ -1160,7 +1189,7 @@ export default function Page() {
         </motion.h2>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-5">
           {/* LEFT COLUMN */}
           <div className="flex flex-col gap-12">
             {/* Item 1 */}
@@ -1171,13 +1200,31 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#345895] rounded-full flex items-center justify-center">
-                <UserLock size={50} strokeWidth={1.0} className="text-white" />
+              <div
+                className="
+             shrink-0
+             w-18 h-18
+             md:w-14 md:h-14
+             lg:w-18 lg:h-18 
+             bg-[#345895]
+             rounded-full
+             flex items-center justify-center
+           "
+              >
+                <UserLock
+                  strokeWidth={1.0}
+                  className="
+                 text-white
+                 w-8 h-8
+                 md:w-8 md:h-8
+                 lg:w-9 lg:h-9
+               "
+                />
               </div>
 
               <div>
                 <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
-                  Dual-Domain Expertise and versatility
+                  Dual Domain Expertise & Versatility
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
                   You graduate with knowledge and skills in two management
@@ -1196,8 +1243,26 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#345895] rounded-full flex items-center justify-center">
-                <GlobeLock size={50} strokeWidth={1.0} className="text-white" />
+              <div
+                className="
+             shrink-0
+             w-18 h-18
+             md:w-14 md:h-14
+             lg:w-18 lg:h-18 
+             bg-[#345895]
+             rounded-full
+             flex items-center justify-center
+           "
+              >
+                <GlobeLock
+                  strokeWidth={1.0}
+                  className="
+                 text-white
+                 w-8 h-8
+                 md:w-8 md:h-8
+                 lg:w-9 lg:h-9
+               "
+                />
               </div>
 
               <div>
@@ -1209,7 +1274,7 @@ export default function Page() {
                   decision-making, problem-solving, global business environment,
                   and project management — essential for mid- to senior-level
                   roles.
-                </p>{" "}
+                </p>
               </div>
             </motion.div>
           </div>
@@ -1224,24 +1289,42 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#345895] rounded-full flex items-center justify-center">
-                <Headset size={50} strokeWidth={1.0} className="text-white" />
+              <div
+                className="
+             shrink-0
+             w-18 h-18
+             md:w-14 md:h-14
+             lg:w-18 lg:h-18 
+             bg-[#345895]
+             rounded-full
+             flex items-center justify-center
+           "
+              >
+                <Headset
+                  strokeWidth={1.0}
+                  className="
+                 text-white
+                 w-8 h-8
+                 md:w-8 md:h-8
+                 lg:w-9 lg:h-9
+               "
+                />
               </div>
 
               <div>
                 <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
-                  Flexibility to Study While Working
+                  Flexible to Study While Working
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
                   As a fully online program, it lets you balance work and study.
                   Live & recorded classes, e-library access, remote exams, and
                   24/7 learning support allow you to upgrade your qualification
-                  without interrupting your career.{" "}
+                  without interrupting your career.
                 </p>
               </div>
             </motion.div>
 
-            {/* Item 5 */}
+            {/* Item 4 */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -1249,11 +1332,25 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#345895] rounded-full flex items-center justify-center">
+              <div
+                className="
+             shrink-0
+             w-18 h-18
+             md:w-14 md:h-14
+             lg:w-18 lg:h-18 
+             bg-[#345895]
+             rounded-full
+             flex items-center justify-center
+           "
+              >
                 <StickyNote
-                  size={50}
                   strokeWidth={1.0}
-                  className="text-white"
+                  className="
+                 text-white
+                 w-8 h-8
+                 md:w-8 md:h-8
+                 lg:w-9 lg:h-9
+               "
                 />
               </div>
 
@@ -1264,31 +1361,34 @@ export default function Page() {
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
                   With an MBA degree from a NAAC A+ & UGC-entitled institution,
                   dual specialization, and comprehensive management training,
-                  you'll be well-positioned for a wide range of job roles across
-                  sectors.{" "}
+                  you’ll be well-positioned for a wide range of job roles across
+                  sectors.
                 </p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-      <section className="w-full bg-white py-20 px-16 md:px-12 lg:px-20">
-        <div className="w-full bg-[#064E92] rounded-4xl py-20 px-16 md:px-12 lg:px-20">
-          {/* White inner container */}
+      <section className="w-full bg-white py-20 md:px-12 lg:px-20">
+        <div className="w-full md:bg-[#345895] rounded-4xl py-20 px-6 md:px-12 lg:px-20">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white rounded-[40px] p-6 md:p-12 max-w-7xl mx-auto"
+            className="bg-white rounded-[40px] md:p-12 max-w-7xl mx-auto"
           >
             {/* Title */}
-            <div className="text-center mb-10 relative pb-3">
+            <div className="text-center md:mb-4 pb-3">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-[#064E92] font-extrabold font-[Inter] text-3xl md:text-5xl"
+                className="
+                                    text-[#345895] 
+                                      font-bold font-[Inter] 
+                                      text-[32px] md:text-5xl lg:text-[64px] 
+                                      leading-tight"
               >
                 Career Opportunities
               </motion.h2>
@@ -1299,7 +1399,7 @@ export default function Page() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center flex justify-center text-black max-w-3xl mx-auto mb-12"
+              className="text-center text-black text-[18px] md:text-[20px] max-w-2xl mx-auto md:mb-12"
             >
               Gain practical, job-ready skills through diploma programs designed
               to help you grasp industry fundamentals and begin your career with
@@ -1313,32 +1413,38 @@ export default function Page() {
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
+                className="flex justify-center"
               >
-                <div className="rounded-2xl overflow-hidden shadow-md">
-                  <Image
-                    src="/professional.png"
-                    width={566}
-                    height={390}
-                    alt="Career handshake"
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
+                <Image
+                  src="/nmimsCareer.png"
+                  width={400}
+                  height={400}
+                  alt="Career Opportunities"
+                  className="
+                    w-full 
+                    mt-10
+                    sm:mt-0
+                    max-w-[260px]  /* Medium screens */
+                    lg:max-w-[400px]   /* Large screens */
+                    object-contain
+                    mx-auto
+                  "
+                />
               </motion.div>
 
-              {/* RIGHT LIST — ROLES directly written here */}
+              {/* RIGHT LIST */}
               <motion.div
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 className="flex flex-col gap-4"
               >
-                {/* Each line manually listed */}
                 {[
                   "Marketing Management",
                   "Supply Chain Management",
                   "Logistics Management",
                   "IT Consultancy",
-                  "Portfolio Management",
+                  "Portfolio Management ",
                 ].map((role, index) => (
                   <motion.div
                     key={index}
@@ -1347,10 +1453,9 @@ export default function Page() {
                     transition={{ duration: 0.35, delay: index * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <span className="w-7 h-7 rounded-full bg-[#4d964f] flex items-center justify-center">
+                    <span className="w-7 h-7 rounded-full bg-[#4D964F] flex items-center justify-center">
                       <Check size={18} className="text-white" />
                     </span>
-
                     <span className="text-gray-900 font-semibold text-lg">
                       {role}
                     </span>
@@ -1361,7 +1466,14 @@ export default function Page() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
-                  className=" w-[200px] bg-[#4D964F] text-white mt-4 px-6 py-3 rounded-lg text-sm bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform hover:scale-105 duration 200"
+                  className="
+                              w-[200px] 
+                              mt-6 py-3 px-6 
+                              rounded-lg 
+                              text-white text-sm 
+                              bg-linear-to-r from-[#4D964F] to-[#193019]
+                              shadow-md shadow-[#1C361D]/40
+                            "
                 >
                   Know more
                 </motion.button>
@@ -1381,14 +1493,14 @@ export default function Page() {
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-16">
         {/* TITLE */}
-        <h2 className="text-[#345895] font-extrabold flex flex-row items-center justify-center font-[Inter] text-[42px] md:text-[64px] mb-8">
+        <h2 className="text-[#345895] font-bold flex flex-row items-center justify-center font-[Inter] md:text-[42px] text-[36px] mb-8">
           Important Dates
         </h2>
 
         {/* TABLE WRAPPER */}
         <div className="w-full overflow-hidden">
           {/* HEADER ROW */}
-          <div className=" max-w-5xl flex items-center justify-center md:grid grid-cols-2 bg-[#E5E5E5] text-[#4D964F] font-semibold text-center m-auto px-30 gap-25 py-8 text-[24px] rounded-xl">
+          <div className=" max-w-5xl flex items-center justify-center md:grid grid-cols-2 bg-[#E5E5E5] text-[#4D964F] font-semibold text-center m-auto px-10 lg:px-30 gap-10 lg:gap-25 py-8 text-[16px] md:text-[24px] rounded-xl">
             <p>LAST ADMISSION DATE</p>
             <p>27TH NOVEMBER 2025</p>
           </div>

@@ -13,7 +13,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="w-full bg-white px-6 flex lg:min-h-[70vh] min-h-auto items-center"
+      className="w-full bg-white px-6 flex lg:min-h-[50vh] min-h-auto items-center"
       style={{
         borderTop: "2px solid #064E924D",
       }}

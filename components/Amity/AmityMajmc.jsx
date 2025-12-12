@@ -48,6 +48,7 @@ import ServicesByPAB from "../NmimsSection/servicesbyPab";
 import Enrollment from "../NmimsSection/Enrollment";
 import LearningApproach from "../NmimsSection/LearningApproach";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
+import MujCareerServices from "../MujCareerServices";
 import Faculties from "../NmimsSection/Faculties";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
@@ -93,14 +94,14 @@ export default function Page() {
       title: "Submit & Register",
       desc: "Submit your application and complete your registration",
     },
-    {
+     {
       num: "05",
       title: "Await Enrollment Details",
       desc: "Wait for enrollment details & further guidance.",
     },
   ];
 
-  const faqs = [
+    const faqs = [
     {
       q: "What is the duration and format of the MAJMC program?",
       a: "The program runs for 2 years (4 semesters) and is delivered completely online, with live + recorded lectures and fully digital coursework.",
@@ -123,16 +124,104 @@ export default function Page() {
     },
   ];
 
-  const topFaculty = [
+    /* fees crousel */
+    function FeesCarousel() {
+      const cards = [
+        {
+          title: "Annual Payment",
+          amount: "₹1,70,000/-",
+          sub: "Inclusive of all taxes",
+        },
+        {
+          title: "Semester Wise",
+          amount: "₹42,500/-",
+          sub: "Inclusive of all taxes",
+        },
+        {
+          title: "EMI starting at",
+          amount: "₹7,083/-",
+          sub: "per month [Terms & Conditions apply]",
+        },
+      ];
+  
+      const [index, setIndex] = useState(0);
+  
+      // Auto-scroll every 3 seconds
+      useEffect(() => {
+        const timer = setInterval(() => {
+          setIndex((prev) => (prev + 1) % cards.length);
+        }, 3000);
+  
+        return () => clearInterval(timer);
+      }, []);
+  
+      return (
+        <div className="w-full flex flex-col items-center">
+          {/* CARD */}
+          <div className="relative w-full flex justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 80 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -80 }}
+                transition={{ duration: 0.6 }}
+                className="
+                              bg-linear-to-b from-[#345895] to-[#101C2F]
+                              rounded-2xl shadow-lg p-8 
+                              w-[80%] md:w-[60%] lg:w-[80%]
+                              h-[260px]
+                              flex flex-col justify-between text-center
+                            "
+              >
+                <div>
+                  <p className="font-semibold text-white">{cards[index].title}</p>
+                  <p className="text-xs text-white mt-1">(in INR)</p>
+                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">MAJMC</p>
+                  <div className="w-12 mx-auto h-0.5 bg-white mt-3" />
+                </div>
+  
+                <p className="text-2xl font-medium text-white mt-4">
+                  {cards[index].amount}
+                </p>
+  
+                {cards[index].sub && (
+                  <p className="text-xs text-white italic whitespace-pre-line">
+                    {cards[index].sub}
+                  </p>
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+  
+          {/* DOTS */}
+          <div className="flex gap-2 mt-4">
+            {cards.map((_, i) => (
+              <motion.button
+                key={i}
+                onClick={() => setIndex(i)}
+                animate={{
+                  scale: index === i ? 1.2 : 1,
+                  backgroundColor: index === i ? "#345895" : "#d1d5db",
+                }}
+                className="w-3 h-3 rounded-full"
+              />
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+   const topFaculty = [
     {
       name: "Dr. Rashmi Saxena",
       title: "Assistant Professor",
-      image: "/professional.png",
+      image: "/amity/faculties/rashmi.png",
     },
     {
       name: "Mona Chaudhary",
       title: "Assistant Professor",
-      image: "/professional.png",
+      image: "/amity/faculties/mona.png",
     },
   ];
 
@@ -140,28 +229,37 @@ export default function Page() {
     {
       name: "Dr. Pragati Sahai",
       title: "Assistant Professor",
-      image: "/professional.png",
+      image: "/amity/faculties/pragati.png",
     },
     {
       name: "Dr. Harshita",
       title: "Assistant Professor",
-      image: "/professional.png",
+      image: "/amity/faculties/harshita.png",
     },
     {
       name: "Dr. Coral J Barboza",
       title: "Associate Professor",
-      image: "/professional.png",
+      image: "/amity/faculties/coral.png",
     },
     {
       name: "Dr. Maitri Savarna",
       title: "Professor",
-      image: "/professional.png",
+      image: "/amity/faculties/maitri.png",
     },
   ];
 
+
+  const semesters = [1, 2, 3, 4];
+   const semSuffix = {
+    1: "st",
+    2: "nd",
+    3: "rd",
+    4: "th",
+  };
+
   const subjects = [{ id: 1, name: "Online MAJMC" }];
 
-  const terms = [1, 2, 3, 4];
+   
 
   const topicsData = {
     1: {
@@ -196,12 +294,7 @@ export default function Page() {
     },
   };
   const [activeSubject, setActiveSubject] = useState(1);
-  const [activeterms, setActiveterms] = useState(1);
-  const ordinal = (n) => {
-    const s = ["th", "st", "nd", "rd"];
-    const v = n % 100;
-    return n + (s[(v - 20) % 10] || s[v] || s[0]);
-  };
+  const [activeSemester, setActiveSemester] = useState(1);
 
   const whyCards = [
     {
@@ -288,19 +381,19 @@ export default function Page() {
     { value: "Scholarships", label: "Available" },
   ];
   return (
-    <main className="flex flex-col items-center w-full bg-white">
-      <section className="relative min-h-[650px] md:min-h-[750px] w-full overflow-hidden">
+      <main className="flex flex-col items-center w-full bg-white">
+      <section className="relative min-h-[650px] md:min-h-[750px] w-full ">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/amityClg.png"
+            src="/amity/amityClg.png"
             alt="Campus"
             fill
             className="object-cover object-center"
           />
         </div>
         {/* LOGO – move to left screen edge, keep same height */}
-        <div className="relative z-10 w-full mt-35">
+        <div className="relative z-10 w-full mt-28">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -308,11 +401,11 @@ export default function Page() {
             viewport={{ once: true }}
             className="flex"
           >
-            <div className="bg-white rounded-r-2xl shadow-md h-[100px] px-5 -mb-8 flex items-center">
+            <div className="bg-white rounded-r-2xl shadow-md h-[100px] -mb-5 flex items-center">
               <Image
                 src="/amity.png"
-                alt="Amity Logo"
-                width={260}
+                alt="AMITY Logo"
+                width={280}
                 height={100}
                 className="object-contain"
               />
@@ -322,13 +415,14 @@ export default function Page() {
 
         {/* CONTENT WRAPPER */}
         <div className="relative z-10 max-w-6xl mx-auto p-6 sm:p-10">
+
           {/* Subtext */}
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-white text-[16px] sm:text-[16px] mt-8 italic font-light"
+            className="text-white text-[16px] sm:text-[16px] mt-10 italic font-light"
           >
             Master of Arts (MAJMC) in Journalism and Mass Communication
           </motion.p>
@@ -340,7 +434,7 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="text-white text-4xl sm:text-5xl md:text-6xl font-[Inter] lg:text-[58px] font-bold -mt-2 leading-tight"
+              className="text-white text-4xl sm:text-5xl md:text-5xl lg:text-7xl lg:text-[54px] font-[Inter] font-bold -mt-1 leading-tight"
             >
               Online MA-JMC
             </motion.h1>
@@ -350,11 +444,9 @@ export default function Page() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-gray-200 text-left text-[16px] sm:text-[18px] md:text-[18px] max-w-6xl mt-0 mb-10 leading-relaxed"
+              className="text-gray-200 text-left text-[16px] md:text-[18px] max-w-6xl mt-0 mb-10 leading-relaxed"
             >
-              Boost your global career with India’s first UGC-approved Online
-              MA-JMC. Gain expertise in finance, marketing, and accounting with
-              guidance from international faculty.{" "}
+           Launch your media career with India’s first UGC-entitled Online MAJMC. Learn advanced storytelling, media production, and strategic communication from global experts, and build a strong portfolio through live projects and research.
             </motion.p>
 
             {/* STATS */}
@@ -363,21 +455,19 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="grid grid-cols-2 mt-5 md:grid-cols-4 gap-y-6 w-6xl"
+              className="grid grid-cols-2 lg:grid-cols-3 mt-5 lg:-mx-10 gap-y-4 font-[Inter] w-full"
             >
               {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className={`text-center px-15 py-6 ${
-                    idx !== stats.length - 1
-                      ? "md:border-r-2 md:border-white"
-                      : ""
-                  }`}
+                  className={`text-center py-6
+  ${idx !== stats.length - 1 ? "lg:border-r-2 lg:border-white" : ""}
+`}
                 >
-                  <p className="text-3xl sm:text-4xl md:text-5xl font-[Inter] font-bold text-white mb-1">
+                  <p className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-white mb-1">
                     {stat.value}
                   </p>
-                  <p className="text-white text-[22px] font-bold font-[Inter] sm:text-base">
+                  <p className="text-white md:text-3xl font-bold sm:text-base">
                     {stat.label}
                   </p>
                 </div>
@@ -397,7 +487,7 @@ export default function Page() {
                 <Download size={20} />
               </button>
 
-              <button className="bg-green-500 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
+              <button className="bg-[#4D964F] flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
                 Talk to an Expert
                 <ArrowRight size={16} />
               </button>
@@ -405,17 +495,16 @@ export default function Page() {
           </div>
         </div>
       </section>
-
-      <section className="w-full bg-white pl-6 pt-0 md:px-16">
-        {/* ======= ABOUT NMIMS SECTION ======= */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
+      <section className="w-full bg-white pt-0 p-10">
+        {/* ======= ABOUT AMITY SECTION ======= */}
+        <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-6xl md:text-6xl font-bold text-[#345895] mb-6">
+            <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-15 font-bold text-[#345895] mb-6">
               About <span className="text-[#F9BD04] ">Amity </span>
             </h2>
 
-            <p className="text-black leading-relaxed text-sm md:text-base">
+            <p className="text-black leading-relaxed text-sm md:text-[18px] mb-10">
               Amity University Online, approved by the UGC, is a leading
               provider of online higher education in India, offering various
               undergraduate, postgraduate, diploma, and certificate programs.
@@ -429,103 +518,134 @@ export default function Page() {
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
           <div className="relative w-full h-full flex md:justify-end  ">
-            <div className="w-full md:w-[90%] overflow-hidden mr-0 rounded-bl-full">
+            <div className="max-w-7xl overflow-hidden  lg:-mr-10 xl:-mr-16">
               <img
-                src="/professional.png"
+                src="/amity/aboutAmity.png"
                 alt="Students"
-                className="w-full h-full object-cover"
+                className="w-full h-full rounded-2xl md:rounded-bl-full object-content"
               />
             </div>
           </div>
         </div>
       </section>
       {/* ======= SNAPSHOT SECTION ======= */}
-      <section className="w-full mt-16 px-4 md:px-18">
+      <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-10 font-[Inter]">
+          {/* HEADING */}
+          <motion.h2
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
+          >
             A Snapshot of Success
-          </h2>
+          </motion.h2>
 
           {/* BLUE BAR */}
-          <div className="bg-[#064E92] rounded-tr-full rounded-bl-full py-10 px-6 md:px-16">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+          >
+            {/* ALWAYS 3 COLUMNS */}
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
               {/* STAT 1 */}
-              <div>
-                <h3 className="text-4xl font-bold mb-2">NAAC A+</h3>
-                <p className="text-sm md:text-base font-medium opacity-90">
-                  Accredited
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[18px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-bold mb-1">
+                  NAAC A+
+                </h3>
+                <p className="text-[8px]  md:text-sm font-bold opacity-90 leading-tight">
+                  accredited
                 </p>
-              </div>
+              </motion.div>
 
               {/* STAT 2 */}
-              <div>
-                <h3 className="text-4xl font-bold mb-2">1.6 lakh+</h3>
-                <p className="text-sm md:text-base font-medium opacity-90">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-bold mb-1">
+                  1.6 lakh+
+                </h3>
+                <p className="text-[8px]  md:text-sm font-bold opacity-90 leading-tight">
                   working professionals enrolled
                 </p>
-              </div>
+              </motion.div>
 
               {/* STAT 3 */}
-              <div>
-                <h3 className="text-4xl font-bold mb-2">AICTE</h3>
-                <p className="text-sm md:text-base font-medium opacity-90">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-bold mb-1">
+                  AICTE
+                </h3>
+                <p className="text-[8px]  md:text-sm font-bold opacity-90 leading-tight">
                   approved
                 </p>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="w-full bg-white px-2 md:px-12 lg:px-20 py-12 flex flex-col gap-8">
+      <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
         {/* ===== Top Text Section ===== */}
-        <div className="max-w-7xl text-left mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-[40px] leading-snug text-gray-900">
+        <div className="max-w-6xl text-left mx-auto">
+          <h2 className="text-xl md:text-2xl font-regular lg:text-[49px] leading-normal text-gray-900">
             <span className="text-[#F9BD04] ">
-              Launch your media career with India's first UGC-entitled Online
-              MAJMC.{" "}
+             Launch your media career with India’s first UGC-entitled Online MAJMC. {" "}
             </span>
-            Explore powerful storytelling techniques, modern media production,
-            and strategic communication guided by leading international experts.
-            Work on live industry projects and advanced research to showcase
-            your creativity and stay ahead in the competitive media landscape.{" "}
-          </h2>
+           Explore powerful storytelling techniques, modern media production, and strategic communication guided by leading international experts. Work on live industry projects and advanced research to showcase your creativity and stay ahead in the competitive media landscape.
+           </h2>
         </div>
 
         {/* ===== Bottom Card Section ===== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-8 max-w-6xl mx-auto">
           {/* Card 1 */}
-          <div className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-[rgba(6,78,146,0.02)] hover:bg-[rgba(6,78,146,0.05)] shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="flex flex-col gap-4 p-4 sm:p-6">
             {/* Icon */}
-            <div className="shrink-0 text-[#345895] rounded-full w-12 h-12 flex items-center justify-center">
-              <Ungroup size={70} strokeWidth={1.0} />
+            <div className="shrink-0 text-black w-12 h-12 flex items-center justify-center">
+              <Ungroup size={72} strokeWidth={1.0} />
             </div>
 
             {/* Content */}
             <div>
-              <h3 className="text-lg text-[#064E92] mb-1">
-                Real World Projects
+              <h3 className="lg:text-2xl text-[#345895] mb-1">
+                Real World projects
               </h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Work on live projects and real-world case studies that prepare
-                you to excel in your industry.
-              </p>
+              <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
+               Work on live projects and real-world case studies that prepare you to excel in your industry.
+               </p>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-[rgba(6,78,146,0.02)] hover:bg-[rgba(6,78,146,0.05)] shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="flex flex-col gap-4 p-4 sm:p-6">
             {/* Icon */}
-            <div className="shrink-0 text-[#345895] rounded-full w-12 h-12 flex items-center justify-center">
-              <BookText size={70} strokeWidth={1.0} />
+            <div className="shrink-0 text-black w-12 h-12 flex items-center justify-center">
+              <BookText size={72} strokeWidth={1.0} />
             </div>
 
             {/* Content */}
             <div>
-              <h3 className="text-lg text-[#064E92] mb-1">Global Education</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Experience a truly global education with renowned international
-                faculty.
+              <h3 className="lg:text-2xl text-[#345895] mb-1">
+                Global education
+              </h3>
+              <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
+               Experience a truly global education with renowned international faculty.
               </p>
             </div>
           </div>
@@ -534,13 +654,13 @@ export default function Page() {
 
       <WhyChooseUs cards={whyCards} />
 
-      <section className="w-full bg-white px-6 mt-10 md:px-16 py-20">
+      <section className="w-full bg-white px-4 md:px-16 py-20">
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-[52px] md:text-[64px] leading-[110%] font-extrabold font-[Inter] text-center text-[#345895] mb-10"
+          className="text-[32px] md:text-[64px] leading-[110%] font-extrabold font-[Inter] text-center text-[#345895] mb-10"
         >
           Syllabus
         </motion.h2>
@@ -550,27 +670,107 @@ export default function Page() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="bg-[#345895] rounded-[30px] p-8 md:p-12 flex flex-col lg:flex-row gap-10"
+          className="
+                       bg-[#345895] rounded-[30px]
+                       p-4 sm:p-6 md:p-12
+                       flex flex-col xl:flex-row gap-6 md:gap-10
+                     "
         >
-          {/* LEFT COLUMN — SUBJECTS */}
-          <div className="w-full lg:w-[30%] flex flex-col items-center">
-            <div className="max-h-[400px] md:w-[90%] pr-2 overflow-y-auto scrollbar-hide">
-              <div className="flex flex-col w-full gap-4 mt-40 items-center">
+          {/** ------------------------------------------------ */}
+          {/** MOBILE 2-COLUMN WRAPPER (LEFT + RIGHT)          */}
+          {/** ------------------------------------------------ */}
+          <div className="grid grid-cols-2 gap-4 md:gap-20 lg:gap-30 w-full xl:hidden">
+            {/* LEFT COLUMN (Subjects) - MOBILE */}
+            <div className="col-span-1">
+              <div className="flex flex-col items-center">
+                <div className="w-full">
+                  <div className="flex flex-col w-full h-[180px] md:h-[250px] overflow-y-auto no-scrollbar gap-2 sm:gap-3 mt-4 items-center">
+                    {subjects.map((sub) => (
+                      <motion.button
+                        key={sub.id}
+                        onClick={() => {
+                          setActiveSubject(sub.id);
+                          setActiveSemester(1);
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        className={`w-full px-2 py-2 sm:px-3 sm:py-2 rounded-full
+                                     text-[10px] sm:text-xs md:text-sm font-semibold
+                                     ${
+                                       activeSubject === sub.id
+                                         ? "bg-[#38A169] text-white shadow"
+                                         : "bg-white text-[#38A169] border-[#38A169] border-dashed border-[2px]"
+                                     }
+                                   `}
+                      >
+                        {sub.name}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN (Semesters) - MOBILE */}
+            <div className="col-span-1">
+              <div className="flex flex-col items-center">
+                <div className="flex flex-col gap-2 sm:gap-3 w-full mt-4">
+                  {semesters.map((sem) => (
+                    <motion.button
+                      key={sem}
+                      onClick={() => setActiveSemester(sem)}
+                      whileHover={{ scale: 1.05 }}
+                      className={`px-2 py-2 sm:px-3 sm:py-2 rounded-full
+                                   text-[10px] sm:text-xs md:text-sm font-semibold
+                                   ${
+                                     activeSemester === sem
+                                       ? "bg-[#38A169] text-white shadow"
+                                       : "bg-white text-[#38A169]  border-[#38A169] border-dashed border-0.5"
+                                   }
+                                 `}
+                    >
+                      {sem}
+                      {semSuffix[sem]} Semester
+                    </motion.button>
+                  ))}
+
+                  {/* DOWNLOAD BUTTON */}
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    className="
+                                  w-full bg-[#4D964F] text-white px-3 py-2 sm:py-3
+                                 rounded-xl text-[10px] sm:text-xs md:text-sm
+                                 bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md
+                                 flex items-center justify-center gap-2
+                               "
+                  >
+                    DOWNLOAD SYLLABUS
+                    <ChevronRight size={14} />
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/** ------------------------------------------------ */}
+          {/** DESKTOP LEFT COLUMN (Subjects) - UNCHANGED     */}
+          {/** ------------------------------------------------ */}
+          <div className="hidden xl:flex w-[30%] flex-col items-center">
+            <div className="max-h-[400px] w-[90%]">
+              <div className="flex flex-col w-full h-[350px] overflow-y-auto no-scrollbar gap-4 mt-10 items-center">
                 {subjects.map((sub) => (
                   <motion.button
                     key={sub.id}
                     onClick={() => {
                       setActiveSubject(sub.id);
-                      setActiveterms(1);
+                      setActiveSemester(1);
                     }}
                     whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-full px-4 py-4 rounded-full font-semibold transition 
-                      ${
-                        activeSubject === sub.id
-                          ? "bg-[#38A169] text-white shadow"
-                          : "bg-white text-[#38A169] border border-[#38A169] border-dashed [border-width:2px] [border-dasharray:6_4]"
-                      }`}
+                    className={`w-full px-4 py-3 rounded-full font-semibold
+                                 ${
+                                   activeSubject === sub.id
+                                     ? "bg-[#38A169] text-white shadow"
+                                     : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"
+                                 }`}
                   >
                     {sub.name}
                   </motion.button>
@@ -579,91 +779,92 @@ export default function Page() {
             </div>
           </div>
 
-          {/* MIDDLE COLUMN — TOPICS */}
-          <div className="w-full flex flex-col items-center lg:w-[40%]">
-            <div className="bg-white rounded-xl p-6 shadow-md relative mt-8 w-full min-h-auto">
+          {/** ------------------------------------------------ */}
+          {/** MIDDLE COLUMN (Topics) - FULL WIDTH ON MOBILE   */}
+          {/** ------------------------------------------------ */}
+          <div className="w-full flex flex-col mt-8 items-center justify-center xl:w-[40%]">
+            <div className="bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md relative w-full">
               {/* ICON + LINE */}
-              <div className="absolute left-6 top-0 bottom-0 flex flex-col items-center">
-                <div className="bg-[#345895] text-white p-3 rounded-full shadow z-10 mt-6">
-                  <ChevronsDown size={18} />
+              <div className="absolute top-0 bottom-0 flex flex-col items-center">
+                <div className="bg-[#345895] text-white p-2 sm:p-3 rounded-full shadow z-10 mt-4 sm:mt-6">
+                  <ChevronsDown size={16} />
                 </div>
-                <div className="w-0.5 bg-[#345895] flex-1 mb-5"></div>
+                <div className="w-0.5 bg-[#345895] flex-1 mb-4"></div>
               </div>
 
               {/* TITLE */}
-              <h3 className="text-3xl font-[Inter] font-bold text-[#345895] ml-12 mb-4">
+              <h3 className="text-[20px] sm:text-[26px] md:text-3xl font-bold text-[#345895] ml-12 sm:ml-16 mb-3">
                 Topics Covered
               </h3>
 
-              {/* TOPICS LIST — Hidden Scrollbar */}
-              <div className="max-h-[260px] overflow-y-auto pr-2 scrollbar-hide">
-                <AnimatePresence mode="wait">
-                  <motion.ul
-                    key={activeSubject + "-" + activeterms}
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -30 }}
-                    transition={{ duration: 0.35 }}
-                    className="flex flex-col gap-4 ml-12"
-                  >
-                    {topicsData[activeSubject][activeterms]?.map(
-                      (topic, index) => (
-                        <motion.li
-                          key={index}
-                          whileHover={{ x: 6 }}
-                          className="flex gap-3 items-center group cursor-pointer"
+              {/* TOPICS LIST */}
+              <AnimatePresence mode="wait">
+                <motion.ul
+                  key={activeSubject + "-" + activeSemester}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -30 }}
+                  transition={{ duration: 0.35 }}
+                  className="flex flex-col gap-3 ml-12 sm:ml-16"
+                >
+                  {topicsData[activeSubject][activeSemester].map(
+                    (topic, index) => (
+                      <motion.li
+                        key={index}
+                        whileHover={{ x: 6 }}
+                        className="flex gap-2 sm:gap-3 items-center group cursor-pointer"
+                      >
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-white group-hover:bg-[#345895] transition"
                         >
-                          <div className="w-6 h-6 flex items-center justify-center rounded-full bg-white group-hover:bg-[#345895] transition">
-                            <Check
-                              size={16}
-                              className="text-[#345895] group-hover:text-white transition"
-                            />
-                          </div>
-                          <span className="text-gray-800 group-hover:text-[#345895] transition">
-                            {topic}
-                          </span>
-                        </motion.li>
-                      )
-                    )}
-                  </motion.ul>
-                </AnimatePresence>
-              </div>
+                          <Check
+                            size={12}
+                            className="sm:size-16 text-[#345895] group-hover:text-white transition"
+                          />
+                        </motion.div>
+
+                        <span className="text-gray-800 text-xs sm:text-sm md:text-base group-hover:text-[#345895] transition">
+                          {topic}
+                        </span>
+                      </motion.li>
+                    )
+                  )}
+                </motion.ul>
+              </AnimatePresence>
             </div>
           </div>
 
-          {/* RIGHT COLUMN — TERMS + DOWNLOAD BUTTON */}
-          <div className="w-full lg:w-[30%] flex flex-col items-center lg:items-end mt-8">
-            {/* SCROLLABLE TERMS */}
-            <div className="flex flex-col gap-4 w-full lg:w-[90%] max-h-[260px] overflow-y-auto scrollbar-hide pr-2">
-              {terms.map((term) => (
+          {/** ------------------------------------------------ */}
+          {/** DESKTOP RIGHT COLUMN (Semesters) - UNCHANGED    */}
+          {/** ------------------------------------------------ */}
+          <div className="hidden xl:flex w-[30%] flex-col items-start xl:items-center mt-10">
+            <div className="flex flex-col gap-4 w-full xl:w-[90%]">
+              {semesters.map((sem) => (
                 <motion.button
-                  key={term}
-                  onClick={() => setActiveterms(term)}
+                  key={sem}
+                  onClick={() => setActiveSemester(sem)}
                   whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`px-4 py-3 rounded-full font-semibold transition 
-                ${
-                  activeterms === term
-                    ? "bg-[#38A169] text-white shadow"
-                    : "bg-white text-[#38A169] border border-[#38A169] border-dashed [border-width:2px] [border-dasharray:6_4]"
-                }`}
+                  className={`px-4 py-3 rounded-full font-semibold
+                               ${
+                                 activeSemester === sem
+                                   ? "bg-[#38A169] text-white shadow"
+                                   : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"
+                               }`}
                 >
-                  {term === 0
-                    ? "Foundation Modules (HBPE)"
-                    : `${ordinal(term)} Term`}
+                  {sem}
+                  {semSuffix[sem]} Semester
                 </motion.button>
               ))}
-            </div>
 
-            {/* DOWNLOAD BUTTON */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-10 bg-[#4D964F] text-white px-4 py-3 rounded-xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4 w-full lg:w-[90%]"
-            >
-              DOWNLOAD SYLLABUS
-              <ChevronRight size={20} />
-            </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="mt-8 w-full bg-[#4D964F] text-white px-4 py-4 rounded-2xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4"
+              >
+                DOWNLOAD SYLLABUS
+                <ChevronRight size={20} />
+              </motion.button>
+            </div>
           </div>
         </motion.div>
       </section>
@@ -671,69 +872,56 @@ export default function Page() {
       <section className="w-full font-[Inter] px-4 md:px-10 lg:px-20 py-12">
         <div className="p-6 md:p-10">
           {/* Heading */}
-          <h2 className="text-3xl md:text-[64px] font-bold text-[#345895] mb-7">
+          <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#345895] mb-4 md:mb-7">
             Eligibility Criteria
           </h2>
-          <ul className="text-[#1F284E] text-[32px] px-5 list-disc mb-5 space-y-4 leading-tight">
+          <ul className="text-[#1F284E] text-[12px] space-y-2 md:space-y-4 list-disc px-5 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
             <li>
-              Fresh graduates or final year students seeking higher education in
-              Journalism and Mass Communication domain.
+               Fresh graduates or final year students seeking higher education in Journalism and Mass Communication domain.
             </li>
             <li>
-              Professionals who, among others, want to open up other avenues in
-              related fields and a variety of careers in Film and Television,
-              Publishing, Public Relations, Editing, Broadcasting, Production,
-              and Advertising{" "}
-            </li>
+              Professionals who, among others, want to open up other avenues in related fields and a variety of careers in Film and Television, Publishing, Public Relations, Editing, Broadcasting, Production, and Advertising </li>
+
             <li>
-              Professionals who wish to work in the mass media and journalism
-              industry and want to enhance their practical knowledge of the
-              fundamental principles of Mass Communication and Journalism.
-            </li>
+             Professionals who wish to work in the mass media and journalism industry and want to enhance their practical knowledge of the fundamental principles of Mass Communication and Journalism.
+             </li>
             <li>
-              Applicants must possess sufficient knowledge and understanding of
-              the English Language.
-            </li>
+           Applicant must possess sufficient knowledge and understanding of the English language.
+           </li>
             <li>
-              Candidates whose first language is not English must have completed
-              at least 3 years of academic qualification under English medium.
-            </li>
+             Candidates whose first language is not English must have completed at least 3 years of academic qualification under English medium.
+             </li>
           </ul>
           {/* for Indian Students */}
           <div className="mb-5">
-            <h3 className="text-xl md:text-5xl italic text-[#345895] mb-4">
+            <h3 className="text-[20px] md:text-3xl lg:text-5xl italic text-[#345895] mb-2 md:mb-4">
               For Indian students
             </h3>
-            <ul className="text-[#1F284E] text-[32px] px-5 list-disc mb-5 space-y-4 leading-tight">
+            <ul className="text-[#1F284E] text-[12px] list-disc px-5 space-y-2 md:space-y-4 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
+              <li>10th Class Certificate (Completing 10 years of Formal Schooling)</li>
+              <li>12th Class Certificate (Completing 12 years of Formal Schooling)</li>
               <li>
-                10th Class Certificate (Completing 10 years of Formal Schooling)
+                Graduation Degree (3 years or 4 years degree program only)
               </li>
               <li>
-                12th Class Certificate (Completing 12 years of Formal Schooling)
-              </li>
-              <li>
-                Graduation completing Degree (3 years or 4 years Degree Program.
-                Diploma will not be acceptable)
+                A Diploma will not be acceptable
               </li>
             </ul>
           </div>
           {/* for Foreign Students */}
           <div className="mb-5">
-            <h3 className="text-xl md:text-5xl italic text-[#345895] mb-4">
+            <h3 className="text-[20px] md:text-3xl lg:text-5xl italic text-[#345895] mb-2  md:mb-4">
               For NRI & Foreign students
             </h3>
-            <ul className="text-[#1F284E] text-[32px] mb-5 space-y-4 list-disc px-5 leading-tight">
+            <ul className="text-[#1F284E] text-[12px] list-disc px-5 space-y-2 md:space-y-4 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               <li>
-                O Level Certificate (Completing 10 years of formal schooling.
-                Diploma not accepted)
+                O Level Certificate (Completing 10 years of formal schooling. Diploma not accepted)
               </li>
-              <li>
-                A Level Certificate (Completing 12 years of formal schooling.
-                Diploma not accepted)
+              <li>A Level Certificate (Completing 12 years of formal schooling. Diploma not accepted)
+
               </li>
-              <li>
-                Graduation Degree or equivalent marks (3 years or 4 years degree
-                program. Diploma will not be acceptable)
+                <li>
+              Graduation Degree or equivalent marks (3 years or 4 years degree program. Diploma will not be acceptable)
               </li>
               <li>
                 Certificate of equivalence from the Association of Indian
@@ -748,6 +936,7 @@ export default function Page() {
                 </Link>
                 ))
               </li>
+             
             </ul>
           </div>
         </div>
@@ -755,14 +944,14 @@ export default function Page() {
 
       <LearningApproach
         title="Learning Approach"
-        subtitle="Journey towards online degree programs"
+        subtitle="Get a work-life-study balance with this program designed for working professionals delivered via latest learning management systems."
         cards={learningCards}
         ctaText="Ready to Learn ? Click Here"
       />
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
         {/* Faded Background Heading */}
-        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[66px] md:text-[66px] text-[rgba(6, 78, 146, 0.1)] opacity-90 select-none tracking-tight whitespace-nowrap">
+        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[rgba(6, 78, 146, 0.1)] opacity-90 select-none tracking-tight whitespace-nowrap">
           EXAMINATION PROCESS
         </h1>
 
@@ -773,7 +962,7 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-[48px] md:text-[62px] font-bold text-center text-[#345895] mb-6"
+            className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#345895] mb-6"
           >
             EXAMINATION PROCESS
           </motion.h2>
@@ -786,9 +975,9 @@ export default function Page() {
             viewport={{ once: true }}
             className="text-left text-[#345895] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
           >
-            The Amity University Online MAJMC follows a structured and
-            transparent examination process designed to evaluate learners
-            through continuous assessments and end-term evaluations.
+            The Amity University Online MAJMC follows a structured and transparent
+            examination process designed to evaluate learners through continuous
+            assessments and end-term evaluations.
           </motion.p>
 
           {/* Cards Wrapper */}
@@ -801,7 +990,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
             >
-              <h3 className="text-2xl font-semibold italic mb-5">
+              <h3 className=" text-md md:text-2xl font-semibold italic mb-5">
                 Exam Slot Booking
               </h3>
 
@@ -809,8 +998,8 @@ export default function Page() {
               <div className="space-y-5 text-lg leading-relaxed max-w-[380] mx-auto">
                 {/* POINT 1 */}
                 <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                  <span className="text-2xl leading-none">✦</span>
-                  <p className="text-left mb-6">
+                  <span className="text-lg lg:text-2xl leading-none">✦</span>
+                  <p className="text-left text-lg lg:text-2xl mb-6">
                     Learners must book their examination slots through the Amity
                     University Student Portal.
                   </p>
@@ -818,8 +1007,8 @@ export default function Page() {
 
                 {/* POINT 2 */}
                 <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                  <span className="text-2xl leading-no">✦</span>
-                  <p className="text-left">
+                  <span className="text-lg lg:text-2xl leading-no">✦</span>
+                  <p className="text-lg lg:text-2xl text-left">
                     All exam slot details are shared well in advance, allowing
                     candidates to schedule their tests conveniently.
                   </p>
@@ -835,11 +1024,11 @@ export default function Page() {
               viewport={{ once: true }}
               className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
             >
-              <h3 className="text-2xl font-semibold italic mb-5">
+              <h3 className="text-md md:text-2xl font-semibold italic mb-5">
                 Exam Slot Timings
               </h3>
 
-              <p className="text-lg max-w-[380] mb-6 text-center">
+              <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-center">
                 For end-term examinations, Amity University provides three
                 available slots:
               </p>
@@ -856,7 +1045,7 @@ export default function Page() {
                 ))}
               </div>
 
-              <p className="text-lg max-w-[380] text-center">
+              <p className="text-lg lg:text-[2xl] max-w-[380] text-center">
                 Candidates may choose their preferred slot based on
                 availability.
               </p>
@@ -866,196 +1055,95 @@ export default function Page() {
       </section>
 
       <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
-        <div className="max-w-4xl mx-auto p-6 md:p-10">
-          {/* Heading */}
-          <h2 className="text-4xl md:text-[40] font-bold italic text-[#345895] mb-12 text-center">
+        <div className="max-w-6xl mx-auto p-6 md:p-10">
+          {/* HEADING */}
+          <h2 className="text-[24px] md:text-[40px] font-bold italic text-[#345895] mb-12 text-center">
             ASSESSMENT STRUCTURE (100 MARKS)
           </h2>
 
-          {/* Two Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
-            {/* Left Category */}
-            <div className="space-y-2">
+          {/* TWO CATEGORIES */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* LEFT CATEGORY */}
+            <div className="space-y-2 w-full">
               <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
-                End-term Examination (70 Marks)
+                External Assessment – 70 Marks
               </div>
 
-              <div className="flex flex-cols-2 gap-1">
-                <div className="rounded-lg border border-[#345895] py-3 px-2 text-sm text-center text-[#345895] bg-white">
+              {/* FULL-WIDTH SPLIT ROW */}
+              <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
                   MCQ (40 Marks)
                 </div>
-                <div className="rounded-lg border border-[#345895] py-3 px-3 text-sm text-center text-[#345895] bg-white">
+                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
                   Descriptive Answers (30 Marks)
                 </div>
               </div>
             </div>
 
-            {/* Right Category */}
-            <div className="space-y-2">
+            {/* RIGHT CATEGORY */}
+            <div className="space-y-2 w-full">
               <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
-                Internal Assessment (30 Marks)
+                Internal Assessment – 30 Marks
               </div>
 
-              <div className="flex flex-cols-2 gap-2">
-                <div className="rounded-lg border border-[#345895] py-3 px-16 text-sm text-center text-[#345895] bg-white">
+              {/* FULL-WIDTH SPLIT ROW */}
+              <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
                   Quiz
                 </div>
-                <div className="rounded-lg border border-[#345895] py-3 px-16 text-sm text-center text-[#345895] bg-white">
+                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
                   Assignment
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Passing Criteria Box */}
-          <div className="border border-[#e5e7eb] rounded-lg p-5 mt-15 bg-white">
+          {/* PASSING CRITERIA */}
+          <div className="border border-[#e5e7eb] rounded-lg p-5 mt-12 bg-white">
             <p className="font-semibold text-black mb-1">Passing Criteria</p>
-            <ul className="list-disc pl-8 text-[#345895] text-lg">
+            <ul className="list-disc pl-6 text-[#345895] text-sm md:text-lg">
               <li>
                 A candidate must secure a minimum of 40% to successfully pass
-                the course
+                the course.
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section className="w-full bg-white mt-15 py-5 px-6 md:px-12 lg:px-20">
-        {/* Heading */}
-        <h2 className="text-center text-[#345895] font-[Inter] text-6xl md:text-5xl font-extrabold mb-12">
-          Career Services
-        </h2>
-
-        {/* Main rounded container */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto bg-white shadow-xl rounded-3xl p-10 md:p-14"
-        >
-          {/* ALL 6 BENEFITS — 3 ON TOP, 3 BELOW */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-            {benefits.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center flex flex-col items-center"
-              >
-                <div className="mb-4">{item.icon}</div>
-                <h3 className="text-[#345895] font-extrabold font-[Inter] text-xl mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-[#345895] text-sm max-w-60 mx-auto leading-relaxed">
-                  {item.text}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <div className="flex justify-center mt-12">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-[#4D964F] text-white mt-4 px-6 py-2 rounded-lg text-sm 
-              bg-linear-to-r from-[#4D964F] to-[#193019] border-0
-              shadow-[#1C361D] shadow-md transform hover:scale-105 
-              duration-200 flex items-center justify-center gap-4 transition"
-            >
-              Explore Your Benefits
-              <ArrowRight size={16} />
-            </motion.button>
-          </div>
-        </motion.div>
-      </section>
+      <MujCareerServices benefits={benefits} />
 
       <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
-        {/* CONTAINER BORDER BOX */}
-        <div className="px-2">
-          {/* FLEX WRAPPER */}
-          <div className="flex flex-row justify-center items-center gap-10">
+        <div className="px-2 w-full">
+          <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
             {/* LEFT SIDE TEXT */}
-            <div className="w-full lg:w-[45%] flex flex-col justify-center">
-              <h2 className="text-[#064E92] text-[42px] md:text-[52px] font-extrabold leading-[110%] mb-6">
+            <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
+              <h2 className="text-[#064E92] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4 md:mb-10">
                 Fees Structure
               </h2>
 
-              <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-xl mb-6">
-                Finance Your Future, Hassle-Free Loan
+              {/* Subtitle */}
+              <p className="text-gray-700 text-sm md:text-base leading-tight lg:max-w-xl md:mb-10">
+                Convenient Fee payment option:
                 <br />
-                Assistance Available
+                Choose your preferred fee payment option
               </p>
 
-              <button className=" text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] mt-5 font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration 200 flex items-center justify-center w-fit">
+              {/* CTA visible only on large screens */}
+              <button className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
                 Compare all Plans
               </button>
             </div>
 
             {/* RIGHT SIDE CARDS */}
-            <div className="flex flex-row items-start justify-center font-[Inter] gap-6 lg:w-[35%] pr-25">
-              {/* Annual PAYMENT CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] border rounded-xl shadow-sm px-6 py-8 w-[100px] md:w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center ">
-                  <p className="font-semibold text-white">Annual Payment</p>
-                  <p className="text-xs text-white mt-1">in INR</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">
-                    MAJMC
-                  </p>
-                  <div className="w-30 mx-auto h-0.5 bg-white mt-3" />
-                </div>
-
-                <p className="text-2xl md:text-3xl font-bold text-white text-center mt-5">
-                  ₹1,70,000/-
-                </p>
-                <p className="text-xs text-white text-center italic mb-5 ">
-                  inclusive of all taxes
-                </p>
-              </div>
-              {/* Semester wise CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] border rounded-xl shadow-sm px-6 py-8 w-[100px] md:w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center ">
-                  <p className="font-semibold text-white">Semester wise</p>
-                  <p className="text-xs text-white mt-1">in INR</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">
-                    MAJMC
-                  </p>
-                  <div className="w-30 mx-auto h-0.5 bg-white mt-3" />
-                </div>
-
-                <p className="text-2xl md:text-3xl font-bold text-white text-center mt-5">
-                  ₹42,500/-
-                </p>
-                <p className="text-xs text-white text-center italic mb-5 ">
-                  inclusive of all taxes
-                </p>
-              </div>
-
-              {/* EMI CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] rounded-xl shadow-md px-6 py-8 w-[100px] md:w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center">
-                  <p className="font-semibold text-white">EMI Strating at </p>
-                  <p className="text-xs text-white mt-1">in INR</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">
-                    MAJMC
-                  </p>
-                  <div className="w-30 mx-auto h-0.5 bg-white mt-3" />
-                </div>
-
-                <p className="text-2xl md:text-3xl font-bold text-white text-center mt-5">
-                  ₹7,083/-
-                </p>
-                <p className="text-xs text-white text-center italic mb-5 ">
-                  per month
-                </p>
-                <p className="text-xs text-white text-center italic mb-5 ">
-                  T&C apply
-                </p>
-              </div>
+            <div className="w-full lg:w-[35%] flex justify-center">
+              <FeesCarousel />
             </div>
+
+            {/* CTA below carousel on mobile only */}
+            <button className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+              Compare all Plans
+            </button>
           </div>
         </div>
       </section>
@@ -1067,39 +1155,46 @@ export default function Page() {
         defaultOpen={0}
       />
 
-      <section className="w-full mt-20">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[60%_40%] items-center font-[Inter] gap-6">
+      <section className="w-full flex items-center justify-center px-6 md:px-18">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-20">
           {/* LEFT CONTENT */}
-          <div className="space-y-4 pr-4">
-            <p className="text-[#1F1717] text-sm font-medium">Degree Sample</p>
-
-            {/* FIXED THREE-LINE HEADING WITH SMOOTH LINE-HEIGHT */}
-            <h2 className="text-[#345895] text-[46px] md:text-[52px] lg:text-[62px] font-bold leading-[1.05] max-w-[720px]">
-              <span className="block">Amity University</span>
-              <span className="block">Online MAJMC</span>
-              <span className="block">Certificate</span>
-            </h2>
-
-            <p className="text-[#3C3C43] max-w-[530px] text-base leading-relaxed">
-              Master of Commerce is a 2-year (4 semesters) program that aims to
-              equip the graduates and working professionals with the requisite
-              knowledge and skills in Financial Management. The program helps
-              you gain knowledge of conventional general principles and
-              financial management traits.
+          <div className="space-y-5">
+            <p className="text-[#1F1717] mb-1 mt-5 text-sm font-medium">
+              Degree Sample
             </p>
 
-            <button className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] border-0 shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center">
+            <h2 className="text-[#345895] text-[32px] md:text-[40px] lg:text-[64px] font-bold leading-tight">
+              Amity University
+              <br />
+              Online MAJMC <br />
+              Certificate
+            </h2>
+
+            <p className="text-[#3C3C43] max-w-[350px] text-base">
+             Master of Arts (Journalism and Mass Communication) is a 2 year (4 semesters) program for graduates seeking a career in digital, radio, print or TV media and journalism.
+             </p>
+
+            {/* IMAGE that appears ONLY on mobile, above CTA */}
+            <div className="md:hidden flex justify-center">
+              <img
+                src="/amity/degree/amityMajmcDegree.png"
+                alt="Certificate Preview"
+                className="w-full max-w-xs rounded-lg shadow-sm"
+              />
+            </div>
+
+            {/* CTA BUTTON */}
+            <button className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center">
               Know more
             </button>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="flex justify-end">
+          {/* RIGHT IMAGE (visible only on md+ screens) */}
+          <div className="hidden md:flex justify-center mt-5">
             <img
-              src="/office.png"
+              src="/amity/degree/amityMajmcDegree.png"
               alt="Certificate Preview"
-              className="rounded-lg shadow-sm object-cover"
-              style={{ width: "484px", height: "343px" }}
+              className="w-full max-w-sm rounded-lg shadow-sm"
             />
           </div>
         </div>
@@ -1128,7 +1223,7 @@ export default function Page() {
         </motion.h2>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-5">
           {/* LEFT COLUMN */}
           <div className="flex flex-col gap-12">
             {/* Item 1 */}
@@ -1139,8 +1234,26 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-18 h-18 bg-[#345895] rounded-full flex items-center justify-center">
-                <UserLock size={35} strokeWidth={1.0} className="text-white" />
+              <div
+                className="
+                  shrink-0
+                  w-18 h-18
+                  md:w-14 md:h-14
+                  lg:w-18 lg:h-18 
+                  bg-[#345895]
+                  rounded-full
+                  flex items-center justify-center
+                "
+              >
+                <UserLock
+                  strokeWidth={1.0}
+                  className="
+                      text-white
+                      w-8 h-8
+                      md:w-8 md:h-8
+                      lg:w-9 lg:h-9
+                    "
+                />
               </div>
 
               <div>
@@ -1149,30 +1262,49 @@ export default function Page() {
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
                   Engage in immersive roleplay simulations to solve real
-                  business challenges and sharpen leadership skills.
+                  business challenges and sharpen leadership and decision-making
+                  skills.
                 </p>
               </div>
             </motion.div>
 
             {/* Item 2 */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-18 h-18 bg-[#345895] rounded-full flex items-center justify-center">
-                <Headset size={35} strokeWidth={1.0} className="text-white" />
+              <div
+                className="
+                  shrink-0
+                  w-18 h-18
+                  md:w-14 md:h-14
+                  lg:w-18 lg:h-18 
+                  bg-[#345895]
+                  rounded-full
+                  flex items-center justify-center
+                "
+              >
+                <GlobeLock
+                  strokeWidth={1.0}
+                  className="
+                      text-white
+                      w-8 h-8
+                      md:w-8 md:h-8
+                      lg:w-9 lg:h-9
+                    "
+                />
               </div>
 
               <div>
                 <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
-                  Internship Opportunities
+                  Pan India campus access & offline events
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
-                  Access curated internships with top companies to gain real
-                  experience.
+                  Balance work and study with a fully online program featuring
+                  live/recorded classes, remote exams, and 24/7 support.
                 </p>
               </div>
             </motion.div>
@@ -1182,23 +1314,41 @@ export default function Page() {
           <div className="flex flex-col gap-12">
             {/* Item 3 */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-18 h-18 bg-[#345895] rounded-full flex items-center justify-center">
-                <GlobeLock size={35} strokeWidth={1.0} className="text-white" />
+              <div
+                className="
+                  shrink-0
+                  w-18 h-18
+                  md:w-14 md:h-14
+                  lg:w-18 lg:h-18 
+                  bg-[#345895]
+                  rounded-full
+                  flex items-center justify-center
+                "
+              >
+                <Headset
+                  strokeWidth={1.0}
+                  className="
+                      text-white
+                      w-8 h-8
+                      md:w-8 md:h-8
+                      lg:w-9 lg:h-9
+                    "
+                />
               </div>
 
               <div>
                 <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
-                  Pan India campus access & offline events
+                  Internship Opportutnities
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
-                  Balance work and study with a fully online program + campus
-                  events.
+                  Access curated internships with top companies to gain real
+                  experience and boost your career prospects.
                 </p>
               </div>
             </motion.div>
@@ -1211,43 +1361,61 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-18 h-18 bg-[#345895] rounded-full flex items-center justify-center">
+              <div
+                className="
+                  shrink-0
+                  w-18 h-18
+                  md:w-14 md:h-14
+                  lg:w-18 lg:h-18 
+                  bg-[#345895]
+                  rounded-full
+                  flex items-center justify-center
+                "
+              >
                 <StickyNote
-                  size={35}
                   strokeWidth={1.0}
-                  className="text-white"
+                  className="
+                      text-white
+                      w-8 h-8
+                      md:w-8 md:h-8
+                      lg:w-9 lg:h-9
+                    "
                 />
               </div>
 
               <div>
                 <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
-                  Access to campus life
+                  Access to Campus Life
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
-                  Connect, collaborate, and join clubs through the beSocial app.
+                  Connect, collaborate, and join clubs through the beSocial app
+                  — your virtual student community.
                 </p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-      <section className="w-full bg-white py-20 px-16 md:px-12 lg:px-20">
-        <div className="w-full bg-[#064E92] rounded-4xl py-20 px-16 md:px-12 lg:px-20">
-          {/* White inner container */}
+      <section className="w-full bg-white py-20 md:px-12 lg:px-20">
+        <div className="w-full md:bg-[#345895] rounded-4xl py-20 px-6 md:px-12 lg:px-20">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white rounded-[40px] p-6 md:p-12 max-w-7xl mx-auto"
+            className="bg-white rounded-[40px] md:p-12 max-w-7xl mx-auto"
           >
             {/* Title */}
-            <div className="text-center mb-10 relative pb-3">
+            <div className="text-center md:mb-4 pb-3">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-[#064E92] font-extrabold font-[Inter] text-3xl md:text-5xl"
+                className="
+                                         text-[#345895] 
+                                           font-bold font-[Inter] 
+                                           text-[32px] md:text-5xl lg:text-[64px] 
+                                           leading-tight"
               >
                 Career Opportunities
               </motion.h2>
@@ -1258,9 +1426,9 @@ export default function Page() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center flex justify-center text-black max-w-3xl mx-auto mb-12"
+              className="text-center text-black text-[18px] md:text-[20px] max-w-2xl mx-auto md:mb-12"
             >
-              Gain practical, job-ready skills through diploma programs designed
+              Gain practical, job-ready skills through online programs designed
               to help you grasp industry fundamentals and begin your career with
               confidence.
             </motion.p>
@@ -1272,26 +1440,32 @@ export default function Page() {
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
+                className="flex justify-center"
               >
-                <div className="rounded-2xl overflow-hidden shadow-md">
-                  <Image
-                    src="/professional.png"
-                    width={566}
-                    height={390}
-                    alt="Career handshake"
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
+                <Image
+                  src="/nmimsCareer.png"
+                  width={400}
+                  height={400}
+                  alt="Career Opportunities"
+                  className="
+                         w-full 
+                         mt-10
+                         sm:mt-0
+                         max-w-[260px]  /* Medium screens */
+                         lg:max-w-[400px]   /* Large screens */
+                         object-contain
+                         mx-auto
+                       "
+                />
               </motion.div>
 
-              {/* RIGHT LIST — ROLES directly written here */}
+              {/* RIGHT LIST */}
               <motion.div
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 className="flex flex-col gap-4"
               >
-                {/* Each line manually listed */}
                 {[
                   "Reporter",
                   "Junior Producer",
@@ -1306,10 +1480,9 @@ export default function Page() {
                     transition={{ duration: 0.35, delay: index * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <span className="w-7 h-7 rounded-full bg-[#4d964f] flex items-center justify-center">
+                    <span className="w-7 h-7 rounded-full bg-[#4D964F] flex items-center justify-center">
                       <Check size={18} className="text-white" />
                     </span>
-
                     <span className="text-gray-900 font-semibold text-lg">
                       {role}
                     </span>
@@ -1320,7 +1493,14 @@ export default function Page() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
-                  className=" w-[200px] bg-[#4D964F] text-white mt-4 px-6 py-3 rounded-lg text-sm bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform hover:scale-105 duration 200"
+                  className="
+                                   w-[200px] 
+                                   mt-6 py-3 px-6 
+                                   rounded-lg 
+                                   text-white text-sm 
+                                   bg-linear-to-r from-[#4D964F] to-[#193019]
+                                   shadow-md shadow-[#1C361D]/40
+                                 "
                 >
                   Know more
                 </motion.button>
@@ -1331,7 +1511,7 @@ export default function Page() {
       </section>
 
       <Faculties
-        heading="Learn from the best at Amity with world-classeducation and leading International Faculty"
+        heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."
         topFaculty={topFaculty}
         bottomFaculty={bottomFaculty}
       />
@@ -1340,15 +1520,15 @@ export default function Page() {
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-16">
         {/* TITLE */}
-        <h2 className="text-[#345895] font-extrabold flex flex-row items-center justify-center font-[Inter] text-[42px] md:text-[64px] mb-8">
+        <h2 className="text-[#345895] font-bold flex flex-row items-center justify-center font-[Inter] md:text-[42px] text-[36px] mb-8">
           Important Dates
         </h2>
 
         {/* TABLE WRAPPER */}
         <div className="w-full overflow-hidden">
           {/* HEADER ROW */}
-          <div className=" max-w-5xl flex items-center justify-center bg-[#E5E5E5] text-[#4D964F] font-semibold text-center m-auto py-8 text-[24px] rounded-xl">
-            <p> ADMISSION OPEN FOR JANUARY 26 SESSION</p>
+          <div className=" max-w-5xl flex items-center justify-center md:grid grid-cols-2 bg-[#E5E5E5] text-[#4D964F] font-semibold text-center m-auto px-10 lg:px-30 gap-10 lg:gap-25 py-8 text-[16px] md:text-[24px] rounded-xl">
+            <p>ADMISSION OPEN FOR JANUARY 26 SESSION</p>
           </div>
         </div>
       </section>

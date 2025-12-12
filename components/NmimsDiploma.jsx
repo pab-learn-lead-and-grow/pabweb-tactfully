@@ -37,6 +37,14 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import React from "react";
+import WhyChooseUs from "./NmimsSection/WhyChooseUs";
+import LearningApproach from "./NmimsSection/LearningApproach";
+import CareerServices from "./NmimsSection/CareerServices";
+import Enrollment from "./NmimsSection/Enrollment";
+import Faculties from "./NmimsSection/Faculties";
+import ServicesByPAB from "./NmimsSection/servicesbyPab";
+import FAQ from "./NmimsSection/FAQ";
+import ConnectToday from "./NmimsSection/ConnectToday";
 
 export default function Page() {
   const Counter = ({ end, duration = 2000 }) => {
@@ -99,11 +107,23 @@ export default function Page() {
     },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(2); // Step 03 open by default
-
-  const toggleStep = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+   const learningCards = [
+      {
+        icon: FileClock,
+        title: "Learn at Your Own Pace",
+        desc: "Choose between weekday or weekend batches and study in a way that fits your schedule. Access all recorded lectures anytime through the Student Portal.",
+      },
+      {
+        icon: BookCheck,
+        title: "Comprehensive Learning Resources",
+        desc: "Get both physical books and an extensive online library including e-books, journals, transcripts, and 24/7 recorded sessions.",
+      },
+      {
+        icon: Headset,
+        title: "Dedicated Student Support Team",
+        desc: "Receive quick assistance through chat, ticketing, and call-back options ensuring smooth learning.",
+      },
+    ];
 
   const subjects = [
     { id: 1, name: "Finance Management" },
@@ -114,6 +134,11 @@ export default function Page() {
   ];
 
   const semesters = [1, 2];
+
+  const semSuffix = {
+    1: "st",
+    2: "nd",
+  };
 
   const topicsData = {
     1: {
@@ -210,33 +235,6 @@ export default function Page() {
   const [activeSubject, setActiveSubject] = useState(1);
   const [activeSemester, setActiveSemester] = useState(1);
 
-  const servicesPab = [
-    {
-      num: "01",
-      title: "1-1 career coaching",
-      desc: "trusted one point of contact throughout your journey",
-    },
-    {
-      num: "02",
-      title: "Subject matter experts",
-      desc: "team of dedicated SME for your personal interests",
-    },
-    {
-      num: "03",
-      title: "Post admission program services",
-      desc: "a help in adapting online courses with growth opportunities",
-    },
-    {
-      num: "04",
-      title: "30 min query assistance",
-      desc: "just in time query resolution.",
-    },
-    {
-      num: "05",
-      title: "Progress Tracking & Feedback",
-      desc: "regular check-ins to keep you on track and help you improve continuously",
-    },
-  ];
   const faqs = [
     {
       q: "Is an internship included in the diploma programmes?",
@@ -264,75 +262,182 @@ export default function Page() {
     },
   ];
 
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const benefits = [
-    {
-      icon: <FileUser className="text-[#4D964F] w-18 h-18" />,
-      title: "Access to Job Portal",
-      text: "Get a 6-month access to IIMJobs, Updazz & Hirist to find a role of your choice, get your job applications highlighted, and improve profile ranking.",
-    },
-    {
-      icon: <Route className="text-[#4D964F] w-18 h-18" />,
-      title: "Coaching",
-      text: "One-on-one personalised guidance by an expert coach to create a strategic roadmap for your career and achieve your professional goals.",
-    },
-    {
-      icon: <Blocks className="text-[#4D964F] w-18 h-18" />,
-      title: "Profile Development",
-      text: "Get expert mentoring on Resume building, Social Media Profiling, and Personal Branding to increase your chances of getting shortlisted.",
-    },
-    {
-      icon: <MessagesSquare className="text-[#4D964F] w-18 h-18" />,
-      title: "Practice Interviews",
-      text: "One-on-one practice interview session to enhance your chances of succeeding at interviews for jobs, career change, or promotions.",
-    },
-    {
-      icon: <ChartNoAxesColumn className="text-[#4D964F] w-18 h-18" />,
-      title: "Assessment",
-      text: "Assessment of your cognitive and behavioural skills through aptitude and psychometric tests to identify the most suitable career path",
-    },
-  ];
-
   const topFaculty = [
     {
-      name: "Prof. Aman Joshi",
-      title: "MBA in Business Design",
-      image: "/professional.png",
+      name: "Dr. Rohini Kelkar",
+      title: "Ph.D",
+      image: "/nmims/bcom/faculties/rohini.png",
     },
     {
       name: "Dr. Brinda Sampat",
       title: "Ph.D",
-      image: "/professional.png",
+      image: "/nmims/mba/faculties/brinda.png",
     },
   ];
 
   const bottomFaculty = [
     {
-      name: "Prof. Anisha Bose",
-      title: "PGDMM in Digital Marketing",
-      image: "/professional.png",
+      name: "Prof. Jigar Shah",
+      title: "MBA General Management",
+      image: "/nmims/bcom/faculties/jigar.png",
     },
     {
       name: "Dr. Chhavi Taneja",
       title: "Ph.D Master of Business Eco",
-      image: "/professional.png",
+      image: "/nmims/mba/faculties/chhavi.png",
     },
     {
       name: "Prof. Abhishek Mani",
       title: "MBA in Finance",
-      image: "/professional.png",
+      image: "/nmims/mba/faculties/abhishek.png",
     },
     {
       name: "Dr. Arun Kohli",
       title: "Ph.D",
-      image: "/professional.png",
+      image: "/nmims/mba/faculties/arun.png",
     },
   ];
+
+   const whyCards = [
+      {
+        logo: Users,
+        heading: "Foundation",
+        subheading:
+          "Deepen your understanding of key management concepts and sharpen your ability to critically analyse and solve real-world business challenges.",
+      },
+      {
+        logo: BookOpenCheck,
+        heading: "Specializations",
+        subheading:
+          "Choose from marketing, finance, or business analytics to shape your career trajectory with the right specialization.",
+      },
+      {
+        logo: SplinePointer,
+        heading: "Flexible",
+        subheading:
+          "Experience seamless learning through an integrated platform accessible on any device study whenever and however you prefer.",
+      },
+      {
+        logo: Speech,
+        heading: "Mentorship",
+        subheading:
+          "Learn from top academicians and industry leaders who guide you with practical knowledge and deep professional experience.",
+      },
+      {
+        logo: GlobeLock,
+        heading: "Industry-Ready",
+        subheading:
+          "Gain the skills to develop and apply business models and frameworks to solve real-world business challenges.",
+      },
+      {
+        logo: FileUser,
+        heading: "Upskill",
+        subheading:
+          "Master practical business tools and strategic frameworks that empower you to solve complex challenges and drive meaningful results in the real world.",
+      },
+    ];
+
+    function FeesCarouselOnlineDiploma() {
+  const cards = [
+    {
+      title: "Annual Payment",
+      subtitle: "(no. of years 1)",
+      program: "Online Diploma",
+      amount: "₹1,10,000/-",
+      note: "",
+    },
+    {
+      title: "Semester Wise",
+      subtitle: "(no. of sem 2)",
+      program: "Online Diploma",
+      amount: "₹55,000/-",
+      note: "",
+    },
+    {
+      title: "One Time",
+      subtitle: "(in INR)",
+      program: "Online Diploma",
+      amount: "₹1,05,000/-",
+      note: "Congratulations!\nYou save ₹5,000/-",
+    },
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  // Auto-scroll
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % cards.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="w-full flex flex-col items-center">
+
+      {/* CARD */}
+      <div className="relative w-full flex justify-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -80 }}
+            transition={{ duration: 0.5 }}
+            className="
+              bg-linear-to-b from-[#345895] to-[#101C2F]
+              rounded-2xl shadow-lg p-8
+              w-[80%] md:w-[60%] lg:w-[80%]
+              h-[260px]
+              flex flex-col justify-between text-center
+            "
+          >
+            <div>
+              <p className="font-semibold text-white">
+                {cards[index].title}
+              </p>
+              <p className="text-xs text-white mt-1">
+                {cards[index].subtitle}
+              </p>
+
+              <p className="text-[#C4C4C4] font-bold text-[19px] mt-4">
+                {cards[index].program}
+              </p>
+
+              <div className="w-12 mx-auto h-0.5 bg-white mt-3" />
+            </div>
+
+            <p className="text-2xl md:text-3xl font-semibold text-white">
+              {cards[index].amount}
+            </p>
+
+            {cards[index].note && (
+              <p className="text-xs italic text-white whitespace-pre-line">
+                {cards[index].note}
+              </p>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* DOTS */}
+      <div className="flex gap-2 mt-4">
+        {cards.map((_, i) => (
+          <motion.button
+            key={i}
+            onClick={() => setIndex(i)}
+            animate={{
+              scale: index === i ? 1.2 : 1,
+              backgroundColor: index === i ? "#345895" : "#d1d5db",
+            }}
+            className="w-3 h-3 rounded-full"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 
   const stats = [
     { value: "1", label: "Years Duration" },
@@ -342,144 +447,141 @@ export default function Page() {
   ];
   return (
     <main className="flex flex-col items-center w-full bg-white">
-     <section className="relative min-h-[650px] md:min-h-[750px] w-full overflow-hidden">
-  {/* Background Image */}
-  <div className="absolute inset-0">
-  <Image
-    src="/nmimsClg.png"
-    alt="Campus"
-    fill
-    className="object-cover object-center"
-  />
-</div>
-  {/* LOGO – move to left screen edge, keep same height */}
-  <div className="relative z-10 w-full mt-28">
-    <motion.div
-      initial={{ opacity: 0, x: -30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="flex"
-    >
-      <div className="bg-white rounded-r-2xl shadow-md h-[100px] -mb-5 flex items-center">
-        <Image
-          src="/nmims.png"
-          alt="NMIMS Logo"
-          width={260}
-          height={100}
-          className="object-contain"
-        />
-      </div>
-    </motion.div>
-  </div>
-
-  {/* CONTENT WRAPPER */}
-  <div className="relative z-10 max-w-6xl mx-auto p-6 sm:p-10">
-
-    {/* Most Loved */}
-    <motion.span
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="inline-block bg-[#4d964f] text-white text-[18px] sm:text-[18px] mt-6  mb-2 font-sm px-8 py-2 rounded-full"
-    >
-      Most-Loved
-    </motion.span>
-
-    {/* Subtext */}
-    <motion.p
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, delay: 0.1 }}
-      viewport={{ once: true }}
-      className="text-white text-[16px] sm:text-[16px] italic font-light"
-    >
-      Diploma in Online Mode
-    </motion.p>
-
-    {/* TITLE + DESCRIPTION */}
-    <div className="flex flex-col items-start">
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="text-white text-4xl sm:text-5xl md:text-6xl font-[Inter] lg:text-[64px] font-bold -mt-2 leading-tight"
-      >
-        Online Diploma
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="text-gray-200 text-left text-[16px] sm:text-[18px] md:text-[18px] max-w-6xl mt-0 mb-10 leading-relaxed"
-      >
-        Explore key business sectors with Diploma Programs designed to
-        give you practical insight into everyday organisational processes
-        across diverse domains.
-      </motion.p>
-
-      {/* STATS */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="grid grid-cols-2 mt-5 md:grid-cols-4 gap-y-6 w-full"
-      >
-        {stats.map((stat, idx) => (
-          <div
-            key={idx}
-            className={`text-center px-3 py-6 ${
-              idx !== stats.length - 1 ? "md:border-r-2 md:border-white" : ""
-            }`}
+     <section className="relative min-h-[650px] md:min-h-[750px] w-full">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/nmimsClg.png"
+            alt="Campus"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+        {/* LOGO – move to left screen edge, keep same height */}
+        <div className="relative z-10 w-full mt-28">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex"
           >
-            <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1">
-              {stat.value}
-            </p>
-            <p className="text-gray-200 text-[48px] font-bold sm:text-base">
-              {stat.label}
-            </p>
+            <div className="bg-white rounded-r-xl shadow-md h-[100px] -mb-5 p-2 flex items-center">
+              <Image
+                src="/nmims.png"
+                alt="NMIMS Logo"
+                width={260}
+                height={100}
+                className="object-contain"
+              />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* CONTENT WRAPPER */}
+        <div className="relative z-10 max-w-7xl mx-auto p-6 sm:10">
+          {/* Most Loved */}
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="inline-block bg-[#4d964f] text-white text-[18px] sm:text-[18px] mt-6  mb-2 font-sm px-8 py-2 rounded-full"
+          >
+            Most-Loved
+          </motion.span>
+
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-white text-[16px] sm:text-[16px] italic font-light"
+          >
+            Diploma in Online Mode
+          </motion.p>
+
+          {/* TITLE + DESCRIPTION */}
+          <div className="flex flex-col items-start">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-white text-4xl sm:text-5xl md:text-5xl font-[Inter] lg:text-[64px] font-bold -mt-1 leading-tight"
+            >
+              Online Diploma
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-gray-200 text-left text-[16px] sm:text-[12px] md:text-[18px] max-w-5xl mt-0 mb-10 leading-relaxed"
+            >
+              Explore key business sectors with Diploma Programs designed to give you practical insight into everyday organisational processes across diverse domains
+            </motion.p>
+
+            {/* STATS */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4  gap-y-5 w-full"
+            >
+              {stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className={`text-center py-6 ${
+                    idx !== stats.length - 1
+                      ? "md:border-r-2 md:border-white"
+                      : ""
+                  }`}
+                >
+                  <p className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-white mb-1">
+                    {stat.value}
+                  </p>
+                  <p className="text-gray-200 md:text-3xl font-bold sm:text-base">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* BUTTONS – CENTERED */}
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-4 mt-12 w-full items-center justify-center"
+            >
+              <button className="flex items-center justify-center gap-2 bg-[#345895] text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-medium">
+                Download Brochure
+                <Download size={20} />
+              </button>
+
+              <button className="bg-green-500 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
+                Talk to an Expert
+                <ArrowRight size={16} />
+              </button>
+            </motion.div>
           </div>
-        ))}
-      </motion.div>
-
-      {/* BUTTONS – CENTERED */}
-      <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="flex flex-col sm:flex-row gap-4 mt-12 w-full items-center justify-center"
-      >
-        <button className="flex items-center justify-center gap-2 bg-[#345895] text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-medium">
-          Download Brochure
-          <Download size={20} />
-        </button>
-
-        <button className="bg-green-500 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
-          Talk to an Expert
-          <ArrowRight size={16} />
-        </button>
-      </motion.div>
-    </div>
-  </div>
-</section>
-
-
-      <section className="w-full bg-white pl-6 pt-0 md:px-16">
+        </div>
+      </section>
+      <section className="w-full bg-white p-10 pt-0">
         {/* ======= ABOUT NMIMS SECTION ======= */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
+        <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#345895] mb-6">
+            <h2 className="text-[32px] md:text-4xl mt-15 lg:text-[64px] font-bold text-[#345895] mb-6">
               About NMIMS
             </h2>
 
-            <p className="text-black leading-relaxed text-sm md:text-base">
+            <p className="text-black leading-relaxed text-sm md:text-[18px] mb-10">
               SVKM's Narsee Monjee Institute of Management was established in
               1981 and was granted Deemed-to-be-University status by the
               University Grants Commission in 2003. With over four decades of
@@ -495,10 +597,10 @@ export default function Page() {
           </div>
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
-          <div className="relative w-full h-full flex md:justify-end  ">
-            <div className="w-full md:w-[90%] overflow-hidden mr-0 rounded-bl-full">
+          <div className="relative w-full h-full flex md:justify-end ">
+            <div className="max-w-7xl overflow-hidden lg:-mr-10 xl:-mr-16">
               <img
-                src="/professional.png"
+                src="/nmims/aboutNmims.png"
                 alt="Students"
                 className="w-full h-full object-cover"
               />
@@ -507,237 +609,221 @@ export default function Page() {
         </div>
       </section>
       {/* ======= SNAPSHOT SECTION ======= */}
-      <section className="w-full mt-16 px-4 md:px-18">
+      <section className="w-full font-[Inter] mt-5  p-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-10 font-[Inter]">
+          <h2 className="text-[32px] md:text-[64px] leading-[120%] font-extrabold text-[#345895] text-center lg:mb-10 md:mb-15 mb-6 font-[Inter]">
             A Snapshot of Success
           </h2>
 
           {/* BLUE BAR */}
-          <div className="bg-[#064E92] rounded-tr-full rounded-bl-full py-10 px-6 md:px-16">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 text-center text-white">
+          <div className="bg-[#064E92] rounded-3xl md:rounded-4xl lg:rounded-tr-full lg:rounded-bl-full lg:rounded-tl-3xl lg:rounded-br-3xl py-10 px-6 md:px-16">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 text-center text-white">
               {/* STAT 1 */}
               <div>
-                <p className="text-sm md:text-base font-medium opacity-90">
-                  5-Star NAAC
-                  <br /> Accreditation Since
-                </p>
-                <h3 className="text-4xl font-bold mb-2">
-                  <Counter end={1999} />
+                <h3 className="text-2xl md:text-4xl lg:text-[64px] font-bold ">
+                  <Counter end={25} />%
                 </h3>
+                <p className="text-sm md:text-[22px] text-white font-bold">
+                  Average Salary Growth
+                </p>
               </div>
 
               {/* STAT 2 */}
               <div>
-                <p className="text-sm md:text-base font-medium opacity-90">
-                  Deemed University
-                  <br /> Status Awarded
-                </p>
-                <h3 className="text-4xl font-bold mb-2">
-                  <Counter end={2003} />
+                <h3 className="text-2xl md:text-4xl lg:text-[64px] font-bold ">
+                  <Counter end={82000} />
                 </h3>
+                <p className="text-sm md:text-[22px] text-white font-bold">
+                  Strong Global Alumni Network
+                </p>
               </div>
 
               {/* STAT 3 */}
               <div>
-                <p className="text-sm md:text-base font-medium opacity-90">
-                  NAAC A++ (3.67) for 4th
-                  <br /> Consecutive Cycle
-                </p>
-                <h3 className="text-4xl font-bold mb-2">
-                  <Counter end={2025} />
+                <h3 className="text-2xl md:text-4xl lg:text-[64px] font-bold ">
+                  <Counter end={500} />+
                 </h3>
+                <p className="text-sm md:text-[22px] text-white font-bold">
+                  Hiring Partners
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="w-full bg-white px-2 md:px-12 lg:px-20 py-12 flex flex-col gap-8">
+      <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
         {/* ===== Top Text Section ===== */}
-        <div className="max-w-232 text-left mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-[49px] leading-snug text-gray-900">
+        <div className="max-w-6xl text-left mx-auto">
+          <h2 className="text-xl md:text-2xl font-regular lg:text-[49px] leading-normal text-gray-900">
             <span className="text-red-600 ">
-              Explore key business sectors with Diploma Programs
-              <br />
+             Explore key business sectors with Diploma Programs{" "}
             </span>
-            designed to give you practical insight into everyday organisational
-            processes across diverse domains.
+           designed to give you practical insight into everyday organisational processes across diverse domains.
           </h2>
         </div>
 
         {/* ===== Bottom Card Section ===== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-8 max-w-6xl mx-auto">
           {/* Card 1 */}
-          <div className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-[rgba(6,78,146,0.02)] hover:bg-[rgba(6,78,146,0.05)] shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="flex flex-col gap-4 p-4 sm:p-6">
             {/* Icon */}
-            <div className="shrink-0 text-[#345895] rounded-full w-12 h-12 flex items-center justify-center">
-              <Ungroup size={70} />
+            <div className="shrink-0 text-black w-12 h-12 flex items-center justify-center">
+              <Ungroup size={72} strokeWidth={1.0} />
             </div>
 
             {/* Content */}
             <div>
-              <h3 className="text-lg text-[#064E92] mb-4">
-                Be a part of legacy
+              <h3 className="lg:text-2xl text-[#345895] mb-1">
+               Be a part of legacy
               </h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Be a part of legacy - Learn from a top Indian university with
-                over 40 years of experience in delivering career-oriented
-                education.
+              <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
+               Be a part of legacy - Learn from a top Indian university with over 40 years of experience in delivering career-oriented education.
               </p>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-[rgba(6,78,146,0.02)] hover:bg-[rgba(6,78,146,0.05)] shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="flex flex-col gap-4 p-4 sm:p-6 ">
             {/* Icon */}
-            <div className="shrink-0 text-[#345895] rounded-full w-12 h-12 flex items-center justify-center">
-              <BookText size={70} />
+            <div className="shrink-0 text-black w-12 h-12 flex items-center justify-center">
+              <BookText size={72} strokeWidth={1.0} />
             </div>
 
             {/* Content */}
             <div>
-              <h3 className="text-lg text-[#064E92] mb-4">
+              <h3 className="lg:text-2xl text-[#345895] mb-1">
                 Work-study balance
               </h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                With a self-paced format tailored for professionals, these
-                diploma programs help you maintain the right balance between
-                work, personal life, and education.
+              <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
+               With a self-paced format tailored for professionals, these diploma programs help you maintain the right balance between work, personal life, and education.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefit Cards */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
-        className="w-full max-w-6xl mx-auto px-5 text-left"
-      >
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: false }}
-          className="text-[64px] font-[Inter] flex items-center justify-center text-left md:text-[64px] font-extrabold text-[#345895] mb-10"
-        >
-          Why Choose Us
-        </motion.h2>
+      <WhyChooseUs cards={whyCards} />
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-          {[
-            {
-              logo: Users,
-              title: "Foundation",
-              text: "Deepen your understanding of key management concepts and sharpen your ability to critically analyse and solve real-world business challenges.",
-            },
-            {
-              logo: BookOpenCheck,
-              title: "Specializations",
-              text: "Choose from marketing, finance, or business analytics to shape your career trajectory with the right specialization.",
-            },
-            {
-              logo: SplinePointer,
-              title: "Flexible",
-              text: "Experience seamless learning through an integrated platform accessible on any device study whenever and however you prefer.",
-            },
-            {
-              logo: Speech,
-              title: "Mentorship",
-              text: "Learn from top academicians and industry leaders who guide you with practical knowledge and deep professional experience.",
-            },
-            {
-              logo: GlobeLock,
-              title: "Industry-Ready",
-              text: "Gain the skills to develop and apply business models and frameworks to solve real-world business challenges.",
-            },
-            {
-              logo: FileUser,
-              title: "Upskill",
-              text: "Master practical business tools and strategic frameworks that empower you to solve complex challenges and drive meaningful results in the real world.",
-            },
-          ].map((card, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="bg-[#064E92] p-4 rounded-xl hover:shadow-lg transition-shadow flex gap-2"
-            >
-              {/* Icon - 30% */}
-              <div className="w-[30%] flex items-center justify-center">
-                <card.logo size={70} strokeWidth={1.0} className="text-white" />
-              </div>
-
-              {/* Text - 70% */}
-              <div className="w-[70%]">
-                <h3 className="text-3xl font-semibold text-white text-left mt-2 mb-2">
-                  {card.title}
-                </h3>
-                <p className="text-white text-left text-xs">{card.text}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.6 }}
-          className="w-full flex items-center justify-center"
-        >
-          <button className=" text-white mt-4 px-16 py-2 rounded-lg text-sm bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform hover:scale-105 duration 200 flex items-center justify-center gap-4 transition">
-            Get Full Access
-          </button>
-        </motion.div>
-      </motion.div>
-
-      <section className="w-full bg-white px-6 mt-10 md:px-16 py-20">
+      <section className="w-full bg-white px-4 md:px-16 py-20">
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-[52px] md:text-[64px] leading-[110%] font-extrabold font-[Inter] text-center text-[#345895] mb-10"
+          className="text-[32px] md:text-[64px] leading-[110%] font-extrabold font-[Inter] text-center text-[#345895] mb-10"
         >
           Syllabus
         </motion.h2>
-
+      
         {/* MAIN WRAPPER */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="bg-[#345895] rounded-[30px] p-8 md:p-12 flex flex-col lg:flex-row gap-10"
+          className="
+            bg-[#345895] rounded-[30px]
+            p-4 sm:p-6 md:p-12
+            flex flex-col xl:flex-row gap-6 md:gap-10
+          "
         >
-          {/* LEFT COLUMN — SUBJECTS */}
-          <div className="w-full lg:w-[30%] flex flex-col items-center">
-            <div className="max-h-[400px] md:w-[90%] pr-2">
+      
+          {/** ------------------------------------------------ */}
+          {/** MOBILE 2-COLUMN WRAPPER (LEFT + RIGHT)          */}
+          {/** ------------------------------------------------ */}
+          <div className="grid grid-cols-2 gap-4 md:gap-20 lg:gap-30 w-full xl:hidden">
+      
+            {/* LEFT COLUMN (Subjects) - MOBILE */}
+            <div className="col-span-1">
+              <div className="flex flex-col items-center">
+                <div className="w-full">
+                  <div className="flex flex-col w-full gap-2 sm:gap-3 mt-4 items-center">
+                    {subjects.map((sub) => (
+                      <motion.button
+                        key={sub.id}
+                        onClick={() => {
+                          setActiveSubject(sub.id);
+                          setActiveSemester(1);
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        className={`w-full px-2 py-2 sm:px-3 sm:py-2 rounded-full
+                          text-[10px] sm:text-xs md:text-sm font-semibold
+                          ${
+                            activeSubject === sub.id
+                              ? "bg-[#38A169] text-white shadow"
+                              : "bg-white text-[#38A169] border-[#38A169] border-dashed border-[2px]"
+                          }
+                        `}
+                      >
+                        {sub.name}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            {/* RIGHT COLUMN (Semesters) - MOBILE */}
+            <div className="col-span-1">
+              <div className="flex flex-col items-center">
+                <div className="flex flex-col gap-2 sm:gap-3 w-full mt-4">
+                  {semesters.map((sem) => (
+                    <motion.button
+                      key={sem}
+                      onClick={() => setActiveSemester(sem)}
+                      whileHover={{ scale: 1.05 }}
+                      className={`px-2 py-2 sm:px-3 sm:py-2 rounded-full
+                        text-[10px] sm:text-xs md:text-sm font-semibold
+                        ${
+                          activeSemester === sem
+                            ? "bg-[#38A169] text-white shadow"
+                            : "bg-white text-[#38A169]  border-[#38A169] border-dashed border-[2px]"
+                        }
+                      `}
+                    >
+                      {sem}
+                      {semSuffix[sem]} Semester
+                    </motion.button>
+                  ))}
+      
+                  {/* DOWNLOAD BUTTON */}
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    className="
+                      mt-22 w-full bg-[#4D964F] text-white px-3 py-2 sm:py-3
+                      rounded-xl text-[10px] sm:text-xs md:text-sm
+                      bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md
+                      flex items-center justify-center gap-2
+                    "
+                  >
+                    DOWNLOAD SYLLABUS
+                    <ChevronRight size={14} />
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          {/** ------------------------------------------------ */}
+          {/** DESKTOP LEFT COLUMN (Subjects) - UNCHANGED     */}
+          {/** ------------------------------------------------ */}
+          <div className="hidden xl:flex w-[30%] flex-col items-center">
+            <div className="max-h-[400px] w-[90%]">
               <div className="flex flex-col w-full gap-4 mt-10 items-center">
                 {subjects.map((sub) => (
                   <motion.button
                     key={sub.id}
                     onClick={() => {
                       setActiveSubject(sub.id);
-                      setActiveSemester(1); // default semester on subject change
+                      setActiveSemester(1);
                     }}
                     whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-full px-4 py-3 rounded-full font-semibold transition 
-                    ${
-                      activeSubject === sub.id
-                        ? "bg-[#38A169] text-white shadow"
-                        : "bg-white text-[#38A169] border border-[#38A169] border-dashed [border-width:2px] [border-dasharray:6_4]"
-                    }`}
+                    className={`w-full px-4 py-3 rounded-full font-semibold
+                      ${
+                        activeSubject === sub.id
+                          ? "bg-[#38A169] text-white shadow"
+                          : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"
+                      }`}
                   >
                     {sub.name}
                   </motion.button>
@@ -745,527 +831,349 @@ export default function Page() {
               </div>
             </div>
           </div>
-
-          {/* MIDDLE COLUMN — TOPICS */}
-          <div className="w-full flex flex-col mt-10 items-center justify-center lg:w-[40%]">
-            <div className="bg-white rounded-xl p-6 shadow-md relative w-full">
-              {/* ICON + FULL HEIGHT LINE */}
-              <div className="absolute left-6 top-0 bottom-0 flex flex-col items-center">
-                <div className="bg-[#345895] text-white p-3 rounded-full shadow z-10 mt-6">
-                  <ChevronsDown size={18} />
+      
+          {/** ------------------------------------------------ */}
+          {/** MIDDLE COLUMN (Topics) - FULL WIDTH ON MOBILE   */}
+          {/** ------------------------------------------------ */}
+          <div className="w-full flex flex-col mt-8 items-center justify-center xl:w-[40%]">
+            <div className="bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md relative w-full">
+      
+              {/* ICON + LINE */}
+              <div className="absolute top-0 bottom-0 flex flex-col items-center">
+                <div className="bg-[#345895] text-white p-2 sm:p-3 rounded-full shadow z-10 mt-4 sm:mt-6">
+                  <ChevronsDown size={16} />
                 </div>
-
-                {/* Line fills the remaining height */}
-                <div className="w-0.5 bg-[#345895] flex-1 mb-5"></div>
+                <div className="w-0.5 bg-[#345895] flex-1 mb-4"></div>
               </div>
-
-              {/* HEADER TITLE */}
-              <h3 className="text-3xl font-[Inter] font-bold text-[#345895] ml-15 mb-4">
+      
+              {/* TITLE */}
+              <h3 className="text-[20px] sm:text-[26px] md:text-3xl font-bold text-[#345895] ml-12 sm:ml-16 mb-3">
                 Topics Covered
               </h3>
-
+      
               {/* TOPICS LIST */}
               <AnimatePresence mode="wait">
                 <motion.ul
-                  key={activeSubject + "-" + activeSemester}
+                  key={activeSubject + '-' + activeSemester}
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -30 }}
                   transition={{ duration: 0.35 }}
-                  className="flex flex-col gap-4 ml-15"
+                  className="flex flex-col gap-3 ml-12 sm:ml-16"
                 >
-                  {topicsData[activeSubject][activeSemester].map(
-                    (topic, index) => (
-                      <motion.li
-                        key={index}
-                        whileHover={{ x: 6 }}
-                        className="flex gap-3 items-center group cursor-pointer"
+                  {topicsData[activeSubject][activeSemester].map((topic, index) => (
+                    <motion.li
+                      key={index}
+                      whileHover={{ x: 6 }}
+                      className="flex gap-2 sm:gap-3 items-center group cursor-pointer"
+                    >
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-white group-hover:bg-[#345895] transition"
                       >
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          className="w-6 h-6 flex items-center justify-center rounded-full bg-white group-hover:bg-[#345895] transition"
-                        >
-                          <Check
-                            size={16}
-                            className="text-[#345895] group-hover:text-white transition"
-                          />
-                        </motion.div>
-
-                        <span className="text-gray-800 group-hover:text-[#345895] transition">
-                          {topic}
-                        </span>
-                      </motion.li>
-                    )
-                  )}
+                        <Check
+                          size={12}
+                          className="sm:size-16 text-[#345895] group-hover:text-white transition"
+                        />
+                      </motion.div>
+      
+                      <span className="text-gray-800 text-xs sm:text-sm md:text-base group-hover:text-[#345895] transition">
+                        {topic}
+                      </span>
+                    </motion.li>
+                  ))}
                 </motion.ul>
               </AnimatePresence>
+      
             </div>
           </div>
-
-          {/* RIGHT COLUMN — SEMESTERS */}
-          <div className="w-full lg:w-[30%] flex flex-col items-start md:items-center mt-12 lg:items-end">
-            <div className="flex flex-col gap-4 w-full lg:w-[90%]">
+      
+          {/** ------------------------------------------------ */}
+          {/** DESKTOP RIGHT COLUMN (Semesters) - UNCHANGED    */}
+          {/** ------------------------------------------------ */}
+          <div className="hidden xl:flex w-[30%] flex-col items-start xl:items-center mt-10">
+            <div className="flex flex-col gap-4 w-full xl:w-[90%]">
               {semesters.map((sem) => (
                 <motion.button
                   key={sem}
                   onClick={() => setActiveSemester(sem)}
                   whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`px-4 py-3 rounded-full font-semibold transition 
-                ${
-                  activeSemester === sem
-                    ? "bg-[#38A169] text-white shadow"
-                    : "bg-white text-[#38A169] border border-[#38A169] border-dashed [border-width:2px] [border-dasharray:6_4]"
-                }`}
+                  className={`px-4 py-3 rounded-full font-semibold
+                    ${
+                      activeSemester === sem
+                        ? "bg-[#38A169] text-white shadow"
+                        : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"
+                    }`}
                 >
-                  Semester {sem}
+                  {sem}
+                  {semSuffix[sem]} Semester
                 </motion.button>
               ))}
-            </div>
-            {/* DOWNLOAD BUTTON */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-40 bg-[#4D964F] text-white px-4 py-3 rounded-xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4 w-full lg:w-[90%]"
-            >
-              DOWNLOAD SYLLABUS
-              <ChevronRight size={20} />
-            </motion.button>
-          </div>
-        </motion.div>
-      </section>
-
-      <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
-        <div className="max-w-5xl mx-auto">
-          {/* Title animation */}
-          <motion.h2
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="inline-block text-5xl md:text-5xl font-bold text-[#345895]"
-          >
-            Eligibility Criteria
-          </motion.h2>
-
-          {/* Card container */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-6 flex flex-col md:flex-row max-w-5xl items-center gap-8"
-          >
-            {/* Left text */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-gray-700 text-3xl font-semibold leading-relaxed md:w-3/5"
-            >
-              HSC (10+2) in any discipline from a recognized Board.
-            </motion.p>
-
-            {/* Right image animation */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="md:w-1/3 flex justify-center"
-            >
-              <img
-                src="/office.png"
-                alt="Eligibility Illustration"
-                className="w-64 h-auto rounded-xl object-contain"
-              />
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="w-full px-4 md:px-10 lg:px-20 py-16">
-        {/* Heading */}
-        <motion.div
-          className="max-w-5xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-5xl md:text-5xl font-[Inter] font-bold text-[#345895] mb-4">
-            Learning Approach
-          </h2>
-
-          <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
-            Get a work-life-study balance with this program designed for working
-            professionals delivered via <br /> latest learning management
-            systems.
-          </p>
-        </motion.div>
-
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
-          {/* Card Template */}
-          {[
-            {
-              icon: FileClock,
-              title: "Learn at Your Own Pace",
-              desc: "Choose between weekday or weekend batches and study in a way that fits your schedule. Access all recorded lectures anytime through the Student Portal.",
-            },
-            {
-              icon: BookCheck,
-              title: "Comprehensive Learning Resources",
-              desc: "Get both physical books and an extensive online library including e-books, journals, transcripts, and 24/7 recorded sessions.",
-            },
-            {
-              icon: Headset,
-              title: "Dedicated Student Support Team",
-              desc: "Receive quick assistance through chat, ticketing, and call-back options ensuring smooth and uninterrupted learning.",
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              className="bg-white shadow-md rounded-2xl p-10 border border-gray-100 flex flex-col items-start text-left"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex items-center justify-center mb-4">
-                <item.icon size={50} className="text-[#0A3971]" />
-              </div>
-
-              <h3 className="text-xl font-semibold text-[#0A3971] mb-2">
-                {item.title}
-              </h3>
-
-              <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Button at Bottom Center */}
-        <div className="flex items-center justify-center mt-12">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ duration: 0.2 }}
-            className="text-white mt-4 px-8 py-4 rounded-lg text-md bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] flex items-center justify-center"
-          >
-            Ready to Learn? Click Here
-          </motion.button>
-        </div>
-      </section>
-      <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
-        {/* Faded Background Heading */}
-        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[66px] md:text-[66px] text-[rgba(6, 78, 146, 0.1)] opacity-90 select-none tracking-tight whitespace-nowrap">
-          EXAMINATION PROCESS
-        </h1>
-
-        <div className="max-w-6xl mx-auto relative">
-          {/* Main Animated Heading */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-[48px] md:text-[62px] font-bold text-center text-[#345895] mb-6"
-          >
-            EXAMINATION PROCESS
-          </motion.h2>
-
-          {/* Sub Text */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-left text-[#345895] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
-          >
-            The NMIMS Online Diploma follows a structured and transparent
-            examination process designed to evaluate learners through continuous
-            assessments and end-term evaluations.
-          </motion.p>
-
-          {/* Cards Wrapper */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Left Card */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
-            >
-              <h3 className="text-2xl font-semibold italic mb-5">
-                Exam Slot Booking
-              </h3>
-
-              {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
-              <div className="space-y-5 text-lg leading-relaxed max-w-[380] mx-auto">
-                {/* POINT 1 */}
-                <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                  <span className="text-2xl leading-none">✦</span>
-                  <p className="text-left mb-6">
-                    Learners must book their examination slots through the NMIMS
-                    Student Portal.
-                  </p>
-                </div>
-
-                {/* POINT 2 */}
-                <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                  <span className="text-2xl leading-no">✦</span>
-                  <p className="text-left">
-                    All exam slot details are shared well in advance, allowing
-                    candidates to schedule their tests conveniently.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
-            >
-              <h3 className="text-2xl font-semibold italic mb-5">
-                Exam Slot Timings
-              </h3>
-
-              <p className="text-lg max-w-[380] mb-6 text-center">
-                For end-term examinations, NMIMS provides three available slots:
-              </p>
-
-              {/* Exam Time Circles */}
-              <div className="flex items-center justify-center gap-6 mb-7">
-                {["9 AM", "1 PM", "5 PM"].map((slot, i) => (
-                  <div
-                    key={i}
-                    className="w-15 h-15 border border-white rounded-full flex items-center justify-center text-lg font-semibold"
-                  >
-                    {slot}
-                  </div>
-                ))}
-              </div>
-
-              <p className="text-lg max-w-[380] text-center">
-                Candidates may choose their preferred slot based on
-                availability.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
-        <div className="max-w-4xl mx-auto p-6 md:p-10">
-          {/* Heading */}
-          <h2 className="text-4xl md:text-[40] font-bold italic text-[#345895] mb-12 text-center">
-            ASSESSMENT STRUCTURE (100 MARKS)
-          </h2>
-
-          {/* Two Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
-            {/* Left Category */}
-            <div className="space-y-2">
-              <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
-                End-term Examination (70 Marks)
-              </div>
-
-              <div className="flex flex-cols-2 gap-1">
-                <div className="rounded-lg border border-[#345895] py-3 px-2 text-sm text-center text-[#345895] bg-white">
-                  MCQ (40 Marks)
-                </div>
-                <div className="rounded-lg border border-[#345895] py-3 px-3 text-sm text-center text-[#345895] bg-white">
-                  Descriptive Answers (30 Marks)
-                </div>
-              </div>
-            </div>
-
-            {/* Right Category */}
-            <div className="space-y-2">
-              <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
-                Assignments + Quizes (30 Marks)
-              </div>
-
-              <div className="flex flex-cols-2 gap-2">
-                <div className="rounded-lg border border-[#345895] py-3 px-7 text-sm text-center text-[#345895] bg-white">
-                  Quiz (10 Marks)
-                </div>
-                <div className="rounded-lg border border-[#345895] py-3 px-6 text-sm text-center text-[#345895] bg-white">
-                  Assignment (20 Marks)
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Passing Criteria Box */}
-          <div className="border border-[#e5e7eb] rounded-lg p-5 mt-15 bg-white">
-            <p className="font-semibold text-black mb-1">Passing Criteria</p>
-            <ul className="list-disc pl-8 text-[#345895] text-lg">
-              <li>
-                A candidate must secure a minimum of 40% to successfully pass
-                the course
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <section className="w-full bg-white mt-15 py-5 px-6 md:px-12 lg:px-20">
-        {/* Heading */}
-        <h2 className="text-center text-[#345895] font-[Inter] text-5xl md:text-5xl font-extrabold mb-12">
-          Career Services
-        </h2>
-
-        {/* Main rounded container */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto bg-white shadow-xl rounded-3xl p-10 md:p-14"
-        >
-          {/* GRID — 3 ON TOP, 2 BELOW */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-            {/* ---- TOP 3 BENEFITS ---- */}
-            {benefits.slice(0, 3).map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center flex flex-col items-center"
+      
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="mt-8 w-full bg-[#4D964F] text-white px-4 py-4 rounded-2xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4"
               >
-                <div className="mb-4">{item.icon}</div>
-                <h3 className="text-[#345895] font-extrabold font-[Inter] text-xl mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-[#345895] text-sm max-w-60 mx-auto leading-relaxed">
-                  {item.text}
-                </p>
-              </motion.div>
-            ))}
-
-            {/* ---- BOTTOM 2 BENEFITS (Centered) ---- */}
-            <div className="col-span-1 sm:col-span-2 lg:col-span-3 flex justify-center gap-20 mt-6">
-              {benefits.slice(3, 5).map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: (index + 3) * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center flex flex-col items-center max-w-[250px]"
-                >
-                  <div className="mb-4">{item.icon}</div>
-                  <h3 className="text-[#345895] font-extrabold font-[Inter] text-xl mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-[#345895] text-sm leading-relaxed">
-                    {item.text}
-                  </p>
-                </motion.div>
-              ))}
+                DOWNLOAD SYLLABUS
+                <ChevronRight size={20} />
+              </motion.button>
             </div>
           </div>
-
-          {/* CTA Button */}
-          <div className="flex justify-center mt-12">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-[#4D964F] text-white mt-4 px-6 py-2 rounded-lg text-sm 
-          bg-linear-to-r from-[#4D964F] to-[#193019] border-0
-          shadow-[#1C361D] shadow-md transform hover:scale-105 
-          duration-200 flex items-center justify-center gap-4 transition"
-            >
-              Explore Your Benefits
-              <ArrowRight size={16} />
-            </motion.button>
-          </div>
+      
         </motion.div>
       </section>
+
+     <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
+             <div className="max-w-7xl mx-auto">
+               {/* Title animation */}
+               <motion.h2
+                 initial={{ opacity: 0, x: -40 }}
+                 whileInView={{ opacity: 1, x: 0 }}
+                 transition={{ duration: 0.6 }}
+                 viewport={{ once: true }}
+                 className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#345895]"
+               >
+                 Eligibility Criteria
+               </motion.h2>
+     
+               {/* Card container */}
+               <motion.div
+                 initial={{ opacity: 0, y: 40 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.6 }}
+                 viewport={{ once: true }}
+                 className="mt-6 flex flex-col md:flex-row max-w-7xl items-center gap-20"
+               >
+                 {/* Left text */}
+                 <motion.p
+                   initial={{ opacity: 0, y: 20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.6, delay: 0.2 }}
+                   viewport={{ once: true }}
+                   className="text-gray-700  text-[20px] md:text-3xl font-medium leading-relaxed md:w-3/5"
+                 >
+                  HSC (10+2) in any discipline from a recognised Board.
+                 </motion.p>
+     
+                 {/* Right image animation */}
+                 <motion.div
+                   initial={{ opacity: 0, x: 40 }}
+                   whileInView={{ opacity: 1, x: 0 }}
+                   transition={{ duration: 0.6, delay: 0.3 }}
+                   viewport={{ once: true }}
+                   className="md:w-[40%] w-full flex justify-end pr-0 md:pr-0"
+                 >
+                   <img
+                     src="/nmims/nmimsEligibility.png"
+                     alt="Eligibility Illustration"
+                   className="w-full max-w-[420px] md:max-w-[520px] h-auto rounded-xl object-contain"
+           
+                   />
+                 </motion.div>
+               </motion.div>
+             </div>
+           </section>
+     
+           <LearningApproach
+             title="Learning Approach"
+             subtitle="Get a work-life-study balance with this program designed for working professionals delivered via latest learning management systems."
+             cards={learningCards}
+             ctaText="Ready to Learn ? Click Here"
+           />
+     
+     <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
+                 {/* Faded Background Heading */}
+                 <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[rgba(6, 78, 146, 0.1)] opacity-90 select-none tracking-tight whitespace-nowrap">
+                   EXAMINATION PROCESS
+                 </h1>
+         
+                 <div className="max-w-6xl mx-auto relative">
+                   {/* Main Animated Heading */}
+                   <motion.h2
+                     initial={{ opacity: 0, y: 30 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.6 }}
+                     viewport={{ once: true }}
+                     className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#345895] mb-6"
+                   >
+                     EXAMINATION PROCESS
+                   </motion.h2>
+         
+                   {/* Sub Text */}
+                   <motion.p
+                     initial={{ opacity: 0 }}
+                     whileInView={{ opacity: 1 }}
+                     transition={{ duration: 0.8, delay: 0.2 }}
+                     viewport={{ once: true }}
+                     className="text-left text-[#345895] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
+                   >
+                     The NMIMS Online Diploma follows a structured and transparent
+                     examination process designed to evaluate learners through continuous
+                     assessments and end-term evaluations.
+                   </motion.p>
+         
+                   {/* Cards Wrapper */}
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                     {/* Left Card */}
+                     <motion.div
+                       initial={{ opacity: 0, x: -40 }}
+                       whileInView={{ opacity: 1, x: 0 }}
+                       transition={{ duration: 0.6 }}
+                       viewport={{ once: true }}
+                       className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
+                     >
+                       <h3 className=" text-md md:text-2xl font-semibold italic mb-5">
+                         Exam Slot Booking
+                       </h3>
+         
+                       {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
+                       <div className="space-y-5 text-lg leading-relaxed max-w-[380] mx-auto">
+                         {/* POINT 1 */}
+                         <div className="grid grid-cols-[30px_auto] gap-3 items-start">
+                           <span className="text-lg lg:text-2xl leading-none">✦</span>
+                           <p className="text-left text-lg lg:text-2xl mb-6">
+                             Learners must book their examination slots through the NMIMS
+                             Student Portal.
+                           </p>
+                         </div>
+         
+                         {/* POINT 2 */}
+                         <div className="grid grid-cols-[30px_auto] gap-3 items-start">
+                           <span className="text-lg lg:text-2xl leading-no">✦</span>
+                           <p className="text-lg lg:text-2xl text-left">
+                             All exam slot details are shared well in advance, allowing
+                             candidates to schedule their tests conveniently.
+                           </p>
+                         </div>
+                       </div>
+                     </motion.div>
+         
+                     {/* Right Card */}
+                     <motion.div
+                       initial={{ opacity: 0, x: 40 }}
+                       whileInView={{ opacity: 1, x: 0 }}
+                       transition={{ duration: 0.6 }}
+                       viewport={{ once: true }}
+                       className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
+                     >
+                       <h3 className="text-md md:text-2xl font-semibold italic mb-5">
+                         Exam Slot Timings
+                       </h3>
+         
+                       <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-center">
+                         For end-term examinations, NMIMS provides three available slots:
+                       </p>
+         
+                       {/* Exam Time Circles */}
+                       <div className="flex items-center justify-center gap-6 mb-7">
+                         {["9 AM", "1 PM", "5 PM"].map((slot, i) => (
+                           <div
+                             key={i}
+                             className="w-15 h-15 border border-white rounded-full flex items-center justify-center text-lg font-semibold"
+                           >
+                             {slot}
+                           </div>
+                         ))}
+                       </div>
+         
+                       <p className="text-lg lg:text-[2xl] max-w-[380] text-center">
+                         Candidates may choose their preferred slot based on
+                         availability.
+                       </p>
+                     </motion.div>
+                   </div>
+                 </div>
+               </section>
+         
+               <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
+                 <div className="max-w-4xl mx-auto p-6 md:p-10">
+                   {/* Heading */}
+                   <h2 className="text-[24px] md:text-[40] font-bold italic text-[#345895] mb-12 text-center">
+                     ASSESSMENT STRUCTURE (100 MARKS)
+                   </h2>
+         
+                   {/* Two Categories */}
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
+                     {/* Left Category */}
+                     <div className="space-y-2">
+                       <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
+                         End-term Examination (70 Marks)
+                       </div>
+         
+                       <div className="flex flex-cols-2 gap-1">
+                         <div className="rounded-lg border border-[#345895] py-3 px-2 text-sm text-center text-[#345895] bg-white">
+                           MCQ (40 Marks)
+                         </div>
+                         <div className="rounded-lg border border-[#345895] py-3 px-3 text-sm text-center text-[#345895] bg-white">
+                           Descriptive Answers (30 Marks)
+                         </div>
+                       </div>
+                     </div>
+         
+                     {/* Right Category */}
+                     <div className="space-y-2">
+                       <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
+                         Assignments + Quizes (30 Marks)
+                       </div>
+         
+                       <div className="flex flex-cols-2 gap-2">
+                         <div className="rounded-lg border border-[#345895] py-3 px-7 text-sm text-center text-[#345895] bg-white">
+                           Quiz (10 Marks)
+                         </div>
+                         <div className="rounded-lg border border-[#345895] py-3 px-6 text-sm text-center text-[#345895] bg-white">
+                           Assignment (20 Marks)
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+         
+                   {/* Passing Criteria Box */}
+                   <div className="border border-[#e5e7eb] rounded-lg p-5 mt-15 bg-white">
+                     <p className="font-semibold text-black mb-1">Passing Criteria</p>
+                     <ul className="list-disc pl-8 text-[#345895] text-sm md:text-lg">
+                       <li>
+                         A candidate must secure a minimum of 40% to successfully pass
+                         the course
+                       </li>
+                     </ul>
+                   </div>
+                 </div>
+               </section>
+           <CareerServices />
       <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
-        {/* CONTAINER BORDER BOX */}
-        <div className="px-2">
-          {/* FLEX WRAPPER */}
-          <div className="flex flex-row justify-center items-center gap-10">
-            {/* LEFT SIDE TEXT */}
-            <div className="w-full lg:w-[45%] flex flex-col justify-center">
-              <h2 className="text-[#064E92] text-[42px] md:text-[52px] font-extrabold leading-[110%] mb-6">
-                Fees Structure
-              </h2>
+      <div className="px-2 w-full">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
 
-              <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-xl mb-6">
-                Convenient Fee Payment Option:
-                <br />
-                Choose your preferred fee payment option
-              </p>
+          {/* LEFT SIDE TEXT */}
+          <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
+            <h2 className="text-[#064E92] text-[42px] md:text-[52px] lg:text-[64px] font-extrabold leading-[110%] mb-4">
+              Fees Structure
+            </h2>
 
-              <button className=" text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] mt-5 font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration 200 flex items-center justify-center w-fit">
-                Compare all Plans
-              </button>
-            </div>
+            <p className="text-gray-700 text-sm md:text-base leading-tight lg:max-w-xl mb-6">
+              Convenient fee payment option <br />
+              Choose your preferred fee payment option
+            </p>
 
-            {/* RIGHT SIDE CARDS */}
-            <div className="flex flex-row items-start justify-center gap-6 lg:w-[40%] pr-35">
-              {/* ANNUAL PAYMENT CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] border rounded-xl shadow-sm px-5 py-5 w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center ">
-                  <p className="font-semibold text-white">Annual Payment</p>
-                  <p className="text-xs text-white mt-1">(no. of years 1)</p>
-                  <p className="text-[#C4C4C4] font-bold text-[19px] mt-4">
-                    Online Diploma
-                  </p>
-                  <div className="w-30 mx-auto mt-2 h-0.5 bg-white" />
-                  <p className="text-2xl md:text-3xl font-semibold mt-8 text-white text-center">
-                    1,10,000/-
-                  </p>
-                </div>
-              </div>
-              {/* SEMESTER wise CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] border rounded-xl shadow-sm px-5 py-5 w-[250px] flex flex-col justify-between h-[260px]">
-                <div className="text-center ">
-                  <p className="font-semibold text-white">Semester wise</p>
-                  <p className="text-xs text-white mt-1">(no. of sem 2)</p>
-                  <p className="text-[#C4C4C4] font-bold text-[19px] mt-4 whitespace-nowrap">
-                    Online Diploma
-                  </p>
-                  <div className="w-30 mx-auto mt-2 h-0.5 bg-white" />
-                  <p className="text-2xl md:text-3xl font-semibold mt-8 text-white text-center">
-                    55,000/-
-                  </p>
-                </div>
-              </div>
-
-              {/* One Time Card */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] rounded-xl shadow-md px-5 py-5 w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center ">
-                  <p className="font-semibold text-white">One Time</p>
-                  <p className="text-xs text-white mt-1">(in INR)</p>
-                  <p className="text-[#C4C4C4] font-bold text-[19px] mt-4">
-                    Online Diploma
-                  </p>
-                  <div className="w-30 mx-auto mt-2 h-0.5 bg-white" />
-                  <p className="text-2xl md:text-3xl font-semibold mt-8 text-white text-center">
-                    1,05,000/-
-                  </p>
-                  <p className="text-xs italic text-white mt-3">
-                    Congratulations!
-                    <br /> You save ₹5,000/-
-                  </p>
-                </div>
-              </div>
-            </div>
+            {/* CTA – desktop only */}
+            <button className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
+              Compare all Plans
+            </button>
           </div>
+
+          {/* RIGHT SIDE CAROUSEL */}
+          <div className="w-full lg:w-[40%] flex justify-center">
+            <FeesCarouselOnlineDiploma />
+          </div>
+
+          {/* CTA – mobile only */}
+          <button className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+            Compare all Plans
+          </button>
+
         </div>
-      </section>
+      </div>
+    </section>
 
       <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-[Inter]">
         <motion.div
@@ -1334,114 +1242,59 @@ export default function Page() {
         </motion.div>
       </section>
 
-      <section className="w-full bg-[#345895]  mt-10 px-4 md:px-12 lg:px-20 py-16">
-        {/* OUTER BORDER BOX */}
-        <div className="p-6 md:p-12">
-          {/* TITLE BLOCK */}
-          <div className="text-center mb-10">
-            <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl">
-              Your Path to Enrollment
-            </h2>
-
-            <p
-              className="text-[#4DA7DE] font-[Covered_By_Your_Grace] 
-               text-4xl md:text-5xl lg:text-[64px] leading-none mt-2"
-            >
-              Here's how.
-            </p>
-          </div>
-
-          {/* STEPS */}
-          <div className="flex flex-col gap-6 max-w-2xl mx-auto">
-            {steps.map((step, i) => (
-              <div key={i}>
-                <div
-                  onClick={() => toggleStep(i)}
-                  className="flex items-center gap-6 cursor-pointer group"
-                >
-                  {/* NUMBER */}
-                  <p
-                    className="text-white font-[Covered_By_Your_Grace] 
-                     text-[42px] md:text-[48px] leading-none pt-1 min-w-[50px]"
-                  >
-                    {step.num}
-                  </p>
-
-                  {/* TITLE + DESCRIPTION */}
-                  <div className="w-full relative">
-                    <p
-                      className={`text-[20px] md:text-[24px] font-bold transition-colors
-                      ${
-                        activeIndex === i ? "text-white" : "text-[#D8D8D8]/79"
-                      }`}
-                    >
-                      {step.title}
-                    </p>
-
-                    {/* VERTICAL LINE */}
-                    {activeIndex === i && (
-                      <motion.div
-                        initial={{ height: 0 }}
-                        animate={{ height: "100%" }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute -left-4 top-6 w-0.5 bg-[#345895]"
-                      ></motion.div>
-                    )}
-
-                    {/* DESCRIPTION */}
-                    <AnimatePresence>
-                      {activeIndex === i && (
-                        <motion.p
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="text-white text-sm md:text-base mt-2 leading-relaxed pr-6 line-clamp-2"
-                        >
-                          {step.desc}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full px-18">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] gap-10">
-          {/* LEFT CONTENT */}
-          <div className="space-y-4">
-            <p className="text-[#1F1717] text-sm font-medium">Degree Sample</p>
-
-            <h2 className="text-[#345895] text-[64px] font-bold md:text-[64px] leading-tight">
-              NMIMS Online <br />
-              Diploma <br />
-              Certificate
-            </h2>
-
-            <p className="text-[#3C3C43] max-w-[350px] text-base">
-              Highlight your professional success with official certificate from
-              NMIMS NCDOE
-            </p>
-
-            <button className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 mt-10  rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-md shadow-[#1C361D]  transform hover:scale-105 duration 200 flex items-center justify-center ">
-              Know more
-            </button>
-          </div>
-
-          {/* RIGHT IMAGE */}
-          <div className="flex justify-center md:justify-end">
-            <img
-              src="/office.png"
-              alt="Certificate Preview"
-              className="w-full max-w-sm rounded-lg shadow-sm"
-            />
-          </div>
-        </div>
-      </section>
+      <Enrollment
+             title="Your Path to Enrollment"
+             subtitle="Here's how."
+             steps={steps}
+             defaultOpen={2} // Step 3 open by default
+           />
+     
+           <section className="w-full px-6 md:px-18">
+       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] gap-10">
+     
+         {/* LEFT CONTENT */}
+         <div className="space-y-5">
+     
+           <p className="text-[#1F1717] mb-1 mt-5 text-sm font-medium">Degree Sample</p>
+     
+           <h2 className="text-[#345895] text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight">
+             NMIMS Online <br />
+             Diploma <br />
+             Certificate
+           </h2>
+     
+           <p className="text-[#3C3C43] max-w-[350px] text-base">
+             Highlight your professional success with official certificate from
+             NMIMS NCDOE
+           </p>
+     
+           {/* IMAGE that appears ONLY on mobile, above CTA */}
+           <div className="md:hidden flex justify-center">
+             <img
+               src="/nmims/nmimsDiplomaDegree.jpg"
+               alt="Certificate Preview"
+               className="w-full max-w-xs rounded-lg shadow-sm"
+             />
+           </div>
+     
+           {/* CTA BUTTON */}
+           <button className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center">
+             Know more
+           </button>
+     
+         </div>
+     
+         {/* RIGHT IMAGE (visible only on md+ screens) */}
+         <div className="hidden md:flex justify-center mt-5 md:justify-end">
+           <img
+             src="/nmims/nmimsDiplomaDegree.jpg"
+             alt="Certificate Preview"
+             className="w-full max-w-sm rounded-lg shadow-sm"
+           />
+         </div>
+     
+       </div>
+     </section>
       <section className="w-full bg-white px-4 md:px-12 lg:px-20 py-16 font-[Inter]">
         {/* Small Header */}
         <motion.p
@@ -1569,389 +1422,185 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="w-full bg-white py-20 px-16 md:px-12 lg:px-20">
-        <div className="w-full bg-[#064E92] rounded-4xl py-20 px-16 md:px-12 lg:px-20">
-          {/* White inner container */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-[40px] p-6 md:p-12 max-w-7xl mx-auto"
-          >
-            {/* Title */}
-            <div className="text-center mb-4 relative pb-3">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
+         <section className="w-full bg-white py-20 md:px-12 lg:px-20">
+            <div className="w-full md:bg-[#345895] rounded-4xl py-20 px-6 md:px-12 lg:px-20">
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-[#064E92] font-extrabold font-[Inter] text-3xl md:text-5xl lg:text-[64px]"
-              >
-                Career Opportunities
-              </motion.h2>
-            </div>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center text-[20px] flex justify-center text-black max-w-lg mx-auto mb-12"
-            >
-             Gain practical, job-ready skills through diploma programs designed to help you grasp industry fundamentals and begin your career with confidence.
-            </motion.p>
-
-            {/* Content Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              {/* LEFT IMAGE */}
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-[40px] md:p-12 max-w-7xl mx-auto"
               >
-                <div className="rounded-2xl overflow-hidden shadow-md">
-                  <Image
-                    src="/professional.png"
-                    width={466}
-                    height={250}
-                    alt="Career handshake"
-                    className="w-full h-auto object-cover"
-                  />
+                {/* Title */}
+                <div className="text-center md:mb-4 pb-3">
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="
+                        text-[#345895] 
+                          font-bold font-[Inter] 
+                          text-[32px] md:text-5xl lg:text-[64px] 
+                          leading-tight"
+                  >
+                    Career Opportunities
+                  </motion.h2>
                 </div>
-              </motion.div>
-
-              {/* RIGHT LIST — ROLES directly written here */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="flex flex-col gap-4"
-              >
-                {/* Each line manually listed */}
-                {[
-                  "Accounts and Finance Manager",
-                  "Digital marketing Executive",
-                  "Business Consultant",
-                  "Human Resource Manager",
-                ].map((role, index) => (
+    
+                {/* Subtitle */}
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="text-center text-black text-[18px] md:text-[20px] max-w-2xl mx-auto md:mb-12"
+                >
+                 Gain practical, job-ready skills through diploma programs designed to help you grasp industry fundamentals and begin your career with confidence.
+                </motion.p>
+    
+                {/* Content Section */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                  {/* LEFT IMAGE */}
                   <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 25 }}
+                    initial={{ opacity: 0, x: -40 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.35, delay: index * 0.1 }}
-                    className="flex items-center gap-3"
+                    transition={{ duration: 0.6 }}
+                    className="flex justify-center"
                   >
-                    <span className="w-7 h-7 rounded-full bg-[#4d964f] flex items-center justify-center">
-                      <Check size={18} className="text-white" />
-                    </span>
-
-                    <span className="text-gray-900 font-semibold text-lg">
-                      {role}
-                    </span>
+                    <Image
+                      src="/nmimsCareer.png"
+                      width={400}
+                      height={400}
+                      alt="Career Opportunities"
+                      className="
+        w-full 
+        max-w-[220px]       /* Smaller on mobile */
+        sm:max-w-[260px]  
+        md:max-w-[320px]   /* Medium screens */
+        lg:max-w-[400px]   /* Large screens */
+        object-contain
+        mx-auto
+      "
+                    />
                   </motion.div>
-                ))}
-
-                {/* CTA */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  className=" w-[200px] bg-[#4D964F] text-white mt-4 px-6 py-3 rounded-lg text-sm bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform hover:scale-105 duration 200"
-                >
-                  Know more
-                </motion.button>
+    
+                  {/* RIGHT LIST */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="flex flex-col gap-4"
+                  >
+                    {[
+                      "Accounts and Finance Manager",
+                      "Digital Marketing Executive",
+                      "Business Consultant",
+                      "Human Resources Manager",
+                    ].map((role, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: 25 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.35, delay: index * 0.1 }}
+                        className="flex items-center gap-3"
+                      >
+                        <span className="w-7 h-7 rounded-full bg-[#4D964F] flex items-center justify-center">
+                          <Check size={18} className="text-white" />
+                        </span>
+                        <span className="text-gray-900 font-semibold text-lg">
+                          {role}
+                        </span>
+                      </motion.div>
+                    ))}
+    
+                    {/* CTA */}
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="
+                  w-[200px] 
+                  mt-6 py-3 px-6 
+                  rounded-lg 
+                  text-white text-sm 
+                  bg-linear-to-r from-[#4D964F] to-[#193019]
+                  shadow-md shadow-[#1C361D]/40
+                "
+                    >
+                      Know more
+                    </motion.button>
+                  </motion.div>
+                </div>
               </motion.div>
             </div>
-          </motion.div>
-        </div>
-      </section>
-      <div className="min-h-screen font-[Inter] px-18 bg-[#345895] py-8 sm:py-12 md:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="flex items-center gap-2 mb-6 sm:mb-8 md:mb-12">
-            <span>
-              <CornerDownRight />
-            </span>
-            <h2 className="text-white text-base sm:text-lg font-medium">
-              Our Faculties
-            </h2>
-          </div>
+          </section>
+    
+          <Faculties
+            heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."
+            topFaculty={topFaculty}
+            bottomFaculty={bottomFaculty}
+          />
+    
+          <ServicesByPAB />
 
-          {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start mb-6 sm:mb-8 md:mb-10">
-            {/* Left Column - Heading */}
-            <div className="lg:pr-8">
-              <h1 className="text-white font-[Inter] text-xl sm:text-2xl md:text-3xl lg:text-[42px] font-semibold leading-tight">
-                Learn from a distinguished group of academicians and industry
-                leaders who bring real-world expertise to every lesson.
-              </h1>
-            </div>
-
-            {/* Right Column - Top 2 Faculty Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-5 md:gap-6">
-              {topFaculty.map((member, index) => (
-                <div
-                  key={index}
-                  className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                >
-                  <div className="aspect-4/3 relative overflow-hidden bg-gray-200">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover grayscale transition-all duration-300"
-                    />
-                  </div>
-                  <div className="p-4 sm:p-5">
-                    <h3 className="text-white font-semibold text-base sm:text-lg mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-blue-200 text-xs sm:text-sm">
-                      {member.title}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom 4 Faculty Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-5 md:gap-6 mb-6 sm:mb-8">
-            {bottomFaculty.map((member, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
-              >
-                <div className="aspect-4/3 relative overflow-hidden bg-gray-200">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover grayscale transition-all duration-300"
-                  />
-                </div>
-                <div className="p-4 sm:p-5">
-                  <h3 className="text-white font-semibold text-base sm:text-lg mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-blue-200 text-xs sm:text-sm">
-                    {member.title}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* See All Members Button */}
-          <div className="max-w-4xl mx-auto">
-            <button className="w-full py-4 sm:py-5 px-6 border-2 border-white/30 rounded-full text-white font-medium text-sm sm:text-base hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 group">
-              See all members
-              <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <section className="w-full px-4 md:px-14 lg:px-20 py-16">
-        {/* OUTER BORDER BOX */}
-        <div className=" px-6  md:px-10 relative">
-          <div className="flex items-center gap-40">
-            {/* TITLE + DESCRIPTION */}
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="text-[#345895] text-[64px] md:text-[64px] font-bold font-[Inter] leading-10 whitespace-nowrap"
-            >
-              Services by PAB
-            </motion.h2>
-
-            {/* Horizontal line that starts after text & has fixed width */}
-            <div className="h-px bg-black w-[572px] md:w-[250px] lg:w-[600px] mt-6"></div>
-          </div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-[#345895]/65 text-sm md:text-[36px] font-semibold italic leading-relaxed"
-          >
-            Learn Lead & Grow
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-black text-sm md:text-base max-w-md leading-relaxed"
-          >
-            Our services ensure you're supported at every step through
-            personalised 1-1 career coaching, access to subject matter experts,
-            and dedicated post-admission assistance. With quick 30-minute query
-            resolution and continuous progress tracking, you get a smooth,
-            guided, and growth-focused learning experience.
-          </motion.p>
-
-          {/* INNER BORDER BOX */}
-          <div className=" mt-10 p-4 md:p-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-              {servicesPab.map((servicesPab, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex gap-4"
-                >
-                  {/* NUMBER */}
-                  <p className="text-[#4D964F] text-9xl md:text-8xl ">
-                    {servicesPab.num}
-                  </p>
-
-                  {/* TEXT BLOCK */}
-                  <div>
-                    <h3 className="font-semibold text-black text-sm md:text-base leading-snug max-w-[150px]">
-                      {servicesPab.title}
-                    </h3>
-                    <p className="text-[#3C3C43] text-xs md:text-sm mt-1 leading-snug max-w-[150px]">
-                      {servicesPab.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full px-4 md:px-10 lg:px-20 ">
-        {/* TITLE */}
-        <h2 className="text-[#345895] font-extrabold flex flex-row items-center justify-center font-[Inter] text-[42px] md:text-[64px] mb-8">
-          Important Dates
-        </h2>
-
-        {/* TABLE WRAPPER */}
-        <div className="w-full overflow-hidden">
-          {/* HEADER ROW */}
-          <div className="hidden w-full md:grid grid-cols-2 bg-[#4D964F] text-white font-semibold text-left px-35 gap-40 py-4 text-base rounded-xl">
-            <p>PARTICULARS</p>
-            <p>DATES</p>
-          </div>
-
-          {/* BODY ROWS */}
-          <div className="divide-y divide-[#C8C8C8]">
-            {[
-              { p: "Registration Starts", d: "22nd September, 2025" },
-              {
-                p: "Admission Without Late Fees",
-                d: "22nd September, 2025 To 31st January, 2026",
-              },
-              {
-                p: "Admission With Late Fees Of Rs. 500/-",
-                d: "1st February, 2026 To 28th February, 2026",
-              },
-              {
-                p: "Admission With Late Fees Of Rs. 1000/-",
-                d: "1st March, 2026 To 16th March, 2026",
-              },
-              { p: "Closure Of Registration", d: "16th March, 2026" },
-              { p: "Re-Registration Starts", d: "22nd September, 2025" },
-              {
-                p: "Re-Registration Without Late Fees",
-                d: "22nd September, 2025 To 31st January, 2026",
-              },
-              {
-                p: "Re-Registration With Late Fees Of Rs. 1000/-",
-                d: "1st February, 2026 To 16th March, 2026",
-              },
-              { p: "Last Date Of Admission", d: "16th March, 2026" },
-            ].map((row, i) => (
-              <div
-                key={i}
-                className="
-            grid grid-cols-1 md:grid-cols-2 
-            gap-2 md:gap-0
-            text-sm md:text-base 
-            py-4 px-4 md:px-6 
-            hover:bg-[#F8FAFC] transition-colors
-          "
-              >
-                {/* Mobile Labels */}
-                <div className="md:hidden text-[#345895] font-medium">
-                  Particulars
-                </div>
-                <p className="text-black px-30">{row.p}</p>
-
-                <div className="md:hidden mt-2 text-[#345895] font-medium">
-                  Dates
-                </div>
-                <p className="text-black px-20">{row.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="w-full bg-white px-10 md:px-50 py-20">
-        {/* Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-[#345895] font-extrabold flex flex-row items-center justify-center font-[Inter] text-3xl md:text-5xl mb-10"
-        >
-          Frequently Asked Questions
-        </motion.h2>
-
-        {/* FAQ CARDS */}
-        <div className="flex flex-col gap-6 max-w-5xl">
-          {faqs.map((q, index) => (
-            <div
-              key={index}
-              className="bg-white shadow-md rounded-xl p-4 md:p-6 cursor-pointer"
-              onClick={() => toggleFAQ(index)}
-            >
-              <div className="flex items-center text-black justify-between">
-                {/* ❗ FIXED HERE — use q.q instead of q */}
-                <p className="text-lg md:text-xl font-semibold">{q.q}</p>
-
-                <Plus
-                  size={24}
-                  className={`transition-transform ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                />
-              </div>
-
-              {/* Animated Answer */}
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.p
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-black mt-4 text-sm md:text-base"
-                  >
-                    {/* ❗ FIXED HERE — use q.a */}
-                    {q.a}
-                  </motion.p>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="w-full h-90 bg-[#345895] py-15 flex flex-col items-center text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-[Inter] font-bold text-white max-w-4xl leading-tight px-4">
-          Connect Today for expert-led,
-          <br />
-          personalised career counselling.
-        </h2>
-
-        <button
-          type="button"
-          className="mt-15 text-white py-3 px-15 rounded-xl text-lg  bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform hover:scale-105 duration 200 font-semibold hover:shadow-lg transition duration-200"
-        >
-          What's My Fit?
-        </button>
-      </section>
+     <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
+           {/* TITLE */}
+           <h2 className="text-[#345895] font-extrabold text-center text-[32px] md:text-[48px] lg:text-[64px] mb-8">
+             Important Dates
+           </h2>
+         
+           {/* TABLE WRAPPER */}
+           <div className="w-full">
+             <table className="w-full border-collapse table-fixed">
+               {/* HEADER */}
+               <thead>
+                 <tr className="bg-[#4D964F] text-white text-[12px] md:text-[16px]">
+                   <th className="py-3 px-2 text-left rounded-l-lg">PARTICULARS</th>
+                   <th className="py-3 px-2 text-left rounded-r-lg">DATES</th>
+                 </tr>
+               </thead>
+         
+               {/* BODY */}
+               <tbody className="divide-y divide-[#D6D6D6]">
+                   {[
+                   { p: "Registration Starts", d: "22nd September, 2025" },
+                   {
+                     p: "Admission Without Late Fees",
+                     d: "22nd September, 2025 To 31st January, 2026",
+                   },
+                   {
+                     p: "Admission With Late Fees Of Rs. 500/-",
+                     d: "1st February, 2026 To 28th February, 2026",
+                   },
+                   {
+                     p: "Admission With Late Fees Of Rs. 1000/-",
+                     d: "1st March, 2026 To 16th March, 2026",
+                   },
+                   { p: "Closure Of Registration", d: "16th March, 2026" },
+                   { p: "Re-Registration Starts", d: "22nd September, 2025" },
+                   {
+                     p: "Re-Registration Without Late Fees",
+                     d: "22nd September, 2025 To 31st January, 2026",
+                   },
+                   {
+                     p: "Re-Registration With Late Fees Of Rs. 1000/-",
+                     d: "1st February, 2026 To 16th March, 2026",
+                   },
+                   { p: "Last Date Of Admission", d: "16th March, 2026" },
+                 ].map((row, i) => (
+                   <tr
+                     key={i}
+                     className="text-[10px] text-black sm:text-[12px] md:text-[14px] lg:text-[16px]"
+                   >
+                     <td className="py-3 px-2 wrap-break-words">{row.p}</td>
+                     <td className="py-3 px-2 wrap-break-words">{row.d}</td>
+                   </tr>
+                 ))}
+               </tbody>
+             </table>
+           </div>
+         </section>
+          <FAQ faqs={faqs} />
+          
+                <ConnectToday />
     </main>
   );
 }

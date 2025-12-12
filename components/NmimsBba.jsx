@@ -300,33 +300,106 @@ export default function Page() {
   const [activeSubject, setActiveSubject] = useState(1);
   const [activeSemester, setActiveSemester] = useState(4);
 
-  const servicesPab = [
+  function FeesCarousel() {
+  const cards = [
     {
-      num: "01",
-      title: "1-1 career coaching",
-      desc: "trusted one point of contact throughout your journey",
+      title: "Annual Payment",
+      amount: "₹47,000/-",
+      program: "BBA",
+      note: "Fees with Business Analytics electives for 2nd & 3rd year",
+      extra: "₹56,400/-",
     },
     {
-      num: "02",
-      title: "Subject matter experts",
-      desc: "team of dedicated SME for your personal interests",
+      title: "Semester Wise",
+      amount: "₹25,000/-",
+      program: "BBA",
+      note: "Fees with Business Analytics electives for 2nd & 3rd year",
+      extra: "₹30,000/-",
     },
     {
-      num: "03",
-      title: "Post admission program services",
-      desc: "a help in adapting online courses with growth opportunities",
-    },
-    {
-      num: "04",
-      title: "30 min query assistance",
-      desc: "just in time query resolution.",
-    },
-    {
-      num: "05",
-      title: "Progress Tracking & Feedback",
-      desc: "regular check-ins to keep you on track and help you improve continuously",
+      title: "One Time",
+      amount: "₹1,31,000/-",
+      program: "BBA",
+      note: "BBA program with Business Analytics electives",
+      extra: "₹1,50,000/-",
     },
   ];
+
+  const [index, setIndex] = useState(0);
+
+  // Auto slide
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % cards.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="w-full flex flex-col items-center">
+
+      {/* CARD */}
+      <div className="relative w-full flex justify-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -80 }}
+            transition={{ duration: 0.5 }}
+            className="
+              bg-linear-to-b from-[#345895] to-[#101C2F]
+              rounded-2xl shadow-lg p-8
+              w-[80%] md:w-[60%] lg:w-[80%]
+              h-[260px]
+              flex flex-col justify-between text-center
+            "
+          >
+            <div>
+              <p className="font-semibold text-white">
+                {cards[index].title}
+              </p>
+              <p className="text-xs text-white mt-1">(in INR)</p>
+
+              <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">
+                {cards[index].program}
+              </p>
+
+              <p className="text-2xl font-medium text-white mt-3">
+                {cards[index].amount}
+              </p>
+
+              <div className="w-12 mx-auto h-0.5 bg-white mt-3" />
+            </div>
+
+            <p className="text-xs text-white italic">
+              {cards[index].note}
+            </p>
+
+            <p className="text-2xl font-medium text-white">
+              {cards[index].extra}
+            </p>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* DOT INDICATORS */}
+      <div className="flex gap-2 mt-4">
+        {cards.map((_, i) => (
+          <motion.button
+            key={i}
+            onClick={() => setIndex(i)}
+            animate={{
+              scale: index === i ? 1.2 : 1,
+              backgroundColor: index === i ? "#345895" : "#d1d5db",
+            }}
+            className="w-3 h-3 rounded-full"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
   const faqs = [
     {
       q: "Is the Online BBA from NMIMS a recognized degree?",
@@ -406,14 +479,14 @@ export default function Page() {
 
   const topFaculty = [
     {
-      name: "Prof. Aman Joshi",
-      title: "MBA in Business Design",
-      image: "/professional.png",
+      name: "Prof. Charu Mathur",
+      title: "Ph.D",
+      image: "/nmims/bba/faculties/charu.png",
     },
     {
       name: "Dr. Brinda Sampat",
       title: "Ph.D",
-      image: "/professional.png",
+      image: "/nmims/mba/faculties/brinda.png",
     },
   ];
 
@@ -421,22 +494,22 @@ export default function Page() {
     {
       name: "Prof. Anisha Bose",
       title: "PGDMM in Digital Marketing",
-      image: "/professional.png",
+      image: "/nmims/mba/faculties/anisha.png",
     },
     {
       name: "Dr. Chhavi Taneja",
       title: "Ph.D Master of Business Eco",
-      image: "/professional.png",
+      image: "/nmims/mba/faculties/chhavi.png",
     },
     {
-      name: "Prof. Abhishek Mani",
-      title: "MBA in Finance",
-      image: "/professional.png",
+      name: "Prof. Dhaivat Anjaria",
+      title: "MBA",
+      image: "/nmims/bba/faculties/dhaivat.png",
     },
     {
-      name: "Dr. Arun Kohli",
-      title: "Ph.D",
-      image: "/professional.png",
+      name: "Prof. Dharti Rathod",
+      title: "MBA in Business Administration",
+      image: "/nmims/bba/faculties/dharti.png",
     },
   ];
 
@@ -633,9 +706,9 @@ Gain a thorough understanding of business management concepts and develop the ab
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
           <div className="relative w-full h-full flex md:justify-end  ">
-            <div className="max-w-7xl overflow-hidden lg:-mr-10">
+            <div className="max-w-7xl overflow-hidden lg:-mr-10 xl:-mr-16">
               <img
-                src="/aboutNmims.png"
+                src="/nmims/aboutNmims.png"
                 alt="Students"
                 className="w-full h-full object-cover"
               />
@@ -748,275 +821,260 @@ Gain a thorough understanding of business management concepts and develop the ab
 
      <WhyChooseUs cards={whyCards} />
 
-     
-         <section className="w-full bg-white px-4 md:px-16 py-20">
-       {/* Title */}
-       <motion.h2
-         initial={{ opacity: 0, y: -20 }}
-         whileInView={{ opacity: 1, y: 0 }}
-         transition={{ duration: 0.6 }}
-         className="text-[32px] md:text-[64px] leading-[110%] font-extrabold font-[Inter] text-center text-[#345895] mb-10"
-       >
-         Syllabus
-       </motion.h2>
-     
-       {/* MAIN WRAPPER */}
-       <motion.div
-         initial={{ opacity: 0, y: 40 }}
-         whileInView={{ opacity: 1, y: 0 }}
-         transition={{ duration: 0.7 }}
-         className="
-           bg-[#345895] rounded-[30px]
-           p-4 sm:p-6 md:p-12
-           flex flex-col lg:flex-row gap-6 md:gap-10
-         "
-       >
-     
-         {/** ------------------------------------------------ */}
-         {/** MOBILE 2-COLUMN WRAPPER (LEFT + RIGHT)          */}
-         {/** ------------------------------------------------ */}
-         <div className="grid grid-cols-2 gap-4 w-full lg:hidden">
-     
-           {/* LEFT COLUMN (Subjects) - MOBILE */}
-           <div className="col-span-1">
-             <div className="flex flex-col items-center">
-               <div className="w-full">
-                 <div className="flex flex-col w-full gap-2 sm:gap-3 mt-4 items-center">
-                   {subjects.map((sub) => (
-                     <motion.button
-                       key={sub.id}
-                       onClick={() => {
-                         setActiveSubject(sub.id);
-                         setActiveSemester(1);
-                       }}
-                       whileHover={{ scale: 1.05 }}
-                       className={`w-full px-2 py-2 sm:px-3 sm:py-2 rounded-full
-                         text-[10px] sm:text-xs md:text-sm font-semibold
-                         ${
-                           activeSubject === sub.id
-                             ? "bg-[#38A169] text-white shadow"
-                             : "bg-white text-[#38A169] border-[#38A169] border-dashed border-[2px]"
-                         }
-                       `}
-                     >
-                       {sub.name}
-                     </motion.button>
-                   ))}
-                 </div>
-               </div>
-             </div>
-           </div>
-     
-           {/* RIGHT COLUMN (Semesters) - MOBILE */}
-           <div className="col-span-1">
-             <div className="flex flex-col items-center">
-               <div className="flex flex-col gap-2 sm:gap-3 w-full mt-4">
-                 {semesters.map((sem) => (
-                   <motion.button
-                     key={sem}
-                     onClick={() => setActiveSemester(sem)}
-                     whileHover={{ scale: 1.05 }}
-                     className={`px-2 py-2 sm:px-3 sm:py-2 rounded-full
-                       text-[10px] sm:text-xs md:text-sm font-semibold
-                       ${
-                         activeSemester === sem
-                           ? "bg-[#38A169] text-white shadow"
-                           : "bg-white text-[#38A169] border border-[#38A169] border-dashed border-[2px]"
-                       }
-                     `}
-                   >
-                     {sem}
-                     {semSuffix[sem]} Semester
-                   </motion.button>
-                 ))}
-     
-                 {/* DOWNLOAD BUTTON */}
-                 <motion.button
-                   whileHover={{ scale: 1.05 }}
-                   className="
-                     mt-3 w-full bg-[#4D964F] text-white px-3 py-2 sm:py-3
-                     rounded-xl text-[10px] sm:text-xs md:text-sm
-                     bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md
-                     flex items-center justify-center gap-2
-                   "
-                 >
-                   DOWNLOAD SYLLABUS
-                   <ChevronRight size={14} />
-                 </motion.button>
-               </div>
-             </div>
-           </div>
-         </div>
-     
-         {/** ------------------------------------------------ */}
-         {/** DESKTOP LEFT COLUMN (Subjects) - UNCHANGED     */}
-         {/** ------------------------------------------------ */}
-         <div className="hidden lg:flex w-[30%] flex-col items-center">
-           <div className="max-h-[400px] w-[90%]">
-             <div className="flex flex-col w-full gap-4 mt-40 items-center">
-               {subjects.map((sub) => (
-                 <motion.button
-                   key={sub.id}
-                   onClick={() => {
-                     setActiveSubject(sub.id);
-                     setActiveSemester(1);
-                   }}
-                   whileHover={{ scale: 1.05 }}
-                   className={`w-full px-4 py-3 rounded-full font-semibold
-                     ${
-                       activeSubject === sub.id
-                         ? "bg-[#38A169] text-white shadow"
-                         : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"
-                     }`}
-                 >
-                   {sub.name}
-                 </motion.button>
-               ))}
-             </div>
-           </div>
-         </div>
-     
-         {/** ------------------------------------------------ */}
-         {/** MIDDLE COLUMN (Topics) - FULL WIDTH ON MOBILE   */}
-         {/** ------------------------------------------------ */}
-         <div className="w-full flex flex-col mt-8 items-center justify-center lg:w-[40%]">
-           <div className="bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md relative w-full">
-     
-             {/* ICON + LINE */}
-             <div className="absolute top-0 bottom-0 flex flex-col items-center">
-               <div className="bg-[#345895] text-white p-2 sm:p-3 rounded-full shadow z-10 mt-4 sm:mt-6">
-                 <ChevronsDown size={16} />
-               </div>
-               <div className="w-0.5 bg-[#345895] flex-1 mb-4"></div>
-             </div>
-     
-             {/* TITLE */}
-             <h3 className="text-[20px] sm:text-[26px] md:text-3xl font-bold text-[#345895] ml-12 sm:ml-16 mb-3">
-               Topics Covered
-             </h3>
-     
-             {/* TOPICS LIST */}
-             <AnimatePresence mode="wait">
-               <motion.ul
-                 key={activeSubject + '-' + activeSemester}
-                 initial={{ opacity: 0, x: 30 }}
-                 animate={{ opacity: 1, x: 0 }}
-                 exit={{ opacity: 0, x: -30 }}
-                 transition={{ duration: 0.35 }}
-                 className="flex flex-col gap-3 ml-12 sm:ml-16"
-               >
-                 {topicsData[activeSubject][activeSemester].map((topic, index) => (
-                   <motion.li
-                     key={index}
-                     whileHover={{ x: 6 }}
-                     className="flex gap-2 sm:gap-3 items-center group cursor-pointer"
-                   >
-                     <motion.div
-                       whileHover={{ scale: 1.1 }}
-                       className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-white group-hover:bg-[#345895] transition"
-                     >
-                       <Check
-                         size={12}
-                         className="sm:size-16 text-[#345895] group-hover:text-white transition"
-                       />
-                     </motion.div>
-     
-                     <span className="text-gray-800 text-xs sm:text-sm md:text-base group-hover:text-[#345895] transition">
-                       {topic}
-                     </span>
-                   </motion.li>
-                 ))}
-               </motion.ul>
-             </AnimatePresence>
-     
-           </div>
-         </div>
-     
-         {/** ------------------------------------------------ */}
-         {/** DESKTOP RIGHT COLUMN (Semesters) - UNCHANGED    */}
-         {/** ------------------------------------------------ */}
-         <div className="hidden lg:flex w-[30%] flex-col items-start md:items-center mt-10">
-           <div className="flex flex-col gap-4 w-full lg:w-[90%]">
-             {semesters.map((sem) => (
-               <motion.button
-                 key={sem}
-                 onClick={() => setActiveSemester(sem)}
-                 whileHover={{ scale: 1.05 }}
-                 className={`px-4 py-3 rounded-full font-semibold
-                   ${
-                     activeSemester === sem
-                       ? "bg-[#38A169] text-white shadow"
-                       : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"
-                   }`}
-               >
-                 {sem}
-                 {semSuffix[sem]} Semester
-               </motion.button>
-             ))}
-     
-             <motion.button
-               whileHover={{ scale: 1.05 }}
-               className="mt-8 w-full bg-[#4D964F] text-white px-4 py-4 rounded-2xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4"
-             >
-               DOWNLOAD SYLLABUS
-               <ChevronRight size={20} />
-             </motion.button>
-           </div>
-         </div>
-     
-       </motion.div>
-     </section>
+         <section className="w-full bg-white px-4 md:px-16 py-20 font-[Inter]">
+
+      {/* TITLE */}
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-[32px] md:text-[64px] leading-[110%] font-extrabold text-center text-[#345895] mb-10"
+      >
+        Syllabus
+      </motion.h2>
+
+      {/* MAIN WRAPPER */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="
+          bg-[#345895] rounded-[30px]
+          p-4 sm:p-6 md:p-12
+          flex flex-col xl:flex-row gap-6 md:gap-10
+        "
+      >
+
+        {/* ================= MOBILE SUBJECTS + SEMESTERS ================= */}
+        <div className="grid grid-cols-2 gap-10 md:gap-20 lg:gap-40 w-full xl:hidden">
+
+          {/* SUBJECTS */}
+          <div className="flex flex-col">
+            <div className="max-h-[140px] overflow-y-auto no-scrollbar">
+              <div className="flex flex-col gap-2">
+                {subjects.map((sub) => (
+                  <motion.button
+                    key={sub.id}
+                    whileHover={{ scale: 1.05 }}
+                    onClick={() => {
+                      setActiveSubject(sub.id);
+                      setActiveSemester(1);
+                    }}
+                    className={`px-3 py-2 rounded-full text-xs font-semibold
+                      ${
+                        activeSubject === sub.id
+                          ? "bg-[#38A169] text-white"
+                          : "bg-white text-[#38A169] border-2 border-dashed border-[#38A169]"
+                      }`}
+                  >
+                    {sub.name}
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* SEMESTERS */}
+          <div className="flex flex-col">
+            <div className="max-h-[140px] overflow-y-auto no-scrollbar">
+              <div className="flex flex-col gap-2">
+                {semesters.map((sem) => (
+                  <motion.button
+                    key={sem}
+                    whileHover={{ scale: 1.05 }}
+                    onClick={() => setActiveSemester(sem)}
+                    className={`px-3 py-2 rounded-full text-xs font-semibold
+                      ${
+                        activeSemester === sem
+                          ? "bg-[#38A169] text-white"
+                          : "bg-white text-[#38A169] border-2 border-dashed border-[#38A169]"
+                      }`}
+                  >
+                    {sem}
+                    {semSuffix[sem]} Semester
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+
+            {/* DOWNLOAD BUTTON */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="
+                mt-4 bg-linear-to-r from-[#4D964F] to-[#193019]
+                text-white px-2 py-2 rounded-xl text-[10px]
+                shadow-md flex items-center justify-center gap-2
+              "
+            >
+              DOWNLOAD SYLLABUS
+              <ChevronRight size={14} />
+            </motion.button>
+          </div>
+        </div>
+
+        {/* ================= DESKTOP SUBJECTS ================= */}
+        <div className="hidden xl:flex w-[30%] justify-center">
+          <div className="max-h-80 overflow-y-auto no-scrollbar w-[90%] flex flex-col gap-4 mt-10">
+            {subjects.map((sub) => (
+              <motion.button
+                key={sub.id}
+                whileHover={{ scale: 1.05 }}
+                onClick={() => {
+                  setActiveSubject(sub.id);
+                  setActiveSemester(1);
+                }}
+                className={`px-4 py-3 rounded-full font-semibold
+                  ${
+                    activeSubject === sub.id
+                      ? "bg-[#38A169] text-white"
+                      : "bg-white text-[#38A169] border-2 border-dashed border-[#38A169]"
+                  }`}
+              >
+                {sub.name}
+              </motion.button>
+            ))}
+          </div>
+        </div>
+
+        {/* ================= TOPICS ================= */}
+        <div className="w-full xl:w-[40%] flex justify-center mt-6">
+          <div className="bg-white rounded-xl p-6 shadow-md relative w-full">
+
+            {/* ICON LINE */}
+            <div className="absolute top-0 bottom-0 left-6 flex flex-col items-center">
+              <div className="bg-[#345895] text-white p-2 rounded-full mt-6 z-10">
+                <ChevronsDown size={16} />
+              </div>
+              <div className="w-0.5 bg-[#345895] flex-1 mb-4"></div>
+            </div>
+
+            {/* TITLE */}
+            <h3 className="text-2xl font-bold text-[#345895] ml-16 mb-4">
+              Topics Covered
+            </h3>
+
+            {/* TOPICS LIST */}
+            <AnimatePresence mode="wait">
+              <motion.ul
+                key={`${activeSubject}-${activeSemester}`}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col gap-3 ml-16"
+              >
+                {topicsData[activeSubject][activeSemester].map((topic, i) => (
+                  <motion.li
+                    key={i}
+                    whileHover={{ x: 6 }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="w-6 h-6 rounded-full bg-[#345895] flex items-center justify-center">
+                      <Check size={14} className="text-white" />
+                    </div>
+                    <span className="text-sm md:text-base text-gray-800">
+                      {topic}
+                    </span>
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </AnimatePresence>
+
+          </div>
+        </div>
+
+        {/* ================= DESKTOP SEMESTERS ================= */}
+        <div className="hidden xl:flex w-[30%] flex-col items-center mt-10">
+
+          <div className="max-h-50 overflow-y-auto no-scrollbar w-[90%] flex flex-col gap-4">
+            {semesters.map((sem) => (
+              <motion.button
+                key={sem}
+                whileHover={{ scale: 1.05 }}
+                onClick={() => setActiveSemester(sem)}
+                className={`px-4 py-3 rounded-full font-semibold
+                  ${
+                    activeSemester === sem
+                      ? "bg-[#38A169] text-white"
+                      : "bg-white text-[#38A169] border-2 border-dashed border-[#38A169]"
+                  }`}
+              >
+                {sem}
+                {semSuffix[sem]} Semester
+              </motion.button>
+            ))}
+          </div>
+
+          {/* DOWNLOAD BUTTON */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            className="
+              mt-6 w-[90%]
+              bg-linear-to-r from-[#4D964F] to-[#193019]
+              text-white px-3 py-4 rounded-2xl
+              shadow-md flex items-center justify-center gap-4
+            "
+          >
+            DOWNLOAD SYLLABUS
+            <ChevronRight size={20} />
+          </motion.button>
+        </div>
+
+      </motion.div>
+    </section>
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
-        <div className="max-w-5xl mx-auto">
-          {/* Title animation */}
-          <motion.h2
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#345895]"
-          >
-            Eligibility Criteria
-          </motion.h2>
-
-          {/* Card container */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-6 flex flex-col md:flex-row max-w-5xl items-center gap-8"
-          >
-            {/* Left text */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-gray-700  text-[20px] md:text-3xl font-semibold leading-relaxed md:w-3/5"
-            >
-              HSC (10+2) in any discipline from a recognized board with minimum
-              50%(45% for SC/ST/OBC/PwD).
-            </motion.p>
-
-            {/* Right image animation */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="md:w-1/3 flex justify-center"
-            >
-              <img
-                src="/office.png"
-                alt="Eligibility Illustration"
-                className="w-64 h-auto rounded-xl object-contain"
-              />
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+              <div className="max-w-7xl mx-auto">
+                {/* Title animation */}
+                <motion.h2
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#345895]"
+                >
+                  Eligibility Criteria
+                </motion.h2>
+      
+                {/* Card container */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="mt-6 flex flex-col md:flex-row max-w-7xl items-center gap-20"
+                >
+                  {/* Left text */}
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="text-gray-700  text-[20px] md:text-3xl font-medium leading-relaxed md:w-3/5"
+                  >
+                    HSC (10+2) in any discipline from a recognized board with minimum 50%(45% for SC/ST/OBC/PwD).
+                  </motion.p>
+      
+                  {/* Right image animation */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    viewport={{ once: true }}
+                    className="md:w-[40%] w-full flex justify-end pr-0 md:pr-0"
+                  >
+                    <img
+                      src="/nmims/nmimsEligibility.png"
+                      alt="Eligibility Illustration"
+                    className="w-full max-w-[420px] md:max-w-[520px] h-auto rounded-xl object-contain"
+            
+                    />
+                  </motion.div>
+                </motion.div>
+              </div>
+            </section>
 
       <LearningApproach
                     title="Learning Approach"
@@ -1051,7 +1109,7 @@ Gain a thorough understanding of business management concepts and develop the ab
                 viewport={{ once: true }}
                 className="text-left text-[#345895] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
               >
-                The NMIMS Online MBA follows a structured and transparent
+                The NMIMS Online BBA follows a structured and transparent
                 examination process designed to evaluate learners through continuous
                 assessments and end-term evaluations.
               </motion.p>
@@ -1185,98 +1243,39 @@ Gain a thorough understanding of business management concepts and develop the ab
           </section>
       <CareerServices />
       <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
-        {/* CONTAINER BORDER BOX */}
-        <div className="px-2">
-          {/* FLEX WRAPPER */}
-          <div className="flex flex-row justify-center items-center gap-10">
-            {/* LEFT SIDE TEXT */}
-            <div className="w-full lg:w-[45%] flex flex-col justify-center">
-              <h2 className="text-[#064E92] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-6">
-                Fees Structure
-              </h2>
+      <div className="px-2 w-full">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
 
-              <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-xl mb-6">
-                Convenient Fee Payment Option:
-                <br />
-                Choose your preferred fee payment option:semester-wise <br />
-                (6 semesters) annually (3 years) or one-time.
-              </p>
+          {/* LEFT SIDE TEXT */}
+          <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
+            <h2 className="text-[#064E92] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4">
+              Fees Structure
+            </h2>
 
-              <button className=" text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] mt-5 font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration 200 flex items-center justify-center w-fit">
-                Compare all Plans
-              </button>
-            </div>
+            <p className="text-gray-700 text-sm md:text-base leading-tight lg:max-w-xl mb-6">
+              Convenient fee payment options available <br />
+              Choose semester-wise, annual, or one-time payment.
+            </p>
 
-            {/* RIGHT SIDE CARDS */}
-            <div className="flex flex-row items-start justify-center gap-6 lg:w-[35%] pr-25">
-              {/* ANNUAL PAYMENT CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] border rounded-xl shadow-sm px-6 py-6 w-[100px] md:w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center ">
-                  <p className="font-semibold whitespace-nowrap text-white">Annual Payment</p>
-                  <p className="text-xs text-white mt-1">(in INR)</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-1">
-                    BBA
-                  </p>
-                  <p className="text-2xl md:text-2xl font-regular text-white text-center">
-                     ₹47,000/-
-                  </p>
-                  <div className="w-30 mx-auto h-0.5 bg-white" />
-                </div>
-                <p className="text-xs text-white text-center mt-1 italic">
-                  Fees for BBA with Business Analytics Electives for Second &
-                  Third Year
-                </p>
-                <p className="text-2xl md:text-2xl font-regular text-white text-center mb-5">
-                   ₹56,400/-
-                </p>
-              </div>
-              {/* SEMESTER wise CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] border rounded-xl shadow-sm px-6 py-5 w-[100px] md:w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center ">
-                  <p className="font-semibold text-white">Semester Wise</p>
-                  <p className="text-xs text-white mt-1">(in INR)</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-1">
-                     BBA
-                  </p>
-                  <p className="text-2xl md:text-2xl font-regular text-white text-center">
-                   ₹25,000/-
-                  </p>
-                  <div className="w-30 mx-auto h-0.5 bg-white mt-1" />
-                </div>
-                <p className="text-xs text-white text-center mt-1 italic">
-                  Fees for BBA with Business Analytics Electives for Second &
-                  Third Year
-                </p>
-
-                <p className="text-2xl md:text-2xl font-regular text-white text-center mb-5">
-                   ₹30,000/-
-                </p>
-              </div>
-
-              {/* SEMESTER WISE CARD */}
-              <div className="bg-linear-to-b from-[#345895] to-[#101C2F] rounded-xl shadow-md px-6 py-6 w-[100px] md:w-[230px] flex flex-col justify-between h-[260px]">
-                <div className="text-center">
-                  <p className="font-semibold text-white">One Time</p>
-                  <p className="text-xs text-white mt-1">(in INR)</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-1">
-                    BBA
-                  </p>
-                  <p className="text-2xl md:text-2xl font-regular text-white text-center">
-                     ₹1,31,000/-
-                  </p>
-                  <div className="w-30 mx-auto h-0.5 bg-white mt-1" />
-                </div>
-                <p className="text-xs text-white text-center mt-3 italic">
-                  BBA program with Business Analytics Electives
-                </p>
-                <p className="text-2xl md:text-2xl font-regular text-white text-center mb-5">
-                   ₹1,50,000/-
-                </p>
-              </div>
-            </div>
+            {/* CTA – desktop only */}
+            <button className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
+              Compare all Plans
+            </button>
           </div>
+
+          {/* RIGHT SIDE CAROUSEL */}
+          <div className="w-full lg:w-[35%] flex justify-center">
+            <FeesCarousel />
+          </div>
+
+          {/* CTA – mobile only */}
+          <button className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+            Compare all Plans
+          </button>
+
         </div>
-      </section>
+      </div>
+    </section>
 
       <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-[Inter]">
         <motion.div
@@ -1299,11 +1298,11 @@ Gain a thorough understanding of business management concepts and develop the ab
           {/* Bullet Points */}
           <ul className="text-black text-sm md:text-base space-y-2 leading-relaxed pl-5 list-disc">
             <li>
-              Admission Processing Fee of ₹21,200/- applicable for all
+              Admission Processing Fee of ₹1,200/- applicable for all
               admissions.
             </li>
             <li>
-              An initial amount of ₹210,000/- from the program fee will be
+              An initial amount of ₹10,000/- from the program fee will be
               collected at the time of registration.
             </li>
             <li>Exam fee : ₹800/- per subject, per attempt</li>
@@ -1311,6 +1310,11 @@ Gain a thorough understanding of business management concepts and develop the ab
             <li>
               Students also have the option to pay the full program fee of
               ₹131,000/- for the BBA program with Marketing and Finance
+              electives if they prefer.
+            </li>
+             <li>
+              Students also have the option to pay the full program fee of
+              ₹145,000/- for the BBA program with Business Analytics
               electives if they prefer.
             </li>
             <li>
@@ -1363,7 +1367,7 @@ Gain a thorough understanding of business management concepts and develop the ab
 
       <h2 className="text-[#345895] text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight">
         NMIMS Online <br />
-        MBA <br />
+        BBA <br />
         Certificate
       </h2>
 
@@ -1375,7 +1379,7 @@ Gain a thorough understanding of business management concepts and develop the ab
       {/* IMAGE that appears ONLY on mobile, above CTA */}
       <div className="md:hidden flex justify-center">
         <img
-          src="/office.png"
+          src="/nmims/nmimsBbaDegree.png"
           alt="Certificate Preview"
           className="w-full max-w-xs rounded-lg shadow-sm"
         />
@@ -1389,9 +1393,9 @@ Gain a thorough understanding of business management concepts and develop the ab
     </div>
 
     {/* RIGHT IMAGE (visible only on md+ screens) */}
-    <div className="hidden md:flex justify-center md:justify-end">
+    <div className="hidden md:flex justify-center lg:mt-10 md:justify-end">
       <img
-        src="/office.png"
+        src="/nmims/nmimsBbaDegree.png"
         alt="Certificate Preview"
         className="w-full max-w-sm rounded-lg shadow-sm"
       />
@@ -1415,7 +1419,7 @@ Gain a thorough understanding of business management concepts and develop the ab
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-[#345895] font-bold text-3xl sm:text-4xl md:text-6xl font-[Inter] lg:text-5xl leading-tight mb-12 max-w-6xl"
+          className="text-[#345895] font-bold text-3xl sm:text-4xl font-[Inter] lg:text-5xl leading-tight mb-12 max-w-7xl"
         >
           This isnt just another degree its a <br />
           transformation in how you think, work and grow.
@@ -1439,12 +1443,11 @@ Gain a thorough understanding of business management concepts and develop the ab
 
               <div>
                 <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
-                  Higher Earning Potential Early in Your Career
+                  Higher Earning Potential in Your Career
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
                   Graduates of the NMIMS Online BBA often enter the workforce
-                  with stronger business fundamentals and better career
-                  readiness, leading to faster growth in roles such as Business
+                  with stronger business fundamentals leading to faster growth in roles such as Business
                   Associate, Marketing Executive, Operations Coordinator, HR
                   Associate, and Financial Analyst.
                 </p>
@@ -1530,104 +1533,116 @@ Gain a thorough understanding of business management concepts and develop the ab
           </div>
         </div>
       </section>
-      <section className="w-full bg-white py-20 px-16 md:px-12 lg:px-20">
-        <div className="w-full md:bg-[#064E92] rounded-4xl py-20 px-16 md:px-12 lg:px-20">
-          {/* White inner container */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-[40px] md:p-12 max-w-7xl mx-auto"
-          >
-            {/* Title */}
-            <div className="text-center md:mb-4 pb-3">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-[#064E92] font-bold font-[Inter] text-[32px] md:text-5xl lg:text-[64px] leading-tight"
-              >
-                Career Opportunities
-              </motion.h2>
-            </div>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center flex justify-center text-[#222222] text-[18px] md:text-[20px] max-w-xl mx-auto md:mb-12"
-            >
-              This program gives you the foundation to dive into all major
-              aspects of Business Administration and unlock exciting career
-              opportunities in diverse business functions.
-            </motion.p>
-
-            {/* Content Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              {/* LEFT IMAGE */}
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="flex justify-center"
-              >
-                <div className="rounded-2xl overflow-hidden shadow-md">
-                  <Image
-                    src="/nmimsMbaCareer.png"
-                    width={400}
-                    height={400}
-                    alt="Career handshake"
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              </motion.div>
-
-              {/* RIGHT LIST — ROLES directly written here */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="flex flex-col gap-4"
-              >
-                {/* Each line manually listed */}
-                {[
-                  "Assistant marketing Manager",
+       <section className="w-full bg-white py-20 md:px-12 lg:px-20">
+              <div className="w-full md:bg-[#345895] rounded-4xl py-20 px-6 md:px-12 lg:px-20">
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-[40px] md:p-12 max-w-7xl mx-auto"
+                >
+                  {/* Title */}
+                  <div className="text-center md:mb-4 pb-3">
+                    <motion.h2
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="
+                          text-[#345895] 
+                            font-bold font-[Inter] 
+                            text-[32px] md:text-5xl lg:text-[64px] 
+                            leading-tight"
+                    >
+                      Career Opportunities
+                    </motion.h2>
+                  </div>
+      
+                  {/* Subtitle */}
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="text-center text-black text-[18px] md:text-[20px] max-w-2xl mx-auto md:mb-12"
+                  >
+                   This program gives you the foundation to dive into all major aspects of Business Administration and unlock exciting career opportunities in diverse business functions.
+                  </motion.p>
+      
+                  {/* Content Section */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    {/* LEFT IMAGE */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -40 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6 }}
+                      className="flex justify-center"
+                    >
+                      <Image
+                        src="/nmimsCareer.png"
+                        width={400}
+                        height={400}
+                        alt="Career Opportunities"
+                        className="
+          w-full 
+          max-w-[220px]       /* Smaller on mobile */
+          sm:max-w-[260px]  
+          md:max-w-[320px]   /* Medium screens */
+          lg:max-w-[400px]   /* Large screens */
+          object-contain
+          mx-auto
+        "
+                      />
+                    </motion.div>
+      
+                    {/* RIGHT LIST */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 40 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6 }}
+                      className="flex flex-col gap-4"
+                    >
+                      {[
+                         "Assistant marketing Manager",
                   "Data Analyst",
                   "Quantitative Analyst/Modeller",
                   "Assistant Manager-(Finance)",
-                ].map((role, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 25 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.35, delay: index * 0.1 }}
-                    className="flex items-center gap-3"
-                  >
-                    <span className="w-7 h-7 rounded-full bg-[#4d964f] flex items-center justify-center">
-                      <Check size={18} className="text-white" />
-                    </span>
-
-                    <span className="text-gray-900 font-semibold text-lg">
-                      {role}
-                    </span>
-                  </motion.div>
-                ))}
-
-                {/* CTA */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  className=" w-[200px] bg-[#4D964F] text-white mt-4 px-6 py-3 rounded-lg text-sm bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform hover:scale-105 duration 200"
-                >
-                  Know more
-                </motion.button>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+                      ].map((role, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: 25 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.35, delay: index * 0.1 }}
+                          className="flex items-center gap-3"
+                        >
+                          <span className="w-7 h-7 rounded-full bg-[#4D964F] flex items-center justify-center">
+                            <Check size={18} className="text-white" />
+                          </span>
+                          <span className="text-gray-900 font-semibold text-lg">
+                            {role}
+                          </span>
+                        </motion.div>
+                      ))}
+      
+                      {/* CTA */}
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="
+                    w-[200px] 
+                    mt-6 py-3 px-6 
+                    rounded-lg 
+                    text-white text-sm 
+                    bg-linear-to-r from-[#4D964F] to-[#193019]
+                    shadow-md shadow-[#1C361D]/40
+                  "
+                      >
+                        Know more
+                      </motion.button>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+            </section>
  <Faculties
              heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."
              topFaculty={topFaculty}

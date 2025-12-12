@@ -38,7 +38,7 @@ const Syllabus = ({ years, data }) => {
 
     return (
       <div className="mt-10">
-        <h3 className="text-[40px] font-bold text-[#345895]">{label}</h3>
+        <h3 className="text-[20px] md:text-[30px] lg:text-[40px] font-bold text-[#345895]">{label}</h3>
 
         {/* RADIO BUTTONS (super / dual) */}
         {specData.useRadio && (
@@ -98,7 +98,7 @@ const Syllabus = ({ years, data }) => {
         {/* SHOW TOPICS */}
         {selectedSpecialization[fullKey] && (
           <div className="mt-4 bg-white rounded-lg p-4 text-black">
-            <h4 className="font-semibold text-[20px] mb-2">Topics Covered:</h4>
+            <h4 className="font-semibold text-[12px] md:text-[20px] mb-2">Topics Covered:</h4>
             <ul className="space-y-1">
               {list
                 .find((x) => x.name === selectedSpecialization[fullKey])
@@ -119,7 +119,7 @@ const Syllabus = ({ years, data }) => {
     <div className="mt-20">
       <div className="max-w-7xl mx-auto font-[Inter]">
         {/* Heading */}
-        <div className="text-[64px] font-bold text-center text-[#345895] mb-8">
+        <div className="text-[36px] md:text-[48px] lg:text-[64px] font-extrabold text-center text-[#345895] mb-8">
           Syllabus
         </div>
 
@@ -144,7 +144,7 @@ const Syllabus = ({ years, data }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {Object.entries(data[activeYear].semesters).map(
             ([semKey, semData]) => (
-              <div key={semKey} className="bg-[#F0F7FD] rounded-lg  w-[620px]  p-6">
+              <div key={semKey} className="bg-[#F0F7FD] rounded-lg  w-full  p-6">
 
                 <h2 className="text-3xl font-bold text-black mb-6">
                   {semData.title}
@@ -183,7 +183,7 @@ const Syllabus = ({ years, data }) => {
                     {/* NORMAL TOPICS */}
                     {semData.topics && (
                       <>
-                        <h3 className="text-[40px] font-bold text-[#345895]">
+                        <h3 className="text-[30px] md:text-[40px] font-bold text-[#345895]">
                           Topics Covered
                         </h3>
                         <ul className="mt-4 text-black space-y-2 text-[20px]">

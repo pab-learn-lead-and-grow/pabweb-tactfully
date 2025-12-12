@@ -10,7 +10,7 @@ export default function LearningApproach({
   onCtaClick = () => {},
 }) {
   return (
-    <section className="w-full px-4 lg:px-30 py-16">
+    <section className="w-full px-4 lg:px-30 py-5 lg:py-16">
       {/* Heading */}
       <motion.div
         className="max-w-5xl"

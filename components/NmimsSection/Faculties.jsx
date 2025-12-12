@@ -7,6 +7,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
   return (
     <div className="min-h-screen font-[Inter] px-18 bg-[#345895] py-8 sm:py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
+        
         {/* Header */}
         <div className="flex items-center gap-2 mb-6 sm:mb-8 md:mb-12">
           <span>
@@ -19,21 +20,25 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
 
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start mb-6 sm:mb-8 md:mb-10">
-          {/* Left Column - Heading (dynamic) */}
+          
+          {/* Left Heading */}
           <div className="lg:pr-8">
-          <h1 className="
-  text-white font-[Inter] 
-  text-xl                 /* mobile */
-  sm:text-2xl             /* small screens */
-  md:text-3xl             /* tablets */
-  lg:text-[32px]         /* desktop */
-  xl:text-[40px]         /* large desktop */
-  font-semibold leading-tight
-">{heading}
+            <h1
+              className="
+                text-white font-[Inter] 
+                text-xl
+                sm:text-2xl
+                md:text-3xl
+                lg:text-[32px]
+                xl:text-[40px]
+                font-semibold leading-tight
+              "
+            >
+              {heading}
             </h1>
           </div>
 
-          {/* Right Column - Top 2 Faculty Cards (dynamic) */}
+          {/* Top Faculty Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-5 md:gap-6">
             {topFaculty.map((member, index) => (
               <motion.div
@@ -44,13 +49,14 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
                 viewport={{ once: true }}
                 className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
-                <div className="aspect-4/3 relative overflow-hidden bg-gray-200">
+                <div className="aspect-3/3 relative overflow-hidden bg-gray-200">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale transition-all duration-300"
+                    className="w-full h-full object-cover transition-all duration-300"
                   />
                 </div>
+
                 <div className="p-4 sm:p-5">
                   <h3 className="text-white font-semibold text-base sm:text-lg mb-1">
                     {member.name}
@@ -64,7 +70,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
           </div>
         </div>
 
-        {/* Bottom 4 Faculty Cards (dynamic) */}
+        {/* Bottom Faculty Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-5 md:gap-6 mb-6 sm:mb-8">
           {bottomFaculty.map((member, index) => (
             <motion.div
@@ -75,13 +81,14 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
               viewport={{ once: true }}
               className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
-              <div className="aspect-4/3 relative overflow-hidden bg-gray-200">
+              <div className="aspect-3/3 relative overflow-hidden bg-gray-200">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale transition-all duration-300"
+                  className="w-full h-full object-cover transition-all duration-300"
                 />
               </div>
+
               <div className="p-4 sm:p-5">
                 <h3 className="text-white font-semibold text-base sm:text-lg mb-1">
                   {member.name}
@@ -94,7 +101,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
           ))}
         </div>
 
-        {/* Button */}
+        {/* CTA Button */}
         <div className="max-w-4xl mx-auto">
           <button className="w-full py-4 sm:py-5 px-6 border-2 border-white/30 rounded-full text-white font-medium text-sm sm:text-base hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 group">
             See all members

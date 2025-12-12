@@ -93,6 +93,24 @@ export default function Navbar() {
     router.push("/login");
   };
 
+  const handleProgramAction = (program) => {
+  // Open counselling ONLY for amity certificates
+  if (program.openModal) {
+    setShowForm(true);
+    handleMobileCloseAll();
+    handleLinkClick();
+    return;
+  }
+
+  // Navigate for all normal courses
+  if (program.path) {
+    router.push(program.path);
+    handleMobileCloseAll();
+    handleLinkClick();
+  }
+};
+
+
   // Helper to close all mobile + desktop dropdowns when navigating / applying
   const handleMobileCloseAll = () => {
     setIsOpen(false);
@@ -112,60 +130,66 @@ export default function Navbar() {
           id: 1,
           title: "Masters of Business Administration",
           logo: "/nmims.png",
+          path: "/nmims/NmimsMba",
         },
         {
           id: 2,
           title: "Masters of Business Administration",
           logo: "/amity.png",
+          path: "/amity/amityMba",
         },
         {
           id: 3,
           title: "Masters of Business Administration",
           logo: "/manipal.png",
+          path: "/muj/MujMba",
         },
         {
           id: 4,
           title: "Masters of Business Administration",
           logo: "/jain.png",
+          path: "/jain/JainMba",
         },
         {
           id: 5,
           title: "Masters of Business Administration",
           logo: "/smu.png",
+          path: "/smu/SmuMba",
         },
       ],
     },
     "Executive MBA": {
       label: "Executive Programs",
       programs: [
-        { id: 1, title: "Marketing Management", logo: "/nmims.png" },
-        { id: 2, title: "Leadership & Strategy", logo: "/nmims.png" },
-        { id: 3, title: "Operations & Supply Chain Management", logo: "/nmims.png" },
-        { id: 4, title: "Applied Finance ", logo: "/nmims.png" },
-        { id: 5, title: "Digital Marketing", logo: "/nmims.png" },
+        { id: 1, title: "Marketing Management", logo: "/nmims.png", path: "/nmims/NmimsWx", },
+        { id: 2, title: "Leadership & Strategy", logo: "/nmims.png", path: "/nmims/NmimsWx", },
+        { id: 3, title: "Operations & Supply Chain Management", logo: "/nmims.png", path: "/nmims/NmimsWx", },
+        { id: 4, title: "Applied Finance ", logo: "/nmims.png", path: "/nmims/NmimsWx", },
+        { id: 5, title: "Digital Marketing", logo: "/nmims.png", path: "/nmims/NmimsWx", },
 
       ],
     },
     "Online MCA": {
       label: "PG Courses",
       programs: [
-        { id: 1, title: "Master of Computer Applications", logo: "/amity.png" },
+        { id: 1, title: "Master of Computer Applications", logo: "/amity.png",  path: "/amity/AmityMca",},
         {
           id: 2,
           title: "Master of Computer Applications",
           logo: "/manipal.png",
+           path: "/muj/MujMca",
         },
-        { id: 3, title: "Master of Computer Applications", logo: "/jain.png" },
-        { id: 4, title: "Master of Computer Applications", logo: "/smu.png" },
+        { id: 3, title: "Master of Computer Applications", logo: "/jain.png", path: "/jain/JainMca", },
+        { id: 4, title: "Master of Computer Applications", logo: "/smu.png", path: "/smu/SmuMca", },
       ],
     },
     "Online MA": {
       label: "PG Courses",
       programs: [
-        { id: 1, title: "Master of Arts", logo: "/manipal.png" },
-        { id: 2, title: "Master of Arts", logo: "/jain.png" },
-        { id: 3, title: "Master of Arts", logo: "/amity.png" },
-        { id: 4, title: "Master of Arts", logo: "/smu.png" },
+        { id: 1, title: "Master of Arts", logo: "/manipal.png", path:"/muj/MujMa" },
+        { id: 2, title: "Master of Arts", logo: "/jain.png", path:"/jain/JainMa" },
+        { id: 3, title: "Master of Arts", logo: "/amity.png", path:"/amity/AmityMa" },
+        { id: 4, title: "Master of Arts", logo: "/smu.png", path:"/smu/SmuMa" },
       ],
     },
     "Online MAJMC": {
@@ -175,16 +199,17 @@ export default function Navbar() {
           id: 1,
           title: "MA in Journalism & Mass Communication",
           logo: "/manipal.png",
+          path: "/muj/MujMajmc",
         },
       ],
     },
     "Online M.COM": {
       label: "PG Courses",
       programs: [
-        { id: 1, title: "Master of Commerce", logo: "/amity.png" },
-        { id: 2, title: "Master of Commerce", logo: "/manipal.png" },
-        { id: 3, title: "Master of Commerce", logo: "/smu.png" },
-        { id: 4, title: "Master of Commerce", logo: "/jain.png" },
+        { id: 1, title: "Master of Commerce", logo: "/amity.png", path: "/amity/AmityMcom" },
+        { id: 2, title: "Master of Commerce", logo: "/manipal.png", path: "/muj/MujMcom" },
+        { id: 3, title: "Master of Commerce", logo: "/smu.png", path: "/smu/SmuMcom" },
+        { id: 4, title: "Master of Commerce", logo: "/jain.png", path: "/jain/JainMcom" },
       ],
     },
     "Online BBA": {
@@ -194,32 +219,36 @@ export default function Navbar() {
           id: 1,
           title: "Bachelor of Business Administration",
           logo: "/nmims.png",
+          path: "/nmims/NmimsBba",
         },
         {
           id: 2,
           title: "Bachelor of Business Administration",
           logo: "/amity.png",
+          path: "/amity/AmityBba",
         },
         {
           id: 3,
           title: "Bachelor of Business Administration",
           logo: "/manipal.png",
+          path: "/muj/MujBba",
         },
         {
           id: 4,
           title: "Bachelor of Business Administration",
           logo: "/jain.png",
+          path: "/jain/JainBba",
         },
       ],
     },
     "Online B.COM": {
       label: "UG Courses",
       programs: [
-        { id: 1, title: "Bachelor of Commerce", logo: "/nmims.png" },
-        { id: 2, title: "Bachelor of commerce", logo: "/amity.png" },
-        { id: 3, title: "Bachelor of Commerce", logo: "/manipal.png" },
-        { id: 4, title: "Bachelor of Commerce", logo: "/jain.png" },
-        { id: 5, title: "Bachelor of Commerce", logo: "/smu.png" },
+        { id: 1, title: "Bachelor of Commerce", logo: "/nmims.png", path: "/nmims/NmimsBcom" },
+        { id: 2, title: "Bachelor of commerce", logo: "/amity.png", path: "/amity/AmityBcom" },
+        { id: 3, title: "Bachelor of Commerce", logo: "/manipal.png", path: "/muj/MujBcom" },
+        { id: 4, title: "Bachelor of Commerce", logo: "/jain.png", path: "/jain/JainBcom" },
+        { id: 5, title: "Bachelor of Commerce", logo: "/smu.png", path: "/smu/SmuBcom"},
       ],
     },
     "Online BCA": {
@@ -229,16 +258,19 @@ export default function Navbar() {
           id: 1,
           title: "Bachelor of Computer Applications",
           logo: "/nmims.png",
+          path: "/nmims/NmimsBca",
         },
         {
           id: 2,
           title: "Bachelor of Computer Applications",
           logo: "/manipal.png",
+          path: "/muj/MujBca",
         },
         {
           id: 3,
           title: "Bachelor of Computer Applications",
           logo: "/jain.png",
+          path: "/jain/JainBca",
         },
       ],
     },
@@ -249,32 +281,36 @@ export default function Navbar() {
           id: 1,
           title: "BA in Journalism & Mass Communication",
           logo: "/manipal.png",
+          path: "/muj/MujBajmc",
         },
       ],
     },
     "Online BA": {
       label: "UG Courses",
       programs: [
-        { id: 1, title: "Bachelor of Arts", logo: "/manipal.png" },
-        { id: 2, title: "Bachelor of Arts", logo: "/amity.png" },
-        { id: 3, title: "Bachelor of Arts", logo: "/smu.png" },
+        { id: 1, title: "Bachelor of Arts", logo: "/manipal.png", path: "/muj/MujBa" },
+        { id: 2, title: "Bachelor of Arts", logo: "/amity.png", path: "/amity/AmityBa" },
+        { id: 3, title: "Bachelor of Arts", logo: "/smu.png", path: "/smu/SmuBa" },
       ],
     },
     "Online Diploma": {
       label: "Diploma Programs",
       programs: [
-        { id: 1, title: "Diploma in Marketing Management", logo: "/nmims.png" },
-        { id: 2, title: "Diploma in Financial Management", logo: "/nmims.png" },
+        { id: 1, title: "Diploma in Marketing Management", logo: "/nmims.png", path: "/nmims/NmimsDiploma" },
+        { id: 2, title: "Diploma in Financial Management", logo: "/nmims.png", path: "/nmims/NmimsDiploma" },
         {
           id: 3,
           title: "Diploma in Human Resource Management",
           logo: "/nmims.png",
+          path: "/nmims/NmimsDiploma"
+
         },
-        { id: 4, title: "Diploma in Business Management", logo: "/nmims.png" },
+        { id: 4, title: "Diploma in Business Management", logo: "/nmims.png", path: "/nmims/NmimsDiploma" },
         {
           id: 5,
           title: "Diploma in Operations Management",
           logo: "/nmims.png",
+          path: "/nmims/NmimsDiploma"
         },
       ],
     },
@@ -285,91 +321,105 @@ export default function Navbar() {
           id: 1,
           title: "Business Management Certification",
           logo: "/nmims.png",
+          path: "/nmims/NmimsCert"
         },
-        { id: 2, title: "AI for Product Managers", logo: "/amity.png" },
+        { id: 2, title: "AI for Product Managers", logo: "/amity.png", openModal: true, },
         {
           id: 3,
           title: "Agentic AI and Autonomous Systems",
           logo: "/amity.png",
+          openModal: true,
         },
-        { id: 4, title: "AI in BFSI", logo: "/amity.png" },
-        { id: 5, title: "AI for Business Leaders", logo: "/amity.png" },
+        { id: 4, title: "AI in BFSI", logo: "/amity.png", openModal: true, },
+        { id: 5, title: "AI for Business Leaders", logo: "/amity.png", openModal: true, },
         {
           id: 6,
           title: "AI in Finance and Risk Management",
           logo: "/amity.png",
+          openModal: true,
         },
-        { id: 7, title: "AI for Marketing & Sales", logo: "/amity.png" },
-        { id: 8, title: "AI in Healthcare", logo: "/amity.png" },
-        { id: 9, title: "AI in Executive Strategy", logo: "/amity.png" },
-        { id: 10, title: "AI for HR & Talent Management", logo: "/amity.png" },
-        { id: 11, title: "AI in Manufacturing", logo: "/amity.png" },
-        { id: 12, title: "AI in Education", logo: "/amity.png" },
+        { id: 7, title: "AI for Marketing & Sales", logo: "/amity.png", openModal: true, },
+        { id: 8, title: "AI in Healthcare", logo: "/amity.png", openModal: true, },
+        { id: 9, title: "AI in Executive Strategy", logo: "/amity.png", openModal: true, },
+        { id: 10, title: "AI for HR & Talent Management", logo: "/amity.png", openModal: true, },
+        { id: 11, title: "AI in Manufacturing", logo: "/amity.png", openModal: true, },
+        { id: 12, title: "AI in Education", logo: "/amity.png", openModal: true, },
         {
           id: 13,
           title: "Predictive Analytics Using Python",
           logo: "/amity.png",
+          openModal: true,
         },
         {
           id: 14,
           title: "Programming for Data Analytics Using Python",
           logo: "/amity.png",
+          openModal: true,
         },
-        { id: 15, title: "Applied Data Engineering", logo: "/amity.png" },
+        { id: 15, title: "Applied Data Engineering", logo: "/amity.png", openModal: true, },
         {
           id: 16,
           title: "Business Analytics Professional",
           logo: "/amity.png",
+          openModal: true,
         },
         {
           id: 17,
           title: "Descriptive Analytics and Data Pre-processing using Python",
           logo: "/amity.png",
+          openModal: true,
         },
-        { id: 18, title: "Time Series Forecasting", logo: "/amity.png" },
-        { id: 19, title: "Social Media Analytics", logo: "/amity.png" },
-        { id: 20, title: "Text Mining and NLP", logo: "/amity.png" },
+        { id: 18, title: "Time Series Forecasting", logo: "/amity.png", openModal: true, },
+        { id: 19, title: "Social Media Analytics", logo: "/amity.png",  openModal: true, },
+        { id: 20, title: "Text Mining and NLP", logo: "/amity.png", openModal: true, },
         {
           id: 21,
           title: "Artificial Intelligence and Deep Learning using Python",
           logo: "/amity.png",
+          openModal: true,
         },
-        { id: 22, title: "Big Data Analytics", logo: "/amity.png" },
+        { id: 22, title: "Big Data Analytics", logo: "/amity.png", openModal: true, },
         {
           id: 23,
           title: "Spreadsheet Modelling using Excel",
           logo: "/amity.png",
+          openModal: true,
         },
         {
           id: 24,
           title: "Financial Modelling using Excel",
           logo: "/amity.png",
+          openModal: true,
         },
-        { id: 25, title: "HR Analytics", logo: "/amity.png" },
-        { id: 26, title: "Financial Analytics", logo: "/amity.png" },
-        { id: 27, title: "Marketing Analytics", logo: "/amity.png" },
+        { id: 25, title: "HR Analytics", logo: "/amity.png", openModal: true, },
+        { id: 26, title: "Financial Analytics", logo: "/amity.png", openModal: true, },
+        { id: 27, title: "Marketing Analytics", logo: "/amity.png", openModal: true, },
         {
           id: 28,
           title: "Dashboarding and Storytelling using Tableau",
           logo: "/amity.png",
+          openModal: true,
         },
         {
           id: 29,
           title: "Dashboarding and Storytelling using PowerBI",
           logo: "/amity.png",
+          openModal: true,
         },
         {
           id: 30,
           title: "Database Management using SQL and MongoDB",
           logo: "/amity.png",
+          openModal: true,
         },
       ],
     },
     "Integrated Programs": {
       label: "Integrated Programs",
       programs: [
-        { id: 1, title: "BBA + MBA Integrated", logo: "/amity.png" },
-        { id: 2, title: "B.COM + MBA Integrated", logo: "/amity.png" },
+        { id: 1, title: "BBA + MBA Integrated", logo: "/amity.png", path: "/amity/AmityUgPg" },
+        { id: 2, title: "B.COM + MBA Integrated", logo: "/amity.png", path: "/amity/AmityUgPg" },
+        { id: 2, title: "BCA + MCA Integrated", logo: "/amity.png", path: "/amity/AmityUgPg" },
       ],
     },
   };
@@ -668,10 +718,7 @@ export default function Navbar() {
                                       </div>
                                       <div>
                                         <button
-                                          onClick={() => {
-                                            // close desktop dropdowns and keep mobile untouched
-                                            handleLinkClick();
-                                          }}
+                                          onClick={() => handleProgramAction(program)}
                                           className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition"
                                         >
                                           View Course
@@ -805,9 +852,7 @@ export default function Navbar() {
                                   </div>
                                   <div>
                                     <button
-                                      onClick={() => {
-                                        handleLinkClick();
-                                      }}
+                                     onClick={() => handleProgramAction(program)}
                                       className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition"
                                     >
                                       View Course
@@ -1034,11 +1079,7 @@ export default function Navbar() {
                               </div>
                               <button
                                 type="button"
-                                onClick={() => {
-                                  // close mobile nav after vieww course
-                                  handleLinkClick();
-                                  handleMobileCloseAll();
-                                }}
+                               onClick={() => handleProgramAction(program)}
                                 className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded"
                               >
                                 View Course 
@@ -1106,11 +1147,7 @@ export default function Navbar() {
                           </div>
                           <button
                             type="button"
-                            onClick={() => {
-                              // close mobile nav after Apply Now
-                              handleLinkClick();
-                              handleMobileCloseAll();
-                            }}
+                           onClick={() => handleProgramAction(program)}
                             className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded"
                           >
                             View Course

@@ -58,31 +58,32 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full text-[Inter]">
       {/* Top Header Section */}
       <div
-        className="w-full h-[250px] bg-cover bg-center flex items-center justify-center"
+        className="w-full h-[250px] md:h-[300px] bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: "url('/contactpab.png')",
         }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-md">
+        <h1 className="text-5xl mt-10  lg:text-[56px] font-extrabold text-white drop-shadow-md">
           Contact us
         </h1>
       </div>
 
       {/* CONTACT CONTENT SECTION */}
-      <div className="max-w-7xl mx-auto md:px-10 py-12 bg-white grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="max-w-7xl mx-auto md:px-10 py-12 bg-white grid grid-cols-1 md:grid-cols-2 xl:gap-15">
         {/* Left Info Section */}
-        <div className="flex flex-col px-25 bg-white justify-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold leading-snug text-black">
-            You Will Grow, You Will Succeed.
-            <br /> We Promise That
+        <div className="flex flex-col px-5 bg-white justify-center space-y-3">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-bold leading-tight text-black">
+            You Will Grow,<br/>
+            You Will Succeed.<br/>
+            We Promise That
           </h2>
-          <p className="text-black font-medium">PAB Learn Lead and Grow</p>
+          <p className="text-black md:font-medium">PAB Learn Lead and Grow</p>
 
           {/* Info Items */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-8">
+          <div className="grid grid-cols-2 gap-10 mt-8">
             {/* Call */}
             <div className="flex flex-col space-y-3">
               <div className="flex items-center space-x-4">
@@ -131,7 +132,7 @@ export default function ContactPage() {
 
         {/* Right Form Section */}
         <div
-          className="bg-blue-50 w-[500px] p-8 rounded-2xl shadow-md"
+          className="bg-blue-50 max-w-[500px] p-8 mt-5 rounded-2xl shadow-md"
           style={{
             backgroundColor: "rgba(6, 78, 146, 0.1)",
           }}
