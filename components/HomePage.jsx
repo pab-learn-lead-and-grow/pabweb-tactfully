@@ -39,6 +39,24 @@ export default function HomePage() {
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       image: "/professional.png",
     },
+    {
+      id: 4,
+      topic: "Topic",
+      date: "12 Aug 2023",
+      title:
+        "Choosing the Right Specialisation in an Online MBA: A Step-by-Step Guide.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      image: "/professional.png",
+    },
+    {
+      id: 5,
+      topic: "Topic",
+      date: "12 Aug 2023",
+      title:
+        "Choosing the Right Specialisation in an Online MBA: A Step-by-Step Guide.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      image: "/professional.png",
+    },
   ];
 
   const supabase = createSupabaseClient();

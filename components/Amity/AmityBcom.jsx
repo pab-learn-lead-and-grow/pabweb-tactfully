@@ -238,10 +238,10 @@ export default function Page() {
   };
 
 const subjects = [
-  { id: 1, name: "Journalism & Mass Communication" }
+  { id: 1, name: "B.Com" }
 ];
 
- const topicsData = {
+const topicsData = {
   1: {
     1: [
       "Mass Communication Models and Theory",
@@ -289,27 +289,27 @@ const subjects = [
   const [activeSubject, setActiveSubject] = useState(1);
   const [activeSemester, setActiveSemester] = useState(1);
 
-   const faqs = [
-    {
-      q: "What is the duration and format of the Online BAJMC program?",
-      a: "The program spans 3 years (6 semesters) and is delivered fully online, offering flexibility through live lectures, recorded sessions, and digital study materials.",
-    },
-    {
-      q: "What are the eligibility criteria to apply for BAJMC?",
-      a: "Applicants must have completed 10+2 (or equivalent) from a recognised board to be eligible for admission.",
-    },
-    {
-      q: "What subjects and skills does the curriculum cover?",
-      a: "The curriculum includes fundamentals of journalism and mass communication, print and digital media, media laws and ethics, broadcasting, advertising, public relations, multimedia production and editing - combining theory with practical media-skills training.",
-    },
-    {
-      q: " Is the BAJMC degree recognised and valid for employment or further studies?",
-      a: "Yes. Amity Online is approved under the UGC-DEB framework, and its online degrees — including BAJMC — are recognised and accepted for employment, higher studies, and further academic or professional opportunities.",
-    },
-    {
-      q: "Can working professionals or students with commitments enrol in this program?",
-      a: "Absolutely. The fully online delivery, flexible schedule, and digital resources make BAJMC ideal for working individuals or anyone balancing other responsibilities.",
-    },
+  const faqs = [
+   {
+  q: "What is the duration and structure of the Online B.Com?",
+  a: "The Online B.Com is a 3-year undergraduate degree divided into 6 semesters.",
+},
+{
+  q: "What are the eligibility requirements for admission?",
+  a: "You must have completed 10+2 (or equivalent) from a recognised board to be eligible for the B.Com program.",
+},
+{
+  q: "Is the Online B.Com degree recognised and valid like a regular degree?",
+  a: "Yes — Amity Online is UGC-entitled and NAAC-accredited, making the online B.Com degree equally valid and accepted for employment or further studies.",
+},
+{
+  q: "What is the fee structure for the program?",
+  a: "The standard fee for the Online B.Com program is ₹16,500 per semester, making the total approximate cost ₹99,000 over six semesters.",
+},
+{
+  q: "Can working professionals or those with commitments enrol in the program?",
+  a: "Yes — the program is fully online and flexible. Live and recorded lectures, digital resources, and remote assessments enable students to study while managing work or other responsibilities.",
+},
   ];
 
   const whyCards = [
@@ -440,7 +440,7 @@ const subjects = [
             viewport={{ once: true }}
             className="text-white text-[16px] sm:text-[16px] mt-10 italic font-light"
           >
-           Bachelor of Arts (BAJMC) Journalism and Mass Communication
+           UG Progam
           </motion.p>
 
           {/* TITLE + DESCRIPTION */}
@@ -452,7 +452,7 @@ const subjects = [
               viewport={{ once: true }}
               className="text-white text-4xl sm:text-5xl md:text-5xl lg:text-7xl lg:text-[54px] font-[Inter] font-bold -mt-1 leading-tight"
             >
-             Online BAJMC
+             Bachelor of Commerce (B.Com)
               </motion.h1>
 
             <motion.p
@@ -462,8 +462,8 @@ const subjects = [
               viewport={{ once: true }}
               className="text-gray-200 text-left text-[16px] md:text-[18px] max-w-6xl mt-0 mb-10 leading-relaxed"
             >
-         Begin your media journey with India’s first UGC-approved Online BAJMC. Master writing, reporting, editing, and multimedia skills with guidance from global experts.
-         </motion.p>
+        Expand your career horizons with India’s first UGC-approved Online B.Com—master business fundamentals and get industry-ready for roles in finance and accounting.
+        </motion.p>
 
             {/* STATS */}
             <motion.div
@@ -622,9 +622,9 @@ const subjects = [
         <div className="max-w-6xl text-left mx-auto">
           <h2 className="text-xl md:text-2xl font-regular lg:text-[49px] leading-normal text-gray-900">
             <span className="text-[#F9BD04] ">
-           Stay ahead in a rapidly shifting job market with a UGC-entitled Online BA. 
+           Unlock a world of career possibilities with India’s first UGC-recognized Online B.Com.{" "} 
            </span>
-           This 3-year program builds foundational knowledge and practical problem-solving skills, empowering you to unlock new career pathways.</h2>
+          Master core concepts in business and economics, learn from eminent international faculty, and graduate fully prepared for roles in finance, accounting, and beyond—all through flexible online learning.</h2>
         </div>
 
         {/* ===== Bottom Card Section ===== */}
@@ -639,11 +639,11 @@ const subjects = [
             {/* Content */}
             <div>
               <h3 className="lg:text-2xl text-[#345895] mb-1">
-                Real World Projects
+                ACCA Accredited
               </h3>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
-              Work on live projects and real-world case studies that prepare you to excel in your industry.
-              </p>
+             ACCA-accredited specializations offer exemptions from 60% of ACCA exams
+             </p>
             </div>
           </div>
 
@@ -657,11 +657,11 @@ const subjects = [
             {/* Content */}
             <div>
               <h3 className="lg:text-2xl text-[#345895] mb-1">
-                Global Education
+                Real world projects
               </h3>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
-             Experience a truly global education with renowned international faculty
-             </p>
+            Work on live projects and real-world case studies that prepare you to excel in your industry.
+            </p>
             </div>
           </div>
         </div>
@@ -892,23 +892,18 @@ const subjects = [
           </h2>
           <ul className="text-[#1F284E] text-[12px] space-y-2 md:space-y-4 list-disc px-5 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
             <li>
-           10+2 passed out students or aspirants seeking a career in the field of BA in Journalism & Mass Communication
+           10+2 passed students or aspirants seeking a career in the area of Finance and Accounting.
            </li>
             <li>
-            Applicant must possess sufficient knowledge and understanding of English language & communication.
-            </li>
-            <li>
-           Candidates who have not studied in English for at least three (3) years in their academic qualifications are not eligible.
-           </li>
-             <li>
-           Appropriate for: aspirants who want to explore opportunities in private sector organizations and government departments involved in Print Journalism, Photojournalism, TV Production & Writing, Web Journalism, Radio Production, Social Media, Public Relations, Advertising, Event Management, and Corporate Communication, among others.
-           </li>
-             <li>
-           Aspirants who want to gain in depth knowledge of reporting, writing, editing, ethics, law, research methods, and design.
-           </li>
-           <li>
-          Aspirants who want to enhance their interdisciplinary knowledge to become media practitioners.
+          Students who wish to obtain managerial competence in the area of Financial Management. It equips the learners with the knowledge of Law, Import export, Accounting Principles and other areas that impact Trade and Economy.
           </li>
+            <li>
+           Applicant must possess sufficient knowledge and understanding of English language & communication.
+          </li>
+            <li>
+          Candidates whose first language is not English must have done at least past three (3) years of academic qualification under English medium.
+          </li>
+          
           </ul>
           {/* for Indian Students */}
           <div className="mb-5">
@@ -983,7 +978,7 @@ const subjects = [
             viewport={{ once: true }}
             className="text-left text-[#345895] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
           >
-            The Amity University Online BAJMC follows a structured and transparent
+            The Amity University Online B.COM follows a structured and transparent
             examination process designed to evaluate learners through continuous
             assessments and end-term evaluations.
           </motion.p>
@@ -1174,17 +1169,17 @@ const subjects = [
             <h2 className="text-[#345895] text-[32px] md:text-[40px] lg:text-[64px] font-bold leading-tight">
               Amity University
               <br />
-              Online BCOM Certificate
+              Online B.COM Certificate
             </h2>
 
             <p className="text-[#3C3C43] max-w-[350px] text-base">
-          A comprehensive 3-year undergraduate program providing a thorough exploration of theoretical concepts and practical aspects in BA in Journalism and Mass Communication.
-          </p>
+         Bachelor of Commerce is a 3-years (6 semesters) undergraduate program designed to develop business acumen, financial literacy, and analytical skills of the learners.
+         </p>
 
             {/* IMAGE that appears ONLY on mobile, above CTA */}
             <div className="md:hidden flex justify-center">
               <img
-                src="/amity/degree/amityBajmcDegree.png"
+                src="/amity/degree/amityBcomDegree.png"
                 alt="Certificate Preview"
                 className="w-full max-w-xs rounded-lg shadow-sm"
               />
@@ -1199,7 +1194,7 @@ const subjects = [
           {/* RIGHT IMAGE (visible only on md+ screens) */}
           <div className="hidden md:flex justify-center mt-5">
             <img
-              src="/amity/degree/amityBajmcDegree.png"
+              src="/amity/degree/amityBcomDegree.png"
               alt="Certificate Preview"
               className="w-full max-w-sm rounded-lg shadow-sm"
             />
@@ -1474,11 +1469,11 @@ const subjects = [
                 className="flex flex-col gap-4"
               >
                 {[
-                  "Social Media Coordinator",
-                  "News Analyst",
-                  "Public Relations Specialist",
-                  "Copywriter",
-                  "Senior Journalist",
+                  "Accountant",
+                  "Financial Analyst",
+                  "Tax Assistant",
+                  "Financial Manager",
+                  "Investment Banker",
                 ].map((role, index) => (
                   <motion.div
                     key={index}
@@ -1534,7 +1529,7 @@ const subjects = [
         {/* TABLE WRAPPER */}
         <div className="w-full overflow-hidden">
           {/* HEADER ROW */}
-          <div className=" max-w-5xl flex items-center justify-center md:grid grid-cols-2 bg-[#E5E5E5] text-[#4D964F] font-semibold text-center m-auto px-10 lg:px-30 gap-10 lg:gap-25 py-8 text-[16px] md:text-[24px] rounded-xl">
+          <div className=" max-w-5xl flex items-center justify-center  bg-[#E5E5E5] text-[#4D964F] font-semibold text-center m-auto px-10 lg:px-30 py-8 text-[14px] md:text-[24px] rounded-xl">
             <p>ADMISSION OPEN FOR JANUARY 26 SESSION</p>
           </div>
         </div>

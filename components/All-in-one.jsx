@@ -6,14 +6,14 @@ import React from "react";
 const TITLE = "All-in-one space that's got your back, always";
 
 const ITEMS = [
-  { title: "Career Opportunities", image: "/x.png" },
-  { title: "Scholarships & Financial Aid", image: "/professional.png" },
-  { title: "Refer & Earn", image: "/professional.png" },
-  { title: "Finance Your Future", image: "/professional.png" },
-  { title: "Post-Admission Support", image: "/professional.png" },
-  { title: "University Verification", image: "/professional.png" },
-  { title: "Verify Your Counsellor", image: "/professional.png" },
-  { title: "Online Learning Trends", image: "/professional.png" },
+  { title: "Career Opportunities", image: "/pab/career.png" },
+  { title: "Scholarships & Financial Aid", image: "/pab/scholarship.png" },
+  { title: "Refer & Earn", image: "/pab/refer.png" },
+  { title: "Finance Your Future", image: "/pab/finance.png" },
+  { title: "Post-Admission Support", image: "/pab/support.png" },
+  { title: "University Verification", image: "/pab/verification.png" },
+  { title: "Verify Your Counsellor", image: "/pab/counsellor.png" },
+  { title: "Online Learning Trends", image: "/pab/trends.png" },
 ];
 
 export default function AllInOneSection() {
@@ -23,7 +23,7 @@ export default function AllInOneSection() {
 
         {/* Heading */}
         <h2 className="text-2xl sm:text-3xl md:text-[50px] font-extrabold text-[#345895] text-center mx-auto leading-snug">
-  {TITLE}
+         {TITLE}
         </h2>
 
         {/* Grid */}
@@ -60,8 +60,8 @@ function IconCard({ title, image }) {
           <Image
             src={image}
             alt={title}
-            width={50}
-            height={50}
+            width={100}
+            height={100}
             className="object-contain"
           />
         </div>

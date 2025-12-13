@@ -27,32 +27,41 @@ export default function CareerServicesSection({ benefits = [] }) {
         className="max-w-6xl mx-auto bg-white shadow-xl rounded-3xl p-6 sm:p-8 md:p-14"
       >
 
-        {/* BENEFITS GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
-          {benefits.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="text-center flex flex-col items-center"
-            >
-              {/* ICON */}
-              <div className="mb-4">{item.icon}</div>
+      {/* BENEFITS GRID */}
+<div
+  className={`
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    gap-8 sm:gap-10
+    ${benefits.length >= 6 ? "lg:grid-cols-3" : ""}
+  `}
+>
+  {benefits.map((item, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="text-center flex flex-col items-center"
+    >
+      {/* ICON */}
+      <div className="mb-4">{item.icon}</div>
 
-              {/* TITLE */}
-              <h3 className="text-[#345895] font-extrabold text-lg sm:text-xl mb-2">
-                {item.title}
-              </h3>
+      {/* TITLE */}
+      <h3 className="text-[#345895] font-extrabold text-lg sm:text-xl mb-2">
+        {item.title}
+      </h3>
 
-              {/* TEXT */}
-              <p className="text-[#345895] text-xs sm:text-sm max-w-[240px] leading-relaxed">
-                {item.text}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+      {/* TEXT */}
+      <p className="text-[#345895] text-xs sm:text-sm max-w-[240px] leading-relaxed">
+        {item.text}
+      </p>
+    </motion.div>
+  ))}
+</div>
+
 
         {/* CTA */}
         <div className="flex justify-center mt-12">

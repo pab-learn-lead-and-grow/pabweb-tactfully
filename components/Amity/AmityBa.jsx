@@ -1672,7 +1672,7 @@ export default function Page() {
         {/* TABLE WRAPPER */}
         <div className="w-full overflow-hidden">
           {/* HEADER ROW */}
-          <div className=" max-w-5xl flex items-center justify-center md:grid grid-cols-2 bg-[#E5E5E5] text-[#4D964F] font-semibold text-center m-auto px-10 lg:px-30 gap-10 lg:gap-25 py-8 text-[16px] md:text-[24px] rounded-xl">
+          <div className=" max-w-5xl flex items-center justify-center bg-[#E5E5E5] text-[#4D964F] font-semibold text-center m-auto px-10 lg:px-30 gap-10 lg:gap-25 py-8 text-[14px] md:text-[24px] rounded-xl">
             <p>ADMISSION OPEN FOR JANUARY 26 SESSION</p>
           </div>
         </div>

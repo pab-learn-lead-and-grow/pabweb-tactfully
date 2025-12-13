@@ -1,10 +1,10 @@
 // components/Hero.jsx
 import Image from "next/image";
 
-export default function Hero() {
+export default function Hero({ className }) {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(90deg,rgba(77,150,79,0.1)_-1.12%,rgba(52,88,149,0.1)_98.88%)] rounded-b-[100px]">
-      <div className="max-w-6xl mx-auto pt-[140px] px-6">
+    <section className={`relative overflow-hidden bg-[linear-gradient(90deg,rgba(77,150,79,0.1)_-1.12%,rgba(52,88,149,0.1)_98.88%)] rounded-b-[100px] ${className || ""}`}>
+      <div className="max-w-6xl mx-auto pt-10 px-6">
         {/* Headline + CTAs */}
         <div className="text-center">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight text-gray-900">
@@ -30,13 +30,15 @@ export default function Hero() {
             </button>
           </div>
 
-          {/* FIXED: items-center instead of item-center */} 
-          <div className="flex -mt-8 md:mt-2 items-center justify-center min-h-[300px]">
+          {/* Refined Image Container: Removed negative margins, stabilized height */} 
+          <div className="flex mt-8 md:mt-12 items-center justify-center min-h-[300px] w-full">
             <Image
               src="/heroImage.png"
               alt="HeroImage"
               width={600}
               height={600}
+              priority
+              className="w-full h-auto object-contain max-w-[500px] md:max-w-[600px]"
             />
           </div>
         </div>
