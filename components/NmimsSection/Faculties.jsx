@@ -5,8 +5,8 @@ import { CornerDownRight } from "lucide-react";
 
 export default function Faculties({ heading, topFaculty, bottomFaculty }) {
   return (
-    <div className="min-h-screen font-[Inter] px-18 bg-[#345895] py-8 sm:py-12 md:py-16 lg:py-20">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-content font-[Inter] px-18 bg-[#345895] py-8 sm:py-12 md:py-16 lg:py-20">
+      <div className="w-full mx-auto">
         
         {/* Header */}
         <div className="flex items-center gap-2 mb-6 sm:mb-8 md:mb-12">
@@ -24,15 +24,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
           {/* Left Heading */}
           <div className="lg:pr-8">
             <h1
-              className="
-                text-white font-[Inter] 
-                text-xl
-                sm:text-2xl
-                md:text-3xl
-                lg:text-[32px]
-                xl:text-[40px]
-                font-semibold leading-tight
-              "
+              className="text-white font-[Inter] text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-semibold leading-tight"
             >
               {heading}
             </h1>

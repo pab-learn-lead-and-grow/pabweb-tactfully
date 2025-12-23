@@ -10,7 +10,8 @@ export default function LearningApproach({
   onCtaClick = () => {},
 }) {
   return (
-    <section className="w-full px-4 lg:px-30 py-5 lg:py-16">
+    <div className="relative pointer-events-auto">
+    <section className="relative z-10 w-full px-4 lg:px-30 py-5 lg:py-16">
       {/* Heading */}
       <motion.div
         className="max-w-5xl"
@@ -19,7 +20,7 @@ export default function LearningApproach({
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-[32px] md:text-[48px] lg:text-[64px] font-[Inter] font-bold text-[#345895] mb-4">
+        <h2 className="text-[32px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-[Inter] font-bold text-[#345895] mb-4">
           {title}
         </h2>
 
@@ -60,18 +61,21 @@ export default function LearningApproach({
       </div>
 
       {/* CTA Button */}
-      <div className="flex items-center justify-center mt-12">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          transition={{ duration: 0.2 }}
-          onClick={onCtaClick}
-          className="text-white mt-4 px-8 py-3 rounded-lg text-md bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] flex items-center justify-center"
-        >
-          {ctaText}
-        </motion.button>
-      </div>
+     {/* CTA Button */}
+<div className="relative z-20 flex items-center justify-center mt-12">
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.97 }}
+    transition={{ duration: 0.2 }}
+    onClick={onCtaClick}
+    className="pointer-events-auto text-white mt-4 px-8 py-3 rounded-lg text-md bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] flex items-center justify-center"
+  >
+    {ctaText}
+  </motion.button>
+</div>
+
 
     </section>
+    </div>
   );
 }

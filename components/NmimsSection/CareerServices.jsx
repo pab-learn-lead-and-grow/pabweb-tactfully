@@ -10,7 +10,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-export default function CareerServices() {
+export default function CareerServices({ onCtaClick }) {
   const benefits = [
     {
       icon: <FileUser strokeWidth={1.0} className="text-[#4D964F]  w-18 h-18" />,
@@ -42,7 +42,7 @@ export default function CareerServices() {
   return (
     <section className="w-full bg-white mt-15 py-5 px-6 md:px-12 lg:px-20">
       {/* Heading */}
-      <h2 className="text-center text-[#345895] font-[Inter] text-[32px] md:text-5xl font-extrabold mb-12">
+      <h2 className="text-center text-[#345895] font-[Inter] text-[32px] md:text-5xl xl:text-[64px] font-bold mb-12">
         Career Services
       </h2>
 
@@ -104,10 +104,8 @@ export default function CareerServices() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            className="bg-[#4D964F] text-white mt-4 px-6 py-2 rounded-lg text-sm 
-              bg-linear-to-r from-[#4D964F] to-[#193019] border-0
-              shadow-[#1C361D] shadow-md transform hover:scale-105 
-              duration-200 flex items-center justify-center gap-4 transition"
+            onClick={onCtaClick}
+            className="bg-[#4D964F] text-white mt-4 px-6 py-2 rounded-lg text-sm bg-linear-to-r from-[#4D964F] to-[#193019] border-0 shadow-[#1C361D] shadow-md transform hover:scale-105 duration-200 flex items-center justify-center gap-4 transition"
           >
             Explore Your Benefits
             <ArrowRight size={16} />

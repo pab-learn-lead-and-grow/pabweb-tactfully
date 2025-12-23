@@ -19,8 +19,7 @@ export default function Enrollment({ title, subtitle, steps, defaultOpen = 0 }) 
           </h2>
 
           <p
-            className="text-[#4DA7DE] font-[Covered_By_Your_Grace] 
-            text-4xl md:text-5xl lg:text-[64px] leading-none mt-2"
+            className="text-[#4DA7DE] font-[Covered_By_Your_Grace] text-4xl md:text-5xl lg:text-[64px] leading-none mt-2"
           >
             {subtitle}
           </p>
@@ -41,8 +40,7 @@ export default function Enrollment({ title, subtitle, steps, defaultOpen = 0 }) 
                   <div className="flex flex-col items-center min-w-[50px]">
                     {/* Number */}
                     <p
-                      className="text-white font-[Covered_By_Your_Grace] 
-                      text-[42px] md:text-[48px] leading-none"
+                      className="text-white font-[Covered_By_Your_Grace] text-[42px] md:text-[48px] leading-none"
                     >
                       {step.num}
                     </p>
@@ -52,7 +50,7 @@ export default function Enrollment({ title, subtitle, steps, defaultOpen = 0 }) 
                       initial={false}
                       animate={{ scaleY: isOpen ? 1 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="w-[2px] bg-white mt-2 flex-1 origin-top"
+                      className="w-0.5 bg-white mt-2 flex-1 origin-top"
                     />
                   </div>
 

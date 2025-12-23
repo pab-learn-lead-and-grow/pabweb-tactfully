@@ -1,4 +1,4 @@
-import JobDetails from "@/components/DigitalMarketing.jsx";
+import JobDetails from "@/components/Career/DigitalMarketing.jsx";
 export default function DigitalMarketingPage() {
     return(
          <JobDetails />

@@ -60,10 +60,12 @@ import WhyChooseUs from "../NmimsSection/WhyChooseUs";
 import Faculties from "../NmimsSection/Faculties";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
-import MujCareerServices from "../MujCareerServices";
+import MujCareerServices from "../NmimsSection/MujCareerServices";
 import Link from "next/link";
+import CounsellingForm from "../Pab/CounsellingForm";
 
 export default function Page() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const learningCards = [
     {
       icon: BookMarked,
@@ -202,13 +204,7 @@ const topFaculty = [
                  animate={{ opacity: 1, x: 0 }}
                  exit={{ opacity: 0, x: -80 }}
                  transition={{ duration: 0.6 }}
-                 className="
-                           bg-linear-to-b from-[#345895] to-[#101C2F]
-                           rounded-2xl shadow-lg p-8 
-                           w-[80%] md:w-[60%] lg:w-[80%]
-                           h-[260px]
-                           flex flex-col justify-between text-center
-                         "
+                 className="bg-linear-to-b from-[#345895] to-[#101C2F] rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
                >
                  <div>
                    <p className="font-semibold text-white">{cards[index].title}</p>
@@ -473,15 +469,16 @@ const semSuffix = {
   ];
   return (
     <main className="flex flex-col items-center w-full bg-white">
-             <section className="relative min-h-[650px] md:min-h-[750px] w-full">
+             <section className="relative min-h-screen lg:min-h-[50vh] xl:min-h-screen w-full">
                     {/* Background Image */}
                     <div className="absolute inset-0">
                       <Image
-                        src="/jainClg.png"
+                        src="/jain/jainUniv.png"
                         alt="Campus"
                         fill
                         className="object-cover object-center"
                       />
+                      <div className="absolute inset-0 bg-black/80" />
                     </div>
                     {/* LOGO – move to left screen edge, keep same height */}
                     <div className="relative z-10 w-full mt-28">
@@ -559,7 +556,7 @@ const semSuffix = {
                               <p className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-white mb-1">
                                 {stat.value}
                               </p>
-                              <p className="text-gray-200 md:text-3xl font-bold sm:text-base">
+                              <p className="text-gray-200 text-[16px] md:text-[22px] font-bold sm:text-base">
                                 {stat.label}
                               </p>
                             </div>
@@ -574,12 +571,12 @@ const semSuffix = {
                           viewport={{ once: true }}
                           className="flex flex-col sm:flex-row gap-4 mt-12 w-full items-center justify-center"
                         >
-                          <button className="flex items-center justify-center gap-2 bg-[#345895] text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-medium">
+                          <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2 bg-[#345895] text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-medium">
                             Download Brochure
                             <Download size={20} />
                           </button>
             
-                          <button className="bg-[#4D964F] flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
+                          <button onClick={() => setIsModalOpen(true)} className="bg-[#4D964F] flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
                             Talk to an Expert
                             <ArrowRight size={16} />
                           </button>
@@ -615,78 +612,78 @@ const semSuffix = {
                       </div>
                     </div>
                   </section>
-                  {/* ======= SNAPSHOT SECTION ======= */}
-                  <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
-                    <div className="max-w-7xl mx-auto">
-                      {/* HEADING */}
-                      <motion.h2
-                        initial={{ opacity: 0, y: -30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                        className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
-                      >
-                        A Snapshot of Success
-                      </motion.h2>
-            
-                      {/* BLUE BAR */}
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        viewport={{ once: true }}
-                        className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
-                      >
-                        {/* ALWAYS 3 COLUMNS */}
-                        <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
-                          {/* STAT 1 */}
-                          <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            viewport={{ once: true }}
-                          >
-                            <h3 className="text-[18px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-bold mb-1">
-                              NAAC A++
-                            </h3>
-                            <p className="text-[8px]  md:text-sm font-bold opacity-90 leading-tight">
-                              accredited
-                            </p>
-                          </motion.div>
-            
-                          {/* STAT 2 */}
-                          <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            viewport={{ once: true }}
-                          >
-                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-bold mb-1">
-                              2000+
-                            </h3>
-                            <p className="text-[8px]  md:text-sm font-bold opacity-90 leading-tight">
-                              Hiring Corporates
-                            </p>
-                          </motion.div>
-            
-                          {/* STAT 3 */}
-                          <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            viewport={{ once: true }}
-                          >
-                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] font-bold mb-1">
-                              42 LPA
-                            </h3>
-                            <p className="text-[8px]  md:text-sm font-bold opacity-90 leading-tight">
-                              Highest Salary Offered
-                            </p>
-                          </motion.div>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </section>
+                {/* ======= SNAPSHOT SECTION ======= */}
+                                <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+                                  <div className="max-w-7xl mx-auto">
+                                    {/* HEADING */}
+                                    <motion.h2
+                                      initial={{ opacity: 0, y: -30 }}
+                                      whileInView={{ opacity: 1, y: 0 }}
+                                      transition={{ duration: 0.6 }}
+                                      viewport={{ once: true }}
+                                      className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
+                                    >
+                                      A Snapshot of Success
+                                    </motion.h2>
+                          
+                                    {/* BLUE BAR */}
+                                    <motion.div
+                                      initial={{ opacity: 0, scale: 0.95 }}
+                                      whileInView={{ opacity: 1, scale: 1 }}
+                                      transition={{ duration: 0.6, delay: 0.2 }}
+                                      viewport={{ once: true }}
+                                      className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+                                    >
+                                      {/* ALWAYS 3 COLUMNS */}
+                                      <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
+                                        {/* STAT 1 */}
+                                        <motion.div
+                                          initial={{ opacity: 0, y: 30 }}
+                                          whileInView={{ opacity: 1, y: 0 }}
+                                          transition={{ duration: 0.5 }}
+                                          viewport={{ once: true }}
+                                        >
+                                          <h3 className="text-[18px] sm:text-[24px] md:text-[29px] lg:text-[36px] xl:text-[64px] font-bold">
+                                            NAAC A++
+                                          </h3>
+                                          <p className="text-[8px]  md:text-[16px] xl:text-[22px]  md:text-sm font-bold opacity-90 leading-tight">
+                                            accredited
+                                          </p>
+                                        </motion.div>
+                          
+                                        {/* STAT 2 */}
+                                        <motion.div
+                                          initial={{ opacity: 0, y: 30 }}
+                                          whileInView={{ opacity: 1, y: 0 }}
+                                          transition={{ duration: 0.5, delay: 0.1 }}
+                                          viewport={{ once: true }}
+                                        >
+                                          <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                            2000+
+                                          </h3>
+                                          <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
+                                            Hiring Corporates
+                                          </p>
+                                        </motion.div>
+                          
+                                        {/* STAT 3 */}
+                                        <motion.div
+                                          initial={{ opacity: 0, y: 30 }}
+                                          whileInView={{ opacity: 1, y: 0 }}
+                                          transition={{ duration: 0.5, delay: 0.2 }}
+                                          viewport={{ once: true }}
+                                        >
+                                          <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold ">
+                                            42 LPA
+                                          </h3>
+                                          <p className="text-[8px] md:text-[16px] xl:text-[22px]  md:text-sm font-bold opacity-90 leading-tight">
+                                            Highest Salary Offered
+                                          </p>
+                                        </motion.div>
+                                      </div>
+                                    </motion.div>
+                                  </div>
+                                </section>
             
                   <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
                     {/* ===== Top Text Section ===== */}
@@ -703,7 +700,7 @@ const semSuffix = {
                       {/* Card 1 */}
                       <div className="flex flex-col gap-4 p-4 sm:p-6">
                         {/* Icon */}
-                        <div className="shrink-0 text-black w-15 h-15 flex items-center justify-center">
+                        <div className="shrink-0 text-black w-12 h-12 flex items-center justify-center">
                           <FileClock size={72} strokeWidth={1.0} />
                         </div>
             
@@ -737,7 +734,7 @@ const semSuffix = {
                       </div>
                     </div>
                   </section>
-             <WhyChooseUs cards={whyCards} />
+             <WhyChooseUs cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
        
             <section className="w-full bg-white px-4 md:px-16 py-20">
                                {/* Title */}
@@ -785,7 +782,7 @@ const semSuffix = {
                                                  ${
                                                    activeSubject === sub.id
                                                      ? "bg-[#38A169] text-white shadow"
-                                                     : "bg-white text-[#38A169] border-[#38A169] border-dashed border-[2px]"
+                                                     : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"
                                                  }
                                                `}
                                              >
@@ -822,6 +819,7 @@ const semSuffix = {
                              
                                          {/* DOWNLOAD BUTTON */}
                                          <motion.button
+                                           onClick={() => setIsModalOpen(true)}
                                            whileHover={{ scale: 1.05 }}
                                            className="
                                               w-full bg-[#4D964F] text-white px-3 py-2 sm:py-3
@@ -843,7 +841,7 @@ const semSuffix = {
                                  {/** ------------------------------------------------ */}
                                  <div className="hidden xl:flex w-[30%] flex-col items-center">
                                    <div className="max-h-[400px] w-[90%]">
-                                     <div className="flex flex-col w-full h-[350px] overflow-y-auto no-scrollbar gap-4 mt-10 items-center">
+                                     <div className="flex flex-col w-full h-[350px] overflow-y-auto no-scrollbar gap-4 mt-20 items-center">
                                        {subjects.map((sub) => (
                                          <motion.button
                                            key={sub.id}
@@ -945,6 +943,7 @@ const semSuffix = {
                                      ))}
                              
                                      <motion.button
+                                       onClick={() => setIsModalOpen(true)}
                                        whileHover={{ scale: 1.05 }}
                                        className="mt-8 w-full bg-[#4D964F] text-white px-4 py-4 rounded-2xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4"
                                      >
@@ -994,7 +993,7 @@ const semSuffix = {
                title="Learning Approach"
                subtitle="Journey towards online degree programs"
                cards={learningCards}
-               ctaText="Ready to Learn ? Click Here"
+               ctaText="Ready to Learn ? Click Here" onCtaClick={() => setIsModalOpen(true)}
              />
        
                <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
@@ -1158,7 +1157,7 @@ const semSuffix = {
                          </div>
                        </section>
                  
-                       <MujCareerServices benefits={benefits} />
+                       <MujCareerServices benefits={benefits} onCtaClick={() => setIsModalOpen(true)} />
                  
                        <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
                          <div className="px-2 w-full">
@@ -1170,12 +1169,12 @@ const semSuffix = {
                                </h2>
                  
                                {/* Subtitle */}
-                               <p className="text-gray-700 text-sm md:text-base leading-tight md:max-w-xl  md:text-center md:mx-auto lg:text-start space-y-4 md:mb-10">
+                               <p className="text-gray-700 text-sm md:text-base leading-tight md:max-w-xl  md:text-center lg:text-start space-y-4 md:mb-10">
                                 One time university registration fee during Admission: ₹2,500/- Examination Fee per year: ₹1,500/- <br /> Fee applicable to students from India and SAARC countries only
                                </p>
                  
                                {/* CTA visible only on large screens */}
-                               <button className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
+                               <button onClick={() => setIsModalOpen(true)} className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
                                  Compare all Plans
                                </button>
                              </div>
@@ -1186,7 +1185,7 @@ const semSuffix = {
                              </div>
                  
                              {/* CTA below carousel on mobile only */}
-                             <button className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+                             <button onClick={() => setIsModalOpen(true)} className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
                                Compare all Plans
                              </button>
                            </div>
@@ -1236,7 +1235,7 @@ const semSuffix = {
                               </div>
                   
                               {/* CTA BUTTON */}
-                              <button className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center">
+                              <button onClick={() => setIsModalOpen(true)} className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center">
                                 Know more
                               </button>
                             </div>
@@ -1454,6 +1453,7 @@ const semSuffix = {
                   
                                   {/* CTA */}
                                   <motion.button
+                                    onClick={() => setIsModalOpen(true)}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.97 }}
                                     className="
@@ -1499,6 +1499,8 @@ const semSuffix = {
              <FAQ faqs={faqs} />
        
              <ConnectToday />
+             {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} />}
            </main>
   );
 }
+

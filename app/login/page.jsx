@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { createSupabaseClient } from "@/lib/supabaseClient";
 import { useRouter } from "next/navigation";
+import { X } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -39,6 +40,10 @@ export default function LoginPage() {
 
     return () => subscription.subscription.unsubscribe();
   }, [supabase, router]);
+
+  const handleClose = () => {
+    router.push("/");
+  };
 
   // ---------------- EMAIL FUNCTIONS ----------------
   const signUpWithEmail = async () => {
@@ -100,8 +105,21 @@ export default function LoginPage() {
 
   // ---------------- UI ----------------
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-      <div className="bg-white w-full max-w-md rounded-2xl shadow-lg p-8 sm:p-10 flex flex-col items-center">
+    <div
+      className="min-h-screen mt-10 flex items-center justify-center bg-gray-50 p-4"
+      onClick={handleClose}
+    >
+      <div
+        className="bg-white w-full max-w-md rounded-2xl shadow-lg p-8 sm:p-10 flex flex-col items-center relative"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={handleClose}
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition"
+        >
+          <X size={24} />
+        </button>
+
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Welcome to PAB
         </h2>

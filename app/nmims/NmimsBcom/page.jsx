@@ -1,4 +1,4 @@
-import NmimsBcom from "@/components/NmimsBcom";
+import NmimsBcom from "@/components/Nmims/NmimsBcom";
 
 export default function Nmims() {
     return (

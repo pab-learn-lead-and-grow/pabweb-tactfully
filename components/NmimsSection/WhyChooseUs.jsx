@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-export default function WhyChooseUs({ cards = [] }) {
+export default function WhyChooseUs({ cards = [], onCtaClick = () => {} }) {
   // Decide grid behavior based on number of cards
   const isFourCards = cards.length === 4;
   const isSixCards = cards.length === 6;
@@ -21,7 +21,7 @@ export default function WhyChooseUs({ cards = [] }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.6 }}
-      className="w-full max-w-6xl mx-auto px-5 mb-15 text-left"
+      className="w-full max-w-7xl mx-auto px-5 mb-15 text-left"
     >
       {/* FIXED SECTION HEADING */}
       <motion.h2
@@ -71,7 +71,10 @@ export default function WhyChooseUs({ cards = [] }) {
         transition={{ duration: 0.6 }}
         className="w-full flex items-center justify-center"
       >
-        <button className="text-white mt-4 px-16 py-3 rounded-lg text-sm bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform hover:scale-105 duration 200 flex items-center justify-center gap-4 transition">
+        <button 
+          onClick={onCtaClick}
+          className="text-white mt-4 px-16 py-3 rounded-lg text-sm bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform hover:scale-105 duration 200 flex items-center justify-center gap-4 transition"
+        >
           Get Full Access
           <ArrowRight size={16} />
         </button>

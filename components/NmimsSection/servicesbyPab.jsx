@@ -47,7 +47,7 @@ export default function ServicesByPAB() {
           </motion.h2>
 
           {/* Horizontal line */}
-          <div className="h-px bg-black w-[572px] md:w-[250px] lg:w-[600px] mt-6"></div>
+          <div className="h-px bg-black w-[572px] md:w-[250px] lg:w-[600px] mt-15"></div>
         </div>
 
         <motion.p
@@ -84,7 +84,7 @@ export default function ServicesByPAB() {
                 className="flex gap-4"
               >
                 {/* NUMBER */}
-                <p className="text-[#4D964F] text-6xl md:text-8xl lg:text-9xl ">
+                <p className="text-[#4D964F] text-6xl xl:text-9xl ">
                   {item.num}
                 </p>
 

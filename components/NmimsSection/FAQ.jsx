@@ -19,7 +19,7 @@ export default function FAQ({ faqs }) {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-[#345895] font-extrabold flex flex-row items-center justify-center font-[Inter] text-3xl md:text-5xl mb-10"
+        className="text-[#345895] font-extrabold flex flex-row items-center justify-center font-[Inter] text-3xl md:text-5xl xl:text-[64px] mb-10"
       >
         Frequently Asked Questions
       </motion.h2>

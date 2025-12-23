@@ -1,4 +1,4 @@
-import NmimsWx from "@/components/NmimsWx";
+import NmimsWx from "@/components/Nmims/NmimsWx";
 
 export default function Nmims() {
     return (

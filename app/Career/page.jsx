@@ -1,5 +1,5 @@
 
-import CareerPage from "@/components/CareerPage";
+import CareerPage from "@/components/Career/CareerPage";
 
 export default function Career() {
   return (

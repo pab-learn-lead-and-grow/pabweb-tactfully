@@ -1,4 +1,4 @@
-import NmimsMba from "@/components/NmimsMba";
+import NmimsMba from "@/components/Nmims/NmimsMba";
 
 export default function Nmims() {
     return (

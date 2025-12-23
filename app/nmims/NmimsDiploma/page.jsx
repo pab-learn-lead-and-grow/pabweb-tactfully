@@ -1,4 +1,4 @@
-import NmimsDiploma from "@/components/NmimsDiploma"
+import NmimsDiploma from "@/components/Nmims/NmimsDiploma";
 
 export default function Nmims() {
     return (
