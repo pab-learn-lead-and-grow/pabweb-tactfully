@@ -68,7 +68,7 @@ export default function Page() {
     <section className="w-full flex flex-col font-[Inter] items-center bg-white">
       {/* Hero Section */}
       <div
-        className="w-[95%] mt-18 h-[25vh] md:h-[45vh] bg-cover rounded-t-3xl bg-center flex items-center justify-center"
+        className="w-[95%] mt-18 h-[25vh] lg:h-[40vh] xl:h-[50vh] bg-cover rounded-t-3xl bg-center flex items-center justify-center"
      style={{
   backgroundImage: "url('/Blog3/background.png')",
   backgroundColor: "rgba(0, 0, 0, 0.6)",
@@ -136,7 +136,7 @@ export default function Page() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 rounded-t-2xl lg:-mt-35 md:-mt-10"
+          className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 rounded-t-2xl md:mb-10 lg:-mt-35 md:-mt-10"
         >
           <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
             Introduction to NMIMS for Working Professionals
@@ -375,7 +375,7 @@ If you are a working professional determined to strategically upgrade your caree
                   href={blog.path}
                    className="mt-2 w-fit text-white bg-[#1e5a9e] text-[10px] px-3 py-1 rounded hover:bg-[#164a82] transition inline-block"
                 >
-                  Learnmore
+                  Read More
                 </Link>
               </div>
             </motion.div>

@@ -36,6 +36,15 @@ html, body {
   padding-bottom: 10px;
 }
 
+.marquee-track {
+  pointer-events: none;
+}
+
+.marquee-track a,
+.marquee-track img {
+  pointer-events: auto;
+}
+
 /* Hand-drawn curved stroke */
 .handdrawn-underline::after {
   content: "";

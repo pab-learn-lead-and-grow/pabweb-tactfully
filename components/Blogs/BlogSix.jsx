@@ -140,7 +140,7 @@ export default function Page() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 rounded-t-2xl lg:-mt-35 md:-mt-10"
+          className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 rounded-t-2xl md:mb-10 lg:-mt-35 md:-mt-10"
         >
           <p className="text-black text-[14px] leading-5">
           In a world where business models evolve overnight and digital disruption is the new normal, the demand for business-savvy professionals has grown dramatically. What once required relocating to big cities, attending expensive institutes, and dedicating full-time years of life is now available in a far more flexible and accessible format: online business degrees.<br/>
@@ -624,7 +624,7 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
                    href={blog.path}
                    className="mt-2 w-fit text-white bg-[#1e5a9e] text-[10px] px-3 py-1 rounded hover:bg-[#164a82] transition inline-block"
                 >
-                  Learnmore
+                  Read More
                 </Link>
               </div>
             </motion.div>

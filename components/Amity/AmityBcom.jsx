@@ -873,7 +873,7 @@ const topicsData = {
              <motion.button
                 whileHover={{ scale: 1.05 }}
                 onClick={() => setIsModalOpen(true)}
-                className="mt-6 w-[90%] bg-[#4D964F] text-white px-2 py-3 rounded-2xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4"
+                className="mt-6 w-[90%] text-white px-2 py-3 rounded-2xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4"
               >
                 DOWNLOAD SYLLABUS
                 <ChevronRight size={20} />
@@ -1232,7 +1232,7 @@ const topicsData = {
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-5">
           {/* LEFT COLUMN */}
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col  gap-5 md:gap-12">
             {/* Item 1 */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -1319,7 +1319,7 @@ const topicsData = {
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-5 md:gap-12">
             {/* Item 3 */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}

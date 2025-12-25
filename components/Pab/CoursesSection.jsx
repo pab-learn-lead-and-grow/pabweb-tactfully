@@ -4,8 +4,6 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import CounsellingForm from "./CounsellingForm";
-
-const THEME_BLUE = "#345895";
 const THEME_GREEN = "#4D964F";
 const CARD_WIDTH = 330; // Fixed card width in pixels
 const GAP = 16; // Gap between cards
@@ -21,10 +19,8 @@ const CATEGORIES = [
         programTitle: "Master of Business Administration",
         badges: [
           "Most-Loved",
-          "Mumbai",
-          "NAAC A++",
-          "ranked top 30 by NIRF",
-          "500+ Hiring Partners",
+          "NAAC A++","500+ Hiring Partners",
+          "ranked top 30 by NIRF", "Mumbai"
         ],
         image: "/nmims.png",
         path: "/nmims/NmimsMba"
@@ -70,8 +66,8 @@ const CATEGORIES = [
       {
         id: "exec-1",
         university: "NMIMS Mumbai",
-        programTitle: "Master of Business Administration WX",
-        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        programTitle: "Master of Business Admin. (WX)",
+        badges: ["Most Loved","NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners", "Mumbai"],
         image: "/nmims.png",
         path: "/nmims/NmimsWx"
       },
@@ -206,7 +202,7 @@ const CATEGORIES = [
         university: "Amity University",
         programTitle: "Master of Commerce",
         badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
-        image: "/jain.png",
+        image: "/amity.png",
         path: "/amity/AmityMcom"
       },
       {
@@ -236,8 +232,16 @@ const CATEGORIES = [
         university: "Manipal Jaipur",
         programTitle: "Master of Arts in Journalism and Mass Communication",
         badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
-        image: "/professional.png",
+        image: "/manipal.png",
         path: "/muj/MujMajmc"
+      },
+      {
+        id: "majmc-2",
+        university: "Amity University",
+        programTitle: "Master of Arts in Journalism and Mass Communication",
+        badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
+        image: "/amity.png",
+        path: "/amity/AmityMajmc"
       },
     ],
   },
@@ -249,8 +253,8 @@ const CATEGORIES = [
         id: "bba-1",
         university: "Nmims Mumbai",
         programTitle: "Bachelor of Business Administration",
-        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
-        image: "/manipal.png",
+        badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
+        image: "/nmims.png",
         path: "/nmims/NmimsBba"
       },
       {
@@ -317,7 +321,7 @@ const CATEGORIES = [
         id: "bcom-1",
         university: "Nmims Mumbai",
         programTitle: "Bachelor of Commerce",
-        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
         path: "/nmims/NmimsBcom"
       },
@@ -363,7 +367,7 @@ const CATEGORIES = [
         id: "diploma-1",
         university: "Nmims Mumbai",
         programTitle: "Financial Management",
-        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
         path: "/nmims/NmimsDiploma"
       },
@@ -371,7 +375,7 @@ const CATEGORIES = [
         id: "diploma-2",
         university: "Nmims Mumbai",
         programTitle: "Marketing Management",
-        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
         path: "/nmims/NmimsDiploma"
       },
@@ -379,7 +383,7 @@ const CATEGORIES = [
         id: "diploma-3",
         university: "Nmims Mumbai",
         programTitle: "Business Management",
-        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
         path: "/nmims/NmimsDiploma"
       },
@@ -387,7 +391,7 @@ const CATEGORIES = [
         id: "diploma-4",
         university: "Nmims Mumbai",
         programTitle: "Operations Management",
-        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
         path: "/nmims/NmimsDiploma"
       },
@@ -395,7 +399,7 @@ const CATEGORIES = [
         id: "diploma-5",
         university: "Nmims Mumbai",
         programTitle: "Human Resource Management",
-        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
         path: "/nmims/NmimsDiploma"
       },
@@ -409,7 +413,7 @@ const CATEGORIES = [
         id: "cetificate-1",
         university: "NMIMS Mumbai",
         programTitle: "Business Management",
-        badges: ["Most Loved", "Mumbai", "NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners"],
+        badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
         path: "/nmims/NmimsCert"
       },
@@ -565,7 +569,7 @@ export default function CoursesSection() {
   };
 
   return (
-    <section className="px-4 md:px-8 lg:px-16 py-10 relative">
+    <section className="p-5 lg:p-15 relative">
       <h2 className="font-bold text-[2.25rem] md:text-4xl lg:text-5xl xl:text-[64px] leading-tight text-[#345895] mb-6">
         Courses that fit your hustle
       </h2>
@@ -706,7 +710,7 @@ function ProgramCard({ program, onDive, onDownload }) {
         <h3 className="text-[#345895] font-semibold text-base line-clamp-2">
           {program.programTitle}
         </h3>
-        <div className="text-xs text-[#3b82f6] mb-2">{program.university}</div>
+        <div className="text-xs text-[#064e92] mb-2">{program.university}</div>
 
         <div className="border-t my-3" />
 

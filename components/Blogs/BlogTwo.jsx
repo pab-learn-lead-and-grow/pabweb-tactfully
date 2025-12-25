@@ -140,7 +140,7 @@ const blogs = [
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 rounded-t-2xl lg:-mt-35 md:-mt-10"
+          className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 md:mb-10 rounded-t-2xl lg:-mt-35 md:-mt-10"
         >
           <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
             Understanding the Online MBA Advantage
@@ -372,7 +372,7 @@ Instead of having to resign from your job or take a sabbatical, you can grow aca
              </p> 
 
                <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
-        Employers’ Perception of Online MBA Graduates
+        Employer's Perception of Online MBA Graduates
         </h2>
            <p className="text-black -mb-5 text-[14px] leading-5">
           Modern employers hold Online MBAs in high regard because they demonstrate several highly valued traits in a candidate:
@@ -441,7 +441,7 @@ Would you be interested in seeing the specific courses or specializations typica
                   href={blog.path}
                   className="mt-2 w-fit text-white bg-[#1e5a9e] text-[10px] px-3 py-1 rounded hover:bg-[#164a82] transition inline-block"
                 >
-                  Learnmore
+                  Read More
                 </Link>
               </div>
             </motion.div>

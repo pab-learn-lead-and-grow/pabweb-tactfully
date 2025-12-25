@@ -1560,7 +1560,7 @@ export default function Page() {
             </motion.p>
 
             {/* Content Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-5 md:mt-0 items-center">
               {/* LEFT IMAGE */}
               <motion.div
                 initial={{ opacity: 0, x: -40 }}
@@ -1575,7 +1575,6 @@ export default function Page() {
                   alt="Career Opportunities"
                   className="
     w-full 
-    max-w-[220px]       /* Smaller on mobile */
     sm:max-w-[260px]  
     md:max-w-[320px]   /* Medium screens */
     lg:max-w-[400px]   /* Large screens */

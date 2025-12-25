@@ -1232,7 +1232,7 @@ export default function Page() {
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-5">
           {/* LEFT COLUMN */}
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col  gap-5 md:gap-12">
             {/* Item 1 */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -1319,7 +1319,7 @@ export default function Page() {
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-5 md:gap-12">
             {/* Item 3 */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}

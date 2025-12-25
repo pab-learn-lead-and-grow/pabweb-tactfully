@@ -1,63 +1,8 @@
 "use client";
-import { useState } from "react";
-import { Mail, Phone, Clock, MapPin } from "lucide-react";
-import { createSupabaseClient } from "@/lib/supabaseClient";
 import ContactSection from "./ContactSection";
 import ConnectToday from "../NmimsSection/ConnectToday";
 
 export default function ContactPage() {
-  const supabase = createSupabaseClient();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("");
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setStatus("");
-
-    const { firstName, lastName, email, phone, message } = formData;
-
-    // ✅ Insert form data into Supabase
-    const { error } = await supabase.from("contact_messages").insert([
-      {
-        first_name: firstName,
-        last_name: lastName,
-        email,
-        phone,
-        message,
-      },
-    ]);
-
-    if (error) {
-      console.error("❌ Error inserting data:", error);
-      setStatus("Something went wrong. Please try again!");
-    } else {
-      setStatus("✅ Message sent successfully!");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-    }
-
-    setLoading(false);
-  };
 
   return (
     <div className="w-full text-[Inter]">

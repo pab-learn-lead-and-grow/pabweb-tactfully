@@ -67,7 +67,8 @@ export default function ContactSection() {
       {/* LEFT SECTION */}
       <div className="flex flex-col bg-white justify-center space-y-3">
         <h2 className="text-3xl md:text-4xl xl:text-[54px] font-bold leading-snug text-black">
-          You Will Grow,<br/> You Will Succeed.
+          You Will Grow,
+          <br /> You Will Succeed.
           <br /> We Promise That
         </h2>
 
@@ -80,15 +81,30 @@ export default function ContactSection() {
             <span className="font-semibold text-lg text-black">
               Call for inquiry
             </span>
-            <span className="text-black text-sm">+91 9999999999</span>
+            <a
+              href="tel:+917489410758"
+              className="text-black text-sm hover:text-[#345895] underline"
+              aria-label="Call PAB Learn Lead Grow"
+            >
+              +91 7489410758
+            </a>
           </div>
 
           <div className="flex flex-col space-y-2">
             <Mail className="text-[#345895] w-6 h-6" />
+
             <span className="font-semibold text-lg text-black">
               Send us email
             </span>
-            <span className="text-black text-sm">info@pab.com</span>
+
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=uttam15vp@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black text-sm hover:text-[#345895] underline"
+            >
+              uttam15vp@gmail.com
+            </a>
           </div>
 
           <div className="flex flex-col space-y-2">
@@ -183,9 +199,7 @@ export default function ContactSection() {
 
           {/* MESSAGE */}
           <div>
-            <label className="block text-black font-medium mb-2">
-              Message
-            </label>
+            <label className="block text-black font-medium mb-2">Message</label>
             <textarea
               name="message"
               value={formData.message}
@@ -209,9 +223,7 @@ export default function ContactSection() {
           {status && (
             <p
               className={`text-center mt-3 font-medium ${
-                status.startsWith("✅")
-                  ? "text-green-600"
-                  : "text-red-600"
+                status.startsWith("✅") ? "text-green-600" : "text-red-600"
               }`}
             >
               {status}

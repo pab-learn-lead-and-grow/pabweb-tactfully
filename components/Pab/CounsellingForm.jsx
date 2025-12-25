@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { CircleCheckBig, ShieldCheck } from "lucide-react";
 
 export default function CounsellingForm({ onClose }) {
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -57,16 +56,16 @@ export default function CounsellingForm({ onClose }) {
 
     setLoading(true);
     try {
-      const response = await fetch('/api/counselling', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+      const response = await fetch("/api/counselling", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
       const result = await response.json();
-      
+
       if (!response.ok || !result.success) {
-        throw new Error(result.error || 'Submission failed');
+        throw new Error(result.error || "Submission failed");
       }
 
       alert("✅ Form submitted successfully!");
@@ -78,21 +77,26 @@ export default function CounsellingForm({ onClose }) {
     }
   };
 
-
   const countryCodes = [
     { code: "+91", flag: "🇮🇳", name: "India" },
     { code: "+1", flag: "🇺🇸", name: "United States" },
     { code: "+44", flag: "🇬🇧", name: "United Kingdom" },
+    { code: "+49", flag: "🇩🇪", name: "Germany" },
     { code: "+61", flag: "🇦🇺", name: "Australia" },
-    { code: "+971", flag: "🇦🇪", name: "UAE" },
+    { code: "+971", flag: "🇦🇪", name: "United Arab Emirates" },
+    { code: "+65", flag: "🇸🇬", name: "Singapore" },
+    { code: "+33", flag: "🇫🇷", name: "France" },
+    { code: "+31", flag: "🇳🇱", name: "Netherlands" },
+    { code: "+39", flag: "🇮🇹", name: "Italy" },
   ];
 
   return (
-    <div className="fixed inset-0 z-9999 w-screen min-h-screen flex font-[Inter] items-start justify-center pt-18 lg:pt-24 backdrop-blur-2xl overflow-y-auto">
+    <div className="fixed modal inset-0 z-9999 w-screen md:h-screen flex font-[Inter] items-start justify-center pt-12 lg:pt-24 backdrop-blur-2xl overflow-y-auto"
+    style={{ maxHeight: '700px' }}>
       {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
 
-      <div className="relative w-full max-w-5xl bg-[#E0ECF8] rounded-3xl shadow-2xl overflow-hidden">
+      <div className="relative w-full max-w-5xl bg-[#E0ECF8] rounded-3xl shadow-2xl my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] lg:h-[600px]">
           {/* LEFT */}
           <div className="bg-[#E0ECF8] p-6 flex flex-col justify-center items-center relative">
@@ -107,20 +111,19 @@ export default function CounsellingForm({ onClose }) {
                 alt="Confused you ?"
                 className="w-full h-auto"
                 onError={(e) => {
-                  e.currentTarget.style.display = "none"; // ✅ SAFE FIX
+                  e.currentTarget.style.display = "none";
                 }}
               />
             </div>
 
-          <div className="mt-5 md:mt-0 lg:mb-10 text-center px-2">
-  <div className="inline-flex items-center gap-1.5 bg-[#4D964F]/10 py-1 px-3 rounded-lg">
-    <CircleCheckBig size={14} className="text-[#4D964F]" />
-    <span className="text-[10px] text-[#4D964F] italic">
-      Only a certified mentor will assist you.
-    </span>
-  </div>
-</div>
-
+            <div className="mt-5 md:mt-0 lg:mb-10 text-center px-2">
+              <div className="inline-flex items-center gap-1.5 bg-[#4D964F]/10 py-1 px-3 rounded-lg">
+                <CircleCheckBig size={14} className="text-[#4D964F]" />
+                <span className="text-[10px] text-[#4D964F] italic">
+                  Only a certified mentor will assist you.
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* RIGHT */}
@@ -254,15 +257,27 @@ export default function CounsellingForm({ onClose }) {
                     name="course"
                     value={formData.course}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none overflow-y-auto text-sm"
+                    style={{ maxHeight: '200px' }}
                   >
                     <option value="">Select Course</option>
-                    <option value="MBA">MBA</option>
-                    <option value="BBA">BBA</option>
-                    <option value="BCA">BCA</option>
-                    <option value="MCA">MCA</option>
-                    <option value="B.COM">B.COM</option>
-                    <option value="M.COM">M.COM</option>
+                    <option value="Online MBA">Online MBA</option>
+                    <option value="Executive MBA">Executive MBA</option>
+                    <option value="Online BBA">Online BBA</option>
+                    <option value="Online BCA">Online BCA</option>
+                    <option value="Online MCA">Online MCA</option>
+                    <option value="Online BA">Online BA</option>
+                    <option value="Online MA">Online MA</option>
+                    <option value="Online B.COM">Online B.COM</option>
+                    <option value="Online M.COM">Online M.COM</option>
+                    <option value="Online MSc">Online MSc</option>
+                    <option value="Online Certifications">
+                      Online Certifications
+                    </option>
+                    <option value="Online Diploma">Online Diploma</option>
+                    <option value="Online MAJMC">Online MAJMC</option>
+                    <option value="Online BAJMC">Online BAJMC</option>
+                    <option value="Integrated Prog.">Integrated Prog.</option>
                   </select>
                   {errors.course && (
                     <p className="text-red-500 text-xs mt-1">{errors.course}</p>

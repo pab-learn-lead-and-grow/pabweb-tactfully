@@ -95,97 +95,96 @@ export default function Page() {
       title: "Submit & Register",
       desc: "Submit your application and complete your registration",
     },
-     {
+    {
       num: "05",
       title: "Await Enrollment Details",
       desc: "Wait for enrollment details & further guidance.",
     },
   ];
 
+  /* fees crousel */
+  function FeesCarousel() {
+    const cards = [
+      {
+        title: "Annual Payment",
+        amount: "₹99,000/-",
+        sub: "Inclusive of all taxes",
+      },
+      {
+        title: "Semester Wise",
+        amount: "₹16,500/-",
+        sub: "Inclusive of all taxes",
+      },
+      {
+        title: "EMI starting at",
+        amount: "₹4,125/-",
+        sub: "per month [Terms & Conditions apply]",
+      },
+    ];
 
-    /* fees crousel */
-    function FeesCarousel() {
-      const cards = [
-        {
-          title: "Annual Payment",
-          amount: "₹99,000/-",
-          sub: "Inclusive of all taxes",
-        },
-        {
-          title: "Semester Wise",
-          amount: "₹16,500/-",
-          sub: "Inclusive of all taxes",
-        },
-        {
-          title: "EMI starting at",
-          amount: "₹4,125/-",
-          sub: "per month [Terms & Conditions apply]",
-        },
-      ];
-  
-      const [index, setIndex] = useState(0);
-  
-      // Auto-scroll every 3 seconds
-      useEffect(() => {
-        const timer = setInterval(() => {
-          setIndex((prev) => (prev + 1) % cards.length);
-        }, 3000);
-  
-        return () => clearInterval(timer);
-      }, []);
-  
-      return (
-        <div className="w-full flex flex-col items-center">
-          {/* CARD */}
-          <div className="relative w-full flex justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 80 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -80 }}
-                transition={{ duration: 0.6 }}
-                className="bg-linear-to-b from-[#345895] to-[#101C2F] rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
-              >
-                <div>
-                  <p className="font-semibold text-white">{cards[index].title}</p>
-                  <p className="text-xs text-white mt-1">(in INR)</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">BA</p>
-                  <div className="w-12 mx-auto h-0.5 bg-white mt-3" />
-                </div>
-  
-                <p className="text-2xl font-medium text-white mt-4">
-                  {cards[index].amount}
+    const [index, setIndex] = useState(0);
+
+    // Auto-scroll every 3 seconds
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setIndex((prev) => (prev + 1) % cards.length);
+      }, 3000);
+
+      return () => clearInterval(timer);
+    }, []);
+
+    return (
+      <div className="w-full flex flex-col items-center">
+        {/* CARD */}
+        <div className="relative w-full flex justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -80 }}
+              transition={{ duration: 0.6 }}
+              className="bg-linear-to-b from-[#345895] to-[#101C2F] rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
+            >
+              <div>
+                <p className="font-semibold text-white">{cards[index].title}</p>
+                <p className="text-xs text-white mt-1">(in INR)</p>
+                <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">BA</p>
+                <div className="w-12 mx-auto h-0.5 bg-white mt-3" />
+              </div>
+
+              <p className="text-2xl font-medium text-white mt-4">
+                {cards[index].amount}
+              </p>
+
+              {cards[index].sub && (
+                <p className="text-xs text-white italic whitespace-pre-line">
+                  {cards[index].sub}
                 </p>
-  
-                {cards[index].sub && (
-                  <p className="text-xs text-white italic whitespace-pre-line">
-                    {cards[index].sub}
-                  </p>
-                )}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-  
-          {/* DOTS */}
-          <div className="flex gap-2 mt-4">
-            {cards.map((_, i) => (
-              <motion.button
-                key={i}
-                onClick={() => setIndex(i)}
-                animate={{
-                  scale: index === i ? 1.2 : 1,
-                  backgroundColor: index === i ? "#345895" : "#d1d5db",
-                }}
-                className="w-3 h-3 rounded-full"
-              />
-            ))}
-          </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
-      );
-    }
 
-   const topFaculty = [
+        {/* DOTS */}
+        <div className="flex gap-2 mt-4">
+          {cards.map((_, i) => (
+            <motion.button
+              key={i}
+              onClick={() => setIndex(i)}
+              animate={{
+                scale: index === i ? 1.2 : 1,
+                backgroundColor: index === i ? "#345895" : "#d1d5db",
+              }}
+              className="w-3 h-3 rounded-full"
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  const topFaculty = [
     {
       name: "Dr. Rashmi Saxena",
       title: "Assistant Professor",
@@ -221,9 +220,8 @@ export default function Page() {
     },
   ];
 
-
   const semesters = [1, 2, 3, 4, 5, 6];
-   const semSuffix = {
+  const semSuffix = {
     1: "st",
     2: "nd",
     3: "rd",
@@ -232,201 +230,200 @@ export default function Page() {
     6: "th",
   };
 
- const subjects = [
+  const subjects = [
     { id: 1, name: "Sociology" },
     { id: 2, name: "Economics" },
     { id: 3, name: "Political Science" },
     { id: 4, name: "English" },
-    
-];
+  ];
 
- const topicsData = {
-  1: {
-    // SOCIOLOGY (Block 1)
-    1: [
-      "Indian Social Structure and Process",
-      "Business Communication",
-      "Kinship, Marriage and Family",
-      "Social Institutions",
-      "Introduction to Sociology"
-    ],
-    2: [
-      "Population and Society",
-      "Classical Sociological Thinkers I",
-      "Social Movements in India",
-      "Environmental Studies",
-      "Research Methods I",
-      "Research Methods I"
-    ],
-    3: [
-      "Research Methods II",
-      "Behavioural Science",
-      "Sociology of Deviance",
-      "Social Stratification"
-    ],
-    4: [
-      "Political Sociology",
-      "Sociology of Change and Development",
-      "Sociology of Gender",
-      "Urban Sociology",
-      "Indian Social Thinkers"
-    ],
-    5: [
-      "Sociology of Health",
-      "Industrial Sociology",
-      "Sociology of Aging",
-      "Sociology and Law",
-      "Globalization and Society",
-      "Sociology of Marginalized Communities"
-    ],
-    6: [
-      "History: An Introduction",
-      "Sociology of Religion",
-      "Economic Sociology",
-      "Environment Sociology",
-      "Major Project"
-    ]
-  },
+  const topicsData = {
+    1: {
+      // SOCIOLOGY (Block 1)
+      1: [
+        "Indian Social Structure and Process",
+        "Business Communication",
+        "Kinship, Marriage and Family",
+        "Social Institutions",
+        "Introduction to Sociology",
+      ],
+      2: [
+        "Population and Society",
+        "Classical Sociological Thinkers I",
+        "Social Movements in India",
+        "Environmental Studies",
+        "Research Methods I",
+        "Research Methods I",
+      ],
+      3: [
+        "Research Methods II",
+        "Behavioural Science",
+        "Sociology of Deviance",
+        "Social Stratification",
+      ],
+      4: [
+        "Political Sociology",
+        "Sociology of Change and Development",
+        "Sociology of Gender",
+        "Urban Sociology",
+        "Indian Social Thinkers",
+      ],
+      5: [
+        "Sociology of Health",
+        "Industrial Sociology",
+        "Sociology of Aging",
+        "Sociology and Law",
+        "Globalization and Society",
+        "Sociology of Marginalized Communities",
+      ],
+      6: [
+        "History: An Introduction",
+        "Sociology of Religion",
+        "Economic Sociology",
+        "Environment Sociology",
+        "Major Project",
+      ],
+    },
 
-  2: {
-    // ECONOMICS (Block 2)
-    1:[
-  "Micro Economics I",
-  "Fundamentals of Macro Economics I",
-  "Economic History of India (1857 to 1947)",
-  "Business Communication"
-    ],
-    2: [
-      "Environmental Studies",
-      "Statistical Methods in Economics I",
-      "Micro Economics II",
-      "Fundamentals of Macro Economics II"
-    ],
-    3: [
-      "International Economics I",
-      "Statistical Methods in Economics II",
-      "Introduction to Demography",
-      "Behavioural Science"
-    ],
-    4: [
-      "International Economics (Applied) II",
-      "Fundamentals of Research Methodology in Economics",
-      "Comparative Economic Development [1850 to 1950]",
-      "Economic Environment for Business",
-      "Industrial Economics"
-    ],
-    5: [
-      "Economic Growth Models",
-      "Regional Economics",
-      "Basics of Health Economics",
-      "Fundamentals of Behavioural Economics",
-      "Labour Economics",
-      "Fundamentals of Environmental Economics"
-    ],
-    6: [
-      "Fundamentals of Operation Research",
-      "Major Project",
-      "Application of Growth Models and Planning",
-      "Economic System and Society",
-      "Fundamentals of Money and Financial Markets"
-    ],
-  },
+    2: {
+      // ECONOMICS (Block 2)
+      1: [
+        "Micro Economics I",
+        "Fundamentals of Macro Economics I",
+        "Economic History of India (1857 to 1947)",
+        "Business Communication",
+      ],
+      2: [
+        "Environmental Studies",
+        "Statistical Methods in Economics I",
+        "Micro Economics II",
+        "Fundamentals of Macro Economics II",
+      ],
+      3: [
+        "International Economics I",
+        "Statistical Methods in Economics II",
+        "Introduction to Demography",
+        "Behavioural Science",
+      ],
+      4: [
+        "International Economics (Applied) II",
+        "Fundamentals of Research Methodology in Economics",
+        "Comparative Economic Development [1850 to 1950]",
+        "Economic Environment for Business",
+        "Industrial Economics",
+      ],
+      5: [
+        "Economic Growth Models",
+        "Regional Economics",
+        "Basics of Health Economics",
+        "Fundamentals of Behavioural Economics",
+        "Labour Economics",
+        "Fundamentals of Environmental Economics",
+      ],
+      6: [
+        "Fundamentals of Operation Research",
+        "Major Project",
+        "Application of Growth Models and Planning",
+        "Economic System and Society",
+        "Fundamentals of Money and Financial Markets",
+      ],
+    },
 
-  3: {
-    // POLITICAL SCIENCE (Block 3)
-    1: [
-      "Nationalism in India",
-      "Introduction to Politics I",
-      "Political Science I (Political Theory)",
-      "Indian Political Thought I",
-      "Business Communication"
-    ],
-    2: [
-      "Indian Political Thought II",
-      "Political Science II",
-      "Constitutional History of India",
-      "Introduction to Politics II",
-      "Environmental Studies"
-    ],
-    3: [
-      "Public Administration I",
-      "Comparative Government and Politics I",
-      "Contemporary Diplomacy",
-      "Behavioural Science"
-    ],
-    4: [
-      "Comparative Government and Politics II",
-      "Dynamics of Contemporary Global Concerns",
-      "General Studies: India and The World",
-      "Public Policy and Analysis",
-      "Indian Government and Politics I",
-      "Psephology and Data Analysis"
-    ],
-    5: [
-      "International Law",
-      "Western Political Thought I",
-      "India's Foreign Policy I",
-      "Indian Political System",
-      "Constitution of India"
-    ],
-    6: [
-      "India's Foreign Policy II",
-      "Modern Government and Politics",
-      "Legislative Support and Budget Analysis",
-      "Major Project",
-      "Western Political Thought II"
-    ]
-  },
+    3: {
+      // POLITICAL SCIENCE (Block 3)
+      1: [
+        "Nationalism in India",
+        "Introduction to Politics I",
+        "Political Science I (Political Theory)",
+        "Indian Political Thought I",
+        "Business Communication",
+      ],
+      2: [
+        "Indian Political Thought II",
+        "Political Science II",
+        "Constitutional History of India",
+        "Introduction to Politics II",
+        "Environmental Studies",
+      ],
+      3: [
+        "Public Administration I",
+        "Comparative Government and Politics I",
+        "Contemporary Diplomacy",
+        "Behavioural Science",
+      ],
+      4: [
+        "Comparative Government and Politics II",
+        "Dynamics of Contemporary Global Concerns",
+        "General Studies: India and The World",
+        "Public Policy and Analysis",
+        "Indian Government and Politics I",
+        "Psephology and Data Analysis",
+      ],
+      5: [
+        "International Law",
+        "Western Political Thought I",
+        "India's Foreign Policy I",
+        "Indian Political System",
+        "Constitution of India",
+      ],
+      6: [
+        "India's Foreign Policy II",
+        "Modern Government and Politics",
+        "Legislative Support and Budget Analysis",
+        "Major Project",
+        "Western Political Thought II",
+      ],
+    },
 
-  4: {
-    // ENGLISH (Block 4)
-    1: [
-      "History of English Literature",
-      "Drama From Elizabethan to Restoration Age",
-      "English Poetry From Chaucer to Blake",
-      "Business Communication"
-    ],
-    2: [
-      "English Poetry From Wordsworth to Tennyson",
-      "20th Century Indian English Poetry",
-      "20th Century Indian English Novel",
-      "Environmental Studies"
-    ],
-    3: [
-      "Introduction to Literary Criticism",
-      "English Novel",
-      "Behavioral Sciences",
-      "Creative Writing in English"
-    ],
-    4: [
-      "Modern Drama",
-      "Classical Indian Literature in Translation",
-      "Introduction to Literary Theory",
-      "Introduction to Sociolinguistics",
-      "Literature and Secularism"
-    ],
-    5: [
-      "History - an Introduction",
-      "Modern English Poetry",
-      "American Drama",
-      "African Literature",
-      "Professional Ethics"
-    ],
-    6: [
-      "Modern English Novel",
-      "Modern European Drama",
-      "American Poetry",
-      "Elementary Sociology I",
-      "Dissertation"
-    ]
-  }
-};
+    4: {
+      // ENGLISH (Block 4)
+      1: [
+        "History of English Literature",
+        "Drama From Elizabethan to Restoration Age",
+        "English Poetry From Chaucer to Blake",
+        "Business Communication",
+      ],
+      2: [
+        "English Poetry From Wordsworth to Tennyson",
+        "20th Century Indian English Poetry",
+        "20th Century Indian English Novel",
+        "Environmental Studies",
+      ],
+      3: [
+        "Introduction to Literary Criticism",
+        "English Novel",
+        "Behavioral Sciences",
+        "Creative Writing in English",
+      ],
+      4: [
+        "Modern Drama",
+        "Classical Indian Literature in Translation",
+        "Introduction to Literary Theory",
+        "Introduction to Sociolinguistics",
+        "Literature and Secularism",
+      ],
+      5: [
+        "History - an Introduction",
+        "Modern English Poetry",
+        "American Drama",
+        "African Literature",
+        "Professional Ethics",
+      ],
+      6: [
+        "Modern English Novel",
+        "Modern European Drama",
+        "American Poetry",
+        "Elementary Sociology I",
+        "Dissertation",
+      ],
+    },
+  };
 
   const [activeSubject, setActiveSubject] = useState(1);
   const [activeSemester, setActiveSemester] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
- const faqs = [
+  const faqs = [
     {
       q: "What is the duration and format of the BA program?",
       a: "The BA program lasts 3 years (6 semesters) and is delivered fully online, allowing you to study remotely at your own pace.",
@@ -534,7 +531,7 @@ export default function Page() {
     { value: "Scholarships", label: "Available" },
   ];
   return (
-      <main className="flex flex-col items-center w-full bg-white">
+    <main className="flex flex-col items-center w-full bg-white">
       <section className="relative min-h-screen lg:min-h-[50vh] xl:min-h-screen w-full ">
         {/* Background Image */}
         <div className="absolute inset-0">
@@ -569,7 +566,6 @@ export default function Page() {
 
         {/* CONTENT WRAPPER */}
         <div className="relative z-10 max-w-6xl mx-auto p-6 sm:p-10">
-
           {/* Subtext */}
           <motion.p
             initial={{ opacity: 0, x: -20 }}
@@ -590,8 +586,8 @@ export default function Page() {
               viewport={{ once: true }}
               className="text-white text-4xl sm:text-5xl md:text-5xl lg:text-7xl lg:text-[54px] font-[Inter] font-bold -mt-1 leading-tight"
             >
-             Bachelor of Arts(BA)
-              </motion.h1>
+              Bachelor of Arts(BA)
+            </motion.h1>
 
             <motion.p
               initial={{ opacity: 0 }}
@@ -600,8 +596,10 @@ export default function Page() {
               viewport={{ once: true }}
               className="text-gray-200 text-left text-[16px] md:text-[18px] max-w-6xl mt-0 mb-10 leading-relaxed"
             >
-         Advance your future with a UGC-approved Online BA—3 years of skill-building and practical learning to unlock diverse career paths.
-         </motion.p>
+              Advance your future with a UGC-approved Online BA—3 years of
+              skill-building and practical learning to unlock diverse career
+              paths.
+            </motion.p>
 
             {/* STATS */}
             <motion.div
@@ -636,12 +634,18 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4 mt-12 w-full items-center justify-center"
             >
-              <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2 bg-[#345895] text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-medium">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="flex items-center justify-center gap-2 bg-[#345895] text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-medium"
+              >
                 Download Brochure
                 <Download size={20} />
               </button>
 
-              <button onClick={() => setIsModalOpen(true)} className="bg-[#4D964F] flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-[#4D964F] flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium"
+              >
                 Talk to an Expert
                 <ArrowRight size={16} />
               </button>
@@ -682,88 +686,91 @@ export default function Page() {
           </div>
         </div>
       </section>
-        {/* ======= SNAPSHOT SECTION ======= */}
-              <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
-                                     <div className="max-w-7xl mx-auto">
-                                       {/* HEADING */}
-                                       <motion.h2
-                                         initial={{ opacity: 0, y: -30 }}
-                                         whileInView={{ opacity: 1, y: 0 }}
-                                         transition={{ duration: 0.6 }}
-                                         viewport={{ once: true }}
-                                         className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
-                                       >
-                                         A Snapshot of Success
-                                       </motion.h2>
-                             
-                                       {/* BLUE BAR */}
-                                       <motion.div
-                                         initial={{ opacity: 0, scale: 0.95 }}
-                                         whileInView={{ opacity: 1, scale: 1 }}
-                                         transition={{ duration: 0.6, delay: 0.2 }}
-                                         viewport={{ once: true }}
-                                         className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
-                                       >
-                                         {/* ALWAYS 3 COLUMNS */}
-                                         <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
-                                           {/* STAT 1 */}
-                                           <motion.div
-                                             initial={{ opacity: 0, y: 30 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             transition={{ duration: 0.5 }}
-                                             viewport={{ once: true }}
-                                           >
-                                             <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
-                                               NAAC A+
-                                             </h3>
-                                             <p className="text-[8px]  md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
-                                               accredited
-                                             </p>
-                                           </motion.div>
-                             
-                                           {/* STAT 2 */}
-                                           <motion.div
-                                             initial={{ opacity: 0, y: 30 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             transition={{ duration: 0.5, delay: 0.1 }}
-                                             viewport={{ once: true }}
-                                           >
-                                             <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
-                                               1.6 lakh+
-                                             </h3>
-                                             <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                               working professionals enrolled
-                                             </p>
-                                           </motion.div>
-                             
-                                           {/* STAT 3 */}
-                                           <motion.div
-                                             initial={{ opacity: 0, y: 30 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             transition={{ duration: 0.5, delay: 0.2 }}
-                                             viewport={{ once: true }}
-                                           >
-                                             <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
-                                               AICTE
-                                             </h3>
-                                             <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                               approved
-                                             </p>
-                                           </motion.div>
-                                         </div>
-                                       </motion.div>
-                                     </div>
-                 </section>
-                       
+      {/* ======= SNAPSHOT SECTION ======= */}
+      <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+        <div className="max-w-7xl mx-auto">
+          {/* HEADING */}
+          <motion.h2
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
+          >
+            A Snapshot of Success
+          </motion.h2>
+
+          {/* BLUE BAR */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+          >
+            {/* ALWAYS 3 COLUMNS */}
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
+              {/* STAT 1 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                  NAAC A+
+                </h3>
+                <p className="text-[8px]  md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
+                  accredited
+                </p>
+              </motion.div>
+
+              {/* STAT 2 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                  1.6 lakh+
+                </h3>
+                <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
+                  working professionals enrolled
+                </p>
+              </motion.div>
+
+              {/* STAT 3 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                  AICTE
+                </h3>
+                <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
+                  approved
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
         {/* ===== Top Text Section ===== */}
         <div className="max-w-6xl text-left mx-auto">
           <h2 className="text-xl md:text-2xl font-regular lg:text-[49px] leading-normal text-gray-900">
             <span className="text-[#F9BD04] ">
-           Stay ahead in a rapidly shifting job market with a UGC-entitled Online BA. 
-           </span>
-           This 3-year program builds foundational knowledge and practical problem-solving skills, empowering you to unlock new career pathways.</h2>
+              Stay ahead in a rapidly shifting job market with a UGC-entitled
+              Online BA.
+            </span>
+            This 3-year program builds foundational knowledge and practical
+            problem-solving skills, empowering you to unlock new career
+            pathways.
+          </h2>
         </div>
 
         {/* ===== Bottom Card Section ===== */}
@@ -781,7 +788,8 @@ export default function Page() {
                 Real World Projects
               </h3>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
-              Work on live projects and real-world case studies that prepare you to excel in your industry.
+                Work on live projects and real-world case studies that prepare
+                you to excel in your industry.
               </p>
             </div>
           </div>
@@ -799,8 +807,9 @@ export default function Page() {
                 Global Education
               </h3>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
-             Experience a truly global education with renowned international faculty
-             </p>
+                Experience a truly global education with renowned international
+                faculty
+              </p>
             </div>
           </div>
         </div>
@@ -886,23 +895,21 @@ export default function Page() {
                       {semSuffix[sem]} Semester
                     </motion.button>
                   ))}
-
-                 
                 </div>
-                 {/* DOWNLOAD BUTTON */}
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    onClick={() => setIsModalOpen(true)}
-                    className="
+                {/* DOWNLOAD BUTTON */}
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => setIsModalOpen(true)}
+                  className="
                                   w-full bg-[#4D964F] text-white px-3 py-2 sm:py-3
                                  rounded-xl text-[10px] sm:text-xs md:text-sm mt-4
                                  bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md
                                  flex items-center justify-center gap-2
                                "
-                  >
-                    DOWNLOAD SYLLABUS
-                    <ChevronRight size={14} />
-                  </motion.button>
+                >
+                  DOWNLOAD SYLLABUS
+                  <ChevronRight size={14} />
+                </motion.button>
               </div>
             </div>
           </div>
@@ -1012,17 +1019,15 @@ export default function Page() {
                   {semSuffix[sem]} Semester
                 </motion.button>
               ))}
-
-             
             </div>
-             <motion.button
-                whileHover={{ scale: 1.05 }}
-                onClick={() => setIsModalOpen(true)}
-                className="mt-8 w-[90%] bg-[#4D964F] text-white px-4 py-4 rounded-2xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4"
-              >
-                DOWNLOAD SYLLABUS
-                <ChevronRight size={20} />
-              </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              onClick={() => setIsModalOpen(true)}
+              className="mt-8 w-[90%] bg-[#4D964F] text-white px-4 py-4 rounded-2xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4"
+            >
+              DOWNLOAD SYLLABUS
+              <ChevronRight size={20} />
+            </motion.button>
           </div>
         </motion.div>
       </section>
@@ -1035,19 +1040,26 @@ export default function Page() {
           </h2>
           <ul className="text-[#1F284E] text-[12px] space-y-2 md:space-y-4 list-disc px-5 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
             <li>
-            10+2 passed students or aspirants seeking a career in the field of Economics/Sociology/English language/Political science.
+              10+2 passed students or aspirants seeking a career in the field of
+              Economics/Sociology/English language/Political science.
             </li>
             <li>
-            Aspirants who want to take up a career in teaching within primary or secondary level education, including subject specific teaching.
+              Aspirants who want to take up a career in teaching within primary
+              or secondary level education, including subject specific teaching.
             </li>
             <li>
-           The program also opens up a wide range of opportunities in Public Services, Language Translation, Economics, Political Science, Sociology etc. including higher education at Master's level.
-           </li>
-             <li>
-            Applicant must possess sufficient knowledge and understanding of English language & communication.
+              The program also opens up a wide range of opportunities in Public
+              Services, Language Translation, Economics, Political Science,
+              Sociology etc. including higher education at Master's level.
             </li>
-             <li>
-            Candidates whose first language is not English must have done at least past three (3) years of academic qualification in English medium.
+            <li>
+              Applicant must possess sufficient knowledge and understanding of
+              English language & communication.
+            </li>
+            <li>
+              Candidates whose first language is not English must have done at
+              least past three (3) years of academic qualification in English
+              medium.
             </li>
           </ul>
           {/* for Indian Students */}
@@ -1056,9 +1068,15 @@ export default function Page() {
               For Indian students
             </h3>
             <ul className="text-[#1F284E] text-[12px] list-disc px-5 space-y-2 md:space-y-4 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
-              <li> 10th Class Certificate (Completing 10 years of formal schooling)</li>  
-              <li> 12th Class Certificate (Completing 12 years of formal schooling)</li>  
-      </ul>
+              <li>
+                {" "}
+                10th Class Certificate (Completing 10 years of formal schooling)
+              </li>
+              <li>
+                {" "}
+                12th Class Certificate (Completing 12 years of formal schooling)
+              </li>
+            </ul>
           </div>
           {/* for Foreign Students */}
           <div className="mb-5">
@@ -1067,9 +1085,12 @@ export default function Page() {
             </h3>
             <ul className="text-[#1F284E] text-[12px] list-disc px-5 space-y-2 md:space-y-4 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               <li>
-                O Level Certificate (Completing 10 years of formal schooling. Diploma not accepted)
+                O Level Certificate (Completing 10 years of formal schooling.
+                Diploma not accepted)
               </li>
-              <li>A Level Certificate (Completing 12 years of formal schooling. Diploma not accepted)
+              <li>
+                A Level Certificate (Completing 12 years of formal schooling.
+                Diploma not accepted)
               </li>
               <li>
                 Certificate of equivalence from the Association of Indian
@@ -1084,7 +1105,6 @@ export default function Page() {
                 </Link>
                 ))
               </li>
-             
             </ul>
           </div>
         </div>
@@ -1260,7 +1280,10 @@ export default function Page() {
         </div>
       </section>
 
-      <MujCareerServices benefits={benefits} onCtaClick={() => setIsModalOpen(true)} />
+      <MujCareerServices
+        benefits={benefits}
+        onCtaClick={() => setIsModalOpen(true)}
+      />
 
       <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
         <div className="px-2 w-full">
@@ -1279,9 +1302,10 @@ export default function Page() {
               </p>
 
               {/* CTA visible only on large screens */}
-              <button 
+              <button
                 onClick={() => setIsModalOpen(true)}
-                className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
+                className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit"
+              >
                 Compare all Plans
               </button>
             </div>
@@ -1292,9 +1316,10 @@ export default function Page() {
             </div>
 
             {/* CTA below carousel on mobile only */}
-            <button 
+            <button
               onClick={() => setIsModalOpen(true)}
-              className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+              className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3"
+            >
               Compare all Plans
             </button>
           </div>
@@ -1323,8 +1348,10 @@ export default function Page() {
             </h2>
 
             <p className="text-[#3C3C43] max-w-[350px] text-base">
-           Bachelor of Arts is a three-year program that enables you with necessary skills that are required to sustain and succeed in different work cultures.
-           </p>
+              Bachelor of Arts is a three-year program that enables you with
+              necessary skills that are required to sustain and succeed in
+              different work cultures.
+            </p>
 
             {/* IMAGE that appears ONLY on mobile, above CTA */}
             <div className="md:hidden flex justify-center">
@@ -1336,9 +1363,10 @@ export default function Page() {
             </div>
 
             {/* CTA BUTTON */}
-            <button 
+            <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center">
+              className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center"
+            >
               Know more
             </button>
           </div>
@@ -1379,7 +1407,7 @@ export default function Page() {
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-5">
           {/* LEFT COLUMN */}
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-5 md:gap-12">
             {/* Item 1 */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -1424,50 +1452,6 @@ export default function Page() {
 
             {/* Item 2 */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex gap-6"
-            >
-              <div
-                className="
-                  shrink-0
-                  w-18 h-18
-                  md:w-14 md:h-14
-                  lg:w-18 lg:h-18 
-                  bg-[#345895]
-                  rounded-full
-                  flex items-center justify-center
-                "
-              >
-                <GlobeLock
-                  strokeWidth={1.0}
-                  className="
-                      text-white
-                      w-8 h-8
-                      md:w-8 md:h-8
-                      lg:w-9 lg:h-9
-                    "
-                />
-              </div>
-
-              <div>
-                <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
-                  Pan India campus access & offline events
-                </h3>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
-                  Balance work and study with a fully online program featuring
-                  live/recorded classes, remote exams, and 24/7 support.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* RIGHT COLUMN */}
-          <div className="flex flex-col gap-12">
-            {/* Item 3 */}
-            <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -1503,6 +1487,50 @@ export default function Page() {
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
                   Access curated internships with top companies to gain real
                   experience and boost your career prospects.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* RIGHT COLUMN */}
+          <div className="flex flex-col  gap-5 md:gap-12">
+            {/* Item 3 */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="flex gap-6"
+            >
+              <div
+                className="
+                  shrink-0
+                  w-18 h-18
+                  md:w-14 md:h-14
+                  lg:w-18 lg:h-18 
+                  bg-[#345895]
+                  rounded-full
+                  flex items-center justify-center
+                "
+              >
+                <GlobeLock
+                  strokeWidth={1.0}
+                  className="
+                      text-white
+                      w-8 h-8
+                      md:w-8 md:h-8
+                      lg:w-9 lg:h-9
+                    "
+                />
+              </div>
+
+              <div>
+                <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
+                  Pan India campus access & offline events
+                </h3>
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+                  Balance work and study with a fully online program featuring
+                  live/recorded classes, remote exams, and 24/7 support.
                 </p>
               </div>
             </motion.div>

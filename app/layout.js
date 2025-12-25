@@ -10,7 +10,10 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "PAB.. Learn, Lead & Grow || Best Education Consultant ",
+  title:{
+    default:  "PAB Learn Lead & Grow || Best Education Consultant ",
+    template: "%s | PAB Learn, Lead & Grow",
+  },
   description: "Explore online programs from top universities with personalized counselling",
  
 };
@@ -18,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} scrollbar-hide`}>
         <Navbar />
         {children}
         <Footer />

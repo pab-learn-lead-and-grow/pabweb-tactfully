@@ -20,19 +20,19 @@ export default function Footer() {
   const programLinks = [
     { label: "Online MBA", category: "online-mba" },
     { label: "Executive MBA", category: "executive-mba" },
-    { label: "BBA", category: "online-bba" },
-    { label: "B.Com", category: "online-bcom" },
-    { label: "B.Com(Hons.)", category: "online-bcom-hons" },
-    { label: "B.Com(Int.)", category: "online-bcom-int" },
-    { label: "MCA", category: "online-mca" },
-    { label: "BCA", category: "online-bca" },
-    { label: "BA", category: "online-ba" },
-    { label: "MA", category: "online-ma" },
-    { label: "MSc", category: "online-msc" },
-    { label: "Certifications", category: "online-certification" },
-    { label: "Diploma", category: "online-diploma" },
-    { label: "MAJMC", category: "online-majmc" },
-    { label: "BAJMC", category: "online-bajmc" },
+    { label: "Online BBA", category: "online-bba" },
+    { label: "Online B.Com", category: "online-bcom" },
+    { label: "Online B.Com(Hons.)", category: "online-bcom-hons" },
+    { label: "Online B.Com(Int.)", category: "online-bcom-int" },
+    { label: "Online MCA", category: "online-mca" },
+    { label: "Online BCA", category: "online-bca" },
+    { label: "Online BA", category: "online-ba" },
+    { label: "Online MA", category: "online-ma" },
+    { label: "Online MSc", category: "online-msc" },
+    { label: "Online Certifications", category: "online-certification" },
+    { label: "Online Diploma", category: "online-diploma" },
+    { label: "Online MAJMC", category: "online-majmc" },
+    { label: "Online BAJMC", category: "online-bajmc" },
     { label: "Integrated Program", category: "integrated-programs" },
   ];
 
@@ -89,14 +89,14 @@ if (!emailRegex.test(email)) {
 
   return (
     <footer
-      className="w-full bg-white px-6 flex lg:min-h-[50vh] min-h-auto items-center"
+      className="w-full bg-white p-5 flex lg:min-h-[50vh] min-h-auto items-center"
       >
-      <div className="max-w-7xl mx-auto w-full px-5">
+      <div className="mx-auto w-full max-w-7xl">
         {/* --- Main Section --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 border-b pb-4">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6  border-t-2 border-b-2">
           {/* --- Left Section (Logo, Social, Address) --- */}
           <div className="col-span-2">
-            <div className="col-span-2 flex justify-start items-start text-left -mx-5 mb-5">
+            <div className="col-span-2 flex justify-start items-start text-left pt-5 -mx-5 mb-5">
               <Image
                 src="/pablogo.png"
                 alt="PAB Logo"
@@ -159,13 +159,27 @@ if (!emailRegex.test(email)) {
               <p className="mt-1">PAB Learn, Lead & Grow Pvt. Ltd.</p>
               <p>Indore, Madhya Pradesh, India</p>
 
-              <p className="mt-3 font-semibold">Contact:</p>
-              <p>+91 7489410758</p>
+              <a
+              href="tel:+917489410758"
+              className="text-black text-sm hover:text-[#345895] underline"
+              aria-label="Call PAB Learn Lead Grow"
+             >
+               +91 7489410758
+             </a>
+             <br/>
+              <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=uttam15vp@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black text-sm hover:text-[#345895] underline"
+            >
+              uttam15vp@gmail.com
+            </a>
             </div>
           </div>
 
           {/* --- Right Section (Other Columns) --- */}
-          <div className="col-span-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-5 mt-10">
+          <div className="col-span-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-5 mt-5">
             {/* --- Universities --- */}
             <div>
               <h3 className="font-semibold text-xs md:text-sm text-black mb-2">
@@ -268,10 +282,10 @@ if (!emailRegex.test(email)) {
             © 2025 PAB Learn, Lead & Grow Pvt. Ltd.
           </p>
           <div className="flex space-x-4 mt-2 md:mt-0">
-            <a href="#" className="hover:text-blue-900">
+            <a href="/PrivacyPolicy" className="hover:text-blue-900">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-blue-900">
+            <a href="/TermsAndCondition" className="hover:text-blue-900">
               Terms & Conditions
             </a>
           </div>

@@ -957,167 +957,168 @@ const subjects = [
         onCtaClick={() => setIsModalOpen(true)}
       />
 
-      <section className="w-full px-4 md:px-16 py-20 font-[Inter] relative">
-        {/* Faded Background Heading */}
-        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[rgba(6, 78, 146, 0.1)] opacity-90 select-none tracking-tight whitespace-nowrap">
-          EXAMINATION PROCESS
-        </h1>
-
-        <div className="max-w-6xl mx-auto relative">
-          {/* Main Animated Heading */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#345895] mb-6"
-          >
-            EXAMINATION PROCESS
-          </motion.h2>
-
-          {/* Sub Text */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-left text-[#345895] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
-          >
-            The Amity University Online BAJMC follows a structured and transparent
-            examination process designed to evaluate learners through continuous
-            assessments and end-term evaluations.
-          </motion.p>
-
-          {/* Cards Wrapper */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Left Card */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
-            >
-              <h3 className=" text-md md:text-2xl font-semibold italic mb-5">
-                Exam Slot Booking
-              </h3>
-
-              {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
-              <div className="space-y-5 text-lg leading-relaxed max-w-[380] mx-auto">
-                {/* POINT 1 */}
-                <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                  <span className="text-lg lg:text-2xl leading-none">✦</span>
-                  <p className="text-left text-lg lg:text-2xl mb-6">
-                    Learners must book their examination slots through the Amity
-                    University Student Portal.
-                  </p>
-                </div>
-
-                {/* POINT 2 */}
-                <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                  <span className="text-lg lg:text-2xl leading-no">✦</span>
-                  <p className="text-lg lg:text-2xl text-left">
-                    All exam slot details are shared well in advance, allowing
-                    candidates to schedule their tests conveniently.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
-            >
-              <h3 className="text-md md:text-2xl font-semibold italic mb-5">
-                Exam Slot Timings
-              </h3>
-
-              <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-center">
-                For end-term examinations, Amity University provides three
-                available slots:
-              </p>
-
-              {/* Exam Time Circles */}
-              <div className="flex items-center justify-center gap-6 mb-7">
-                {["9 AM", "1 PM", "5 PM"].map((slot, i) => (
-                  <div
-                    key={i}
-                    className="w-15 h-15 border border-white rounded-full flex items-center justify-center text-lg font-semibold"
-                  >
-                    {slot}
-                  </div>
-                ))}
-              </div>
-
-              <p className="text-lg lg:text-[2xl] max-w-[380] text-center">
-                Candidates may choose their preferred slot based on
-                availability.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
-        <div className="max-w-6xl mx-auto p-6 md:p-10">
-          {/* HEADING */}
-          <h2 className="text-[24px] md:text-[40px] font-bold italic text-[#345895] mb-12 text-center">
-            ASSESSMENT STRUCTURE (100 MARKS)
-          </h2>
-
-          {/* TWO CATEGORIES */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* LEFT CATEGORY */}
-            <div className="space-y-2 w-full">
-              <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
-                External Assessment – 70 Marks
-              </div>
-
-              {/* FULL-WIDTH SPLIT ROW */}
-              <div className="grid grid-cols-2 gap-2 w-full">
-                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
-                  MCQ (40 Marks)
-                </div>
-                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
-                  Descriptive Answers (30 Marks)
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT CATEGORY */}
-            <div className="space-y-2 w-full">
-              <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
-                Internal Assessment – 30 Marks
-              </div>
-
-              {/* FULL-WIDTH SPLIT ROW */}
-              <div className="grid grid-cols-2 gap-2 w-full">
-                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
-                  Quiz
-                </div>
-                <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
-                  Assignment
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* PASSING CRITERIA */}
-          <div className="border border-[#e5e7eb] rounded-lg p-5 mt-12 bg-white">
-            <p className="font-semibold text-black mb-1">Passing Criteria</p>
-            <ul className="list-disc pl-6 text-[#345895] text-sm md:text-lg">
-              <li>
-                A candidate must secure a minimum of 40% to successfully pass
-                the course.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
+     
+           <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
+             {/* Faded Background Heading */}
+             <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[rgba(6, 78, 146, 0.1)] opacity-90 select-none tracking-tight whitespace-nowrap">
+               EXAMINATION PROCESS
+             </h1>
+     
+             <div className="max-w-6xl mx-auto relative">
+               {/* Main Animated Heading */}
+               <motion.h2
+                 initial={{ opacity: 0, y: 30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.6 }}
+                 viewport={{ once: true }}
+                 className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#345895] mb-6"
+               >
+                 EXAMINATION PROCESS
+               </motion.h2>
+     
+               {/* Sub Text */}
+               <motion.p
+                 initial={{ opacity: 0 }}
+                 whileInView={{ opacity: 1 }}
+                 transition={{ duration: 0.8, delay: 0.2 }}
+                 viewport={{ once: true }}
+                 className="text-left text-[#345895] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
+               >
+                 The Amity University Online BA follows a structured and transparent
+                 examination process designed to evaluate learners through continuous
+                 assessments and end-term evaluations.
+               </motion.p>
+     
+               {/* Cards Wrapper */}
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                 {/* Left Card */}
+                 <motion.div
+                   initial={{ opacity: 0, x: -40 }}
+                   whileInView={{ opacity: 1, x: 0 }}
+                   transition={{ duration: 0.6 }}
+                   viewport={{ once: true }}
+                   className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
+                 >
+                   <h3 className=" text-md md:text-2xl font-semibold italic mb-5">
+                     Exam Slot Booking
+                   </h3>
+     
+                   {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
+                   <div className="space-y-5 text-lg leading-relaxed max-w-[380] mx-auto">
+                     {/* POINT 1 */}
+                     <div className="grid grid-cols-[30px_auto] gap-3 items-start">
+                       <span className="text-lg lg:text-2xl leading-none">✦</span>
+                       <p className="text-left text-lg lg:text-2xl mb-6">
+                         Learners must book their examination slots through the Amity
+                         University Student Portal.
+                       </p>
+                     </div>
+     
+                     {/* POINT 2 */}
+                     <div className="grid grid-cols-[30px_auto] gap-3 items-start">
+                       <span className="text-lg lg:text-2xl leading-no">✦</span>
+                       <p className="text-lg lg:text-2xl text-left">
+                         All exam slot details are shared well in advance, allowing
+                         candidates to schedule their tests conveniently.
+                       </p>
+                     </div>
+                   </div>
+                 </motion.div>
+     
+                 {/* Right Card */}
+                 <motion.div
+                   initial={{ opacity: 0, x: 40 }}
+                   whileInView={{ opacity: 1, x: 0 }}
+                   transition={{ duration: 0.6 }}
+                   viewport={{ once: true }}
+                   className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
+                 >
+                   <h3 className="text-md md:text-2xl font-semibold italic mb-5">
+                     Exam Slot Timings
+                   </h3>
+     
+                   <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-center">
+                     For end-term examinations, Amity University provides three
+                     available slots:
+                   </p>
+     
+                   {/* Exam Time Circles */}
+                   <div className="flex items-center justify-center gap-6 mb-7">
+                     {["9 AM", "1 PM", "5 PM"].map((slot, i) => (
+                       <div
+                         key={i}
+                         className="w-15 h-15 border border-white rounded-full flex items-center justify-center text-lg font-semibold"
+                       >
+                         {slot}
+                       </div>
+                     ))}
+                   </div>
+     
+                   <p className="text-lg lg:text-[2xl] max-w-[380] text-center">
+                     Candidates may choose their preferred slot based on
+                     availability.
+                   </p>
+                 </motion.div>
+               </div>
+             </div>
+           </section>
+     
+           <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
+             <div className="max-w-6xl mx-auto p-6 md:p-10">
+               {/* HEADING */}
+               <h2 className="text-[24px] md:text-[40px] font-bold italic text-[#345895] mb-12 text-center">
+                 ASSESSMENT STRUCTURE (100 MARKS)
+               </h2>
+     
+               {/* TWO CATEGORIES */}
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                 {/* LEFT CATEGORY */}
+                 <div className="space-y-2 w-full">
+                   <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
+                     External Assessment – 70 Marks
+                   </div>
+     
+                   {/* FULL-WIDTH SPLIT ROW */}
+                   <div className="grid grid-cols-2 gap-2 w-full">
+                     <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
+                       MCQ (40 Marks)
+                     </div>
+                     <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
+                       Descriptive Answers (30 Marks)
+                     </div>
+                   </div>
+                 </div>
+     
+                 {/* RIGHT CATEGORY */}
+                 <div className="space-y-2 w-full">
+                   <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
+                     Internal Assessment – 30 Marks
+                   </div>
+     
+                   {/* FULL-WIDTH SPLIT ROW */}
+                   <div className="grid grid-cols-2 gap-2 w-full">
+                     <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
+                       Quiz
+                     </div>
+                     <div className="w-full rounded-lg border border-[#345895] py-3 text-sm text-center text-[#345895] bg-white">
+                       Assignment
+                     </div>
+                   </div>
+                 </div>
+               </div>
+     
+               {/* PASSING CRITERIA */}
+               <div className="border border-[#e5e7eb] rounded-lg p-5 mt-12 bg-white">
+                 <p className="font-semibold text-black mb-1">Passing Criteria</p>
+                 <ul className="list-disc pl-6 text-[#345895] text-sm md:text-lg">
+                   <li>
+                     A candidate must secure a minimum of 40% to successfully pass
+                     the course.
+                   </li>
+                 </ul>
+               </div>
+             </div>
+           </section>
 
       <MujCareerServices benefits={benefits} onCtaClick={() => setIsModalOpen(true)} />
 
@@ -1238,7 +1239,7 @@ const subjects = [
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-5">
           {/* LEFT COLUMN */}
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col  gap-5 md:gap-12">
             {/* Item 1 */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -1325,7 +1326,7 @@ const subjects = [
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col  gap-5 md:gap-12">
             {/* Item 3 */}
              <motion.div
               initial={{ opacity: 0, x: 30 }}

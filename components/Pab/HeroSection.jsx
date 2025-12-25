@@ -13,7 +13,7 @@ export default function Hero({ className }) {
       {/* GRADIENT WRAPPER — ends with image */}
       <div className="bg-[linear-gradient(90deg,rgba(77,150,79,0.1)_-1.12%,rgba(52,88,149,0.1)_98.88%)] rounded-b-[100px]">
         
-        <div className="max-w-6xl mx-auto pt-35 px-6">
+        <div className="w-full mx-auto pt-35 px-6">
           
           {/* Headline + CTAs */}
           <div className="text-center">
@@ -48,9 +48,9 @@ export default function Hero({ className }) {
             </div>
 
             {/* IMAGE — last element inside gradient */}
-            <div className="mt-6 flex justify-center">
+            <div className="-mt-40 md:-mt-50 lg:-mt-70 xl:-mt-90 flex justify-center">
               <Image
-                src="/heroImage.png"
+                src="/pabbg.png"
                 alt="HeroImage"
                 width={700}
                 height={700}

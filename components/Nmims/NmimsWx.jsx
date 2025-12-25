@@ -847,7 +847,7 @@ export default function Page() {
         <div className="max-w-6xl text-left mx-auto">
           <h2 className="text-xl md:text-2xl font-regular lg:text-[49px] leading-normal text-gray-900">
             <span className="text-red-600 ">
-              The MBA (WX) brings campus-level prestige and rigour
+              The MBA (WX) brings campus-level prestige and rigour{" "}
             </span>
             to working professionals through a flexible model, shaping strategic
             leaders who drive impact and value.
@@ -1471,7 +1471,7 @@ export default function Page() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-[#345895] font-extrabold text-3xl sm:text-4xl md:text-5xl font-[Inter] lg:text-5xl leading-tight mb-12 max-w-6xl"
+          className="text-[#345895] font-extrabold text-3xl sm:text-4xl md:text-5xl font-[Inter] lg:text-5xl xl:text-[64px] leading-tight mb-12 w-full"
         >
           This isnt just another degree its a <br />
           transformation in how you think, work and grow.

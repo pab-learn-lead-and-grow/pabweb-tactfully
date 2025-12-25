@@ -29,49 +29,45 @@ export default function Navbar() {
   const [selectedExploreSubCategory, setSelectedExploreSubCategory] =
     useState(null);
 
-
   const pathname = usePathname();
-const searchParams = useSearchParams();
-useEffect(() => {
-  const slug = searchParams.get("category");
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const slug = searchParams.get("category");
 
-  if (!slug) return;
+    if (!slug) return;
 
-  const mappedCategory = CATEGORY_SLUG_MAP[slug];
-  if (!mappedCategory || !categoryData[mappedCategory]) return;
+    const mappedCategory = CATEGORY_SLUG_MAP[slug];
+    if (!mappedCategory || !categoryData[mappedCategory]) return;
 
-  if (mappedCategory && categoryData[mappedCategory]) {
-    setSelectedCategory(mappedCategory);
-    setTopUnivOpen(true);
-    setMobileTopUnivOpen(true); 
-    setIsOpen(true);  // open dropdown
-    setExploreOpen(false);
-    setMobileExploreOpen(false);
-    setMoreOpen(false);
-  }
-}, [searchParams]);
+    if (mappedCategory && categoryData[mappedCategory]) {
+      setSelectedCategory(mappedCategory);
+      setTopUnivOpen(true);
+      setMobileTopUnivOpen(true);
+      setIsOpen(true); // open dropdown
+      setExploreOpen(false);
+      setMobileExploreOpen(false);
+      setMoreOpen(false);
+    }
+  }, [searchParams]);
 
-const CATEGORY_SLUG_MAP = {
-  "online-mba": "Online MBA",
-  "executive-mba": "Executive MBA",
-  "online-bba": "Online BBA",
-  "online-bcom": "Online B.COM",
-  "online-bcom-hons": "Online B.COM(Hons.)",
-  "online-bcom-int": "Online B.COM(Int.)",
-  "online-mca": "Online MCA",
-  "online-bca": "Online BCA",
-  "online-ba": "Online BA",
-  "online-ma": "Online MA",
-  "online-msc": "Online MSc",
-  "online-certification": "Online Certification",
-  "online-diploma": "Online Diploma",
-  "online-majmc": "Online MAJMC",
-  "online-bajmc": "Online BAJMC",
-  "integrated-programs": "Integrated Programs",
-};
-
-
-
+  const CATEGORY_SLUG_MAP = {
+    "online-mba": "Online MBA",
+    "executive-mba": "Executive MBA",
+    "online-bba": "Online BBA",
+    "online-bcom": "Online B.COM",
+    "online-bcom-hons": "Online B.COM(Hons.)",
+    "online-bcom-int": "Online B.COM(Int.)",
+    "online-mca": "Online MCA",
+    "online-bca": "Online BCA",
+    "online-ba": "Online BA",
+    "online-ma": "Online MA",
+    "online-msc": "Online MSc",
+    "online-certification": "Online Certification",
+    "online-diploma": "Online Diploma",
+    "online-majmc": "Online MAJMC",
+    "online-bajmc": "Online BAJMC",
+    "integrated-programs": "Integrated Programs",
+  };
 
   const router = useRouter();
   const supabase = createSupabaseClient();
@@ -113,7 +109,7 @@ const CATEGORY_SLUG_MAP = {
         !event.target.closest('[aria-expanded="true"]')
       ) {
         setTopUnivOpen(false);
-         clearCategoryFromUrl();
+        clearCategoryFromUrl();
       }
       if (
         exploreOpen &&
@@ -133,13 +129,11 @@ const CATEGORY_SLUG_MAP = {
     };
   }, [topUnivOpen, exploreOpen]);
 
- const clearCategoryFromUrl = () => {
-  setTimeout(() => {
-    router.replace(pathname, { scroll: false });
-  }, 0);
-};
-
-
+  const clearCategoryFromUrl = () => {
+    setTimeout(() => {
+      router.replace(pathname, { scroll: false });
+    }, 0);
+  };
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -148,22 +142,21 @@ const CATEGORY_SLUG_MAP = {
   };
 
   const handleProgramAction = (program) => {
-  // Open counselling ONLY for amity certificates
-  if (program.openModal) {
-    setShowForm(true);
-    handleMobileCloseAll();
-    handleLinkClick();
-    return;
-  }
+    // Open counselling ONLY for amity certificates
+    if (program.openModal) {
+      setShowForm(true);
+      handleMobileCloseAll();
+      handleLinkClick();
+      return;
+    }
 
-  // Navigate for all normal courses
-  if (program.path) {
-    router.push(program.path);
-    handleMobileCloseAll();
-    handleLinkClick();
-  }
-};
-
+    // Navigate for all normal courses
+    if (program.path) {
+      router.push(program.path);
+      handleMobileCloseAll();
+      handleLinkClick();
+    }
+  };
 
   // Helper to close all mobile + desktop dropdowns when navigating / applying
   const handleMobileCloseAll = () => {
@@ -179,7 +172,7 @@ const CATEGORY_SLUG_MAP = {
   const categoryData = {
     "Online MBA": {
       label: "PG Courses",
-      programs: [
+      universities: [
         {
           id: 1,
           title: "Masters of Business Administration",
@@ -190,7 +183,7 @@ const CATEGORY_SLUG_MAP = {
           id: 2,
           title: "Masters of Business Administration",
           logo: "/amity.png",
-          path: "/amity/amityMba",
+          path: "/amity/AmityMba",
         },
         {
           id: 3,
@@ -212,9 +205,9 @@ const CATEGORY_SLUG_MAP = {
         },
       ],
     },
-     "Online MSc": {
+    "Online MSc": {
       label: "PG Courses",
-      programs: [
+      universities: [
         {
           id: 1,
           title: "MSc. Data Science",
@@ -224,42 +217,101 @@ const CATEGORY_SLUG_MAP = {
       ],
     },
     "Executive MBA": {
-      label: "Executive Programs",
-      programs: [
-        { id: 1, title: "Marketing Management", logo: "/nmims.png", path: "/nmims/NmimsWx", },
-        { id: 2, title: "Leadership & Strategy", logo: "/nmims.png", path: "/nmims/NmimsWx", },
-        { id: 3, title: "Operations & Supply Chain Management", logo: "/nmims.png", path: "/nmims/NmimsWx", },
-        { id: 4, title: "Applied Finance ", logo: "/nmims.png", path: "/nmims/NmimsWx", },
-        { id: 5, title: "Digital Marketing", logo: "/nmims.png", path: "/nmims/NmimsWx", },
-
+      label: "Executive universities",
+      universities: [
+        {
+          id: 1,
+          title: "Marketing Management",
+          logo: "/nmims.png",
+          path: "/nmims/NmimsWx",
+        },
+        {
+          id: 2,
+          title: "Leadership & Strategy",
+          logo: "/nmims.png",
+          path: "/nmims/NmimsWx",
+        },
+        {
+          id: 3,
+          title: "Operations & Supply Chain Management",
+          logo: "/nmims.png",
+          path: "/nmims/NmimsWx",
+        },
+        {
+          id: 4,
+          title: "Applied Finance ",
+          logo: "/nmims.png",
+          path: "/nmims/NmimsWx",
+        },
+        {
+          id: 5,
+          title: "Digital Marketing",
+          logo: "/nmims.png",
+          path: "/nmims/NmimsWx",
+        },
       ],
     },
     "Online MCA": {
       label: "PG Courses",
-      programs: [
-        { id: 1, title: "Master of Computer Applications", logo: "/amity.png",  path: "/amity/AmityMca",},
+      universities: [
+        {
+          id: 1,
+          title: "Master of Computer Applications",
+          logo: "/amity.png",
+          path: "/amity/AmityMca",
+        },
         {
           id: 2,
           title: "Master of Computer Applications",
           logo: "/manipal.png",
-           path: "/muj/MujMca",
+          path: "/muj/MujMca",
         },
-        { id: 3, title: "Master of Computer Applications", logo: "/jain.png", path: "/jain/JainMca", },
-        { id: 4, title: "Master of Computer Applications", logo: "/smu.png", path: "/smu/SmuMca", },
+        {
+          id: 3,
+          title: "Master of Computer Applications",
+          logo: "/jain.png",
+          path: "/jain/JainMca",
+        },
+        {
+          id: 4,
+          title: "Master of Computer Applications",
+          logo: "/smu.png",
+          path: "/smu/SmuMca",
+        },
       ],
     },
     "Online MA": {
       label: "PG Courses",
-      programs: [
-        { id: 1, title: "Master of Arts", logo: "/manipal.png", path:"/muj/MujMa" },
-        { id: 2, title: "Master of Arts", logo: "/jain.png", path:"/jain/JainMa" },
-        { id: 3, title: "Master of Arts", logo: "/amity.png", path:"/amity/AmityMa" },
-        { id: 4, title: "Master of Arts", logo: "/smu.png", path:"/smu/SmuMa" },
+      universities: [
+        {
+          id: 1,
+          title: "Master of Arts",
+          logo: "/manipal.png",
+          path: "/muj/MujMa",
+        },
+        {
+          id: 2,
+          title: "Master of Arts",
+          logo: "/jain.png",
+          path: "/jain/JainMa",
+        },
+        {
+          id: 3,
+          title: "Master of Arts",
+          logo: "/amity.png",
+          path: "/amity/AmityMa",
+        },
+        {
+          id: 4,
+          title: "Master of Arts",
+          logo: "/smu.png",
+          path: "/smu/SmuMa",
+        },
       ],
     },
     "Online MAJMC": {
       label: "PG Courses",
-      programs: [
+      universities: [
         {
           id: 1,
           title: "MA in Journalism & Mass Communication",
@@ -276,16 +328,36 @@ const CATEGORY_SLUG_MAP = {
     },
     "Online M.COM": {
       label: "PG Courses",
-      programs: [
-        { id: 1, title: "Master of Commerce", logo: "/amity.png", path: "/amity/AmityMcom" },
-        { id: 2, title: "Master of Commerce", logo: "/manipal.png", path: "/muj/MujMcom" },
-        { id: 3, title: "Master of Commerce", logo: "/smu.png", path: "/smu/SmuMcom" },
-        { id: 4, title: "Master of Commerce", logo: "/jain.png", path: "/jain/JainMcom" },
+      universities: [
+        {
+          id: 1,
+          title: "Master of Commerce",
+          logo: "/amity.png",
+          path: "/amity/AmityMcom",
+        },
+        {
+          id: 2,
+          title: "Master of Commerce",
+          logo: "/manipal.png",
+          path: "/muj/MujMcom",
+        },
+        {
+          id: 3,
+          title: "Master of Commerce",
+          logo: "/smu.png",
+          path: "/smu/SmuMcom",
+        },
+        {
+          id: 4,
+          title: "Master of Commerce",
+          logo: "/jain.png",
+          path: "/jain/JainMcom",
+        },
       ],
     },
     "Online BBA": {
       label: "UG Courses",
-      programs: [
+      universities: [
         {
           id: 1,
           title: "Bachelor of Business Administration",
@@ -314,29 +386,64 @@ const CATEGORY_SLUG_MAP = {
     },
     "Online B.COM": {
       label: "UG Courses",
-      programs: [
-        { id: 1, title: "Bachelor of Commerce", logo: "/nmims.png", path: "/nmims/NmimsBcom" },
-        { id: 2, title: "Bachelor of commerce", logo: "/amity.png", path: "/amity/AmityBcom" },
-        { id: 3, title: "Bachelor of Commerce", logo: "/manipal.png", path: "/muj/MujBcom" },
-        { id: 4, title: "Bachelor of Commerce", logo: "/jain.png", path: "/jain/JainBcom" },
-        { id: 5, title: "Bachelor of Commerce", logo: "/smu.png", path: "/smu/SmuBcom"},
+      universities: [
+        {
+          id: 1,
+          title: "Bachelor of Commerce",
+          logo: "/nmims.png",
+          path: "/nmims/NmimsBcom",
+        },
+        {
+          id: 2,
+          title: "Bachelor of commerce",
+          logo: "/amity.png",
+          path: "/amity/AmityBcom",
+        },
+        {
+          id: 3,
+          title: "Bachelor of Commerce",
+          logo: "/manipal.png",
+          path: "/muj/MujBcom",
+        },
+        {
+          id: 4,
+          title: "Bachelor of Commerce",
+          logo: "/jain.png",
+          path: "/jain/JainBcom",
+        },
+        {
+          id: 5,
+          title: "Bachelor of Commerce",
+          logo: "/smu.png",
+          path: "/smu/SmuBcom",
+        },
       ],
     },
-     "Online B.COM(Hons.)": {
+    "Online B.COM(Hons.)": {
       label: "UG Courses",
-      programs: [
-        { id: 1, title: "Bachelor of commerce (Honours)", logo: "/amity.png", path: "/amity/AmityBcomHons" },
+      universities: [
+        {
+          id: 1,
+          title: "Bachelor of commerce (Honours)",
+          logo: "/amity.png",
+          path: "/amity/AmityBcomHons",
+        },
       ],
     },
-     "Online B.COM(Int.)": {
+    "Online B.COM(Int.)": {
       label: "UG Courses",
-      programs: [
-        { id: 1, title: "B.Com in International Finance & Accounting", logo: "/amity.png", path: "/amity/AmityBcomInt" },
+      universities: [
+        {
+          id: 1,
+          title: "B.Com in International Finance & Accounting",
+          logo: "/amity.png",
+          path: "/amity/AmityBcomInt",
+        },
       ],
     },
     "Online BCA": {
       label: "UG Courses",
-      programs: [
+      universities: [
         {
           id: 1,
           title: "Bachelor of Computer Applications",
@@ -349,7 +456,7 @@ const CATEGORY_SLUG_MAP = {
           logo: "/jain.png",
           path: "/jain/JainBca",
         },
-         {
+        {
           id: 3,
           title: "Bachelor of Computer Applications",
           logo: "/amity.png",
@@ -359,7 +466,7 @@ const CATEGORY_SLUG_MAP = {
     },
     "Online BAJMC": {
       label: "UG Courses",
-      programs: [
+      universities: [
         {
           id: 1,
           title: "BA in Journalism & Mass Communication",
@@ -370,62 +477,126 @@ const CATEGORY_SLUG_MAP = {
     },
     "Online BA": {
       label: "UG Courses",
-      programs: [
-        { id: 1, title: "Bachelor of Arts", logo: "/amity.png", path: "/amity/AmityBa" },
-        { id: 2, title: "Bachelor of Arts", logo: "/smu.png", path: "/smu/SmuBa" },
+      universities: [
+        {
+          id: 1,
+          title: "Bachelor of Arts",
+          logo: "/amity.png",
+          path: "/amity/AmityBa",
+        },
+        {
+          id: 2,
+          title: "Bachelor of Arts",
+          logo: "/smu.png",
+          path: "/smu/SmuBa",
+        },
       ],
     },
     "Online Diploma": {
       label: "Diploma Programs",
-      programs: [
-        { id: 1, title: "Diploma in Marketing Management", logo: "/nmims.png", path: "/nmims/NmimsDiploma" },
-        { id: 2, title: "Diploma in Financial Management", logo: "/nmims.png", path: "/nmims/NmimsDiploma" },
+      universities: [
+        {
+          id: 1,
+          title: "Diploma in Marketing Management",
+          logo: "/nmims.png",
+          path: "/nmims/NmimsDiploma",
+        },
+        {
+          id: 2,
+          title: "Diploma in Financial Management",
+          logo: "/nmims.png",
+          path: "/nmims/NmimsDiploma",
+        },
         {
           id: 3,
           title: "Diploma in Human Resource Management",
           logo: "/nmims.png",
-          path: "/nmims/NmimsDiploma"
-
+          path: "/nmims/NmimsDiploma",
         },
-        { id: 4, title: "Diploma in Business Management", logo: "/nmims.png", path: "/nmims/NmimsDiploma" },
+        {
+          id: 4,
+          title: "Diploma in Business Management",
+          logo: "/nmims.png",
+          path: "/nmims/NmimsDiploma",
+        },
         {
           id: 5,
           title: "Diploma in Operations Management",
           logo: "/nmims.png",
-          path: "/nmims/NmimsDiploma"
+          path: "/nmims/NmimsDiploma",
         },
       ],
     },
     "Online Certification": {
       label: "Certificate Programs",
-      programs: [
+      universities: [
         {
           id: 1,
           title: "Business Management Certification",
           logo: "/nmims.png",
-          path: "/nmims/NmimsCert"
+          path: "/nmims/NmimsCert",
         },
-        { id: 2, title: "AI for Product Managers", logo: "/amity.png", openModal: true, },
+        {
+          id: 2,
+          title: "AI for Product Managers",
+          logo: "/amity.png",
+          openModal: true,
+        },
         {
           id: 3,
           title: "Agentic AI and Autonomous Systems",
           logo: "/amity.png",
           openModal: true,
         },
-        { id: 4, title: "AI in BFSI", logo: "/amity.png", openModal: true, },
-        { id: 5, title: "AI for Business Leaders", logo: "/amity.png", openModal: true, },
+        { id: 4, title: "AI in BFSI", logo: "/amity.png", openModal: true },
+        {
+          id: 5,
+          title: "AI for Business Leaders",
+          logo: "/amity.png",
+          openModal: true,
+        },
         {
           id: 6,
           title: "AI in Finance and Risk Management",
           logo: "/amity.png",
           openModal: true,
         },
-        { id: 7, title: "AI for Marketing & Sales", logo: "/amity.png", openModal: true, },
-        { id: 8, title: "AI in Healthcare", logo: "/amity.png", openModal: true, },
-        { id: 9, title: "AI in Executive Strategy", logo: "/amity.png", openModal: true, },
-        { id: 10, title: "AI for HR & Talent Management", logo: "/amity.png", openModal: true, },
-        { id: 11, title: "AI in Manufacturing", logo: "/amity.png", openModal: true, },
-        { id: 12, title: "AI in Education", logo: "/amity.png", openModal: true, },
+        {
+          id: 7,
+          title: "AI for Marketing & Sales",
+          logo: "/amity.png",
+          openModal: true,
+        },
+        {
+          id: 8,
+          title: "AI in Healthcare",
+          logo: "/amity.png",
+          openModal: true,
+        },
+        {
+          id: 9,
+          title: "AI in Executive Strategy",
+          logo: "/amity.png",
+          openModal: true,
+        },
+        {
+          id: 10,
+          title: "AI for HR & Talent Management",
+          logo: "/amity.png",
+          openModal: true,
+        },
+        {
+          id: 11,
+          title: "AI in Manufacturing",
+          logo: "/amity.png",
+          openModal: true,
+        },
+        {
+          id: 12,
+          title: "AI in Education",
+          logo: "/amity.png",
+          openModal: true,
+        },
         {
           id: 13,
           title: "Predictive Analytics Using Python",
@@ -438,7 +609,12 @@ const CATEGORY_SLUG_MAP = {
           logo: "/amity.png",
           openModal: true,
         },
-        { id: 15, title: "Applied Data Engineering", logo: "/amity.png", openModal: true, },
+        {
+          id: 15,
+          title: "Applied Data Engineering",
+          logo: "/amity.png",
+          openModal: true,
+        },
         {
           id: 16,
           title: "Business Analytics Professional",
@@ -451,16 +627,36 @@ const CATEGORY_SLUG_MAP = {
           logo: "/amity.png",
           openModal: true,
         },
-        { id: 18, title: "Time Series Forecasting", logo: "/amity.png", openModal: true, },
-        { id: 19, title: "Social Media Analytics", logo: "/amity.png",  openModal: true, },
-        { id: 20, title: "Text Mining and NLP", logo: "/amity.png", openModal: true, },
+        {
+          id: 18,
+          title: "Time Series Forecasting",
+          logo: "/amity.png",
+          openModal: true,
+        },
+        {
+          id: 19,
+          title: "Social Media Analytics",
+          logo: "/amity.png",
+          openModal: true,
+        },
+        {
+          id: 20,
+          title: "Text Mining and NLP",
+          logo: "/amity.png",
+          openModal: true,
+        },
         {
           id: 21,
           title: "Artificial Intelligence and Deep Learning using Python",
           logo: "/amity.png",
           openModal: true,
         },
-        { id: 22, title: "Big Data Analytics", logo: "/amity.png", openModal: true, },
+        {
+          id: 22,
+          title: "Big Data Analytics",
+          logo: "/amity.png",
+          openModal: true,
+        },
         {
           id: 23,
           title: "Spreadsheet Modelling using Excel",
@@ -473,9 +669,19 @@ const CATEGORY_SLUG_MAP = {
           logo: "/amity.png",
           openModal: true,
         },
-        { id: 25, title: "HR Analytics", logo: "/amity.png", openModal: true, },
-        { id: 26, title: "Financial Analytics", logo: "/amity.png", openModal: true, },
-        { id: 27, title: "Marketing Analytics", logo: "/amity.png", openModal: true, },
+        { id: 25, title: "HR Analytics", logo: "/amity.png", openModal: true },
+        {
+          id: 26,
+          title: "Financial Analytics",
+          logo: "/amity.png",
+          openModal: true,
+        },
+        {
+          id: 27,
+          title: "Marketing Analytics",
+          logo: "/amity.png",
+          openModal: true,
+        },
         {
           id: 28,
           title: "Dashboarding and Storytelling using Tableau",
@@ -498,10 +704,25 @@ const CATEGORY_SLUG_MAP = {
     },
     "Integrated Programs": {
       label: "Integrated Programs",
-      programs: [
-        { id: 1, title: "BBA + MBA Integrated", logo: "/amity.png", path: "/amity/AmityUgPg" },
-        { id: 2, title: "B.COM + MBA Integrated", logo: "/amity.png", path: "/amity/AmityUgPg" },
-        { id: 3, title: "BCA + MCA Integrated", logo: "/amity.png", path: "/amity/AmityUgPg" },
+      universities: [
+        {
+          id: 1,
+          title: "BBA + MBA Integrated",
+          logo: "/amity.png",
+          path: "/amity/AmityUgPg",
+        },
+        {
+          id: 2,
+          title: "B.COM + MBA Integrated",
+          logo: "/amity.png",
+          path: "/amity/AmityUgPg",
+        },
+        {
+          id: 3,
+          title: "BCA + MCA Integrated",
+          logo: "/amity.png",
+          path: "/amity/AmityUgPg",
+        },
       ],
     },
   };
@@ -524,11 +745,11 @@ const CATEGORY_SLUG_MAP = {
         },
         {
           id: "online-ma",
-          title: "OnlineMA",
+          title: "Online MA",
           subtitle: "View Specialization",
           categoryKey: "Online MA",
         },
-         {
+        {
           id: "online-msc",
           title: "OnlineMSc",
           subtitle: "View Specialization",
@@ -572,13 +793,13 @@ const CATEGORY_SLUG_MAP = {
           subtitle: "View Specialization",
           categoryKey: "Online B.COM(Hons.)",
         },
-         {
+        {
           id: "online-bcom-int",
           title: "Online B.COM (Int.)",
           subtitle: "View Specialization",
           categoryKey: "Online B.COM(Int.)",
         },
-         {
+        {
           id: "online-bcom",
           title: "Online B.COM",
           subtitle: "View Specialization",
@@ -637,7 +858,7 @@ const CATEGORY_SLUG_MAP = {
   };
 
   const leftItems = Object.keys(categoryData);
-  const currentPrograms = categoryData[selectedCategory]?.programs || [];
+  const currentPrograms = categoryData[selectedCategory]?.universities || [];
   const currentLabel = categoryData[selectedCategory]?.label || "Courses";
 
   const exploreLeftItems = Object.keys(exploreProgramsData);
@@ -646,7 +867,7 @@ const CATEGORY_SLUG_MAP = {
 
   // Get programs for selected subcategory in Explore Programs
   const currentExplorePrograms = selectedExploreSubCategory
-    ? categoryData[selectedExploreSubCategory]?.programs || []
+    ? categoryData[selectedExploreSubCategory]?.universities || []
     : [];
 
   const handleExploreCategoryClick = (categoryKey) => {
@@ -667,8 +888,8 @@ const CATEGORY_SLUG_MAP = {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 md:px-9 z-50">
-      <nav className="w-full xl:w-[90%] mx-auto h-[72px] bg-[rgba(255,255,255,0.33)] backdrop-blur-3xl rounded-4xl shadow-sm border border-white/20">
+    <div className="fixed top-0 left-0 right-0  md:px-9 z-50">
+      <nav className="w-full xl:w-[90%] mx-auto h-[72px] bg-white backdrop-blur-2xl rounded-4xl shadow-sm border border-white/20">
         <div className="w-full mx-auto flex items-center justify-between h-full px-4 md:px-8">
           <div className="flex items-center gap-4">
             <a href="/" className="block">
@@ -725,7 +946,7 @@ const CATEGORY_SLUG_MAP = {
                                     : "hover:bg-gray-50"
                                 }`}
                               >
-                                <div className="font-medium text-gray-900">
+                                <div className="font-medium  text-gray-900">
                                   {item}
                                 </div>
                               </button>
@@ -751,7 +972,7 @@ const CATEGORY_SLUG_MAP = {
                           )}
                         </div>
 
-                        <div className="max-h-[60vh] overflow-y-auto overflow-x-hidden pr-2">
+                        <div className="max-h-[60vh] bg-white overflow-y-auto overflow-x-hidden pr-2">
                           {!selectedExploreSubCategory ? (
                             currentExploreCategories.length === 0 ? (
                               <div className="text-center py-12 text-gray-500">
@@ -767,10 +988,10 @@ const CATEGORY_SLUG_MAP = {
                                         category.categoryKey
                                       )
                                     }
-                                    className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow text-left w-full min-w-0"
+                                    className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow text-left w-full"
                                   >
                                     <div className="h-16 mb-3 rounded flex items-center justify-center overflow-hidden">
-                                      <span className="text-2xl text-[#345895]">
+                                      <span className="text-4xl text-[#345895]">
                                         🎓
                                       </span>
                                     </div>
@@ -794,7 +1015,7 @@ const CATEGORY_SLUG_MAP = {
                               </button>
 
                               {currentExplorePrograms.length === 0 ? (
-                                <div className="text-center py-12 text-gray-500">
+                                <div className="text-center py-12 bg-white text-gray-500">
                                   No specializations available
                                 </div>
                               ) : (
@@ -802,7 +1023,7 @@ const CATEGORY_SLUG_MAP = {
                                   {currentExplorePrograms.map((program) => (
                                     <div
                                       key={program.id}
-                                      className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow w-full min-w-0"
+                                      className=" rounded-lg p-4 shadow-sm border border-gray-100 bg-white flex flex-col hover:shadow-md transition-shadow w-full min-w-0"
                                     >
                                       <div className="h-16 mb-3 rounded flex items-center justify-center overflow-hidden">
                                         <Image
@@ -818,7 +1039,9 @@ const CATEGORY_SLUG_MAP = {
                                       </div>
                                       <div>
                                         <button
-                                          onClick={() => handleProgramAction(program)}
+                                          onClick={() =>
+                                            handleProgramAction(program)
+                                          }
                                           className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition"
                                         >
                                           View Course
@@ -865,14 +1088,14 @@ const CATEGORY_SLUG_MAP = {
             {/* Top Universities (desktop) */}
             <div className="relative hidden md:block">
               <button
-                 onClick={() => {
-    setTopUnivOpen((v) => {
-      if (v) clearCategoryFromUrl(); // ✅ closing
-      return !v;
-    });
-    setExploreOpen(false);
-    setMoreOpen(false);
-  }}
+                onClick={() => {
+                  setTopUnivOpen((v) => {
+                    if (v) clearCategoryFromUrl(); // ✅ closing
+                    return !v;
+                  });
+                  setExploreOpen(false);
+                  setMoreOpen(false);
+                }}
                 className="flex items-center gap-2 text-sm text-gray-800 px-3 py-2 rounded-md hover:bg-white/30 font-medium"
                 aria-expanded={topUnivOpen}
               >
@@ -882,13 +1105,13 @@ const CATEGORY_SLUG_MAP = {
 
               {topUnivOpen && (
                 <>
-                 <div
-  onClick={() => {
-    setTopUnivOpen(false);
-    clearCategoryFromUrl(); // ✅ remove ?category
-  }}
-  className="fixed inset-0 bg-black/30 z-40 md:block hidden"
-/>
+                  <div
+                    onClick={() => {
+                      setTopUnivOpen(false);
+                      clearCategoryFromUrl(); // ✅ remove ?category
+                    }}
+                    className="fixed inset-0 bg-black/30 z-40 md:block hidden"
+                  />
 
                   <div
                     className="top-univ-dropdown fixed left-1/2 -translate-x-1/2 top-[85px] mt-2 z-50 w-[95vw] md:w-[90vw] lg:w-[85vw] max-w-[1100px] bg-white/95 text-black rounded-lg shadow-lg border border-gray-100 p-6 overflow-x-hidden mb-5"
@@ -931,10 +1154,10 @@ const CATEGORY_SLUG_MAP = {
                           </span>
                         </div>
 
-                        <div className="max-h-[60vh] overflow-y-auto overflow-x-hidden pr-2">
+                        <div className="max-h-[60vh] overflow-y-auto bg-white overflow-x-hidden pr-2">
                           {currentPrograms.length === 0 ? (
                             <div className="text-center py-12 text-gray-500">
-                              No programs available for this category
+                              No university is available for this category
                             </div>
                           ) : (
                             <div className="grid grid-cols-3 sm:grid-cols-3 gap-4">
@@ -943,7 +1166,7 @@ const CATEGORY_SLUG_MAP = {
                                   key={program.id}
                                   className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow w-full min-w-0"
                                 >
-                                  <div className="h-16 mb-3 rounded flex items-center justify-center overflow-hidden">
+                                  <div className="h-16 mb-3 rounded flex items-center bg-white justify-center overflow-hidden">
                                     <Image
                                       src={program.logo}
                                       alt={program.title}
@@ -957,7 +1180,9 @@ const CATEGORY_SLUG_MAP = {
                                   </div>
                                   <div>
                                     <button
-                                     onClick={() => handleProgramAction(program)}
+                                      onClick={() =>
+                                        handleProgramAction(program)
+                                      }
                                       className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition"
                                     >
                                       View Course
@@ -973,8 +1198,8 @@ const CATEGORY_SLUG_MAP = {
                           <div className="mt-3 text-xs text-gray-500">
                             Showing {currentPrograms.length}{" "}
                             {currentPrograms.length === 1
-                              ? "program"
-                              : "programs"}{" "}
+                              ? "university"
+                              : "universities"}{" "}
                             for <strong>{selectedCategory}</strong>.
                           </div>
                         )}
@@ -1184,10 +1409,10 @@ const CATEGORY_SLUG_MAP = {
                               </div>
                               <button
                                 type="button"
-                               onClick={() => handleProgramAction(program)}
+                                onClick={() => handleProgramAction(program)}
                                 className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded"
                               >
-                                View Course 
+                                View Course
                               </button>
                             </div>
                           ))}
@@ -1201,14 +1426,13 @@ const CATEGORY_SLUG_MAP = {
               {/* Mobile: Top Universities */}
               <div className="mobile-dropdown-section">
                 <button
-                 onClick={() => {
-  setMobileTopUnivOpen(v => {
-    if (v) clearCategoryFromUrl(); // closing
-    return !v;
-  });
-  setMobileExploreOpen(false);
-}}
-
+                  onClick={() => {
+                    setMobileTopUnivOpen((v) => {
+                      if (v) clearCategoryFromUrl(); // closing
+                      return !v;
+                    });
+                    setMobileExploreOpen(false);
+                  }}
                   className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-gray-100 font-medium"
                 >
                   <span>Top Universities</span>
@@ -1256,7 +1480,7 @@ const CATEGORY_SLUG_MAP = {
                           </div>
                           <button
                             type="button"
-                           onClick={() => handleProgramAction(program)}
+                            onClick={() => handleProgramAction(program)}
                             className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded"
                           >
                             View Course

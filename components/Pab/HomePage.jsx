@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import HeroSection from "./HeroSection";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import AllInOneSection from "./All-in-one";
 import CoursesSection from "./CoursesSection";
 import FaqSection from "./Faq";
 import ConnectToday from "../NmimsSection/ConnectToday.jsx";
-import Link from "next/link"; 
+import Link from "next/link";
 import ContactSection from "./ContactSection";
 
 export default function HomePage() {
@@ -24,7 +24,7 @@ export default function HomePage() {
     {
       id: 2,
       topic: "NMIMS",
-       date: "25 Dec 2025",
+      date: "25 Dec 2025",
       title: "Why NMIMS Is The Top Choice For Working Professionals In India",
       image: "/Blog3/background.png",
       path: "/BlogThree",
@@ -32,16 +32,16 @@ export default function HomePage() {
     {
       id: 3,
       topic: "Clarity",
-       date: "25 Dec 2025",
-     title:
+      date: "25 Dec 2025",
+      title:
         "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
       image: "/Blog1/background.png",
       path: "/BlogOne",
-     },
+    },
     {
       id: 4,
       topic: "Evolution",
-       date: "25 Dec 2025",
+      date: "25 Dec 2025",
       title:
         "How Online MBA’s Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
       image: "/Blog4/background.png",
@@ -50,8 +50,8 @@ export default function HomePage() {
     {
       id: 5,
       topic: "ROI",
-       date: "25 Dec 2025",
-     title:
+      date: "25 Dec 2025",
+      title:
         "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility",
       image: "/Blog5/background.png",
       path: "/BlogFive",
@@ -59,7 +59,7 @@ export default function HomePage() {
     {
       id: 6,
       topic: "Leadership",
-       date: "25 Dec 2025",
+      date: "25 Dec 2025",
       title:
         "How Online BBA Builds Entrepreneurs And How Online MBA Shapes Future CEOs",
       image: "/Blog6/background.png",
@@ -68,20 +68,19 @@ export default function HomePage() {
   ];
 
   // in root client layout
-useEffect(() => {
-  if ("scrollRestoration" in window.history) {
-    window.history.scrollRestoration = "manual";
-  }
-}, []);
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
 
-  
-  // logo paths (assumes images are in public/)
+  // logo paths
   const logos = [
-    "/nmims.png",
-    "/manipal.png",
-    "/amity.png",
-    "/jain.png",
-    "/smu.png",
+    { src: "/nmims.png", href: "/nmims" },
+    { src: "/manipal.png", href: "/muj" },
+    { src: "/amity.png", href: "/amity" },
+    { src: "/jain.png", href: "/jain" },
+    { src: "/smu.png", href: "/smu" },
   ];
 
   // duplicate for seamless loop
@@ -175,48 +174,47 @@ useEffect(() => {
     <div className="flex flex-col bg-white font-sans">
       <HeroSection className="pb-5" />
 
-      {/* LOGO MARQUEE SECTION */}
-      <div className="w-full bg-transparent py-4">
-        <div className="mx-auto px-3" style={{ maxWidth: "100%" }}>
-          {/* VIEWPORT: fixed width so only `visibleCount` logos are visible */}
+    {/* LOGO MARQUEE SECTION */}
+    <div className="w-full bg-transparent py-4">
+    <div className="my-auto px-3" style={{ maxWidth: "100%" }}>
+    <div
+      className="relative overflow-hidden mx-auto marquee-viewport h-[100px] rounded-full"
+      aria-label="Partner logos carousel"
+      role="region"
+    >
+      <div
+        className="marquee-track flex items-center whitespace-nowrap"
+        style={{
+          gap: `${gap}px`,
+          animation: `marquee ${durationSeconds}s linear infinite`,
+          width: `${repeated.length * (logoWidth + gap)}px`,
+        }}
+      >
+        {repeated.map((logo, idx) => (
           <div
-            className="relative overflow-hidden mx-auto marquee-viewport rounded-full"
-            style={{ height: logoHeight }}
-            aria-label="Partner logos carousel"
-            role="region"
+            key={`${logo.src}-${idx}`}
+            className="flex items-center justify-center shrink-0"
           >
-            {/* TRACK: flex row with animation. Hovering viewport pauses animation */}
-            <div
-              className="marquee-track flex items-center whitespace-nowrap"
-              style={{
-                gap: `${gap}px`,
-                animation: `marquee ${durationSeconds}s linear infinite`,
-                width: `${repeated.length * (logoWidth + gap)}px`,
-              }}
+            <Link
+              href={logo.href}
+              aria-label={`Go to ${logo.href.replace("/", "")} university`}
+              className="block w-full h-full"
             >
-              {repeated.map((src, idx) => (
-                <div
-                  key={`${src}-${idx}`}
-                  className="flex items-center justify-center shrink-0"
-                  style={{
-                    width: `${logoWidth}px`,
-                    height: `${logoHeight}px`,
-                  }}
-                >
-                  <Image
-                    src={src}
-                    alt={`partner-logo-${(idx % logos.length) + 1}`}
-                    width={logoWidth}
-                    height={logoHeight}
-                    className="object-contain"
-                    priority={idx < logos.length} // preload first set
-                  />
-                </div>
-              ))}
-            </div>
+              <Image
+                src={logo.src}
+                alt={`${logo.href.replace("/", "")} logo`}
+                width={220}
+                height={100}
+                className="object-contain cursor-pointer hover:scale-105 transition-transform duration-300"
+                priority={idx < logos.length}
+              />
+            </Link>
           </div>
-        </div>
+        ))}
       </div>
+    </div>
+  </div>
+</div>
 
       {/* ======= Courses SECTION ======= */}
       <CoursesSection />
@@ -226,7 +224,7 @@ useEffect(() => {
 
       {/* ======= BLOG SECTION ======= */}
       <section id="knowledge">
-        <div className="bg-white p-15 mb-2">
+        <div className="bg-white p-5 lg:p-15 mb-2">
           <div className="flex flex-col gap-6 mb-8">
             {/* First Row: Heading and Description side by side */}
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
@@ -293,11 +291,11 @@ useEffect(() => {
       </section>
 
       {/* ======= TESTIMONIAL SECTION ======= */}
-      <div className="w-full bg-white px-4 sm:px-6 lg:px-15">
-        <div className="max-w-7xl mx-auto">
+      <div className="w-full bg-white p-5 lg:px-15">
+        <div className="w-full mx-auto">
           {/* Heading */}
-          <div className="p-6 mb-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-[64px] font-bold text-[#345895] text-left">
+          <div className="mb-10">
+            <h2 className="text-4xl md:text-5xl xl:text-[64px] font-bold text-[#345895] text-center md:text-left">
               Learners Love Wall
             </h2>
           </div>
@@ -322,17 +320,18 @@ useEffect(() => {
                       {testimonial.name}
                     </h4>
                     <div className="flex gap-1">
-                     {Array.from(
-  { length: Math.max(0, Number(testimonial.rating) || 0) },
-  (_, i) => (
-    <Star
-      key={i}
-      size={16}
-      className="fill-yellow-400 text-yellow-400"
-    />
-  )
-)}
-
+                      {Array.from(
+                        {
+                          length: Math.max(0, Number(testimonial.rating) || 0),
+                        },
+                        (_, i) => (
+                          <Star
+                            key={i}
+                            size={16}
+                            className="fill-yellow-400 text-yellow-400"
+                          />
+                        )
+                      )}
                     </div>
                   </div>
 
@@ -368,11 +367,9 @@ useEffect(() => {
       </div>
 
       {/* CONTACT CONTENT SECTION */}
-     <ContactSection/>
+      <ContactSection />
 
-     <div className="w-full bg-white mt-5">
-        <FaqSection />
-      </div>
+        <FaqSection/>
       <ConnectToday />
     </div>
   );
