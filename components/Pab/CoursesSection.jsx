@@ -23,7 +23,7 @@ const CATEGORIES = [
           "ranked top 30 by NIRF", "Mumbai"
         ],
         image: "/nmims.png",
-        path: "/nmims/NmimsMba"
+        path: "/nmims/nmims-mumbai-online-mba"
       },
       {
         id: "manipal-mba",
@@ -31,7 +31,7 @@ const CATEGORIES = [
         programTitle: "Master of Business Administration",
         badges: ["BestSeller","Jaipur", "NAAC A+", "Top 20 by career360", "Super/Dual Specialization"],
         image: "/manipal.png",
-        path: "/muj/MujMba"
+        path: "/muj/manipal-jaipur-online-mba"
       },
       {
         id: "amity-mba",
@@ -39,7 +39,7 @@ const CATEGORIES = [
         programTitle: "Master of Business Administration",
         badges: ["Asia Pacific Top 10", "Global", "Internship opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityMba"
+        path: "/amity/amity-online-mba",
       },
        {
         id: "jain-mba",
@@ -47,7 +47,7 @@ const CATEGORIES = [
         programTitle: "Master of Business Administration",
         badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
         image: "/Jain.png",
-        path: "/jain/JainMba"
+        path: "/jain/jain-online-mba"
       },
       {
         id: "smu-mba",
@@ -55,7 +55,7 @@ const CATEGORIES = [
         programTitle: "Master of Business Administration",
         badges: ["NAAC A+", "Sikkim","IIRF Rank 1"],
         image: "/smu.png",
-        path: "/smu/SmuMba"
+        path: "/smu/sikkim-manipal-online-mba"
       },
     ],
   },
@@ -69,7 +69,7 @@ const CATEGORIES = [
         programTitle: "Master of Business Admin. (WX)",
         badges: ["Most Loved","NAAC A++", "ranked top 30 by NIRF", "500+ Hiring Partners", "Mumbai"],
         image: "/nmims.png",
-        path: "/nmims/NmimsWx"
+        path: "/nmims/nmims-mumbai-online-mba-working-executives"
       },
     ],
   },
@@ -83,7 +83,7 @@ const CATEGORIES = [
         programTitle: "Master of Computer Applications",
         badges: ["Bestseller", "NAAC A+", "Jaipur", "Top 20 by career 360", "Super/Dual specialization"],
         image: "/manipal.png",
-        path: "/muj/MujMca"
+        path: "/muj/manipal-jaipur-online-mca"
       },
       {
         id: "mca-2",
@@ -91,7 +91,7 @@ const CATEGORIES = [
         programTitle: "Master of Computer Applications",
         badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityMca"
+        path: "/amity/amity-online-mca",
       },
       {
         id: "mca-3",
@@ -99,7 +99,7 @@ const CATEGORIES = [
         programTitle: "Master of Computer Applications",
         badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
         image: "/jain.png",
-        path: "/jain/JainMca"
+        path: "/jain/jain-online-mca"
       },
       {
         id: "mca-4",
@@ -107,7 +107,7 @@ const CATEGORIES = [
         programTitle: "Master of Computer Applications",
         badges: ["Sikkim", "IIRF Rank 1","NAAC A+"],
         image: "/smu.png",
-        path: "/smu/SmuMca"
+        path: "/smu/sikkim-manipal-online-mca"
       },
     ],
   },
@@ -121,7 +121,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Arts in Journalism and Mass Communication",
         badges:["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityBajmc"
+        path: "/amity/amity-online-bajmc",
       },
     ],
   },
@@ -135,7 +135,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Arts",
         badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityBa"
+        path: "/amity/amity-online-ba",
       },
       {
         id: "ba-2",
@@ -143,7 +143,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Arts",
         badges: ["Sikkim", "IIRF Rank 1","NAAC A+"],
         image: "/smu.png",
-        path: "/smu/SmuBa"
+        path: "/smu/sikkim-manipal-online-ba"
       },
     ],
   },
@@ -157,7 +157,7 @@ const CATEGORIES = [
         programTitle: "Master of Arts",
         badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
         image: "/manipal.png",
-        path: "/muj/MujMa"
+        path: "/muj/manipal-jaipur-online-ma"
       },
       {
         id: "ma-2",
@@ -165,7 +165,7 @@ const CATEGORIES = [
         programTitle: "Master of Arts",
         badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityMa"
+        path: "/amity/amity-online-ma",
       },
       {
         id: "ma-3",
@@ -173,7 +173,7 @@ const CATEGORIES = [
         programTitle: "Master of Arts",
         badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
         image: "/jain.png",
-        path: "/jain/JainMa"
+        path: "/jain/jain-online-ma"
       },
       {
         id: "ma-4",
@@ -181,7 +181,7 @@ const CATEGORIES = [
         programTitle: "Master of Arts",
         badges: ["Sikkim", "IIRF Rank 1","NAAC A+"],
         image: "/smu.png",
-        path: "/smu/SmuMa"
+        path: "/smu/sikkim-manipal-online-ma"
       },
     ],
   },
@@ -195,7 +195,7 @@ const CATEGORIES = [
         programTitle: "Master of Commerce",
         badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
         image: "/manipal.png",
-        path: "/muj/MujMcom"
+        path: "/muj/manipal-jaipur-online-mcom"
       },
       {
         id: "mcom-2",
@@ -203,7 +203,7 @@ const CATEGORIES = [
         programTitle: "Master of Commerce",
         badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityMcom"
+        path: "/amity/amity-online-mcom",
       },
       {
         id: "mcom-3",
@@ -211,7 +211,7 @@ const CATEGORIES = [
         programTitle: "Master of Commerce",
         badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
         image: "/jain.png",
-        path: "/jain/JainMcom"
+        path: "/jain/jain-online-mcom"
       },
       {
         id: "mcom-4",
@@ -219,7 +219,7 @@ const CATEGORIES = [
         programTitle: "Master of Commerce",
         badges: ["Sikkim", "IIRF Rank 1","NAAC A+"],
         image: "/smu.png",
-        path: "/smu/SmuMcom"
+        path: "/smu/sikkim-manipal-online-mcom"
       },
     ],
   },
@@ -233,7 +233,7 @@ const CATEGORIES = [
         programTitle: "Master of Arts in Journalism and Mass Communication",
         badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
         image: "/manipal.png",
-        path: "/muj/MujMajmc"
+        path: "/muj/manipal-jaipur-online-majmc"
       },
       {
         id: "majmc-2",
@@ -241,7 +241,7 @@ const CATEGORIES = [
         programTitle: "Master of Arts in Journalism and Mass Communication",
         badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityMajmc"
+        path: "/amity/amity-online-majmc",
       },
     ],
   },
@@ -255,7 +255,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Business Administration",
         badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
-        path: "/nmims/NmimsBba"
+        path: "/nmims/nmims-mumbai-online-bba"
       },
       {
         id: "bba-2",
@@ -263,7 +263,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Business Administration",
         badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
         image: "/manipal.png",
-        path: "/muj/MujBba"
+        path: "/muj/manipal-jaipur-online-bba"
       },
       {
         id: "bba-3",
@@ -271,7 +271,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Business Administration",
         badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityBba"
+        path: "/amity/amity-online-bba",
       },
       {
         id: "bba-4",
@@ -279,7 +279,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Business Administration",
         badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
         image: "/jain.png",
-        path: "/jain/JainBba"
+        path: "/jain/jain-online-bba"
       },  
     ],
   },
@@ -293,7 +293,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Computer Application",
         badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
         image: "/manipal.png",
-        path: "/muj/MujBca"
+        path: "/muj/manipal-jaipur-online-bca"
       },
       {
         id: "bca-2",
@@ -301,7 +301,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Computer Application",
         badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityBca"
+        path: "/amity/amity-online-bca",
       },
       {
         id: "bca-3",
@@ -309,7 +309,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Computer Application",
         badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
         image: "/jain.png",
-        path: "/jain/JainBca"
+        path: "/jain/jain-online-bca"
       },
     ],
   },
@@ -323,7 +323,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Commerce",
         badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
-        path: "/nmims/NmimsBcom"
+        path: "/nmims/nmims-mumbai-online-bcom"
       },
       {
         id: "bcom-2",
@@ -331,7 +331,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Commerce",
         badges: ["Bestseller", "Jaipur", "NAAC A+", "Top 20 by Career 360", "Super/Duel Specialization"],
         image: "/manipal.png",
-        path: "/muj/MujBcom"
+        path: "/muj/manipal-jaipur-online-bcom"
       },
       {
         id: "bcom-3",
@@ -339,7 +339,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Commerce",
         badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityBcom"
+        path: "/amity/amity-online-bcom",
       },
       {
         id: "bcom-4",
@@ -347,7 +347,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Commerce",
         badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
         image: "/jain.png",
-        path: "/jain/JainBcom"
+        path: "/jain/jain-online-bcom"
       },  
       {
         id: "bcom-5",
@@ -355,7 +355,7 @@ const CATEGORIES = [
         programTitle: "Bachelor of Commerce",
         badges: ["Sikkim","NAAC A+", "IIRF Rank 1"],
         image: "/smu.png",
-        path: "/smu/SmuBcom"
+        path: "/smu/sikkim-manipal-online-bcom"
       },  
     ],
   },
@@ -369,7 +369,7 @@ const CATEGORIES = [
         programTitle: "Financial Management",
         badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
-        path: "/nmims/NmimsDiploma"
+        path: "/nmims/nmims-mumbai-online-diploma"
       },
       {
         id: "diploma-2",
@@ -377,7 +377,7 @@ const CATEGORIES = [
         programTitle: "Marketing Management",
         badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
-        path: "/nmims/NmimsDiploma"
+        path: "/nmims/nmims-mumbai-online-diploma"
       },
       {
         id: "diploma-3",
@@ -385,7 +385,7 @@ const CATEGORIES = [
         programTitle: "Business Management",
         badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
-        path: "/nmims/NmimsDiploma"
+        path: "/nmims/nmims-mumbai-online-diploma"
       },
       {
         id: "diploma-4",
@@ -393,7 +393,7 @@ const CATEGORIES = [
         programTitle: "Operations Management",
         badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
-        path: "/nmims/NmimsDiploma"
+        path: "/nmims/nmims-mumbai-online-diploma"
       },
       {
         id: "diploma-5",
@@ -401,7 +401,7 @@ const CATEGORIES = [
         programTitle: "Human Resource Management",
         badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
-        path: "/nmims/NmimsDiploma"
+        path: "/nmims/nmims-mumbai-online-diploma"
       },
     ],
   },
@@ -415,7 +415,7 @@ const CATEGORIES = [
         programTitle: "Business Management",
         badges: ["Most Loved", "Mumbai","ranked top 30 by NIRF", "500+ Hiring Partners", "NAAC A++" ],
         image: "/nmims.png",
-        path: "/nmims/NmimsCert"
+        path: "/nmims/nmims-mumbai-online-certification"
       },
     ],
   },
@@ -429,7 +429,7 @@ const CATEGORIES = [
         programTitle: "B.Com Honours",
         badges:  ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityBcomHons"
+        path: "/amity/amity-online-bcom-honours",
       },
     ],
   },
@@ -443,7 +443,7 @@ const CATEGORIES = [
         programTitle: "B.Com in Int. Finance & Accounting",
         badges:  ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityBcomInt"
+        path: "/amity/amity-online-bcom-international-finance-and-accounting",
       },
     ],
   },
@@ -457,7 +457,7 @@ const CATEGORIES = [
         programTitle: "BBA + MBA",
         badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-         path: "/amity/AmityUgPg"
+         path: "/amity/amity-online-integrated-programs",
       },
       {
         id: "integ-2",
@@ -465,7 +465,7 @@ const CATEGORIES = [
         programTitle: "B.COM + MBA",
        badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-         path: "/amity/AmityUgPg"
+         path: "/amity/amity-online-integrated-programs",
       },
        {
         id: "integ-3",
@@ -473,7 +473,7 @@ const CATEGORIES = [
         programTitle: "BCA + MCA",
        badges: ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
         image: "/amity.png",
-        path: "/amity/AmityUgPg"
+        path: "/amity/amity-online-integrated-programs",
       },
     ],
   },

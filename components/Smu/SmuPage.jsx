@@ -325,7 +325,7 @@ export default function Page() {
       tag: "Most-Loved",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/smu/SmuMba",
+      coursePath: "/smu/sikkim-manipal-online-mba",
     },
      {
       id: 2,
@@ -336,7 +336,7 @@ export default function Page() {
       tag: "Most-Loved",
       duration: "3 years",
       validity: "5 years",
-      coursePath: "/smu/SmuBba",
+      coursePath: "/smu/sikkim-manipal-online-bba",
     },
     {
       id: 3,
@@ -347,7 +347,7 @@ export default function Page() {
       tag: "Most-Loved",
       duration: "3 years",
       validity: "5 years",
-      coursePath: "/smu/SmuBcom",
+      coursePath: "/smu/sikkim-manipal-online-bcom",
     },
     {
       id: 4,
@@ -357,7 +357,7 @@ export default function Page() {
       subtitle: "Sikkim Manipal",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/smu/SmuMca",
+      coursePath: "/smu/sikkim-manipal-online-mca",
     },
      {
       id: 5,
@@ -367,7 +367,7 @@ export default function Page() {
       subtitle: "Sikkim Manipal",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/smu/SmuMa",
+      coursePath: "/smu/sikkim-manipal-online-ma",
     },
      {
       id: 6,
@@ -377,7 +377,7 @@ export default function Page() {
       subtitle: "Manipal Jaipur",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/smu/SmuMcom",
+      coursePath: "/smu/sikkim-manipal-online-mcom",
     },
   ]}
 />

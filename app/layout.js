@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Pab/Navbar";
 import Footer from "../components/Pab/Footer";
+import { Suspense } from "react";
 
 
 const inter = Inter({
@@ -22,9 +23,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} scrollbar-hide`}>
+        <Suspense fallback={null}>
         <Navbar />
         {children}
         <Footer />
+        </Suspense>
       </body>
     </html>
   );

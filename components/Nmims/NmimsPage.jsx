@@ -1,43 +1,14 @@
 "use client";
 import Image from "next/image";
-import {
-  Download,
-  Briefcase,
-  BookOpenCheck,
-  SplinePointer,
-  Speech,
-  GlobeLock,
-  Users,
-  GraduationCap,
-  LayoutGrid,
-  Check,
-  ChevronsDown,
-  ChevronRight,
-  ArrowUpRight,
-  ArrowRight,
-  FileClock,
-  BookCheck,
-  Headset,
-  Plus,
-  CornerDownRight,
-  Route,
-  FileUser,
-  Blocks,
-  MessagesSquare,
-  ChartNoAxesColumn,
-} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import React from "react";
 import CareerServices from "../NmimsSection/CareerServices";
 import Enrollment from "../NmimsSection/Enrollment";
-import ServicesByPAB from "../NmimsSection/servicesbyPab";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import CounsellingForm from "@/components/Pab/CounsellingForm";
-import LearningApproach from "../NmimsSection/LearningApproach";
 import Faculties from "../NmimsSection/Faculties";
-import WhyChooseUs from "../NmimsSection/WhyChooseUs";
 import ContactSection from "../Pab/ContactSection";
 import UnivCourses from "../Pab/UnivCourses";
 
@@ -309,7 +280,7 @@ export default function Page() {
             tag: "Most-Loved",
             duration: "2 years",
             validity: "4 years",
-            coursePath: "/nmims/NmimsMba",
+            coursePath: "/nmims/nmims-mumbai-online-mba",
           },
           {
             id: 2,
@@ -320,7 +291,7 @@ export default function Page() {
             tag: "Trending",
             duration: "3 years",
             validity: "6 years",
-            coursePath: "/nmims/NmimsBba",
+            coursePath: "/nmims/nmims-mumbai-online-bba",
           },
           {
             id: 3,
@@ -331,7 +302,7 @@ export default function Page() {
             tag: "Most-Loved",
             duration: "2 years",
             validity: "4 years",
-            coursePath: "/nmims/NmimsWX",
+            coursePath: "/nmims/nmims-mumbai-online-mba-working-executives",
           },
           {
             id: 4,
@@ -341,7 +312,7 @@ export default function Page() {
             subtitle: "NMIMS Mumbai",
             duration: "3 years",
             validity: "6 years",
-            coursePath: "/nmims/NmimsBcom",
+            coursePath: "/nmims/nmims-mumbai-online-bcom",
           },
           {
             id: 5,
@@ -351,7 +322,7 @@ export default function Page() {
             subtitle: "NMIMS Mumbai",
             duration: "1 year",
             validity: "2 years",
-            coursePath: "/nmims/NmimsDiploma",
+            coursePath: "/nmims/nmims-mumbai-online-diploma",
           },
           {
             id: 6,
@@ -361,7 +332,7 @@ export default function Page() {
             subtitle: "NMIMS Mumbai",
             duration: "6 months",
             validity: "2 years",
-            coursePath: "/nmims/NmimsCert",
+            coursePath: "/nmims/nmims-mumbai-online-certification",
           },
         ]}
       />

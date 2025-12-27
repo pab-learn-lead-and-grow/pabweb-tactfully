@@ -548,7 +548,7 @@ export default function Page() {
 
   const stats = [
     { value: "3", label: "Years Duration" },
-    { value: "3", label: "Semesters" },
+    { value: "6", label: "Semesters" },
     { value: "6", label: "Years Validity" },
     { value: "IA + TEE", label: "Evaluation" },
   ];

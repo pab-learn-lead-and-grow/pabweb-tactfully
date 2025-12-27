@@ -303,7 +303,7 @@ With more than three decades of academic excellence and cutting-edge, technology
       tag: "Most-Loved",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/jain/JainMba",
+      coursePath: "/jain/jain-online-mba",
     },
       {
       id: 2,
@@ -314,7 +314,7 @@ With more than three decades of academic excellence and cutting-edge, technology
       tag: "Most-Loved",
       duration: "3 years",
       validity: "5 years",
-      coursePath: "/jain/JainBba",
+      coursePath: "/jain/jain-online-bba",
     },
      {
       id: 3,
@@ -325,7 +325,7 @@ With more than three decades of academic excellence and cutting-edge, technology
       tag: "Most-Loved",
       duration: "3 years",
       validity: "5 years",
-      coursePath: "/jain/JainMba",
+      coursePath: "/jain/jain-online-bca",
     },
     {
       id: 4,
@@ -335,7 +335,7 @@ With more than three decades of academic excellence and cutting-edge, technology
       subtitle: "JAIN University",
       duration: "3 years",
       validity: "5 years",
-      coursePath: "/jain/JainBcom",
+      coursePath: "/jain/jain-online-bcom",
     },
      {
       id: 5,
@@ -345,7 +345,7 @@ With more than three decades of academic excellence and cutting-edge, technology
       subtitle: "JAIN University",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/jain/JainMa",
+      coursePath: "/jain/jain-online-ma",
     },
     {
       id: 6,
@@ -355,7 +355,7 @@ With more than three decades of academic excellence and cutting-edge, technology
       subtitle: "JAIN University",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/jain/JainMca",
+      coursePath: "/jain/jain-online-mca",
     },
      {
       id: 7,
@@ -365,7 +365,7 @@ With more than three decades of academic excellence and cutting-edge, technology
       subtitle: "JAIN University",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/jain/JainMcom",
+      coursePath: "/jain/jain-online-mcom",
     },
   ]}
 />

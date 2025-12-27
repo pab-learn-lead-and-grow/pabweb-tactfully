@@ -15,47 +15,47 @@ export default function Page() {
   const [showAllRelated, setShowAllRelated] = useState(false);
 
 
-const blogs = [
+ const blogs = [
     {
       id: 1,
       title:
         "Online MBA For Career Growth: How An Online MBA Helps You Raise From Employee To Leader",
       image: "/Blog2/background.png",
-      path: "/BlogTwo",
+      path: "online-mba-for-career-growth",
     },
     {
       id: 2,
       title: "Why NMIMS Is The Top Choice For Working Professionals In India",
       image: "/Blog3/background.png",
-      path: "/BlogThree",
+      path: "nmims-for-working-professionals",
     },
     {
       id: 3,
       title:
         "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
       image: "/Blog1/background.png",
-      path: "/BlogOne",
+      path: "online-vs-regular-mba",
     },
     {
       id: 4,
       title:
-        "How Online MBA's Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
+        "How Online MBA’s Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
       image: "/Blog4/background.png",
-      path: "/BlogFour",
+      path: "the-digital-revolution",
     },
     {
       id: 5,
       title:
         "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility",
       image: "/Blog5/background.png",
-      path: "/BlogFive",
+      path: "the-financial-catalyst",
     },
     {
       id: 6,
       title:
         "How Online BBA Builds Entrepreneurs And How Online MBA Shapes Future CEOs",
       image: "/Blog6/background.png",
-      path: "/BlogSix",
+      path: "how-online-bba-builds-entrepreneurs",
     },
   ];
 

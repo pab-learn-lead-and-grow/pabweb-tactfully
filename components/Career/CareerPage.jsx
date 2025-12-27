@@ -16,7 +16,7 @@ export default function CareerPage() {
       duration : "Full time",
       salary: "₹2,40,000-3,00,000",
       location: "Indore, Madhya Pradesh",
-      link: "/InsideSalesFr",
+      link: "Career/InsideSalesFr",
     },
     {
       time: "12 min ago",
@@ -27,7 +27,7 @@ export default function CareerPage() {
       duration : "Full time",
       salary: "₹2,40,000-3,00,000",
       location: "Indore, Madhya Pradesh",
-      link: "/DigitalMarketing",
+      link: "/Career/DigitalMarketing",
     },
     {
       time: "15 min ago",
@@ -38,7 +38,7 @@ export default function CareerPage() {
       duration : "Full time",
       salary: "₹2,40,000-3,00,000",
       location: "Indore, Madhya Pradesh",
-      link: "/InsideSalesEx",
+      link: "/Career/InsideSalesEx",
     },
   ];
 

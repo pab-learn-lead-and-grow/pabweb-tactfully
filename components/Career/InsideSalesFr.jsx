@@ -308,7 +308,7 @@ export default function JobDetails() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
             {
-              link: "/DigitalMarketing",
+              link: "/Career/DigitalMarketing",
               time: "5 min ago",
               title: "Digital Marketing Specialist (Google Ads & Meta Ads)",
               desc: "Lead generation, cold calling, counseling prospects, end-to-end sales",
@@ -318,7 +318,7 @@ export default function JobDetails() {
               location: "Indore, Madhya Pradesh",
             },
             {
-              link: "/InsideSalesEx",
+              link: "/Career/InsideSalesEx",
               time: "10 min ago",
               title: "Inside Sales Executive",
               desc: "Lead generation, cold calling, counseling prospects, end-to-end sales",

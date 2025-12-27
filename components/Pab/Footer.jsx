@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
   const links = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/AboutUs" },
+    { name: "About Us", href: "/about-pab" },
     { name: "Careers", href: "/Career" },
     { name: "Blogs", href: "/#knowledge" },
     { name: "Contact Us", href: "/ContactUs" },
@@ -37,11 +37,11 @@ export default function Footer() {
   ];
 
   const universities = [
-  { name: "NMIMS", path: "/nmims" },
+  { name: "NMIMS CDOE", path: "/nmims" },
   { name: "Manipal Jaipur", path: "/muj" },
-  { name: "Amity", path: "/amity" },
+  { name: "Amity Online", path: "/amity" },
   { name: "Sikkim Manipal", path: "/smu" },
-  { name: "Jain", path: "/jain" },
+  { name: "Jain Online", path: "/jain" },
 ];
 
   const supabase = createSupabaseClient();
@@ -161,7 +161,7 @@ if (!emailRegex.test(email)) {
 
               <a
               href="tel:+917489410758"
-              className="text-black text-sm hover:text-[#345895] underline"
+              className="text-black text-xs md:text-sm hover:text-[#345895] underline"
               aria-label="Call PAB Learn Lead Grow"
              >
                +91 7489410758
@@ -171,7 +171,7 @@ if (!emailRegex.test(email)) {
               href="https://mail.google.com/mail/?view=cm&fs=1&to=uttam15vp@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black text-sm hover:text-[#345895] underline"
+              className="text-black text-xs md:text-sm hover:text-[#345895] underline"
             >
               uttam15vp@gmail.com
             </a>

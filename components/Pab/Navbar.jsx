@@ -177,31 +177,31 @@ export default function Navbar() {
           id: 1,
           title: "Masters of Business Administration",
           logo: "/nmims.png",
-          path: "/nmims/NmimsMba",
+          path: "/nmims/nmims-mumbai-online-mba",
         },
         {
           id: 2,
           title: "Masters of Business Administration",
           logo: "/amity.png",
-          path: "/amity/AmityMba",
+          path: "/amity/amity-online-mba",
         },
         {
           id: 3,
           title: "Masters of Business Administration",
           logo: "/manipal.png",
-          path: "/muj/MujMba",
+          path: "/muj/manipal-jaipur-online-mba",
         },
         {
           id: 4,
           title: "Masters of Business Administration",
           logo: "/jain.png",
-          path: "/jain/JainMba",
+          path: "/jain/jain-online-mba",
         },
         {
           id: 5,
           title: "Masters of Business Administration",
           logo: "/smu.png",
-          path: "/smu/SmuMba",
+          path: "/smu/sikkim-manipal-online-mba",
         },
       ],
     },
@@ -212,7 +212,7 @@ export default function Navbar() {
           id: 1,
           title: "MSc. Data Science",
           logo: "/amity.png",
-          path: "/amity/AmityMsc",
+          path: "/amity/amity-online-msc-data-science",
         },
       ],
     },
@@ -223,31 +223,31 @@ export default function Navbar() {
           id: 1,
           title: "Marketing Management",
           logo: "/nmims.png",
-          path: "/nmims/NmimsWx",
+          path: "/nmims/nmims-mumbai-online-mba-working-executives",
         },
         {
           id: 2,
           title: "Leadership & Strategy",
           logo: "/nmims.png",
-          path: "/nmims/NmimsWx",
+          path: "/nmims/nmims-mumbai-online-mba-working-executives",
         },
         {
           id: 3,
           title: "Operations & Supply Chain Management",
           logo: "/nmims.png",
-          path: "/nmims/NmimsWx",
+          path: "/nmims/nmims-mumbai-online-mba-working-executives",
         },
         {
           id: 4,
           title: "Applied Finance ",
           logo: "/nmims.png",
-          path: "/nmims/NmimsWx",
+          path: "/nmims/nmims-mumbai-online-mba-working-executives",
         },
         {
           id: 5,
           title: "Digital Marketing",
           logo: "/nmims.png",
-          path: "/nmims/NmimsWx",
+          path: "/nmims/nmims-mumbai-online-mba-working-executives",
         },
       ],
     },
@@ -258,25 +258,25 @@ export default function Navbar() {
           id: 1,
           title: "Master of Computer Applications",
           logo: "/amity.png",
-          path: "/amity/AmityMca",
+          path: "/amity/amity-online-mca",
         },
         {
           id: 2,
           title: "Master of Computer Applications",
           logo: "/manipal.png",
-          path: "/muj/MujMca",
+          path: "/muj/manipal-jaipur-online-mca",
         },
         {
           id: 3,
           title: "Master of Computer Applications",
           logo: "/jain.png",
-          path: "/jain/JainMca",
+          path: "/jain/jain-online-mca",
         },
         {
           id: 4,
           title: "Master of Computer Applications",
           logo: "/smu.png",
-          path: "/smu/SmuMca",
+          path: "/smu/sikkim-manipal-online-mca",
         },
       ],
     },
@@ -287,25 +287,25 @@ export default function Navbar() {
           id: 1,
           title: "Master of Arts",
           logo: "/manipal.png",
-          path: "/muj/MujMa",
+          path: "/muj/manipal-jaipur-online-ma",
         },
         {
           id: 2,
           title: "Master of Arts",
           logo: "/jain.png",
-          path: "/jain/JainMa",
+          path: "/jain/jain-online-ma",
         },
         {
           id: 3,
           title: "Master of Arts",
           logo: "/amity.png",
-          path: "/amity/AmityMa",
+         path: "/amity/amity-online-ma",
         },
         {
           id: 4,
           title: "Master of Arts",
           logo: "/smu.png",
-          path: "/smu/SmuMa",
+          path: "/smu/sikkim-manipal-online-ma",
         },
       ],
     },
@@ -316,13 +316,13 @@ export default function Navbar() {
           id: 1,
           title: "MA in Journalism & Mass Communication",
           logo: "/manipal.png",
-          path: "/muj/MujMajmc",
+          path: "/muj/manipal-jaipur-online-majmc",
         },
         {
           id: 2,
           title: "MA in Journalism & Mass Communication",
           logo: "/amity.png",
-          path: "/amity/AmityMajmc",
+          path: "/amity/amity-online-majmc",
         },
       ],
     },
@@ -333,25 +333,25 @@ export default function Navbar() {
           id: 1,
           title: "Master of Commerce",
           logo: "/amity.png",
-          path: "/amity/AmityMcom",
+          path: "/amity/amity-online-mcom",
         },
         {
           id: 2,
           title: "Master of Commerce",
           logo: "/manipal.png",
-          path: "/muj/MujMcom",
+          path: "/muj/manipal-jaipur-online-mcom",
         },
         {
           id: 3,
           title: "Master of Commerce",
           logo: "/smu.png",
-          path: "/smu/SmuMcom",
+          path: "/smu/sikkim-manipal-online-mcom",
         },
         {
           id: 4,
           title: "Master of Commerce",
           logo: "/jain.png",
-          path: "/jain/JainMcom",
+          path: "/jain/jain-online-mcom",
         },
       ],
     },
@@ -362,25 +362,25 @@ export default function Navbar() {
           id: 1,
           title: "Bachelor of Business Administration",
           logo: "/nmims.png",
-          path: "/nmims/NmimsBba",
+          path: "/nmims/nmims-mumbai-online-bba",
         },
         {
           id: 2,
           title: "Bachelor of Business Administration",
           logo: "/amity.png",
-          path: "/amity/AmityBba",
+          path: "/amity/amity-online-bba",
         },
         {
           id: 3,
           title: "Bachelor of Business Administration",
           logo: "/manipal.png",
-          path: "/muj/MujBba",
+          path: "/muj/manipal-jaipur-online-bba",
         },
         {
           id: 4,
           title: "Bachelor of Business Administration",
           logo: "/jain.png",
-          path: "/jain/JainBba",
+          path: "/jain/jain-online-bba",
         },
       ],
     },
@@ -391,31 +391,31 @@ export default function Navbar() {
           id: 1,
           title: "Bachelor of Commerce",
           logo: "/nmims.png",
-          path: "/nmims/NmimsBcom",
+          path: "/nmims/nmims-mumbai-online-bcom",
         },
         {
           id: 2,
           title: "Bachelor of commerce",
           logo: "/amity.png",
-          path: "/amity/AmityBcom",
+          path: "/amity/amity-online-bcom",
         },
         {
           id: 3,
           title: "Bachelor of Commerce",
           logo: "/manipal.png",
-          path: "/muj/MujBcom",
+          path: "/muj/manipal-jaipur-online-bcom",
         },
         {
           id: 4,
           title: "Bachelor of Commerce",
           logo: "/jain.png",
-          path: "/jain/JainBcom",
+          path: "/jain/jain-online-bcom",
         },
         {
           id: 5,
           title: "Bachelor of Commerce",
           logo: "/smu.png",
-          path: "/smu/SmuBcom",
+          path: "/smu/sikkim-manipal-online-bcom",
         },
       ],
     },
@@ -426,7 +426,7 @@ export default function Navbar() {
           id: 1,
           title: "Bachelor of commerce (Honours)",
           logo: "/amity.png",
-          path: "/amity/AmityBcomHons",
+          path: "/amity/amity-online-bcom-honours",
         },
       ],
     },
@@ -437,7 +437,7 @@ export default function Navbar() {
           id: 1,
           title: "B.Com in International Finance & Accounting",
           logo: "/amity.png",
-          path: "/amity/AmityBcomInt",
+          path: "/amity/amity-online-bcom-international-finance-and-accounting",
         },
       ],
     },
@@ -448,19 +448,19 @@ export default function Navbar() {
           id: 1,
           title: "Bachelor of Computer Applications",
           logo: "/manipal.png",
-          path: "/muj/MujBca",
+          path: "/muj/manipal-jaipur-online-bca",
         },
         {
           id: 2,
           title: "Bachelor of Computer Applications",
           logo: "/jain.png",
-          path: "/jain/JainBca",
+          path: "/jain/jain-online-bca",
         },
         {
           id: 3,
           title: "Bachelor of Computer Applications",
           logo: "/amity.png",
-          path: "/amity/AmityBca",
+          path: "/amity/amity-online-bca",
         },
       ],
     },
@@ -471,7 +471,7 @@ export default function Navbar() {
           id: 1,
           title: "BA in Journalism & Mass Communication",
           logo: "/amity.png",
-          path: "/amity/AmityBajmc",
+          path: "/amity/amity-online-bajmc",
         },
       ],
     },
@@ -482,13 +482,13 @@ export default function Navbar() {
           id: 1,
           title: "Bachelor of Arts",
           logo: "/amity.png",
-          path: "/amity/AmityBa",
+          path: "/amity/amity-online-ba",
         },
         {
           id: 2,
           title: "Bachelor of Arts",
           logo: "/smu.png",
-          path: "/smu/SmuBa",
+          path: "/smu/sikkim-manipal-online-ba",
         },
       ],
     },
@@ -499,31 +499,31 @@ export default function Navbar() {
           id: 1,
           title: "Diploma in Marketing Management",
           logo: "/nmims.png",
-          path: "/nmims/NmimsDiploma",
+          path: "/nmims/nmims-mumbai-online-diploma",
         },
         {
           id: 2,
           title: "Diploma in Financial Management",
           logo: "/nmims.png",
-          path: "/nmims/NmimsDiploma",
+          path: "/nmims/nmims-mumbai-online-diploma",
         },
         {
           id: 3,
           title: "Diploma in Human Resource Management",
           logo: "/nmims.png",
-          path: "/nmims/NmimsDiploma",
+          path: "/nmims/nmims-mumbai-online-diploma",
         },
         {
           id: 4,
           title: "Diploma in Business Management",
           logo: "/nmims.png",
-          path: "/nmims/NmimsDiploma",
+          path: "/nmims/nmims-mumbai-online-diploma",
         },
         {
           id: 5,
           title: "Diploma in Operations Management",
           logo: "/nmims.png",
-          path: "/nmims/NmimsDiploma",
+          path: "/nmims/nmims-mumbai-online-diploma",
         },
       ],
     },
@@ -534,7 +534,7 @@ export default function Navbar() {
           id: 1,
           title: "Business Management Certification",
           logo: "/nmims.png",
-          path: "/nmims/NmimsCert",
+          path: "/nmims/nmims-mumbai-online-certification",
         },
         {
           id: 2,
@@ -709,19 +709,19 @@ export default function Navbar() {
           id: 1,
           title: "BBA + MBA Integrated",
           logo: "/amity.png",
-          path: "/amity/AmityUgPg",
+          path: "/amity/amity-online-integrated-programs",
         },
         {
           id: 2,
           title: "B.COM + MBA Integrated",
           logo: "/amity.png",
-          path: "/amity/AmityUgPg",
+          path: "/amity/amity-online-integrated-programs",
         },
         {
           id: 3,
           title: "BCA + MCA Integrated",
           logo: "/amity.png",
-          path: "/amity/AmityUgPg",
+          path: "/amity/amity-online-integrated-programs",
         },
       ],
     },
@@ -910,7 +910,7 @@ export default function Navbar() {
                   setTopUnivOpen(false);
                   setMoreOpen(false);
                 }}
-                className="flex items-center gap-2 bg-[#345895] text-white px-3 py-2 rounded-lg shadow-sm text-sm font-semibold"
+                className="flex items-center gap-2 bg-[#345895] text-white px-3 py-2 rounded-lg shadow-sm text-xs lg:text-sm xl:text-base font-semibold"
                 aria-expanded={exploreOpen}
               >
                 Explore Program
@@ -1096,7 +1096,7 @@ export default function Navbar() {
                   setExploreOpen(false);
                   setMoreOpen(false);
                 }}
-                className="flex items-center gap-2 text-sm text-gray-800 px-3 py-2 rounded-md hover:bg-white/30 font-medium"
+                className="flex items-center gap-2 text-xs lg:text-sm xl:text-base md:text-base text-gray-800 px-3 py-2 rounded-md hover:bg-white/30 font-medium"
                 aria-expanded={topUnivOpen}
               >
                 Top Universities
@@ -1214,7 +1214,7 @@ export default function Navbar() {
           <div className="flex-1" />
 
           <div className="flex items-center gap-3">
-            <div className="hidden md:flex items-center gap-3 text-sm text-gray-800">
+            <div className="hidden md:flex items-center gap-3 text-xs lg:text-sm xl:text-base text-gray-800">
               <Link
                 href="/#knowledge"
                 className="hover:text-blue-900 font-medium scroll-true"
@@ -1229,11 +1229,11 @@ export default function Navbar() {
                     setExploreOpen(false);
                     setTopUnivOpen(false);
                   }}
-                  className="flex items-center gap-1 text-sm text-gray-800 px-2 py-1 rounded hover:bg-white/30 font-medium"
+                  className="flex items-center gap-1 text-xs lg:text-sm xl:text-base text-gray-800 px-2 py-1 rounded hover:bg-white/30 font-medium"
                   aria-expanded={moreOpen}
                 >
                   More
-                  <ChevronDown size={14} />
+                  <ChevronDown size={15} />
                 </button>
 
                 {moreOpen && (
@@ -1261,7 +1261,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       className="block py-2 px-3 rounded hover:bg-gray-100"
-                      href="/AboutUs"
+                      href="/about-pab"
                     >
                       About us
                     </Link>
@@ -1273,7 +1273,7 @@ export default function Navbar() {
             <div className="hidden sm:flex items-center gap-2">
               <button
                 onClick={() => setShowForm(true)}
-                className="bg-[#4D964F] text-white px-3 py-2 rounded-lg text-sm font-medium shadow"
+                className="bg-[#4D964F] text-white px-3 py-2 rounded-lg text-xs lg:text-sm xl:text-base font-medium shadow"
               >
                 Personalized Counselling
               </button>
@@ -1281,14 +1281,14 @@ export default function Navbar() {
               {!user ? (
                 <button
                   onClick={() => router.push("/login")}
-                  className="bg-[#345895] text-white px-4 py-2 rounded-lg text-sm font-medium shadow"
+                  className="bg-[#345895] text-white px-4 py-2 rounded-lg text-xs lg:text-sm xl:text-base font-medium shadow"
                 >
                   Sign Up
                 </button>
               ) : (
                 <button
                   onClick={handleLogout}
-                  className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow"
+                  className="bg-red-600 text-white px-4 py-2 rounded-full text-xs lg:text-sm xl:text-base font-medium shadow"
                 >
                   Logout
                 </button>

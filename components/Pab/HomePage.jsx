@@ -19,7 +19,7 @@ export default function HomePage() {
       title:
         "Online MBA For Career Growth: How An Online MBA Helps You Raise From Employee To Leader",
       image: "/Blog2/background.png",
-      path: "/BlogTwo",
+      path: "blogs/online-mba-for-career-growth",
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ export default function HomePage() {
       date: "25 Dec 2025",
       title: "Why NMIMS Is The Top Choice For Working Professionals In India",
       image: "/Blog3/background.png",
-      path: "/BlogThree",
+      path: "blogs/nmims-for-working-professionals",
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ export default function HomePage() {
       title:
         "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
       image: "/Blog1/background.png",
-      path: "/BlogOne",
+      path: "blogs/online-vs-regular-mba",
     },
     {
       id: 4,
@@ -45,7 +45,7 @@ export default function HomePage() {
       title:
         "How Online MBA’s Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
       image: "/Blog4/background.png",
-      path: "/BlogFour",
+      path: "blogs/the-digital-revolution",
     },
     {
       id: 5,
@@ -54,7 +54,7 @@ export default function HomePage() {
       title:
         "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility",
       image: "/Blog5/background.png",
-      path: "/BlogFive",
+      path: "blogs/the-financial-catalyst",
     },
     {
       id: 6,
@@ -63,7 +63,7 @@ export default function HomePage() {
       title:
         "How Online BBA Builds Entrepreneurs And How Online MBA Shapes Future CEOs",
       image: "/Blog6/background.png",
-      path: "/BlogSix",
+      path: "blogs/how-online-bba-builds-entrepreneurs",
     },
   ];
 

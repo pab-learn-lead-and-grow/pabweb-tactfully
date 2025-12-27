@@ -324,7 +324,7 @@ export default function Page() {
       tag: "Most-Loved",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/muj/MujMba",
+      coursePath: "/muj/manipal-jaipur-online-mba",
     },
      {
       id: 2,
@@ -334,8 +334,8 @@ export default function Page() {
       subtitle: "Manipal Jaipur",
       tag: "Most-Loved",
       duration: "3 years",
-      validity: "5 years",
-      coursePath: "/muj/MujBba",
+      validity: "6 years",
+      coursePath: "/muj/manipal-jaipur-online-bba",
     },
     {
       id: 3,
@@ -345,8 +345,8 @@ export default function Page() {
       subtitle: "Manipal Jaipur",
       tag: "Most-Loved",
       duration: "3 years",
-      validity: "5 years",
-      coursePath: "/muj/MujBcom",
+      validity: "6 years",
+      coursePath: "/muj/manipal-jaipur-online-bcom",
     },
     {
       id: 4,
@@ -356,8 +356,8 @@ export default function Page() {
       subtitle: "Manipal Jaipur",
       tag: "Most-Loved",
       duration: "3 years",
-      validity: "5 years",
-      coursePath: "/muj/MujBca",
+      validity: "6 years",
+      coursePath: "/muj/manipal-jaipur-online-bca",
     },
     {
       id: 5,
@@ -368,18 +368,18 @@ export default function Page() {
       tag: "Most-Loved",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/muj/MujMca",
+      coursePath: "/muj/manipal-jaipur-online-mca",
     },
     {
       id: 6,
        universityLogo: "/manipal.png",
       universityName: "MUJ",
-      title: "Master of Business Administration",
+      title: "Master of Commerce",
       subtitle: "Manipal Jaipur",
       tag: "Most-Loved",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/muj/MujMba",
+      coursePath: "/muj/manipal-jaipur-online-mcom",
     },
      {
       id: 7,
@@ -390,7 +390,7 @@ export default function Page() {
       tag: "Most-Loved",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/muj/MujMa",
+      coursePath: "/muj/manipal-jaipur-online-ma",
     },
      {
       id: 8,
@@ -401,7 +401,7 @@ export default function Page() {
       tag: "Most-Loved",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/muj/MujMajmc",
+      coursePath: "/muj/manipal-jaipur-online-majmc",
     },
   ]}
 />

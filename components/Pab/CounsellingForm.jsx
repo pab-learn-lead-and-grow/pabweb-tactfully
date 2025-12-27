@@ -92,12 +92,12 @@ export default function CounsellingForm({ onClose }) {
 
   return (
     <div className="fixed modal inset-0 z-9999 w-screen md:h-screen flex font-[Inter] items-start justify-center pt-12 lg:pt-24 backdrop-blur-2xl overflow-y-auto"
-    style={{ maxHeight: '700px' }}>
+    >
       {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
 
       <div className="relative w-full max-w-5xl bg-[#E0ECF8] rounded-3xl shadow-2xl my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] lg:h-[600px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] lg:min-h-[600px]">
           {/* LEFT */}
           <div className="bg-[#E0ECF8] p-6 flex flex-col justify-center items-center relative">
             <h2 className="text-3xl md:text-[36px] font-semibold leading-tight text-[#345895] italic text-center">

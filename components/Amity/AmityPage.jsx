@@ -332,7 +332,7 @@ export default function Page() {
       tag: "Most-Loved",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/amity/AmityMba",
+      coursePath: "/amity/amity-online-mba",
     },
       {
       id: 2,
@@ -343,7 +343,7 @@ export default function Page() {
       tag: "Most-Loved",
       duration: "3 years",
       validity: "6 years",
-      coursePath: "/amity/AmityBba",
+      coursePath: "/amity/amity-online-bba",
     },
      {
       id: 3,
@@ -354,7 +354,7 @@ export default function Page() {
       tag: "Most-Loved",
       duration: "3 years",
       validity: "6 years",
-      coursePath: "/amity/AmityBca",
+      coursePath: "/amity/amity-online-bca",
     },
      {
       id: 4,
@@ -363,7 +363,7 @@ export default function Page() {
        title: "Bachelor of Arts",
       duration: "3 years",
       validity: "6 years",
-      coursePath: "/amity/AmityBa",
+      coursePath: "/amity/amity-online-ba",
     },
       {
       id: 5,
@@ -373,7 +373,7 @@ export default function Page() {
       subtitle: "AMITY University",
       duration: "3 years",
       validity: "6 years",
-      coursePath: "/amity/AmityBajmc",
+      coursePath: "/amity/amity-online-bajmc",
     },
      {
       id: 6,
@@ -383,7 +383,7 @@ export default function Page() {
       subtitle: "AMITY University",
       duration: "3 years",
       validity: "6 years",
-      coursePath: "/amity/AmityBcom",
+      coursePath: "/amity/amity-online-bcom",
     },
      {
       id: 7,
@@ -393,7 +393,7 @@ export default function Page() {
       subtitle: "AMITY University",
       duration: "3 years",
       validity: "6 years",
-      coursePath: "/amity/AmityBcomHons",
+      coursePath: "/amity/amity-online-bcom-honours",
     },
      {
       id: 8,
@@ -403,7 +403,7 @@ export default function Page() {
       subtitle: "AMITY University",
       duration: "3 years",
       validity: "6 years",
-      coursePath: "/amity/AmityBcomInt",
+      coursePath: "/amity/amity-online-bcom-international-finance-and-accounting",
     },
      {
       id: 9,
@@ -413,7 +413,7 @@ export default function Page() {
       subtitle: "AMITY University",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/amity/AmityMa",
+      coursePath: "/amity/amity-online-ma",
     },
      {
       id: 10,
@@ -423,7 +423,7 @@ export default function Page() {
       subtitle: "AMITY University",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/amity/AmityMajmc",
+      coursePath: "/amity/amity-online-majmc",
     },
      {
       id: 11,
@@ -433,7 +433,7 @@ export default function Page() {
       subtitle: "AMITY University",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/amity/AmityMcom",
+      coursePath: "/amity/amity-online-mca",
     },
      {
       id: 12,
@@ -443,7 +443,7 @@ export default function Page() {
       subtitle: "AMITY University",
       duration: "2 years",
       validity: "4 years",
-      coursePath: "/amity/AmityMsc",
+      coursePath: "/amity/amity-online-msc-data-science",
     },
     {
       id: 13,
@@ -453,7 +453,7 @@ export default function Page() {
       subtitle: "AMITY University",
       duration: "4.5 years",
       validity: "10 years",
-      coursePath: "/amity/AmityUgPg",
+      coursePath: "/amity/amity-online-integrated-programs",
     },
   ]}
 />

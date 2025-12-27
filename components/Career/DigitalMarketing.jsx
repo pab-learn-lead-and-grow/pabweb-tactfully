@@ -324,7 +324,7 @@ export default function JobDetails() {
               type: "Full Time",
               salary: "₹2,40,000–3,00,000",
               location: "Indore, Madhya Pradesh",
-              link: "/InsideSalesFr",
+              link: "/Career/InsideSalesFr",
             },
             {
               time: "10 min ago",
@@ -334,7 +334,7 @@ export default function JobDetails() {
               type: "Full Time",
               salary: "₹2,40,000–3,00,000",
               location: "Indore, Madhya Pradesh",
-              link: "/InsideSalesEx",
+              link: "/Career/InsideSalesEx",
             },
           ].map((job, index) => (
             <div

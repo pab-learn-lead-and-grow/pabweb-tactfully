@@ -22,41 +22,41 @@ export default function Page() {
       title:
         "Online MBA For Career Growth: How An Online MBA Helps You Raise From Employee To Leader",
       image: "/Blog2/background.png",
-      path: "/BlogTwo",
+      path: "online-mba-for-career-growth",
     },
     {
       id: 2,
       title: "Why NMIMS Is The Top Choice For Working Professionals In India",
       image: "/Blog3/background.png",
-      path: "/BlogThree",
+      path: "nmims-for-working-professionals",
     },
     {
       id: 3,
       title:
         "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
       image: "/Blog1/background.png",
-      path: "/BlogOne",
+      path: "online-vs-regular-mba",
     },
     {
       id: 4,
       title:
         "How Online MBA’s Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
       image: "/Blog4/background.png",
-      path: "/BlogFour",
+      path: "the-digital-revolution",
     },
     {
       id: 5,
       title:
         "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility",
       image: "/Blog5/background.png",
-      path: "/BlogFive",
+      path: "the-financial-catalyst",
     },
     {
       id: 6,
       title:
         "How Online BBA Builds Entrepreneurs And How Online MBA Shapes Future CEOs",
       image: "/Blog6/background.png",
-      path: "/BlogSix",
+      path: "how-online-bba-builds-entrepreneurs",
     },
   ];
 
@@ -78,7 +78,7 @@ export default function Page() {
       >
         <div className="text-center px-4">
           <h1 className="text-xl md:text-3xl lg:text-[56px] font-[Inter] font-bold text-white max-w-6xl drop-shadow-lg">
-            Why NMIMS Is the Top Choice for Working Professionals in India<br/> (2025 Guide)
+            Why NMIMS Is The Top Choice For Working Professionals in India<br/> (2026 Guide)
           </h1>
         </div>
       </div>
@@ -142,11 +142,11 @@ export default function Page() {
             Introduction to NMIMS for Working Professionals
           </h2>
           <p className="text-black text-[14px] leading-5 space-y-8">
-           For thousands of dedicated professionals across India, NMIMS has firmly established itself as the go-to destination for flexible, highly industry-relevant education. Known for its commitment to academic excellence, its modern online learning systems, and its powerful corporate reputation, NMIMS stands tall as one of India’s most trusted universities for strategic upskilling in 2025.<br/>
+           For thousands of dedicated professionals across India, NMIMS has firmly established itself as the go-to destination for flexible, highly industry-relevant education. Known for its commitment to academic excellence, its modern online learning systems, and its powerful corporate reputation, NMIMS stands tall as one of India’s most trusted universities for strategic upskilling in 2026.<br/>
            Working professionals frequently grapple with one major challenge: successfully balancing demanding career growth with the pursuit of higher education. NMIMS effectively bridges this gap with accessible, career-oriented programs meticulously built to match the real needs of the modern workforce.</p>
 
           <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
-           The Rising Demand for Flexible Higher Education in 2025
+           The Rising Demand for Flexible Higher Education in 2026
            </h2>
           <p className="text-[#345895] -mb-5 text-[16px] font-semibold leading-5">
             Why Professionals Are Upskilling Now
@@ -332,7 +332,7 @@ Students have the freedom to watch lectures anytime, study anywhere, and attempt
            Conclusion
         </h2>
            <p className="text-black text-[14px] leading-5">
-If you are a working professional determined to strategically upgrade your career in 2025, NMIMS stands out as one of the smartest and most reliable choices available. Its flexibility, strong industry alignment, national recognition, and measurable career impact make it a leading educational partner for India’s modern workforce.
+If you are a working professional determined to strategically upgrade your career in 2026, NMIMS stands out as one of the smartest and most reliable choices available. Its flexibility, strong industry alignment, national recognition, and measurable career impact make it a leading educational partner for India’s modern workforce.
 </p>
  <p className="text-black text-[14px] leading-5">
        Would you like to know more about the specific curriculum for the Online MBA Program ?
