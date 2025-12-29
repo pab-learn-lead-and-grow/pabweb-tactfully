@@ -46,7 +46,7 @@ const CATEGORIES = [
         university: "Jain University",
         programTitle: "Master of Business Administration",
         badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
-        image: "/Jain.png",
+        image: "/jain.png",
         path: "/jain/jain-online-mba"
       },
       {

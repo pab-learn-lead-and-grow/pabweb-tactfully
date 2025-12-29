@@ -9,6 +9,7 @@ import FaqSection from "./Faq";
 import ConnectToday from "../NmimsSection/ConnectToday.jsx";
 import Link from "next/link";
 import ContactSection from "./ContactSection";
+import LogoSection from "./LogoSection";
 
 export default function HomePage() {
   const blogs = [
@@ -83,14 +84,6 @@ export default function HomePage() {
     { src: "/smu.png", href: "/smu" },
   ];
 
-  // duplicate for seamless loop
-  const repeated = [...logos, ...logos];
-
-  // tweak these to change size/visible count/speed
-  const logoWidth = 230; // px - width of each logo box
-  const logoHeight = 100; // px - height of each logo box
-  const gap = 40; // px gap between logos
-  const durationSeconds = 10; // animation duration (lower = faster)
 
   const testimonials = [
     {
@@ -175,46 +168,7 @@ export default function HomePage() {
       <HeroSection className="pb-5" />
 
     {/* LOGO MARQUEE SECTION */}
-    <div className="w-full bg-transparent py-4">
-    <div className="my-auto px-3" style={{ maxWidth: "100%" }}>
-    <div
-      className="relative overflow-hidden mx-auto marquee-viewport h-[100px] rounded-full"
-      aria-label="Partner logos carousel"
-      role="region"
-    >
-      <div
-        className="marquee-track flex items-center whitespace-nowrap"
-        style={{
-          gap: `${gap}px`,
-          animation: `marquee ${durationSeconds}s linear infinite`,
-          width: `${repeated.length * (logoWidth + gap)}px`,
-        }}
-      >
-        {repeated.map((logo, idx) => (
-          <div
-            key={`${logo.src}-${idx}`}
-            className="flex items-center justify-center shrink-0"
-          >
-            <Link
-              href={logo.href}
-              aria-label={`Go to ${logo.href.replace("/", "")} university`}
-              className="block w-full h-full"
-            >
-              <Image
-                src={logo.src}
-                alt={`${logo.href.replace("/", "")} logo`}
-                width={220}
-                height={100}
-                className="object-contain cursor-pointer hover:scale-105 transition-transform duration-300"
-                priority={idx < logos.length}
-              />
-            </Link>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
+      <LogoSection logos={logos}/>
 
       {/* ======= Courses SECTION ======= */}
       <CoursesSection />
@@ -223,7 +177,7 @@ export default function HomePage() {
       <AllInOneSection />
 
       {/* ======= BLOG SECTION ======= */}
-      <section id="knowledge">
+      <section id="blogs">
         <div className="bg-white p-5 lg:p-15 mb-2">
           <div className="flex flex-col gap-6 mb-8">
             {/* First Row: Heading and Description side by side */}
@@ -231,7 +185,7 @@ export default function HomePage() {
               <h1 className="text-4xl md:text-5xl xl:text-[64px] font-bold text-[#345895]">
                 Knowledge Corner
               </h1>
-              <p className="text-black text-sm md:text-base w-[220px] word-break lg:text-left text-align-left">
+              <p className="text-black text-sm md:text-base w-55 word-break lg:text-left text-align-left">
                 Stay updated with the latest industry insights and trends.
               </p>
             </div>
@@ -240,7 +194,7 @@ export default function HomePage() {
             <div className="flex lg:justify-end">
               <button
                 onClick={() => setShowAllBlogs((prev) => !prev)}
-                className="bg-[#345895] hover:bg-blue-800 text-white px-7 py-1 rounded-full font-medium transition-colors duration-200"
+                className="bg-[#345895] hover:bg-blue-800 text-white px-4 text-xs md:text-[16px] md:px-7 py-1 -mt-2 rounded-full font-medium transition-colors duration-200"
               >
                 {showAllBlogs ? "Show Less" : "View All"}
               </button>
@@ -252,7 +206,7 @@ export default function HomePage() {
             {visibleBlogs.map((blog) => (
               <div key={blog.id} className="bg-white">
                 {/* Image */}
-                <div className="relative h-[220px] bg-gray-200 rounded-t-xl overflow-hidden">
+                <div className="relative h-55 bg-gray-200 rounded-t-xl overflow-hidden">
                   <Image
                     src={blog.image}
                     alt={blog.title}

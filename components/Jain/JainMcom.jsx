@@ -965,7 +965,7 @@ const topicsData = {
       
               <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
                         {/* Faded Background Heading */}
-                        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[rgba(6, 78, 146, 0.1)] opacity-90 select-none tracking-tight whitespace-nowrap">
+                        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[rgba(6, 78, 146, 0.1)] select-none tracking-tight whitespace-nowrap">
                           EXAMINATION PROCESS
                         </h1>
                 

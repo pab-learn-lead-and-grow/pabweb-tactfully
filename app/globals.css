@@ -45,6 +45,15 @@ html, body {
   pointer-events: auto;
 }
 
+.marquee-clone {
+  transform: translateX(100%);
+}
+ 
+.swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+
 /* Hand-drawn curved stroke */
 .handdrawn-underline::after {
   content: "";
@@ -94,7 +103,7 @@ body {
 
 @keyframes marquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-100%); }
 }
 
 .marquee-track {
@@ -117,6 +126,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none !important;
+    width: max-content;
   }
 }
 

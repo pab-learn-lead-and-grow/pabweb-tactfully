@@ -13,7 +13,7 @@ export default function Hero({ className }) {
       {/* GRADIENT WRAPPER — ends with image */}
       <div className="bg-[linear-gradient(90deg,rgba(77,150,79,0.1)_-1.12%,rgba(52,88,149,0.1)_98.88%)] rounded-b-[100px]">
         
-        <div className="w-full mx-auto pt-35 px-6">
+        <div className="w-full mx-auto pt-35 md:px-6">
           
           {/* Headline + CTAs */}
           <div className="text-center">
@@ -31,7 +31,7 @@ export default function Hero({ className }) {
               Shaping professionals for the future
             </p>
 
-            <div className="mt-6 flex items-center justify-center gap-4">
+            <div className="relative z-10 mt-6 flex items-center justify-center gap-4">
               <button
                 onClick={() => setShowForm(true)}
                 className="px-3 py-1 md:px-4 md:py-2 text-[12px] md:text-md lg:text-[16px] rounded-lg bg-[#4D964F] text-white font-semibold shadow hover:opacity-95"

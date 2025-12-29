@@ -91,7 +91,7 @@ export default function CounsellingForm({ onClose }) {
   ];
 
   return (
-    <div className="fixed modal inset-0 z-9999 w-screen md:h-screen flex font-[Inter] items-start justify-center pt-12 lg:pt-24 backdrop-blur-2xl overflow-y-auto"
+    <div className="fixed modal inset-0 z-9999 w-screen h-screen flex font-[Inter] items-start justify-center pt-12 lg:pt-24 backdrop-blur-2xl overflow-y-auto"
     >
       {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />

@@ -1096,7 +1096,7 @@ export default function Navbar() {
                   setExploreOpen(false);
                   setMoreOpen(false);
                 }}
-                className="flex items-center gap-2 text-xs lg:text-sm xl:text-base md:text-base text-gray-800 px-3 py-2 rounded-md hover:bg-white/30 font-medium"
+                className="flex items-center gap-2 text-xs lg:text-sm xl:text-base text-gray-800 px-3 py-2 rounded-md hover:bg-white/30 font-medium"
                 aria-expanded={topUnivOpen}
               >
                 Top Universities
@@ -1243,13 +1243,13 @@ export default function Navbar() {
                   >
                     <Link
                       className="block py-2 px-3 rounded hover:bg-gray-100"
-                      href="/Gallery"
+                      href="/#blogs"
                     >
                       Gallery
                     </Link>
                     <Link
                       className="block py-2 px-3 rounded hover:bg-gray-100"
-                      href="/ContactUs"
+                      href="/contact-page-pab"
                     >
                       Contact us
                     </Link>
@@ -1493,7 +1493,7 @@ export default function Navbar() {
               </div>
 
               <Link
-                href="/#knowledge"
+                href="/#blogs"
                 onClick={() => {
                   handleLinkClick();
                   handleMobileCloseAll();
@@ -1510,7 +1510,7 @@ export default function Navbar() {
                 >
                   <span>More</span>
                   <ChevronDown
-                    size={14}
+                    size={24}
                     className={`transition-transform ${
                       moreOpen ? "rotate-180" : ""
                     }`}
@@ -1520,7 +1520,7 @@ export default function Navbar() {
                   <div className="pl-4">
                     <Link
                       className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
-                      href="/Gallery"
+                      href="/#blogs"
                       onClick={() => {
                         handleLinkClick();
                         handleMobileCloseAll();
@@ -1530,7 +1530,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
-                      href="/ContactUs"
+                      href="/contact-page-pab"
                       onClick={() => {
                         handleLinkClick();
                         handleMobileCloseAll();
@@ -1550,7 +1550,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
-                      href="/AboutUs"
+                      href="/about-pab"
                       onClick={() => {
                         handleLinkClick();
                         handleMobileCloseAll();

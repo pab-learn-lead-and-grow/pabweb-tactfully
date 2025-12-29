@@ -10,9 +10,9 @@ export default function Footer() {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about-pab" },
     { name: "Careers", href: "/Career" },
-    { name: "Blogs", href: "/#knowledge" },
-    { name: "Contact Us", href: "/ContactUs" },
-    { name: "Gallery", href: "/#knowledge" },
+    { name: "Blogs", href: "/#blogs" },
+    { name: "Contact Us", href: "/contact-page-pab" },
+    { name: "Gallery", href: "/#" },
   ];
 
   const pathname = usePathname();
@@ -37,12 +37,12 @@ export default function Footer() {
   ];
 
   const universities = [
-  { name: "NMIMS CDOE", path: "/nmims" },
-  { name: "Manipal Jaipur", path: "/muj" },
-  { name: "Amity Online", path: "/amity" },
-  { name: "Sikkim Manipal", path: "/smu" },
-  { name: "Jain Online", path: "/jain" },
-];
+    { name: "NMIMS CDOE", path: "/nmims" },
+    { name: "Manipal Jaipur", path: "/muj" },
+    { name: "Amity Online", path: "/amity" },
+    { name: "Sikkim Manipal", path: "/smu" },
+    { name: "Jain Online", path: "/jain" },
+  ];
 
   const supabase = createSupabaseClient();
   const [email, setEmail] = useState("");
@@ -50,13 +50,12 @@ export default function Footer() {
   const [message, setMessage] = useState("");
 
   const handleSubscribe = async () => {
-    const emailRegex =
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-if (!emailRegex.test(email)) {
-  setMessage("Please enter a valid email address");
-  return;
-}
+    if (!emailRegex.test(email)) {
+      setMessage("Please enter a valid email address");
+      return;
+    }
 
     if (!email) {
       setMessage("Please enter an email address");
@@ -70,16 +69,15 @@ if (!emailRegex.test(email)) {
       .from("newsletter_subscribers")
       .insert([{ email }]);
 
-   if (error) {
-  if (error.code === "23505") {
-    setMessage("You are already subscribed 🙂");
-  } else if (error.code === "23514") {
-    setMessage("Invalid email format");
-  } else {
-    setMessage("Something went wrong. Try again.");
-  }
-}
- else {
+    if (error) {
+      if (error.code === "23505") {
+        setMessage("You are already subscribed 🙂");
+      } else if (error.code === "23514") {
+        setMessage("Invalid email format");
+      } else {
+        setMessage("Something went wrong. Try again.");
+      }
+    } else {
       setMessage("Subscribed successfully 🎉");
       setEmail("");
     }
@@ -88,20 +86,24 @@ if (!emailRegex.test(email)) {
   };
 
   return (
-    <footer
-      className="w-full bg-white p-5 flex lg:min-h-[50vh] min-h-auto items-center"
-      >
+    <footer className="w-full bg-white p-5 flex lg:min-h-[50vh] min-h-auto items-center">
       <div className="mx-auto w-full max-w-7xl">
         {/* --- Main Section --- */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6  border-t-2 border-b-2">
           {/* --- Left Section (Logo, Social, Address) --- */}
           <div className="col-span-2">
-            <div className="col-span-2 flex justify-start items-start text-left pt-5 -mx-5 mb-5">
+            <div className="col-span-2 flex justify-start items-start text-left pt-5 -mx-4 mb-5">
               <Image
                 src="/pablogo.png"
                 alt="PAB Logo"
                 width={220}
                 height={150}
+                 className="
+                 w-40
+                 lg:w-45
+                 xl:w-55
+                 h-auto
+                 "
               />
             </div>
 
@@ -160,21 +162,21 @@ if (!emailRegex.test(email)) {
               <p>Indore, Madhya Pradesh, India</p>
 
               <a
-              href="tel:+917489410758"
-              className="text-black text-xs md:text-sm hover:text-[#345895] underline"
-              aria-label="Call PAB Learn Lead Grow"
-             >
-               +91 7489410758
-             </a>
-             <br/>
+                href="tel:+917489410758"
+                className="text-black text-xs md:text-sm hover:text-[#345895] underline"
+                aria-label="Call PAB Learn Lead Grow"
+              >
+                +91 7489410758
+              </a>
+              <br />
               <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=uttam15vp@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black text-xs md:text-sm hover:text-[#345895] underline"
-            >
-              uttam15vp@gmail.com
-            </a>
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=uttam15vp@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black text-xs md:text-sm hover:text-[#345895] underline"
+              >
+                uttam15vp@gmail.com
+              </a>
             </div>
           </div>
 
@@ -185,18 +187,18 @@ if (!emailRegex.test(email)) {
               <h3 className="font-semibold text-xs md:text-sm text-black mb-2">
                 Universities
               </h3>
-             <ul className="space-y-1 text-[11px] md:text-xs text-black">
-             {universities.map((uni) => (
-              <li key={uni.path}>
-      <Link
-        href={uni.path}
-        className="hover:text-blue-900 transition"
-      >
-        {uni.name}
-      </Link>
-    </li>
-  ))}
-</ul>
+              <ul className="space-y-1 text-[11px] md:text-xs text-black">
+                {universities.map((uni) => (
+                  <li key={uni.path}>
+                    <Link
+                      href={uni.path}
+                      className="hover:text-blue-900 transition"
+                    >
+                      {uni.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* --- Quick Links --- */}

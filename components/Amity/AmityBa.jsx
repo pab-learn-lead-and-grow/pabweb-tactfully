@@ -1633,8 +1633,8 @@ export default function Page() {
                          w-full 
                          mt-10
                          sm:mt-0
-                         max-w-[260px]  /* Medium screens */
-                         lg:max-w-[400px]   /* Large screens */
+                         max-w-65 /* Medium screens */
+                         lg:max-w-80   /* Large screens */
                          object-contain
                          mx-auto
                        "
