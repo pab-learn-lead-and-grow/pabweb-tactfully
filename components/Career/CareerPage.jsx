@@ -61,11 +61,11 @@ export default function CareerPage() {
           {/* Right: Text Content */}
           <div className=" w-full lg:w-1/2 text-center md:text-left">
             <h1 className="text-3xl md:text-4xl font-bold text-black leading-snug">
-              Join the PAB Tribe <br />
+              Join the Radhya Tribe <br />
               Where Learning Never Stops and Growth is Guaranteed
             </h1>
             <p className="text-black mt-4 text-[15px] leading-relaxed max-w-xl">
-              At PAB, we believe in creating more than just careers — we build
+              At Radhya Education, we believe in creating more than just careers — we build
               journeys of continuous learning, leadership, and growth. <br />
               Our team is a blend of passionate educators, creators, and
               innovators who share one mission: to make learning meaningful,

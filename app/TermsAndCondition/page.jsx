@@ -1,8 +1,8 @@
-import TermsAndCondition from "@/components/Pab/TermsAndCondition";
+import TermsAndCondition from "@/components/Radhya/TermsAndCondition";
 
 export const metadata = {
-  title: "Terms & Conditions || PAB Learn Lead Grow",
-  description: "Terms and Conditions for PAB Learn, Lead & Grow",
+  title: "Terms & Conditions || Radhya Education",
+  description: "Terms and Conditions for Radhya Education",
 };
 
 export default function terms(){

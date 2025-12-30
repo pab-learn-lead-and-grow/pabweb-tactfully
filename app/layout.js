@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Pab/Navbar";
-import Footer from "../components/Pab/Footer";
+import Navbar from "../components/Radhya/Navbar";
+import Footer from "../components/Radhya/Footer";
 import { Suspense } from "react";
 
 
@@ -12,8 +12,8 @@ const inter = Inter({
 
 export const metadata = {
   title:{
-    default:  "PAB Learn Lead & Grow || Best Education Consultant ",
-    template: "%s | PAB Learn, Lead & Grow",
+    default:  "Radhya Education || Best Education Consultant ",
+    template: "%s | Radhya Education",
   },
   description: "Explore online programs from top universities with personalized counselling",
  

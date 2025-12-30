@@ -7,50 +7,14 @@ import MujCareerServices from "../NmimsSection/MujCareerServices" ;
 import Enrollment from "../NmimsSection/Enrollment";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import Faculties from "../NmimsSection/Faculties";
-import ContactSection from "../Pab/ContactSection";
-import UnivCourses from "../Pab/UnivCourses";
-import { ArrowUpWideNarrow, Boxes, BriefcaseBusiness, ChartNoAxesColumn, ContactRound, FileUser, GalleryVertical, Headphones, MessagesSquare, Users } from "lucide-react";
+import ContactSection from "../Radhya/ContactSection";
+import UnivCourses from "../Radhya/UnivCourses";
+import { ArrowUpWideNarrow, Boxes, BriefcaseBusiness, ContactRound, GalleryVertical, Headphones, MessagesSquare, Users } from "lucide-react";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const Counter = ({ end, duration = 2000 }) => {
-    const [value, setValue] = useState(0);
-    const [hasAnimated, setHasAnimated] = useState(false);
-    const ref = React.useRef(null);
-
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const entry = entries[0];
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-
-            let start = 0;
-            const increment = end / (duration / 16);
-
-            const counter = setInterval(() => {
-              start += increment;
-              if (start >= end) {
-                clearInterval(counter);
-                setValue(end);
-              } else {
-                setValue(Math.floor(start));
-              }
-            }, 16);
-          }
-        },
-        { threshold: 0.4 }
-      );
-
-      if (ref.current) observer.observe(ref.current);
-
-      return () => observer.disconnect();
-    }, [end, duration, hasAnimated]);
-
-    return <span ref={ref}>{value.toLocaleString()}</span>;
-  };
    const benefits = [
     {
       icon: (
@@ -193,8 +157,8 @@ export default function Page() {
     <main className="flex flex-col items-center w-full bg-white">
        <section className="w-full bg-white px-4 md:px-10 xl:px-15 mt-20 py-10">
       <div className="w-full mx-auto flex flex-col md:flex-row items-center justify-between">
-         <h1 className=" text-4xl md:text-5xl lg:text-[64px] xl:text-[80px] font-bold leading-none bg-linear-to-r from-[#0E385F] to-[#F9BD04] bg-clip-text text-transparent">
-            AMITY University
+         <h1 className=" text-4xl md:text-5xl lg:text-[64px] xl:text-[75px] font-bold leading-none bg-linear-to-r from-[#0E385F] to-[#F9BD04] bg-clip-text text-transparent">
+            Amity University
          </h1>
 
         {/* Right LOGO */}
@@ -210,7 +174,7 @@ export default function Page() {
             alt="AMITY Logo"
             width={526}
             height={180}
-            className="object-contain w-[320px] md:w-[250px] lg:w-[400px] xl:w-[526px] pr-10 mt-10 md:mt-0"
+            className="object-contain w-[320px] md:w-[250px] lg:w-[400px] xl:w-[500px] pr-10 mt-10 md:mt-0"
           />
         </motion.div>
 
@@ -275,7 +239,7 @@ export default function Page() {
                                         transition={{ duration: 0.5 }}
                                         viewport={{ once: true }}
                                       >
-                                        <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                        <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                           NAAC A+
                                         </h3>
                                         <p className="text-[8px]  md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -290,7 +254,7 @@ export default function Page() {
                                         transition={{ duration: 0.5, delay: 0.1 }}
                                         viewport={{ once: true }}
                                       >
-                                        <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                        <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                           1.6 lakh+
                                         </h3>
                                         <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
@@ -305,7 +269,7 @@ export default function Page() {
                                         transition={{ duration: 0.5, delay: 0.2 }}
                                         viewport={{ once: true }}
                                       >
-                                        <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                        <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                           AICTE
                                         </h3>
                                         <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">

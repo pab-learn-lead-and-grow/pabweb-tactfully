@@ -2,7 +2,6 @@
 import Image from "next/image";
 import {
   Download,
-  Briefcase,
   BookOpenCheck,
   SplinePointer,
   Speech,
@@ -10,38 +9,24 @@ import {
   Users,
   Check,
   ChevronsDown,
-  ChevronRight,
-  ArrowUpRight,
   ArrowRight,
   FileClock,
   BookCheck,
   Headset,
-  Plus,
-  CornerDownRight,
-  Route,
   FileUser,
-  Blocks,
-  MessagesSquare,
-  ChartNoAxesColumn,
-  BicepsFlexed,
-  BriefcaseBusiness,
-  BanknoteArrowUp,
-  Move,
-  UserRoundCheck,
   Ungroup,
   BookText,
   Option,
   UserLock,
-  ListMinus,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import React from "react";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import Faculties from "../NmimsSection/Faculties";
-import ServicesByPAB from "../NmimsSection/servicesbyPab";
+import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
 import CareerServices from "../NmimsSection/CareerServices";
 import LearningApproach from "../NmimsSection/LearningApproach";
@@ -1203,7 +1188,7 @@ export default function Page() {
             bottomFaculty={bottomFaculty}
           />
     
-          <ServicesByPAB />
+          <ServicesByRadhya />
     
       <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
       {/* TITLE */}

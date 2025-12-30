@@ -7,50 +7,14 @@ import MujCareerServices from "../NmimsSection/MujCareerServices" ;
 import Enrollment from "../NmimsSection/Enrollment";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import Faculties from "../NmimsSection/Faculties";
-import ContactSection from "../Pab/ContactSection";
-import UnivCourses from "../Pab/UnivCourses";
-import { ArrowUpWideNarrow, Boxes, ChartNoAxesColumn, ContactRound, FileUser, GalleryVertical, Headphones, MessagesSquare, Users } from "lucide-react";
+import ContactSection from "../Radhya/ContactSection";
+import UnivCourses from "../Radhya/UnivCourses";
+import { ContactRound, FileUser, MessagesSquare, Users } from "lucide-react";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const Counter = ({ end, duration = 2000 }) => {
-    const [value, setValue] = useState(0);
-    const [hasAnimated, setHasAnimated] = useState(false);
-    const ref = React.useRef(null);
-
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const entry = entries[0];
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-
-            let start = 0;
-            const increment = end / (duration / 16);
-
-            const counter = setInterval(() => {
-              start += increment;
-              if (start >= end) {
-                clearInterval(counter);
-                setValue(end);
-              } else {
-                setValue(Math.floor(start));
-              }
-            }, 16);
-          }
-        },
-        { threshold: 0.4 }
-      );
-
-      if (ref.current) observer.observe(ref.current);
-
-      return () => observer.disconnect();
-    }, [end, duration, hasAnimated]);
-
-    return <span ref={ref}>{value.toLocaleString()}</span>;
-  };
    const benefits = [
     {
       icon: (
@@ -183,7 +147,7 @@ export default function Page() {
             alt="JAIN Logo"
             width={526}
             height={180}
-            className="object-contain w-[320px] md:w-[250px] lg:w-[400px] xl:w-[526px] pr-10 mt-10 md:mt-0"
+            className="object-contain w-[320px] md:w-[250px] lg:w-[400px] xl:w-[500px] pr-10 mt-10 md:mt-0"
           />
         </motion.div>
 
@@ -248,10 +212,10 @@ With more than three decades of academic excellence and cutting-edge, technology
                            viewport={{ once: true }}
                          >
                            <h3 className="text-[18px] sm:text-[24px] md:text-[29px] lg:text-[36px] xl:text-[64px] font-bold">
-                             NAAC A++
+                             A++
                            </h3>
                            <p className="text-[8px]  md:text-[16px] xl:text-[22px]  md:text-sm font-bold opacity-90 leading-tight">
-                             accredited
+                            NAAC accreditation
                            </p>
                          </motion.div>
            

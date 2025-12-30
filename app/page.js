@@ -1,10 +1,10 @@
 
 
-import HomePage from "@/components/Pab/HomePage";
+import HomePage from "@/components/Radhya/HomePage";
 
 export const metadata = {
   description:
-    "PAB Learn Lead & Grow helps you choose the right online degree with expert counselling.",
+    "Radhya Education helps you choose the right online degree with expert counselling.",
 };
 
 export default function Home() {

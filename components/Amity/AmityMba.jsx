@@ -41,11 +41,11 @@ import {
   Star,
   Building2,
 } from "lucide-react";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import React from "react";
-import ServicesByPAB from "../NmimsSection/servicesbyPab";
+import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
 import LearningApproach from "../NmimsSection/LearningApproach";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
@@ -1120,7 +1120,7 @@ const topicsData = {
                                                          transition={{ duration: 0.5 }}
                                                          viewport={{ once: true }}
                                                        >
-                                                         <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                                         <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                                            NAAC A+
                                                          </h3>
                                                          <p className="text-[8px]  md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -1135,7 +1135,7 @@ const topicsData = {
                                                          transition={{ duration: 0.5, delay: 0.1 }}
                                                          viewport={{ once: true }}
                                                        >
-                                                         <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                                         <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                                            1.6 lakh+
                                                          </h3>
                                                          <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
@@ -1150,7 +1150,7 @@ const topicsData = {
                                                          transition={{ duration: 0.5, delay: 0.2 }}
                                                          viewport={{ once: true }}
                                                        >
-                                                         <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                                         <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                                            AICTE
                                                          </h3>
                                                          <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
@@ -1188,7 +1188,7 @@ const topicsData = {
                             Live Industry Projects
                           </h3>
                           <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
-                         Engage in real industry projects and solve actual business challenges with guidance from industry experts. Build practical experience, earn project-specific certifications, and demonstrate your capabilities to recruiters before you graduate.
+                         Engage in real industry projects and solve actual business challenges with guidance from industry experts. Build practical experience, earn project-specific certifications, and demonstrate your caRadhyailities to recruiters before you graduate.
                          </p> </div>
                       </div>
             
@@ -2033,7 +2033,7 @@ const topicsData = {
                        "Product Manager",
                        "Strategy Consultant",
                        "Digital Transformation Lead",
-                       "C Suite Execdutive ",
+                       "C Suite Executive ",
                      ].map((role, index) => (
                        <motion.div
                          key={index}
@@ -2079,7 +2079,7 @@ const topicsData = {
         bottomFaculty={bottomFaculty}
       />
 
-      <ServicesByPAB />
+      <ServicesByRadhya />
 
      <section className="w-full px-4 md:px-10 lg:px-20 py-16">
         {/* TITLE */}

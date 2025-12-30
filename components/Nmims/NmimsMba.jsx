@@ -13,28 +13,21 @@ import {
   Check,
   ChevronsDown,
   ChevronRight,
-  ArrowUpRight,
   ArrowRight,
   FileClock,
   BookCheck,
   Headset,
-  Plus,
-  CornerDownRight,
-  Route,
   FileUser,
-  Blocks,
-  MessagesSquare,
-  ChartNoAxesColumn,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import React from "react";
 import CareerServices from "../NmimsSection/CareerServices";
 import Enrollment from "../NmimsSection/Enrollment";
-import ServicesByPAB from "../NmimsSection/servicesbyPab";
+import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import LearningApproach from "../NmimsSection/LearningApproach";
 import Faculties from "../NmimsSection/Faculties";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
@@ -589,7 +582,7 @@ export default function Page() {
               className="text-gray-200 text-left text-[16px] sm:text-[12px] md:text-[18px] max-w-6xl mt-0 mb-10 leading-relaxed"
             >
               NMIMS is one of India’s leading management universities, known for
-              its academic excellence and global recognition. Through PAB, you
+              its academic excellence and global recognition. Through Radhya, you
               get access to its Online MBA a program designed for working
               professionals who want to learn from the best and achieve
               measurable career growth.
@@ -1643,7 +1636,7 @@ export default function Page() {
         bottomFaculty={bottomFaculty}
       />
 
-      <ServicesByPAB />
+      <ServicesByRadhya />
 
   <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
   {/* TITLE */}
@@ -1704,9 +1697,8 @@ export default function Page() {
 </section>
 
 
-      <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
+      {/*<section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
         <div className="max-w-5xl mx-auto">
-          {/* Animated Heading */}
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1717,7 +1709,7 @@ export default function Page() {
             Lateral Admission MBA (Online)
           </motion.h2>
 
-          {/* FIRST SECTION */}
+          
           <div className="mt-10">
             <p className="text-gray-800 text-lg leading-relaxed font-semibold">
               Below mentioned student will be allowed to take Lateral admission
@@ -1760,7 +1752,7 @@ export default function Page() {
             </ul>
           </div>
 
-          {/* SECOND SECTION */}
+         
           <div className="mt-10">
             <p className="text-gray-800 text-lg leading-relaxed font-semibold">
               Below mentioned student will not be allowed to take Lateral
@@ -1782,7 +1774,8 @@ export default function Page() {
             </ul>
           </div>
         </div>
-      </section>
+      </section> */}
+
       <FAQ faqs={faqs} />
 
       <ConnectToday />

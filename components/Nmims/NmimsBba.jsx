@@ -2,7 +2,6 @@
 import Image from "next/image";
 import {
   Download,
-  Briefcase,
   BookOpenCheck,
   SplinePointer,
   Speech,
@@ -11,13 +10,10 @@ import {
   Check,
   ChevronsDown,
   ChevronRight,
-  ArrowUpRight,
   ArrowRight,
   FileClock,
   BookCheck,
   Headset,
-  Plus,
-  CornerDownRight,
   Route,
   FileUser,
   Blocks,
@@ -34,13 +30,13 @@ import { useState, useEffect } from "react";
 import React from "react";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
-import ServicesByPAB from "../NmimsSection/servicesbyPab";
+import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Faculties from "../NmimsSection/Faculties";
 import Enrollment from "../NmimsSection/Enrollment";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
 import LearningApproach from "../NmimsSection/LearningApproach";
 import CareerServices from "../NmimsSection/CareerServices";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -1694,7 +1690,7 @@ export default function Page() {
         bottomFaculty={bottomFaculty}
       />
 
-      <ServicesByPAB />
+      <ServicesByRadhya />
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
         {/* TITLE */}

@@ -44,7 +44,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import React from "react";
-import ServicesByPAB from "../NmimsSection/servicesbyPab";
+import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
 import MujCareerServices from "../NmimsSection/MujCareerServices";
 import LearningApproach from "../NmimsSection/LearningApproach";
@@ -53,7 +53,7 @@ import WhyChooseUs from "../NmimsSection/WhyChooseUs";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import Faculties from "../NmimsSection/Faculties";
 import FAQ from "../NmimsSection/FAQ";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -531,7 +531,7 @@ export default function Page() {
                                      transition={{ duration: 0.5 }}
                                      viewport={{ once: true }}
                                    >
-                                     <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                     <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                        NAAC A+
                                      </h3>
                                       <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
@@ -546,7 +546,7 @@ export default function Page() {
                                      transition={{ duration: 0.5, delay: 0.1 }}
                                      viewport={{ once: true }}
                                    >
-                                     <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                     <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                        UGC
                                      </h3>
                                       <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
@@ -561,7 +561,7 @@ export default function Page() {
                                      transition={{ duration: 0.5, delay: 0.2 }}
                                      viewport={{ once: true }}
                                    >
-                                     <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                     <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                        #9
                                      </h3>
                                      <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
@@ -1447,7 +1447,7 @@ export default function Page() {
         bottomFaculty={bottomFaculty}
       />
 
-      <ServicesByPAB />
+      <ServicesByRadhya />
 
     <section className="w-full px-4 md:px-10 lg:px-20 py-16">
         {/* TITLE */}

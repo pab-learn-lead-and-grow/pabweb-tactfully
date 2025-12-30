@@ -98,12 +98,12 @@ export default function JobDetails() {
   };
 
   return (
-    <div className="max-w-7xl bg-white mx-auto px-5 md:px-10 py-10">
+    <div className="max-w-7xl bg-white mx-auto px-5 md:px-10 mt-20">
       {/* ===== Top Section ===== */}
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 border-b pb-6">
         <div>
           <p
-            className="text-blue-900 text-xs mb-2 inline-block px-2 py-1 rounded-md"
+            className="text-[#345895] text-xs mb-2 inline-block px-2 py-1 rounded-md"
             style={{
               backgroundColor: "rgba(6, 78, 146, 0.1)",
               border: "1px solid rgba(6, 78, 146, 0.1)",
@@ -119,16 +119,16 @@ export default function JobDetails() {
           </p>
           <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-black">
             <span className="flex items-center gap-2">
-              <Briefcase className="w-4 h-4 text-blue-600" /> Fresher
+              <Briefcase className="w-4 h-4 text-[#345895]" /> Fresher
             </span>
             <span className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-blue-600" /> Full Time
+              <Clock className="w-4 h-4 text-[#345895]" /> Full Time
             </span>
             <span className="flex items-center gap-2">
-              <Wallet className="w-4 h-4 text-blue-600" /> ₹2,40,000–3,00,000
+              <Wallet className="w-4 h-4 text-[#345895]" /> ₹2,40,000–3,00,000
             </span>
             <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-blue-600" /> Indore, Madhya Pradesh
+              <MapPin className="w-4 h-4 text-[#345895]" /> Indore, Madhya Pradesh
             </span>
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function JobDetails() {
           onClick={() =>
             formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
           }
-          className="mt-5 md:mt-0 bg-[#003087] hover:bg-blue-900 text-white px-6 py-2 rounded-lg font-medium transition"
+          className="mt-5 md:mt-0 bg-[#345895] hover:bg-blue-900 text-white px-6 py-2 rounded-lg font-medium transition"
         >
           Apply Job
         </button>
@@ -152,8 +152,8 @@ export default function JobDetails() {
             <h2 className="text-2xl font-semibold text-black mb-3">Job Description</h2>
             <p className="text-black leading-relaxed">
               As an Inside Sales Executive, you'll connect with prospective students,
-              understand their goals, and guide them toward the right PAB program that
-              helps them learn, lead, and grow in their careers.
+              understand their goals, and guide them toward the right Radhya online education program that
+              helps them grow in their careers.
             </p>
           </section>
 
@@ -293,7 +293,7 @@ export default function JobDetails() {
               className={`w-full font-semibold py-2 rounded-lg transition ${
                 loading
                   ? "bg-gray-400 cursor-not-allowed text-white"
-                  : "bg-blue-900 hover:bg-blue-800 text-white"
+                  : "bg-[#345895] hover:bg-blue-800 text-white"
               }`}
             >
               {loading ? "Submitting..." : "Submit"}
@@ -333,7 +333,7 @@ export default function JobDetails() {
               className="border rounded-xl p-6 shadow-sm hover:shadow-md transition"
             >
               <p
-                className="text-blue-900 text-xs mb-2 inline-block px-2 py-1 rounded-md"
+                className="text-[#345895] text-xs mb-2 inline-block px-2 py-1 rounded-md"
                 style={{
                   backgroundColor: "rgba(6, 78, 146, 0.1)",
                   border: "1px solid rgba(6, 78, 146, 0.1)",
@@ -345,21 +345,21 @@ export default function JobDetails() {
               <p className="text-black text-sm mt-2 mb-6">{job.desc}</p>
               <div className="flex flex-wrap items-center gap-4 mt-2 text-black text-sm">
                 <span className="flex items-center gap-2">
-                  <Briefcase className="w-4 h-4 text-blue-600" /> {job.tag}
+                  <Briefcase className="w-4 h-4 text-[#345895]" /> {job.tag}
                 </span>
                 <span className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-blue-600" /> {job.type}
+                  <Clock className="w-4 h-4 text-[#345895]" /> {job.type}
                 </span>
                 <span className="flex items-center gap-2">
-                  <Wallet className="w-4 h-4 text-blue-600" /> {job.salary}
+                  <Wallet className="w-4 h-4 text-[#345895]" /> {job.salary}
                 </span>
                 <span className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-blue-600" /> {job.location}
+                  <MapPin className="w-4 h-4 text-[#345895]" /> {job.location}
                 </span>
               </div>
               <button
                 onClick={() => router.push(job.link)}
-                className="mt-6 bg-[#003087] hover:bg-blue-900 text-white px-4 py-2 rounded-lg font-medium transition"
+                className="mt-6 bg-[#345895] hover:bg-blue-900 text-white px-4 py-2 rounded-lg font-medium transition"
               >
                 Job Details
               </button>

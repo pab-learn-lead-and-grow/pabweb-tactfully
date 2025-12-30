@@ -53,7 +53,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import React from "react";
-import ServicesByPAB from "../NmimsSection/servicesbyPab";
+import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
 import LearningApproach from "../NmimsSection/LearningApproach";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
@@ -62,7 +62,7 @@ import Faculties from "../NmimsSection/Faculties";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
 import Link from "next/link";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -851,10 +851,10 @@ const topicsData = {
                                         viewport={{ once: true }}
                                       >
                                         <h3 className="text-[18px] sm:text-[24px] md:text-[29px] lg:text-[36px] xl:text-[64px] font-bold">
-                                          NAAC A++
+                                           A++
                                         </h3>
                                         <p className="text-[8px]  md:text-[16px] xl:text-[22px]  md:text-sm font-bold opacity-90 leading-tight">
-                                          accredited
+                                           NAAC accreditation
                                         </p>
                                       </motion.div>
                         
@@ -1697,7 +1697,7 @@ const topicsData = {
                 bottomFaculty={bottomFaculty}
               />
    
-         <ServicesByPAB />
+         <ServicesByRadhya />
    
          <section className="w-full px-4 md:px-10 lg:px-20 py-16">
            {/* TITLE */}

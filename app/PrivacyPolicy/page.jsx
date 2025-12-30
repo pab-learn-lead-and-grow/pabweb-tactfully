@@ -1,8 +1,8 @@
-import PrivacyPolicy from "@/components/Pab/PrivacyPolicy";
+import PrivacyPolicy from "@/components/Radhya/PrivacyPolicy";
 
 export const metadata = {
-  title: "Privacy Policy || PAB Learn Lead Grow",
-  description: "Privacy Policy for PAB Learn, Lead & Grow",
+  title: "Privacy Policy || Radhya Education",
+  description: "Privacy Policy for Radhya Education",
 };
 
 export default function privacy(){

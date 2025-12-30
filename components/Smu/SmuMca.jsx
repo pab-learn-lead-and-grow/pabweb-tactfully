@@ -6,31 +6,16 @@ import {
   SplinePointer,
   Speech,
   GlobeLock,
-  Users,
   Check,
-  ChevronsDown,
-  ArrowUpRight,
   ArrowRight,
-  FileClock,
   BookCheck,
   Headset,
-  Plus,
-  CornerDownRight,
-  Route,
   FileUser,
-  Blocks,
-  MessagesSquare,
   ChartNoAxesColumn,
-  Fullscreen,
-  LayoutDashboard,
-  BriefcaseBusiness,
-  Usb,
-  HandCoins,
   Ungroup,
   BookText,
   UserLock,
   StickyNote,
-  ListMinus,
   ArrowUpWideNarrow,
   ContactRound,
   Headphones,
@@ -43,7 +28,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import React from "react";
-import ServicesByPAB from "../NmimsSection/servicesbyPab";
+import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
 import LearningApproach from "../NmimsSection/LearningApproach";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
@@ -51,7 +36,7 @@ import MujCareerServices from "../NmimsSection/MujCareerServices"
 import Faculties from "../NmimsSection/Faculties";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import CourseCurriculumSection from "@/components/NmimsSection/CourseCurriculumSection";
 
 export default function Page() {
@@ -457,7 +442,7 @@ export default function Page() {
                 <Download size={20} />
               </button>
 
-              <button onClick={() => setIsModalOpen(true)} className="bg-green-500 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
+              <button onClick={() => setIsModalOpen(true)} className="bg-[#4d964f] flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
                 Talk to an Expert
                 <ArrowRight size={16} />
               </button>
@@ -527,7 +512,7 @@ export default function Page() {
                           transition={{ duration: 0.5 }}
                           viewport={{ once: true }}
                         >
-                          <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                          <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                             NAAC A+
                           </h3>
                           <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -542,7 +527,7 @@ export default function Page() {
                           transition={{ duration: 0.5, delay: 0.1 }}
                           viewport={{ once: true }}
                         >
-                          <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                          <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                             UGC
                           </h3>
                           <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -557,7 +542,7 @@ export default function Page() {
                           transition={{ duration: 0.5, delay: 0.2 }}
                           viewport={{ once: true }}
                         >
-                          <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                          <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                             Rank 1
                           </h3>
                           <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -1353,7 +1338,7 @@ export default function Page() {
         bottomFaculty={bottomFaculty}
       />
 
-      <ServicesByPAB />
+      <ServicesByRadhya />
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-16">
         {/* TITLE */}

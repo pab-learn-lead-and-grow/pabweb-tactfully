@@ -7,10 +7,10 @@ import CareerServices from "../NmimsSection/CareerServices";
 import Enrollment from "../NmimsSection/Enrollment";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import Faculties from "../NmimsSection/Faculties";
-import ContactSection from "../Pab/ContactSection";
-import UnivCourses from "../Pab/UnivCourses";
+import ContactSection from "../Radhya/ContactSection";
+import UnivCourses from "../Radhya/UnivCourses";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -9,18 +9,12 @@ import {
   Users,
   Check,
   ChevronsDown,
-  ArrowUpRight,
   ArrowRight,
   FileClock,
   BookCheck,
   Headset,
-  Plus,
-  CornerDownRight,
-  Route,
   FileUser,
   Blocks,
-  MessagesSquare,
-  ChartNoAxesColumn,
   Fullscreen,
   LayoutDashboard,
   BriefcaseBusiness,
@@ -30,7 +24,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import React from "react";
-import ServicesByPAB from "../NmimsSection/servicesbyPab";
+import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
 import CareerServices from "../NmimsSection/CareerServices";
 import LearningApproach from "../NmimsSection/LearningApproach";
@@ -38,7 +32,7 @@ import WhyChooseUs from "../NmimsSection/WhyChooseUs";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
 import Faculties from "../NmimsSection/Faculties";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -1312,7 +1306,7 @@ export default function Page() {
                     bottomFaculty={bottomFaculty}
                   />
 
-      <ServicesByPAB />
+      <ServicesByRadhya />
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
   {/* TITLE */}
