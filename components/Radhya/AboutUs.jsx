@@ -56,11 +56,11 @@ export default function WhatSetsUsApart() {
     font-bold leading-none 
     bg-linear-to-r from-[#469D4F] to-[#345895]
     bg-clip-text text-transparent">
-    At PAB
+    At Radhya
     </h2>
     <div className="flex justify-center lg:justify-end">
       <p className="handdrawn-underline text-sm md:text-xl translate:-x-10 text-[#4D964F] italic leading-none mt-2">
-        Learn Lead & Grow.
+        Education.
       </p>
     </div>
 

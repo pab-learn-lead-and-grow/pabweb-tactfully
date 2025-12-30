@@ -2,21 +2,21 @@
 
 import Image from "next/image";
 import React from "react";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import { useState } from "react";
 
 
 const TITLE = "All-in-one space that's got your back, always";
 
 const ITEMS = [
-  { title: "Career Opportunities", image: "/pab/career.png" },
-  { title: "Scholarships & Financial Aid", image: "/pab/scholarship.png" },
-  { title: "Refer & Earn", image: "/pab/refer.png" },
-  { title: "Finance Your Future", image: "/pab/finance.png" },
-  { title: "Post-Admission Support", image: "/pab/support.png" },
-  { title: "University Verification", image: "/pab/verification.png" },
-  { title: "Verify Your Counsellor", image: "/pab/counsellor.png" },
-  { title: "Online Learning Trends", image: "/pab/trends.png" },
+  { title: "Career Opportunities", image: "/Radhya/career.png" },
+  { title: "Scholarships & Financial Aid", image: "/Radhya/scholarship.png" },
+  { title: "Refer & Earn", image: "/Radhya/refer.png" },
+  { title: "Finance Your Future", image: "/Radhya/finance.png" },
+  { title: "Post-Admission Support", image: "/Radhya/support.png" },
+  { title: "University Verification", image: "/Radhya/verification.png" },
+  { title: "Verify Your Counsellor", image: "/Radhya/counsellor.png" },
+  { title: "Online Learning Trends", image: "/Radhya/trends.png" },
 ];
 
 export default function AllInOneSection() {
@@ -45,8 +45,16 @@ export default function AllInOneSection() {
           <button
             type="button"
             onClick={() => setShowForm(true)}
-            className=" px-5 xl:px-10 py-2 rounded-lg bg-[#4D964F] text-white text-xl font-semibold shadow-md hover:shadow-lg transition duration-200"
-          >
+             className="
+      px-5 xl:px-10 py-2
+      rounded-lg
+      bg-[#4D964F]
+      text-white text-xl font-semibold
+      shadow-md
+      transition-all duration-300 ease-out
+      hover:scale-105 hover:shadow-xl
+      active:scale-100
+    ">
             Unlock the Whole Experience
           </button>
         </div>

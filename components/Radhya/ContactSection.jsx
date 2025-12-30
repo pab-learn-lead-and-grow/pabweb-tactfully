@@ -72,7 +72,7 @@ export default function ContactSection() {
           <br /> We Promise That
         </h2>
 
-        <p className="text-black mx-2 font-regular">PAB Learn Lead and Grow</p>
+        <p className="text-black mx-2 font-regular">Radhya Education</p>
 
         {/* FIXED: ALWAYS 2×2 GRID */}
         <div className="grid grid-cols-2 mx-2 gap-8 mt-8">
@@ -84,7 +84,7 @@ export default function ContactSection() {
             <a
               href="tel:+917489410758"
               className="text-black text-sm hover:text-[#345895] underline"
-              aria-label="Call PAB Learn Lead Grow"
+              aria-label="Call Radhya Education"
             >
               +91 7489410758
             </a>
@@ -214,7 +214,10 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#345895] text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
+            className="w-full bg-[#345895] text-white font-semibold py-2 rounded-lg hover:bg-blue-700  shadow-md
+      transition-all duration-300 ease-out
+      hover:scale-105 hover:shadow-xl
+      active:scale-100"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>

@@ -14,7 +14,7 @@ export default function FAQSection() {
     },
     {
       question: "How do I choose the right specialisation for my career?",
-      answer: "At PAB, we use our Learn-Lead-Grow model to map your work experience, strengths, and industry trends. Based on your goals — promotion, career switch, or upskilling — we guide you toward the specialisation with the best long-term ROI."
+      answer: "At Radhya Education, we use our Learn-Lead-Grow model to map your work experience, strengths, and industry trends. Based on your goals — promotion, career switch, or upskilling — we guide you toward the specialisation with the best long-term ROI."
     },
     {
       question: "Can I manage an Online MBA with a full-time job?",
@@ -22,7 +22,7 @@ export default function FAQSection() {
     },
     {
       question: "What kind of career support will I receive?",
-      answer: "You'll get access to university career services, resume reviews, interview prep, and hiring partners. PAB also provides personalised counsellor guidance to help you understand your ROI journey and make confident career decisions."
+      answer: "You'll get access to university career services, resume reviews, interview prep, and hiring partners. Radhya education also provides personalised counsellor guidance to help you understand your ROI journey and make confident career decisions."
     }
   ];
 

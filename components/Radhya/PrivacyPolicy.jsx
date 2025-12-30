@@ -9,8 +9,8 @@ export default function PrivacyPolicyPage() {
         <header className="pt-10">
           <div className="max-w-4xl mx-auto text-center px-4">
             <Image
-              src="/pablogo.png"
-              alt="PAB Learn Lead Grow"
+              src="/radhyalogo.png"
+              alt="Radhya Education"
               width={220}
               height={150}
               className="mx-auto mb-4 object-contain"

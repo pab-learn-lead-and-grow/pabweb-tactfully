@@ -155,7 +155,7 @@ export default function CounsellingForm({ onClose }) {
               </div>
 
               {/* Email and Phone Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 min-w-0">
                 {/* Email */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-1 text-sm">
@@ -196,8 +196,10 @@ export default function CounsellingForm({ onClose }) {
                       name="phoneCode"
                       value={formData.phoneCode}
                       onChange={handleChange}
-                      className="bg-gray-50 px-2 py-2.5 text-gray-700 text-sm outline-none border-r border-gray-300 min-w-[60px]"
-                    >
+                      className="bg-gray-50 px-2 py-2.5 text-gray-700 text-sm outline-none
+                      border-r border-gray-300 min-w-14 flex-none
+             appearance-none"
+             >
                       {countryCodes.map((c) => (
                         <option key={c.code} value={c.code}>
                           {c.code}
@@ -221,7 +223,7 @@ export default function CounsellingForm({ onClose }) {
               </div>
 
               {/* University and Course Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 min-w-0">
                 {/* University */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2 text-sm">
@@ -257,7 +259,7 @@ export default function CounsellingForm({ onClose }) {
                     name="course"
                     value={formData.course}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none overflow-y-auto text-sm"
+                    className="w-full border min-w-0 border-gray-300 rounded-lg px-4 py-2.5 bg-white text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none overflow-y-auto text-sm"
                     style={{ maxHeight: '200px' }}
                   >
                     <option value="">Select Course</option>

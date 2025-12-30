@@ -737,13 +737,19 @@ function ProgramCard({ program, onDive, onDownload }) {
         <div className="mt-2 flex items-center gap-3 flex-nowrap">
           <button
             onClick={onDive}
-            className="text-sm px-3 py-1.5 rounded-xl bg-[#4D964F] text-white font-medium shadow-sm hover:shadow-md whitespace-nowrap"
+            className="text-sm px-3 py-1.5 rounded-xl bg-[#4D964F] text-white font-medium  shadow-md
+      transition-all duration-300 ease-out
+      hover:scale-105 hover:shadow-xl
+      active:scale-100 whitespace-nowrap"
           >
             Dive Deeper
           </button>
           <button
             onClick={onDownload}
-            className="text-sm px-3 py-1.5 rounded-xl bg-[#345895] text-white font-medium shadow-sm hover:shadow-md whitespace-nowrap"
+            className="text-sm px-3 py-1.5 rounded-xl bg-[#345895] text-white font-medium  shadow-md
+      transition-all duration-300 ease-out
+      hover:scale-105 hover:shadow-xl
+      active:scale-100 whitespace-nowrap"
           >
             Download Brochure
           </button>

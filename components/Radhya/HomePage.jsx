@@ -90,35 +90,35 @@ export default function HomePage() {
       id: 1,
       name: "Rohan Mehta",
       title: "Marketing Manager, TechNova Pvt. Ltd.",
-      text: "The counselling session from PAB helped me realise which specialisation actually fits my career goals. I joined the NMIMS Online MBA in Marketing and could immediately apply what I learned to my work. It's flexible, practical, and truly growth-focused.",
+      text: "The counselling session from Radhya education helped me realise which specialisation actually fits my career goals. I joined the NMIMS Online MBA in Marketing and could immediately apply what I learned to my work. It's flexible, practical, and truly growth-focused.",
       rating: 5,
     },
     {
       id: 2,
       name: "Priya Nayar",
       title: "Business Analyst, Infosync Analytics",
-      text: "As a working professional with a full-time job, I never thought I could manage an MBA. PAB made the process simple, from selecting the university to scheduling sessions. The ROI guidance was a game-changer — it felt like a career investment, not just education.",
+      text: "As a working professional with a full-time job, I never thought I could manage an MBA. Radhya education made the process simple, from selecting the university to scheduling sessions. The ROI guidance was a game-changer — it felt like a career investment, not just education.",
       rating: 5,
     },
     {
       id: 3,
       name: "Arjun Kapoor",
       title: "Operations Lead, WareConnect India",
-      text: "What I liked most about PAB was their honest approach — no hard selling, just clear insights about what would work for my profile. The Learn–Lead–Grow structure made me see how each skill ties to real outcomes.",
+      text: "What I liked most about Radhya education was their honest approach — no hard selling, just clear insights about what would work for my profile. The Learn–Lead–Grow structure made me see how each skill ties to real outcomes.",
       rating: 5,
     },
     {
       id: 4,
       name: "Sneha Reddy",
       title: "HR Specialist, PeopleFirst Consulting",
-      text: "The mentorship from PAB gave me the clarity I needed. I didn't just pick an MBA program; I understood how it would impact my career ROI. Within months, I started seeing improvements at work.",
+      text: "The mentorship from Radhya education gave me the clarity I needed. I didn't just pick an MBA program; I understood how it would impact my career ROI. Within months, I started seeing improvements at work.",
       rating: 5,
     },
     {
       id: 5,
       name: "Vivek Joshi",
       title: "Finance Executive, Axis Bank",
-      text: "I've seen many education platforms, but PAB stands out for one reason — they understand working professionals. Everything, from the call with the counsellor to the study guidance, felt designed for my schedule.",
+      text: "I've seen many education platforms, but Radhya education stands out for one reason — they understand working professionals. Everything, from the call with the counsellor to the study guidance, felt designed for my schedule.",
       rating: 5,
     },
 
@@ -126,14 +126,14 @@ export default function HomePage() {
       id: 6,
       name: "Divya Sharma",
       title: "Digital Strategist, Creatify Media",
-      text: "Choosing the NMIMS Online MBA through PAB was one of my best career decisions. The counsellor helped me choose the right specialisation, and the guidance on practical application made all the difference.",
+      text: "Choosing the NMIMS Online MBA through Radhya education was one of my best career decisions. The counsellor helped me choose the right specialisation, and the guidance on practical application made all the difference.",
       rating: 4,
     },
     {
       id: 7,
-      name: "Divya Sharma",
-      title: "Digital Strategist, Creatify Media",
-      text: "Choosing the NMIMS Online MBA through PAB was one of my best career decisions. The counsellor helped me choose the right specialisation, and the guidance on practical application made all the difference.",
+      name: "Kirti Jain",
+      title: "Business Development Associate, Webkul",
+      text: "Choosing the Amity Online MBA through Radhya education was one of my best career decisions. This course helped me choose the right career path, and the guidance on practical application made all the difference.",
       rating: 4,
     },
   ];
@@ -194,7 +194,10 @@ export default function HomePage() {
             <div className="flex lg:justify-end">
               <button
                 onClick={() => setShowAllBlogs((prev) => !prev)}
-                className="bg-[#345895] hover:bg-blue-800 text-white px-4 text-xs md:text-[16px] md:px-7 py-1 -mt-2 rounded-full font-medium transition-colors duration-200"
+                className="bg-[#345895] hover:bg-blue-800 text-white px-4 text-xs md:text-[16px] md:px-7 py-1 -mt-2 rounded-full font-medium  shadow-md
+      transition-all duration-300 ease-out
+      hover:scale-105 hover:shadow-xl
+      active:scale-100"
               >
                 {showAllBlogs ? "Show Less" : "View All"}
               </button>

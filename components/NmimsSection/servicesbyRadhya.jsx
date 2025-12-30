@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 
-export default function ServicesByPAB() {
-  const servicesPab = [
+export default function ServicesByRadhya() {
+  const servicesRadhya = [
     {
       num: "01",
       title: "1-1 career coaching",
@@ -43,7 +43,7 @@ export default function ServicesByPAB() {
             transition={{ duration: 0.4 }}
             className="text-[#345895] text-[36px] lg:text-[64px] md:text-[48px] font-bold font-[Inter] leading-10 whitespace-nowrap"
           >
-            Services by PAB
+            Services by Radhya
           </motion.h2>
 
           {/* Horizontal line */}
@@ -56,7 +56,7 @@ export default function ServicesByPAB() {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="text-[#345895]/65 text-sm md:text-[36px] font-semibold italic leading-relaxed"
         >
-          Learn Lead & Grow
+          Education
         </motion.p>
 
         <motion.p
@@ -75,7 +75,7 @@ export default function ServicesByPAB() {
         {/* INNER GRID */}
         <div className=" mt-10 p-4 md:p-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {servicesPab.map((item, index) => (
+            {servicesRadhya.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

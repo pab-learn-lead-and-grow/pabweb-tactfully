@@ -8,10 +8,10 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
   const links = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about-pab" },
+    { name: "About Us", href: "/about-radhya" },
     { name: "Careers", href: "/Career" },
     { name: "Blogs", href: "/#blogs" },
-    { name: "Contact Us", href: "/contact-page-pab" },
+    { name: "Contact Us", href: "/contact-page-radhya" },
     { name: "Gallery", href: "/#" },
   ];
 
@@ -92,18 +92,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6  border-t-2 border-b-2">
           {/* --- Left Section (Logo, Social, Address) --- */}
           <div className="col-span-2">
-            <div className="col-span-2 flex justify-start items-start text-left pt-5 -mx-4 mb-5">
+            <div className="col-span-2 flex justify-start items-start mt-10 mb-10 text-left">
               <Image
-                src="/pablogo.png"
-                alt="PAB Logo"
-                width={220}
-                height={150}
-                 className="
-                 w-40
-                 lg:w-45
-                 xl:w-55
-                 h-auto
-                 "
+                src="/radhyaLogo.png"
+                alt="Radhya Logo"
+                width={250}
+                height={60}
+                className="
+                block
+                w-40
+                lg:w-45
+                xl:w-85
+                h-auto
+                "
               />
             </div>
 
@@ -113,27 +114,27 @@ export default function Footer() {
                 {
                   src: "/ig.png",
                   alt: "Instagram",
-                  href: "https://www.instagram.com/pablearnleadandgrow?igsh=MWd3Y29uY2t3ejRmZw%3D%3D&utm_source=qr",
+                  href: "https://www.instagram.com/",
                 },
                 {
                   src: "/ln.png",
                   alt: "LinkedIn",
-                  href: "https://www.linkedin.com/company/learn-lead-grow-private-limited/ ",
+                  href: "https://www.linkedin.com/ ",
                 },
                 {
                   src: "/x.png",
                   alt: "X (Twitter)",
-                  href: "https://twitter.com/yourusername",
+                  href: "https://twitter.com/",
                 },
                 {
                   src: "/yt.png",
                   alt: "YouTube",
-                  href: "http://www.youtube.com/@LearnLeadandGrow",
+                  href: "http://www.youtube.com/",
                 },
                 {
                   src: "/fb.png",
                   alt: "Facebook",
-                  href: "https://www.facebook.com/people/PAB-Learn-Lead-and-Grow/61583247424810/ ",
+                  href: "https://www.facebook.com/ ",
                 },
               ].map((icon, i) => (
                 <a
@@ -158,17 +159,16 @@ export default function Footer() {
             {/* Address Section */}
             <div className="text-xs md:text-sm text-black leading-relaxed">
               <p className="font-semibold">Address:</p>
-              <p className="mt-1">PAB Learn, Lead & Grow Pvt. Ltd.</p>
+              <p className="mt-1">Radhya Education Pvt. Ltd.</p>
               <p>Indore, Madhya Pradesh, India</p>
-
               <a
                 href="tel:+917489410758"
                 className="text-black text-xs md:text-sm hover:text-[#345895] underline"
-                aria-label="Call PAB Learn Lead Grow"
+                aria-label="Call Radhya Education"
               >
                 +91 7489410758
-              </a>
-              <br />
+              </a>{" "}
+              ||{" "}
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=uttam15vp@gmail.com"
                 target="_blank"
@@ -264,7 +264,10 @@ export default function Footer() {
                 <button
                   onClick={handleSubscribe}
                   disabled={loading}
-                  className="bg-[#003087] text-white rounded-md py-2 text-[11px] md:text-xs hover:bg-[#00246e] transition disabled:opacity-60"
+                  className="bg-[#345895] text-white rounded-md py-2 text-[11px] md:text-xs hover:bg-[#00246e]  shadow-md
+      transition-all duration-300 ease-out
+      hover:scale-105 hover:shadow-xl
+      active:scale-100 disabled:opacity-60"
                 >
                   {loading ? "Subscribing..." : "Subscribe now"}
                 </button>
@@ -281,7 +284,7 @@ export default function Footer() {
         {/* --- Bottom Bar --- */}
         <div className="flex flex-col md:flex-row items-center justify-between text-[11px] md:text-xs text-black mt-3">
           <p className="text-center md:text-left">
-            © 2025 PAB Learn, Lead & Grow Pvt. Ltd.
+            © 2025 Radhya Education Pvt. Ltd.
           </p>
           <div className="flex space-x-4 mt-2 md:mt-0">
             <a href="/PrivacyPolicy" className="hover:text-blue-900">

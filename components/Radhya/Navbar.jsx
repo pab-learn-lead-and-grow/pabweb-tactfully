@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
 import CounsellingForm from "./CounsellingForm.jsx";
 import { createSupabaseClient } from "@/lib/supabaseClient";
+import { useRef } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +50,9 @@ export default function Navbar() {
       setMoreOpen(false);
     }
   }, [searchParams]);
+
+  const mobileMenuRef = useRef(null);
+
 
   const CATEGORY_SLUG_MAP = {
     "online-mba": "Online MBA",
@@ -135,11 +139,30 @@ export default function Navbar() {
     }, 0);
   };
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    setUser(null);
-    router.push("/login");
+//Closes mobile dropdown when clicked outside menu
+  useEffect(() => {
+  if (!isOpen) return;
+
+  const handleClickOutside = (event) => {
+    if (
+      mobileMenuRef.current &&
+      !mobileMenuRef.current.contains(event.target)
+    ) {
+      handleMobileCloseAll();
+    }
   };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  document.addEventListener("touchstart", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+    document.removeEventListener("touchstart", handleClickOutside);
+  };
+}, [isOpen]);
+
+
+ 
 
   const handleProgramAction = (program) => {
     // Open counselling ONLY for amity certificates
@@ -889,39 +912,53 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-0 left-0 right-0  md:px-9 z-50">
-      <nav className="w-full xl:w-[90%] mx-auto h-[72px] bg-white backdrop-blur-2xl rounded-4xl shadow-sm border border-white/20">
+      <nav className="w-full xl:w-[90%] mx-auto h-15 lg:h-18 xl:h-22 bg-white backdrop-blur-2xl rounded-4xl shadow-sm border border-white/20">
         <div className="w-full mx-auto flex items-center justify-between h-full px-4 md:px-8">
           <div className="flex items-center gap-4">
             <a href="/" className="block">
               <Image
-                src="/pablogo.png"
-                alt="PAB Logo"
-                width={80}
+                src="/radhyaLogo.png"
+                alt="Radhya Logo"
+                width={220}
                 height={60}
                 priority
+                className="w-35 lg:w-45 xl:w-50"
               />
             </a>
 
             {/* Explore Program (desktop) */}
-            <div className="relative hidden md:block">
+            <div className="relative hidden xl:block">
               <button
-                onClick={() => {
-                  setExploreOpen((v) => !v);
-                  setTopUnivOpen(false);
-                  setMoreOpen(false);
-                }}
-                className="flex items-center gap-2 bg-[#345895] text-white px-3 py-2 rounded-lg shadow-sm text-xs lg:text-sm xl:text-base font-semibold"
-                aria-expanded={exploreOpen}
-              >
-                Explore Program
-                <ChevronDown size={20} strokeWidth={3} />
-              </button>
+  onClick={() => {
+    setExploreOpen((v) => !v);
+    setTopUnivOpen(false);
+    setMoreOpen(false);
+  }}
+  aria-expanded={exploreOpen}
+  className="
+    relative overflow-visible
+    flex items-center gap-2
+    text-xs lg:text-sm xl:text-base
+    text-gray-800
+    px-3 py-2
+    rounded-md
+    font-medium
+    hover:bg-white/30
+  "
+>
+  {/* BUTTON TEXT */}
+  <span className="relative z-10 flex items-center gap-2">
+    Explore Program
+    <ChevronDown size={24} strokeWidth={1} />
+  </span>
+</button>
+
 
               {exploreOpen && (
                 <>
                   <div
                     onClick={() => setExploreOpen(false)}
-                    className="fixed inset-0 bg-black/30 z-40 md:block hidden"
+                    className="fixed inset-0 bg-black/30 z-40 xl:block hidden"
                     aria-hidden="true"
                   />
 
@@ -1086,7 +1123,7 @@ export default function Navbar() {
             </div>
 
             {/* Top Universities (desktop) */}
-            <div className="relative hidden md:block">
+            <div className="relative hidden xl:block">
               <button
                 onClick={() => {
                   setTopUnivOpen((v) => {
@@ -1096,7 +1133,7 @@ export default function Navbar() {
                   setExploreOpen(false);
                   setMoreOpen(false);
                 }}
-                className="flex items-center gap-2 text-xs lg:text-sm xl:text-base text-gray-800 px-3 py-2 rounded-md hover:bg-white/30 font-medium"
+                className="flex items-center gap-2 text-xs lg:text-sm xl:text-base text-gray-800 py-2 rounded-md hover:bg-white/30 font-medium"
                 aria-expanded={topUnivOpen}
               >
                 Top Universities
@@ -1110,7 +1147,7 @@ export default function Navbar() {
                       setTopUnivOpen(false);
                       clearCategoryFromUrl(); // ✅ remove ?category
                     }}
-                    className="fixed inset-0 bg-black/30 z-40 md:block hidden"
+                    className="fixed inset-0 bg-black/30 z-40 xl:block hidden"
                   />
 
                   <div
@@ -1214,9 +1251,9 @@ export default function Navbar() {
           <div className="flex-1" />
 
           <div className="flex items-center gap-3">
-            <div className="hidden md:flex items-center gap-3 text-xs lg:text-sm xl:text-base text-gray-800">
+            <div className="hidden xl:flex items-center gap-3 text-xs lg:text-sm xl:text-base text-gray-800">
               <Link
-                href="/#knowledge"
+                href="/#blogs"
                 className="hover:text-blue-900 font-medium scroll-true"
               >
                 Blogs
@@ -1249,7 +1286,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       className="block py-2 px-3 rounded hover:bg-gray-100"
-                      href="/contact-page-pab"
+                      href="/contact-page-radhya"
                     >
                       Contact us
                     </Link>
@@ -1261,7 +1298,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       className="block py-2 px-3 rounded hover:bg-gray-100"
-                      href="/about-pab"
+                      href="/about-radhya"
                     >
                       About us
                     </Link>
@@ -1270,32 +1307,17 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="hidden sm:flex items-center gap-2">
+            <div className="hidden xl:flex items-center gap-2">
               <button
                 onClick={() => setShowForm(true)}
-                className="bg-[#4D964F] text-white px-3 py-2 rounded-lg text-xs lg:text-sm xl:text-base font-medium shadow"
+                className="bg-[#4D964F] text-white px-2 py-2 rounded-lg text-xs lg:text-sm font-medium  shadow-md
+                 transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl animate-soft-blink active:scale-100"
               >
                 Personalized Counselling
               </button>
-
-              {!user ? (
-                <button
-                  onClick={() => router.push("/login")}
-                  className="bg-[#345895] text-white px-4 py-2 rounded-lg text-xs lg:text-sm xl:text-base font-medium shadow"
-                >
-                  Sign Up
-                </button>
-              ) : (
-                <button
-                  onClick={handleLogout}
-                  className="bg-red-600 text-white px-4 py-2 rounded-full text-xs lg:text-sm xl:text-base font-medium shadow"
-                >
-                  Logout
-                </button>
-              )}
             </div>
 
-            <div className="md:hidden flex items-center">
+            <div className="xl:hidden flex items-center">
               <button
                 onClick={() => {
                   setIsOpen((v) => !v);
@@ -1312,10 +1334,12 @@ export default function Navbar() {
 
         {/* MOBILE DROPDOWN (mobile-scoped behavior + improved responsive cards) */}
         <div
-          className={`md:hidden ${
-            isOpen ? "block" : "hidden"
-          } bg-white/95 border-t border-gray-100 shadow-md`}
-        >
+  ref={mobileMenuRef}
+  className={`xl:hidden ${
+    isOpen ? "block" : "hidden"
+  } bg-white/95 border-t border-gray-100 shadow-md`}
+>
+
           <div className=" mx-auto px-4 py-4">
             <div className="flex flex-col gap-3">
               {/* Mobile: Explore */}
@@ -1530,7 +1554,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
-                      href="/contact-page-pab"
+                      href="/contact-page-radhya"
                       onClick={() => {
                         handleLinkClick();
                         handleMobileCloseAll();
@@ -1550,7 +1574,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
-                      href="/about-pab"
+                      href="/about-radhya"
                       onClick={() => {
                         handleLinkClick();
                         handleMobileCloseAll();
@@ -1570,30 +1594,8 @@ export default function Navbar() {
                   }}
                   className="flex-1 text-center py-2 rounded bg-[#4D964F] text-white"
                 >
-                  Counselling
+                  Personalized Counselling
                 </button>
-
-                {!user ? (
-                  <button
-                    onClick={() => {
-                      router.push("/login");
-                      handleMobileCloseAll();
-                    }}
-                    className="flex-1 text-center py-2 rounded bg-[#345895] text-white"
-                  >
-                    Sign Up
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => {
-                      handleLogout();
-                      handleMobileCloseAll();
-                    }}
-                    className="flex-1 text-center py-2 rounded-full bg-red-600 text-white"
-                  >
-                    Logout
-                  </button>
-                )}
               </div>
             </div>
           </div>

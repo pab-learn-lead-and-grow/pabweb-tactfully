@@ -6,31 +6,16 @@ import {
   SplinePointer,
   Speech,
   GlobeLock,
-  Users,
   Check,
-  ChevronsDown,
-  ArrowUpRight,
   ArrowRight,
-  FileClock,
   BookCheck,
   Headset,
-  Plus,
-  CornerDownRight,
-  Route,
   FileUser,
-  Blocks,
-  MessagesSquare,
   ChartNoAxesColumn,
-  Fullscreen,
-  LayoutDashboard,
-  BriefcaseBusiness,
-  Usb,
-  HandCoins,
   Ungroup,
   BookText,
   UserLock,
   StickyNote,
-  ListMinus,
   ArrowUpWideNarrow,
   ContactRound,
   Headphones,
@@ -44,14 +29,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import React from "react";
 import MujCareerServices from "../NmimsSection/MujCareerServices"
-import ServicesByPAB from "../NmimsSection/servicesbyPab";
+import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
 import LearningApproach from "../NmimsSection/LearningApproach";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
 import Faculties from "../NmimsSection/Faculties";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
-import CounsellingForm from "@/components/Pab/CounsellingForm";
+import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import CourseCurriculumSection from "@/components/NmimsSection/CourseCurriculumSection";
 
 export default function Page() {
@@ -357,7 +342,7 @@ export default function Page() {
             viewport={{ once: true }}
             className="flex"
           >
-            <div className="bg-white rounded-r-xl shadow-md h-[100px] -mb-5 px-2 flex items-center">
+            <div className="bg-white rounded-r-xl shadow-md h-25 -mb-5 px-2 flex items-center">
               <Image
                 src="/smu.png"
                 alt="sikkim manipal Logo"
@@ -427,9 +412,9 @@ export default function Page() {
                 <div
                   key={idx}
                   className={`text-center py-6 
-  ${idx % 2 === 0 ? "md:border-r-2 md:border-white" : ""} 
-  ${idx !== stats.length - 1 ? "lg:border-r-2 lg:border-white" : ""}
-`}
+                  ${idx % 2 === 0 ? "md:border-r-2 md:border-white" : ""} 
+                 ${idx !== stats.length - 1 ? "lg:border-r-2 lg:border-white" : ""}
+                  `}
                 >
                   <p className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-white mb-1">
                     {stat.value}
@@ -454,7 +439,7 @@ export default function Page() {
                 <Download size={20} />
               </button>
 
-              <button onClick={() => setIsModalOpen(true)} className="bg-green-500 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
+              <button onClick={() => setIsModalOpen(true)} className="bg-[#4d964f] flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
                 Talk to an Expert
                 <ArrowRight size={16} />
               </button>
@@ -524,7 +509,7 @@ export default function Page() {
                             transition={{ duration: 0.5 }}
                             viewport={{ once: true }}
                           >
-                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                               NAAC A+
                             </h3>
                             <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -539,7 +524,7 @@ export default function Page() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             viewport={{ once: true }}
                           >
-                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                               UGC
                             </h3>
                             <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -554,7 +539,7 @@ export default function Page() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             viewport={{ once: true }}
                           >
-                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                               Rank 1
                             </h3>
                             <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -1325,7 +1310,7 @@ export default function Page() {
 
               <div>
                 <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
-                 Flexible, 100% Online Learning that Fits Your Schedule
+                 Flexible, 100% Online Learning that Fits You
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
                   Study from anywhere at your own pace — all lectures, assignments, and exams are delivered through a full online platform. This makes the program ideal if you are working, managing personal commitments, or located far from a campus.
@@ -1334,49 +1319,6 @@ export default function Page() {
             </motion.div>
 
             {/* Item 2 */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex gap-6"
-            >
-              <div
-                className="
-             shrink-0
-             w-18 h-18
-             md:w-14 md:h-14
-             lg:w-18 lg:h-18 
-             bg-[#345895]
-             rounded-full
-             flex items-center justify-center
-           "
-              >
-                <GlobeLock
-                  strokeWidth={1.0}
-                  className="
-                 text-white
-                 w-8 h-8
-                 md:w-8 md:h-8
-                 lg:w-9 lg:h-9
-               "
-                />
-              </div>
-
-              <div>
-                <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
-                 Strong Foundation in Humanities & Social Sciences
-                </h3>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
-                 The curriculum covers core disciplines like English Literature, Political Science, and Sociology — giving you critical thinking, communication, analytical, and societal-awareness skills useful for diverse career paths.
-                 </p>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* RIGHT COLUMN */}
-          <div className="flex flex-col gap-12">
-            {/* Item 3 */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -1415,8 +1357,12 @@ export default function Page() {
               </p>
               </div>
             </motion.div>
+            
+          </div>
 
-            {/* Item 4 */}
+          {/* RIGHT COLUMN */}
+          <div className="flex flex-col gap-12">
+            {/* Item 3 */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -1453,6 +1399,47 @@ export default function Page() {
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
                 Graduates can pursue further education, or explore roles across sectors — journalism, content writing, public administration, social research, media, education, civil services, and more — thanks to the program’s interdisciplinary exposure.
                 </p>
+              </div>
+            </motion.div>
+            
+
+            {/* Item 4 */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="flex gap-6"
+            >
+              <div
+                className="
+             shrink-0
+             w-18 h-18
+             md:w-14 md:h-14
+             lg:w-18 lg:h-18 
+             bg-[#345895]
+             rounded-full
+             flex items-center justify-center
+           "
+              >
+                <GlobeLock
+                  strokeWidth={1.0}
+                  className="
+                 text-white
+                 w-8 h-8
+                 md:w-8 md:h-8
+                 lg:w-9 lg:h-9
+               "
+                />
+              </div>
+
+              <div>
+                <h3 className="text-black text-lg md:text-xl font-extrabold mb-2">
+                 Strong Foundation in Humanities & Social Sciences
+                </h3>
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+                 The curriculum covers core disciplines like English Literature, Political Science, and Sociology — giving you critical thinking, communication, analytical, and societal-awareness skills useful for diverse career paths.
+                 </p>
               </div>
             </motion.div>
           </div>
@@ -1579,7 +1566,7 @@ export default function Page() {
         bottomFaculty={bottomFaculty}
       />
 
-      <ServicesByPAB />
+      <ServicesByRadhya />
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-16">
         {/* TITLE */}
