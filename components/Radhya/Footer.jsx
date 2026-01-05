@@ -86,13 +86,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-white p-5 flex lg:min-h-[50vh] min-h-auto items-center">
+    <footer className="w-full bg-white p-5 flex min-h-[90vh] xl:min-h-[50vh]
+ items-center">
       <div className="mx-auto w-full max-w-7xl">
         {/* --- Main Section --- */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6  border-t-2 border-b-2">
           {/* --- Left Section (Logo, Social, Address) --- */}
           <div className="col-span-2">
             <div className="col-span-2 flex justify-start items-start mt-10 mb-10 text-left">
+              <a href="/" className="block">  
               <Image
                 src="/radhyaLogo.png"
                 alt="Radhya Logo"
@@ -101,11 +103,12 @@ export default function Footer() {
                 className="
                 block
                 w-40
-                lg:w-45
-                xl:w-85
+                lg:w-[180px]
+                xl:w-[250px]
                 h-auto
                 "
               />
+              </a>
             </div>
 
             {/* Social Icons */}
@@ -114,7 +117,7 @@ export default function Footer() {
                 {
                   src: "/ig.png",
                   alt: "Instagram",
-                  href: "https://www.instagram.com/",
+                  href: "https://www.instagram.com/radhyaeducationacademy/",
                 },
                 {
                   src: "/ln.png",
@@ -124,17 +127,17 @@ export default function Footer() {
                 {
                   src: "/x.png",
                   alt: "X (Twitter)",
-                  href: "https://twitter.com/",
+                  href: "https://x.com/radhya_REA",
                 },
                 {
                   src: "/yt.png",
                   alt: "YouTube",
-                  href: "http://www.youtube.com/",
+                  href: "https://youtube.com/@radhyaeducationacademy",
                 },
                 {
                   src: "/fb.png",
                   alt: "Facebook",
-                  href: "https://www.facebook.com/ ",
+                  href: " https://www.facebook.com/profile.php?id=61586054062267 ",
                 },
               ].map((icon, i) => (
                 <a
@@ -160,11 +163,11 @@ export default function Footer() {
             <div className="text-xs md:text-sm text-black leading-relaxed">
               <p className="font-semibold">Address:</p>
               <p className="mt-1">Radhya Education Pvt. Ltd.</p>
-              <p>Indore, Madhya Pradesh, India</p>
+              <p>Gwalior, Madhya Pradesh, India</p>
               <a
                 href="tel:+917489410758"
                 className="text-black text-xs md:text-sm hover:text-[#345895] underline"
-                aria-label="Call Radhya Education"
+                aria-label="Call Radhya Education Academy"
               >
                 +91 7489410758
               </a>{" "}
@@ -264,9 +267,9 @@ export default function Footer() {
                 <button
                   onClick={handleSubscribe}
                   disabled={loading}
-                  className="bg-[#345895] text-white rounded-md py-2 text-[11px] md:text-xs hover:bg-[#00246e]  shadow-md
+                  className="bg-[#345895] text-white rounded-md py-2 text-[11px] md:text-xs bg-linear-to-r from-[#345895] to-[#142138] border-0 border-transparent shadow-[#020b34] transform  shadow-md
       transition-all duration-300 ease-out
-      hover:scale-105 hover:shadow-xl
+      hover:scale-105 hover:shadow-lg
       active:scale-100 disabled:opacity-60"
                 >
                   {loading ? "Subscribing..." : "Subscribe now"}
@@ -282,16 +285,23 @@ export default function Footer() {
         </div>
 
         {/* --- Bottom Bar --- */}
-        <div className="flex flex-col md:flex-row items-center justify-between text-[11px] md:text-xs text-black mt-3">
-          <p className="text-center md:text-left">
-            © 2025 Radhya Education Pvt. Ltd.
+        <div className="items-center justify-between text-[11px] md:text-xs text-black mt-3">
+          <p><b>Disclaimer: </b>Radhya Education Academy is an information and counselling platform owned and operated by Radhya Education Academy Private Limited. We are not a university or degree-granting institution. All course and university information provided on this website is sourced from official and publicly available platforms and may change without prior notice. Users are advised to verify details directly with the respective university before making any decision. We do not guarantee admission, placement, or outcomes and are not liable for any decision taken based on the information provided on this platform.</p>
+        </div>
+        <div className=" flex flex-col md:flex-row items-center justify-between text-[11px] md:text-xs text-black mt-3">
+           <p className="text-center md:text-left">
+            © 2026 Radhya Education Academy Pvt. Ltd.
           </p>
-          <div className="flex space-x-4 mt-2 md:mt-0">
+          <div className="flex space-x-2 mt-2 md:mt-0">
+           
             <a href="/PrivacyPolicy" className="hover:text-blue-900">
-              Privacy Policy
+              Privacy Policy {""}||
             </a>
+              <Link href="/disclaimer" className="hover:text-blue-900">
+              Disclaimer {""}||
+            </Link>
             <a href="/TermsAndCondition" className="hover:text-blue-900">
-              Terms & Conditions
+            Terms & Conditions
             </a>
           </div>
         </div>

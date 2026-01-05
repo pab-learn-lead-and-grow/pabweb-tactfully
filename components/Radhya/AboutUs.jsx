@@ -19,8 +19,8 @@ export default function WhatSetsUsApart() {
       img: "/aboutUs/setApart2.png",
     },
     {
-      title: "Growth-first online learning",
-      desc: "Guidance to choose online programs that deliver real results, not just another certificate.",
+      title: "Growth-first learning",
+      desc: "Guidance to choose online and offline programs that deliver real results, not just another certificate.",
       tags: ["Growth", "Outcomes", "Opportunity"],
       img: "/aboutUs/setApart3.png",
     },
@@ -60,7 +60,7 @@ export default function WhatSetsUsApart() {
     </h2>
     <div className="flex justify-center lg:justify-end">
       <p className="handdrawn-underline text-sm md:text-xl translate:-x-10 text-[#4D964F] italic leading-none mt-2">
-        Education.
+        Education Academy.
       </p>
     </div>
 
@@ -148,7 +148,7 @@ export default function WhatSetsUsApart() {
           </h3>
 
           <p className="text-sm leading-relaxed lg:pr-[35%] xl:pr-[55%] opacity-90">
-            In a world full of online courses, we stand out by making learning
+            In a world full of online and offline education opportunities, we stand out by making learning
             personal, practical, and aligned with real goals. We guide
             individuals to choose programs that genuinely support their
             ambitions, rather than generic options.
@@ -197,7 +197,7 @@ export default function WhatSetsUsApart() {
         </h3>
 
         <p className="text-sm leading-relaxed opacity-95">
-          We don,t sell courses or push universities. We understand careers and
+          We don't sell courses or push universities. We understand careers and
           guide learners toward informed decisions that deliver real, lasting
           outcomes.
         </p>
@@ -292,23 +292,23 @@ export default function WhatSetsUsApart() {
         </div>
       </section>
       <section className="w-full bg-white px-6 md:px-16 lg:px-24 py-20 font-[Inter]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14">
+        <div className="max-w-7xl mx-auto ">
           {/* VISION */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex gap-6 items-start"
+            className="flex gap-6 mb-10 items-start"
           >
             {/* Image */}
             <div className="shrink-0">
               <Image
                 src="/aboutUs/mission-vision.png"
                 alt="Vision"
-                width={160}
-                height={320}
-                className=" w-[85px] md:w-[120px] lg:w-[150px] object-contain"
+                width={100}
+                height={220}
+                className=" md:w-[110px] lg:w-[70px] xl:w-[90px] object-contain"
               />
             </div>
 
@@ -322,15 +322,8 @@ export default function WhatSetsUsApart() {
                 The Big Picture
               </h3>
 
-              <p className="text-gray-600 text-xs md:text-lg lg:text-[15px] xl:text-[22px] leading-tight max-w-md">
-                We aspire to be the leading provider of comprehensive learning
-                solutions designed specifically for working professionals,
-                corporate organizations, and the global workforce. Our ultimate
-                goal is to empower individuals and teams with the knowledge,
-                skills, and tools necessary to successfully navigate their
-                career paths and achieve their professional aspirations in an
-                ever-evolving business landscape.
-              </p>
+              <p className="text-gray-600 text-xs md:text-lg lg:text-[15px] xl:text-[22px] leading-tight max-w-6xl">
+             We aspire to be the leading provider of comprehensive learning and counselling solutions, empowering students, working professionals, and organizations to make informed and confident education choices. Whether it is online learning opportunities or traditional offline education pathways, our goal is to guide individuals and teams toward the right programs, equipping them with the knowledge, skills, and clarity needed to achieve their academic and professional aspirations in an ever-evolving world.</p>
             </div>
           </motion.div>
 
@@ -347,9 +340,9 @@ export default function WhatSetsUsApart() {
               <Image
                 src="/aboutUs/mission-vision.png"
                 alt="Mission"
-                width={160}
-                height={320}
-                className=" w-[85px] md:w-[120px] lg:w-[150px] object-contain"
+                width={100}
+                height={220}
+                className=" md:w-[110px] lg:w-[70px] xl:w-[90px] object-contain"
               />
             </div>
 
@@ -363,15 +356,8 @@ export default function WhatSetsUsApart() {
                 The Game Plan
               </h3>
 
-              <p className="text-gray-600 text-xs md:text-lg lg:text-[15px] xl:text-[22px] leading-tight max-w-md">
-                Our mission is to support students and working professionals as
-                they navigate their career paths, helping them overcome barriers
-                and achieve meaningful growth. By offering world-class programs,
-                personalized guidance, and technology-driven learning solutions,
-                we create transformative experiences that empower individuals to
-                reach their full potential and achieve their biggest career
-                goals.
-              </p>
+              <p className="text-gray-600 text-xs md:text-lg lg:text-[15px] xl:text-[22px] leading-tight max-w-6xl">
+              Our mission is to support students and working professionals as they navigate their education and career paths, helping them overcome barriers and achieve meaningful growth. By providing reliable information, personalized counselling, and access to suitable online and offline learning opportunities, we enable smarter decision-making and create transformative experiences that empower individuals to reach their full potential and achieve their biggest career goals.</p>
             </div>
           </motion.div>
         </div>

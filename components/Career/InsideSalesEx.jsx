@@ -139,7 +139,7 @@ export default function JobDetails() {
               ₹2,40,000–3,00,000
             </span>
             <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#345895]" /> Indore, Madhya Pradesh
+              <MapPin className="w-4 h-4 text-[#345895]" /> Madhya Pradesh
             </span>
           </div>
         </div>
@@ -309,8 +309,8 @@ export default function JobDetails() {
               desc: "Plan and execute performance marketing campaigns across Google & Meta.",
               tag: "3-5 years",
               type: "Full Time",
-              salary: "₹2,40,000–3,00,000",
-              location: "Indore, Madhya Pradesh",
+              salary: "₹2,40,000-3,00,000",
+              location: "Madhya Pradesh",
               link: "/Career/DigitalMarketing",
             },
             {
@@ -319,8 +319,8 @@ export default function JobDetails() {
               desc: "Lead generation, cold calling, counseling prospects, end-to-end sales.",
               tag: "Fresher",
               type: "Full Time",
-              salary: "₹2,40,000–3,00,000",
-              location: "Indore, Madhya Pradesh",
+              salary: "₹2,40,000-3,00,000",
+              location: "Madhya Pradesh",
               link: "/Career/InsideSalesFr",
             },
           ].map((job, index) => (

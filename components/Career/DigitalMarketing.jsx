@@ -131,10 +131,10 @@ export default function JobDetails() {
               <Clock className="w-4 h-4 text-[#345895]" /> Full Time
             </span>
             <span className="flex items-center gap-2">
-              <Wallet className="w-4 h-4 text-[#345895]" /> ₹2,40,000–3,00,000
+              <Wallet className="w-4 h-4 text-[#345895]" /> ₹2,40,000-3,00,000
             </span>
             <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#345895]" /> Indore, Madhya Pradesh
+              <MapPin className="w-4 h-4 text-[#345895]" /> Madhya Pradesh
             </span>
           </div>
         </div>
@@ -322,8 +322,8 @@ export default function JobDetails() {
               desc: "Lead generation, cold calling, counseling prospects, end-to-end sales",
               tag: "Fresher",
               type: "Full Time",
-              salary: "₹2,40,000–3,00,000",
-              location: "Indore, Madhya Pradesh",
+              salary: "₹2,40,000-3,00,000",
+              location: " Madhya Pradesh",
               link: "/Career/InsideSalesFr",
             },
             {
@@ -332,8 +332,8 @@ export default function JobDetails() {
               desc: "Lead generation, cold calling, counseling prospects, end-to-end sales",
               tag: "3-5 years",
               type: "Full Time",
-              salary: "₹2,40,000–3,00,000",
-              location: "Indore, Madhya Pradesh",
+              salary: "₹2,40,000-3,00,000",
+              location: "Madhya Pradesh",
               link: "/Career/InsideSalesEx",
             },
           ].map((job, index) => (

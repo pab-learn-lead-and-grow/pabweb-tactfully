@@ -299,7 +299,7 @@ export default function Page() {
       subtitle: "Sikkim Manipal",
       tag: "Most-Loved",
       duration: "3 years",
-      validity: "5 years",
+      validity: "6 years",
       coursePath: "/smu/sikkim-manipal-online-bba",
     },
     {
@@ -310,7 +310,7 @@ export default function Page() {
       subtitle: "Sikkim Manipal",
       tag: "Most-Loved",
       duration: "3 years",
-      validity: "5 years",
+      validity: "6 years",
       coursePath: "/smu/sikkim-manipal-online-bcom",
     },
     {

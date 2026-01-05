@@ -15,7 +15,7 @@ export default function CareerPage() {
       tags: "Fresher",
       duration : "Full time",
       salary: "₹2,40,000-3,00,000",
-      location: "Indore, Madhya Pradesh",
+      location: "Madhya Pradesh",
       link: "Career/InsideSalesFr",
     },
     {
@@ -26,7 +26,7 @@ export default function CareerPage() {
       tags: "3-5 years",
       duration : "Full time",
       salary: "₹2,40,000-3,00,000",
-      location: "Indore, Madhya Pradesh",
+      location: "Madhya Pradesh",
       link: "/Career/DigitalMarketing",
     },
     {
@@ -37,7 +37,7 @@ export default function CareerPage() {
       tags: "3-5 years",
       duration : "Full time",
       salary: "₹2,40,000-3,00,000",
-      location: "Indore, Madhya Pradesh",
+      location: "Madhya Pradesh",
       link: "/Career/InsideSalesEx",
     },
   ];

@@ -92,17 +92,7 @@ export default function Navbar() {
     return () => listener.subscription.unsubscribe();
   }, [supabase]);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (topUnivOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [topUnivOpen]);
+
 
   // Close dropdowns when clicking outside (desktop-targeted)
   useEffect(() => {
@@ -133,11 +123,30 @@ export default function Navbar() {
     };
   }, [topUnivOpen, exploreOpen]);
 
+  const [hydrated, setHydrated] = useState(false);
+
+useEffect(() => {
+  setHydrated(true);
+}, []);
+
+useEffect(() => {
+  if (!hydrated) return;
+  if (!topUnivOpen) return;
+
+  document.body.style.overflow = "hidden";
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [topUnivOpen, hydrated]);
+
+
   const clearCategoryFromUrl = () => {
     setTimeout(() => {
       router.replace(pathname, { scroll: false });
     }, 0);
   };
+
+
 
 //Closes mobile dropdown when clicked outside menu
   useEffect(() => {
@@ -912,7 +921,7 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-0 left-0 right-0  md:px-9 z-50">
-      <nav className="w-full xl:w-[90%] mx-auto h-15 lg:h-18 xl:h-22 bg-white backdrop-blur-2xl rounded-4xl shadow-sm border border-white/20">
+      <nav className="w-full xl:w-[90%] mx-auto h-[64px] lg:h-[72px] bg-white backdrop-blur-2xl rounded-4xl shadow-sm border border-white/20">
         <div className="w-full mx-auto flex items-center justify-between h-full px-4 md:px-8">
           <div className="flex items-center gap-4">
             <a href="/" className="block">
@@ -922,7 +931,7 @@ export default function Navbar() {
                 width={220}
                 height={60}
                 priority
-                className="w-35 lg:w-45 xl:w-50"
+                className="object-contain"
               />
             </a>
 
@@ -1310,8 +1319,8 @@ export default function Navbar() {
             <div className="hidden xl:flex items-center gap-2">
               <button
                 onClick={() => setShowForm(true)}
-                className="bg-[#4D964F] text-white px-2 py-2 rounded-lg text-xs lg:text-sm font-medium  shadow-md
-                 transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl animate-soft-blink active:scale-100"
+                className=" text-white px-2 py-2 rounded-lg text-xs lg:text-sm font-medium
+                 transition-all duration-300 ease-out hover:scale-105  bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform  animate-soft-blink active:scale-100"
               >
                 Personalized Counselling
               </button>

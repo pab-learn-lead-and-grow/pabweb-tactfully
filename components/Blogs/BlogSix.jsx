@@ -89,51 +89,72 @@ export default function Page() {
 
       <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[8%_68%_24%] gap-5 mt-20 md:mt-10 lg:mt-0 xl:mt-20 px-4 ">
         {/* LEFT SOCIAL ICONS */}
-        <div
-          className="
-    bg-white shadow rounded-lg
-    p-2
-    flex
-    flex-row lg:flex-col
-    items-center justify-center
-    gap-3
-    w-fit h-fit
-
-    fixed lg:static
-    bottom-4 left-1/2 lg:left-auto
-    -translate-x-1/2 lg:translate-x-0
-    z-40
-  "
-        >
-          {[
-            { name: "facebook", src: "/fb.png" },
-            { name: "twitter", src: "/x.png" },
-            { name: "linkedin", src: "/ln.png" },
-            { name: "youtube", src: "/yt.png" },
-            { name: "instagram", src: "/ig.png" },
-          ].map((s, i) => (
-            <a
-              key={i}
-              href={`https://${s.name}.com`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-transform hover:scale-110"
-            >
-              <Image
-                src={s.src}
-                alt={s.name}
-                width={28}
-                height={28}
-                className="
-          rounded
-          shadow
-          w-6 h-6
-          lg:w-8 lg:h-8
-        "
-              />
-            </a>
-          ))}
-        </div>
+         <div
+                 className="
+           bg-white shadow rounded-lg
+           p-2
+           flex
+           flex-row lg:flex-col
+           items-center justify-center
+           gap-3
+           w-fit h-fit
+       
+           fixed lg:static
+           bottom-4 left-1/2 lg:left-auto
+           -translate-x-1/2 lg:translate-x-0
+           z-40
+         "
+               >
+                 {[
+                   {
+                     src: "/ig.png",
+                     name: "Instagram",
+                     href: "https://www.instagram.com/radhyaeducationacademy/",
+                   },
+                   {
+                     src: "/ln.png",
+                     name: "LinkedIn",
+                     href: "https://www.linkedin.com/ ",
+                   },
+                   {
+                     src: "/x.png",
+                     name: "X (Twitter)",
+                     href: "https://x.com/radhya_REA",
+                   },
+                   {
+                     src: "/yt.png",
+                     name: "YouTube",
+                     href: "https://youtube.com/@radhyaeducationacademy",
+                   },
+                   {
+                     src: "/fb.png",
+                     name: "Facebook",
+                     href: " https://www.facebook.com/profile.php?id=61586054062267 ",
+                   },
+                 ].map((icon, i) => (
+                   <a
+                     key={i}
+                     href={icon.href}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label={icon.name}
+                     className="flex items-center justify-center"
+                   >
+                     <Image
+                       src={icon.src}
+                       alt={icon.name}
+                       width={28}
+                       height={28}
+                       className="
+                 rounded
+                 shadow
+                 w-6 h-6
+                 lg:w-8 lg:h-8
+               "
+                     />
+                   </a>
+                 ))}
+               </div>
 
         {/* CENTER CONTENT */}
         <motion.div
@@ -144,8 +165,8 @@ export default function Page() {
         >
           <p className="text-black text-[14px] leading-5">
           In a world where business models evolve overnight and digital disruption is the new normal, the demand for business-savvy professionals has grown dramatically. What once required relocating to big cities, attending expensive institutes, and dedicating full-time years of life is now available in a far more flexible and accessible format: online business degrees.<br/>
-Among these, the Online BBA and Online MBA have emerged as two powerful pathways — one helping young learners think like entrepreneurs early, and the other preparing experienced professionals for leadership roles at scale.<br/>
-This blog explores how each program contributes to shaping tomorrow’s founders, managers, and CEOs — and why India is seeing a historic rise in online business education.
+Among these, the Online BBA and Online MBA have emerged as two powerful pathways - one helping young learners think like entrepreneurs early, and the other preparing experienced professionals for leadership roles at scale.<br/>
+This blog explores how each program contributes to shaping tomorrow’s founders, managers, and CEOs - and why India is seeing a historic rise in online business education.
 </p>
 
           <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
@@ -153,7 +174,7 @@ This blog explores how each program contributes to shaping tomorrow’s founders
           </h2>
           <p className="text-black text-[14px] font-regular -mb-5 leading-5">
        Over the past decade, online degrees have shifted from being “alternative” to becoming mainstream. Improvements in digital infrastructure, the affordability of devices, and growing acceptance of online certifications by employers have transformed the perception of online learning.<br/>
-       Today, an online degree — when accredited and industry-aligned — stands shoulder-to-shoulder with traditional campus education, especially in business fields where practical skills and mindset matter more than physical classrooms.<br/>
+       Today, an online degree - when accredited and industry-aligned - stands shoulder-to-shoulder with traditional campus education, especially in business fields where practical skills and mindset matter more than physical classrooms.<br/>
        Students choose online BBA and MBA programs because they offer:
        </p>
        <ul className="list-disc list-inside px-5 -mb-5 marker:font-semibold marker:text-[16px]">
@@ -185,7 +206,7 @@ This blog explores how each program contributes to shaping tomorrow’s founders
      Part 1: How an Online BBA Turns Students Into Entrepreneurs
       </h2>
           <p className="text-black text-[14px] leading-5">
-  A Bachelor of Business Administration lays the groundwork for understanding how businesses operate. But an online BBA does much more — it teaches students to think independently, analyse problems in real time, and experiment with ideas while studying.<br/>
+  A Bachelor of Business Administration lays the groundwork for understanding how businesses operate. But an online BBA does much more - it teaches students to think independently, analyse problems in real time, and experiment with ideas while studying.<br/>
   Below are the ways an Online BBA builds entrepreneurial capabilities from the ground up.
   </p>
      <ol className="list-decimal list-inside marker:font-medium marker:text-[16px]">
@@ -212,7 +233,7 @@ This blog explores how each program contributes to shaping tomorrow’s founders
     </ul>
 
     <p className="text-[14px] mb-5 leading-5">
-      With this foundation, students can visualise the entire machinery of a business —
+      With this foundation, students can visualise the entire machinery of a business -
       not just one piece of it.
     </p>
   </li>
@@ -242,11 +263,11 @@ This blog explores how each program contributes to shaping tomorrow’s founders
 
     <ul className="px-5 mb-5 leading-5">
       <li className="text-[14px]">
-        ✔ <span className="font-medium">Creative Thinking</span> — approaching challenges
+        ✔ <span className="font-medium">Creative Thinking</span> - approaching challenges
         from multiple angles to craft innovative ideas.
       </li>
       <li className="text-[14px]">
-        ✔ <span className="font-medium">Decision-Making Under Constraints</span> —
+        ✔ <span className="font-medium">Decision-Making Under Constraints</span> -
         learning to act decisively even with limited data.
       </li>
     </ul>
@@ -296,7 +317,7 @@ This blog explores how each program contributes to shaping tomorrow’s founders
     </ul>
 
     <p className="text-[14px] leading-5">
-     This flexibility allows them to apply classroom concepts directly into real-life situations — something traditional rigid schedules often restrict.<br/>
+     This flexibility allows them to apply classroom concepts directly into real-life situations - something traditional rigid schedules often restrict.<br/>
 Many online learners end up launching small businesses during the degree itself, giving them a tremendous head start in the entrepreneurial world.
     </p>
   </li>
@@ -316,7 +337,7 @@ Many online learners end up launching small businesses during the degree itsel
 
 
           <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
-  Part 2: How an Online MBA Shapes Managers — and Future CEOs
+  Part 2: How an Online MBA Shapes Managers - and Future CEOs
   </h2>
           <p className="text-black text-[14px] leading-5">
  If BBA lays the foundation, an MBA strengthens leadership, strategy, and decision-making the skills needed to manage teams, navigate complex decisions, and scale organisations.<br/>
@@ -370,7 +391,7 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
     </span>
 
     <p className="text-[14px] leading-5">
-     A key part of becoming a leader is learning how to manage people — their motivations, strengths, conflicts, and ambitions.<br/>
+     A key part of becoming a leader is learning how to manage people - their motivations, strengths, conflicts, and ambitions.<br/>
     Online MBA courses often include:
      </p>
 
@@ -394,7 +415,7 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
       <li className="text-[14px]">Lead with clarity and confidence</li>
     </ul>
     <p className="text-[14px] mb-5 leading-5">
-     Strong people skills differentiate a manager from a leader — and eventually, a leader from a CEO.
+     Strong people skills differentiate a manager from a leader - and eventually, a leader from a CEO.
      </p>
   </li>
 
@@ -425,21 +446,21 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
       <li className="text-[14px]">Mentorship connections</li>
     </ul>
      <p className="text-[14px] mb-5 leading-5">
-      In the business world, who you know often accelerates what you can achieve — and online MBAs create access to strong professional circles.
+      In the business world, who you know often accelerates what you can achieve - and online MBAs create access to strong professional circles.
     </p>
   </li>
 
  {/* 4 */}
 <li className="text-black">
   <span className="font-medium text-[16px]">
-    Offers Deep Specialisations for Career Advancement
+    Offers Deep Specializations for Career Advancement
   </span>
 
   <p className="text-[14px] leading-5">
-    Unlike BBA, MBAs offer focused specialisations that help professionals
+    Unlike BBA, MBAs offer focused specializations that help professionals
     scale in niche domains.
     <br />
-    Popular specialisations include:
+    Popular specializations include:
   </p>
 
   <ul className="list-disc px-5 leading-5">
@@ -466,7 +487,7 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
   </ul>
 
   <p className="text-[14px] mb-5 leading-5">
-    Specialisation is what allows an individual to move from mid-level roles
+    Specialization is what allows an individual to move from mid-level roles
     to high-impact strategic positions.
   </p>
 </li>
@@ -479,7 +500,7 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
 </h2>
 
 <p className="text-black text-[14px] leading-5">
-  The shift toward online business education is not temporary — it’s a structural change driven by economic and technological factors.
+  The shift toward online business education is not temporary - it’s a structural change driven by economic and technological factors.
   Here’s why students and professionals across India are choosing online degrees:
 </p>
 
@@ -518,10 +539,10 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
 
   <li className="text-black text-[14px] leading-5">
     <span className="font-medium text-[16px]">
-      Opportunities in India’s booming startup ecosystem
+      Opportunities in India's booming startup ecosystem
     </span>
     <br />
-    An entrepreneurial nation needs entrepreneurial education — and online degrees fit perfectly into this ecosystem.
+    An entrepreneurial nation needs entrepreneurial education - and online degrees fit perfectly into this ecosystem.
   </li>
 </ol>
 
@@ -583,8 +604,8 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
          
          <p className="text-black text-[14px] leading-5">
           Both online BBA and online MBA programs are reshaping how India produces entrepreneurs, managers, and CEOs. While BBA lays the entrepreneurial foundation, MBA fine-tunes leadership skills needed for organisational success.<br/>
-          Together, they create a powerful pathway for anyone who wants to thrive in modern business — whether that means launching a startup, leading teams, or steering companies into the future.<br/>
-          Online education has democratised opportunity. Today, ambition is no longer limited by geography or schedule — if you’re ready to learn, the world of business is ready for you.
+          Together, they create a powerful pathway for anyone who wants to thrive in modern business - whether that means launching a startup, leading teams, or steering companies into the future.<br/>
+          Online education has democratised opportunity. Today, ambition is no longer limited by geography or schedule - if you’re ready to learn, the world of business is ready for you.
           </p>
 
          </motion.div>
@@ -632,7 +653,8 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
 
          <button
   onClick={() => setShowAllRelated(true)}
-  className="w-full mt-2 bg-linear-to-r from-[#5a9f5c] to-[#4a8f4c] text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:from-[#4a8f4c] hover:to-[#3a7f3c] transition"
+ className="w-full mt-2 bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
+      active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
 >
   View More
   <ChevronRight size={18} />

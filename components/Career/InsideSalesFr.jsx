@@ -125,10 +125,10 @@ export default function JobDetails() {
               <Clock className="w-4 h-4 text-[#345895]" /> Full Time
             </span>
             <span className="flex items-center gap-2">
-              <Wallet className="w-4 h-4 text-[#345895]" /> ₹2,40,000–3,00,000
+              <Wallet className="w-4 h-4 text-[#345895]" /> ₹2,40,000-3,00,000
             </span>
             <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#345895]" /> Indore, Madhya Pradesh
+              <MapPin className="w-4 h-4 text-[#345895]" /> Madhya Pradesh
             </span>
           </div>
         </div>
@@ -186,7 +186,7 @@ export default function JobDetails() {
           <section>
             <h2 className="text-2xl font-semibold text-black mb-3">Tags</h2>
             <div className="flex flex-wrap gap-2 mt-3">
-              {["Fulltime", "Sales", "Indore", "Corporate", "Location"].map((tag) => (
+              {["Fulltime", "Sales", "MP", "Corporate", "Location"].map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1 bg-[rgba(6,78,146,0.1)] text-[#064E92] rounded-full text-sm font-medium"
@@ -314,8 +314,8 @@ export default function JobDetails() {
               desc: "Lead generation, cold calling, counseling prospects, end-to-end sales",
               tag: "3-5 years",
               type: "Full Time",
-              salary: "₹2,40,000–3,00,000",
-              location: "Indore, Madhya Pradesh",
+              salary: "₹2,40,000-3,00,000",
+              location: "Madhya Pradesh",
             },
             {
               link: "/Career/InsideSalesEx",
@@ -324,8 +324,8 @@ export default function JobDetails() {
               desc: "Lead generation, cold calling, counseling prospects, end-to-end sales",
               tag: "3-5 years",
               type: "Full Time",
-              salary: "₹2,40,000–3,00,000",
-              location: "Indore, Madhya Pradesh",
+              salary: "₹2,40,000-3,00,000",
+              location: "Madhya Pradesh",
             },
           ].map((job, index) => (
             <div

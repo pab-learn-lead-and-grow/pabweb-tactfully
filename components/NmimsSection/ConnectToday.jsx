@@ -7,7 +7,7 @@ export default function ConnectToday() {
    const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="w-full h-60 md:h-90 bg-[#345895] mt-20 py-15 flex flex-col items-center text-left">
+    <section className="w-full h-60 md:h-90 bg-[#345895] mt-10 md:mt-8 xl:mt-20 py-20 flex flex-col items-center text-left">
       <h2 className="text-xl md:text-4xl font-[Inter] font-bold text-white max-w-4xl leading-tight text-center px-4">
         Connect Today for expert-led,
         <br />

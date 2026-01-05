@@ -6,32 +6,17 @@ import {
   SplinePointer,
   Speech,
   GlobeLock,
-  Users,
   Check,
   ChevronRight,
   ChevronsDown,
-  ArrowUpRight,
   ArrowRight,
-  FileClock,
   BookCheck,
   Headset,
-  Plus,
-  CornerDownRight,
-  Route,
-  FileUser,
-  Blocks,
-  MessagesSquare,
-  ChartNoAxesColumn,
-  Fullscreen,
-  LayoutDashboard,
   BriefcaseBusiness,
-  Usb,
-  HandCoins,
   Ungroup,
   BookText,
   UserLock,
   StickyNote,
-  ListMinus,
   ArrowUpWideNarrow,
   ContactRound,
   Headphones,
@@ -39,7 +24,6 @@ import {
   GalleryVertical,
   Tally4,
   Star,
-  Building2,
 } from "lucide-react";
 import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import { motion, AnimatePresence } from "framer-motion";
@@ -660,15 +644,27 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4 mt-12 w-full items-center justify-center"
             >
-              <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2 bg-[#345895] text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-medium">
-                Download Brochure
-                <Download size={20} />
-              </button>
-
-              <button onClick={() => setIsModalOpen(true)} className="bg-[#4D964F] flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
-                Talk to an Expert
-                <ArrowRight size={16} />
-              </button>
+              <button
+                             onClick={() => setIsModalOpen(true)}
+                             className="flex items-center justify-center gap-2  bg-linear-to-r from-[#345895] to-[#142138] border-0 border-transparent shadow-[#020b34] transform  text-white  shadow-md
+                   transition-all duration-300 ease-out
+                   hover:scale-105 hover:shadow-xl
+                   active:scale-100 text-white px-6 py-3 rounded-lg transition-all duration-300 font-medium"
+                           >
+                             Download Brochure
+                             <Download size={20} />
+                           </button>
+             
+                           <button
+                             onClick={() => setIsModalOpen(true)}
+                             className=" bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] transform  text-white  shadow-md
+                   transition-all duration-300 ease-out
+                   hover:scale-105 hover:shadow-xl
+                   active:scale-100 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg transition-all duration-300 font-medium"
+                           >
+                             Talk to an Expert
+                             <ArrowRight size={16} />
+                           </button>
             </motion.div>
           </div>
         </div>

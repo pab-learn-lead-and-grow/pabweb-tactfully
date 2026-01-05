@@ -72,7 +72,7 @@ export default function ContactSection() {
           <br /> We Promise That
         </h2>
 
-        <p className="text-black mx-2 font-regular">Radhya Education</p>
+        <p className="text-black mx-2 font-regular">Radhya Education Academy</p>
 
         {/* FIXED: ALWAYS 2×2 GRID */}
         <div className="grid grid-cols-2 mx-2 gap-8 mt-8">
@@ -120,7 +120,7 @@ export default function ContactSection() {
           <div className="flex flex-col space-y-2">
             <MapPin className="text-[#345895] w-6 h-6" />
             <span className="font-semibold text-lg text-black">Office</span>
-            <span className="text-black text-sm">Indore, MP</span>
+            <span className="text-black text-sm">Gwalior, MP</span>
           </div>
         </div>
       </div>

@@ -118,52 +118,72 @@ export default function Page() {
 
       <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[8%_68%_24%] gap-5 mt-20 md:mt-10 lg:mt-0 xl:mt-20 px-4">
         {/* LEFT SOCIAL ICONS */}
-        <div
-          className="
-    bg-white shadow rounded-lg
-    p-2
-    flex
-    flex-row lg:flex-col
-    items-center justify-center
-    gap-3
-    w-fit h-fit
-
-    fixed lg:static
-    bottom-4 left-1/2 lg:left-auto
-    -translate-x-1/2 lg:translate-x-0
-    z-40
-  "
-        >
-          {[
-            { name: "facebook", src: "/fb.png" },
-            { name: "twitter", src: "/x.png" },
-            { name: "linkedin", src: "/ln.png" },
-            { name: "youtube", src: "/yt.png" },
-            { name: "instagram", src: "/ig.png" },
-          ].map((s, i) => (
-            <a
-              key={i}
-              href={`https://${s.name}.com`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-transform hover:scale-110"
-            >
-              <Image
-                src={s.src}
-                alt={s.name}
-                width={28}
-                height={28}
-                className="
-          rounded
-          shadow
-          w-6 h-6
-          lg:w-8 lg:h-8
-        "
-              />
-            </a>
-          ))}
-        </div>
-
+         <div
+                 className="
+           bg-white shadow rounded-lg
+           p-2
+           flex
+           flex-row lg:flex-col
+           items-center justify-center
+           gap-3
+           w-fit h-fit
+       
+           fixed lg:static
+           bottom-4 left-1/2 lg:left-auto
+           -translate-x-1/2 lg:translate-x-0
+           z-40
+         "
+               >
+                 {[
+                   {
+                     src: "/ig.png",
+                     name: "Instagram",
+                     href: "https://www.instagram.com/radhyaeducationacademy/",
+                   },
+                   {
+                     src: "/ln.png",
+                     name: "LinkedIn",
+                     href: "https://www.linkedin.com/ ",
+                   },
+                   {
+                     src: "/x.png",
+                     name: "X (Twitter)",
+                     href: "https://x.com/radhya_REA",
+                   },
+                   {
+                     src: "/yt.png",
+                     name: "YouTube",
+                     href: "https://youtube.com/@radhyaeducationacademy",
+                   },
+                   {
+                     src: "/fb.png",
+                     name: "Facebook",
+                     href: " https://www.facebook.com/profile.php?id=61586054062267 ",
+                   },
+                 ].map((icon, i) => (
+                   <a
+                     key={i}
+                     href={icon.href}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label={icon.name}
+                     className="flex items-center justify-center"
+                   >
+                     <Image
+                       src={icon.src}
+                       alt={icon.name}
+                       width={28}
+                       height={28}
+                       className="
+                 rounded
+                 shadow
+                 w-6 h-6
+                 lg:w-8 lg:h-8
+               "
+                     />
+                   </a>
+                 ))}
+               </div>
         {/* CENTER CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -175,29 +195,29 @@ export default function Page() {
             Understanding the Modern MBA Landscape
           </h2>
           <p className="text-gray-700 leading-5">
-            MBA education has evolved dramatically over the past decade4. With
+            MBA education has evolved dramatically over the past decade. With
             technology fundamentally reshaping how professionals learn and
             businesses operate, the Online MBA has emerged as a powerful,
-            high-quality alternative to the traditional campus-based program5.
+            high-quality alternative to the traditional campus-based programs.
             Today, working professionals have access to highly flexible,
             academically rigorous programs that are designed to fit seamlessly
-            into a busy lifestyle6. This guide will provide a close look at both
+            into a busy lifestyle. This guide will provide a close look at both
             formats, compare their unique strengths, and help you determine
-            which option best aligns with your ambitious professional goals7
+            which option best aligns with your ambitious professional goals
           </p>
 
           <h2 className="text-xl font-semibold text-black">
             What is an Online MBA?
           </h2>
           <p className="text-gray-700 leading-5">
-            An Online MBA is a fully digital master’s program9. The curriculum
+            An Online MBA is a fully digital master’s program. The curriculum
             is delivered through cutting-edge technology, including virtual
             classrooms, interactive live sessions, and pre-recorded
-            lectures10. This structure provides students with the unique ability
+            lectures. This structure provides students with the unique ability
             to access learning materials and coursework anytime, making it the
             ideal choice for busy professionals who wish to advance their
             careers and gain new skills without the necessity of leaving their
-            current job11.
+            current job.
           </p>
 
           <h2 className="text-xl font-semibold text-black">
@@ -205,11 +225,11 @@ export default function Page() {
           </h2>
           <p className="text-gray-700 leading-5">
             A Regular MBA follows the time-honoured, traditional on-campus
-            model13. Students attend classes face-to-face, participate in
+            model. Students attend classes face-to-face, participate in
             high-impact, in-person workshops, and engage deeply with the rich
-            social and academic life of the campus culture14. This format is
+            social and academic life of the campus culture. This format is
             typically chosen by students who seek a fully immersive and
-            comprehensive academic experience15.
+            comprehensive academic experience.
           </p>
           <div className="w-full h-full bg-white overflow-hidden">
             <Image
@@ -513,8 +533,9 @@ export default function Page() {
        
                 <button
          onClick={() => setShowAllRelated(true)}
-         className="w-full mt-2 bg-linear-to-r from-[#5a9f5c] to-[#4a8f4c] text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:from-[#4a8f4c] hover:to-[#3a7f3c] transition"
-       >
+       className="w-full mt-2 bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
+      active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
+>
          View More
          <ChevronRight size={18} />
        </button>

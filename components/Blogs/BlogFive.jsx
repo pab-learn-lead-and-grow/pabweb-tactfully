@@ -112,52 +112,72 @@ export default function Page() {
 
       <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[8%_68%_24%] gap-5 mt-20 md:mt-10 lg:mt-0 xl:mt-20 px-4 ">
         {/* LEFT SOCIAL ICONS */}
-        <div
-          className="
-    bg-white shadow rounded-lg
-    p-2
-    flex
-    flex-row lg:flex-col
-    items-center justify-center
-    gap-3
-    w-fit h-fit
-
-    fixed lg:static
-    bottom-4 left-1/2 lg:left-auto
-    -translate-x-1/2 lg:translate-x-0
-    z-40
-  "
-        >
-          {[
-            { name: "facebook", src: "/fb.png" },
-            { name: "twitter", src: "/x.png" },
-            { name: "linkedin", src: "/ln.png" },
-            { name: "youtube", src: "/yt.png" },
-            { name: "instagram", src: "/ig.png" },
-          ].map((s, i) => (
-            <a
-              key={i}
-              href={`https://${s.name}.com`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-transform hover:scale-110"
-            >
-              <Image
-                src={s.src}
-                alt={s.name}
-                width={28}
-                height={28}
-                className="
-          rounded
-          shadow
-          w-6 h-6
-          lg:w-8 lg:h-8
-        "
-              />
-            </a>
-          ))}
-        </div>
-
+         <div
+                 className="
+           bg-white shadow rounded-lg
+           p-2
+           flex
+           flex-row lg:flex-col
+           items-center justify-center
+           gap-3
+           w-fit h-fit
+       
+           fixed lg:static
+           bottom-4 left-1/2 lg:left-auto
+           -translate-x-1/2 lg:translate-x-0
+           z-40
+         "
+               >
+                 {[
+                   {
+                     src: "/ig.png",
+                     name: "Instagram",
+                     href: "https://www.instagram.com/radhyaeducationacademy/",
+                   },
+                   {
+                     src: "/ln.png",
+                     name: "LinkedIn",
+                     href: "https://www.linkedin.com/ ",
+                   },
+                   {
+                     src: "/x.png",
+                     name: "X (Twitter)",
+                     href: "https://x.com/radhya_REA",
+                   },
+                   {
+                     src: "/yt.png",
+                     name: "YouTube",
+                     href: "https://youtube.com/@radhyaeducationacademy",
+                   },
+                   {
+                     src: "/fb.png",
+                     name: "Facebook",
+                     href: " https://www.facebook.com/profile.php?id=61586054062267 ",
+                   },
+                 ].map((icon, i) => (
+                   <a
+                     key={i}
+                     href={icon.href}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label={icon.name}
+                     className="flex items-center justify-center"
+                   >
+                     <Image
+                       src={icon.src}
+                       alt={icon.name}
+                       width={28}
+                       height={28}
+                       className="
+                 rounded
+                 shadow
+                 w-6 h-6
+                 lg:w-8 lg:h-8
+               "
+                     />
+                   </a>
+                 ))}
+               </div>
         {/* CENTER CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -238,7 +258,7 @@ export default function Page() {
  Transitioning Across Industries
  </p>
  <p className="text-black text-[14px] leading-5">
- An Online MBA serves as a powerful catalyst for career transition. It makes major pivots—such as moving from a highly technical role in engineering to a strategic leadership position in finance—not just possible, but highly realistic. The degree instantly confers business fluency, market credibility, and a comprehensive suite of transferable skills that employers are actively seeking.
+ An Online MBA serves as a powerful catalyst for career transition. It makes major pivots - such as moving from a highly technical role in engineering to a strategic leadership position in finance - not just possible, but highly realistic. The degree instantly confers business fluency, market credibility, and a comprehensive suite of transferable skills that employers are actively seeking.
  </p>
   <p className="text-black -mb-5 text-[16px] font-medium leading-5">
    Moving from Specialist to Managerial Roles
@@ -306,7 +326,7 @@ The curriculum is intentionally designed to forge a strong leadership foundatio
         Entrepreneurs and Start-Up Founders
        </p>
         <p className="text-black text-[14px] leading-5">
-     For those building their own ventures, an Online MBA provides essential, practical skills in financial modeling, scaling operations, and strategic leadership—all of which are critical to building a profitable, sustainable business.
+     For those building their own ventures, an Online MBA provides essential, practical skills in financial modeling, scaling operations, and strategic leadership - all of which are critical to building a profitable, sustainable business.
      </p>
   
   <p className="text-black text-[16px] -mb-5 font-medium leading-5">
@@ -410,7 +430,8 @@ The curriculum is intentionally designed to forge a strong leadership foundatio
 
          <button
   onClick={() => setShowAllRelated(true)}
-  className="w-full mt-2 bg-linear-to-r from-[#5a9f5c] to-[#4a8f4c] text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:from-[#4a8f4c] hover:to-[#3a7f3c] transition"
+  className="w-full mt-2 bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
+      active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
 >
   View More
   <ChevronRight size={18} />

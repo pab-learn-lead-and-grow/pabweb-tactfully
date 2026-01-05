@@ -7,8 +7,10 @@ import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-inter",
 });
+
 
 export const metadata = {
   title:{
@@ -22,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} scrollbar-hide`}>
+     <body className={`${inter.className} scrollbar-hide`}>
         <Suspense fallback={null}>
         <Navbar />
         {children}

@@ -56,14 +56,14 @@ export default function ServicesByRadhya() {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="text-[#345895]/65 text-sm md:text-[36px] font-semibold italic leading-relaxed"
         >
-          Education
+          Education Academy
         </motion.p>
 
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="text-black text-sm md:text-base max-w-md leading-relaxed"
+          className="text-black text-sm md:text-base max-w-2xl leading-relaxed"
         >
           Our services ensure you're supported at every step through
           personalised 1-1 career coaching, access to subject matter experts,
@@ -73,15 +73,15 @@ export default function ServicesByRadhya() {
         </motion.p>
 
         {/* INNER GRID */}
-        <div className=" mt-10 p-4 md:p-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className=" mt-10 p-4 md:p-8 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
             {servicesRadhya.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="flex gap-4"
+                className="flex gap-4 "
               >
                 {/* NUMBER */}
                 <p className="text-[#4D964F] text-6xl xl:text-9xl ">

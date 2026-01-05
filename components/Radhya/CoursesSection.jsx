@@ -569,7 +569,7 @@ export default function CoursesSection() {
   };
 
   return (
-    <section className="p-5 lg:p-15 relative">
+    <section className="p-5 lg:px-[60px] relative">
       <h2 className="font-bold text-[2.25rem] md:text-4xl lg:text-5xl xl:text-[64px] leading-tight text-[#345895] mb-6">
         Courses that fit your hustle
       </h2>

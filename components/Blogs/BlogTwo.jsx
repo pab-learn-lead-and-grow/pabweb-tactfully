@@ -14,8 +14,7 @@ export default function Page() {
 
   const [showAllRelated, setShowAllRelated] = useState(false);
 
-
- const blogs = [
+  const blogs = [
     {
       id: 1,
       title:
@@ -59,22 +58,18 @@ export default function Page() {
     },
   ];
 
-  const visibleRelatedBlogs = showAllRelated
-  ? blogs
-  : blogs.slice(0, 4);
-
+  const visibleRelatedBlogs = showAllRelated ? blogs : blogs.slice(0, 4);
 
   return (
     <section className="w-full flex flex-col font-[Inter] items-center bg-white">
       {/* Hero Section */}
       <div
         className="w-[95%] mt-18 h-[25vh] md:h-[45vh] bg-cover rounded-t-3xl bg-center flex items-center justify-center"
-     style={{
-  backgroundImage: "url('/Blog2/background.png')",
-  backgroundColor: "rgba(0, 0, 0, 0.6)",
-  backgroundBlendMode: "overlay",
-}}
-
+        style={{
+          backgroundImage: "url('/Blog2/background.png')",
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+          backgroundBlendMode: "overlay",
+        }}
       >
         <div className="text-center px-4">
           <h1 className="text-xl md:text-3xl lg:text-[64px] font-[Inter] font-extrabold text-white drop-shadow-lg">
@@ -106,22 +101,43 @@ export default function Page() {
   "
         >
           {[
-            { name: "facebook", src: "/fb.png" },
-            { name: "twitter", src: "/x.png" },
-            { name: "linkedin", src: "/ln.png" },
-            { name: "youtube", src: "/yt.png" },
-            { name: "instagram", src: "/ig.png" },
-          ].map((s, i) => (
+            {
+              src: "/ig.png",
+              name: "Instagram",
+              href: "https://www.instagram.com/radhyaeducationacademy/",
+            },
+            {
+              src: "/ln.png",
+              name: "LinkedIn",
+              href: "https://www.linkedin.com/ ",
+            },
+            {
+              src: "/x.png",
+              name: "X (Twitter)",
+              href: "https://x.com/radhya_REA",
+            },
+            {
+              src: "/yt.png",
+              name: "YouTube",
+              href: "https://youtube.com/@radhyaeducationacademy",
+            },
+            {
+              src: "/fb.png",
+              name: "Facebook",
+              href: " https://www.facebook.com/profile.php?id=61586054062267 ",
+            },
+          ].map((icon, i) => (
             <a
               key={i}
-              href={`https://${s.name}.com`}
+              href={icon.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-transform hover:scale-110"
+              aria-label={icon.name}
+              className="flex items-center justify-center"
             >
               <Image
-                src={s.src}
-                alt={s.name}
+                src={icon.src}
+                alt={icon.name}
                 width={28}
                 height={28}
                 className="
@@ -146,33 +162,57 @@ export default function Page() {
             Understanding the Online MBA Advantage
           </h2>
           <p className="text-black text-[14px] leading-5">
-           An Online MBA provides a powerful and unique blend of flexibility, academic quality, and applied, real-world learning. For many working professionals, this format serves as the perfect, practical bridge between their current position and their aspired leadership destination.<br/>
-Instead of having to resign from your job or take a sabbatical, you can grow academically and professionally at the same time. Today’s programs utilize industry-standard tools, engaging live classes, pre-recorded modules, and hands-on assignments. They are specifically designed to match the academic depth and rigor of traditional on-campus MBAs while simultaneously providing unmatched convenience.
+            An Online MBA provides a powerful and unique blend of flexibility,
+            academic quality, and applied, real-world learning. For many working
+            professionals, this format serves as the perfect, practical bridge
+            between their current position and their aspired leadership
+            destination.
+            <br />
+            Instead of having to resign from your job or take a sabbatical, you
+            can grow academically and professionally at the same time. Today’s
+            programs utilize industry-standard tools, engaging live classes,
+            pre-recorded modules, and hands-on assignments. They are
+            specifically designed to match the academic depth and rigor of
+            traditional on-campus MBAs while simultaneously providing unmatched
+            convenience.
           </p>
 
           <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
-           How an Online MBA Builds Transformational Leadership Skills
+            How an Online MBA Builds Transformational Leadership Skills
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
-           Leadership involves more than just issuing directives; it is fundamentally about influencing, inspiring, and effectively guiding people toward a shared, compelling goal. An Online MBA curriculum is structured to help you internalize and master core executive functions:
+            Leadership involves more than just issuing directives; it is
+            fundamentally about influencing, inspiring, and effectively guiding
+            people toward a shared, compelling goal. An Online MBA curriculum is
+            structured to help you internalize and master core executive
+            functions:
           </p>
-           <ul className="list-disc -mb-5 px-5">
+          <ul className="list-disc -mb-5 px-5">
             <li className="text-[14px] text-black font-normal leading-5">
-              Strategic Thinking: Developing the ability to understand the broader organizational and market picture and anticipate future trends.
+              Strategic Thinking: Developing the ability to understand the
+              broader organizational and market picture and anticipate future
+              trends.
             </li>
             <li className="text-[14px] text-black font-normal leading-6">
-             Analytical Decision-Making: Learning to use complex data and rigorous analysis to choose the most optimal and impactful path forward.
+              Analytical Decision-Making: Learning to use complex data and
+              rigorous analysis to choose the most optimal and impactful path
+              forward.
             </li>
             <li className="text-[14px] text-black font-normal leading-6">
-            Communication Skills: Sharpening the capacity to express intricate ideas clearly, persuasively, and effectively across all organizational levels.
+              Communication Skills: Sharpening the capacity to express intricate
+              ideas clearly, persuasively, and effectively across all
+              organizational levels.
             </li>
             <li className="text-[14px] text-black font-normal leading-6">
-            Team Leadership: Gaining expertise in managing diverse viewpoints, resolving conflict, and strategically assigning responsibilities within a team.
+              Team Leadership: Gaining expertise in managing diverse viewpoints,
+              resolving conflict, and strategically assigning responsibilities
+              within a team.
             </li>
           </ul>
-           <p className="text-black text-[14px] leading-5">
-           By focusing on these areas, you begin thinking like a leader, moving beyond the mindset of merely completing day-to-day tasks.
-           </p>
+          <p className="text-black text-[14px] leading-5">
+            By focusing on these areas, you begin thinking like a leader, moving
+            beyond the mindset of merely completing day-to-day tasks.
+          </p>
           <div className="w-full h-full bg-white overflow-hidden">
             <Image
               src="/Blog2/blog2Content.png"
@@ -184,227 +224,260 @@ Instead of having to resign from your job or take a sabbatical, you can grow aca
           </div>
 
           {/* MAIN TITLE */}
-           <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
-          Growing Through Real-World, Applied Projects
+          <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+            Growing Through Real-World, Applied Projects
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
-         One of the greatest advantages of modern MBA programs is their emphasis on practical application.<br/> This includes the extensive use of:
-         </p>
-           <ul className="list-disc -mb-5 px-5">
+            One of the greatest advantages of modern MBA programs is their
+            emphasis on practical application.
+            <br /> This includes the extensive use of:
+          </p>
+          <ul className="list-disc -mb-5 px-5">
             <li className="text-[14px] text-black font-normal leading-5">
-             Real Company Case Studies: Analyzing strategic problems faced by actual businesses.
-              </li>
+              Real Company Case Studies: Analyzing strategic problems faced by
+              actual businesses.
+            </li>
             <li className="text-[14px] text-black font-normal leading-6">
-             Market Simulations: Operating virtual businesses in a competitive environment.
-             </li>
+              Market Simulations: Operating virtual businesses in a competitive
+              environment.
+            </li>
             <li className="text-[14px] text-black font-normal leading-6">
-          Collaborative Business Challenges: Working in teams to solve complex, novel organizational issues.
-          </li>
+              Collaborative Business Challenges: Working in teams to solve
+              complex, novel organizational issues.
+            </li>
             <li className="text-[14px] text-black font-normal leading-6">
-           Strategy Development Exercises: Creating comprehensive plans for business expansion or pivot.
-           </li>
+              Strategy Development Exercises: Creating comprehensive plans for
+              business expansion or pivot.
+            </li>
           </ul>
-           <p className="text-black text-[14px] leading-5">
-          These activities provide you with invaluable opportunities to grow your professional confidence by applying theoretical concepts directly to dynamic, real-world scenarios.
+          <p className="text-black text-[14px] leading-5">
+            These activities provide you with invaluable opportunities to grow
+            your professional confidence by applying theoretical concepts
+            directly to dynamic, real-world scenarios.
           </p>
 
           <h2 className="text-[#345895] -mb-5 font-semibold text-2xl">
-          Skill Development That Propels You Faster
+            Skill Development That Propels You Faster
           </h2>
-           <p className="text-black -mb-5 text-[14px] leading-5">
-         One of the greatest advantages of modern MBA programs is their emphasis on practical application.<br/> This includes the extensive use of:
-         </p>
-         <p className="text-black -mb-5 text-[14px] leading-5">
-        Soft Skills 
-        </p>
-           <ul className="list-disc -mb-5 px-5">
-            <li className="text-[14px] text-black font-normal leading-5">
-            Conflict Resolution
-            </li>
-            <li className="text-[14px] text-black font-normal leading-5">
-            Emotional Intelligence
-            </li>
-            <li className="text-[14px] text-black font-normal leading-5">
-            Advanced Communication
-         </li>
-            <li className="text-[14px] text-black font-normal leading-5">
-          Negotiation Strategies </li>
-          </ul>
-           <p className="text-black -mb-5 text-[14px] leading-5">
-          Technical Skills 
+          <p className="text-black -mb-5 text-[14px] leading-5">
+            One of the greatest advantages of modern MBA programs is their
+            emphasis on practical application.
+            <br /> This includes the extensive use of:
           </p>
-            <ul className="list-disc px-5">
+          <p className="text-black -mb-5 text-[14px] leading-5">Soft Skills</p>
+          <ul className="list-disc -mb-5 px-5">
             <li className="text-[14px] text-black font-normal leading-5">
-            Financial Modeling
+              Conflict Resolution
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-            Market Research Techniques
+              Emotional Intelligence
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-            Data analytics and interpretation
-         </li>
+              Advanced Communication
+            </li>
             <li className="text-[14px] text-black font-normal leading-5">
-          Operations management and optimization
-           </li>
+              Negotiation Strategies{" "}
+            </li>
           </ul>
-
-          
+          <p className="text-black -mb-5 text-[14px] leading-5">
+            Technical Skills
+          </p>
+          <ul className="list-disc px-5">
+            <li className="text-[14px] text-black font-normal leading-5">
+              Financial Modeling
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Market Research Techniques
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Data analytics and interpretation
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Operations management and optimization
+            </li>
+          </ul>
 
           <h2 className="text-[#345895] -mb-5 font-semibold text-2xl md:text-2xl lg:text-2xl">
             Online MBA Curriculum Breakdown
           </h2>
-           <p className="text-black -mb-5 text-[14px] leading-5">
-         The curriculum is engineered to ensure you become a well-rounded and effective decision-maker. Most programs incorporate foundational and advanced courses in:
+          <p className="text-black -mb-5 text-[14px] leading-5">
+            The curriculum is engineered to ensure you become a well-rounded and
+            effective decision-maker. Most programs incorporate foundational and
+            advanced courses in:
           </p>
           <ul className="list-disc px-5">
             <li className="text-[14px] text-black font-normal leading-5">
-             Finance & Accounting
-            </li>
-           <li className="text-[14px] text-black font-normal leading-5">
-             Strategic Management
+              Finance & Accounting
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-             Marketing & Consumer Behavior
+              Strategic Management
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-             Leadership & Organizational Behavior
+              Marketing & Consumer Behavior
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-             Business Analytics & Technology Management
-            </li>         
+              Leadership & Organizational Behavior
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Business Analytics & Technology Management
+            </li>
           </ul>
 
           <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
-           The Role of Collaboration & Professional Networking
+            The Role of Collaboration & Professional Networking
           </h2>
-           <p className="text-black -mb-5 text-[14px] leading-5">
-          Despite the digital setting, contemporary MBA programs actively foster strong networking opportunities through various avenues: 
+          <p className="text-black -mb-5 text-[14px] leading-5">
+            Despite the digital setting, contemporary MBA programs actively
+            foster strong networking opportunities through various avenues:
           </p>
-           <ul className="list-disc px-5 -mb-5">
+          <ul className="list-disc px-5 -mb-5">
             <li className="text-[14px] text-black font-normal leading-5">
-             Active peer discussion forums
-            </li>
-           <li className="text-[14px] text-black font-normal leading-5">
-             Mandatory virtual team projects
+              Active peer discussion forums
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-             Structured alumni mentorship programs
+              Mandatory virtual team projects
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-            Exclusive industry guest lectures
-            </li>   
+              Structured alumni mentorship programs
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Exclusive industry guest lectures
+            </li>
           </ul>
-           <p className="text-black text-[14px] leading-5">
-             These professional connections are vital, helping you to grow professionally and unlock entirely new career doors.
-            </p> 
+          <p className="text-black text-[14px] leading-5">
+            These professional connections are vital, helping you to grow
+            professionally and unlock entirely new career doors.
+          </p>
 
-            <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
-         Flexibility That Supports the Working Professional
+          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+            Flexibility That Supports the Working Professional
           </h2>
-           <p className="text-black -mb-5 text-[14px] leading-5">
-           Online MBAs are fundamentally built with the busy, professional adult in mind. Their structure is designed to support life balance by allowing:
-           </p>
-           <ul className="list-disc px-5 -mb-5">
-            <li className="text-[14px] text-black font-normal leading-5">
-             Learning at your personalized pace.
-            </li>
-           <li className="text-[14px] text-black font-normal leading-5">
-             Fitting challenging coursework into flexible evening and weekend hours.
-            </li>
-            <li className="text-[14px] text-black font-normal leading-5">
-           Successfully balancing demanding work, family obligations, and rigorous education.
-            </li>  
-          </ul>
-           <p className="text-black text-[14px] leading-5">
-             This essential flexibility lets you grow your career without experiencing burnout.
-          </p>  
-
-            <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
-        Technology Tools That Facilitate Growth
-        </h2>
-           <p className="text-black -mb-5 text-[14px] leading-5">
-          The learning platforms utilized are highly sophisticated and practical, employing tools such as:
+          <p className="text-black -mb-5 text-[14px] leading-5">
+            Online MBAs are fundamentally built with the busy, professional
+            adult in mind. Their structure is designed to support life balance
+            by allowing:
           </p>
-           <ul className="list-disc px-5 ">
+          <ul className="list-disc px-5 -mb-5">
             <li className="text-[14px] text-black font-normal leading-5">
-            Virtual classrooms for synchronous learning
+              Learning at your personalized pace.
             </li>
-           <li className="text-[14px] text-black font-normal leading-5">
-             Interactive whiteboards for collaborative problem-solving
-              </li>
             <li className="text-[14px] text-black font-normal leading-5">
-          Cloud-based assignments and project management
-          </li> 
-          <li className="text-[14px] text-black font-normal leading-5">
-          Advanced business simulation software for decision-making practice
-          </li>  
+              Fitting challenging coursework into flexible evening and weekend
+              hours.
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Successfully balancing demanding work, family obligations, and
+              rigorous education.
+            </li>
           </ul>
-
-
-             <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
-        How an Online MBA Enhances Career Opportunities
-        </h2>
-           <p className="text-black -mb-5 text-[14px] leading-5">
-          Armed with your comprehensive new skillset, you are prepared to pursue and succeed in high-level roles such as:
+          <p className="text-black text-[14px] leading-5">
+            This essential flexibility lets you grow your career without
+            experiencing burnout.
           </p>
-           <ul className="list-disc px-5 -mb-5">
-            <li className="text-[14px] text-black font-normal leading-5">
-             Operations Manager
-            </li>
-           <li className="text-[14px] text-black font-normal leading-5">
-            Marketing Manager
-            </li>
-            <li className="text-[14px] text-black font-normal leading-5">
-             Business Analyst
-          </li> 
-           <li className="text-[14px] text-black font-normal leading-5">
-             Project Manager
-          </li> 
-           <li className="text-[14px] text-black font-normal leading-5">
-            Entrepreneurial ventures
-          </li> 
-           <li className="text-[14px] text-black font-normal leading-5">
-             Executive Director or VP roles
-          </li>  
-          </ul>
-           <p className="text-black text-[14px] leading-5">
-            These senior positions demand the strategic thinking and leadership capabilities that are significantly strengthened by an Online MBA. Graduates frequently experience immediate professional growth, often leading to promotions and salary increases within months of completion.
-             </p> 
 
-               <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
-        Employer's Perception of Online MBA Graduates
-        </h2>
-           <p className="text-black -mb-5 text-[14px] leading-5">
-          Modern employers hold Online MBAs in high regard because they demonstrate several highly valued traits in a candidate:
-           </p>
-           <ul className="list-disc px-5 -mb-5">
+          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+            Technology Tools That Facilitate Growth
+          </h2>
+          <p className="text-black -mb-5 text-[14px] leading-5">
+            The learning platforms utilized are highly sophisticated and
+            practical, employing tools such as:
+          </p>
+          <ul className="list-disc px-5 ">
             <li className="text-[14px] text-black font-normal leading-5">
-            Self-motivation and initiative
-            </li>
-           <li className="text-[14px] text-black font-normal leading-5">
-            Exceptional discipline and time management
+              Virtual classrooms for synchronous learning
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-             Adaptability to new learning environments
-          </li> 
-           <li className="text-[14px] text-black font-normal leading-5">
-             Technical proficiency and comfort with digital tools
-          </li>   
+              Interactive whiteboards for collaborative problem-solving
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Cloud-based assignments and project management
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Advanced business simulation software for decision-making practice
+            </li>
           </ul>
-           <p className="text-black text-[14px] leading-5">
-           Companies increasingly appreciate candidates who have proven they can successfully thrive and lead in digital and remote work environments.
-            </p>  
 
-           <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
-           Conclusion
-        </h2>
-           <p className="text-black text-[14px] leading-5">
-An Online MBA is far more than just another degree—it represents a comprehensive professional transformation. It equips you with practical skills, real-world strategic experience, and the confidence necessary to take on significant challenges.<br/>
-Whether your goal is chasing a major promotion, executing a successful career change, or launching an innovative business, an Online MBA provides both the clear roadmap and the essential momentum to achieve it.<br/>
-Would you be interested in seeing the specific courses or specializations typically included in a modern Online MBA curriculum?
-</p>
-            
- </motion.div>
+          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+            How an Online MBA Enhances Career Opportunities
+          </h2>
+          <p className="text-black -mb-5 text-[14px] leading-5">
+            Armed with your comprehensive new skillset, you are prepared to
+            pursue and succeed in high-level roles such as:
+          </p>
+          <ul className="list-disc px-5 -mb-5">
+            <li className="text-[14px] text-black font-normal leading-5">
+              Operations Manager
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Marketing Manager
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Business Analyst
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Project Manager
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Entrepreneurial ventures
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Executive Director or VP roles
+            </li>
+          </ul>
+          <p className="text-black text-[14px] leading-5">
+            These senior positions demand the strategic thinking and leadership
+            capabilities that are significantly strengthened by an Online
+            MBA. Graduates frequently experience immediate professional growth,
+            often leading to promotions and salary increases within months of
+            completion.
+          </p>
+
+          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+            Employer's Perception of Online MBA Graduates
+          </h2>
+          <p className="text-black -mb-5 text-[14px] leading-5">
+            Modern employers hold Online MBAs in high regard because they
+            demonstrate several highly valued traits in a candidate:
+          </p>
+          <ul className="list-disc px-5 -mb-5">
+            <li className="text-[14px] text-black font-normal leading-5">
+              Self-motivation and initiative
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Exceptional discipline and time management
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Adaptability to new learning environments
+            </li>
+            <li className="text-[14px] text-black font-normal leading-5">
+              Technical proficiency and comfort with digital tools
+            </li>
+          </ul>
+          <p className="text-black text-[14px] leading-5">
+            Companies increasingly appreciate candidates who have proven they
+            can successfully thrive and lead in digital and remote work
+            environments.
+          </p>
+
+          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+            Conclusion
+          </h2>
+          <p className="text-black text-[14px] leading-5">
+            An Online MBA is far more than just another degree - it represents a
+            comprehensive professional transformation. It equips you with
+            practical skills, real-world strategic experience, and the
+            confidence necessary to take on significant challenges.
+            <br />
+            Whether your goal is chasing a major promotion, executing a
+            successful career change, or launching an innovative business, an
+            Online MBA provides both the clear roadmap and the essential
+            momentum to achieve it.
+            <br />
+            Would you be interested in seeing the specific courses or
+            specializations typically included in a modern Online MBA
+            curriculum?
+          </p>
+        </motion.div>
 
         {/* RIGHT SIDE BLOG LINKS */}
         <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl self-start h-fit shadow-lg p-4">
@@ -437,7 +510,7 @@ Would you be interested in seeing the specific courses or specializations typica
                   {blog.title}
                 </p>
 
-                <Link 
+                <Link
                   href={blog.path}
                   className="mt-2 w-fit text-white bg-[#1e5a9e] text-[10px] px-3 py-1 rounded hover:bg-[#164a82] transition inline-block"
                 >
@@ -447,14 +520,14 @@ Would you be interested in seeing the specific courses or specializations typica
             </motion.div>
           ))}
 
-         <button
-  onClick={() => setShowAllRelated(true)}
-  className="w-full mt-2 bg-linear-to-r from-[#5a9f5c] to-[#4a8f4c] text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:from-[#4a8f4c] hover:to-[#3a7f3c] transition"
->
-  View More
-  <ChevronRight size={18} />
-</button>
-
+          <button
+            onClick={() => setShowAllRelated(true)}
+            className="w-full mt-2 bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
+      active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
+          >
+            View More
+            <ChevronRight size={18} />
+          </button>
         </div>
       </div>
     </section>

@@ -16,7 +16,7 @@ export default function HomePage() {
     {
       id: 1,
       topic: "Advancement",
-      date: "25 Dec 2025",
+      date: "05 Jan 2026",
       title:
         "Online MBA For Career Growth: How An Online MBA Helps You Raise From Employee To Leader",
       image: "/Blog2/background.png",
@@ -25,7 +25,7 @@ export default function HomePage() {
     {
       id: 2,
       topic: "NMIMS",
-      date: "25 Dec 2025",
+      date: "05 Jan 2026",
       title: "Why NMIMS Is The Top Choice For Working Professionals In India",
       image: "/Blog3/background.png",
       path: "blogs/nmims-for-working-professionals",
@@ -33,7 +33,7 @@ export default function HomePage() {
     {
       id: 3,
       topic: "Clarity",
-      date: "25 Dec 2025",
+      date: "05 Jan 2026",
       title:
         "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
       image: "/Blog1/background.png",
@@ -42,7 +42,7 @@ export default function HomePage() {
     {
       id: 4,
       topic: "Evolution",
-      date: "25 Dec 2025",
+      date: "05 Jan 2026",
       title:
         "How Online MBA’s Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
       image: "/Blog4/background.png",
@@ -51,7 +51,7 @@ export default function HomePage() {
     {
       id: 5,
       topic: "ROI",
-      date: "25 Dec 2025",
+      date: "05 Jan 2026",
       title:
         "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility",
       image: "/Blog5/background.png",
@@ -60,7 +60,7 @@ export default function HomePage() {
     {
       id: 6,
       topic: "Leadership",
-      date: "25 Dec 2025",
+      date: "05 Jan 2026",
       title:
         "How Online BBA Builds Entrepreneurs And How Online MBA Shapes Future CEOs",
       image: "/Blog6/background.png",
@@ -68,12 +68,6 @@ export default function HomePage() {
     },
   ];
 
-  // in root client layout
-  useEffect(() => {
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-  }, []);
 
   // logo paths
   const logos = [
@@ -165,10 +159,12 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col bg-white font-sans">
-      <HeroSection className="pb-5" />
+      <HeroSection />
 
     {/* LOGO MARQUEE SECTION */}
-      <LogoSection logos={logos}/>
+   <div className="h-[120px]">
+
+     <LogoSection logos={logos}/></div>
 
       {/* ======= Courses SECTION ======= */}
       <CoursesSection />
@@ -178,14 +174,14 @@ export default function HomePage() {
 
       {/* ======= BLOG SECTION ======= */}
       <section id="blogs">
-        <div className="bg-white p-5 lg:p-15 mb-2">
+        <div className="bg-white p-5 lg:p-[60px] mb-2">
           <div className="flex flex-col gap-6 mb-8">
             {/* First Row: Heading and Description side by side */}
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-              <h1 className="text-4xl md:text-5xl xl:text-[64px] font-bold text-[#345895]">
+              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-[#345895]">
                 Knowledge Corner
               </h1>
-              <p className="text-black text-sm md:text-base w-55 word-break lg:text-left text-align-left">
+             <p className="text-black text-sm md:text-base w-55 word-break lg:text-left text-align-left">
                 Stay updated with the latest industry insights and trends.
               </p>
             </div>
@@ -209,7 +205,7 @@ export default function HomePage() {
             {visibleBlogs.map((blog) => (
               <div key={blog.id} className="bg-white">
                 {/* Image */}
-                <div className="relative h-55 bg-gray-200 rounded-t-xl overflow-hidden">
+                <div className="relative h-[220px] bg-gray-200 rounded-t-xl overflow-hidden">
                   <Image
                     src={blog.image}
                     alt={blog.title}
@@ -248,11 +244,11 @@ export default function HomePage() {
       </section>
 
       {/* ======= TESTIMONIAL SECTION ======= */}
-      <div className="w-full bg-white p-5 lg:px-15">
+      <div className="w-full bg-white p-5 lg:px-[60px]">
         <div className="w-full mx-auto">
           {/* Heading */}
           <div className="mb-10">
-            <h2 className="text-4xl md:text-5xl xl:text-[64px] font-bold text-[#345895] text-center md:text-left">
+            <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold text-[#345895] text-center md:text-left">
               Learners Love Wall
             </h2>
           </div>

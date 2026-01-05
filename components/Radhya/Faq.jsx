@@ -14,7 +14,7 @@ export default function FAQSection() {
     },
     {
       question: "How do I choose the right specialisation for my career?",
-      answer: "At Radhya Education, we use our Learn-Lead-Grow model to map your work experience, strengths, and industry trends. Based on your goals — promotion, career switch, or upskilling — we guide you toward the specialisation with the best long-term ROI."
+      answer: "At Radhya Education Academy, we use our assistance model to map your work experience, strengths, and industry trends. Based on your goals — promotion, career switch, or upskilling — we guide you toward the specialisation with the best long-term ROI."
     },
     {
       question: "Can I manage an Online MBA with a full-time job?",
@@ -22,7 +22,7 @@ export default function FAQSection() {
     },
     {
       question: "What kind of career support will I receive?",
-      answer: "You'll get access to university career services, resume reviews, interview prep, and hiring partners. Radhya education also provides personalised counsellor guidance to help you understand your ROI journey and make confident career decisions."
+      answer: "You'll get access to university career services, resume reviews, interview prep, and hiring partners. Radhya education academy provides personalised counsellor guidance to help you understand your ROI journey and make confident career decisions."
     }
   ];
 
@@ -31,8 +31,8 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="min-h-screen bg-white px-6 sm:px-8 lg:px-4">
-      <div className="w-full p-5 lg:p-15 mx-auto">
+    <div className=" bg-white px-6 sm:px-8 lg:px-4">
+      <div className="w-full p-5 lg:p-[60px] mx-auto">
         {/* Header */}
         <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold text-[#345895] mb-8 leading-tight">
           What.<br />

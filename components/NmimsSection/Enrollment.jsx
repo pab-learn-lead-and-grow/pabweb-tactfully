@@ -2,8 +2,20 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { Covered_By_Your_Grace } from "next/font/google";
 
-export default function Enrollment({ title, subtitle, steps, defaultOpen = 0 }) {
+const covered = Covered_By_Your_Grace({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+export default function Enrollment({
+  title,
+  subtitle,
+  steps,
+  defaultOpen = 0,
+}) {
   const [activeIndex, setActiveIndex] = useState(defaultOpen);
 
   const toggleStep = (index) =>
@@ -18,11 +30,12 @@ export default function Enrollment({ title, subtitle, steps, defaultOpen = 0 }) 
             {title}
           </h2>
 
-          <p
-            className="text-[#4DA7DE] font-[Covered_By_Your_Grace] text-4xl md:text-5xl lg:text-[64px] leading-none mt-2"
-          >
-            {subtitle}
-          </p>
+         <p
+  className={`${covered.className} text-[#4DA7DE] text-4xl md:text-5xl lg:text-[64px] leading-none mt-2`}
+>
+  {subtitle}
+</p>
+
         </div>
 
         {/* STEPS */}
@@ -40,10 +53,13 @@ export default function Enrollment({ title, subtitle, steps, defaultOpen = 0 }) 
                   <div className="flex flex-col items-center min-w-[50px]">
                     {/* Number */}
                     <p
-                      className="text-white font-[Covered_By_Your_Grace] text-[42px] md:text-[48px] leading-none"
-                    >
-                      {step.num}
-                    </p>
+  className={`${covered.className} ${
+    isOpen ? "text-white" : "text-[#D8D8D8]/79"
+  } text-[42px] md:text-[48px] leading-none`}
+>
+  {step.num}
+</p>
+
 
                     {/* Vertical Line – fills height of title + desc */}
                     <motion.div

@@ -6,32 +6,17 @@ import {
   SplinePointer,
   Speech,
   GlobeLock,
-  Users,
   Check,
   ChevronRight,
   ChevronsDown,
-  ArrowUpRight,
   ArrowRight,
-  FileClock,
   BookCheck,
   Headset,
-  Plus,
-  CornerDownRight,
-  Route,
-  FileUser,
-  Blocks,
-  MessagesSquare,
-  ChartNoAxesColumn,
-  Fullscreen,
-  LayoutDashboard,
   BriefcaseBusiness,
-  Usb,
-  HandCoins,
   Ungroup,
   BookText,
   UserLock,
   StickyNote,
-  ListMinus,
   ArrowUpWideNarrow,
   ContactRound,
   Headphones,
@@ -39,7 +24,6 @@ import {
   GalleryVertical,
   Tally4,
   Star,
-  Building2,
 } from "lucide-react";
 import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import { motion, AnimatePresence } from "framer-motion";
@@ -95,14 +79,14 @@ export default function Page() {
       title: "Submit & Register",
       desc: "Submit your application and complete your registration",
     },
-     {
+    {
       num: "05",
       title: "Await Enrollment Details",
       desc: "Wait for enrollment details & further guidance.",
     },
   ];
 
-    const faqs = [
+  const faqs = [
     {
       q: "What is the duration and format of the MAJMC program?",
       a: "The program runs for 2 years (4 semesters) and is delivered completely online, with live + recorded lectures and fully digital coursework.",
@@ -125,89 +109,91 @@ export default function Page() {
     },
   ];
 
-    /* fees crousel */
-    function FeesCarousel() {
-      const cards = [
-        {
-          title: "Annual Payment",
-          amount: "₹1,70,000/-",
-          sub: "Inclusive of all taxes",
-        },
-        {
-          title: "Semester Wise",
-          amount: "₹42,500/-",
-          sub: "Inclusive of all taxes",
-        },
-        {
-          title: "EMI starting at",
-          amount: "₹7,083/-",
-          sub: "per month [Terms & Conditions apply]",
-        },
-      ];
-  
-      const [index, setIndex] = useState(0);
-  
-      // Auto-scroll every 3 seconds
-      useEffect(() => {
-        const timer = setInterval(() => {
-          setIndex((prev) => (prev + 1) % cards.length);
-        }, 3000);
-  
-        return () => clearInterval(timer);
-      }, []);
-  
-      return (
-        <div className="w-full flex flex-col items-center">
-          {/* CARD */}
-          <div className="relative w-full flex justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 80 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -80 }}
-                transition={{ duration: 0.6 }}
-                className="bg-linear-to-b from-[#345895] to-[#101C2F] rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
-              >
-                <div>
-                  <p className="font-semibold text-white">{cards[index].title}</p>
-                  <p className="text-xs text-white mt-1">(in INR)</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">MAJMC</p>
-                  <div className="w-12 mx-auto h-0.5 bg-white mt-3" />
-                </div>
-  
-                <p className="text-2xl font-medium text-white mt-4">
-                  {cards[index].amount}
-                </p>
-  
-                {cards[index].sub && (
-                  <p className="text-xs text-white italic whitespace-pre-line">
-                    {cards[index].sub}
-                  </p>
-                )}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-  
-          {/* DOTS */}
-          <div className="flex gap-2 mt-4">
-            {cards.map((_, i) => (
-              <motion.button
-                key={i}
-                onClick={() => setIndex(i)}
-                animate={{
-                  scale: index === i ? 1.2 : 1,
-                  backgroundColor: index === i ? "#345895" : "#d1d5db",
-                }}
-                className="w-3 h-3 rounded-full"
-              />
-            ))}
-          </div>
-        </div>
-      );
-    }
+  /* fees crousel */
+  function FeesCarousel() {
+    const cards = [
+      {
+        title: "Annual Payment",
+        amount: "₹1,70,000/-",
+        sub: "Inclusive of all taxes",
+      },
+      {
+        title: "Semester Wise",
+        amount: "₹42,500/-",
+        sub: "Inclusive of all taxes",
+      },
+      {
+        title: "EMI starting at",
+        amount: "₹7,083/-",
+        sub: "per month [Terms & Conditions apply]",
+      },
+    ];
 
-   const topFaculty = [
+    const [index, setIndex] = useState(0);
+
+    // Auto-scroll every 3 seconds
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setIndex((prev) => (prev + 1) % cards.length);
+      }, 3000);
+
+      return () => clearInterval(timer);
+    }, []);
+
+    return (
+      <div className="w-full flex flex-col items-center">
+        {/* CARD */}
+        <div className="relative w-full flex justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -80 }}
+              transition={{ duration: 0.6 }}
+              className="bg-linear-to-b from-[#345895] to-[#101C2F] rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
+            >
+              <div>
+                <p className="font-semibold text-white">{cards[index].title}</p>
+                <p className="text-xs text-white mt-1">(in INR)</p>
+                <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">
+                  MAJMC
+                </p>
+                <div className="w-12 mx-auto h-0.5 bg-white mt-3" />
+              </div>
+
+              <p className="text-2xl font-medium text-white mt-4">
+                {cards[index].amount}
+              </p>
+
+              {cards[index].sub && (
+                <p className="text-xs text-white italic whitespace-pre-line">
+                  {cards[index].sub}
+                </p>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* DOTS */}
+        <div className="flex gap-2 mt-4">
+          {cards.map((_, i) => (
+            <motion.button
+              key={i}
+              onClick={() => setIndex(i)}
+              animate={{
+                scale: index === i ? 1.2 : 1,
+                backgroundColor: index === i ? "#345895" : "#d1d5db",
+              }}
+              className="w-3 h-3 rounded-full"
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  const topFaculty = [
     {
       name: "Dr. Rashmi Saxena",
       title: "Assistant Professor",
@@ -243,9 +229,8 @@ export default function Page() {
     },
   ];
 
-
   const semesters = [1, 2, 3, 4];
-   const semSuffix = {
+  const semSuffix = {
     1: "st",
     2: "nd",
     3: "rd",
@@ -253,8 +238,6 @@ export default function Page() {
   };
 
   const subjects = [{ id: 1, name: "Online MAJMC" }];
-
-   
 
   const topicsData = {
     1: {
@@ -377,7 +360,7 @@ export default function Page() {
     { value: "Scholarships", label: "Available" },
   ];
   return (
-      <main className="flex flex-col items-center w-full bg-white">
+    <main className="flex flex-col items-center w-full bg-white">
       <section className="relative min-h-screen lg:min-h-[50vh] xl:min-h-screen w-full ">
         {/* Background Image */}
         <div className="absolute inset-0">
@@ -412,7 +395,6 @@ export default function Page() {
 
         {/* CONTENT WRAPPER */}
         <div className="relative z-10 max-w-7xl mx-auto p-6 sm:p-10">
-
           {/* Subtext */}
           <motion.p
             initial={{ opacity: 0, x: -20 }}
@@ -443,7 +425,10 @@ export default function Page() {
               viewport={{ once: true }}
               className="text-gray-200 text-left text-[16px] md:text-[18px] max-w-6xl mt-0 mb-10 leading-relaxed"
             >
-           Launch your media career with India’s first UGC-entitled Online MAJMC. Learn advanced storytelling, media production, and strategic communication from global experts, and build a strong portfolio through live projects and research.
+              Launch your media career with India’s first UGC-entitled Online
+              MAJMC. Learn advanced storytelling, media production, and
+              strategic communication from global experts, and build a strong
+              portfolio through live projects and research.
             </motion.p>
 
             {/* STATS */}
@@ -479,12 +464,24 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4 mt-12 w-full items-center justify-center"
             >
-              <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2 bg-[#345895] text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-medium">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="flex items-center justify-center gap-2  bg-linear-to-r from-[#345895] to-[#142138] border-0 border-transparent shadow-[#020b34] transform  text-white  shadow-md
+                   transition-all duration-300 ease-out
+                   hover:scale-105 hover:shadow-xl
+                   active:scale-100 text-white px-6 py-3 rounded-lg transition-all duration-300 font-medium"
+              >
                 Download Brochure
                 <Download size={20} />
               </button>
 
-              <button onClick={() => setIsModalOpen(true)} className="bg-[#4D964F] flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className=" bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] transform  text-white  shadow-md
+                   transition-all duration-300 ease-out
+                   hover:scale-105 hover:shadow-xl
+                   active:scale-100 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg transition-all duration-300 font-medium"
+              >
                 Talk to an Expert
                 <ArrowRight size={16} />
               </button>
@@ -525,89 +522,92 @@ export default function Page() {
           </div>
         </div>
       </section>
-        {/* ======= SNAPSHOT SECTION ======= */}
-              <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
-                                     <div className="max-w-7xl mx-auto">
-                                       {/* HEADING */}
-                                       <motion.h2
-                                         initial={{ opacity: 0, y: -30 }}
-                                         whileInView={{ opacity: 1, y: 0 }}
-                                         transition={{ duration: 0.6 }}
-                                         viewport={{ once: true }}
-                                         className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
-                                       >
-                                         A Snapshot of Success
-                                       </motion.h2>
-                             
-                                       {/* BLUE BAR */}
-                                       <motion.div
-                                         initial={{ opacity: 0, scale: 0.95 }}
-                                         whileInView={{ opacity: 1, scale: 1 }}
-                                         transition={{ duration: 0.6, delay: 0.2 }}
-                                         viewport={{ once: true }}
-                                         className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
-                                       >
-                                         {/* ALWAYS 3 COLUMNS */}
-                                         <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
-                                           {/* STAT 1 */}
-                                           <motion.div
-                                             initial={{ opacity: 0, y: 30 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             transition={{ duration: 0.5 }}
-                                             viewport={{ once: true }}
-                                           >
-                                             <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                                               NAAC A+
-                                             </h3>
-                                             <p className="text-[8px]  md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
-                                               accredited
-                                             </p>
-                                           </motion.div>
-                             
-                                           {/* STAT 2 */}
-                                           <motion.div
-                                             initial={{ opacity: 0, y: 30 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             transition={{ duration: 0.5, delay: 0.1 }}
-                                             viewport={{ once: true }}
-                                           >
-                                             <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                                               1.6 lakh+
-                                             </h3>
-                                             <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                               working professionals enrolled
-                                             </p>
-                                           </motion.div>
-                             
-                                           {/* STAT 3 */}
-                                           <motion.div
-                                             initial={{ opacity: 0, y: 30 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             transition={{ duration: 0.5, delay: 0.2 }}
-                                             viewport={{ once: true }}
-                                           >
-                                             <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                                               AICTE
-                                             </h3>
-                                             <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                               approved
-                                             </p>
-                                           </motion.div>
-                                         </div>
-                                       </motion.div>
-                                     </div>
-                 </section>
-                       
+      {/* ======= SNAPSHOT SECTION ======= */}
+      <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+        <div className="max-w-7xl mx-auto">
+          {/* HEADING */}
+          <motion.h2
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
+          >
+            A Snapshot of Success
+          </motion.h2>
+
+          {/* BLUE BAR */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+          >
+            {/* ALWAYS 3 COLUMNS */}
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
+              {/* STAT 1 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                  NAAC A+
+                </h3>
+                <p className="text-[8px]  md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
+                  accredited
+                </p>
+              </motion.div>
+
+              {/* STAT 2 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                  1.6 lakh+
+                </h3>
+                <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
+                  working professionals enrolled
+                </p>
+              </motion.div>
+
+              {/* STAT 3 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                  AICTE
+                </h3>
+                <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
+                  approved
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
         {/* ===== Top Text Section ===== */}
         <div className="max-w-6xl text-left mx-auto">
           <h2 className="text-xl md:text-2xl font-regular lg:text-[49px] leading-normal text-gray-900">
             <span className="text-[#F9BD04] ">
-             Launch your media career with India’s first UGC-entitled Online MAJMC. {" "}
+               Launch your media career with India’s first UGC-entitled Online
+              MAJMC.{" "}
             </span>
-           Explore powerful storytelling techniques, modern media production, and strategic communication guided by leading international experts. Work on live industry projects and advanced research to showcase your creativity and stay ahead in the competitive media landscape.
-           </h2>
+            Explore powerful storytelling techniques, modern media production,
+            and strategic communication guided by leading international experts.
+            Work on live industry projects and advanced research to showcase
+            your creativity and stay ahead in the competitive media landscape.
+          </h2>
         </div>
 
         {/* ===== Bottom Card Section ===== */}
@@ -625,8 +625,9 @@ export default function Page() {
                 Real World projects
               </h3>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
-               Work on live projects and real-world case studies that prepare you to excel in your industry.
-               </p>
+                Work on live projects and real-world case studies that prepare
+                you to excel in your industry.
+              </p>
             </div>
           </div>
 
@@ -643,7 +644,8 @@ export default function Page() {
                 Global education
               </h3>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
-               Experience a truly global education with renowned international faculty.
+                Experience a truly global education with renowned international
+                faculty.
               </p>
             </div>
           </div>
@@ -877,20 +879,29 @@ export default function Page() {
           </h2>
           <ul className="text-[#1F284E] text-[12px] space-y-2 md:space-y-4 list-disc px-5 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
             <li>
-               Fresh graduates or final year students seeking higher education in Journalism and Mass Communication domain.
+               Fresh graduates or final year students seeking higher education
+              in Journalism and Mass Communication domain.
             </li>
             <li>
-              Professionals who, among others, want to open up other avenues in related fields and a variety of careers in Film and Television, Publishing, Public Relations, Editing, Broadcasting, Production, and Advertising </li>
+              Professionals who, among others, want to open up other avenues in
+              related fields and a variety of careers in Film and Television,
+              Publishing, Public Relations, Editing, Broadcasting, Production,
+              and Advertising{" "}
+            </li>
 
             <li>
-             Professionals who wish to work in the mass media and journalism industry and want to enhance their practical knowledge of the fundamental principles of Mass Communication and Journalism.
-             </li>
+              Professionals who wish to work in the mass media and journalism
+              industry and want to enhance their practical knowledge of the
+              fundamental principles of Mass Communication and Journalism.
+            </li>
             <li>
-           Applicant must possess sufficient knowledge and understanding of the English language.
-           </li>
+              Applicant must possess sufficient knowledge and understanding of
+              the English language.
+            </li>
             <li>
-             Candidates whose first language is not English must have completed at least 3 years of academic qualification under English medium.
-             </li>
+              Candidates whose first language is not English must have completed
+              at least 3 years of academic qualification under English medium.
+            </li>
           </ul>
           {/* for Indian Students */}
           <div className="mb-5">
@@ -898,14 +909,16 @@ export default function Page() {
               For Indian students
             </h3>
             <ul className="text-[#1F284E] text-[12px] list-disc px-5 space-y-2 md:space-y-4 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
-              <li>10th Class Certificate (Completing 10 years of Formal Schooling)</li>
-              <li>12th Class Certificate (Completing 12 years of Formal Schooling)</li>
+              <li>
+                10th Class Certificate (Completing 10 years of Formal Schooling)
+              </li>
+              <li>
+                12th Class Certificate (Completing 12 years of Formal Schooling)
+              </li>
               <li>
                 Graduation Degree (3 years or 4 years degree program only)
               </li>
-              <li>
-                A Diploma will not be acceptable
-              </li>
+              <li>A Diploma will not be acceptable</li>
             </ul>
           </div>
           {/* for Foreign Students */}
@@ -915,13 +928,16 @@ export default function Page() {
             </h3>
             <ul className="text-[#1F284E] text-[12px] list-disc px-5 space-y-2 md:space-y-4 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               <li>
-                O Level Certificate (Completing 10 years of formal schooling. Diploma not accepted)
+                O Level Certificate (Completing 10 years of formal schooling.
+                Diploma not accepted)
               </li>
-              <li>A Level Certificate (Completing 12 years of formal schooling. Diploma not accepted)
-
+              <li>
+                A Level Certificate (Completing 12 years of formal schooling.
+                Diploma not accepted)
               </li>
-                <li>
-              Graduation Degree or equivalent marks (3 years or 4 years degree program. Diploma will not be acceptable)
+              <li>
+                Graduation Degree or equivalent marks (3 years or 4 years degree
+                program. Diploma will not be acceptable)
               </li>
               <li>
                 Certificate of equivalence from the Association of Indian
@@ -936,7 +952,6 @@ export default function Page() {
                 </Link>
                 ))
               </li>
-             
             </ul>
           </div>
         </div>
@@ -976,9 +991,9 @@ export default function Page() {
             viewport={{ once: true }}
             className="text-left text-[#345895] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
           >
-            The Amity University Online MAJMC follows a structured and transparent
-            examination process designed to evaluate learners through continuous
-            assessments and end-term evaluations.
+            The Amity University Online MAJMC follows a structured and
+            transparent examination process designed to evaluate learners
+            through continuous assessments and end-term evaluations.
           </motion.p>
 
           {/* Cards Wrapper */}
@@ -1112,7 +1127,10 @@ export default function Page() {
         </div>
       </section>
 
-      <MujCareerServices benefits={benefits} onCtaClick={() => setIsModalOpen(true)} />
+      <MujCareerServices
+        benefits={benefits}
+        onCtaClick={() => setIsModalOpen(true)}
+      />
 
       <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
         <div className="px-2 w-full">
@@ -1131,9 +1149,10 @@ export default function Page() {
               </p>
 
               {/* CTA visible only on large screens */}
-              <button 
+              <button
                 onClick={() => setIsModalOpen(true)}
-                className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
+                className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit"
+              >
                 Compare all Plans
               </button>
             </div>
@@ -1144,9 +1163,10 @@ export default function Page() {
             </div>
 
             {/* CTA below carousel on mobile only */}
-            <button 
+            <button
               onClick={() => setIsModalOpen(true)}
-              className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+              className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3"
+            >
               Compare all Plans
             </button>
           </div>
@@ -1176,8 +1196,10 @@ export default function Page() {
             </h2>
 
             <p className="text-[#3C3C43] max-w-[350px] text-base">
-             Master of Arts (Journalism and Mass Communication) is a 2 year (4 semesters) program for graduates seeking a career in digital, radio, print or TV media and journalism.
-             </p>
+              Master of Arts (Journalism and Mass Communication) is a 2 year (4
+              semesters) program for graduates seeking a career in digital,
+              radio, print or TV media and journalism.
+            </p>
 
             {/* IMAGE that appears ONLY on mobile, above CTA */}
             <div className="md:hidden flex justify-center">
@@ -1189,9 +1211,10 @@ export default function Page() {
             </div>
 
             {/* CTA BUTTON */}
-            <button 
+            <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center">
+              className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center"
+            >
               Know more
             </button>
           </div>
@@ -1315,7 +1338,6 @@ export default function Page() {
                 </p>
               </div>
             </motion.div>
-            
           </div>
 
           {/* RIGHT COLUMN */}
@@ -1498,11 +1520,11 @@ export default function Page() {
                 ))}
 
                 {/* CTA */}
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.97 }}
-                    onClick={() => setIsModalOpen(true)}
-                    className="
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => setIsModalOpen(true)}
+                  className="
                                    w-[200px] 
                                    mt-6 py-3 px-6 
                                    rounded-lg 
@@ -1510,9 +1532,9 @@ export default function Page() {
                                    bg-linear-to-r from-[#4D964F] to-[#193019]
                                    shadow-md shadow-[#1C361D]/40
                                  "
-                  >
-                    Know more
-                  </motion.button>
+                >
+                  Know more
+                </motion.button>
               </motion.div>
             </div>
           </motion.div>

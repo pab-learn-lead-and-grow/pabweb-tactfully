@@ -89,52 +89,72 @@ export default function Page() {
 
       <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[8%_68%_24%] gap-5 mt-20 md:mt-10 lg:mt-0 xl:mt-20 px-4 ">
         {/* LEFT SOCIAL ICONS */}
-        <div
-          className="
-    bg-white shadow rounded-lg
-    p-2
-    flex
-    flex-row lg:flex-col
-    items-center justify-center
-    gap-3
-    w-fit h-fit
-
-    fixed lg:static
-    bottom-4 left-1/2 lg:left-auto
-    -translate-x-1/2 lg:translate-x-0
-    z-40
-  "
-        >
-          {[
-            { name: "facebook", src: "/fb.png" },
-            { name: "twitter", src: "/x.png" },
-            { name: "linkedin", src: "/ln.png" },
-            { name: "youtube", src: "/yt.png" },
-            { name: "instagram", src: "/ig.png" },
-          ].map((s, i) => (
-            <a
-              key={i}
-              href={`https://${s.name}.com`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-transform hover:scale-110"
-            >
-              <Image
-                src={s.src}
-                alt={s.name}
-                width={28}
-                height={28}
-                className="
-          rounded
-          shadow
-          w-6 h-6
-          lg:w-8 lg:h-8
-        "
-              />
-            </a>
-          ))}
-        </div>
-
+         <div
+                 className="
+           bg-white shadow rounded-lg
+           p-2
+           flex
+           flex-row lg:flex-col
+           items-center justify-center
+           gap-3
+           w-fit h-fit
+       
+           fixed lg:static
+           bottom-4 left-1/2 lg:left-auto
+           -translate-x-1/2 lg:translate-x-0
+           z-40
+         "
+               >
+                 {[
+                   {
+                     src: "/ig.png",
+                     name: "Instagram",
+                     href: "https://www.instagram.com/radhyaeducationacademy/",
+                   },
+                   {
+                     src: "/ln.png",
+                     name: "LinkedIn",
+                     href: "https://www.linkedin.com/ ",
+                   },
+                   {
+                     src: "/x.png",
+                     name: "X (Twitter)",
+                     href: "https://x.com/radhya_REA",
+                   },
+                   {
+                     src: "/yt.png",
+                     name: "YouTube",
+                     href: "https://youtube.com/@radhyaeducationacademy",
+                   },
+                   {
+                     src: "/fb.png",
+                     name: "Facebook",
+                     href: " https://www.facebook.com/profile.php?id=61586054062267 ",
+                   },
+                 ].map((icon, i) => (
+                   <a
+                     key={i}
+                     href={icon.href}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label={icon.name}
+                     className="flex items-center justify-center"
+                   >
+                     <Image
+                       src={icon.src}
+                       alt={icon.name}
+                       width={28}
+                       height={28}
+                       className="
+                 rounded
+                 shadow
+                 w-6 h-6
+                 lg:w-8 lg:h-8
+               "
+                     />
+                   </a>
+                 ))}
+               </div>
         {/* CENTER CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -146,7 +166,7 @@ export default function Page() {
            Introduction: The Rise of the Mainstream Online MBA
            </h2>
           <p className="text-black text-[14px] leading-5">
-          The Online MBA is no longer considered a secondary option—it has forcefully moved into the mainstream and become one of the world’s fastest-growing advanced education pathways. Initially viewed with skepticism, its credibility has surged dramatically due to the maturity of educational technology, the entry of respected, top-tier universities into the online space, and a fundamental global shift toward skill-based hiring. Over the past few years, a strong, undeniable trend has emerged: professionals are demanding high-quality management education that allows them to continue advancing their careers without the financial or professional interruption of quitting their jobs. The Online MBA delivers exactly this strategic flexibility and academic rigor.
+          The Online MBA is no longer considered a secondary option - it has forcefully moved into the mainstream and become one of the world’s fastest-growing advanced education pathways. Initially viewed with skepticism, its credibility has surged dramatically due to the maturity of educational technology, the entry of respected, top-tier universities into the online space, and a fundamental global shift toward skill-based hiring. Over the past few years, a strong, undeniable trend has emerged: professionals are demanding high-quality management education that allows them to continue advancing their careers without the financial or professional interruption of quitting their jobs. The Online MBA delivers exactly this strategic flexibility and academic rigor.
           </p>
 
           <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
@@ -188,7 +208,7 @@ export default function Page() {
           The Online MBA Evolution in the Indian Market
           </h2>
           <p className="text-black text-[14px] leading-5">
-       India stands out as one of the world’s fastest-growing Online MBA markets. Working professionals across high-growth sectors—including IT, BFSI (Banking, Financial Services, and Insurance), consulting, and manufacturing—are strategically enrolling to aggressively strengthen their leadership and digital management skills.
+       India stands out as one of the world’s fastest-growing Online MBA markets. Working professionals across high-growth sectors - including IT, BFSI (Banking, Financial Services, and Insurance), consulting, and manufacturing - are strategically enrolling to aggressively strengthen their leadership and digital management skills.
         </p>
 
         <h2 className="text-[16px] -mb-5 font-medium text-black">
@@ -287,14 +307,14 @@ export default function Page() {
         Real Success Stories: Transformation in Action
         </h2>
            <p className="text-[16px] -mb-5 text-black font-medium leading-5">
-             Success Snapshot #1 — Career Switcher
+             Success Snapshot #1 - Career Switcher
             </p>
              <p className="text-[14px] text-black leading-5">
             A learner leveraged his Online MBA from a reputed international university to successfully shift his career from operations into the high-growth field of product management.<br/>"Before the program, my career felt stuck. The Online MBA gave me strategic thinking skills, and within six months of graduating, I landed a global product role with a 40% salary hike." His experience is indicative of the rising trend of professionals utilizing online education to make significant, industry-wide career pivots.
             </p>
 
              <p className="text-[16px] -mb-5 text-black font-medium leading-5">
-             Success Snapshot #2 — Indian Professionals Journey
+             Success Snapshot #2 - Indian Professionals Journey
             </p>
              <p className="text-[14px] text-black leading-5">
            A Bangalore-based IT professional completed his Online MBA while maintaining a full-time workload. Within one year, he secured a promotion to a team lead role and subsequently moved into strategic project management<br/>"I wasn’t sure if an Online MBA would matter. But my employer appreciated the updated skills, especially my analytics and leadership modules. My salary grew by 32% post completion."Stories like this powerfully showcase the practical, immediate impact of accredited Online MBAs in the competitive Indian market.
@@ -374,7 +394,8 @@ export default function Page() {
 
          <button
   onClick={() => setShowAllRelated(true)}
-  className="w-full mt-2 bg-linear-to-r from-[#5a9f5c] to-[#4a8f4c] text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:from-[#4a8f4c] hover:to-[#3a7f3c] transition"
+  className="w-full mt-2 bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
+      active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
 >
   View More
   <ChevronRight size={18} />

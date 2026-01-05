@@ -9,14 +9,14 @@ import { useState } from "react";
 const TITLE = "All-in-one space that's got your back, always";
 
 const ITEMS = [
-  { title: "Career Opportunities", image: "/Radhya/career.png" },
-  { title: "Scholarships & Financial Aid", image: "/Radhya/scholarship.png" },
-  { title: "Refer & Earn", image: "/Radhya/refer.png" },
-  { title: "Finance Your Future", image: "/Radhya/finance.png" },
-  { title: "Post-Admission Support", image: "/Radhya/support.png" },
-  { title: "University Verification", image: "/Radhya/verification.png" },
-  { title: "Verify Your Counsellor", image: "/Radhya/counsellor.png" },
-  { title: "Online Learning Trends", image: "/Radhya/trends.png" },
+  { title: "Career Opportunities", image: "/radhya/career.png" },
+  { title: "Scholarships & Financial Aid", image: "/radhya/scholarship.png" },
+  { title: "Refer & Earn", image: "/radhya/refer.png" },
+  { title: "Finance Your Future", image: "/radhya/finance.png" },
+  { title: "Post-Admission Support", image: "/radhya/support.png" },
+  { title: "University Verification", image: "/radhya/verification.png" },
+  { title: "Verify Your Counsellor", image: "/radhya/counsellor.png" },
+  { title: "Online Learning Trends", image: "/radhya/trends.png" },
 ];
 
 export default function AllInOneSection() {
@@ -24,7 +24,7 @@ export default function AllInOneSection() {
 
   return (
     <section className="my-8">
-      <div className="max-w-7xl xl:max-w-full mx-auto px-4 md:px-8 lg:px-16 bg-white text-center">
+      <div className=" max-w-full mx-auto px-4 md:px-8 lg:px-16 bg-white text-center">
 
         {/* Heading */}
         <h2 className="text-2xl sm:text-3xl md:text-[50px] xl:text-[54px] 2xl:text-[64px] font-bold text-[#345895] text-center mx-auto leading-snug">
@@ -32,7 +32,7 @@ export default function AllInOneSection() {
         </h2>
 
         {/* Grid */}
-        <ul className="mt-8 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6 xl:gap-0 justify-items-center">
+        <ul className="mt-8 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-6 xl:gap-1 justify-items-center">
           {ITEMS.map((item, i) => (
             <li key={i} className="w-full flex justify-center">
               <IconCard title={item.title} image={item.image} />
@@ -48,11 +48,10 @@ export default function AllInOneSection() {
              className="
       px-5 xl:px-10 py-2
       rounded-lg
-      bg-[#4D964F]
-      text-white text-xl font-semibold
-      shadow-md
+      text-white text-xl font-medium
       transition-all duration-300 ease-out
-      hover:scale-105 hover:shadow-xl
+      hover:scale-105
+       bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
       active:scale-100
     ">
             Unlock the Whole Experience

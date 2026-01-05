@@ -6,24 +6,21 @@ import Link from "next/link";
 
 export default function LogoSection({ logos }) {
   return (
-    <div className="w-full py-4 overflow-hidden">
-      <Marquee
-        speed={80}
-        gradient={false}
-        pauseOnHover={true}
-      >
+    <div className="w-full h-[120px] overflow-hidden">
+      <Marquee speed={60} gradient={false} pauseOnHover>
         {logos.map((logo, idx) => (
           <Link
             key={idx}
             href={logo.href}
-            className="mx-10 flex items-center"
+            className="mx-10 flex items-center justify-center h-[120px]"
           >
             <Image
               src={logo.src}
               alt="logo"
-              width={220}
-              height={100}
-              className="object-contain hover:scale-105 transition"
+              width={640}
+              height={219}
+              loading="lazy"
+              className="h-[75px] w-auto object-contain hover:scale-105 transition-transform"
             />
           </Link>
         ))}

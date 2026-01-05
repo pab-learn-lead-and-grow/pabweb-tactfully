@@ -1,12 +1,10 @@
-
-@import 'https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap';
 @import "tailwindcss";
 
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-   --font-sans: var(--font-inter), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
 }
 
 /* Hide scrollbar for Chrome, Safari and Edge */
@@ -19,15 +17,16 @@
 .scrollbar-hide {
   scrollbar-width: none;
 }
+
 /* Chrome, Safari, Edge */
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Safari + Chrome */
+  display: none;
+  /* Safari + Chrome */
 }
 
-html, body {
-  overflow-x: hidden;
-   overflow-y: scroll;
-  overflow-anchor: none;
+html,
+body {
+  overflow-y: scroll;
 }
 
 .handdrawn-underline {
@@ -48,7 +47,7 @@ html, body {
 .marquee-clone {
   transform: translateX(100%);
 }
- 
+
 .swiper-wrapper {
   transition-timing-function: linear !important;
 }
@@ -62,8 +61,8 @@ html, body {
   bottom: 0;
   width: 80%;
   height: 12px;
-  
-  
+
+
   border-bottom: 3px solid #4D964F;
   border-radius: 100%;
 
@@ -79,6 +78,7 @@ html, body {
   width: 0;
   background: transparent;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -87,68 +87,7 @@ html, body {
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-   --font-sans: var(--font-inter), sans-serif;
-}
-
-/* === Outline draw animation === */
-
-@keyframes drawTop {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes drawRight {
-  from { height: 0; }
-  to { height: 100%; }
-}
-
-@keyframes drawBottom {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes drawLeft {
-  from { height: 0; }
-  to { height: 100%; }
-}
-
-.outline-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #FFE492, #FF5353);
-  animation: drawTop 1.4s linear infinite;
-}
-
-.outline-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 2px;
-  background: linear-gradient(180deg, #FFE492, #FF5353);
-  animation: drawRight 1.4s linear infinite;
-  animation-delay: 1.8s;
-}
-
-.outline-bottom {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #FFE492, #FF5353);
-  animation: drawBottom 1.4s linear infinite;
-  animation-delay: 2.0s;
-}
-
-.outline-left {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 2px;
-  background: linear-gradient(180deg, #FFE492, #FF5353);
-  animation: drawLeft 1.4s linear infinite;
-  animation-delay: 2.2s;
+  --font-sans: var(--font-inter), sans-serif;
 }
 
 
@@ -167,8 +106,13 @@ body {
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .marquee-track {
@@ -196,9 +140,12 @@ body {
 }
 
 @keyframes softBlink {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 rgba(155, 91, 7, 0);
   }
+
   50% {
     box-shadow: 0 0 12px rgba(236, 6, 6, 0.6);
   }
@@ -208,3 +155,9 @@ body {
   animation: softBlink 1.4s ease-in-out infinite;
 }
 
+
+@media (min-width: 1200px) {
+  .home-page-class{
+    min-height: 900px; 
+  }
+}
