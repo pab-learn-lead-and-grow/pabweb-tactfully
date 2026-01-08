@@ -86,27 +86,20 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-white p-5 flex min-h-[90vh] xl:min-h-[50vh]
- items-center">
+<footer className="w-full bg-white p-5 flex min-h-[90vh] xl:min-h-[50vh] items-center">
       <div className="mx-auto w-full max-w-7xl">
         {/* --- Main Section --- */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6  border-t-2 border-b-2">
           {/* --- Left Section (Logo, Social, Address) --- */}
           <div className="col-span-2">
-            <div className="col-span-2 flex justify-start items-start mt-10 mb-10 text-left">
+            <div className="col-span-2 flex justify-start items-start text-left">
               <a href="/" className="block">  
               <Image
                 src="/radhyaLogo.png"
                 alt="Radhya Logo"
                 width={250}
                 height={60}
-                className="
-                block
-                w-40
-                lg:w-[180px]
-                xl:w-[250px]
-                h-auto
-                "
+className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
               />
               </a>
             </div>
@@ -137,7 +130,7 @@ export default function Footer() {
                 {
                   src: "/fb.png",
                   alt: "Facebook",
-                  href: " https://www.facebook.com/profile.php?id=61586054062267 ",
+                  href: " https://www.facebook.com/profile.php?id=61586016816119",
                 },
               ].map((icon, i) => (
                 <a
@@ -166,7 +159,7 @@ export default function Footer() {
               <p>Gwalior, Madhya Pradesh, India</p>
               <a
                 href="tel:+917489410758"
-                className="text-black text-xs md:text-sm hover:text-[#345895] underline"
+                className="text-black text-xs md:text-sm hover:text-[#3C087E] underline"
                 aria-label="Call Radhya Education Academy"
               >
                 +91 7489410758
@@ -176,7 +169,7 @@ export default function Footer() {
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=uttam15vp@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-black text-xs md:text-sm hover:text-[#345895] underline"
+                className="text-black text-xs md:text-sm hover:text-[#3C087E] underline"
               >
                 uttam15vp@gmail.com
               </a>
@@ -195,7 +188,7 @@ export default function Footer() {
                   <li key={uni.path}>
                     <Link
                       href={uni.path}
-                      className="hover:text-blue-900 transition"
+                      className="hover:text-[#3C087E] transition"
                     >
                       {uni.name}
                     </Link>
@@ -214,7 +207,7 @@ export default function Footer() {
                   <li key={i}>
                     <Link
                       href={link.href}
-                      className="hover:text-blue-900 transition"
+                      className="hover:text-[#3C087E] transition"
                     >
                       {link.name}
                     </Link>
@@ -238,7 +231,7 @@ export default function Footer() {
                         query: { category: item.category },
                       }}
                       scroll={false} // 👈 no jump
-                      className="hover:text-blue-900 transition"
+                      className="hover:text-[#3C087E] transition"
                     >
                       {item.label}
                     </Link>
@@ -255,27 +248,24 @@ export default function Footer() {
               <p className="text-[11px] md:text-xs text-black mb-2">
                 Subscribe to our newsletter
               </p>
-              <div className="flex flex-col text-[#064E92] space-y-2">
+              <div className="flex flex-col text-[#3C087E] space-y-2">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email Address"
-                  className="w-full border border-gray-400 bg-[rgba(6,78,146,0.1)] rounded-md px-3 py-2 text-[11px] md:text-xs focus:outline-none focus:border-blue-800"
+                  className="w-full border bg-[#3C087E]/10 rounded-md px-3 py-2 text-[11px] md:text-xs focus:outline-none focus:border-[#3C087E]"
                 />
 
                 <button
                   onClick={handleSubscribe}
                   disabled={loading}
-                  className="bg-[#345895] text-white rounded-md py-2 text-[11px] md:text-xs bg-linear-to-r from-[#345895] to-[#142138] border-0 border-transparent shadow-[#020b34] transform  shadow-md
-      transition-all duration-300 ease-out
-      hover:scale-105 hover:shadow-lg
-      active:scale-100 disabled:opacity-60"
+className="bg-[#3C087E]/10 text-white rounded-md py-2 text-[11px] md:text-xs bg-linear-to-r from-[#9542FF] to-[#180135] border-0 border-transparent shadow-[#020b34] transform shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 disabled:opacity-60"
                 >
                   {loading ? "Subscribing..." : "Subscribe now"}
                 </button>
                 {message && (
-                  <p className="text-[11px] md:text-xs text-green-700">
+                  <p className="text-[11px] md:text-xs text-[#3C087E]">
                     {message}
                   </p>
                 )}
@@ -294,13 +284,13 @@ export default function Footer() {
           </p>
           <div className="flex space-x-2 mt-2 md:mt-0">
            
-            <a href="/PrivacyPolicy" className="hover:text-blue-900">
+            <a href="/PrivacyPolicy" className="hover:text-[#3C087E]">
               Privacy Policy {""}||
             </a>
-              <Link href="/disclaimer" className="hover:text-blue-900">
+              <Link href="/disclaimer" className="hover:text-[#3C087E]">
               Disclaimer {""}||
             </Link>
-            <a href="/TermsAndCondition" className="hover:text-blue-900">
+            <a href="/TermsAndCondition" className="hover:text-[#3C087E]">
             Terms & Conditions
             </a>
           </div>

@@ -109,11 +109,7 @@ export default function JobDetails() {
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 border-b pb-6">
         <div>
           <p
-            className="text-blue-900 text-xs mb-2 inline-block px-2 py-1 rounded-md"
-            style={{
-              backgroundColor: "rgba(6, 78, 146, 0.1)",
-              border: "1px solid rgba(6, 78, 146, 0.1)",
-            }}
+            className="text-[#3C087E] text-xs mb-2 bg-[#3C087E]/10 inline-block px-2 py-1 rounded-md"
           >
             5 min ago
           </p>
@@ -123,18 +119,18 @@ export default function JobDetails() {
           <p className="text-black mt-2 text-sm mb-6">
             Lead generation, cold calling, counseling prospects, end-to-end sales.
           </p>
-          <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-black">
+          <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-gray-600">
             <span className="flex items-center gap-2">
-              <Briefcase className="w-4 h-4 text-[#345895]" /> 3-5 years
+              <Briefcase className="w-4 h-4 text-[#D68E0E]" /> 3-5 years
             </span>
             <span className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#345895]" /> Full Time
+              <Clock className="w-4 h-4 text-[#D68E0E]" /> Full Time
             </span>
             <span className="flex items-center gap-2">
-              <Wallet className="w-4 h-4 text-[#345895]" /> ₹2,40,000-3,00,000
+              <Wallet className="w-4 h-4 text-[#D68E0E]" /> ₹2,40,000-3,00,000
             </span>
             <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#345895]" /> Madhya Pradesh
+              <MapPin className="w-4 h-4 text-[#D68E0E]" /> Madhya Pradesh
             </span>
           </div>
         </div>
@@ -142,7 +138,7 @@ export default function JobDetails() {
         {/* ✅ Scroll to Form Button */}
         <button
           onClick={scrollToForm}
-          className="mt-5 md:mt-0 bg-[#345895] hover:bg-blue-900 text-white px-6 py-2 rounded-lg font-medium transition"
+          className="mt-5 md:mt-0 bg-[#3C087E] hover:bg-blue-950 text-white px-6 py-2 rounded-lg font-medium transition"
         >
           Apply Job
         </button>
@@ -197,7 +193,7 @@ export default function JobDetails() {
                 (tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-[rgba(6,78,146,0.1)] text-[#064E92] rounded-full text-sm font-medium"
+                    className="px-3 py-1 text-[#3C087E] bg-[#3C087E]/10 rounded-full text-sm font-medium"
                   >
                     {tag}
                   </span>
@@ -210,10 +206,7 @@ export default function JobDetails() {
         {/* ✅ Right Column - Apply Form */}
         <div
           ref={formRef}
-          className="p-6 rounded-2xl shadow-md"
-          style={{
-            backgroundColor: "rgba(6, 78, 146, 0.1)",
-          }}
+          className="p-6 rounded-2xl shadow-md bg-[#3C087E]/10"
         >
           <h3 className="text-2xl text-center font-semibold text-black mb-1">
             Apply for this Job
@@ -292,7 +285,7 @@ export default function JobDetails() {
                 type="file"
                 accept=".pdf,.doc,.docx"
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white text-gray-600 cursor-pointer hover:bg-blue-50 transition"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white text-gray-600 cursor-pointer hover:bg-purple-50 transition"
               />
             </div>
 
@@ -301,8 +294,8 @@ export default function JobDetails() {
               disabled={loading}
               className={`w-full font-semibold py-2 rounded-lg transition ${
                 loading
-                  ? "bg-gray-400 cursor-not-allowed text-white"
-                  : "bg-[#345895] hover:bg-blue-800 text-white"
+                  ? "bg-purple-400 cursor-not-allowed text-white"
+                  : "bg-[#3C087E] hover:bg-blue-950 text-white"
               }`}
             >
               {loading ? "Submitting..." : "Submit"}
@@ -342,11 +335,8 @@ export default function JobDetails() {
               className="border rounded-xl p-6 shadow-sm hover:shadow-md transition"
             >
               <p
-                className="text-[#345895] text-xs mb-2 inline-block px-2 py-1 rounded-md"
-                style={{
-                  backgroundColor: "rgba(6, 78, 146, 0.1)",
-                  border: "1px solid rgba(6, 78, 146, 0.1)",
-                }}
+                className="text-[#3C087E] bg-[#3C087E]/10 text-xs mb-2 inline-block px-2 py-1 rounded-md"
+               
               >
                 {job.time}
               </p>
@@ -354,21 +344,21 @@ export default function JobDetails() {
               <p className="text-black text-sm mt-2 mb-6">{job.desc}</p>
               <div className="flex flex-wrap items-center gap-4 mt-2 text-black text-sm">
                 <span className="flex items-center gap-2">
-                  <Briefcase className="w-4 h-4 text-[#345895]" /> {job.tag}
+                  <Briefcase className="w-4 h-4 text-[#D68E0E]" /> {job.tag}
                 </span>
                 <span className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#345895]" /> {job.type}
+                  <Clock className="w-4 h-4 text-[#D68E0E]" /> {job.type}
                 </span>
                 <span className="flex items-center gap-2">
-                  <Wallet className="w-4 h-4 text-[#345895]" /> {job.salary}
+                  <Wallet className="w-4 h-4 text-[#D68E0E]" /> {job.salary}
                 </span>
                 <span className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#345895]" /> {job.location}
+                  <MapPin className="w-4 h-4 text-[#D68E0E]" /> {job.location}
                 </span>
               </div>
               <button
                 onClick={() => router.push(job.link)}
-                className="mt-6 bg-[#345895] hover:bg-blue-900 text-white px-4 py-2 rounded-lg font-medium transition"
+                className="mt-6 bg-[#3C087E] hover:bg-blue-950 text-white px-4 py-1 rounded-lg font-medium transition"
               >
                 Job Details
               </button>

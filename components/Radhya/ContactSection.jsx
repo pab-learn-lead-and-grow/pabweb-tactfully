@@ -77,13 +77,13 @@ export default function ContactSection() {
         {/* FIXED: ALWAYS 2×2 GRID */}
         <div className="grid grid-cols-2 mx-2 gap-8 mt-8">
           <div className="flex flex-col space-y-2">
-            <Phone className="text-[#345895] w-6 h-6" />
+            <Phone className="text-[#3C087E] w-6 h-6" />
             <span className="font-semibold text-lg text-black">
               Call for inquiry
             </span>
             <a
               href="tel:+917489410758"
-              className="text-black text-sm hover:text-[#345895] underline"
+              className="text-black text-sm hover:text-[#3C087E] underline"
               aria-label="Call Radhya Education"
             >
               +91 7489410758
@@ -91,7 +91,7 @@ export default function ContactSection() {
           </div>
 
           <div className="flex flex-col space-y-2">
-            <Mail className="text-[#345895] w-6 h-6" />
+            <Mail className="text-[#3C087E] w-6 h-6" />
 
             <span className="font-semibold text-lg text-black">
               Send us email
@@ -101,14 +101,14 @@ export default function ContactSection() {
               href="https://mail.google.com/mail/?view=cm&fs=1&to=uttam15vp@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black text-sm hover:text-[#345895] underline"
+              className="text-black text-sm hover:text-[#3C087E] underline"
             >
               uttam15vp@gmail.com
             </a>
           </div>
 
           <div className="flex flex-col space-y-2">
-            <Clock className="text-[#345895] w-6 h-6" />
+            <Clock className="text-[#3C087E] w-6 h-6" />
             <span className="font-semibold text-lg text-black">
               Opening hours
             </span>
@@ -118,7 +118,7 @@ export default function ContactSection() {
           </div>
 
           <div className="flex flex-col space-y-2">
-            <MapPin className="text-[#345895] w-6 h-6" />
+            <MapPin className="text-[#3C087E] w-6 h-6" />
             <span className="font-semibold text-lg text-black">Office</span>
             <span className="text-black text-sm">Gwalior, MP</span>
           </div>
@@ -126,7 +126,7 @@ export default function ContactSection() {
       </div>
 
       {/* RIGHT — FORM SECTION */}
-      <div className="p-8 rounded-2xl shadow-md w-[90%] mx-auto md:w-full md:mx-0 bg-[rgba(6,78,146,0.1)]">
+      <div className="p-8 rounded-2xl shadow-md w-[90%] mx-auto md:w-full md:mx-0 bg-[#3C087E]/10">
         <h3 className="text-2xl font-semibold text-center text-black mb-1">
           Contact Info
         </h3>
@@ -145,7 +145,7 @@ export default function ContactSection() {
                 value={formData.firstName}
                 onChange={handleChange}
                 placeholder="First Name"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-purple-500"
                 required
               />
             </div>
@@ -160,7 +160,7 @@ export default function ContactSection() {
                 value={formData.lastName}
                 onChange={handleChange}
                 placeholder="Last Name"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-purple-500"
                 required
               />
             </div>
@@ -177,7 +177,7 @@ export default function ContactSection() {
               value={formData.email}
               onChange={handleChange}
               placeholder="Your E-mail address"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-purple-500"
               required
             />
           </div>
@@ -193,7 +193,7 @@ export default function ContactSection() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="XXXXXXXXXX"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -206,7 +206,7 @@ export default function ContactSection() {
               onChange={handleChange}
               placeholder="Your message..."
               rows={4}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -214,7 +214,7 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#345895] text-white font-semibold py-2 rounded-lg hover:bg-blue-700  shadow-md
+            className="w-full bg-linear-to-r from-[#9542FF] to-[#180135] text-white font-semibold py-2 rounded-lg shadow-md
       transition-all duration-300 ease-out
       hover:scale-105 hover:shadow-xl
       active:scale-100"

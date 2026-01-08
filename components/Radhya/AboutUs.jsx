@@ -10,31 +10,31 @@ export default function WhatSetsUsApart() {
       title: "One person who's got your back",
       desc: "A dedicated point of contact who supports you through every step of your journey. No confusion. No chaos. Just clarity.",
       tags: ["Support", "Clarity", "Trust"],
-      img: "/aboutUs/setApart1.png",
+      img: "/aboutUs/set1.png",
     },
     {
       title: "Real experts, real advice",
       desc: "Subject Matter Experts who understand your goals and give advice that actually works in real life.",
       tags: ["Expertise", "Insight", "Direction"],
-      img: "/aboutUs/setApart2.png",
+      img: "/aboutUs/set2.png",
     },
     {
       title: "Growth-first learning",
       desc: "Guidance to choose online and offline programs that deliver real results, not just another certificate.",
       tags: ["Growth", "Outcomes", "Opportunity"],
-      img: "/aboutUs/setApart3.png",
+      img: "/aboutUs/set3.png",
     },
     {
       title: "Help exactly when you need it",
       desc: "Doubts solved right away. No waiting. No ticket systems. No stress.",
       tags: ["Instant", "Accessible", "Reliable"],
-      img: "/aboutUs/setApart4.png",
+      img: "/aboutUs/set4.png",
     },
     {
       title: "Progress that doesn’t pause",
       desc: "Regular check-ins to keep you moving forward and improving continuously.",
       tags: ["Accountability", "Consistency", "Momentum"],
-      img: "/aboutUs/setApart5.png",
+      img: "/aboutUs/set5.png",
     },
   ];
 
@@ -54,13 +54,13 @@ export default function WhatSetsUsApart() {
     className="
     text-4xl md:text-5xl lg:text-[96px]
     font-bold leading-none 
-    bg-linear-to-r from-[#469D4F] to-[#345895]
+    bg-[linear-gradient(90deg,#FFB901_0%,#AD6F35_35.58%,#57216D_52.4%,#3C087E_100%)]
     bg-clip-text text-transparent">
     At Radhya
     </h2>
     <div className="flex justify-center lg:justify-end">
-      <p className="handdrawn-underline text-sm md:text-xl translate:-x-10 text-[#4D964F] italic leading-none mt-2">
-        Education Academy.
+      <p className="handdrawn-underline text-sm md:text-xl translate:-x-10 text-[#D68E0E] italic leading-none mt-2">
+        Education Academy
       </p>
     </div>
 
@@ -81,7 +81,7 @@ export default function WhatSetsUsApart() {
         className="
           relative
           rounded-2xl
-          bg-[radial-gradient(circle_at_center,#064E92_0%,#0B2131_70%)]
+          bg-linear-to-br from-[#270562] to-[#3C087E]/50
           text-white
           p-5 md:p-6
           shadow-lg
@@ -131,7 +131,7 @@ export default function WhatSetsUsApart() {
         className="
           relative
           rounded-2xl
-          bg-[radial-gradient(circle_at_center,#064E92_0%,#0B2131_60%)]
+           bg-linear-to-br from-[#270562] to-[#3C087E]/50
           text-white
           p-6 md:p-8
           shadow-lg
@@ -182,7 +182,7 @@ export default function WhatSetsUsApart() {
       transition={{ duration: 0.5 }}
       className="
         relative rounded-3xl
-        bg-linear-to-br from-[#357A38] to-[#1E5F32]
+      bg-linear-to-b from-[#270562] to-[#3C087E]/50
         text-white shadow-xl
         flex flex-col
         lg:max-w-[75%]
@@ -227,7 +227,7 @@ export default function WhatSetsUsApart() {
           className="
           text-4xl md:text-5xl lg:text-[64px] 
           font-bold 
-          bg-linear-to-r from-[#345895] to-[#4D964F] 
+          bg-[#270652]
           bg-clip-text text-transparent
           leading-tight mb-2
         "
@@ -235,7 +235,7 @@ export default function WhatSetsUsApart() {
           What Sets Us Apart
         </motion.h2>
 
-        <p className="text-gray-500 text-sm md:text-md lg:text-[22px] mb-12">
+        <p className="text-[#333333] text-sm md:text-md lg:text-[22px] mb-12">
           We turn direction into transformation.
         </p>
 
@@ -269,11 +269,11 @@ export default function WhatSetsUsApart() {
 
                 {/* TEXT */}
                 <div className={isRight ? "md:order-1" : "md:order-2"}>
-                  <h3 className="text-xl md:text-[25px] lg:text-[48px] font-bold text-[#345895] leading-tight">
+                  <h3 className="text-xl md:text-[25px] lg:text-[48px] font-bold text-[#D68E0E] leading-tight">
                     {item.title}
                   </h3>
 
-                  <p className="text-gray-600 mt-3 max-w-md">{item.desc}</p>
+                  <p className="text-[#A4A4A4] mt-3 max-w-md">{item.desc}</p>
 
                   <div className="flex flex-wrap gap-1 lg:gap-2 mt-5">
                     {item.tags.map((tag, idx) => (
@@ -304,7 +304,7 @@ export default function WhatSetsUsApart() {
             {/* Image */}
             <div className="shrink-0">
               <Image
-                src="/aboutUs/mission-vision.png"
+                src="/aboutUs/missionAndVision.png"
                 alt="Vision"
                 width={100}
                 height={220}
@@ -314,7 +314,7 @@ export default function WhatSetsUsApart() {
 
             {/* Content */}
             <div>
-              <p className="bg-linear-to-r from-[#345895] to-[#4D964F] bg-clip-text text-transparent font-semibold italic text-lg mb-1">
+              <p className="inline-block bg-linear-to-r from-[#3C087E] to-[#FFB901] bg-clip-text text-transparent font-semibold italic text-lg mb-1">
                 Vision
               </p>
 
@@ -338,7 +338,7 @@ export default function WhatSetsUsApart() {
             {/* Image */}
             <div className="shrink-0">
               <Image
-                src="/aboutUs/mission-vision.png"
+                src="/aboutUs/missionAndVision.png"
                 alt="Mission"
                 width={100}
                 height={220}
@@ -348,7 +348,7 @@ export default function WhatSetsUsApart() {
 
             {/* Content */}
             <div>
-              <p className= "bg-linear-to-r from-[#345895] to-[#4D964F] bg-clip-text text-transparent font-semibold italic text-lg mb-1">
+              <p className= "inline-block bg-gradient-to-r from-[#3C087E] to-[#FFB901] bg-clip-text text-transparent font-semibold italic text-lg mb-1">
                  Mission
               </p>
 

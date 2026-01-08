@@ -20,12 +20,12 @@ export default function LearningApproach({
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-[32px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-[Inter] font-bold text-[#345895] mb-4">
+        <h2 className="text-[32px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-[Inter] font-bold text-[#270652] mb-4">
           {title}
         </h2>
 
         {subtitle && (
-          <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
+          <p className="text-[#3c3c43] text-lg md:text-xl leading-relaxed">
             {subtitle}
           </p>
         )}
@@ -44,7 +44,7 @@ export default function LearningApproach({
           >
             {/* Dynamic Icon */}
             <div className="flex items-center justify-center mb-4">
-              {item.icon && <item.icon size={50} strokeWidth={1} className="text-[#0A3971]" />}
+              {item.icon && <item.icon size={50} strokeWidth={1} className="text-[#3C087E]" />}
             </div>
 
             {/* Dynamic Heading */}
@@ -60,7 +60,6 @@ export default function LearningApproach({
         ))}
       </div>
 
-      {/* CTA Button */}
      {/* CTA Button */}
 <div className="relative z-20 flex items-center justify-center mt-12">
   <motion.button
@@ -68,7 +67,7 @@ export default function LearningApproach({
     whileTap={{ scale: 0.97 }}
     transition={{ duration: 0.2 }}
     onClick={onCtaClick}
-    className="pointer-events-auto text-white mt-4 px-8 py-3 rounded-lg text-md bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] flex items-center justify-center"
+    className="pointer-events-auto text-white mt-4 px-8 py-3 rounded-lg text-md bg-[#F6A410] shadow-lg flex items-center justify-center"
   >
     {ctaText}
   </motion.button>

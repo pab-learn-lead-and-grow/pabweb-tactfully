@@ -14,6 +14,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [user, setUser] = useState(null);
+  const [hydrated, setHydrated] = useState(false);
 
   // desktop dropdown states
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -30,26 +31,33 @@ export default function Navbar() {
   const [selectedExploreSubCategory, setSelectedExploreSubCategory] =
     useState(null);
 
+  const router = useRouter();
+  const supabase = createSupabaseClient();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  useEffect(() => {
-    const slug = searchParams.get("category");
+useEffect(() => {
+  const slug = searchParams.get("category");
+  if (!slug) return;
 
-    if (!slug) return;
+  const mappedCategory = CATEGORY_SLUG_MAP[slug];
+  if (!mappedCategory || !categoryData[mappedCategory]) return;
 
-    const mappedCategory = CATEGORY_SLUG_MAP[slug];
-    if (!mappedCategory || !categoryData[mappedCategory]) return;
+  setSelectedCategory(mappedCategory);
 
-    if (mappedCategory && categoryData[mappedCategory]) {
-      setSelectedCategory(mappedCategory);
-      setTopUnivOpen(true);
-      setMobileTopUnivOpen(true);
-      setIsOpen(true); // open dropdown
-      setExploreOpen(false);
-      setMobileExploreOpen(false);
-      setMoreOpen(false);
-    }
-  }, [searchParams]);
+  // Desktop behavior
+  setTopUnivOpen(true);
+
+  // Mobile behavior
+  if (window.innerWidth < 1280) {
+    setIsOpen(true);
+    setMobileTopUnivOpen(true);
+  }
+
+  setExploreOpen(false);
+  setMobileExploreOpen(false);
+  setMoreOpen(false);
+}, [searchParams]);
+
 
   const mobileMenuRef = useRef(null);
 
@@ -73,8 +81,7 @@ export default function Navbar() {
     "integrated-programs": "Integrated Programs",
   };
 
-  const router = useRouter();
-  const supabase = createSupabaseClient();
+ 
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -97,14 +104,13 @@ export default function Navbar() {
   // Close dropdowns when clicking outside (desktop-targeted)
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        topUnivOpen &&
-        !event.target.closest(".top-univ-dropdown") &&
-        !event.target.closest('[aria-expanded="true"]')
-      ) {
-        setTopUnivOpen(false);
-        clearCategoryFromUrl();
-      }
+     if (topUnivOpen &&
+  !event.target.closest(".top-univ-dropdown") &&
+  !event.target.closest('[aria-expanded="true"]')
+) {
+  setTopUnivOpen(false);
+}
+
       if (
         exploreOpen &&
         !event.target.closest(".explore-programs-dropdown") &&
@@ -121,9 +127,7 @@ export default function Navbar() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [topUnivOpen, exploreOpen]);
-
-  const [hydrated, setHydrated] = useState(false);
+}, [topUnivOpen, exploreOpen]);
 
 useEffect(() => {
   setHydrated(true);
@@ -140,11 +144,10 @@ useEffect(() => {
 }, [topUnivOpen, hydrated]);
 
 
-  const clearCategoryFromUrl = () => {
-    setTimeout(() => {
-      router.replace(pathname, { scroll: false });
-    }, 0);
-  };
+const clearCategoryFromUrl = () => {
+  router.replace(pathname, { scroll: false });
+};
+
 
 
 
@@ -173,22 +176,22 @@ useEffect(() => {
 
  
 
-  const handleProgramAction = (program) => {
-    // Open counselling ONLY for amity certificates
-    if (program.openModal) {
-      setShowForm(true);
-      handleMobileCloseAll();
-      handleLinkClick();
-      return;
-    }
+const handleProgramAction = (program) => {
+  if (program.openModal) {
+    setShowForm(true);
+    handleMobileCloseAll();
+    return;
+  }
 
-    // Navigate for all normal courses
-    if (program.path) {
-      router.push(program.path);
-      handleMobileCloseAll();
-      handleLinkClick();
-    }
-  };
+  if (!program.path) return;
+
+  handleMobileCloseAll();
+
+  // ✅ Always navigate using program slug only
+  router.push(program.path);
+};
+
+
 
   // Helper to close all mobile + desktop dropdowns when navigating / applying
   const handleMobileCloseAll = () => {
@@ -910,18 +913,17 @@ useEffect(() => {
     setSelectedExploreSubCategory(null);
   };
 
-  // Close all dropdowns when navigating to a page (desktop-focused)
+// Close all dropdowns when navigating to a page (desktop-focused)
   const handleLinkClick = () => {
     setIsOpen(false);
     setExploreOpen(false);
     setTopUnivOpen(false);
     setMoreOpen(false);
-    // Note: mobile close handled separately with handleMobileCloseAll when needed
   };
 
-  return (
+return (
     <div className="fixed top-0 left-0 right-0  md:px-9 z-50">
-      <nav className="w-full xl:w-[90%] mx-auto h-[64px] lg:h-[72px] bg-white backdrop-blur-2xl rounded-4xl shadow-sm border border-white/20">
+      <nav className="w-full xl:w-[90%] mx-auto h-[64px] lg:max-h-[72px] bg-white backdrop-blur-2xl rounded-4xl shadow-sm border border-white/20">
         <div className="w-full mx-auto flex items-center justify-between h-full px-4 md:px-8">
           <div className="flex items-center gap-4">
             <a href="/" className="block">
@@ -988,8 +990,8 @@ useEffect(() => {
                                 }}
                                 className={`w-full text-left block py-3 px-3 rounded-md transition ${
                                   selectedExploreCategory === item
-                                    ? "bg-blue-50 border-l-4 border-[#345895] pl-4"
-                                    : "hover:bg-gray-50"
+                                    ? "bg-purple-50 border-l-4 border-[#3C087E] pl-4"
+                                    : "hover:bg-purple-50"
                                 }`}
                               >
                                 <div className="font-medium  text-gray-900">
@@ -1004,14 +1006,14 @@ useEffect(() => {
                       <div className="flex-1 min-w-0">
                         <div className="mb-3 text-sm text-gray-500">
                           Explore Programs &gt;{" "}
-                          <span className="font-semibold text-[#345895]">
+                          <span className="font-semibold text-[#3C087E]">
                             {selectedExploreCategory}
                           </span>
                           {selectedExploreSubCategory && (
                             <>
                               {" "}
                               &gt;{" "}
-                              <span className="font-semibold text-[#345895]">
+                              <span className="font-semibold text-[#3C087E]">
                                 {selectedExploreSubCategory}
                               </span>
                             </>
@@ -1037,14 +1039,14 @@ useEffect(() => {
                                     className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow text-left w-full"
                                   >
                                     <div className="h-16 mb-3 rounded flex items-center justify-center overflow-hidden">
-                                      <span className="text-4xl text-[#345895]">
+                                      <span className="text-4xl text-[#3C087E]">
                                         🎓
                                       </span>
                                     </div>
                                     <div className="text-sm font-semibold leading-snug mb-2 grow min-h-10 text-gray-900">
                                       {category.title}
                                     </div>
-                                    <div className="text-xs text-green-600 font-medium">
+                                    <div className="text-xs text-[#D68E0E] font-medium">
                                       {category.subtitle}
                                     </div>
                                   </button>
@@ -1055,7 +1057,7 @@ useEffect(() => {
                             <div>
                               <button
                                 onClick={handleExploreBack}
-                                className="mb-4 text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                                className="mb-4 text-sm text-[#3C087E] hover:text-[#3C087E] flex items-center gap-1"
                               >
                                 ← Back to {selectedExploreCategory}
                               </button>
@@ -1088,7 +1090,7 @@ useEffect(() => {
                                           onClick={() =>
                                             handleProgramAction(program)
                                           }
-                                          className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition"
+                                          className="w-full bg-[#F6A410] text-white text-xs px-3 py-2 rounded hover:bg-[#D68E0E] transition"
                                         >
                                           View Course
                                         </button>
@@ -1135,10 +1137,7 @@ useEffect(() => {
             <div className="relative hidden xl:block">
               <button
                 onClick={() => {
-                  setTopUnivOpen((v) => {
-                    if (v) clearCategoryFromUrl(); // ✅ closing
-                    return !v;
-                  });
+                  setTopUnivOpen((v) => !v);
                   setExploreOpen(false);
                   setMoreOpen(false);
                 }}
@@ -1154,7 +1153,6 @@ useEffect(() => {
                   <div
                     onClick={() => {
                       setTopUnivOpen(false);
-                      clearCategoryFromUrl(); // ✅ remove ?category
                     }}
                     className="fixed inset-0 bg-black/30 z-40 xl:block hidden"
                   />
@@ -1175,14 +1173,14 @@ useEffect(() => {
                                   onClick={() => setSelectedCategory(item)}
                                   className={`w-full text-left block py-3 px-3 rounded-md transition ${
                                     selectedCategory === item
-                                      ? "bg-blue-50 border-l-4 border-[#345895] pl-4"
-                                      : "hover:bg-gray-50"
+                                      ? "bg-purple-50 border-l-4 border-[#3C087E] pl-4"
+                                      : "hover:bg-purple-50"
                                   }`}
                                 >
                                   <div className="font-medium text-gray-900">
                                     {item}
                                   </div>
-                                  <div className="text-xs text-blue-600">
+                                  <div className="text-xs text-[#3C087E] font-medium">
                                     {itemData.label}
                                   </div>
                                 </button>
@@ -1195,7 +1193,7 @@ useEffect(() => {
                       <div className="flex-1 min-w-0">
                         <div className="mb-3 text-sm text-gray-500">
                           Top Universities &gt;{" "}
-                          <span className="font-semibold text-[#345895]">
+                          <span className="font-semibold text-[#3C087E]">
                             {selectedCategory}
                           </span>
                         </div>
@@ -1229,7 +1227,7 @@ useEffect(() => {
                                       onClick={() =>
                                         handleProgramAction(program)
                                       }
-                                      className="w-full bg-[#4D964F] text-white text-xs px-3 py-2 rounded hover:bg-[#3d7a3f] transition"
+                                      className="w-full bg-[#F6A410] text-white text-xs px-3 py-2 rounded hover:bg-[#D68E0E] transition"
                                     >
                                       View Course
                                     </button>
@@ -1263,7 +1261,7 @@ useEffect(() => {
             <div className="hidden xl:flex items-center gap-3 text-xs lg:text-sm xl:text-base text-gray-800">
               <Link
                 href="/#blogs"
-                className="hover:text-blue-900 font-medium scroll-true"
+                className="hover:text-[#3C087E] font-medium scroll-true"
               >
                 Blogs
               </Link>
@@ -1288,25 +1286,25 @@ useEffect(() => {
                     className="absolute right-0 mt-2 w-48 bg-white/95 text-black rounded-lg shadow-lg border border-gray-100 p-2"
                   >
                     <Link
-                      className="block py-2 px-3 rounded hover:bg-gray-100"
+                      className="block py-2 px-3 rounded hover:bg-purple-50"
                       href="/#blogs"
                     >
                       Gallery
                     </Link>
                     <Link
-                      className="block py-2 px-3 rounded hover:bg-gray-100"
+                      className="block py-2 px-3 rounded hover:bg-purple-50"
                       href="/contact-page-radhya"
                     >
                       Contact us
                     </Link>
                     <Link
-                      className="block py-2 px-3 rounded hover:bg-gray-100"
+                      className="block py-2 px-3 rounded hover:bg-purple-50"
                       href="/Career"
                     >
                       Careers
                     </Link>
                     <Link
-                      className="block py-2 px-3 rounded hover:bg-gray-100"
+                      className="block py-2 px-3 rounded hover:bg-purple-50"
                       href="/about-radhya"
                     >
                       About us
@@ -1320,7 +1318,7 @@ useEffect(() => {
               <button
                 onClick={() => setShowForm(true)}
                 className=" text-white px-2 py-2 rounded-lg text-xs lg:text-sm font-medium
-                 transition-all duration-300 ease-out hover:scale-105  bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform  animate-soft-blink active:scale-100"
+                 transition-all duration-300 ease-out hover:scale-105  bg-linear-to-r from-[#9542FF] to-[#180135] border-0 border-transparent shadow-[#] shadow-md transform  animate-soft-blink active:scale-100"
               >
                 Personalized Counselling
               </button>
@@ -1358,7 +1356,7 @@ useEffect(() => {
                     setMobileExploreOpen((v) => !v);
                     setMobileTopUnivOpen(false);
                   }}
-                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-gray-100 font-medium"
+                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-[#3C087E]/10 font-medium"
                 >
                   <span>Explore Program</span>
                   <ChevronDown
@@ -1401,12 +1399,12 @@ useEffect(() => {
                             className="bg-white rounded-lg p-3 shadow-sm border border-gray-100 text-left w-full min-w-0"
                           >
                             <div className="h-12 mb-2 rounded flex items-center justify-center">
-                              <span className="text-xl text-blue-600">🎓</span>
+                              <span className="text-xl text-[#3C087E]">🎓</span>
                             </div>
                             <div className="text-xs font-semibold leading-tight mb-2 text-gray-900">
                               {category.title}
                             </div>
-                            <div className="text-xs text-green-600">
+                            <div className="text-xs text-[#D68E0E]">
                               {category.subtitle}
                             </div>
                           </button>
@@ -1417,7 +1415,7 @@ useEffect(() => {
                         <button
                           onClick={handleExploreBack}
                           type="button"
-                          className="mb-3 text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                          className="mb-3 text-xs text-[#3C087E] hover:text-[#3C087E] flex items-center gap-1"
                         >
                           ← Back
                         </button>
@@ -1443,7 +1441,7 @@ useEffect(() => {
                               <button
                                 type="button"
                                 onClick={() => handleProgramAction(program)}
-                                className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded"
+                                className="w-full bg-[#D68E0E] text-white text-xs px-2 py-1 rounded"
                               >
                                 View Course
                               </button>
@@ -1460,13 +1458,10 @@ useEffect(() => {
               <div className="mobile-dropdown-section">
                 <button
                   onClick={() => {
-                    setMobileTopUnivOpen((v) => {
-                      if (v) clearCategoryFromUrl(); // closing
-                      return !v;
-                    });
+                    setMobileTopUnivOpen((v) => !v);
                     setMobileExploreOpen(false);
                   }}
-                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-gray-100 font-medium"
+                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-purple-50 font-medium"
                 >
                   <span>Top Universities</span>
                   <ChevronDown
@@ -1514,7 +1509,7 @@ useEffect(() => {
                           <button
                             type="button"
                             onClick={() => handleProgramAction(program)}
-                            className="w-full bg-[#4D964F] text-white text-xs px-2 py-1 rounded"
+                            className="w-full bg-[#D68E0E] text-white text-xs px-2 py-1 rounded"
                           >
                             View Course
                           </button>
@@ -1531,7 +1526,7 @@ useEffect(() => {
                   handleLinkClick();
                   handleMobileCloseAll();
                 }}
-                className="text-gray-900 px-3 py-2 rounded hover:bg-gray-100 font-medium"
+                className="text-gray-900 px-3 py-2 rounded hover:bg-purple-50 font-medium"
               >
                 Blogs
               </Link>
@@ -1539,7 +1534,7 @@ useEffect(() => {
               <div>
                 <button
                   onClick={() => setMoreOpen((v) => !v)}
-                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-gray-100 font-medium"
+                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-purple-50 font-medium"
                 >
                   <span>More</span>
                   <ChevronDown
@@ -1552,7 +1547,7 @@ useEffect(() => {
                 {moreOpen && (
                   <div className="pl-4">
                     <Link
-                      className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
+                      className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
                       href="/#blogs"
                       onClick={() => {
                         handleLinkClick();
@@ -1562,7 +1557,7 @@ useEffect(() => {
                       Gallery
                     </Link>
                     <Link
-                      className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
+                      className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
                       href="/contact-page-radhya"
                       onClick={() => {
                         handleLinkClick();
@@ -1572,7 +1567,7 @@ useEffect(() => {
                       Contact us
                     </Link>
                     <Link
-                      className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
+                      className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
                       href="/Career"
                       onClick={() => {
                         handleLinkClick();
@@ -1582,7 +1577,7 @@ useEffect(() => {
                       Careers
                     </Link>
                     <Link
-                      className="block py-2 px-2 rounded hover:bg-gray-100 text-gray-900"
+                      className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
                       href="/about-radhya"
                       onClick={() => {
                         handleLinkClick();
@@ -1601,7 +1596,7 @@ useEffect(() => {
                     setShowForm(true);
                     handleMobileCloseAll();
                   }}
-                  className="flex-1 text-center py-2 rounded bg-[#4D964F] text-white"
+                  className="flex-1 text-center py-2 rounded  bg-linear-to-r from-[#9542FF] to-[#180135] text-white"
                 >
                   Personalized Counselling
                 </button>

@@ -12,6 +12,8 @@ import ContactSection from "./ContactSection";
 import LogoSection from "./LogoSection";
 
 export default function HomePage() {
+  const [hydrated, setHydrated] = useState(false);
+  
   const blogs = [
     {
       id: 1,
@@ -66,8 +68,11 @@ export default function HomePage() {
       image: "/Blog6/background.png",
       path: "blogs/how-online-bba-builds-entrepreneurs",
     },
-  ];
+];
 
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   // logo paths
   const logos = [
@@ -91,14 +96,14 @@ export default function HomePage() {
       id: 2,
       name: "Priya Nayar",
       title: "Business Analyst, Infosync Analytics",
-      text: "As a working professional with a full-time job, I never thought I could manage an MBA. Radhya education made the process simple, from selecting the university to scheduling sessions. The ROI guidance was a game-changer — it felt like a career investment, not just education.",
+      text: "As a working professional with a full-time job, I never thought I could manage an MBA. Radhya education made the process simple, from selecting the university to scheduling sessions. The ROI guidance was a game-changer - it felt like a career investment, not just education.",
       rating: 5,
     },
     {
       id: 3,
       name: "Arjun Kapoor",
       title: "Operations Lead, WareConnect India",
-      text: "What I liked most about Radhya education was their honest approach — no hard selling, just clear insights about what would work for my profile. The Learn–Lead–Grow structure made me see how each skill ties to real outcomes.",
+      text: "What I liked most about Radhya education was their honest approach - no hard selling, just clear insights about what would work for my profile. The flight of knowledge made me see how each skill ties to real outcomes.",
       rating: 5,
     },
     {
@@ -112,7 +117,7 @@ export default function HomePage() {
       id: 5,
       name: "Vivek Joshi",
       title: "Finance Executive, Axis Bank",
-      text: "I've seen many education platforms, but Radhya education stands out for one reason — they understand working professionals. Everything, from the call with the counsellor to the study guidance, felt designed for my schedule.",
+      text: "I've seen many education platforms, but Radhya education stands out for one reason - they understand working professionals. Everything, from the call with the counsellor to the study guidance, felt designed for my schedule.",
       rating: 5,
     },
 
@@ -154,8 +159,8 @@ export default function HomePage() {
     setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
   };
 
-  const [showAllBlogs, setShowAllBlogs] = useState(false);
-  const visibleBlogs = showAllBlogs ? blogs : blogs.slice(0, 3);
+const [showAllBlogs, setShowAllBlogs] = useState(false);
+  const visibleBlogs = hydrated && showAllBlogs ? blogs : blogs.slice(0, 3);
 
   return (
     <div className="flex flex-col bg-white font-sans">
@@ -178,7 +183,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-6 mb-8">
             {/* First Row: Heading and Description side by side */}
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-[#345895]">
+              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-[#270652]">
                 Knowledge Corner
               </h1>
              <p className="text-black text-sm md:text-base w-55 word-break lg:text-left text-align-left">
@@ -190,10 +195,7 @@ export default function HomePage() {
             <div className="flex lg:justify-end">
               <button
                 onClick={() => setShowAllBlogs((prev) => !prev)}
-                className="bg-[#345895] hover:bg-blue-800 text-white px-4 text-xs md:text-[16px] md:px-7 py-1 -mt-2 rounded-full font-medium  shadow-md
-      transition-all duration-300 ease-out
-      hover:scale-105 hover:shadow-xl
-      active:scale-100"
+className="bg-[#3D077E] text-white px-4 text-xs md:text-[16px] md:px-7 py-1 -mt-2 rounded-full font-medium shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl active:scale-100"
               >
                 {showAllBlogs ? "Show Less" : "View All"}
               </button>
@@ -219,10 +221,10 @@ export default function HomePage() {
                 <div className="p-6">
                   {/* Topic and Date */}
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-green-600 bg-[#30968914] border-gray-200 rounded-xl px-5 font-semibold text-sm">
+                    <span className="text-black bg-[#FED56F] rounded-xl px-5 py-1 font-semibold text-sm">
                       {blog.topic}
                     </span>
-                    <span className="text-gray-500 text-xs">{blog.date}</span>
+                    <span className="text-[#222222] text-xs">{blog.date}</span>
                   </div>
 
                   {/* Title */}
@@ -248,7 +250,7 @@ export default function HomePage() {
         <div className="w-full mx-auto">
           {/* Heading */}
           <div className="mb-10">
-            <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold text-[#345895] text-center md:text-left">
+            <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold text-[#270652] text-center md:text-left">
               Learners Love Wall
             </h2>
           </div>
@@ -258,41 +260,39 @@ export default function HomePage() {
             {visibleTestimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="bg-[#345895] text-white rounded-xl p-6 sm:p-8 flex flex-col"
+                className="bg-[#3C087E]/5 text-white rounded-xl p-6 sm:p-8 flex flex-col"
               >
                 {/* Testimonial Text */}
-                <p className="text-white text-sm sm:text-base leading-relaxed mb-8 grow">
+                <p className="text-[#333333] text-sm sm:text-base leading-relaxed mb-8 grow">
                   "{testimonial.text}"
                 </p>
 
-                {/* Name, Title and Rating */}
-                <div className="flex flex-col">
-                  {/* Top row: name left, stars right */}
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-white font-bold text-base sm:text-lg">
-                      {testimonial.name}
-                    </h4>
-                    <div className="flex gap-1">
-                      {Array.from(
-                        {
-                          length: Math.max(0, Number(testimonial.rating) || 0),
-                        },
-                        (_, i) => (
-                          <Star
-                            key={i}
-                            size={16}
-                            className="fill-yellow-400 text-yellow-400"
-                          />
-                        )
-                      )}
-                    </div>
-                  </div>
+                {/* Name, Rating and Title */}
+<div className="flex flex-col items-start">
+  {/* Row 1: Rating */}
+  <div className="flex gap-1 mb-1">
+    {Array.from(
+      { length: Math.max(0, Number(testimonial.rating) || 0) },
+      (_, i) => (
+        <Star
+          key={i}
+          size={16}
+          className="fill-yellow-400 text-yellow-400"
+        />
+      )
+    )}
+  </div>
+    {/* Row 2: Name */}
+   <h4 className="text-black font-bold text-base sm:text-lg">
+    {testimonial.name}
+  </h4>
 
-                  {/* Bottom row: title aligned left */}
-                  <p className="text-blue-200 text-xs sm:text-sm mt-1">
-                    {testimonial.title}
-                  </p>
-                </div>
+  {/* Row 3: Title */}
+  <p className="text-[#333333] text-xs sm:text-sm mt-1">
+    {testimonial.title}
+  </p>
+</div>
+
               </div>
             ))}
           </div>
@@ -302,17 +302,17 @@ export default function HomePage() {
             <div className="flex justify-center items-center gap-4 mb-10">
               <button
                 onClick={handlePrev}
-                className="border-2 border-[#E6F1FE] bg-[#E6F1FE] hover:border-blue-300 rounded-full p-3 transition-colors duration-200"
+                className="border-2 border-[#3C087E]/10 bg-[#3C087E]/10 hover:border-[#3C087E]/20 rounded-full p-3 transition-colors duration-200"
                 aria-label="Previous testimonials"
               >
-                <ChevronLeft size={24} className="text-[#345895]" />
+                <ChevronLeft size={24} className="text-[#3C087E]" />
               </button>
               <button
                 onClick={handleNext}
-                className="border-2 border-[#E6F1FE] bg-[#E6F1FE] hover:border-blue-300 rounded-full p-3 transition-colors duration-200"
+                className="border-2 border-[#3C087E]/10 bg-[#3C087E]/10 hover:border-[#3C087E]/20 rounded-full p-3 transition-colors duration-200"
                 aria-label="Next testimonials"
               >
-                <ChevronRight size={24} className="text-[#345895]" />
+                <ChevronRight size={24} className="text-[#3C087E]" />
               </button>
             </div>
           )}

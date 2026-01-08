@@ -13,7 +13,7 @@ export default function CareerServicesSection({ benefits = [], onCtaClick = () =
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center text-[#345895] text-[34px] sm:text-[42px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-bold mb-10"
+        className="text-center text-[#270652] text-[34px] sm:text-[42px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-bold mb-10"
       >
         Career Services
       </motion.h2>
@@ -44,12 +44,12 @@ export default function CareerServicesSection({ benefits = [], onCtaClick = () =
       <div className="mb-4">{item.icon}</div>
 
       {/* TITLE */}
-      <h3 className="text-[#345895] font-extrabold text-lg sm:text-xl mb-2">
+      <h3 className="text-black font-extrabold text-lg sm:text-xl mb-2">
         {item.title}
       </h3>
 
       {/* TEXT */}
-      <p className="text-[#345895] text-xs sm:text-sm max-w-60 leading-relaxed">
+      <p className="text-black text-xs sm:text-sm max-w-60 leading-relaxed">
         {item.text}
       </p>
     </motion.div>
@@ -64,9 +64,9 @@ export default function CareerServicesSection({ benefits = [], onCtaClick = () =
             whileTap={{ scale: 0.97 }}
             onClick={onCtaClick}
             className="
-              bg-linear-to-r from-[#4D964F] to-[#193019]
+              bg-[#F6A410]
               text-white px-6 py-3 rounded-lg text-sm
-              shadow-[#1C361D] shadow-md
+               shadow-lg
               flex items-center gap-3
               transition
             "

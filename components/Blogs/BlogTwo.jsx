@@ -158,7 +158,7 @@ export default function Page() {
           transition={{ duration: 0.5 }}
           className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 md:mb-10 rounded-t-2xl lg:-mt-35 md:-mt-10"
         >
-          <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+          <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E] ">
             Understanding the Online MBA Advantage
           </h2>
           <p className="text-black text-[14px] leading-5">
@@ -177,7 +177,7 @@ export default function Page() {
             convenience.
           </p>
 
-          <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+          <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
             How an Online MBA Builds Transformational Leadership Skills
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
@@ -224,7 +224,7 @@ export default function Page() {
           </div>
 
           {/* MAIN TITLE */}
-          <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+          <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
             Growing Through Real-World, Applied Projects
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
@@ -256,7 +256,7 @@ export default function Page() {
             directly to dynamic, real-world scenarios.
           </p>
 
-          <h2 className="text-[#345895] -mb-5 font-semibold text-2xl">
+          <h2 className="text-[#3C087E] -mb-5 font-semibold text-2xl">
             Skill Development That Propels You Faster
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
@@ -297,7 +297,7 @@ export default function Page() {
             </li>
           </ul>
 
-          <h2 className="text-[#345895] -mb-5 font-semibold text-2xl md:text-2xl lg:text-2xl">
+          <h2 className="text-[#3C087E] -mb-5 font-semibold text-2xl md:text-2xl lg:text-2xl">
             Online MBA Curriculum Breakdown
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
@@ -323,7 +323,7 @@ export default function Page() {
             </li>
           </ul>
 
-          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+          <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
             The Role of Collaboration & Professional Networking
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
@@ -349,7 +349,7 @@ export default function Page() {
             professionally and unlock entirely new career doors.
           </p>
 
-          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+          <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
             Flexibility That Supports the Working Professional
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
@@ -375,7 +375,7 @@ export default function Page() {
             experiencing burnout.
           </p>
 
-          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+          <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
             Technology Tools That Facilitate Growth
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
@@ -397,7 +397,7 @@ export default function Page() {
             </li>
           </ul>
 
-          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+          <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
             How an Online MBA Enhances Career Opportunities
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
@@ -432,7 +432,7 @@ export default function Page() {
             completion.
           </p>
 
-          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+          <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
             Employer's Perception of Online MBA Graduates
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
@@ -459,7 +459,7 @@ export default function Page() {
             environments.
           </p>
 
-          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+          <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
             Conclusion
           </h2>
           <p className="text-black text-[14px] leading-5">
@@ -481,7 +481,7 @@ export default function Page() {
 
         {/* RIGHT SIDE BLOG LINKS */}
         <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl self-start h-fit shadow-lg p-4">
-          <h2 className="text-2xl font-bold text-[#1a2332] mb-2">
+          <h2 className="text-2xl font-bold text-[#270652] mb-2">
             Related Articles
           </h2>
 
@@ -506,13 +506,13 @@ export default function Page() {
 
               {/* CONTENT */}
               <div className="flex-1 min-w-0 flex flex-col justify-between">
-                <p className="text-[10px] leading-[1.4] text-[#1e5a9e] break-word">
+                <p className="text-[10px] leading-[1.4] text-black break-word">
                   {blog.title}
                 </p>
 
                 <Link
                   href={blog.path}
-                  className="mt-2 w-fit text-white bg-[#1e5a9e] text-[10px] px-3 py-1 rounded hover:bg-[#164a82] transition inline-block"
+                  className="mt-2 w-fit text-white bg-[#3d077e] text-[10px] px-3 py-1 rounded hover:bg-blue-950 transition inline-block"
                 >
                   Read More
                 </Link>
@@ -522,7 +522,7 @@ export default function Page() {
 
           <button
             onClick={() => setShowAllRelated(true)}
-            className="w-full mt-2 bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
+            className="w-full mt-2 bg-[#F6A410] border-0 border-transparent shadow-[#F6A410] shadow-md transform 
       active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
           >
             View More

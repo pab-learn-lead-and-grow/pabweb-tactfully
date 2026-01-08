@@ -74,7 +74,7 @@ export default function CareerPage() {
             <p className="text-black mt-3 text-[15px] max-w-xl">
               Whether you’re a strategist, designer, counselor, or storyteller —
               if you love helping people grow, you’ll fit right in.
-              <button className=" text-[#003087] text-sm hover:bg-blue-50 transition">
+              <button className=" text-[#D68E0E] text-sm hover:bg-blue-50 transition">
                 Learn more
               </button>
             </p>
@@ -95,9 +95,8 @@ export default function CareerPage() {
                 className="border border-gray-200 rounded-lg p-5 hover:shadow-md transition bg-white"
               >
                 <p
-                  className="text-blue-900 text-xs mb-2 inline-block px-2 py-1 rounded-md"
+                  className="text-[#3C087E] bg-[#3C087E]/10 text-xs mb-2 inline-block px-2 py-1 rounded-md"
                   style={{
-                    backgroundColor: "rgba(6, 78, 146, 0.1)",
                     border: "1px solid rgba(6, 78, 146, 0.1)",
                   }}
                 >
@@ -108,25 +107,25 @@ export default function CareerPage() {
                 </h3>
                 <p className="text-black text-sm mb-3">{job.description}</p>
 
-                <div className="flex flex-wrap items-center gap-4 text-sm text-black">
+                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
                   <div className="flex items-center gap-1">
-                    <Briefcase size={16} className="text-blue-900" />{" "}
+                    <Briefcase size={16} className="text-[#D68E0E]" />{" "}
                     {job.tags}
                   </div>
                   <div className="flex items-center gap-1">
-                    <Clock size={16} className="text-blue-900" />{" "}
+                    <Clock size={16} className="text-[#D68E0E]" />{" "}
                     {job.duration}
                   </div>
                   <div className="flex items-center gap-1">
-                    <Wallet size={16} className="text-blue-900" /> {job.salary}
+                    <Wallet size={16} className="text-[#D68E0E]" /> {job.salary}
                   </div>
                   <div className="flex items-center gap-1">
-                    <MapPin size={16} className="text-blue-900" />{" "}
+                    <MapPin size={16} className="text-[#D68E0E]" />{" "}
                     {job.location}
                   </div>
                   <button
                     onClick={() => router.push(job.link)}
-                    className="ml-auto bg-[#003087] text-white px-4 py-1.5 rounded-md text-xs hover:bg-[#00246e] transition"
+                    className="ml-auto bg-[#3C087E] text-white px-4 py-1.5 rounded-md text-xs hover:bg-[#00246e] transition"
                   >
                     Job Details
                   </button>

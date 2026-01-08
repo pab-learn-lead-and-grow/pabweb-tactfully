@@ -20,7 +20,7 @@ export default function Page() {
       icon: (
         <ArrowUpWideNarrow
           strokeWidth={1.0}
-          className="text-[#4D964F] w-18 h-18"
+          className="text-[#270652] w-18 h-18"
         />
       ),
       title: "Discovery",
@@ -28,20 +28,20 @@ export default function Page() {
     },
     {
       icon: (
-        <ContactRound strokeWidth={1.0} className="text-[#4D964F] w-18 h-18" />
+        <ContactRound strokeWidth={1.0} className="text-[#270652] w-18 h-18" />
       ),
       title: "Resume Pro",
       text: "Expert support to build a professional, polished resume or CV tailored to industry standards, showcasing your skills and accomplishments.",
     },
     {
       icon: (
-        <Headphones strokeWidth={1.0} className="text-[#4D964F] w-18 h-18" />
+        <Headphones strokeWidth={1.0} className="text-[#270652] w-18 h-18" />
       ),
       title: "JobSearch",
       text: "Guidance through the online application process, virtual networking opportunities, and preparation for remote interviews to enhance your digital presence.",
     },
     {
-      icon: <Boxes strokeWidth={1.0} className="text-[#4D964F] w-18 h-18" />,
+      icon: <Boxes strokeWidth={1.0} className="text-[#270652] w-18 h-18" />,
       title: "Counselling",
       text: "Personalized 1-on-1 sessions with experienced career advisors, goal setting, and strategic support to make informed decisions about your future.",
     },
@@ -49,7 +49,7 @@ export default function Page() {
       icon: (
         <GalleryVertical
           strokeWidth={1.0}
-          className="text-[#4D964F] w-18 h-18"
+          className="text-[#270652] w-18 h-18"
         />
       ),
       title: "SkillBoost",
@@ -59,7 +59,7 @@ export default function Page() {
       icon: (
         <BriefcaseBusiness
           strokeWidth={1.0}
-          className="text-[#4D964F] w-18 h-18"
+          className="text-[#270652] w-18 h-18"
         />
       ),
       title: "Internships",
@@ -185,7 +185,7 @@ export default function Page() {
         <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-[32px] md:text-4xl lg:text-[64px] text-center md:text-left font-extrabold text-[#345895] mb-5 xl:mb-12">
+            <h2 className="text-[32px] md:text-4xl lg:text-[64px] text-center md:text-left font-extrabold text-[#270652] mb-5 xl:mb-12">
               About Amity
             </h2>
 
@@ -217,7 +217,7 @@ export default function Page() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6 }}
                                     viewport={{ once: true }}
-                                    className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
+                                    className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#270652] mb-3 md:mb-8 text-center"
                                   >
                                     A Snapshot of Success
                                   </motion.h2>
@@ -228,10 +228,10 @@ export default function Page() {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.6, delay: 0.2 }}
                                     viewport={{ once: true }}
-                                    className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+                                    className="bg-[#3C087E]/5 rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
                                   >
                                     {/* ALWAYS 3 COLUMNS */}
-                                    <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
+                                    <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
                                       {/* STAT 1 */}
                                       <motion.div
                                         initial={{ opacity: 0, y: 30 }}

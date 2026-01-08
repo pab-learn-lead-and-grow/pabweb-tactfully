@@ -162,14 +162,14 @@ export default function Page() {
           transition={{ duration: 0.5 }}
           className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 md:mb-10 rounded-t-2xl lg:-mt-35 md:-mt-10"
         >
-          <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+          <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
            Introduction: The Rise of the Mainstream Online MBA
            </h2>
           <p className="text-black text-[14px] leading-5">
           The Online MBA is no longer considered a secondary option - it has forcefully moved into the mainstream and become one of the world’s fastest-growing advanced education pathways. Initially viewed with skepticism, its credibility has surged dramatically due to the maturity of educational technology, the entry of respected, top-tier universities into the online space, and a fundamental global shift toward skill-based hiring. Over the past few years, a strong, undeniable trend has emerged: professionals are demanding high-quality management education that allows them to continue advancing their careers without the financial or professional interruption of quitting their jobs. The Online MBA delivers exactly this strategic flexibility and academic rigor.
           </p>
 
-          <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+          <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
            Global Validation: Enrollment and Employer Acceptance Trends
             </h2>
           <p className="text-black text-[16px] font-medium leading-5">
@@ -204,7 +204,7 @@ export default function Page() {
           </div>
 
           {/* MAIN TITLE */}
-           <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+           <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
           The Online MBA Evolution in the Indian Market
           </h2>
           <p className="text-black text-[14px] leading-5">
@@ -247,7 +247,7 @@ export default function Page() {
           
           
 
-          <h2 className="text-[#345895] -mb-5 font-semibold text-2xl md:text-2xl lg:text-2xl">
+          <h2 className="text-[#3C087E] -mb-5 font-semibold text-2xl md:text-2xl lg:text-2xl">
             Why Professionals Are Actively Choosing the Online Format
           </h2>
           
@@ -278,7 +278,7 @@ export default function Page() {
             </p>
             
 
-          <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+          <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
           Accelerating Career Growth and Professional Impact
           </h2>
            <p className="text-black -mb-5 text-[14px] leading-5">
@@ -303,7 +303,7 @@ export default function Page() {
             </li> 
           </ul>
 
-            <h2 className="text-[#345895] font-semibold -mb-3 text-2xl">
+            <h2 className="text-[#3C087E] font-semibold -mb-3 text-2xl">
         Real Success Stories: Transformation in Action
         </h2>
            <p className="text-[16px] -mb-5 text-black font-medium leading-5">
@@ -320,7 +320,7 @@ export default function Page() {
            A Bangalore-based IT professional completed his Online MBA while maintaining a full-time workload. Within one year, he secured a promotion to a team lead role and subsequently moved into strategic project management<br/>"I wasn’t sure if an Online MBA would matter. But my employer appreciated the updated skills, especially my analytics and leadership modules. My salary grew by 32% post completion."Stories like this powerfully showcase the practical, immediate impact of accredited Online MBAs in the competitive Indian market.
            </p>
 
-            <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+            <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
         Future Trends Shaping the Online MBA Landscape
         </h2>
            <p className="text-black -mb-5 text-[14px] leading-5">
@@ -343,7 +343,7 @@ export default function Page() {
           </li>  
           </ul>
 
-           <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+           <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
            Conclusion
         </h2>
            <p className="text-black text-[14px] leading-5">
@@ -353,7 +353,7 @@ export default function Page() {
 
         {/* RIGHT SIDE BLOG LINKS */}
         <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl self-start h-fit shadow-lg p-4">
-          <h2 className="text-2xl font-bold text-[#1a2332] mb-2">
+          <h2 className="text-2xl font-bold text-[#270652] mb-2">
             Related Articles
           </h2>
 
@@ -378,13 +378,13 @@ export default function Page() {
 
               {/* CONTENT */}
               <div className="flex-1 min-w-0 flex flex-col justify-between">
-                <p className="text-[10px] leading-[1.4] text-[#1e5a9e] break-word">
+                <p className="text-[10px] leading-[1.4] text-black break-word">
                   {blog.title}
                 </p>
 
-                <Link 
+                <Link
                   href={blog.path}
-                   className="mt-2 w-fit text-white bg-[#1e5a9e] text-[10px] px-3 py-1 rounded hover:bg-[#164a82] transition inline-block"
+                  className="mt-2 w-fit text-white bg-[#3d077e] text-[10px] px-3 py-1 rounded hover:bg-blue-950 transition inline-block"
                 >
                   Read More
                 </Link>
@@ -392,15 +392,14 @@ export default function Page() {
             </motion.div>
           ))}
 
-         <button
-  onClick={() => setShowAllRelated(true)}
-  className="w-full mt-2 bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
+          <button
+            onClick={() => setShowAllRelated(true)}
+            className="w-full mt-2 bg-[#F6A410] border-0 border-transparent shadow-[#F6A410] shadow-md transform 
       active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
->
-  View More
-  <ChevronRight size={18} />
-</button>
-
+          >
+            View More
+            <ChevronRight size={18} />
+          </button>
         </div>
       </div>
     </section>

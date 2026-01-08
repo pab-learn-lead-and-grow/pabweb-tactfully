@@ -27,7 +27,7 @@ export default function AllInOneSection() {
       <div className=" max-w-full mx-auto px-4 md:px-8 lg:px-16 bg-white text-center">
 
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl md:text-[50px] xl:text-[54px] 2xl:text-[64px] font-bold text-[#345895] text-center mx-auto leading-snug">
+        <h2 className="text-3xl md:text-[50px] xl:text-[54px] 2xl:text-[64px] font-bold text-[#270652] text-center mx-auto leading-snug">
          {TITLE}
         </h2>
 
@@ -45,15 +45,8 @@ export default function AllInOneSection() {
           <button
             type="button"
             onClick={() => setShowForm(true)}
-             className="
-      px-5 xl:px-10 py-2
-      rounded-lg
-      text-white text-xl font-medium
-      transition-all duration-300 ease-out
-      hover:scale-105
-       bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
-      active:scale-100
-    ">
+             className="px-5 xl:px-10 py-2 rounded-lg text-white text-xl font-medium transition-all duration-300 ease-out hover:scale-105 bg-[#EEA727] border-0 border-transparent shadow-[#b36e06] shadow-md transform active:scale-100"
+          >
             Unlock the Whole Experience
           </button>
         </div>
@@ -69,7 +62,7 @@ function IconCard({ title, image }) {
     <div className="w-28 md:w-32 flex flex-col items-center text-center">
 
       {/* ICON BOX */}
-      <div className="group relative w-full aspect-square bg-white rounded-3xl border border-[#345895] shadow-[8px_8px_0px_#345895] hover:shadow-[14px_14px_0px_#345895] transition-all duration-300 flex items-center justify-center hover:-translate-y-2 hover:scale-105">
+      <div className="group relative w-full aspect-square bg-white rounded-3xl border-2 border-[#3C087E]/50 shadow-[8px_8px_0px_#3C087E]/50 hover:shadow-[14px_14px_0px_#3C087E]/50 transition-all duration-300 flex items-center justify-center hover:-translate-y-2 hover:scale-105">
         <div className="relative w-16 h-16 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
           <Image
             src={image}
@@ -82,7 +75,7 @@ function IconCard({ title, image }) {
       </div>
 
       {/* TITLE */}
-      <p className="mt-3 text-xs sm:text-sm font-semibold text-[#0B2131]">
+      <p className="mt-3 text-xs sm:text-sm font-semibold text-[#3C3C43]">
         {title}
       </p>
       

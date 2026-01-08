@@ -41,7 +41,7 @@ export default function ServicesByRadhya() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-[#345895] text-[36px] lg:text-[64px] md:text-[48px] font-bold font-[Inter] leading-10 whitespace-nowrap"
+            className="text-[#270652] text-[36px] lg:text-[64px] md:text-[48px] font-bold font-[Inter] leading-10 whitespace-nowrap"
           >
             Services by Radhya
           </motion.h2>
@@ -54,7 +54,7 @@ export default function ServicesByRadhya() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="text-[#345895]/65 text-sm md:text-[36px] font-semibold italic leading-relaxed"
+          className="text-[#270652] text-sm md:text-[36px] font-regular italic leading-relaxed"
         >
           Education Academy
         </motion.p>
@@ -84,7 +84,7 @@ export default function ServicesByRadhya() {
                 className="flex gap-4 "
               >
                 {/* NUMBER */}
-                <p className="text-[#4D964F] text-6xl xl:text-9xl ">
+                <p className="text-[#F6A410] text-6xl xl:text-9xl ">
                   {item.num}
                 </p>
 

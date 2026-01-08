@@ -17,14 +17,14 @@ export default function UnivCourses({
     <section className="bg-white px-6 md:px-12 lg:px-20 mt-10 xl:mt-20 py-16">
       {/* HEADER */}
       <div className="flex items-center justify-between mb-10 gap-4">
-  <h2 className="text-4xl md:text-5xl xl:text-[64px] font-bold text-[#345895]">
+  <h2 className="text-4xl md:text-5xl xl:text-[64px] font-bold text-[#270652]">
     {heading}
   </h2>
 
   <button
     onClick={() => setShowAll((p) => !p)}
     className="
-      bg-[#345895] hover:bg-blue-800 text-white
+      bg-[#270652] hover:[#3C087E]/50 text-white
       px-4 py-1
       rounded-full
       text-sm font-medium
@@ -57,16 +57,16 @@ export default function UnivCourses({
             </div>
 
             {/* COURSE TITLE */}
-            <h3 className="text-lg font-bold text-[#345895] leading-snug mb-1">
+            <h3 className="text-lg font-bold text-black leading-snug mb-1">
               {course.title}
             </h3>
-            <p className="text-sm text-regular text-[#064E92] mb-4">
+            <p className="text-sm text-regular text-black mb-4">
               {course.subtitle}
             </p>
 
             {/* TAG */}
             {course.tag && (
-              <span className="inline-block bg-[#064E92]/10 text-[#064E92] text-xs font-medium px-4 py-1 rounded-full mb-4">
+              <span className="inline-block bg-[#3C087E]/10 text-[#3C087E] text-xs font-medium px-4 py-1 rounded-full mb-4">
                 {course.tag}
               </span>
             )}
@@ -87,15 +87,15 @@ export default function UnivCourses({
             <div className="flex gap-2 mt-6">
               <Link
                 href={course.coursePath}
-                className="flex-1 text-center bg-[#4d964f] hover:bg-green-700 text-white py-2 rounded-2xl text-sm font-regular"
-              >
+               className="text-sm px-3 py-1.5 rounded-xl bg-[#F6A410] text-white font-medium shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl active:scale-100 whitespace-nowrap"
+          >
                 Dive Deeper
               </Link>
 
               <button
-                onClick={onDownloadBrochure}
-                className="flex-1 bg-[#345895] hover:bg-blue-800 text-white px-2 py-2 rounded-2xl text-sm font-regular"
-              >
+                onClick={onDownloadBrochure}     
+className="text-sm px-3 py-1.5 rounded-xl bg-[#3D077E] text-white font-medium shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl active:scale-100 whitespace-nowrap"
+           >
                 Download Brochure
               </button>
             </div>

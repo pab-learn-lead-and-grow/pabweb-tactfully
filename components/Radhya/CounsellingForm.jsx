@@ -13,18 +13,25 @@ export default function CounsellingForm({ onClose }) {
     message: "",
   });
 
-  const [errors, setErrors] = useState({});
+const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   /* 🔒 LOCK BACKGROUND SCROLL */
   useEffect(() => {
+    if (!hydrated) return;
+    
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     return () => {
       document.body.style.overflow = originalOverflow;
     };
-  }, []);
+  }, [hydrated]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -94,20 +101,20 @@ export default function CounsellingForm({ onClose }) {
     <div className="fixed modal inset-0 z-9999 w-screen h-screen flex font-[Inter] items-start justify-center pt-12 lg:pt-24 backdrop-blur-2xl overflow-y-auto"
     >
       {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
+      <div className="absolute inset-0 bg-black/60" onClick={onClose} />
 
-      <div className="relative w-full max-w-5xl bg-[#E0ECF8] rounded-3xl shadow-2xl my-auto">
+      <div className="relative w-full max-w-5xl bg-[#3C087E]/5 rounded-3xl shadow-2xl my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] lg:min-h-[600px]">
           {/* LEFT */}
-          <div className="bg-[#E0ECF8] p-6 flex flex-col justify-center items-center relative">
-            <h2 className="text-3xl md:text-[36px] font-semibold leading-tight text-[#345895] italic text-center">
+          <div className="bg-[#3C087E]/5 p-6 flex flex-col justify-center items-center relative">
+            <h2 className="text-3xl md:text-[36px] font-semibold leading-tight text-[#270652] italic text-center">
               Stuck & Confused?
               <br /> Tell us, we'll help.
             </h2>
 
             <div className="relative max-w-sm hidden md:block">
               <img
-                src="/counsellingForm.jpg"
+                src="/counselling.png"
                 alt="Confused you ?"
                 className="w-full h-auto"
                 onError={(e) => {
@@ -117,7 +124,7 @@ export default function CounsellingForm({ onClose }) {
             </div>
 
             <div className="mt-5 md:mt-0 lg:mb-10 text-center px-2">
-              <div className="inline-flex items-center gap-1.5 bg-[#4D964F]/10 py-1 px-3 rounded-lg">
+              <div className="inline-flex items-center gap-1.5 bg-[#4D964F]/5 py-1 px-3 rounded-lg">
                 <CircleCheckBig size={14} className="text-[#4D964F]" />
                 <span className="text-[10px] text-[#4D964F] italic">
                   Only a certified mentor will assist you.
@@ -127,10 +134,10 @@ export default function CounsellingForm({ onClose }) {
           </div>
 
           {/* RIGHT */}
-          <div className="bg-[#E0ECF8] m-6 relative">
+          <div className="bg-[#3C087E]/5 p-6 relative">
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-black text-2xl font-bold w-8 h-8 flex items-center justify-center"
+              className="absolute top-8 right-8 text-black text-2xl font-bold w-8 h-8 flex items-center justify-center"
             >
               ×
             </button>
@@ -309,7 +316,7 @@ export default function CounsellingForm({ onClose }) {
                 className={`w-full py-3 rounded-lg font-semibold text-sm transition duration-200 ${
                   loading
                     ? "bg-gray-400 cursor-not-allowed text-white"
-                    : "bg-linear-to-r from-[#345895] to-[#0B2131] text-white hover:bg-[#345895]"
+                    : "bg-linear-to-r from-[#9542FF] to-[#180135] text-white hover:bg-[#270652]"
                 }`}
               >
                 {loading ? "Submitting..." : "Get My Guidance"}

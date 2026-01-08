@@ -191,7 +191,7 @@ export default function Page() {
           transition={{ duration: 0.5 }}
           className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 md:mb-10 lg:-mt-35 md:-mt-10"
         >
-          <h2 className="text-2xl font-semibold text-[#345895]">
+          <h2 className="text-2xl font-semibold text-[#3C0876] mb-4">
             Understanding the Modern MBA Landscape
           </h2>
           <p className="text-gray-700 leading-5">
@@ -242,7 +242,7 @@ export default function Page() {
           </div>
 
           {/* MAIN TITLE */}
-          <h2 className="text-[#345895] font-semibold text-2xl md:text-2xl lg:text-2xl">
+          <h2 className="text-[#3C087E] font-semibold text-2xl md:text-2xl lg:text-2xl">
             Key Differences Between Online MBA and Regular MBA
           </h2>
           <ul className="list-disc mb-4 list-inside space-y-2">
@@ -292,7 +292,7 @@ export default function Page() {
             </li>
           </ul>
 
-          <h2 className="text-[#345895] font-semibold text-2xl md:text-2xl lg:text-2xl">
+          <h2 className="text-[#3C087E] font-semibold text-2xl md:text-2xl lg:text-2xl">
             Advantages of an Online MBA for Working Professionals
           </h2>
           <ul className="list-disc mb-4 list-inside space-y-2">
@@ -324,7 +324,7 @@ export default function Page() {
             </li>
           </ul>
 
-          <h2 className="text-[#345895] font-semibold text-2xl md:text-2xl lg:text-2xl">
+          <h2 className="text-[#3C087E] font-semibold text-2xl md:text-2xl lg:text-2xl">
             Strengths of a Regular MBA
           </h2>
           <ul className="list-disc list-inside mb-4 space-y-2">
@@ -385,7 +385,7 @@ export default function Page() {
 
           <section className="w-full px-4 md:px-5 lg:px-5 py-10 bg-white">
             {/* Heading */}
-            <h2 className="text-[#345895] font-semibold text-2xl md:text-2xl lg:text-2xl">
+            <h2 className="text-[#3C087E] font-semibold text-2xl md:text-2xl lg:text-2xl">
               Cost and Feature Comparison
             </h2>
 
@@ -432,7 +432,7 @@ export default function Page() {
             </div>
           </section>
 
-          <h2 className="text-[#345895] font-semibold text-2xl md:text-2xl lg:text-2xl">
+          <h2 className="text-[#3C087E] font-semibold text-2xl md:text-2xl lg:text-2xl">
             Factors to Consider Before Choosing an Online MBA
           </h2>
           <p className="text-[14px] font-normal text-[#2E2F35] leading-6">
@@ -465,7 +465,7 @@ export default function Page() {
               </p>
             </li>
           </ul>
-          <h2 className="text-[#345895] font-semibold text-2xl md:text-2xl lg:text-2xl">
+          <h2 className="text-[#3C087E] font-semibold text-2xl md:text-2xl lg:text-2xl">
             Conclusion
           </h2>
           <p className=" text-[14px] font-normal italic text-[#2E2F35] leading-6">
@@ -490,58 +490,56 @@ export default function Page() {
           </motion.div>
 
        
-               {/* RIGHT SIDE BLOG LINKS */}
-               <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl self-start h-fit shadow-lg p-4">
-                 <h2 className="text-2xl font-bold text-[#1a2332] mb-2">
-                   Related Articles
-                 </h2>
-       
-                 {visibleRelatedBlogs.map((blog) => (
-                   <motion.div
-                     key={blog.id}
-                     variants={cardVariants}
-                     initial="hidden"
-                     animate="show"
-                     className="flex gap-3 pb-4 border-gray-200"
-                   >
-                     {/* IMAGE */}
-                     <div className="w-[100px] h-[70px] rounded-lg overflow-hidden shrink-0">
-                       <Image
-                         src={blog.image}
-                         alt={blog.title}
-                         width={100}
-                         height={70}
-                         className="object-cover w-full h-full"
-                       />
-                     </div>
-       
-                     {/* CONTENT */}
-                     <div className="flex-1 min-w-0 flex flex-col justify-between">
-                       <p className="text-[10px] leading-[1.4] text-[#1e5a9e] break-word">
-                         {blog.title}
-                       </p>
-       
-                       <Link 
-                         href={blog.path}
-                         className="mt-2 w-fit text-white bg-[#1e5a9e] text-[10px] px-3 py-1 rounded hover:bg-[#164a82] transition inline-block"
-                       >
-                         Read More
-                       </Link>
-                     </div>
-                   </motion.div>
-                 ))}
-       
-                <button
-         onClick={() => setShowAllRelated(true)}
-       className="w-full mt-2 bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
-      active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
->
-         View More
-         <ChevronRight size={18} />
-       </button>
-       
-               </div>
-
+             {/* RIGHT SIDE BLOG LINKS */}
+                    <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl self-start h-fit shadow-lg p-4">
+                      <h2 className="text-2xl font-bold text-[#270652] mb-2">
+                        Related Articles
+                      </h2>
+            
+                      {visibleRelatedBlogs.map((blog) => (
+                        <motion.div
+                          key={blog.id}
+                          variants={cardVariants}
+                          initial="hidden"
+                          animate="show"
+                          className="flex gap-3 pb-4 border-gray-200"
+                        >
+                          {/* IMAGE */}
+                          <div className="w-[100px] h-[70px] rounded-lg overflow-hidden shrink-0">
+                            <Image
+                              src={blog.image}
+                              alt={blog.title}
+                              width={100}
+                              height={70}
+                              className="object-cover w-full h-full"
+                            />
+                          </div>
+            
+                          {/* CONTENT */}
+                          <div className="flex-1 min-w-0 flex flex-col justify-between">
+                            <p className="text-[10px] leading-[1.4] text-black break-word">
+                              {blog.title}
+                            </p>
+            
+                            <Link
+                              href={blog.path}
+                              className="mt-2 w-fit text-white bg-[#3d077e] text-[10px] px-3 py-1 rounded hover:bg-blue-950 transition inline-block"
+                            >
+                              Read More
+                            </Link>
+                          </div>
+                        </motion.div>
+                      ))}
+            
+                      <button
+                        onClick={() => setShowAllRelated(true)}
+                        className="w-full mt-2 bg-[#F6A410] border-0 border-transparent shadow-[#F6A410] shadow-md transform 
+                  active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
+                      >
+                        View More
+                        <ChevronRight size={18} />
+                      </button>
+                    </div>
       </div>
     </section>
   );

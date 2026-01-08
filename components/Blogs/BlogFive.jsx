@@ -185,7 +185,7 @@ export default function Page() {
           transition={{ duration: 0.5 }}
           className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 md:mb-10 rounded-t-2xl lg:-mt-35 md:-mt-10"
         >
-          <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+          <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
           Understanding the Strategic Value of a Digital MBA
           </h2>
           <p className="text-black text-[14px] leading-5">
@@ -195,7 +195,7 @@ export default function Page() {
            Professionals are increasingly turning to flexible MBA pathways because they avoid the career disruption and income loss that is mandatory with a full-time, campus program. This choice significantly improves the overall Return on Investment (ROI) because you strategically continue earning your full salary while studying.
            </p>
 
-          <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+          <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
           The ROI Breakdown: Data-Backed Salary Growth
           </h2>
           <p className="text-black text-[16px] font-medium leading-5">
@@ -231,7 +231,7 @@ export default function Page() {
   </li>
 </ol>
 
-  <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+  <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
           Factors That Influence Your Post-MBA Earning Potential
           </h2>
           <p className="text-black -mb-5 text-[14px] leading-5">
@@ -252,7 +252,7 @@ export default function Page() {
            </li>
           </ul>
 
- <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+ <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
           Accelerating Career Mobility and Leadership</h2>
             <p className="text-black -mb-5 text-[16px] font-medium leading-5">
  Transitioning Across Industries
@@ -312,7 +312,7 @@ The curriculum is intentionally designed to forge a strong leadership foundatio
           </div>
 
           {/* MAIN TITLE */}
-           <h2 className="text-2xl font-semibold text-[#345895]">
+           <h2 className="text-2xl font-semibold text-[#3C087E]">
           Who Benefits Most From an Online MBA?
           </h2>
           <p className="text-black -mb-5 text-[16px] font-medium leading-5">
@@ -336,7 +336,7 @@ The curriculum is intentionally designed to forge a strong leadership foundatio
      Digital networks can be even broader and more global than traditional campus networks. Furthermore, the myth that Online MBAs lack respect is consistently debunked: accreditation from recognized bodies like AACSB or EQUIS ensures the degree is viewed as equally credible by employers worldwide.
      </p>
           
-          <h2 className="text-[#345895] -mb-5 font-semibold text-2xl md:text-2xl lg:text-2xl">
+          <h2 className="text-[#3C087E] -mb-5 font-semibold text-2xl md:text-2xl lg:text-2xl">
            The Strategic ROI: Total Cost vs. Long-Term Return
             </h2>
 
@@ -389,7 +389,7 @@ The curriculum is intentionally designed to forge a strong leadership foundatio
 
         {/* RIGHT SIDE BLOG LINKS */}
         <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl self-start h-fit shadow-lg p-4">
-          <h2 className="text-2xl font-bold text-[#1a2332] mb-2">
+          <h2 className="text-2xl font-bold text-[#270652] mb-2">
             Related Articles
           </h2>
 
@@ -414,13 +414,13 @@ The curriculum is intentionally designed to forge a strong leadership foundatio
 
               {/* CONTENT */}
               <div className="flex-1 min-w-0 flex flex-col justify-between">
-                <p className="text-[10px] leading-[1.4] text-[#1e5a9e] break-word">
+                <p className="text-[10px] leading-[1.4] text-black break-word">
                   {blog.title}
                 </p>
 
-                <Link 
+                <Link
                   href={blog.path}
-                   className="mt-2 w-fit text-white bg-[#1e5a9e] text-[10px] px-3 py-1 rounded hover:bg-[#164a82] transition inline-block"
+                  className="mt-2 w-fit text-white bg-[#3d077e] text-[10px] px-3 py-1 rounded hover:bg-blue-950 transition inline-block"
                 >
                   Read More
                 </Link>
@@ -428,15 +428,14 @@ The curriculum is intentionally designed to forge a strong leadership foundatio
             </motion.div>
           ))}
 
-         <button
-  onClick={() => setShowAllRelated(true)}
-  className="w-full mt-2 bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
+          <button
+            onClick={() => setShowAllRelated(true)}
+            className="w-full mt-2 bg-[#F6A410] border-0 border-transparent shadow-[#F6A410] shadow-md transform 
       active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
->
-  View More
-  <ChevronRight size={18} />
-</button>
-
+          >
+            View More
+            <ChevronRight size={18} />
+          </button>
         </div>
       </div>
     </section>

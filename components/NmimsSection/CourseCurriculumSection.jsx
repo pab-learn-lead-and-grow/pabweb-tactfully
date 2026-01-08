@@ -38,7 +38,7 @@ const Syllabus = ({ years, data }) => {
 
     return (
       <div className="mt-10">
-        <h3 className="text-[20px] md:text-[30px] lg:text-[40px] font-bold text-[#345895]">{label}</h3>
+        <h3 className="text-[20px] md:text-[30px] lg:text-[40px] font-bold text-[#3C087E]">{label}</h3>
 
         {/* RADIO BUTTONS (super / dual) */}
         {specData.useRadio && (
@@ -104,7 +104,7 @@ const Syllabus = ({ years, data }) => {
                 .find((x) => x.name === selectedSpecialization[fullKey])
                 ?.topics.map((topic, idx) => (
                   <li key={idx} className="flex gap-2">
-                    <span className="text-[#4D964F]">✓</span>
+                    <span className="text-[#F6A104]">✓</span>
                     {topic}
                   </li>
                 ))}
@@ -119,7 +119,7 @@ const Syllabus = ({ years, data }) => {
     <div className="mt-20">
       <div className="max-w-6xl mx-auto font-[Inter]">
         {/* Heading */}
-        <div className="text-[36px] md:text-[48px] lg:text-[64px] font-extrabold text-center text-[#345895] mb-8">
+        <div className="text-[36px] md:text-[48px] lg:text-[64px] font-extrabold text-center text-[#270652] mb-8">
           Syllabus
         </div>
 
@@ -131,8 +131,8 @@ const Syllabus = ({ years, data }) => {
               onClick={() => setActiveYear(year)}
               className={`px-10 py-2 rounded-full font-semibold ${
                 activeYear === year
-                  ? "bg-[#4D964F] text-white shadow-lg"
-                  : "bg-white text-[#4D964F] border-2 border-dashed border-[#4D964F]"
+                  ? "bg-[#270652] text-white shadow-lg"
+                  : "bg-[#3C087E]/10 text-[#270652] border-2 border-dashed border-[#270652]"
               }`}
             >
               Year {year}
@@ -146,7 +146,7 @@ const Syllabus = ({ years, data }) => {
             ([semKey, semData]) => (
               <div
   key={semKey}
-  className="bg-[#F0F7FD] rounded-lg w-full max-w-full p-6 overflow-visible"
+  className="bg-[#3C087E]/5 rounded-lg w-full max-w-full p-6 overflow-visible"
 >
 
 
@@ -159,10 +159,10 @@ const Syllabus = ({ years, data }) => {
 
                   {/* LEFT ICON COLUMN */}
                   <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 bg-[#345895] mt-3 rounded-full flex items-center justify-center text-white">
+                    <div className="w-10 h-10 bg-[#3C087E] mt-3 rounded-full flex items-center justify-center text-white">
                       <ChevronsDown size={25} />
                     </div>
-                    <div className="w-[3px] bg-[#345895] flex-1"></div>
+                    <div className="w-[3px] bg-[#3C087E] flex-1"></div>
                   </div>
 
                   {/* RIGHT CONTENT */}
@@ -172,13 +172,13 @@ const Syllabus = ({ years, data }) => {
                     {semData.coreSubjects && (
                       <>
                         <h3 className="text-[24px] md:text-[32px] lg:text-[40px]
- font-bold text-[#345895]">
+ font-bold text-[#3C087E]">
                           Core Subjects
                         </h3>
                         <ul className="mt-4 space-y-2 text-black text-[20px]">
                           {semData.coreSubjects.map((s, i) => (
                             <li key={i} className="flex gap-2">
-                              <span className="text-[#4D964F]">✓</span>
+                              <span className="text-[#F6A104]">✓</span>
                               {s}
                             </li>
                           ))}
@@ -189,13 +189,13 @@ const Syllabus = ({ years, data }) => {
                     {/* NORMAL TOPICS */}
                     {semData.topics && (
                       <>
-                        <h3 className="text-[30px] md:text-[40px] font-bold text-[#345895]">
+                        <h3 className="text-[30px] md:text-[40px] font-bold text-[#3C087E]">
                           Topics Covered
                         </h3>
                         <ul className="mt-4 text-black space-y-2 text-[20px]">
                           {semData.topics.map((t, i) => (
                             <li key={i} className="flex gap-2">
-                              <span className="text-[#4D964F]">✓</span>
+                              <span className="text-[#F6A104]">✓</span>
                               {t}
                             </li>
                           ))}

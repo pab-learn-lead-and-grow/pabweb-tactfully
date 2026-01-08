@@ -483,6 +483,7 @@ export default function CoursesSection() {
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
   const [cardIndex, setCardIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const pillRowRef = useRef(null);
   const containerRef = useRef(null);
   const router = useRouter();
@@ -491,9 +492,15 @@ export default function CoursesSection() {
   const items = selectedCategory.programs;
 
   // Calculate how many cards fit based on container width
-  const [itemsPerView, setItemsPerView] = useState(1);
+  const [itemsPerView, setItemsPerView] = useState(3); // Default to 3 for SSR
   
   useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    
     function updateItemsPerView() {
       if (!containerRef.current) return;
       
@@ -515,7 +522,7 @@ export default function CoursesSection() {
     updateItemsPerView();
     window.addEventListener("resize", updateItemsPerView);
     return () => window.removeEventListener("resize", updateItemsPerView);
-  }, []);
+  }, [hydrated]);
 
   // Ensure cardIndex is valid when items or itemsPerView changes
   useEffect(() => {
@@ -568,20 +575,20 @@ export default function CoursesSection() {
     setIsModalOpen(true);
   };
 
-  return (
+return (
     <section className="p-5 lg:px-[60px] relative">
-      <h2 className="font-bold text-[2.25rem] md:text-4xl lg:text-5xl xl:text-[64px] leading-tight text-[#345895] mb-6">
+      <h2 className="font-bold text-[2.25rem] md:text-4xl lg:text-5xl xl:text-[64px] leading-tight text-[#270652] mb-6">
         Courses that fit your hustle
       </h2>
 
       {/* Pill selector */}
-      <div className="bg-[#EEF6F1] rounded-xl p-4 md:p-6 flex items-center gap-3">
+      <div className="bg-[#3C087E]/5 rounded-xl p-4 md:p-6 flex items-center gap-3">
         <button
           aria-label="Pill prev"
           onClick={() => scrollPills("left")}
-          className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md"
+          className="w-8 h-8 rounded-full bg-black flex items-center justify-center"
         >
-          <ChevronLeft size={18} strokeWidth={2} color={THEME_GREEN} />
+          <ChevronLeft size={22} strokeWidth={2} className="text-white" />
         </button>
 
         <div
@@ -594,7 +601,7 @@ export default function CoursesSection() {
               <button
                 key={cat.id}
                 className={`pill inline-flex items-center whitespace-nowrap px-4 py-2 rounded-xl font-sm transition ${
-                  active ? "bg-[#345895] text-white" : "bg-[#4D964F] text-white"
+                  active ? "bg-[#3C087E] text-white" : "bg-[#3C087E]/10 text-[#3c087e]"
                 }`}
                 onClick={() => {
                   setSelectedCategoryIndex(idx);
@@ -611,9 +618,9 @@ export default function CoursesSection() {
         <button
           aria-label="Pill next"
           onClick={() => scrollPills("right")}
-          className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md"
+          className="w-8 h-8 rounded-full bg-black flex items-center justify-center"
         >
-          <ChevronRight size={18} strokeWidth={2} color={THEME_GREEN} />
+          <ChevronRight size={22} strokeWidth={2} className="text-white" />
         </button>
       </div>
 
@@ -624,7 +631,7 @@ export default function CoursesSection() {
           onClick={prevCards}
           disabled={cardIndex === 0}
           aria-label="Prev cards"
-          className="prev-btn hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#345895] text-white items-center justify-center shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          className="prev-btn hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#3C087E] text-white items-center justify-center shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <ChevronLeft size={18} strokeWidth={2} color="#fff" />
         </button>
@@ -634,7 +641,7 @@ export default function CoursesSection() {
           onClick={nextCards}
           disabled={cardIndex >= items.length - itemsPerView}
           aria-label="Next cards"
-          className="next-btn hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#345895] text-white items-center justify-center shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          className="next-btn hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#3C087E] text-white items-center justify-center shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <ChevronRight size={18} strokeWidth={2} color="#fff" />
         </button>
@@ -670,7 +677,7 @@ export default function CoursesSection() {
         <button
           onClick={prevCards}
           disabled={cardIndex === 0}
-          className="w-10 h-10 rounded-lg bg-[#345895] text-white flex items-center justify-center disabled:opacity-50"
+          className="w-10 h-10 rounded-lg bg-[#3C087E] text-white flex items-center justify-center disabled:opacity-50"
         >
           ‹
         </button>
@@ -680,7 +687,7 @@ export default function CoursesSection() {
         <button
           onClick={nextCards}
           disabled={cardIndex >= items.length - itemsPerView}
-          className="w-10 h-10 rounded-xl bg-[#345895] text-white flex items-center justify-center disabled:opacity-50"
+          className="w-10 h-10 rounded-xl bg-[#3C087E] text-white flex items-center justify-center disabled:opacity-50"
         >
           ›
         </button>
@@ -696,7 +703,7 @@ function ProgramCard({ program, onDive, onDownload }) {
   return (
     <div className="bg-white border rounded-xl shadow-sm overflow-hidden flex flex-col h-[360px]">
       {/* Top logo area */}
-      <div className="relative w-full h-28 bg-gray-50">
+      <div className="relative w-full h-28 ">
         <Image
           src={program.image}
           alt={program.university}
@@ -707,16 +714,16 @@ function ProgramCard({ program, onDive, onDownload }) {
 
       {/* Content area */}
       <div className="p-5 flex flex-col flex-1 w-full">
-        <h3 className="text-[#345895] font-semibold text-base line-clamp-2">
+        <h3 className="text-black font-semibold text-base line-clamp-2">
           {program.programTitle}
         </h3>
-        <div className="text-xs text-[#064e92] mb-2">{program.university}</div>
+        <div className="text-xs text-black mb-2">{program.university}</div>
 
-        <div className="border-t my-3" />
+        <div className="border-t bg-[#c3c3c3] my-3" />
 
         <div className="mb-2">
           {program.badges?.[0] && (
-            <span className="inline-block text-xs px-3 py-1 rounded-full text-[#1e40af] bg-[#e6f0ff]">
+            <span className="inline-block text-xs px-3 py-1 rounded-full text-[#3C087E] bg-[#3C087E]/10">
               {program.badges[0]}
             </span>
           )}
@@ -724,7 +731,7 @@ function ProgramCard({ program, onDive, onDownload }) {
             {program.badges?.slice(1).map((b, i) => (
               <span
                 key={i}
-                className="inline-block text-xs px-2 py-1 border rounded-full text-gray-700 bg-white"
+                className="inline-block text-xs px-2 py-1 border border-[#3c3c43] rounded-full text-gray-700 bg-white"
               >
                 {b}
               </span>
@@ -737,19 +744,13 @@ function ProgramCard({ program, onDive, onDownload }) {
         <div className="mt-2 flex items-center gap-3 flex-nowrap">
           <button
             onClick={onDive}
-            className="text-sm px-3 py-1.5 rounded-xl bg-[#4D964F] text-white font-medium  shadow-md
-      transition-all duration-300 ease-out
-      hover:scale-105 hover:shadow-xl
-      active:scale-100 whitespace-nowrap"
+className="text-sm px-3 py-1.5 rounded-xl bg-[#F6A410] text-white font-medium shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl active:scale-100 whitespace-nowrap"
           >
             Dive Deeper
           </button>
           <button
             onClick={onDownload}
-            className="text-sm px-3 py-1.5 rounded-xl bg-[#345895] text-white font-medium  shadow-md
-      transition-all duration-300 ease-out
-      hover:scale-105 hover:shadow-xl
-      active:scale-100 whitespace-nowrap"
+className="text-sm px-3 py-1.5 rounded-xl bg-[#3D077E] text-white font-medium shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl active:scale-100 whitespace-nowrap"
           >
             Download Brochure
           </button>

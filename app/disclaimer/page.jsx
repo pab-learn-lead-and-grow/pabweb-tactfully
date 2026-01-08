@@ -19,7 +19,7 @@ export default function DisclaimerPage() {
   return (
     <div className="mt-18 flex flex-col text-black">
       {/* HEADER */}
-      <section className="bg-[linear-gradient(90deg,rgba(77,150,79,0.1),rgba(52,88,149,0.1))] py-16 px-4">
+      <section className="bg-purple-50 py-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-black">
             Disclaimer

@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="mt-18 flex flex-col text-black">
       {/* Main Content */}
-      <section className="bg-[linear-gradient(90deg,rgba(77,150,79,0.1),rgba(52,88,149,0.1))] py-16 px-4">
+      <section className="bg-purple-50 py-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-black">
             Privacy Policy
@@ -192,7 +192,7 @@ However, universities may update details such as admission rules, fee structure,
     href="https://myadcenter.google.com/home?sasb=true&ref=ad-settings"
     target="_blank"
     rel="noopener noreferrer"
-    className="text-[#345895] font-bold underline hover:text-[#2a4a7a]"
+    className="text-[#3C087E] font-bold underline hover:text-blue-950"
   >
     Google Ads & Content Network Privacy Policy
   </a>.</p>

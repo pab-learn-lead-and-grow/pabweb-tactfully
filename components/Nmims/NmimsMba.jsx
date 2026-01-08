@@ -34,12 +34,19 @@ import WhyChooseUs from "../NmimsSection/WhyChooseUs";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+  
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+  
   const Counter = ({ end, duration = 2000 }) => {
     const [value, setValue] = useState(0);
     const [hasAnimated, setHasAnimated] = useState(false);
     const ref = React.useRef(null);
 
     useEffect(() => {
+      if (!hydrated) return;
       const observer = new IntersectionObserver(
         (entries) => {
           const entry = entries[0];
@@ -113,7 +120,7 @@ export default function Page() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -80 }}
               transition={{ duration: 0.6 }}
-              className="bg-linear-to-b from-[#345895] to-[#101C2F] rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
+              className="bg-linear-to-b from-[#270652] to-[#3C087E]/50 rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
             >
               <div>
                 <p className="font-semibold text-white">{cards[index].title}</p>
@@ -143,7 +150,7 @@ export default function Page() {
               onClick={() => setIndex(i)}
               animate={{
                 scale: index === i ? 1.2 : 1,
-                backgroundColor: index === i ? "#345895" : "#d1d5db",
+                backgroundColor: index === i ? "#270652" : "#d1d5db",
               }}
               className="w-3 h-3 rounded-full"
             />
@@ -302,7 +309,7 @@ export default function Page() {
     { id: 1, name: "Business Management" },
     { id: 2, name: "Marketing Management" },
     { id: 3, name: "Financial Management" },
-    { id: 4, name: "Human Resource Management" },
+    { id: 4, name: "HR Management" },
     { id: 5, name: "Operation and Data Science Management" },
   ];
 
@@ -546,7 +553,7 @@ export default function Page() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-block bg-[#4d964f] text-white text-[18px] sm:text-[18px] mt-10 lg:mt-6  mb-2 font-sm px-4 py-1 rounded-full"
+            className="inline-block bg-[#ffb901] text-white text-[18px] sm:text-[18px] mt-10 lg:mt-6  mb-2 font-sm px-4 py-1 rounded-full"
           >
             Most-Loved
           </motion.span>
@@ -622,18 +629,18 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4 mt-12 w-full items-center justify-center"
             >
-              <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2  bg-linear-to-r from-[#345895] to-[#142138] border-0 border-transparent shadow-[#020b34] transform  text-white  shadow-md
+              <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
       transition-all duration-300 ease-out
       hover:scale-105 hover:shadow-lg
-      active:scale-100 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-medium">
+      active:scale-100 text-white px-6 py-3 rounded-lg hover:bg-blue-950 transition-all duration-300 font-medium">
                 Download Brochure
                 <Download size={20} />
               </button>
 
-              <button onClick={() => setIsModalOpen(true)} className=" bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] transform  text-white  shadow-md
+              <button onClick={() => setIsModalOpen(true)} className=" bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
       transition-all duration-300 ease-out
       hover:scale-105 hover:shadow-lg
-      active:scale-100 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 font-medium">
+      active:scale-100 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium">
                 Talk to an Expert
                 <ArrowRight size={16} />
               </button>
@@ -646,7 +653,7 @@ export default function Page() {
         <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-[32px] md:text-4xl mt-15 lg:text-[64px] font-bold text-[#345895] mb-6">
+            <h2 className="text-[32px] md:text-4xl mt-15 lg:text-[64px] font-bold text-[#270652] mb-6">
               About NMIMS
             </h2>
 
@@ -667,7 +674,7 @@ export default function Page() {
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
           <div className="relative w-full h-full flex md:justify-end ">
-            <div className="max-w-7xl overflow-hidden md:-mr-10 xl:-mr-16">
+            <div className="max-w-7xl overflow-hidden md:-mr-10">
               <img
                 src="/nmims/aboutNmims.png"
                 alt="Students"
@@ -686,7 +693,7 @@ export default function Page() {
                  whileInView={{ opacity: 1, y: 0 }}
                  transition={{ duration: 0.6 }}
                  viewport={{ once: true }}
-                 className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
+                 className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#270652] mb-3 md:mb-8 text-center"
                >
                  A Snapshot of Success
                </motion.h2>
@@ -696,10 +703,10 @@ export default function Page() {
                  whileInView={{ opacity: 1, scale: 1 }}
                  transition={{ duration: 0.6, delay: 0.2 }}
                  viewport={{ once: true }}
-                 className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+                 className="bg-[#3C087E]/5 rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
                >
                  {/* ALWAYS 3 COLUMNS */}
-                 <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
+                 <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#270652]">
                    {/* STAT 1 */}
                    <motion.div
                      initial={{ opacity: 0, y: 30 }}
@@ -751,7 +758,7 @@ export default function Page() {
       <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
         {/* ===== Top Text Section ===== */}
         <div className="max-w-6xl text-left mx-auto">
-          <h2 className="text-xl md:text-2xl font-regular lg:text-[49px] leading-normal text-gray-900">
+          <h2 className="text-xl md:text-2xl font-regular lg:text-[42px] leading-normal text-gray-900">
             <span className="text-red-600 ">
               The 2-year Online Master of Business Administration{" "}
             </span>
@@ -772,7 +779,7 @@ export default function Page() {
 
             {/* Content */}
             <div>
-              <h3 className="lg:text-2xl text-[#345895] mb-1">
+              <h3 className="lg:text-2xl text-[#270652] mb-1">
                 Learn from faculty that sparks thinking minds
               </h3>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
@@ -793,7 +800,7 @@ export default function Page() {
 
             {/* Content */}
             <div>
-              <h3 className="lg:text-2xl text-[#345895] mb-1">
+              <h3 className="lg:text-2xl text-[#270652] mb-1">
                 Case-Based and Application-oriented Assessment
               </h3>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
@@ -816,7 +823,7 @@ export default function Page() {
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-[32px] md:text-[64px] leading-[110%] font-extrabold font-[Inter] text-center text-[#345895] mb-10"
+              className="text-[32px] md:text-[64px] leading-[110%] font-extrabold font-[Inter] text-center text-[#270652] mb-10"
             >
               Syllabus
             </motion.h2>
@@ -827,7 +834,7 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               className="
-                bg-[#345895] rounded-[30px]
+                bg-[#3C087E]/10 rounded-[30px]
                 p-4 sm:p-6 md:p-12
                 flex flex-col xl:flex-row gap-6 md:gap-10
               "
@@ -851,7 +858,7 @@ export default function Page() {
                               setActiveSemester(1);
                             }}
                             whileHover={{ scale: 1.05 }}
-                            className={`w-full px-2 py-2 sm:px-3 sm:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-semibold ${activeSubject === sub.id ? "bg-[#38A169] text-white shadow" : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"}`}
+                            className={`w-full px-2 py-2 sm:px-3 sm:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-semibold ${activeSubject === sub.id ? "bg-[#3C087E] text-white shadow" : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"}`}
 
                           >
                             {sub.name}
@@ -875,8 +882,8 @@ export default function Page() {
                             text-[10px] sm:text-xs md:text-sm font-semibold
                             ${
                               activeSemester === sem
-                                ? "bg-[#38A169] text-white shadow"
-                                : "bg-white text-[#38A169]  border-[#38A169] border-dashed border-2"
+                                ? "bg-[#3C087E] text-white shadow"
+                                : "bg-white text-[#3C087E] border-[#3C087E] border-dashed border-2"
                             }
                           `}
                         >
@@ -890,9 +897,8 @@ export default function Page() {
                         onClick={() => setIsModalOpen(true)}
                         whileHover={{ scale: 1.05 }}
                         className="
-                           w-full bg-[#4D964F] text-white px-3 py-2 sm:py-3
-                          rounded-xl text-[10px] sm:text-xs md:text-sm
-                          bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md
+                           w-full bg-[#F6A410] text-white px-3 py-2 sm:py-3
+                          rounded-xl text-[10px] sm:text-xs md:text-sm shadow-md
                           flex items-center justify-center gap-2
                         "
                       >
@@ -918,11 +924,11 @@ export default function Page() {
                           setActiveSemester(1);
                         }}
                         whileHover={{ scale: 1.05 }}
-                        className={`w-full px-4 py-3 rounded-full font-semibold
+                        className={`w-full px-4 py-3 rounded-full font-regular
                           ${
                             activeSubject === sub.id
-                              ? "bg-[#38A169] text-white shadow"
-                              : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"
+                              ? "bg-[#3C087E] text-white shadow"
+                              : "bg-white text-black border-[#3C087E] border-dashed border-2"
                           }`}
                       >
                         {sub.name}
@@ -940,14 +946,14 @@ export default function Page() {
           
                   {/* ICON + LINE */}
                   <div className="absolute top-0 bottom-0 flex flex-col items-center">
-                    <div className="bg-[#345895] text-white p-2 sm:p-3 rounded-full shadow z-10 mt-4 sm:mt-6">
+                    <div className="bg-[#270652] text-white p-2 sm:p-3 rounded-full shadow z-10 mt-4 sm:mt-6">
                       <ChevronsDown size={16} />
                     </div>
-                    <div className="w-0.5 bg-[#345895] flex-1 mb-4"></div>
+                    <div className="w-0.5 bg-[#270652] flex-1 mb-4"></div>
                   </div>
           
                   {/* TITLE */}
-                  <h3 className="text-[20px] sm:text-[26px] md:text-3xl font-bold text-[#345895] ml-12 sm:ml-16 mb-3">
+                  <h3 className="text-[20px] sm:text-[26px] md:text-3xl font-bold text-[#270652] ml-12 sm:ml-16 mb-3">
                     Topics Covered
                   </h3>
           
@@ -969,15 +975,15 @@ export default function Page() {
                         >
                           <motion.div
                             whileHover={{ scale: 1.1 }}
-                            className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-white group-hover:bg-[#345895] transition"
+                            className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-white group-hover:bg-[#270652] transition"
                           >
                             <Check
                               size={12}
-                              className="sm:size-16 text-[#345895] group-hover:text-white transition"
+                              className="sm:size-16 text-[#270652] group-hover:text-white transition"
                             />
                           </motion.div>
           
-                          <span className="text-gray-800 text-xs sm:text-sm md:text-base group-hover:text-[#345895] transition">
+                          <span className="text-gray-800 text-xs sm:text-sm md:text-base group-hover:text-[#270652] transition">
                             {topic}
                           </span>
                         </motion.li>
@@ -998,11 +1004,11 @@ export default function Page() {
                       key={sem}
                       onClick={() => setActiveSemester(sem)}
                       whileHover={{ scale: 1.05 }}
-                      className={`px-4 py-3 rounded-full font-semibold
+                      className={`px-4 py-3 rounded-full font-regular
                         ${
                           activeSemester === sem
-                            ? "bg-[#38A169] text-white shadow"
-                            : "bg-white text-[#38A169] border-[#38A169] border-dashed border-2"
+                            ? "bg-[#3C087E] text-white shadow"
+                            : "bg-white text-black border-[#3C087E] border-dashed border-2"
                         }`}
                     >
                       {sem}
@@ -1013,7 +1019,7 @@ export default function Page() {
                   <motion.button
                     onClick={() => setIsModalOpen(true)}
                     whileHover={{ scale: 1.05 }}
-                    className="mt-8 w-full bg-[#4D964F] text-white px-4 py-4 rounded-2xl bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md flex items-center justify-center gap-4"
+                    className="mt-8 w-full bg-[#F6A410] text-white px-4 py-4 rounded-2xl shadow-lg flex items-center justify-center gap-4"
                   >
                     DOWNLOAD SYLLABUS
                     <ChevronRight size={20} />
@@ -1033,7 +1039,7 @@ export default function Page() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#345895]"
+            className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#270652]"
           >
             Eligibility Criteria
           </motion.h2>
@@ -1052,7 +1058,7 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-gray-700  text-[20px] md:text-3xl font-medium leading-relaxed md:w-3/5"
+              className="text-black  text-[20px] md:text-3xl font-medium leading-tight md:w-3/5"
             >
               Bachelor's Degree (10+2+3) in any discipline from recognized University or an equivalent degree recognised by Association of Indian Universities (AIU) with a minimum of 55% and 3 + years of Work Experience (50% for SC/ST/OBC/PwD).
             </motion.p>
@@ -1086,7 +1092,7 @@ export default function Page() {
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
         {/* Faded Background Heading */}
-        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[rgba(6, 78, 146, 0.1)] opacity-90 select-none tracking-tight whitespace-nowrap">
+        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
           EXAMINATION PROCESS
         </h1>
 
@@ -1097,7 +1103,7 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#345895] mb-6"
+            className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#270652] mb-6"
           >
             EXAMINATION PROCESS
           </motion.h2>
@@ -1108,7 +1114,7 @@ export default function Page() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-left text-[#345895] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
+            className="text-left text-black text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-16"
           >
             The NMIMS Online MBA follows a structured and transparent
             examination process designed to evaluate learners through continuous
@@ -1123,20 +1129,19 @@ export default function Page() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
+              className="bg-[#3C087E]/5 text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
             >
-              <h3 className=" text-md md:text-2xl font-semibold italic mb-5">
+              <h3 className="text-[#270652] text-md md:text-2xl font-semibold italic mb-5">
                 Exam Slot Booking
               </h3>
 
               {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
-              <div className="space-y-5 text-lg leading-relaxed max-w-[380] mx-auto">
+              <div className="space-y-5 text-lg leading-relaxed max-w-[380] mx-auto text-black">
                 {/* POINT 1 */}
-                <div className="grid grid-cols-[30px_auto] gap-3 items-start">
+                <div className="grid grid-cols-[30px_auto] gap-3 items-start ">
                   <span className="text-lg lg:text-2xl leading-none">✦</span>
                   <p className="text-left text-lg lg:text-2xl mb-6">
-                    Learners must book their examination slots through the NMIMS
-                    Student Portal.
+                    Time-table will be assigned to the candidates prior to examination.
                   </p>
                 </div>
 
@@ -1144,8 +1149,7 @@ export default function Page() {
                 <div className="grid grid-cols-[30px_auto] gap-3 items-start">
                   <span className="text-lg lg:text-2xl leading-no">✦</span>
                   <p className="text-lg lg:text-2xl text-left">
-                    All exam slot details are shared well in advance, allowing
-                    candidates to schedule their tests conveniently.
+                    Candidates must be present at an already allotted time slot
                   </p>
                 </div>
               </div>
@@ -1157,29 +1161,29 @@ export default function Page() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-linear-to-b from-[#345895] to-[#101C2F] text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
+              className="bg-[#3C087E]/5 text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
             >
-              <h3 className="text-lg md:text-2xl font-semibold italic mb-5">
+              <h3 className="text-[#270652] text-lg md:text-2xl font-semibold italic mb-5">
                 Exam Slot Timings
               </h3>
 
-              <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-center">
+              <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-center text-black">
                 For end-term examinations, NMIMS provides three available slots:
               </p>
 
               {/* Exam Time Circles */}
-              <div className="flex items-center justify-center gap-6 mb-7">
+              <div className="flex items-center justify-center gap-6 mb-7 text-black">
                 {["9 AM", "1 PM", "5 PM"].map((slot, i) => (
                   <div
                     key={i}
-                    className="w-15 h-15 border border-white rounded-full flex items-center justify-center text-lg font-semibold"
+                    className="w-15 h-15 border border-black rounded-full flex items-center justify-center text-lg font-semibold"
                   >
                     {slot}
                   </div>
                 ))}
               </div>
 
-              <p className="text-lg lg:text-2xl max-w-[380] text-center">
+              <p className="text-black text-lg lg:text-2xl max-w-[380] text-center">
                 Candidates may choose their preferred slot based on
                 availability.
               </p>
@@ -1191,7 +1195,7 @@ export default function Page() {
       <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
         <div className="max-w-4xl mx-auto p-6 md:p-10">
           {/* Heading */}
-          <h2 className="text-[24px] md:text-[40] font-bold italic text-[#345895] mb-12 text-center">
+          <h2 className="text-[24px] md:text-[40] font-bold italic text-[#270652] mb-12 text-center">
             ASSESSMENT STRUCTURE (100 MARKS)
           </h2>
 
@@ -1199,14 +1203,14 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
             {/* Left Category */}
             <div className="space-y-2">
-              <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
+              <div className="w-full rounded-lg border border-gray-200 py-3 text-center italic font-semibold text-black bg-white">
                 Internal Assessment-60 Marks
               </div>
             </div>
 
             {/* Right Category */}
             <div className="space-y-2">
-              <div className="w-full rounded-lg border border-[#345895] py-3 text-center italic font-semibold text-[#064E92] bg-white">
+              <div className="w-full rounded-lg border border-gray-200 py-3 text-center italic font-semibold text-black bg-white">
                 External Assessment-40 Marks
               </div>
             </div>
@@ -1215,7 +1219,7 @@ export default function Page() {
           {/* Passing Criteria Box */}
           <div className="border border-[#e5e7eb] rounded-lg p-5 mt-15 bg-white">
             <p className="font-semibold text-black mb-1">Passing Criteria</p>
-            <ul className="list-disc pl-8 text-[#345895] text-sm md:text-lg">
+            <ul className="list-disc pl-8 text-[#3C3C43] text-sm md:text-lg">
               <li>
                 A candidate must secure a minimum of 40% to successfully pass
                 the course
@@ -1232,17 +1236,17 @@ export default function Page() {
 
       {/* LEFT SIDE TEXT */}
       <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
-        <h2 className="text-[#064E92] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4">
+        <h2 className="text-[#270652] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4">
           Fees Structure
         </h2>
 
         {/* Subtitle */}
-        <p className="text-gray-700 text-sm md:text-base leading-tight lg:max-w-xl md:mb-6">
+        <p className="text-[#2F2F30] text-sm md:text-base leading-tight lg:max-w-xl md:mb-6">
           Pay conveniently to launch your leadership career
         </p>
 
         {/* CTA visible only on large screens */}
-            <button onClick={() => setIsModalOpen(true)} className="hidden lg:flex text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
+            <button onClick={() => setIsModalOpen(true)} className="hidden lg:flex text-white bg-[#F6A410] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit">
               Compare all Plans
             </button>
       </div>
@@ -1253,7 +1257,7 @@ export default function Page() {
       </div>
 
       {/* CTA below carousel on mobile only */}
-          <button onClick={() => setIsModalOpen(true)} className="lg:hidden text-white bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+          <button onClick={() => setIsModalOpen(true)} className="lg:hidden text-white bg-[#F6A410] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
             Compare all Plans
           </button>
 
@@ -1269,7 +1273,7 @@ export default function Page() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto bg-[#064E92]/10 rounded-3xl p-6 md:p-10 lg:p-12 shadow-sm"
+          className="max-w-4xl mx-auto bg-[#3C087E]/5 rounded-3xl p-6 md:p-10 lg:p-12 shadow-sm"
         >
           {/* Heading */}
           <h2 className="text-center text-black text-2xl md:text-[40px] font-bold mb-6">
@@ -1344,9 +1348,9 @@ export default function Page() {
     {/* LEFT CONTENT */}
     <div className="space-y-5">
 
-      <p className="text-[#1F1717] mb-1 mt-5 text-sm font-medium">Degree Sample</p>
+      <p className="text-[#1F1717] mb-1 mt-5 text-sm font-regular">Degree Sample</p>
 
-      <h2 className="text-[#345895] text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight">
+      <h2 className="text-[#270652] text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight">
         NMIMS Online <br />
         MBA <br />
         Certificate
@@ -1367,7 +1371,7 @@ export default function Page() {
       </div>
 
       {/* CTA BUTTON  */}
-            <button onClick={() => setIsModalOpen(true)} className="bg-[#4D964F] text-white font-medium text-sm px-10 py-2 rounded-lg bg-linear-to-r from-[#4D964F] to-[#193019] shadow-md shadow-[#1C361D] transform hover:scale-105 duration-200 flex items-center justify-center">
+            <button onClick={() => setIsModalOpen(true)} className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg  shadow-lg transform hover:scale-105 duration-200 flex items-center justify-center">
               Know more
             </button>
 
@@ -1386,142 +1390,126 @@ export default function Page() {
 </section>
 
 
-      <section className="w-full bg-white font-[Inter] px-6 md:px-12 lg:px-20 mt-8">
+  <section className="w-full bg-white font-[Inter] px-6 md:px-12 lg:px-20 mt-8">
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+    className="max-w-7xl mx-auto"
+  >
+    {/* HEADING */}
+    <div className="max-w-7xl text-left mb-12">
+      <h4 className="text-black text-base font-medium">
+        What will you gain?
+      </h4>
+
+      <h2 className="text-3xl sm:text-3xl lg:text-[42px] max-w-7xl font-bold text-[#270652] leading-tight mt-2">
+        This isn't just another degree - it's a transformation in how you think,
+        work, and grow.
+      </h2>
+    </div>
+
+    {/* CONTENT ROW */}
+    <div className="flex flex-col lg:flex-row items-start gap-14">
+      {/* LEFT: Points */}
+      <div className="flex-1 max-w-xl flex flex-col gap-6">
+        {/* Point 1 */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10"
+          className="flex items-start gap-7"
         >
-          {/* LEFT CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex-1 text-left"
-          >
-            {/* Small Header */}
-            <h4 className="text-black text-xl font-medium mt-2 md:text-base">
-              What will you gain?
-            </h4>
-
-            {/* Main Heading */}
-            <h2 className="text-3xl sm:text-3xl lg:text-[42px] font-bold text-[#345895] leading-tight mb-8">
-              This isn't just another degree it's a
-              transformation in how you think,
-              work, and grow.
-            </h2>
-
-            {/* Points */}
-            <div className="flex flex-col gap-6">
-              {/* Point 1 */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="flex items-start gap-7"
-              >
-                <div className="flex items-center justify-center bg-[#345895] text-white rounded-full w-15 h-15 shrink-0 p-3">
-                  <Briefcase size={30} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-black">
-                    Strategic Thinking
-                  </h3>
-                  <p className="text-gray-600 text-sm max-w-120 md:text-base">
-                    Develop the ability to break down complex business problems
-                    and make confident, data-backed decisions.
-                    <br />
-                    Learn to think ahead, anticipate challenges, and create
-                    strategies that drive long-term success.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Point 2 */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.35 }}
-                viewport={{ once: true }}
-                className="flex items-start gap-7"
-              >
-                <div className="flex items-center justify-center bg-[#345895] text-white rounded-full w-15 h-15 shrink-0 p-3">
-                  <Users size={30} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-black">
-                    Practical Business Insight
-                  </h3>
-                  <p className="text-gray-600 text-sm max-w-120 md:text-base">
-                    Go beyond classroom theory with hands-on projects, case
-                    studies, and expert interactions.
-                    <br />
-                    Understand how real companies operate, make decisions, and
-                    solve everyday challenges.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Point 3 */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                viewport={{ once: true }}
-                className="flex items-start gap-7"
-              >
-                <div className="flex items-center justify-center bg-[#345895] text-white rounded-full w-15 h-15 shrink-0 p-3">
-                  <GraduationCap size={30} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-black">
-                    Career Acceleration
-                  </h3>
-                  <p className="text-gray-600 text-sm max-w-120 md:text-base">
-                    Gain the knowledge, credibility, and skillset that opens
-                    doors to higher roles and better opportunities.
-                    <br />
-                    Fast-track your professional growth with a qualification
-                    that employers trust.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* RIGHT IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="relative w-[70%] md:w-[40%] lg:w-[35%] max-w-md"
-          >
-            <motion.div
-              initial={{ scale: 0.9 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className=" hidden md:flex md:-mx-20 mt-40 md:mr-10"
-            >
-              <Image
-                src="/nmims/nmimsMbaGain.png"
-                alt="what will you Gain"
-                width={523}
-                height={408}
-                className="object-cover w-full h-full"
-              />
-            </motion.div>
-          </motion.div>
+          <div className="flex items-center justify-center bg-[#270652] text-white rounded-full w-15 h-15 shrink-0 p-3">
+            <Briefcase size={30} />
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-black">
+              Strategic Thinking
+            </h3>
+            <p className="text-gray-600 text-sm md:text-base">
+             Develop the ability to break down complex business problems and make confident, data-backed decisions. Learn to think ahead, anticipate challenges, and create strategies that drive long-term success.
+            </p>
+          </div>
         </motion.div>
-      </section>
+
+        {/* Point 2 */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          viewport={{ once: true }}
+          className="flex items-start gap-7"
+        >
+          <div className="flex items-center justify-center bg-[#270652] text-white rounded-full w-15 h-15 shrink-0 p-3">
+            <Users size={30} />
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-black">
+              Practical Business Insight
+            </h3>
+            <p className="text-gray-600 text-sm md:text-base">
+              Go beyond classroom theory with hands-on projects, case studies, and expert interactions. Understand how real companies operate, make decisions, and solve everyday challenges.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Point 3 */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="flex items-start gap-7"
+        >
+          <div className="flex items-center justify-center bg-[#270652] text-white rounded-full w-15 h-15 shrink-0 p-3">
+            <GraduationCap size={30} />
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-black">
+              Career Acceleration
+            </h3>
+            <p className="text-gray-600 text-sm md:text-base">
+             Gain the knowledge, credibility, and skillset that opens doors to higher roles and better opportunities.Fast-track your professional growth with a qualification that employers trust.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+     {/* RIGHT: Image */}
+<motion.div
+  initial={{ opacity: 0, x: 40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="
+    hidden lg:flex 
+    w-[45%] xl:w-[50%] 
+    justify-end
+  "
+>
+  <div className="relative w-full max-w-[600px]">
+    <Image
+      src="/careerGain.png"
+      alt="What will you gain"
+      width={650}
+      height={500}
+      className="object-contain w-full h-auto"
+      priority
+    />
+  </div>
+</motion.div>
+
+    </div>
+  </motion.div>
+</section>
+
+
 
       <section className="w-full bg-white py-20 md:px-12 lg:px-20">
-        <div className="w-full md:bg-[#345895] rounded-4xl py-20 px-6 md:px-12 lg:px-20">
+        <div className="w-full md:bg-linear-to-tr from-[#180135] to-[#3C087E] rounded-4xl py-12 px-6 md:px-10 lg:px-15">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1536,7 +1524,7 @@ export default function Page() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="
-                    text-[#345895] 
+                    text-[#270652] 
                       font-bold font-[Inter] 
                       text-[32px] md:text-5xl lg:text-[64px] 
                       leading-tight"
@@ -1605,7 +1593,7 @@ export default function Page() {
                     transition={{ duration: 0.35, delay: index * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <span className="w-7 h-7 rounded-full bg-[#4D964F] flex items-center justify-center">
+                    <span className="w-7 h-7 rounded-full bg-[#F6A410] flex items-center justify-center">
                       <Check size={18} className="text-white" />
                     </span>
                     <span className="text-gray-900 font-semibold text-lg">
@@ -1624,8 +1612,8 @@ export default function Page() {
               mt-6 py-3 px-6 
               rounded-lg 
               text-white text-sm 
-              bg-linear-to-r from-[#4D964F] to-[#193019]
-              shadow-md shadow-[#1C361D]/40
+              bg-[#F6A410]
+              shadow-lg
             "
                 >
                   Know more
@@ -1646,7 +1634,7 @@ export default function Page() {
 
   <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
   {/* TITLE */}
-  <h2 className="text-[#345895] font-extrabold text-center text-[32px] md:text-[48px] lg:text-[64px] mb-8">
+  <h2 className="text-[#270652] font-bold text-center text-[32px] md:text-[48px] lg:text-[64px] mb-8">
     Important Dates
   </h2>
 
@@ -1655,7 +1643,7 @@ export default function Page() {
     <table className="w-full border-collapse table-fixed">
       {/* HEADER */}
       <thead>
-        <tr className="bg-[#4D964F] text-white text-[12px] md:text-[16px]">
+        <tr className="bg-[#F6A410] text-white text-[12px] md:text-[16px]">
           <th className="py-3 px-2 text-left rounded-l-lg">PARTICULARS</th>
           <th className="py-3 px-2 text-left rounded-r-lg">DATES</th>
         </tr>
@@ -1710,7 +1698,7 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-[#345895] px-6 py-3 flex items-center justify-center rounded-md"
+            className="text-4xl md:text-5xl font-bold text-[#270652] px-6 py-3 flex items-center justify-center rounded-md"
           >
             Lateral Admission MBA (Online)
           </motion.h2>

@@ -169,7 +169,7 @@ Among these, the Online BBA and Online MBA have emerged as two powerful path
 This blog explores how each program contributes to shaping tomorrow’s founders, managers, and CEOs - and why India is seeing a historic rise in online business education.
 </p>
 
-          <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+          <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
           The Rise of Online Business Education in India
           </h2>
           <p className="text-black text-[14px] font-regular -mb-5 leading-5">
@@ -202,7 +202,7 @@ This blog explores how each program contributes to shaping tomorrow’s founders
    As India becomes one of the world’s largest online education markets, these degree pathways are powering thousands of careers.
  </p>
 
-  <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+  <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
      Part 1: How an Online BBA Turns Students Into Entrepreneurs
       </h2>
           <p className="text-black text-[14px] leading-5">
@@ -336,7 +336,7 @@ Many online learners end up launching small businesses during the degree itsel
           </div>
 
 
-          <h2 className="text-2xl -mb-5 font-semibold text-[#345895]">
+          <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
   Part 2: How an Online MBA Shapes Managers - and Future CEOs
   </h2>
           <p className="text-black text-[14px] leading-5">
@@ -495,7 +495,7 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
 
 </ol>
 
- <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+ <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
   Why Online BBA and MBA Are Becoming Career Game-Changers in India
 </h2>
 
@@ -554,7 +554,7 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
      </p>
 
 
-     <h2 className="text-[#345895] font-semibold -mb-5 text-2xl">
+     <h2 className="text-[#3C087E] font-semibold -mb-5 text-2xl">
   Who Should Choose Online BBA or Online MBA?
 </h2>
 
@@ -597,7 +597,7 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
 </ul>
 
           
-          <h2 className="text-[#345895] -mb-5 font-semibold text-2xl md:text-2xl lg:text-2xl">
+          <h2 className="text-[#3C087E] -mb-5 font-semibold text-2xl md:text-2xl lg:text-2xl">
          Final Thoughts: A New Era of Business Learning
          </h2>
           
@@ -610,9 +610,9 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
 
          </motion.div>
 
-        {/* RIGHT SIDE BLOG LINKS */}
+          {/* RIGHT SIDE BLOG LINKS */}
         <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl self-start h-fit shadow-lg p-4">
-          <h2 className="text-2xl font-bold text-[#1a2332] mb-2">
+          <h2 className="text-2xl font-bold text-[#270652] mb-2">
             Related Articles
           </h2>
 
@@ -637,13 +637,13 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
 
               {/* CONTENT */}
               <div className="flex-1 min-w-0 flex flex-col justify-between">
-                <p className="text-[10px] leading-[1.4] text-[#1e5a9e] break-word">
+                <p className="text-[10px] leading-[1.4] text-black break-word">
                   {blog.title}
                 </p>
 
-                <Link 
-                   href={blog.path}
-                   className="mt-2 w-fit text-white bg-[#1e5a9e] text-[10px] px-3 py-1 rounded hover:bg-[#164a82] transition inline-block"
+                <Link
+                  href={blog.path}
+                  className="mt-2 w-fit text-white bg-[#3d077e] text-[10px] px-3 py-1 rounded hover:bg-blue-950 transition inline-block"
                 >
                   Read More
                 </Link>
@@ -651,15 +651,14 @@ Below are the ways an online BBA builds entrepreneurial capabilities from the gr
             </motion.div>
           ))}
 
-         <button
-  onClick={() => setShowAllRelated(true)}
- className="w-full mt-2 bg-linear-to-r from-[#4D964F] to-[#193019] border-0 border-transparent shadow-[#1C361D] shadow-md transform 
+          <button
+            onClick={() => setShowAllRelated(true)}
+            className="w-full mt-2 bg-[#F6A410] border-0 border-transparent shadow-[#F6A410] shadow-md transform 
       active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
->
-  View More
-  <ChevronRight size={18} />
-</button>
-
+          >
+            View More
+            <ChevronRight size={18} />
+          </button>
         </div>
       </div>
     </section>

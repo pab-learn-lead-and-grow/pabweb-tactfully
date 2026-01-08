@@ -5,7 +5,7 @@ import { CornerDownRight } from "lucide-react";
 
 export default function Faculties({ heading, topFaculty, bottomFaculty }) {
   return (
-    <div className="min-h-content font-[Inter] px-18 bg-[#345895] py-8 sm:py-12 md:py-16 lg:py-20">
+    <div className="min-h-content font-[Inter] px-18 bg-[#270652] py-8 sm:py-12 md:py-16 lg:py-20">
       <div className="w-full mx-auto">
         
         {/* Header */}
@@ -53,7 +53,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
                   <h3 className="text-white font-semibold text-base sm:text-lg mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-blue-200 text-xs sm:text-sm">
+                  <p className="text-[#9D9FA1] font-semibold text-xs sm:text-sm">
                     {member.title}
                   </p>
                 </div>
@@ -85,7 +85,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
                 <h3 className="text-white font-semibold text-base sm:text-lg mb-1">
                   {member.name}
                 </h3>
-                <p className="text-blue-200 text-xs sm:text-sm">
+                <p className="text-[#9D9FA1]  font-semibold text-xs sm:text-sm">
                   {member.title}
                 </p>
               </div>

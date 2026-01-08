@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1); // Default to closed for SSR
 
   const faqs = [
     {
@@ -34,7 +34,7 @@ export default function FAQSection() {
     <div className=" bg-white px-6 sm:px-8 lg:px-4">
       <div className="w-full p-5 lg:p-[60px] mx-auto">
         {/* Header */}
-        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold text-[#345895] mb-8 leading-tight">
+        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold text-[#270652] mb-8 leading-tight">
           What.<br />
           The.<br />
           FAQ?
@@ -53,7 +53,7 @@ export default function FAQSection() {
               {/* Question */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between p-5 sm:p-6 text-left hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between p-5 sm:p-6 text-left hover:bg-purple-50 transition-colors"
               >
                 <span className="font-semibold text-gray-900 text-sm sm:text-base pr-4">
                   {faq.question}

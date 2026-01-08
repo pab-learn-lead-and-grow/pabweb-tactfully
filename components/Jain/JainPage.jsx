@@ -20,7 +20,7 @@ export default function Page() {
       icon: (
         <FileUser
           strokeWidth={1.0}
-          className="text-[#4D964F] w-18 h-18"
+          className="text-[#F6A410] w-18 h-18"
         />
       ),
       title: "Professional Resumes",
@@ -28,13 +28,13 @@ export default function Page() {
     },
     {
       icon: (
-        <ContactRound strokeWidth={1.0} className="text-[#4D964F] w-18 h-18" />
+        <ContactRound strokeWidth={1.0} className="text-[#F6A410] w-18 h-18" />
       ),
       title: "Profile Highlighter",
       text: "Access the powerful foundit Profile Highlighter tool, ensuring instant attention from recruiters and giving you a competitive advantage as an active job seeker.",
     },
     {
-      icon: <MessagesSquare strokeWidth={1.0} className="text-[#4D964F] w-18 h-18" />,
+      icon: <MessagesSquare strokeWidth={1.0} className="text-[#F6A410] w-18 h-18" />,
       title: "Interview Preparation Guide",
       text: " Learners receive a comprehensive guide powered by foundit to boost essential skills, knowledge, and confidence for successful job interviews.",
      },
@@ -42,7 +42,7 @@ export default function Page() {
       icon: (
         <Users
           strokeWidth={1.0}
-          className="text-[#4D964F] w-18 h-18"
+          className="text-[#F6A410] w-18 h-18"
         />
       ),
       title: "Featured Profile",
@@ -158,7 +158,7 @@ export default function Page() {
         <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-[32px] md:text-4xl lg:text-[64px] text-center md:text-left font-extrabold text-[#345895] mb-12">
+            <h2 className="text-[32px] md:text-4xl lg:text-[64px] text-center md:text-left font-extrabold text-[#270652] mb-12">
               About JAIN
             </h2>
 
@@ -189,7 +189,7 @@ With more than three decades of academic excellence and cutting-edge, technology
                        whileInView={{ opacity: 1, y: 0 }}
                        transition={{ duration: 0.6 }}
                        viewport={{ once: true }}
-                       className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#345895] mb-3 md:mb-8 text-center"
+                       className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#270652] mb-3 md:mb-8 text-center"
                      >
                        A Snapshot of Success
                      </motion.h2>
@@ -200,10 +200,10 @@ With more than three decades of academic excellence and cutting-edge, technology
                        whileInView={{ opacity: 1, scale: 1 }}
                        transition={{ duration: 0.6, delay: 0.2 }}
                        viewport={{ once: true }}
-                       className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+                       className="bg-[#3C087E]/5 rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
                      >
                        {/* ALWAYS 3 COLUMNS */}
-                       <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
+                       <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
                          {/* STAT 1 */}
                          <motion.div
                            initial={{ opacity: 0, y: 30 }}
