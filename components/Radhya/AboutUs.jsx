@@ -308,7 +308,7 @@ export default function WhatSetsUsApart() {
                 alt="Vision"
                 width={100}
                 height={220}
-                className=" md:w-[110px] lg:w-[70px] xl:w-[90px] object-contain"
+                className="w-[120px] md:w-[110px] lg:w-[70px] xl:w-[90px] object-contain"
               />
             </div>
 
@@ -342,7 +342,7 @@ export default function WhatSetsUsApart() {
                 alt="Mission"
                 width={100}
                 height={220}
-                className=" md:w-[110px] lg:w-[70px] xl:w-[90px] object-contain"
+                className="w-[120px] md:w-[110px] lg:w-[70px] xl:w-[90px] object-contain"
               />
             </div>
 

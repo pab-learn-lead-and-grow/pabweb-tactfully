@@ -515,7 +515,7 @@ export default function Page() {
                             transition={{ duration: 0.5 }}
                             viewport={{ once: true }}
                           >
-                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                            <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                               NAAC A+
                             </h3>
                             <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -530,7 +530,7 @@ export default function Page() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             viewport={{ once: true }}
                           >
-                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                            <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                               UGC
                             </h3>
                             <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -545,7 +545,7 @@ export default function Page() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             viewport={{ once: true }}
                           >
-                            <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                            <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                               Rank 1
                             </h3>
                             <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
@@ -1509,6 +1509,7 @@ export default function Page() {
                     max-w-[260px]  /* Medium screens */
                     lg:max-w-[400px]   /* Large screens */
                     object-contain
+                     rounded-2xl
                     mx-auto
                   "
                 />

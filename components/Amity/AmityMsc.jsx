@@ -521,77 +521,77 @@ export default function Page() {
         </div>
       </section>
         {/* ======= SNAPSHOT SECTION ======= */}
-              <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
-                                     <div className="max-w-7xl mx-auto">
-                                       {/* HEADING */}
-                                       <motion.h2
-                                         initial={{ opacity: 0, y: -30 }}
-                                         whileInView={{ opacity: 1, y: 0 }}
-                                         transition={{ duration: 0.6 }}
-                                         viewport={{ once: true }}
-                                         className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
-                                       >
-                                         A Snapshot of Success
-                                       </motion.h2>
-                             
-                                       {/* BLUE BAR */}
-                                       <motion.div
-                                         initial={{ opacity: 0, scale: 0.95 }}
-                                         whileInView={{ opacity: 1, scale: 1 }}
-                                         transition={{ duration: 0.6, delay: 0.2 }}
-                                         viewport={{ once: true }}
-                                         className="bg-[#3C087E]/5 rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
-                                       >
-                                         {/* ALWAYS 3 COLUMNS */}
-                                         <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
-                                           {/* STAT 1 */}
-                                           <motion.div
-                                             initial={{ opacity: 0, y: 30 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             transition={{ duration: 0.5 }}
-                                             viewport={{ once: true }}
-                                           >
-                                             <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                                               NAAC A+
-                                             </h3>
-                                             <p className="text-[8px]  md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
-                                               accredited
-                                             </p>
-                                           </motion.div>
-                             
-                                           {/* STAT 2 */}
-                                           <motion.div
-                                             initial={{ opacity: 0, y: 30 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             transition={{ duration: 0.5, delay: 0.1 }}
-                                             viewport={{ once: true }}
-                                           >
-                                             <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                                               1.6 lakh+
-                                             </h3>
-                                             <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                               working professionals enrolled
-                                             </p>
-                                           </motion.div>
-                             
-                                           {/* STAT 3 */}
-                                           <motion.div
-                                             initial={{ opacity: 0, y: 30 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             transition={{ duration: 0.5, delay: 0.2 }}
-                                             viewport={{ once: true }}
-                                           >
-                                             <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                                               AICTE
-                                             </h3>
-                                             <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                               approved
-                                             </p>
-                                           </motion.div>
-                                         </div>
-                                       </motion.div>
-                                     </div>
-                 </section>
+             <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+               <div className="max-w-7xl mx-auto">
+                 {/* HEADING */}
+                 <motion.h2
+                   initial={{ opacity: 0, y: -30 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.6 }}
+                   viewport={{ once: true }}
+                   className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
+                 >
+                   A Snapshot of Success
+                 </motion.h2>
+       
+                 {/* BLUE BAR */}
+                 <motion.div
+                   initial={{ opacity: 0, scale: 0.95 }}
+                   whileInView={{ opacity: 1, scale: 1 }}
+                   transition={{ duration: 0.6, delay: 0.2 }}
+                   viewport={{ once: true }}
+                   className="bg-[#3C087E]/5 rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+                 >
+                   {/* ALWAYS 3 COLUMNS */}
+                   <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
+                     {/* STAT 1 */}
+                     <motion.div
+                       initial={{ opacity: 0, y: 30 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       transition={{ duration: 0.5 }}
+                       viewport={{ once: true }}
+                     >
+                       <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                         NAAC A+
+                       </h3>
+                       <p className="text-[8px]  md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
+                         accredited
+                       </p>
+                     </motion.div>
+       
+                     {/* STAT 2 */}
+                     <motion.div
+                       initial={{ opacity: 0, y: 30 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       transition={{ duration: 0.5, delay: 0.1 }}
+                       viewport={{ once: true }}
+                     >
+                       <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                         1.6 lakh+
+                       </h3>
+                       <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
+                         working professionals enrolled
+                       </p>
+                     </motion.div>
+       
+                     {/* STAT 3 */}
+                     <motion.div
+                       initial={{ opacity: 0, y: 30 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       transition={{ duration: 0.5, delay: 0.2 }}
+                       viewport={{ once: true }}
+                     >
+                       <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                         AICTE
+                       </h3>
+                       <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
+                         approved
+                       </p>
+                     </motion.div>
+                   </div>
+                 </motion.div>
+               </div>
+             </section>
                        
 
       <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
@@ -1430,6 +1430,7 @@ export default function Page() {
                          max-w-[260px]  /* Medium screens */
                          lg:max-w-[400px]   /* Large screens */
                          object-contain
+                        rounded-2xl
                          mx-auto
                        "
                 />

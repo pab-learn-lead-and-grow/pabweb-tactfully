@@ -34,7 +34,7 @@ export default function ServicesByRadhya() {
   return (
     <section className="w-full px-4 md:px-14 lg:px-20 py-16">
       {/* OUTER BORDER BOX */}
-      <div className=" px-6  md:px-10 relative">
+      <div className="  md:px-10 relative">
         <div className="flex items-center gap-40">
           {/* TITLE + DESCRIPTION */}
           <motion.h2
@@ -54,7 +54,7 @@ export default function ServicesByRadhya() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="text-[#270652] text-sm md:text-[36px] font-regular italic leading-relaxed"
+          className="text-[#270652] text-xl md:text-[36px] font-regular italic leading-relaxed"
         >
           Education Academy
         </motion.p>

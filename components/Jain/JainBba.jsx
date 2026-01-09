@@ -1525,6 +1525,7 @@ const topicsData = {
                                      max-w-[260px]  /* Medium screens */
                                      lg:max-w-[400px]   /* Large screens */
                                      object-contain
+                                      rounded-2xl
                                      mx-auto
                                    "
                                  />

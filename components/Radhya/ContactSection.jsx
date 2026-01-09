@@ -126,7 +126,7 @@ export default function ContactSection() {
       </div>
 
       {/* RIGHT — FORM SECTION */}
-      <div className="p-8 rounded-2xl shadow-md w-[90%] mx-auto md:w-full md:mx-0 bg-[#3C087E]/10">
+      <div className=" p-6 rounded-2xl shadow-md bg-[#3C087E]/10">
         <h3 className="text-2xl font-semibold text-center text-black mb-1">
           Contact Info
         </h3>

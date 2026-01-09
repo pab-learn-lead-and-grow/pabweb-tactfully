@@ -104,6 +104,7 @@ const [errors, setErrors] = useState({});
       <div className=" inset-0 bg-black/50" onClick={onClose} />
 
       <div className="relative w-full max-w-5xl bg-white rounded-3xl shadow-3xl my-auto">
+         
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] lg:min-h-[600px]">
           {/* LEFT */}
           <div className="bg-white rounded-2xl p-6 flex flex-col justify-center items-center relative">
@@ -135,19 +136,21 @@ const [errors, setErrors] = useState({});
 
           {/* RIGHT */}
           <div className="bg-white rounded-2xl p-6">
-            <button
+            
+
+            <div className="space-y-4 bg-white p-6 rounded-2xl shadow-2xl">
+               <button
               onClick={onClose}
               className="absolute top-8 right-8 text-black text-2xl font-bold w-8 h-8 flex items-center justify-center"
             >
               ×
             </button>
-
-            <div className="space-y-4 bg-white p-6 rounded-2xl shadow-2xl">
               {/* Name */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2 text-sm">
                   Full Name*
                 </label>
+               
                 <input
                   type="text"
                   name="name"
