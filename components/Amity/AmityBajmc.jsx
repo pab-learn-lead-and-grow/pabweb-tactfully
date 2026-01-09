@@ -129,7 +129,7 @@ export default function Page() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -80 }}
                 transition={{ duration: 0.6 }}
-                className="bg-linear-to-b from-[#270652] to-[#101C2F] rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
+                className="bg-linear-to-b from-[#270652] to-[#3C087E]/50 rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
               >
                 <div>
                   <p className="font-semibold text-white">{cards[index].title}</p>
@@ -1115,7 +1115,7 @@ const subjects = [
           <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
             {/* LEFT SIDE TEXT */}
             <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
-              <h2 className="text-[#064E92] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4 md:mb-10">
+              <h2 className="text-[#270652] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4 md:mb-10">
                 Fees Structure
               </h2>
 
@@ -1129,7 +1129,7 @@ const subjects = [
               {/* CTA visible only on large screens */}
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="hidden lg:flex text-white bg-linear-to-r from-[#F6A104] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
+                className="hidden lg:flex text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
                 Compare all Plans
               </button>
             </div>
@@ -1142,7 +1142,7 @@ const subjects = [
             {/* CTA below carousel on mobile only */}
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="lg:hidden text-white bg-linear-to-r from-[#F6A104] to-[#193019] border-0 border-transparent shadow-[#1C361D] font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+              className="lg:hidden text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
               Compare all Plans
             </button>
           </div>

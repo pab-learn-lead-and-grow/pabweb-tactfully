@@ -1035,7 +1035,7 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mt-6 flex flex-col md:flex-row max-w-7xl items-center gap-20"
+            className="mt-6 md:mt-0 flex flex-col md:flex-row max-w-7xl items-center gap-10"
           >
             {/* Left text */}
             <motion.p
@@ -1055,7 +1055,7 @@ export default function Page() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="md:w-[40%] w-full flex justify-end pr-0 md:pr-0"
+              className="md:w-[45%] w-full flex justify-end pr-0 mt-0 md:pr-0"
             >
               <img
                 src="/nmims/nmimsEligibility.png"

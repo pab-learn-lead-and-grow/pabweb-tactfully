@@ -1553,7 +1553,7 @@ export default function Page() {
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="flex justify-center"
+                className="flex justify-center "
               >
                 <Image
                   src="/nmimsCareer.png"
@@ -1566,6 +1566,7 @@ export default function Page() {
     md:max-w-[320px]   /* Medium screens */
     lg:max-w-[400px]   /* Large screens */
     object-contain
+    rounded-2xl
     mx-auto
   "
                 />

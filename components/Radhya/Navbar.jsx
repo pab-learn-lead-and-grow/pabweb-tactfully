@@ -930,7 +930,7 @@ return (
               <Image
                 src="/radhyaLogo.png"
                 alt="Radhya Logo"
-                width={220}
+                width={180}
                 height={60}
                 priority
                 className="object-contain"

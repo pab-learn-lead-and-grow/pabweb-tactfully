@@ -10,7 +10,7 @@ export default function Hero({ className }) {
     <section className={`relative overflow-hidden ${className || ""}`}>
       {/* GRADIENT WRAPPER — ends with image */}
       <div className="bg-linear-to-r from-[#3C087E]/10 to-[#F4B400]/10 rounded-b-[100px]">
-        <div className="w-full mx-auto pt-[120px]">
+        <div className="w-full mx-auto pt-[100px]">
           {/* Headline + CTAs */}
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl  lg:text-8xl font-bold leading-[1.1] leading-tight">

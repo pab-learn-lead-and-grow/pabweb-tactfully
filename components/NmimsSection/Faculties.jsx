@@ -39,9 +39,9 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                className=" backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
-                <div className="aspect-3/3 relative overflow-hidden bg-gray-200">
+                <div className="aspect-3/3 relative overflow-hidden bg-[#270652]">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -71,9 +71,9 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className=" backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
-              <div className="aspect-3/3 relative overflow-hidden bg-gray-200">
+              <div className="aspect-3/3 relative overflow-hidden bg-[#270652]">
                 <img
                   src={member.image}
                   alt={member.name}

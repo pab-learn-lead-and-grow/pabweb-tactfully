@@ -13,31 +13,45 @@ export async function POST(request) {
     const formData = await request.json();
     const { name, email, university, course, phoneCode, phone, message } = formData || {};
 
-    // Basic validation
-    if (!name || !email || !phone) {
-      return new Response(
-        JSON.stringify({ success: false, error: "Missing required fields: name, email, phone" }),
-        { status: 400, headers: { "Content-Type": "application/json" } }
-      );
-    }
+  if (!name?.trim()) {
+  return new Response(JSON.stringify({ success:false, error:"Name is required" }), { status:400 });
+}
+
+if (!email?.trim()) {
+  return new Response(JSON.stringify({ success:false, error:"Email is required" }), { status:400 });
+}
+
+if (!university?.trim()) {
+  return new Response(JSON.stringify({ success:false, error:"University is required" }), { status:400 });
+}
+
+if (!course?.trim()) {
+  return new Response(JSON.stringify({ success:false, error:"Course is required" }), { status:400 });
+}
+
+if (!phone?.trim()) {
+  return new Response(JSON.stringify({ success:false, error:"Phone is required" }), { status:400 });
+}
+
 
     // Create a supabase client inside the route (server-side)
     const supabase = createSupabaseClient();
 
     // Insert row into counselling_form
-    const { data, error } = await supabase
-      .from("counselling_form")
-      .insert([
-        {
-          name,
-          email,
-          university: university || null,
-          course: course || null,
-          phone: `${phoneCode || '+91'} ${phone}`,
-          queries: message || null,
-        },
-      ])
-      .select(); // return inserted rows
+   const { data, error } = await supabase
+  .from("counselling_form")
+  .insert([
+    {
+      name: name.trim(),
+      email: email.trim(),
+      university: university.trim(),
+      course: course.trim(),
+      phone: `${phoneCode || '+91'} ${phone.trim()}`,
+      queries: message?.trim() || null,
+    },
+  ])
+  .select();
+
 
     if (error) {
       console.error("Supabase insert error:", error);

@@ -98,15 +98,15 @@ const [errors, setErrors] = useState({});
   ];
 
   return (
-    <div className="fixed modal inset-0 z-9999 w-screen h-screen flex font-[Inter] items-start justify-center pt-12 lg:pt-24 backdrop-blur-2xl overflow-y-auto"
+    <div className="fixed modal inset-0 z-9999 w-screen flex font-[Inter] items-start justify-center pt-12 backdrop-blur-xl overflow-y-auto"
     >
       {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/60" onClick={onClose} />
+      <div className=" inset-0 bg-black/50" onClick={onClose} />
 
-      <div className="relative w-full max-w-5xl bg-[#3C087E]/5 rounded-3xl shadow-2xl my-auto">
+      <div className="relative w-full max-w-5xl bg-white rounded-3xl shadow-3xl my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] lg:min-h-[600px]">
           {/* LEFT */}
-          <div className="bg-[#3C087E]/5 p-6 flex flex-col justify-center items-center relative">
+          <div className="bg-white rounded-2xl p-6 flex flex-col justify-center items-center relative">
             <h2 className="text-3xl md:text-[36px] font-semibold leading-tight text-[#270652] italic text-center">
               Stuck & Confused?
               <br /> Tell us, we'll help.
@@ -134,7 +134,7 @@ const [errors, setErrors] = useState({});
           </div>
 
           {/* RIGHT */}
-          <div className="bg-[#3C087E]/5 p-6 relative">
+          <div className="bg-white rounded-2xl p-6">
             <button
               onClick={onClose}
               className="absolute top-8 right-8 text-black text-2xl font-bold w-8 h-8 flex items-center justify-center"
@@ -142,7 +142,7 @@ const [errors, setErrors] = useState({});
               ×
             </button>
 
-            <div className="space-y-4 bg-white p-6 rounded-2xl shadow-md">
+            <div className="space-y-4 bg-white p-6 rounded-2xl shadow-2xl">
               {/* Name */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2 text-sm">

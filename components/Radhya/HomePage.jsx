@@ -11,9 +11,35 @@ import Link from "next/link";
 import ContactSection from "./ContactSection";
 import LogoSection from "./LogoSection";
 
+
 export default function HomePage() {
   const [hydrated, setHydrated] = useState(false);
-  
+
+useEffect(() => {
+  const section = document.getElementById("blogs");
+  if (!section) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) {
+        if (window.location.hash === "#blogs") {
+          const cleanUrl =
+            window.location.pathname + window.location.search;
+
+          window.history.replaceState(null, "", cleanUrl);
+        }
+      }
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(section);
+
+  return () => observer.disconnect();
+}, []);
+
+
+
   const blogs = [
     {
       id: 1,

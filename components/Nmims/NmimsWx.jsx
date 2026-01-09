@@ -859,7 +859,7 @@ export default function Page() {
 
             {/* Content */}
             <div>
-              <h3 className="lg:text-2xl text-[#064E92] mb-4">
+              <h3 className="lg:text-2xl text-[#270652] mb-4">
                 Build your academic forte
               </h3>
               <ul className="text-gray-700 text-sm lg:text-[16px] leading-relaxed list-disc ml-5">
@@ -882,7 +882,7 @@ export default function Page() {
 
             {/* Content */}
             <div>
-              <h3 className="lg:text-2xl text-[#064E92] mb-4">
+              <h3 className="lg:text-2xl text-[#270652] mb-4">
                 2 years of experiential learning
               </h3>
               <ul className="text-gray-700 text-sm lg:text-[16px] leading-relaxed list-disc ml-5">
