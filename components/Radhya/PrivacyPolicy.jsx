@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
             Radhya Education Academy Private Limited
           </p>
           <p className="mt-1 text-xs text-black">
-            Last Updated: <span className="font-medium">[DD/MM/YYYY]</span>
+            Last Updated: <span className="font-medium">[12/01/2026]</span>
           </p>
         </div>
       </section>

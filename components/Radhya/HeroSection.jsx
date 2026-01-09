@@ -45,7 +45,7 @@ export default function Hero({ className }) {
             {/* IMAGE — last element inside gradient */}
             <div className="flex mt-6 justify-center">
               <Image
-                src="/radhyaHero.png"
+                src="/radhyahero.png"
                 alt="HeroImage"
                 width={800}
                 height={400}
