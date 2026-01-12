@@ -517,7 +517,7 @@ export default function Page() {
   ];
   return (
     <main className="flex flex-col items-center w-full bg-white">
-      <section className="relative min-h-screen lg:min-h-[50vh] xl:min-h-screen w-full ">
+      <section className="relative min-h-[50vh] w-full ">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -529,7 +529,7 @@ export default function Page() {
           <div className="absolute inset-0 bg-black/80" />
         </div>
         {/* LOGO – move to left screen edge, keep same height */}
-        <div className="relative z-10 w-full mt-28">
+        <div className="relative z-10 w-full mt-20 md:mt-28">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -537,14 +537,14 @@ export default function Page() {
             viewport={{ once: true }}
             className="flex"
           >
-            <div className="bg-white rounded-r-2xl shadow-md h-[100px] -mb-5 flex items-center">
-              <Image
-                src="/nmims.png"
-                alt="NMIMS Logo"
-                width={260}
-                height={100}
-                className="object-contain"
-              />
+            <div className="bg-white rounded-r-2xl shadow-md h-[60px] sm:h-[80px] lg:h-[100px] -mb-5 flex items-center px-3 sm:px-4">
+        <Image
+          src="/nmims.png"
+          alt="NMIMS Logo"
+          width={220}
+          height={100}
+          className="object-contain w-[140px] sm:w-[180px] lg:w-[220px]"
+        />
             </div>
           </motion.div>
         </div>
@@ -557,7 +557,7 @@ export default function Page() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-block bg-[#FFB901] text-white text-[18px] sm:text-[18px] mt-6  mb-2 font-sm px-4 py-1 rounded-full"
+            className="inline-block bg-[#FFB901] text-white text-[12px] lg:text-[18px] mt-8 lg:mt-6  mb-2 font-sm px-4 py-1 rounded-full"
           >
             Most-Loved
           </motion.span>
@@ -568,7 +568,7 @@ export default function Page() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-white text-[16px] sm:text-[16px] italic font-light"
+            className="text-white text-[12px] md:text-[16px] italic font-light"
           >
             Degree in Online Mode
           </motion.p>
@@ -580,7 +580,7 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="text-white text-4xl sm:text-5xl md:text-5xl lg:text-[54px] xl:text-[64px] font-[Inter] font-bold -mt-1 leading-tight"
+              className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
             >
               Bachelor of Business Administration
             </motion.h1>
@@ -590,7 +590,7 @@ export default function Page() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-gray-200 text-left text-[16px] md:text-[18px] max-w-7xl mt-0 mb-10 leading-relaxed"
+              className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
             >
               Strengthen your fundamentals in management
               <br />
@@ -605,20 +605,20 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4 lg:-mx-15 gap-y-5 font-[Inter] w-full"
+              className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4 lg:-mx-5 xl:-mx-15 gap-y-5 font-[Inter] w-full"
             >
               {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className={`text-center py-6 
-  ${idx % 2 === 0 ? "md:border-r-2 md:border-white" : ""} 
+                  className={`text-center py-2 lg:py-6 
+  ${idx % 2 === 0 ? "border-r-2 border-white" : ""} 
   ${idx !== stats.length - 1 ? "lg:border-r-2 lg:border-white" : ""}
 `}
                 >
-                  <p className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-white mb-1">
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold text-white mb-1">
                     {stat.value}
                   </p>
-                  <p className="text-white text-[16px] md:text-[22px] font-bold sm:text-base">
+                  <p className="text-white text-[10px] md:text-[16px] lg:text-[18px] xl:text-[22px] font-bold">
                     {stat.label}
                   </p>
                 </div>
@@ -631,22 +631,20 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="flex flex-col sm:flex-row gap-4 mt-12 w-full items-center justify-center"
+              className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
             >
                <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                   transition-all duration-300 ease-out
-                   hover:scale-105 hover:shadow-lg
-                   active:scale-100 text-white px-6 py-3 rounded-lg hover:bg-blue-950 transition-all duration-300 font-medium">
+                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
                              Download Brochure
-                             <Download size={20} />
+                             <Download className="w-4 h-4 md:w-5 md:h-5" />
                            </button>
              
-                           <button onClick={() => setIsModalOpen(true)} className=" bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                   transition-all duration-300 ease-out
+                           <button onClick={() => setIsModalOpen(true)} className=" bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
+                   ease-out
                    hover:scale-105 hover:shadow-lg
-                   active:scale-100 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium">
+                   active:scale-100 flex items-center justify-center gap-2 px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium">
                              Talk to an Expert
-                             <ArrowRight size={16} />
+                             <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                            </button>
             </motion.div>
           </div>
@@ -964,7 +962,7 @@ export default function Page() {
                       whileHover={{ x: 6 }}
                       className="flex items-center gap-3"
                     >
-                      <div className="w-6 h-6 rounded-full bg-[#270652] flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full bg-[#270652] shrink-0 flex items-center justify-center">
                         <Check size={14} className="text-white" />
                       </div>
                       <span className="text-sm md:text-base text-gray-800">
@@ -1361,13 +1359,16 @@ export default function Page() {
               />
             </div>
 
-            {/* CTA BUTTON */}
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200 flex items-center justify-center"
-            >
-              Know more
-            </button>
+          <div className="flex justify-center md:justify-start">
+  <button
+    onClick={() => setIsModalOpen(true)}
+    className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200"
+  >
+    Know more
+  </button>
+</div>
+
+
           </div>
 
           {/* RIGHT IMAGE (visible only on md+ screens) */}
@@ -1375,7 +1376,7 @@ export default function Page() {
             <img
               src="/nmims/nmimsBbaDegree.png"
               alt="Certificate Preview"
-              className="w-full max-w-sm rounded-lg shadow-sm"
+              className="w-full max-w-md rounded-lg shadow-sm"
             />
           </div>
         </div>
@@ -1414,7 +1415,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#270652] rounded-full flex items-center my-10 justify-center">
+              <div className="w-20 h-20 bg-[#270652] shrink-0 rounded-full flex items-center my-10 justify-center">
                 <BanknoteArrowUp
                   size={50}
                   strokeWidth={1.0}
@@ -1443,7 +1444,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#270652] rounded-full flex items-center my-10 justify-center">
+              <div className="w-20 h-20 bg-[#270652] shrink-0 rounded-full flex items-center my-10 justify-center">
                 <Blocks size={50} strokeWidth={1.0} className="text-white" />
               </div>
 
@@ -1470,7 +1471,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#270652] rounded-full flex items-center my-10 justify-center">
+              <div className="w-20 h-20 bg-[#270652] shrink-0 rounded-full flex items-center my-10 justify-center">
                 <Move size={50} strokeWidth={1.0} className="text-white" />
               </div>
 
@@ -1495,7 +1496,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#270652] rounded-full flex items-center my-10 justify-center">
+              <div className="w-20 h-20 bg-[#270652] shrink-0 rounded-full flex items-center my-10 justify-center">
                 <UserRoundCheck
                   size={50}
                   strokeWidth={1.0}
@@ -1518,7 +1519,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="w-full bg-white py-20 md:px-12 lg:px-20">
+      <section className="w-full bg-white py-8 md:py-20 md:px-12 lg:px-20">
         <div className="w-full md:bg-linear-to-tr from-[#180135] to-[#3C087E] rounded-4xl py-12 px-6 md:px-10 lg:px-15">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -1571,8 +1572,8 @@ export default function Page() {
                   alt="Career Opportunities"
                   className="
           w-full 
-          max-w-[220px]       /* Smaller on mobile */
-          sm:max-w-[260px]  
+          mt-10 md:mt-0
+          max-w-[260px]  
           md:max-w-[320px]   /* Medium screens */
           lg:max-w-[400px]   /* Large screens */
           object-contain
@@ -1622,6 +1623,7 @@ export default function Page() {
                     rounded-lg 
                     text-white text-sm 
                     bg-[#F6A410]
+                    self-center md:self-start
                     shadow-lg
                   "
                 >

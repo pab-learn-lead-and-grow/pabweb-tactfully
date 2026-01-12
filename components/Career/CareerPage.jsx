@@ -16,7 +16,7 @@ export default function CareerPage() {
       duration : "Full time",
       salary: "₹2,40,000-3,00,000",
       location: "Madhya Pradesh",
-      link: "Career/InsideSalesFr",
+      link: "/jobs-at-radhya/inside-sales-fresher-job",
     },
     {
       time: "12 min ago",
@@ -27,7 +27,7 @@ export default function CareerPage() {
       duration : "Full time",
       salary: "₹2,40,000-3,00,000",
       location: "Madhya Pradesh",
-      link: "/Career/DigitalMarketing",
+      link: "/jobs-at-radhya/digital-marketing-job",
     },
     {
       time: "15 min ago",
@@ -38,7 +38,7 @@ export default function CareerPage() {
       duration : "Full time",
       salary: "₹2,40,000-3,00,000",
       location: "Madhya Pradesh",
-      link: "/Career/InsideSalesEx",
+      link: "/jobs-at-radhya/inside-sales-experienced-job",
     },
   ];
 

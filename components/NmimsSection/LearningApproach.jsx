@@ -48,12 +48,12 @@ export default function LearningApproach({
             </div>
 
             {/* Dynamic Heading */}
-            <h3 className="text-xl font-medium text-black mb-2">
+            <h3 className=" text-xl font-medium text-black mb-2">
               {item.title}
             </h3>
 
             {/* Dynamic Description */}
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 md:text-xl leading-relaxed">
               {item.desc}
             </p>
           </motion.div>

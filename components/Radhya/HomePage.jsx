@@ -198,6 +198,7 @@ const [showAllBlogs, setShowAllBlogs] = useState(false);
      <LogoSection logos={logos}/></div>
 
       {/* ======= Courses SECTION ======= */}
+      
       <CoursesSection />
 
       {/* ======= All-in-one SECTION ======= */}
@@ -229,7 +230,7 @@ className="bg-[#3D077E] text-white px-4 text-xs md:text-[16px] md:px-7 py-1 -mt-
           </div>
 
           {/* Blog Cards Grid */}
-          <div className="grid grid-cols-1 rounded-xl md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 rounded-xl md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8">
             {visibleBlogs.map((blog) => (
               <div key={blog.id} className="bg-white">
                 {/* Image */}
@@ -244,7 +245,7 @@ className="bg-[#3D077E] text-white px-4 text-xs md:text-[16px] md:px-7 py-1 -mt-
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="py-3 lg:py-6">
                   {/* Topic and Date */}
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-black bg-[#FED56F] rounded-xl px-5 py-1 font-semibold text-sm">

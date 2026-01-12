@@ -1299,7 +1299,7 @@ return (
                     </Link>
                     <Link
                       className="block py-2 px-3 rounded hover:bg-purple-50"
-                      href="/Career"
+                      href="/jobs-at-radhya"
                     >
                       Careers
                     </Link>

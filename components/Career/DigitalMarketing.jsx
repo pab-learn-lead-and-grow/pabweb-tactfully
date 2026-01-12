@@ -317,7 +317,7 @@ export default function JobDetails() {
               type: "Full Time",
               salary: "₹2,40,000-3,00,000",
               location: " Madhya Pradesh",
-              link: "/Career/InsideSalesFr",
+              link: "/jobs-at-radhya/inside-sales-fresher-job",
             },
             {
               time: "10 min ago",
@@ -327,7 +327,7 @@ export default function JobDetails() {
               type: "Full Time",
               salary: "₹2,40,000-3,00,000",
               location: "Madhya Pradesh",
-              link: "/Career/InsideSalesEx",
+              link: "/jobs-at-radhya/inside-sales-experienced-job",
             },
           ].map((job, index) => (
             <div

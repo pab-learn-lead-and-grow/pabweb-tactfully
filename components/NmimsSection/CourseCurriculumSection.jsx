@@ -116,7 +116,7 @@ const Syllabus = ({ years, data }) => {
   };
 
   return (
-    <div className="mt-20">
+    <div className="mt-10 lg:mt-20">
       <div className="max-w-6xl mx-auto font-[Inter]">
         {/* Heading */}
         <div className="text-[36px] md:text-[48px] lg:text-[64px] font-extrabold text-center text-[#270652] mb-8">
@@ -124,14 +124,14 @@ const Syllabus = ({ years, data }) => {
         </div>
 
         {/* YEAR TABS */}
-        <div className="flex gap-4 mb-12">
+        <div className="flex mx-5 gap-4 mb-12">
           {years.map((year) => (
             <button
               key={year}
               onClick={() => setActiveYear(year)}
-              className={`px-10 py-2 rounded-full font-semibold ${
+              className={`px-5 md:px-10 py-2 rounded-full font-semibold ${
                 activeYear === year
-                  ? "bg-[#270652] text-white shadow-lg"
+                  ? "bg-[#270652] text-white "
                   : "bg-[#3C087E]/10 text-[#270652] border-2 border-dashed border-[#270652]"
               }`}
             >
@@ -145,16 +145,16 @@ const Syllabus = ({ years, data }) => {
           {Object.entries(data[activeYear].semesters).map(
             ([semKey, semData]) => (
               <div
-  key={semKey}
-  className="bg-[#3C087E]/5 rounded-lg w-full max-w-full p-6 overflow-visible"
->
+                   key={semKey}
+                  className="bg-[#3C087E]/5 rounded-lg w-full flex flex-col flex-1 p-6 overflow-visible"
+              >
 
 
                 <h2 className="text-3xl font-bold text-black mb-6">
                   {semData.title}
                 </h2>
 
-                <div className="flex gap-4 w-full min-w-0">
+                <div className="flex gap-4 w-full max-w-full">
 
 
                   {/* LEFT ICON COLUMN */}
@@ -166,13 +166,12 @@ const Syllabus = ({ years, data }) => {
                   </div>
 
                   {/* RIGHT CONTENT */}
-                  <div className="flex-1 min-w-0 w-full">
+                  <div className="flex-1 w-full ">
 
                     {/* CORE SUBJECTS */}
                     {semData.coreSubjects && (
                       <>
-                        <h3 className="text-[24px] md:text-[32px] lg:text-[40px]
- font-bold text-[#3C087E]">
+                        <h3 className="text-[24px] md:text-[32px] lg:text-[40px] font-bold text-[#3C087E]">
                           Core Subjects
                         </h3>
                         <ul className="mt-4 space-y-2 text-black text-[20px]">

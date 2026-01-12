@@ -52,6 +52,10 @@ body {
   transition-timing-function: linear !important;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 
 /* Hand-drawn curved stroke */
 .handdrawn-underline::after {

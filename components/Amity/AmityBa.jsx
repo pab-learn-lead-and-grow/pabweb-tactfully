@@ -516,7 +516,7 @@ export default function Page() {
   ];
   return (
     <main className="flex flex-col items-center w-full bg-white">
-      <section className="relative min-h-screen lg:min-h-[50vh] xl:min-h-screen w-full ">
+      <section className="relative min-h-[50vh] w-full ">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -528,7 +528,7 @@ export default function Page() {
           <div className="absolute inset-0 bg-black/80" />
         </div>
         {/* LOGO – move to left screen edge, keep same height */}
-        <div className="relative z-10 w-full mt-28">
+        <div className="relative z-10 w-full mt-20 md:mt-28">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -536,27 +536,27 @@ export default function Page() {
             viewport={{ once: true }}
             className="flex"
           >
-            <div className="bg-white rounded-r-2xl shadow-md h-[100px] -mb-5 flex items-center">
+            <div className="bg-white rounded-r-2xl shadow-md h-[60px] sm:h-[80px] lg:h-[100px] -mb-5 flex items-center px-3 sm:px-4">
               <Image
                 src="/amity.png"
                 alt="AMITY Logo"
-                width={280}
+                width={220}
                 height={100}
-                className="object-contain"
+                className="object-contain w-[140px] sm:w-[180px] lg:w-[220px]"
               />
             </div>
           </motion.div>
         </div>
 
         {/* CONTENT WRAPPER */}
-        <div className="relative z-10 max-w-6xl mx-auto p-6 sm:p-10">
+        <div className="relative z-10 max-w-7xl mx-auto p-6 sm:p-10">
           {/* Subtext */}
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-white text-[16px] sm:text-[16px] mt-10 italic font-light"
+            className="text-white text-[12px] md:text-[16px] mt-10 italic font-light"
           >
             UG Program
           </motion.p>
@@ -568,9 +568,9 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="text-white text-4xl sm:text-5xl md:text-5xl lg:text-7xl lg:text-[54px] font-[Inter] font-bold -mt-1 leading-tight"
+              className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
             >
-              Bachelor of Arts(BA)
+              Bachelor of Arts (BA)
             </motion.h1>
 
             <motion.p
@@ -578,37 +578,30 @@ export default function Page() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-gray-200 text-left text-[16px] md:text-[18px] max-w-6xl mt-0 mb-10 leading-relaxed"
+              className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
             >
-              Advance your future with a UGC-approved Online BA-3 years of
+              Advance your future with a UGC-approved Online BA - 3 years of
               skill-building and practical learning to unlock diverse career
               paths.
             </motion.p>
 
             {/* STATS */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-2 lg:grid-cols-3 mt-5 lg:-mx-10 gap-y-4 font-[Inter] w-full"
-            >
-              {stats.map((stat, idx) => (
-                <div
-                  key={idx}
-                  className={`text-center py-6
-  ${idx !== stats.length - 1 ? "lg:border-r-2 lg:border-white" : ""}
-`}
-                >
-                  <p className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-white mb-1">
-                    {stat.value}
-                  </p>
-                  <p className="text-white text-[16px] md:text-[22px] font-bold sm:text-base">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
+          <motion.div className="grid grid-cols-3 divide-x-2 divide-white mt-5 -mx-5 lg:-mx-10 gap-y-2 font-[Inter] w-full">
+  {stats.map((stat, idx) => (
+    <div
+      key={idx}
+      className="text-center px-3 sm:px-5 lg:px-8 py-2 lg:py-6"
+    >
+      <p className="text-[20px] sm:text-3xl md:text-4xl lg:text-[48px] font-bold text-white leading-none">
+        {stat.value}
+      </p>
+      <p className="text-white text-[10px] md:text-[16px] lg:text-[18px] xl:text-[22px] font-bold">
+        {stat.label}
+      </p>
+    </div>
+  ))}
+</motion.div>
+
 
             {/* BUTTONS – CENTERED */}
             <motion.div
@@ -616,23 +609,27 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="flex flex-col sm:flex-row gap-4 mt-12 w-full items-center justify-center"
+              className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
             >
-              <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                                                  transition-all duration-300 ease-out
-                                                  hover:scale-105 hover:shadow-lg
-                                                  active:scale-100 text-white px-6 py-3 rounded-lg hover:bg-blue-950 transition-all duration-300 font-medium">
-                                                            Download Brochure
-                                                            <Download size={20} />
-                                                          </button>
-                                            
-                                                          <button onClick={() => setIsModalOpen(true)} className=" bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                                                  transition-all duration-300 ease-out
-                                                  hover:scale-105 hover:shadow-lg
-                                                  active:scale-100 flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium">
-                                                            Talk to an Expert
-                                                            <ArrowRight size={16} />
-                                                          </button>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
+                              transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium"
+              >
+                Download Brochure
+                <Download className="w-4 h-4 md:w-5 md:h-5" />
+              </button>
+
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className=" bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
+                              ease-out
+                              hover:scale-105 hover:shadow-lg
+                              active:scale-100 flex items-center justify-center gap-2 px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium"
+              >
+                Talk to an Expert
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+              </button>
             </motion.div>
           </div>
         </div>
@@ -749,7 +746,7 @@ export default function Page() {
           <h2 className="text-xl md:text-2xl font-regular lg:text-[36px] leading-normal text-gray-900">
             <span className="text-[#F9BD04] ">
               Stay ahead in a rapidly shifting job market with a UGC-entitled
-              Online BA.
+              Online BA.{" "}
             </span>
             This 3-year program builds foundational knowledge and practical
             problem-solving skills, empowering you to unlock new career
@@ -845,8 +842,8 @@ export default function Page() {
                                      ${
                                        activeSubject === sub.id
                                          ? "bg-[#3C087E] text-white"
-                          : "bg-white text-black border-2 border-dashed border-[#3C087E]"
-                      }
+                                         : "bg-white text-black border-2 border-dashed border-[#3C087E]"
+                                     }
                                    `}
                       >
                         {sub.name}
@@ -871,8 +868,8 @@ export default function Page() {
                                    ${
                                      activeSemester === sem
                                        ? "bg-[#3C087E] text-white"
-                          : "bg-white text-black border-2 border-dashed border-[#3C087E]"
-                      }
+                                       : "bg-white text-black border-2 border-dashed border-[#3C087E]"
+                                   }
                                  `}
                     >
                       {sem}
@@ -915,9 +912,9 @@ export default function Page() {
                     className={`w-full px-4 py-3 rounded-full font-semibold
                                  ${
                                    activeSubject === sub.id
-                                    ? "bg-[#3C087E] text-white"
-                          : "bg-white text-black border-2 border-dashed border-[#3C087E]"
-                      }`}
+                                     ? "bg-[#3C087E] text-white"
+                                     : "bg-white text-black border-2 border-dashed border-[#3C087E]"
+                                 }`}
                   >
                     {sub.name}
                   </motion.button>
@@ -963,7 +960,7 @@ export default function Page() {
                       >
                         <motion.div
                           whileHover={{ scale: 1.1 }}
-                          className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-white group-hover:bg-[#270652] transition"
+                          className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full shrink-0 bg-white group-hover:bg-[#270652] transition"
                         >
                           <Check
                             size={12}
@@ -995,9 +992,9 @@ export default function Page() {
                   className={`px-4 py-3 rounded-full font-semibold
                                ${
                                  activeSemester === sem
-                                  ? "bg-[#3C087E] text-white"
-                          : "bg-white text-black border-2 border-dashed border-[#3C087E]"
-                      }`}
+                                   ? "bg-[#3C087E] text-white"
+                                   : "bg-white text-black border-2 border-dashed border-[#3C087E]"
+                               }`}
                 >
                   {sem}
                   {semSuffix[sem]} Semester
@@ -1103,165 +1100,166 @@ export default function Page() {
       />
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
-                          {/* Faded Background Heading */}
-                          <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
-                            EXAMINATION PROCESS
-                          </h1>
-                  
-                          <div className="max-w-6xl mx-auto relative">
-                            {/* Main Animated Heading */}
-                            <motion.h2
-                              initial={{ opacity: 0, y: 30 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.6 }}
-                              viewport={{ once: true }}
-                              className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#270652] mb-6"
-                            >
-                              EXAMINATION PROCESS
-                            </motion.h2>
-                  
-                            {/* Sub Text */}
-                            <motion.p
-                              initial={{ opacity: 0 }}
-                              whileInView={{ opacity: 1 }}
-                              transition={{ duration: 0.8, delay: 0.2 }}
-                              viewport={{ once: true }}
-                              className="text-left text-black text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
-                            >
-                              The Amity University Online BA follows a structured and
-                              transparent examination process designed to evaluate learners
-                              through continuous assessments and end-term evaluations.
-                            </motion.p>
-                  
-                            {/* Cards Wrapper */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                              {/* Left Card */}
-                              <motion.div
-                                initial={{ opacity: 0, x: -40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6 }}
-                                viewport={{ once: true }}
-                                className="bg-[#3C087E]/5 text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
-                              >
-                                <h3 className=" text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
-                                  Exam Slot Booking
-                                </h3>
-                  
-                                {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
-                                <div className="space-y-5 text-lg leading-relaxed max-w-[380] text-black mx-auto">
-                                  {/* POINT 1 */}
-                                  <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                                    <span className="text-lg lg:text-2xl leading-none">✦</span>
-                                    <p className="text-left text-lg lg:text-2xl mb-6">
-                                      Learners must book their examination slots through the Amity University
-                                      Student Portal.
-                                    </p>
-                                  </div>
-                  
-                                  {/* POINT 2 */}
-                                  <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                                    <span className="text-lg lg:text-2xl leading-no">✦</span>
-                                    <p className="text-lg lg:text-2xl text-left">
-                                      All exam slot details are shared well in advance, allowing
-                                      candidates to schedule their tests conveniently.
-                                    </p>
-                                  </div>
-                                </div>
-                              </motion.div>
-                  
-                              {/* Right Card */}
-                              <motion.div
-                                initial={{ opacity: 0, x: 40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6 }}
-                                viewport={{ once: true }}
-                                className="bg-[#3C087E]/5 text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
-                              >
-                                <h3 className="text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
-                                  Exam Slot Timings
-                                </h3>
-                  
-                                <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-black text-center">
-                                  For end-term examinations, Amity university provides three available slots:
-                                </p>
-                  
-                                {/* Exam Time Circles */}
-                                <div className="flex items-center justify-center text-black gap-6 mb-7">
-                                  {["9 AM", "1 PM", "5 PM"].map((slot, i) => (
-                                    <div
-                                      key={i}
-                                      className="w-15 h-15 border border-black rounded-full flex items-center justify-center text-lg font-semibold"
-                                    >
-                                      {slot}
-                                    </div>
-                                  ))}
-                                </div>
-                  
-                                <p className="text-lg lg:text-2xl max-w-[380] text-black text-center">
-                                  Candidates may choose their preferred slot based on
-                                  availability.
-                                </p>
-                              </motion.div>
-                            </div>
-                          </div>
-                        </section>
-                  
-                        <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
-                          <div className="max-w-6xl mx-auto p-6 md:p-10">
-                            {/* HEADING */}
-                            <h2 className="text-[24px] md:text-[40px] font-bold italic text-[#270652] mb-12 text-center">
-                              ASSESSMENT STRUCTURE (100 MARKS)
-                            </h2>
-                  
-                            {/* TWO CATEGORIES */}
-                            <div className="grid grid-cols-1 md:grid-cols-2  text-black gap-12">
-                              {/* LEFT CATEGORY */}
-                              <div className="space-y-2 w-full">
-                                <div className="w-full rounded-lg border border-[#270652] py-3 text-center italic font-semibold bg-white">
-                                  External Assessment – 70 Marks
-                                </div>
-                  
-                                {/* FULL-WIDTH SPLIT ROW */}
-                                <div className="grid grid-cols-2 gap-2 w-full">
-                                  <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
-                                    MCQ (40 Marks)
-                                  </div>
-                                  <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
-                                    Descriptive Answers (30 Marks)
-                                  </div>
-                                </div>
-                              </div>
-                  
-                              {/* RIGHT CATEGORY */}
-                              <div className="space-y-2 w-full">
-                                <div className="w-full rounded-lg border border-[#270652] py-3 text-center italic font-semibold bg-white">
-                                  Internal Assessment – 30 Marks
-                                </div>
-                  
-                                {/* FULL-WIDTH SPLIT ROW */}
-                                <div className="grid grid-cols-2 gap-2 w-full">
-                                  <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
-                                    Quiz
-                                  </div>
-                                  <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
-                                    Assignment
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                  
-                            {/* PASSING CRITERIA */}
-                            <div className="border border-[#e5e7eb] rounded-lg p-5 mt-12 bg-white">
-                              <p className="font-semibold text-black mb-1">Passing Criteria</p>
-                              <ul className="list-disc pl-6 text-[#3C3C43] text-sm md:text-lg">
-                                <li>
-                                  A candidate must secure a minimum of 40% to successfully pass
-                                  the course.
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </section>
+        {/* Faded Background Heading */}
+        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
+          EXAMINATION PROCESS
+        </h1>
+
+        <div className="max-w-6xl mx-auto relative">
+          {/* Main Animated Heading */}
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#270652] mb-6"
+          >
+            EXAMINATION PROCESS
+          </motion.h2>
+
+          {/* Sub Text */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-left text-black text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
+          >
+            The Amity University Online BA follows a structured and transparent
+            examination process designed to evaluate learners through continuous
+            assessments and end-term evaluations.
+          </motion.p>
+
+          {/* Cards Wrapper */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Left Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-[#3C087E]/5 text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
+            >
+              <h3 className=" text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
+                Exam Slot Booking
+              </h3>
+
+              {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
+              <div className="space-y-5 text-lg leading-relaxed max-w-[380] text-black mx-auto">
+                {/* POINT 1 */}
+                <div className="grid grid-cols-[30px_auto] gap-3 items-start">
+                  <span className="text-lg lg:text-2xl leading-none">✦</span>
+                  <p className="text-left text-lg lg:text-2xl mb-6">
+                    Learners must book their examination slots through the Amity
+                    University Student Portal.
+                  </p>
+                </div>
+
+                {/* POINT 2 */}
+                <div className="grid grid-cols-[30px_auto] gap-3 items-start">
+                  <span className="text-lg lg:text-2xl leading-no">✦</span>
+                  <p className="text-lg lg:text-2xl text-left">
+                    All exam slot details are shared well in advance, allowing
+                    candidates to schedule their tests conveniently.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-[#3C087E]/5 text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
+            >
+              <h3 className="text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
+                Exam Slot Timings
+              </h3>
+
+              <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-black text-center">
+                For end-term examinations, Amity university provides three
+                available slots:
+              </p>
+
+              {/* Exam Time Circles */}
+              <div className="flex items-center justify-center text-black gap-6 mb-7">
+                {["9 AM", "1 PM", "5 PM"].map((slot, i) => (
+                  <div
+                    key={i}
+                    className="w-15 h-15 border border-black rounded-full flex items-center justify-center text-lg font-semibold"
+                  >
+                    {slot}
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-lg lg:text-2xl max-w-[380] text-black text-center">
+                Candidates may choose their preferred slot based on
+                availability.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
+        <div className="max-w-6xl mx-auto p-6 md:p-10">
+          {/* HEADING */}
+          <h2 className="text-[24px] md:text-[40px] font-bold italic text-[#270652] mb-12 text-center">
+            ASSESSMENT STRUCTURE (100 MARKS)
+          </h2>
+
+          {/* TWO CATEGORIES */}
+          <div className="grid grid-cols-1 md:grid-cols-2  text-black gap-12">
+            {/* LEFT CATEGORY */}
+            <div className="space-y-2 w-full">
+              <div className="w-full rounded-lg border border-[#270652] py-3 text-center italic font-semibold bg-white">
+                External Assessment – 70 Marks
+              </div>
+
+              {/* FULL-WIDTH SPLIT ROW */}
+              <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
+                  MCQ (40 Marks)
+                </div>
+                <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
+                  Descriptive Answers (30 Marks)
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT CATEGORY */}
+            <div className="space-y-2 w-full">
+              <div className="w-full rounded-lg border border-[#270652] py-3 text-center italic font-semibold bg-white">
+                Internal Assessment – 30 Marks
+              </div>
+
+              {/* FULL-WIDTH SPLIT ROW */}
+              <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
+                  Quiz
+                </div>
+                <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
+                  Assignment
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* PASSING CRITERIA */}
+          <div className="border border-[#e5e7eb] rounded-lg p-5 mt-12 bg-white">
+            <p className="font-semibold text-black mb-1">Passing Criteria</p>
+            <ul className="list-disc pl-6 text-[#3C3C43] text-sm md:text-lg">
+              <li>
+                A candidate must secure a minimum of 40% to successfully pass
+                the course.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <MujCareerServices
         benefits={benefits}
@@ -1346,12 +1344,14 @@ export default function Page() {
             </div>
 
             {/* CTA BUTTON */}
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="bg-[#F6A104] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-md transform hover:scale-105 duration-200 flex items-center justify-center"
-            >
-              Know more
-            </button>
+            <div className="flex justify-center md:justify-start">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200"
+              >
+                Know more
+              </button>
+            </div>
           </div>
 
           {/* RIGHT IMAGE (visible only on md+ screens) */}
@@ -1666,6 +1666,8 @@ export default function Page() {
                                    rounded-lg 
                                    text-white text-sm 
                                    bg-[#F6A104]
+                                   self-center
+                                   md:self-start
                                    shadow-lg
                                  "
                 >

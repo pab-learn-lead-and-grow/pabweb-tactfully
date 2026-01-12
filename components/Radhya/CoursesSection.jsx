@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import CounsellingForm from "./CounsellingForm";
-const THEME_GREEN = "#4D964F";
 const CARD_WIDTH = 330; // Fixed card width in pixels
 const GAP = 16; // Gap between cards
 
@@ -534,17 +533,21 @@ export default function CoursesSection() {
 
   // Scroll pill into view when selectedCategoryIndex changes
   useEffect(() => {
-    const row = pillRowRef.current;
-    if (!row) return;
-    const btn = row.querySelectorAll("button.pill")[selectedCategoryIndex];
-    if (btn && typeof btn.scrollIntoView === "function") {
-      btn.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
-    }
-  }, [selectedCategoryIndex]);
+  const row = pillRowRef.current;
+  if (!row) return;
+  const btn = row.querySelectorAll("button.pill")[selectedCategoryIndex];
+  if (btn) {
+    const buttonLeft = btn.offsetLeft;
+    const buttonWidth = btn.offsetWidth;
+    const containerWidth = row.clientWidth;
+    const scrollLeft = buttonLeft - (containerWidth / 2) + (buttonWidth / 2);
+    
+    row.scrollTo({
+      left: scrollLeft,
+      behavior: "smooth",
+    });
+  }
+}, [selectedCategoryIndex]);
 
   // Pill row scroll helpers
   const scrollPills = (direction = "right") => {
@@ -577,7 +580,7 @@ export default function CoursesSection() {
 
 return (
     <section className="p-5 lg:px-[60px] relative">
-      <h2 className="font-bold text-[2.25rem] md:text-4xl lg:text-5xl xl:text-[64px] leading-tight text-[#270652] mb-6">
+      <h2 className="font-bold text-[28px] md:text-4xl lg:text-5xl xl:text-[64px] leading-tight text-[#270652] mb-6">
         Courses that fit your hustle
       </h2>
 
@@ -586,21 +589,21 @@ return (
         <button
           aria-label="Pill prev"
           onClick={() => scrollPills("left")}
-          className="w-8 h-8 rounded-full bg-black flex items-center justify-center"
+          className="w-4 md:w-8 h-4 md:h-8 rounded-full bg-black flex items-center justify-center"
         >
-          <ChevronLeft size={22} strokeWidth={2} className="text-white" />
+          <ChevronLeft strokeWidth={2} className="text-white w-4 h-4 md:w-5 md:h-5" />
         </button>
 
         <div
           ref={pillRowRef}
-          className="flex gap-3 overflow-x-auto no-scrollbar py-1 md:py-0 flex-1"
+          className="flex gap-3 overflow-x-auto no-scrollbar flex-1"
         >
           {CATEGORIES.map((cat, idx) => {
             const active = idx === selectedCategoryIndex;
             return (
               <button
                 key={cat.id}
-                className={`pill inline-flex items-center whitespace-nowrap px-4 py-2 rounded-xl font-sm transition ${
+                className={`pill inline-flex items-center whitespace-nowrap px-2 md:px-4 py-1 md:py-2 rounded-xl font-sm transition ${
                   active ? "bg-[#3C087E] text-white" : "bg-[#3C087E]/10 text-[#3c087e]"
                 }`}
                 onClick={() => {
@@ -618,9 +621,9 @@ return (
         <button
           aria-label="Pill next"
           onClick={() => scrollPills("right")}
-          className="w-8 h-8 rounded-full bg-black flex items-center justify-center"
+          className="w-4 md:w-8 h-4 md:h-8 rounded-full bg-black flex items-center justify-center"
         >
-          <ChevronRight size={22} strokeWidth={2} className="text-white" />
+          <ChevronRight strokeWidth={2} className="text-white w-4 h-4 md:w-5 md:h-5" />
         </button>
       </div>
 

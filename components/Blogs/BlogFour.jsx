@@ -19,7 +19,7 @@ export default function Page() {
     {
       id: 1,
       title:
-        "Online MBA For Career Growth: How An Online MBA Helps You Raise From Employee To Leader",
+        "How An Online MBA Helps You Raise From Employee To Leader",
       image: "/Blog2/background.png",
       path: "online-mba-for-career-growth",
     },
@@ -87,21 +87,21 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[8%_68%_24%] gap-5 mt-20 md:mt-10 lg:mt-0 xl:mt-20 px-4 ">
+      <div className="w-full max-w-7xl grid grid-cols-1 xl:grid-cols-[8%_68%_24%] gap-5 xl:mt-20 px-4 ">
         {/* LEFT SOCIAL ICONS */}
          <div
                  className="
            bg-white shadow rounded-lg
            p-2
            flex
-           flex-row lg:flex-col
+           flex-row xl:flex-col
            items-center justify-center
            gap-3
            w-fit h-fit
        
-           fixed lg:static
-           bottom-4 left-1/2 lg:left-auto
-           -translate-x-1/2 lg:translate-x-0
+           fixed xl:static
+           bottom-4 left-1/2 xl:left-auto
+           -translate-x-1/2 xl:translate-x-0
            z-40
          "
                >
@@ -160,7 +160,7 @@ export default function Page() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white shadow p-8 md:p-10 flex flex-col gap-6 md:mb-10 rounded-t-2xl lg:-mt-35 md:-mt-10"
+          className="bg-white shadow p-8  flex flex-col gap-6 md:mb-10 rounded-t-2xl lg:-mt-30 md:-mt-10"
         >
           <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
            Introduction: The Rise of the Mainstream Online MBA
@@ -352,7 +352,7 @@ export default function Page() {
          </motion.div>
 
         {/* RIGHT SIDE BLOG LINKS */}
-        <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl self-start h-fit shadow-lg p-4">
+        <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl self-start h-fit shadow-lg p-4 pr-6">
           <h2 className="text-2xl font-bold text-[#270652] mb-2">
             Related Articles
           </h2>
@@ -395,7 +395,7 @@ export default function Page() {
           <button
             onClick={() => setShowAllRelated(true)}
             className="w-full mt-2 bg-[#F6A410] border-0 border-transparent shadow-[#F6A410] shadow-md transform 
-      active:scale-100 hover:scale-105 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
+      active:scale-100 hover:scale-105 text-white py-1 xl:py-2 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
           >
             View More
             <ChevronRight size={18} />

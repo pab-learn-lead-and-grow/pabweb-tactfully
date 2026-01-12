@@ -33,7 +33,7 @@ export default function FAQ({ faqs }) {
             onClick={() => toggleFAQ(index)}
           >
             <div className="flex items-center justify-between text-black">
-              <p className="text-lg md:text-xl font-semibold">{item.q}</p>
+              <p className="md:text-xl font-semibold">{item.q}</p>
 
               <Plus
                 size={24}

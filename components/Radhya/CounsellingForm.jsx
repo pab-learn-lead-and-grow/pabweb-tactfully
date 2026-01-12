@@ -136,8 +136,6 @@ const [errors, setErrors] = useState({});
 
           {/* RIGHT */}
           <div className="bg-white rounded-2xl p-6">
-            
-
             <div className="space-y-4 bg-white p-6 rounded-2xl shadow-2xl">
                <button
               onClick={onClose}

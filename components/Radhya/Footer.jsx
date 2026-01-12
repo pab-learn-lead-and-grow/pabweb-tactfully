@@ -9,7 +9,7 @@ export default function Footer() {
   const links = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about-radhya" },
-    { name: "Careers", href: "/Career" },
+    { name: "Careers", href: "/jobs-at-radhya" },
     { name: "Blogs", href: "/#blogs" },
     { name: "Contact Us", href: "/contact-page-radhya" },
     { name: "Gallery", href: "/#" },
@@ -284,13 +284,13 @@ className="bg-[#3C087E]/10 text-white rounded-md py-2 text-[11px] md:text-xs bg-
           </p>
           <div className="flex space-x-2 mt-2 md:mt-0">
            
-            <a href="/PrivacyPolicy" className="hover:text-[#3C087E]">
+            <a href="/privacy-policy" className="hover:text-[#3C087E]">
               Privacy Policy {""}||
             </a>
               <Link href="/disclaimer" className="hover:text-[#3C087E]">
               Disclaimer {""}||
             </Link>
-            <a href="/TermsAndCondition" className="hover:text-[#3C087E]">
+            <a href="/terms-and-conditions" className="hover:text-[#3C087E]">
             Terms & Conditions
             </a>
           </div>
