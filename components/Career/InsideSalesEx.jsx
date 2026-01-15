@@ -2,12 +2,11 @@
 import { useParams } from "next/navigation";
 import { useState, useRef } from "react";
 import { Briefcase, Wallet, MapPin, Clock } from "lucide-react";
-import { createSupabaseClient } from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 import { useRouter } from "next/navigation";
 
 export default function JobDetails() {
   const { jobId } = useParams();
-  const supabase = createSupabaseClient();
   const router = useRouter();
 
   // 👇 Reference to the Apply Form section

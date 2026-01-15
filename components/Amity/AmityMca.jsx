@@ -818,7 +818,7 @@ export default function Page() {
 
       <WhyChooseUs cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
 
-      <section className="w-full bg-white px-4 md:px-16 py-20">
+      <section className="w-full bg-white px-4 md:px-16  lg:py-20">
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -1278,7 +1278,7 @@ export default function Page() {
 
       <MujCareerServices benefits={benefits} onCtaClick={() => setIsModalOpen(true)} />
 
-      <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
+      <section className="w-full font-[Inter] py-20 flex items-center justify-center">
         <div className="px-2 w-full">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
             {/* LEFT SIDE TEXT */}
@@ -1324,7 +1324,7 @@ export default function Page() {
         defaultOpen={0}
       />
 
-      <section className="w-full flex items-center justify-center px-6 md:px-18">
+      <section className="w-full flex items-center justify-center pt-10 px-6 md:px-18">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-20">
           {/* LEFT CONTENT */}
           <div className="space-y-5">
@@ -1376,7 +1376,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="w-full bg-white mt-20 px-4 md:px-12 lg:px-20 py-16 font-[Inter]">
+      <section className="w-full bg-white px-4 pt-10 md:px-12 lg:px-20 font-[Inter]">
         {/* Small Header */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -1698,7 +1698,7 @@ export default function Page() {
 
       <ServicesByRadhya />
 
-      <section className="w-full px-4 md:px-10 lg:px-20 py-16">
+      <section className="w-full px-4 md:px-10 lg:px-20 ">
         {/* TITLE */}
         <h2 className="text-[#270652] font-bold flex flex-row items-center justify-center font-[Inter] md:text-[42px] text-[36px] mb-8">
           Important Date

@@ -11,7 +11,7 @@ export default function LearningApproach({
 }) {
   return (
     <div className="relative pointer-events-auto">
-    <section className="relative z-10 w-full px-4 lg:px-30 py-5 lg:py-16">
+    <section className="relative z-10 w-full px-4 lg:px-30 lg:py-10">
       {/* Heading */}
       <motion.div
         className="max-w-5xl"
@@ -25,7 +25,7 @@ export default function LearningApproach({
         </h2>
 
         {subtitle && (
-          <p className="text-[#3c3c43] text-lg md:text-xl leading-relaxed">
+          <p className="text-[#3c3c43] text-md md:text-xl leading-relaxed">
             {subtitle}
           </p>
         )}
@@ -53,7 +53,7 @@ export default function LearningApproach({
             </h3>
 
             {/* Dynamic Description */}
-            <p className="text-gray-600 md:text-xl leading-relaxed">
+            <p className="text-gray-600 md:text-md leading-relaxed">
               {item.desc}
             </p>
           </motion.div>

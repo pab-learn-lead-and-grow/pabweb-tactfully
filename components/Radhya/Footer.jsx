@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { createSupabaseClient } from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 import { usePathname } from "next/navigation";
 
 export default function Footer() {
@@ -44,7 +44,6 @@ export default function Footer() {
     { name: "Jain Online", path: "/jain" },
   ];
 
-  const supabase = createSupabaseClient();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -130,7 +129,7 @@ className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
                 {
                   src: "/fb.png",
                   alt: "Facebook",
-                  href: " https://www.facebook.com/profile.php?id=61586016816119",
+                  href: " https://www.facebook.com/radhyaeducationacademy",
                 },
               ].map((icon, i) => (
                 <a
@@ -166,13 +165,13 @@ className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
               </a>{" "}
               ||{" "}
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=uttam15vp@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-black text-xs md:text-sm hover:text-[#3C087E] underline"
-              >
-                uttam15vp@gmail.com
-              </a>
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@radhyaeducationacademy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black text-sm hover:text-[#3C087E] underline"
+            >
+              contact@radhyaeducationacademy.com
+            </a>
             </div>
           </div>
 

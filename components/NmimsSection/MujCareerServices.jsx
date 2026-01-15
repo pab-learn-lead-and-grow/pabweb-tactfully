@@ -13,7 +13,7 @@ export default function CareerServicesSection({ benefits = [], onCtaClick = () =
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center text-[#270652] text-[34px] sm:text-[42px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-bold mb-10"
+        className="text-center text-[#270652] text-[34px] sm:text-[42px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-bold mb-5 lg:mb-10"
       >
         Career Services
       </motion.h2>

@@ -419,6 +419,20 @@ const CATEGORIES = [
     ],
   },
    {
+    id: "msc",
+    label: "M.Sc",
+    programs: [
+      {
+        id: "msc-1",
+        university: "Amity University",
+        programTitle: "M.Sc Data Science",
+        badges:  ["Global", "Noida", "Top 10 QS ranked online mba", "Internship Opportunities"],
+        image: "/amity.png",
+        path: "/amity/amity-online-msc-data-science",
+      },
+    ],
+  },
+   {
     id: "bcomhonours",
     label: "B.COM (Hons.)",
     programs: [

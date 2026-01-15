@@ -46,7 +46,7 @@ const [errors, setErrors] = useState({});
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
       newErrors.email = "Enter a valid email address.";
 
-    if (!formData.university) newErrors.university = "Select a university.";
+    if (!formData.university) newErrors.university = "Enter university name.";
     if (!formData.course) newErrors.course = "Select a course.";
 
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required.";
@@ -136,6 +136,7 @@ const [errors, setErrors] = useState({});
 
           {/* RIGHT */}
           <div className="bg-white rounded-2xl p-6">
+            
             <div className="space-y-4 bg-white p-6 rounded-2xl shadow-2xl">
                <button
               onClick={onClose}
@@ -160,6 +161,7 @@ const [errors, setErrors] = useState({});
                 {errors.name && (
                   <p className="text-red-500 text-xs mt-1">{errors.name}</p>
                 )}
+                
               </div>
 
               {/* Email and Phone Row */}

@@ -42,7 +42,7 @@ export default function CareerServices({ onCtaClick }) {
   return (
     <section className="w-full bg-white mt-15 py-5 px-6 md:px-12 lg:px-20">
       {/* Heading */}
-      <h2 className="text-center text-[#270652] font-[Inter] text-[32px] md:text-5xl xl:text-[64px] font-bold mb-12">
+      <h2 className="text-center text-[#270652] font-[Inter] text-[32px] md:text-5xl lg:text-[54px] xl:text-[64px] font-bold mb-5 lg:mb-12">
         Career Services
       </h2>
 
@@ -77,7 +77,7 @@ export default function CareerServices({ onCtaClick }) {
           ))}
 
           {/* Bottom 2 */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-3 flex justify-center gap-20 mt-6">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-3 flex flex-col md:flex-row justify-center gap-20 mt-6">
             {benefits.slice(3, 5).map((item, index) => (
               <motion.div
                 key={index}

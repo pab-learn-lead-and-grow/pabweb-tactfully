@@ -226,7 +226,7 @@ export default function Page() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -80 }}
                         transition={{ duration: 0.6 }}
-                        className="bg-linear-to-b from-[#270652] to-[#101C2F] rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
+                        className="bg-linear-to-b from-[#270652] to-[#3C087E]/50 rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
                       >
                         <div>
                           <p className="font-semibold text-white">{cards[index].title}</p>
@@ -496,77 +496,77 @@ export default function Page() {
                              </div>
                            </section>
                             {/* ======= SNAPSHOT SECTION ======= */}
-                                      <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
-                                        <div className="max-w-7xl mx-auto">
-                                          {/* HEADING */}
-                                          <motion.h2
-                                            initial={{ opacity: 0, y: -30 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.6 }}
-                                            viewport={{ once: true }}
-                                            className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
-                                          >
-                                            A Snapshot of Success
-                                          </motion.h2>
-                                
-                                          {/* BLUE BAR */}
-                                          <motion.div
-                                            initial={{ opacity: 0, scale: 0.95 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            transition={{ duration: 0.6, delay: 0.2 }}
-                                            viewport={{ once: true }}
-                                            className="bg-[#064E92] rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
-                                          >
-                                            {/* ALWAYS 3 COLUMNS */}
-                                            <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-white">
-                                              {/* STAT 1 */}
-                                              <motion.div
-                                                initial={{ opacity: 0, y: 30 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.5 }}
-                                                viewport={{ once: true }}
-                                              >
-                                                <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                                                  NAAC A+
-                                                </h3>
-                                                 <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                                  Rajasthan's First
-                                                </p>
-                                              </motion.div>
-                                
-                                              {/* STAT 2 */}
-                                              <motion.div
-                                                initial={{ opacity: 0, y: 30 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.5, delay: 0.1 }}
-                                                viewport={{ once: true }}
-                                              >
-                                                <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                                                  UGC
-                                                </h3>
-                                                 <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                                  Entitled Degree
-                                                </p>
-                                              </motion.div>
-                                
-                                              {/* STAT 3 */}
-                                              <motion.div
-                                                initial={{ opacity: 0, y: 30 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.5, delay: 0.2 }}
-                                                viewport={{ once: true }}
-                                              >
-                                                <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                                                  #9
-                                                </h3>
-                                                <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                                  Rank By Careers360
-                                                </p>
-                                              </motion.div>
-                                            </div>
-                                          </motion.div>
-                                        </div>
-                                      </section>
+                                      <section className="w-full xl:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+                                                                        <div className="max-w-7xl mx-auto">
+                                                                          {/* HEADING */}
+                                                                          <motion.h2
+                                                                            initial={{ opacity: 0, y: -30 }}
+                                                                            whileInView={{ opacity: 1, y: 0 }}
+                                                                            transition={{ duration: 0.6 }}
+                                                                            viewport={{ once: true }}
+                                                                            className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
+                                                                          >
+                                                                            A Snapshot of Success
+                                                                          </motion.h2>
+                                                                
+                                                                          {/* BLUE BAR */}
+                                                                          <motion.div
+                                                                            initial={{ opacity: 0, scale: 0.95 }}
+                                                                            whileInView={{ opacity: 1, scale: 1 }}
+                                                                            transition={{ duration: 0.6, delay: 0.2 }}
+                                                                            viewport={{ once: true }}
+                                                                            className="bg-[#3C087E]/5 rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+                                                                          >
+                                                                            {/* ALWAYS 3 COLUMNS */}
+                                                                            <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
+                                                                              {/* STAT 1 */}
+                                                                              <motion.div
+                                                                                initial={{ opacity: 0, y: 30 }}
+                                                                                whileInView={{ opacity: 1, y: 0 }}
+                                                                                transition={{ duration: 0.5 }}
+                                                                                viewport={{ once: true }}
+                                                                              >
+                                                                                <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                                                                                  NAAC A+
+                                                                                </h3>
+                                                                                 <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
+                                                                                  Rajasthan's First
+                                                                                </p>
+                                                                              </motion.div>
+                                                                
+                                                                              {/* STAT 2 */}
+                                                                              <motion.div
+                                                                                initial={{ opacity: 0, y: 30 }}
+                                                                                whileInView={{ opacity: 1, y: 0 }}
+                                                                                transition={{ duration: 0.5, delay: 0.1 }}
+                                                                                viewport={{ once: true }}
+                                                                              >
+                                                                                <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                                                                                  UGC
+                                                                                </h3>
+                                                                                 <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
+                                                                                  Entitled Degree
+                                                                                </p>
+                                                                              </motion.div>
+                                                                
+                                                                              {/* STAT 3 */}
+                                                                              <motion.div
+                                                                                initial={{ opacity: 0, y: 30 }}
+                                                                                whileInView={{ opacity: 1, y: 0 }}
+                                                                                transition={{ duration: 0.5, delay: 0.2 }}
+                                                                                viewport={{ once: true }}
+                                                                              >
+                                                                                <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                                                                                  #9
+                                                                                </h3>
+                                                                                <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
+                                                                                  Rank By Careers360
+                                                                                </p>
+                                                                              </motion.div>
+                                                                            </div>
+                                                                          </motion.div>
+                                                                        </div>
+                                                                      </section>
                      
                            <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
                              {/* ===== Top Text Section ===== */}
@@ -1064,7 +1064,7 @@ export default function Page() {
         defaultOpen={0}
       />
 
-       <section className="w-full flex items-center justify-center px-6 md:px-18">
+       <section className="w-full flex items-center justify-center pt-10 px-6 md:px-18">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-20">
               
                   {/* LEFT CONTENT */}
@@ -1116,7 +1116,7 @@ export default function Page() {
                 </div>
               </section>
               
-                    <section className="w-full bg-white mt-20 px-4 md:px-12 lg:px-20 py-16 font-[Inter]">
+                    <section className="w-full bg-white mt-10 lg:mt-20 px-4 md:px-12 lg:px-20 font-[Inter]">
                       {/* Small Header */}
                       <motion.p
                         initial={{ opacity: 0, y: 10 }}
@@ -1308,7 +1308,7 @@ export default function Page() {
                         </div>
                       </div>
                     </section>
-                     <section className="w-full bg-white py-20 md:px-12 lg:px-20">
+                     <section className="w-full bg-white py-10 lg:py-20 md:px-12 lg:px-20">
                            <div className="w-full md:bg-[#270652] rounded-4xl py-12 px-6 md:px-12 lg:px-15">
                              <motion.div
                                initial={{ opacity: 0, y: 40 }}
@@ -1430,7 +1430,7 @@ export default function Page() {
 
       <ServicesByRadhya />
 
-     <section className="w-full px-4 md:px-10 lg:px-20 py-16">
+     <section className="w-full px-4 md:px-10 lg:px-20 py-10">
         {/* TITLE */}
         <h2 className="text-[#270652] font-bold flex flex-row items-center justify-center font-[Inter] md:text-[42px] text-[36px] mb-8">
           Important Dates

@@ -595,7 +595,7 @@ export default function Page() {
         <div className="max-w-6xl text-left mx-auto">
           <h2 className="text-xl md:text-2xl font-regular lg:text-[36px] leading-normal text-gray-900">
             <span className="text-[#F9BD04] ">
-            Advance your career in one of today’s most in-demand fields with a UGC-entitled Online M.Sc in Data Science.
+            Advance your career in one of today’s most in-demand fields with a UGC-entitled Online M.Sc in Data Science.{" "}
             </span>
            Gain strong foundations in machine learning, big data, and statistics while developing the ability to tackle real industry challenges through data-driven solutions.
           </h2>
@@ -1125,7 +1125,7 @@ export default function Page() {
         defaultOpen={0}
       />
 
-      <section className="w-full flex items-center justify-center px-6 md:px-18">
+      <section className="w-full flex items-center justify-center pt-10  px-6 md:px-18">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-20">
           {/* LEFT CONTENT */}
           <div className="space-y-5">
@@ -1175,7 +1175,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="w-full bg-white mt-20 px-4 md:px-12 lg:px-20 py-16 font-[Inter]">
+      <section className="w-full bg-white lg:mt-20 px-4 md:px-12 lg:px-20 pt-16 font-[Inter]">
         {/* Small Header */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -1372,7 +1372,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="w-full bg-white py-20 md:px-12 lg:px-20">
+      <section className="w-full bg-white pt-10 lg:py-20 md:px-12 lg:px-20">
         <div className="w-full md:bg-[#270652] rounded-4xl py-12 px-6 md:px-12 lg:px-15">
           <motion.div
             initial={{ opacity: 0, y: 40 }}

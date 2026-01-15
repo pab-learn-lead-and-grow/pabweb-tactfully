@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import { Mail, Phone, Clock, MapPin } from "lucide-react";
-import { createSupabaseClient } from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 
 export default function ContactSection() {
-  const supabase = createSupabaseClient();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -31,6 +30,12 @@ export default function ContactSection() {
     setStatus("");
 
     const { firstName, lastName, email, phone, message } = formData;
+
+     if (!/^\d{10}$/.test(phone)) {
+    setStatus("❌ Phone number must be exactly 10 digits.");
+    setLoading(false);
+    return;
+  }
 
     try {
       const { error } = await supabase.from("contact_messages").insert([
@@ -98,12 +103,12 @@ export default function ContactSection() {
             </span>
 
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=uttam15vp@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@radhyaeducationacademy.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-black text-sm hover:text-[#3C087E] underline"
             >
-              uttam15vp@gmail.com
+              contact@radhyaeducationacademy.com
             </a>
           </div>
 

@@ -125,7 +125,7 @@ export default function Page() {
                    {
                      src: "/fb.png",
                      name: "Facebook",
-                     href: " https://www.facebook.com/profile.php?id=61586054062267 ",
+                     href: "https://www.facebook.com/radhyaeducationacademy ",
                    },
                  ].map((icon, i) => (
                    <a

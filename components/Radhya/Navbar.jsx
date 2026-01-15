@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
 import CounsellingForm from "./CounsellingForm.jsx";
-import { createSupabaseClient } from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 import { useRef } from "react";
 
 export default function Navbar() {
@@ -32,7 +32,6 @@ export default function Navbar() {
     useState(null);
 
   const router = useRouter();
-  const supabase = createSupabaseClient();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 useEffect(() => {
@@ -923,7 +922,9 @@ const handleProgramAction = (program) => {
 
 return (
     <div className="fixed top-0 left-0 right-0  md:px-9 z-50">
-      <nav className="w-full xl:w-[90%] mx-auto h-[64px] lg:max-h-[72px] bg-white backdrop-blur-2xl rounded-4xl shadow-sm border border-white/20">
+      <nav className="w-full xl:w-[90%] mx-auto h-[64px] lg:max-h-[72px] bg-white rounded-4xl shadow-sm border border-white/20">
+        
+
         <div className="w-full mx-auto flex items-center justify-between h-full px-4 md:px-8">
           <div className="flex items-center gap-4">
             <a href="/" className="block">
@@ -974,7 +975,7 @@ return (
                   />
 
                   <div
-                    className="explore-programs-dropdown fixed left-1/2 -translate-x-1/2 top-[85px] mt-2 z-50 w-[95vw] md:w-[90vw] lg:w-[85vw] max-w-[1100px] bg-white/95 text-black rounded-lg shadow-lg border border-gray-100 p-6 overflow-x-hidden mb-5"
+                    className="explore-programs-dropdown fixed left-1/2 -translate-x-1/2 top-[72px] z-50 w-[95vw] md:w-[90vw] lg:w-[85vw] max-w-[1100px] bg-white text-black rounded-lg shadow-lg border border-gray-100 p-6 overflow-x-hidden mb-5"
                     role="dialog"
                     aria-modal="true"
                   >
@@ -990,8 +991,8 @@ return (
                                 }}
                                 className={`w-full text-left block py-3 px-3 rounded-md transition ${
                                   selectedExploreCategory === item
-                                    ? "bg-purple-50 border-l-4 border-[#3C087E] pl-4"
-                                    : "hover:bg-purple-50"
+                                    ? "bg-purple-100 border-l-4 border-[#3C087E] pl-4"
+                                    : "hover:bg-purple-100"
                                 }`}
                               >
                                 <div className="font-medium  text-gray-900">
@@ -1027,7 +1028,7 @@ return (
                                 No programs available
                               </div>
                             ) : (
-                              <div className="grid grid-cols-3 sm:grid-cols-3 gap-4">
+                              <div className="grid md:grid-cols-3 grid-cols-2 gap-4">
                                 {currentExploreCategories.map((category) => (
                                   <button
                                     key={category.id}
@@ -1038,7 +1039,7 @@ return (
                                     }
                                     className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col hover:shadow-md transition-shadow text-left w-full"
                                   >
-                                    <div className="h-16 mb-3 rounded flex items-center justify-center overflow-hidden">
+                                    <div className="h-16 mb-3 bg-purple-100 rounded flex items-center justify-center overflow-hidden">
                                       <span className="text-4xl text-[#3C087E]">
                                         🎓
                                       </span>
@@ -1067,7 +1068,7 @@ return (
                                   No specializations available
                                 </div>
                               ) : (
-                                <div className="grid grid-cols-3 sm:grid-cols-3 gap-4">
+                                <div className="grid md:grid-cols-3 grid-cols-2 gap-4">
                                   {currentExplorePrograms.map((program) => (
                                     <div
                                       key={program.id}
@@ -1158,7 +1159,7 @@ return (
                   />
 
                   <div
-                    className="top-univ-dropdown fixed left-1/2 -translate-x-1/2 top-[85px] mt-2 z-50 w-[95vw] md:w-[90vw] lg:w-[85vw] max-w-[1100px] bg-white/95 text-black rounded-lg shadow-lg border border-gray-100 p-6 overflow-x-hidden mb-5"
+                    className="top-univ-dropdown fixed left-1/2 -translate-x-1/2 top-[72px] z-50 w-[95vw] md:w-[90vw] lg:w-[85vw] max-w-[1100px] bg-white text-black rounded-lg shadow-lg border border-gray-100 p-6 overflow-x-hidden mb-5"
                     role="dialog"
                     aria-modal="true"
                   >
@@ -1173,8 +1174,8 @@ return (
                                   onClick={() => setSelectedCategory(item)}
                                   className={`w-full text-left block py-3 px-3 rounded-md transition ${
                                     selectedCategory === item
-                                      ? "bg-purple-50 border-l-4 border-[#3C087E] pl-4"
-                                      : "hover:bg-purple-50"
+                                      ? "bg-purple-100 border-l-4 border-[#3C087E] pl-4"
+                                      : "hover:bg-purple-100"
                                   }`}
                                 >
                                   <div className="font-medium text-gray-900">
@@ -1204,7 +1205,7 @@ return (
                               No university is available for this category
                             </div>
                           ) : (
-                            <div className="grid grid-cols-3 sm:grid-cols-3 gap-4">
+                            <div className="grid md:grid-cols-3 grid-cols-2 gap-4">
                               {currentPrograms.map((program) => (
                                 <div
                                   key={program.id}
@@ -1283,7 +1284,7 @@ return (
                 {moreOpen && (
                   <div
                     onMouseLeave={() => setMoreOpen(false)}
-                    className="absolute right-0 mt-2 w-48 bg-white/95 text-black rounded-lg shadow-lg border border-gray-100 p-2"
+                    className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg border border-gray-100 p-2"
                   >
                     <Link
                       className="block py-2 px-3 rounded hover:bg-purple-50"
@@ -1344,7 +1345,7 @@ return (
   ref={mobileMenuRef}
   className={`xl:hidden ${
     isOpen ? "block" : "hidden"
-  } bg-white/95 border-t border-gray-100 shadow-md`}
+  } bg-white border-t border-gray-100 shadow-md`}
 >
 
           <div className=" mx-auto px-4 py-4">
@@ -1388,7 +1389,7 @@ return (
 
                     {!selectedExploreSubCategory ? (
                       // mobile-friendly grid: single column on tiny screens, 2 columns on small+
-                      <div className="px-3 grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto pb-4">
+                      <div className="px-3 grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[60vh] overflow-y-auto pb-4">
                         {currentExploreCategories.map((category) => (
                           <button
                             key={category.id}
@@ -1398,7 +1399,7 @@ return (
                             type="button"
                             className="bg-white rounded-lg p-3 shadow-sm border border-gray-100 text-left w-full min-w-0"
                           >
-                            <div className="h-12 mb-2 rounded flex items-center justify-center">
+                            <div className="h-12 mb-2 rounded bg-purple-100 flex items-center justify-center">
                               <span className="text-xl text-[#3C087E]">🎓</span>
                             </div>
                             <div className="text-xs font-semibold leading-tight mb-2 text-gray-900">
@@ -1420,7 +1421,7 @@ return (
                           ← Back
                         </button>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto pb-4">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[60vh] overflow-y-auto pb-4">
                           {currentExplorePrograms.map((program) => (
                             <div
                               key={program.id}
@@ -1461,7 +1462,7 @@ return (
                     setMobileTopUnivOpen((v) => !v);
                     setMobileExploreOpen(false);
                   }}
-                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-purple-50 font-medium"
+                  className="flex items-center justify-between w-full text-gray-900 px-3 py-2 rounded hover:bg-purple-100 font-medium"
                 >
                   <span>Top Universities</span>
                   <ChevronDown
@@ -1488,7 +1489,7 @@ return (
                       </select>
                     </div>
 
-                    <div className="px-3 grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto pb-4">
+                    <div className="px-3 grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[60vh] overflow-y-auto pb-4">
                       {currentPrograms.map((program) => (
                         <div
                           key={program.id}
@@ -1604,6 +1605,9 @@ return (
             </div>
           </div>
         </div>
+    
+
+
       </nav>
       {showForm && <CounsellingForm onClose={() => setShowForm(false)} />}
     </div>

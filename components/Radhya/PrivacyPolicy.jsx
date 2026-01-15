@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
             Radhya Education Academy Private Limited
           </p>
           <p className="mt-1 text-xs text-black">
-            Last Updated: <span className="font-medium">[12/01/2026]</span>
+            Last Updated: <span className="font-medium">[16/01/2026]</span>
           </p>
         </div>
       </section>
@@ -296,16 +296,32 @@ We do not knowingly collect data from children. If such data is discovered, it w
               <strong>Brand Name:</strong> Radhya Education Academy
             </li>
             <li>
-              <strong>Website:</strong> [Website URL]
+              <strong>Website:</strong><a
+  href="https://radhyaeducationacademy.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-black text-sm hover:text-[#3C087E] underline"
+>
+  www.radhyaeducationacademy.com
+</a>
+
             </li>
             <li>
-              <strong>Email:</strong> [Email Address]
+              <strong>Email:</strong>
+               <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@radhyaeducationacademy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black text-sm lg:text-md hover:text-[#3C087E] underline"
+            >
+              contact@radhyaeducationacademy.com
+            </a>
             </li>
             <li>
               <strong>Phone:</strong> [Contact Number]
             </li>
             <li>
-              <strong>Address:</strong> [Office Address]
+              <strong>Address:</strong> 25, Mayur Vihar, BP City, Gwalior, Madhya Pradesh, 474006
             </li>
           </ul>
         </PolicySection>

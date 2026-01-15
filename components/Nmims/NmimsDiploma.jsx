@@ -596,7 +596,7 @@ export default function Page() {
                    </div>
                  </section>
                 {/* ======= SNAPSHOT SECTION ======= */}
-                     <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+                     <section className="w-full xl:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
                        <div className="max-w-7xl mx-auto">
                          {/* HEADING */}
                          <motion.h2
@@ -720,7 +720,7 @@ export default function Page() {
 
       <WhyChooseUs cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
 
-      <section className="w-full bg-white px-4 md:px-16 py-20">
+      <section className="w-full bg-white px-4 md:px-16 py-10 lg:py-20">
                   {/* Title */}
                   <motion.h2
                     initial={{ opacity: 0, y: -20 }}
@@ -933,7 +933,7 @@ export default function Page() {
                   </motion.div>
                 </section>
 
-     <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
+     <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter]">
              <div className="max-w-7xl mx-auto">
                {/* Title animation */}
                <motion.h2
@@ -1240,7 +1240,7 @@ export default function Page() {
              defaultOpen={2} // Step 3 open by default
            />
      
-           <section className="w-full px-6 md:px-18">
+           <section className="w-full pt-10 px-6 md:px-18">
        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] gap-10">
      
          {/* LEFT CONTENT */}
@@ -1326,7 +1326,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#270652] rounded-full flex items-center my-10 justify-center">
+              <div className="w-20 h-20 bg-[#270652] shrink-0 rounded-full flex items-center my-10 justify-center">
                 <Option size={50} strokeWidth={1.0} className="text-white" />
               </div>
 
@@ -1350,7 +1350,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#270652] rounded-full flex items-center my-10 justify-center">
+              <div className="w-20 h-20 bg-[#270652] shrink-0 rounded-full flex items-center my-10 justify-center">
                 <UserLock size={50} strokeWidth={1.0} className="text-white" />
               </div>
 
@@ -1377,7 +1377,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#270652] rounded-full flex items-center my-10 justify-center">
+              <div className="w-20 h-20 bg-[#270652] shrink-0 rounded-full flex items-center my-10 justify-center">
                 <UserLock size={50} strokeWidth={1.0} className="text-white" />
               </div>
 
@@ -1401,7 +1401,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="flex gap-6"
             >
-              <div className="w-20 h-20 bg-[#270652] rounded-full flex items-center my-10 justify-center">
+              <div className="w-20 h-20 bg-[#270652] shrink-0 rounded-full flex items-center my-10 justify-center">
                 <ListMinus size={50} strokeWidth={1.0} className="text-white" />
               </div>
 
@@ -1419,7 +1419,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-         <section className="w-full bg-white py-20 md:px-12 lg:px-20">
+         <section className="w-full bg-white py-10 lg:py-20 md:px-12 lg:px-20">
             <div className="w-full md:bg-[#270652] rounded-4xl py-12 px-6 md:px-12 lg:px-15">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -1542,7 +1542,7 @@ export default function Page() {
     
           <ServicesByRadhya />
 
-     <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
+     <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter]">
            {/* TITLE */}
            <h2 className="text-[#270652] font-extrabold text-center text-[32px] md:text-[48px] lg:text-[64px] mb-8">
              Important Dates

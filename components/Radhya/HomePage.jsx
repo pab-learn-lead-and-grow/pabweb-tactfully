@@ -1,15 +1,30 @@
 "use client";
 import Image from "next/image";
 import HeroSection from "./HeroSection";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import AllInOneSection from "./All-in-one";
-import CoursesSection from "./CoursesSection";
-import FaqSection from "./Faq";
-import ConnectToday from "../NmimsSection/ConnectToday.jsx";
 import Link from "next/link";
-import ContactSection from "./ContactSection";
-import LogoSection from "./LogoSection";
+import dynamic from "next/dynamic";
+
+// Lazy load heavy components
+const AllInOneSection = dynamic(() => import("./All-in-one"), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse"></div>
+});
+const CoursesSection = dynamic(() => import("./CoursesSection"), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse"></div>
+});
+const FaqSection = dynamic(() => import("./Faq"), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse"></div>
+});
+const ConnectToday = dynamic(() => import("../NmimsSection/ConnectToday.jsx"), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse"></div>
+});
+const ContactSection = dynamic(() => import("./ContactSection"), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse"></div>
+});
+const LogoSection = dynamic(() => import("./LogoSection"), {
+  loading: () => <div className="h-32 bg-gray-100 animate-pulse"></div>
+});
 
 
 export default function HomePage() {
@@ -44,7 +59,7 @@ useEffect(() => {
     {
       id: 1,
       topic: "Advancement",
-      date: "05 Jan 2026",
+      date: "16 Jan 2026",
       title:
         "Online MBA For Career Growth: How An Online MBA Helps You Raise From Employee To Leader",
       image: "/Blog2/background.png",
@@ -53,7 +68,7 @@ useEffect(() => {
     {
       id: 2,
       topic: "NMIMS",
-      date: "05 Jan 2026",
+      date: "16 Jan 2026",
       title: "Why NMIMS Is The Top Choice For Working Professionals In India",
       image: "/Blog3/background.png",
       path: "blogs/nmims-for-working-professionals",
@@ -61,7 +76,7 @@ useEffect(() => {
     {
       id: 3,
       topic: "Clarity",
-      date: "05 Jan 2026",
+      date: "16 Jan 2026",
       title:
         "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
       image: "/Blog1/background.png",
@@ -70,7 +85,7 @@ useEffect(() => {
     {
       id: 4,
       topic: "Evolution",
-      date: "05 Jan 2026",
+      date: "16 Jan 2026",
       title:
         "How Online MBA’s Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
       image: "/Blog4/background.png",
@@ -79,7 +94,7 @@ useEffect(() => {
     {
       id: 5,
       topic: "ROI",
-      date: "05 Jan 2026",
+      date: "16 Jan 2026",
       title:
         "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility",
       image: "/Blog5/background.png",
@@ -88,7 +103,7 @@ useEffect(() => {
     {
       id: 6,
       topic: "Leadership",
-      date: "05 Jan 2026",
+      date: "16 Jan 2026",
       title:
         "How Online BBA Builds Entrepreneurs And How Online MBA Shapes Future CEOs",
       image: "/Blog6/background.png",

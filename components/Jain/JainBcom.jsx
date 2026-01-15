@@ -683,7 +683,7 @@ const topicsData = {
                  </section>
             <WhyChooseUs cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
       
-           <section className="w-full bg-white px-4 md:px-16 py-20">
+           <section className="w-full bg-white px-4 md:px-16 ppy-10 lg:y-20">
                               {/* Title */}
                               <motion.h2
                                 initial={{ opacity: 0, y: -20 }}
@@ -1152,7 +1152,7 @@ const topicsData = {
               defaultOpen={0}
             />
       
-             <section className="w-full flex items-center justify-center px-6 md:px-18">
+             <section className="w-full flex items-center justify-center pt-10 px-6 md:px-18">
                          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-20">
                            {/* LEFT CONTENT */}
                            <div className="space-y-5">
@@ -1210,7 +1210,7 @@ const topicsData = {
                          </div>
                        </section>
                  
-                        <section className="w-full bg-white mt-20 px-4 md:px-12 lg:px-20 py-16 font-[Inter]">
+                        <section className="w-full bg-white mt-10 lg:mt-20 px-4 md:px-12 lg:px-20 font-[Inter]">
                          {/* Small Header */}
                          <motion.p
                            initial={{ opacity: 0, y: 10 }}
@@ -1317,7 +1317,7 @@ const topicsData = {
                          </div>
                        </section>
                        
-                       <section className="w-full bg-white py-20 md:px-12 lg:px-20">
+                       <section className="w-full bg-white py-10 md:py-20 md:px-12 lg:px-20">
                          <div className="w-full md:bg-[#270652] rounded-4xl py-12 px-6 md:px-12 lg:px-15">
                            <motion.div
                              initial={{ opacity: 0, y: 40 }}
@@ -1442,7 +1442,7 @@ const topicsData = {
       
             <ServicesByRadhya />
       
-            <section className="w-full px-4 md:px-10 lg:px-20 py-16">
+            <section className="w-full px-4 md:px-10 lg:px-20 py-10">
               {/* TITLE */}
               <h2 className="text-[#270652] font-bold flex flex-row items-center justify-center font-[Inter] md:text-[42px] text-[36px] mb-8">
                 Important Date

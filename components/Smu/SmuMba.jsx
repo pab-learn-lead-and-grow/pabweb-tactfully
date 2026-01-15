@@ -1103,7 +1103,7 @@ export default function Page() {
         defaultOpen={0}
       />
 
-      <section className="w-full flex items-center justify-center px-6 md:px-18">
+      <section className="w-full flex items-center justify-center pt-10 px-6 md:px-18">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-20">
           {/* LEFT CONTENT */}
           <div className="space-y-5">
@@ -1131,10 +1131,16 @@ export default function Page() {
               />
             </div>
 
-            {/* CTA BUTTON */}
-            <button onClick={() => setIsModalOpen(true)} className="bg-[#F6A104] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200 flex items-center justify-center">
-              Know more
-            </button>
+           {/* CTA BUTTON  */}
+          <div className="flex justify-center md:justify-start">
+  <button
+    onClick={() => setIsModalOpen(true)}
+    className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200"
+  >
+    Know more
+  </button>
+</div>
+
           </div>
 
           {/* RIGHT IMAGE (visible only on md+ screens) */}
@@ -1148,7 +1154,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="w-full bg-white mt-20 px-4 md:px-12 lg:px-20 py-16 font-[Inter]">
+      <section className="w-full bg-white mt-10 lg:mt-20 px-4 md:px-12 lg:px-20 font-[Inter]">
         {/* Small Header */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -1351,7 +1357,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="w-full bg-white py-20 md:px-12 lg:px-20">
+      <section className="w-full bg-white py-10 lg:py-20 md:px-12 lg:px-20">
         <div className="w-full md:bg-[#270652] rounded-4xl py-12 px-6 md:px-12 lg:px-15">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -1456,6 +1462,7 @@ export default function Page() {
                               rounded-lg 
                               text-white text-sm 
                               bg-[#F6A104]
+                              self-center lg:self-start
                               shadow-lg
                             "
                 >
@@ -1475,7 +1482,7 @@ export default function Page() {
 
       <ServicesByRadhya />
 
-      <section className="w-full px-4 md:px-10 lg:px-20 py-16">
+      <section className="w-full px-4 md:px-10 lg:px-20 py-10">
         {/* TITLE */}
         <h2 className="text-[#270652] font-bold flex flex-row items-center justify-center font-[Inter] md:text-[42px] text-[36px] mb-8">
           Important Dates

@@ -1,6 +1,12 @@
 // app/api/counselling/route.js
-import { createSupabaseClient } from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 import { Resend } from "resend";
+import { 
+  sanitizeFormData, 
+  validateCounsellingForm,
+  sanitizeInput 
+} from "@/lib/security";
+import { counsellingRateLimiter } from "@/lib/rateLimiter";
 
 /**
  * POST /api/counselling
@@ -10,65 +16,92 @@ import { Resend } from "resend";
 
 export async function POST(request) {
   try {
+    // Rate limiting check
+    const ip = request.headers.get('x-forwarded-for') || 
+               request.headers.get('x-real-ip') || 
+               'unknown';
+    const rateLimitResult = counsellingRateLimiter.isAllowed(ip);
+    
+    if (!rateLimitResult.allowed) {
+      return new Response(
+        JSON.stringify({ 
+          success: false, 
+          error: rateLimitResult.error,
+          resetIn: rateLimitResult.resetIn
+        }), 
+        { 
+          status: 429,
+          headers: {
+            'Content-Type': 'application/json',
+            'X-RateLimit-Limit': 5,
+            'X-RateLimit-Remaining': 0,
+            'X-RateLimit-Reset': rateLimitResult.resetIn
+          }
+        }
+      );
+    }
+
     const formData = await request.json();
     const { name, email, university, course, phoneCode, phone, message } = formData || {};
 
-  if (!name?.trim()) {
-  return new Response(JSON.stringify({ success:false, error:"Name is required" }), { status:400 });
-}
+    // Sanitize all input data
+    const sanitizedData = sanitizeFormData({
+      name,
+      email,
+      university,
+      course,
+      phoneCode,
+      phone,
+      message
+    });
 
-if (!email?.trim()) {
-  return new Response(JSON.stringify({ success:false, error:"Email is required" }), { status:400 });
-}
-
-if (!university?.trim()) {
-  return new Response(JSON.stringify({ success:false, error:"University is required" }), { status:400 });
-}
-
-if (!course?.trim()) {
-  return new Response(JSON.stringify({ success:false, error:"Course is required" }), { status:400 });
-}
-
-if (!phone?.trim()) {
-  return new Response(JSON.stringify({ success:false, error:"Phone is required" }), { status:400 });
-}
+    // Validate form data
+    const validation = validateCounsellingForm(sanitizedData);
+    if (!validation.isValid) {
+      return new Response(
+        JSON.stringify({ 
+          success: false, 
+          error: "Validation failed",
+          details: validation.errors 
+        }), 
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
 
 
-    // Create a supabase client inside the route (server-side)
-    const supabase = createSupabaseClient();
-
-    // Insert row into counselling_form
+// Insert row into counselling_form
    const { data, error } = await supabase
   .from("counselling_form")
   .insert([
     {
-      name: name.trim(),
-      email: email.trim(),
-      university: university.trim(),
-      course: course.trim(),
-      phone: `${phoneCode || '+91'} ${phone.trim()}`,
-      queries: message?.trim() || null,
+      name: sanitizedData.name,
+      email: sanitizedData.email,
+      university: sanitizedData.university,
+      course: sanitizedData.course,
+      phone: `${sanitizedData.phoneCode || '+91'} ${sanitizedData.phone}`,
+      queries: sanitizedData.message || null,
     },
   ])
   .select();
 
 
-    if (error) {
+if (error) {
       console.error("Supabase insert error:", error);
       return new Response(
-        JSON.stringify({ success: false, error: error.message || "Database insert failed" }),
+        JSON.stringify({ success: false, error: "Failed to submit form. Please try again." }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
     }
 
-    // Send email notification to admin (only on successful insert)
+// Send email notifications (only on successful insert)
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
-      const adminEmail = process.env.ADMIN_EMAIL || "admin@example.com";
+      const adminEmail = process.env.ADMIN_EMAIL;
 
+      // Send admin notification
       await resend.emails.send({
-        from: "Counselling Form <onboarding@resend.dev>", // Use your verified domain
-        to: adminEmail,
+        from: "Radhya Education <contact@radhyaeducationacademy.com>",
+        to: [adminEmail],
         subject: "🎓 New Counselling Form Submission",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb;">
@@ -116,21 +149,82 @@ if (!phone?.trim()) {
         `,
       });
 
-      console.log("✅ Admin notification email sent successfully");
+      // Send user confirmation email
+      await resend.emails.send({
+        from: "Radhya Education <contact@radhyaeducationacademy.com>",
+        to: [email],
+        subject: "✅ Your Counselling Request Has Been Received",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb;">
+            <div style="background-color: #ffffff; border-radius: 8px; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+              <div style="text-align: center; margin-bottom: 30px;">
+                <h1 style="color: #270652; margin: 0; font-size: 28px;">Thank You, ${name}! 🎓</h1>
+                <p style="color: #666; margin: 10px 0 0 0;">Your counselling request has been successfully submitted</p>
+              </div>
+              
+              <div style="background-color: #4D964F; color: white; border-radius: 8px; padding: 20px; margin-bottom: 25px; text-align: center;">
+                <p style="margin: 0; font-size: 18px; font-weight: bold;">What Happens Next?</p>
+                <p style="margin: 10px 0 0 0;">Our certified mentor will contact you within 24 hours</p>
+              </div>
+              
+              <div style="background-color: #f8f9fa; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+                <h3 style="color: #270652; margin-top: 0;">Your Request Details:</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                  <tr>
+                    <td style="padding: 8px 0; color: #666; font-weight: bold; width: 40%;">University Interest:</td>
+                    <td style="padding: 8px 0; color: #333;">${university || 'Not specified'}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; color: #666; font-weight: bold;">Course Interest:</td>
+                    <td style="padding: 8px 0; color: #333;">${course || 'Not specified'}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; color: #666; font-weight: bold;">Contact:</td>
+                    <td style="padding: 8px 0; color: #333;">${phoneCode || '+91'} ${phone}</td>
+                  </tr>
+                </table>
+              </div>
+              
+              <div style="background-color: #e3f2fd; border-left: 4px solid #2196f3; padding: 15px; border-radius: 4px; margin-bottom: 25px;">
+                <p style="margin: 0; color: #1976d2; font-weight: bold;">📞 Expect a call from our mentor</p>
+                <p style="margin: 8px 0 0 0; color: #666;">They'll help you choose the right path and answer all your questions</p>
+              </div>
+              
+              <div style="text-align: center; margin-bottom: 20px;">
+                <p style="color: #999; font-size: 14px; margin: 0;">Have questions? Reach out to us</p>
+                <p style="color: #270652; font-size: 14px; margin: 5px 0 0 0;">
+                  <a href="mailto:contact@radhyaeducationacademy.com" style="color: #270652; text-decoration: none;">contact@radhyaeducationacademy.com</a>
+                </p>
+              </div>
+              
+              <p style="color: #999; font-size: 12px; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center;">
+                This is an automated confirmation. No need to reply.<br>
+                © 2024 Radhya Education. All rights reserved.
+              </p>
+            </div>
+          </div>
+        `,
+      });
+
+      console.log("✅ Admin and user confirmation emails sent successfully");
     } catch (emailError) {
       // Log email error but don't fail the request
-      console.error("⚠️ Failed to send admin email notification:", emailError);
+      console.error("⚠️ Failed to send email notifications:", emailError);
       // Continue - form submission was successful even if email failed
     }
 
-    return new Response(JSON.stringify({ success: true, data }), {
+return new Response(JSON.stringify({ success: true, data }), {
       status: 201,
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json",
+        'X-RateLimit-Limit': 5,
+        'X-RateLimit-Remaining': rateLimitResult.remaining
+      },
     });
-  } catch (err) {
+} catch (err) {
     console.error("Error submitting form:", err);
     return new Response(
-      JSON.stringify({ success: false, error: (err && err.message) || "Internal Server Error" }),
+      JSON.stringify({ success: false, error: "An error occurred. Please try again later." }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }

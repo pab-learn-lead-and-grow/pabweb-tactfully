@@ -28,7 +28,7 @@ export default function TermsConditionsPage() {
             Radhya Education Academy Private Limited
           </p>
           <p className="mt-1 text-xs text-black">
-            Last Updated: <span className="font-medium">[12/01/2026]</span>
+            Last Updated: <span className="font-medium">[16/01/2026]</span>
           </p>
         </div>
       </section>
@@ -37,7 +37,15 @@ export default function TermsConditionsPage() {
       <section className="max-w-5xl mx-auto px-4 md:px-6 py-12 text-gray-800 leading-relaxed">
         <p className="mb-2">
           Please read these Terms & Conditions carefully before using{" "}
-          <strong>[Website URL]</strong>, operated by{" "}
+          <strong><a
+  href="https://radhyaeducationacademy.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-black text-sm hover:text-[#3C087E] underline"
+>
+  www.radhyaeducationacademy.com
+</a>
+</strong>, operated by{" "}
           <strong>Radhya Education Academy Private Limited</strong> (operating
           under the brand name <strong>“Radhya Education Academy”</strong>) (“we”,
           “our”, “us”).
@@ -236,10 +244,25 @@ export default function TermsConditionsPage() {
           <p>For any queries regarding these Terms & Conditions, please contact:</p>
           <p><strong>Legal Entity:</strong> Radhya Education Academy Private Limited</p>
           <p><strong>Brand Name:</strong> Radhya Education Academy</p>
-          <p><strong>Website:</strong> [Website URL]</p>
-          <p><strong>Email:</strong> [Official Email Address]</p>
+          <p><strong>Website:</strong><a
+  href="https://radhyaeducationacademy.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-black text-sm hover:text-[#3C087E] underline"
+>
+  www.radhyaeducationacademy.com
+</a>
+</p>
+          <p><strong>Email:</strong><a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@radhyaeducationacademy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black text-sm lg:text-md hover:text-[#3C087E] underline"
+            >
+              contact@radhyaeducationacademy.com
+            </a></p>
           <p><strong>Phone:</strong> [Contact Number]</p>
-          <p><strong>Registered Address:</strong> [Registered Address]</p>
+          <p><strong>Registered Address:</strong> 25, Mayur Vihar, BP City, Gwalior, Madhya Pradesh, 474006</p>
         </PolicySection>
       </section>
     </div>

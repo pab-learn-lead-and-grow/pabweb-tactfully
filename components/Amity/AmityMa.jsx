@@ -521,7 +521,7 @@ export default function Page() {
         </div>
       </section>
      {/* ======= SNAPSHOT SECTION ======= */}
-          <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+          <section className="w-full mt-10  px-4 md:px-10 lg:px-20 font-[Inter]">
             <div className="max-w-7xl mx-auto">
               {/* HEADING */}
               <motion.h2
@@ -863,8 +863,8 @@ export default function Page() {
         </motion.div>
       </section>
 
-      <section className="w-full font-[Inter] px-4 md:px-10 lg:px-20 py-12">
-        <div className="p-6 md:p-10">
+      <section className="w-full font-[Inter] px-4 md:px-10 lg:px-20">
+        <div className="p-10 md:p-20">
           {/* Heading */}
           <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#270652] mb-4 md:mb-7">
             Eligibility Criteria

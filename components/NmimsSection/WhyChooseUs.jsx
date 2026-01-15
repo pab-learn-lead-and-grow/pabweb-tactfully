@@ -29,7 +29,7 @@ export default function WhyChooseUs({ cards = [], onCtaClick = () => {} }) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         viewport={{ once: false }}
-        className="text-[32px] font-[Inter] flex items-center justify-center text-left md:text-[64px] font-bold text-[#270652] mb-10"
+        className="text-[32px] font-[Inter] flex items-center justify-center text-left lg:text-[56px] xl:text-[64px] font-bold text-[#270652] mb-5  md:mb-10"
       >
         Why Choose Us
       </motion.h2>

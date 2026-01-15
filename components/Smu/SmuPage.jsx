@@ -204,7 +204,7 @@ export default function Page() {
         </div>
       </section>
       {/* ======= SNAPSHOT SECTION ======= */}
-                       <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+                       <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
                          <div className="max-w-7xl mx-auto">
                            {/* HEADING */}
                            <motion.h2
