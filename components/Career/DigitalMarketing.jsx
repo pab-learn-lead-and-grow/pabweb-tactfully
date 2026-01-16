@@ -139,7 +139,7 @@ alert("✅ Application submitted successfully!");
             Digital Marketing Specialist (Google Ads & Meta Ads)
           </h1>
           <p className="text-black mt-2 text-sm mb-6">
-            Lead generation, cold calling, counseling prospects, end-to-end sales.
+            Plan, execute, and optimize ad campaigns on Google and Meta platforms.
           </p>
           <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-gray-600">
             <span className="flex items-center gap-2">

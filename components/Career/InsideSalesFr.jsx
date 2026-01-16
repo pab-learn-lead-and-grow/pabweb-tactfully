@@ -304,7 +304,7 @@ console.error("Job application error:", error);
               link: "/jobs-at-radhya/digital-marketing-job",
               time: "5 min ago",
               title: "Digital Marketing Specialist (Google Ads & Meta Ads)",
-              desc: "Lead generation, cold calling, counseling prospects, end-to-end sales",
+              desc: "Plan, execute, and optimize ad campaigns on Google and Meta platforms",
               tag: "3-5 years",
               type: "Full Time",
               salary: "₹2,40,000-3,00,000",
