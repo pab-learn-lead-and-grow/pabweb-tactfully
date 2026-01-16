@@ -64,6 +64,7 @@ export default function JobDetails() {
 
       resumeUrl = publicUrlData.publicUrl;
 
+      // Insert into job_form table
       const { error } = await supabase.from("job_form").insert([
         {
           name: formData.name,
@@ -89,8 +90,8 @@ export default function JobDetails() {
       });
       e.target.reset();
     } catch (error) {
-      console.error("Supabase Error:", error.message);
-      alert("❌ Error submitting form: " + error.message);
+console.error("Job application error:", error);
+      alert("❌ Error submitting application: " + error.message);
     } finally {
       setLoading(false);
     }

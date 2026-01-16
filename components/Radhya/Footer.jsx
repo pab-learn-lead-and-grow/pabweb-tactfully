@@ -8,11 +8,10 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
   const links = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about-radhya" },
+    { name: "About Us", href: "/about-us" },
     { name: "Careers", href: "/jobs-at-radhya" },
     { name: "Blogs", href: "/#blogs" },
-    { name: "Contact Us", href: "/contact-page-radhya" },
-    { name: "Gallery", href: "/#" },
+    { name: "Contact Us", href: "/contact-us" },
   ];
 
   const pathname = usePathname();
@@ -64,31 +63,38 @@ export default function Footer() {
     setLoading(true);
     setMessage("");
 
-    const { error } = await supabase
-      .from("newsletter_subscribers")
-      .insert([{ email }]);
+// Call newsletter API that handles both database insert and emails
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email
+        }),
+      });
 
-    if (error) {
-      if (error.code === "23505") {
-        setMessage("You are already subscribed 🙂");
-      } else if (error.code === "23514") {
-        setMessage("Invalid email format");
-      } else {
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
         setMessage("Something went wrong. Try again.");
+        return;
       }
-    } else {
+
       setMessage("Subscribed successfully 🎉");
       setEmail("");
+    } catch (error) {
+      console.error("Newsletter submission error:", error);
+      setMessage("Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
 <footer className="w-full bg-white p-5 flex min-h-[90vh] xl:min-h-[50vh] items-center">
       <div className="mx-auto w-full max-w-7xl">
         {/* --- Main Section --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6  border-t-2 border-b-2">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6  border-t-2 pb-2 border-b-2">
           {/* --- Left Section (Logo, Social, Address) --- */}
           <div className="col-span-2">
             <div className="col-span-2 flex justify-start items-start text-left">
@@ -157,18 +163,18 @@ className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
               <p className="mt-1">Radhya Education Pvt. Ltd.</p>
               <p>Gwalior, Madhya Pradesh, India</p>
               <a
-                href="tel:+917489410758"
+                href="tel:xxxxxxxxx"
                 className="text-black text-xs md:text-sm hover:text-[#3C087E] underline"
                 aria-label="Call Radhya Education Academy"
               >
-                +91 7489410758
+                +91 xxxxxxxxxx
               </a>{" "}
               ||{" "}
               <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@radhyaeducationacademy.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black text-sm hover:text-[#3C087E] underline"
+              className="text-black text-xs md:text-sm hover:text-[#3C087E] underline"
             >
               contact@radhyaeducationacademy.com
             </a>

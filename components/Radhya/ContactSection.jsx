@@ -24,21 +24,22 @@ export default function ContactSection() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setStatus("");
 
     const { firstName, lastName, email, phone, message } = formData;
 
-     if (!/^\d{10}$/.test(phone)) {
-    setStatus("❌ Phone number must be exactly 10 digits.");
-    setLoading(false);
-    return;
-  }
+    if (!/^\d{10}$/.test(phone)) {
+      setStatus("❌ Phone number must be exactly 10 digits.");
+      setLoading(false);
+      return;
+    }
 
     try {
-      const { error } = await supabase.from("contact_messages").insert([
+      // Insert into contact_messages table
+      const { data, error } = await supabase.from("contact_messages").insert([
         {
           first_name: firstName,
           last_name: lastName,
@@ -49,19 +50,43 @@ export default function ContactSection() {
       ]);
 
       if (error) {
-        setStatus("Something went wrong. Please try again!");
-      } else {
-        setStatus("✅ Message sent successfully!");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
+        setStatus("❌ Something went wrong. Please try again!");
+        throw error;
       }
-    } catch {
-      setStatus("Something went wrong. Please try again!");
+
+      // Send emails (only on successful insert)
+      try {
+        const response = await fetch("/api/contact-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            phone,
+            message,
+          }),
+        });
+
+        if (!response.ok) {
+          console.error("Email notification failed");
+        }
+      } catch (emailError) {
+        console.error("Email notification error:", emailError);
+        // Don't fail the form if email fails
+      }
+
+      setStatus("✅ Message sent successfully!");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Contact form error:", error);
+      setStatus("❌ Error sending message: " + error.message);
     } finally {
       setLoading(false);
     }
@@ -80,18 +105,18 @@ export default function ContactSection() {
         <p className="text-black mx-2 font-regular">Radhya Education Academy</p>
 
         {/* FIXED: ALWAYS 2×2 GRID */}
-        <div className="grid grid-cols-2 mx-2 gap-8 mt-8">
+        <div className="grid grid-cols-2 mx-2 gap-6 mt-8">
           <div className="flex flex-col space-y-2">
             <Phone className="text-[#3C087E] w-6 h-6" />
             <span className="font-semibold text-lg text-black">
               Call for inquiry
             </span>
             <a
-              href="tel:+917489410758"
+              href="tel:xxxxxxxxx"
               className="text-black text-sm hover:text-[#3C087E] underline"
               aria-label="Call Radhya Education"
             >
-              +91 7489410758
+              +91 xxxxxxxxx
             </a>
           </div>
 
@@ -106,7 +131,7 @@ export default function ContactSection() {
               href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@radhyaeducationacademy.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black text-sm hover:text-[#3C087E] underline"
+              className="text-black text-xs md:text-sm break-words hover:text-[#3C087E] underline"
             >
               contact@radhyaeducationacademy.com
             </a>
@@ -118,7 +143,7 @@ export default function ContactSection() {
               Opening hours
             </span>
             <span className="text-black text-sm whitespace-nowrap">
-              Mon - Sat: 10AM - 10PM
+              Mon-Sat: 10AM-10PM
             </span>
           </div>
 

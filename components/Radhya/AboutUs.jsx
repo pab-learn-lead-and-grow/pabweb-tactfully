@@ -114,7 +114,7 @@ export default function WhatSetsUsApart() {
           lg:justify-end
         ">
           <Image
-            src="/aboutUs/aboutEducation.png"
+            src="/aboutUs/aboutEd.png"
             alt="Education"
             width={240}
             height={200}
@@ -165,7 +165,7 @@ export default function WhatSetsUsApart() {
           lg:justify-end
         ">
           <Image
-            src="/aboutUs/aboutLearning.png"
+            src="/aboutUs/aboutLearn.png"
             alt="Learning"
             width={420}
             height={320}
@@ -205,7 +205,7 @@ export default function WhatSetsUsApart() {
 
       <div className="mt-6 lg:mt-10 xl-mt-20 flex justify-center">
         <Image
-          src="/aboutUs/aboutCareer.png"
+          src="/aboutUs/aboutCar.png"
           alt="Career"
           width={400}
           height={360}

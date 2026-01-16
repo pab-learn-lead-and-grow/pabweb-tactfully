@@ -595,7 +595,7 @@ export default function CoursesSection() {
 return (
     <section className="p-5 lg:px-[60px] relative">
       <h2 className="font-bold text-[28px] md:text-4xl lg:text-5xl xl:text-[64px] leading-tight text-[#270652] mb-6">
-        Courses that fit your hustle
+     Courses that fit your hustle
       </h2>
 
       {/* Pill selector */}

@@ -1288,13 +1288,7 @@ return (
                   >
                     <Link
                       className="block py-2 px-3 rounded hover:bg-purple-50"
-                      href="/#blogs"
-                    >
-                      Gallery
-                    </Link>
-                    <Link
-                      className="block py-2 px-3 rounded hover:bg-purple-50"
-                      href="/contact-page-radhya"
+                      href="/contact-us"
                     >
                       Contact us
                     </Link>
@@ -1306,7 +1300,7 @@ return (
                     </Link>
                     <Link
                       className="block py-2 px-3 rounded hover:bg-purple-50"
-                      href="/about-radhya"
+                      href="/about-us"
                     >
                       About us
                     </Link>
@@ -1569,7 +1563,7 @@ return (
                     </Link>
                     <Link
                       className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-                      href="/Career"
+                      href="/jobs-at-radhya"
                       onClick={() => {
                         handleLinkClick();
                         handleMobileCloseAll();

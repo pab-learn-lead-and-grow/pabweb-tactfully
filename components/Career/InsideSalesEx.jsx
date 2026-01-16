@@ -57,9 +57,10 @@ export default function JobDetails() {
       return;
     }
 
-    try {
+try {
       let resumeUrl = null;
 
+      // Upload resume to Supabase storage
       const fileExt = formData.resume.name.split(".").pop();
       const fileName = `${Date.now()}_${formData.name.replace(/\s+/g, "_")}.${fileExt}`;
 
@@ -75,6 +76,7 @@ export default function JobDetails() {
 
       resumeUrl = publicUrlData.publicUrl;
 
+      // Insert into job_form table
       const { error } = await supabase.from("job_form").insert([
         {
           name: formData.name,
@@ -88,6 +90,33 @@ export default function JobDetails() {
 
       if (error) throw error;
 
+// Send email notifications (only on successful insert)
+      try {
+        console.log("📧 Sending job application emails...");
+        const emailResponse = await fetch("/api/job-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            position: formData.position,
+            experience: formData.experience,
+            resumeUrl: resumeUrl,
+          }),
+        });
+
+        if (!emailResponse.ok) {
+          const errorText = await emailResponse.text();
+          console.error("❌ Job email notification failed:", emailResponse.status, errorText);
+        } else {
+          console.log("✅ Job application emails sent successfully");
+        }
+      } catch (emailError) {
+        console.error("❌ Job email notification error:", emailError);
+        // Don't fail application if email fails
+      }
+
       alert("✅ Application submitted successfully!");
       setFormData({
         name: "",
@@ -99,8 +128,8 @@ export default function JobDetails() {
       });
       e.target.reset();
     } catch (error) {
-      console.error("Supabase Error:", error.message);
-      alert("❌ Error submitting form: " + error.message);
+      console.error("Job application error:", error);
+      alert("❌ Error submitting application: " + error.message);
     } finally {
       setLoading(false);
     }

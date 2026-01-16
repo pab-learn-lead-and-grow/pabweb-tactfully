@@ -46,13 +46,15 @@ export async function POST(request) {
 
     const sanitizedEmail = sanitizeInput(email);
 
-    // Send to Resend (or your newsletter service)
+    // Send email notifications (only on successful insert)
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
-      
+      const adminEmail = [process.env.ADMIN_EMAIL || "contact@radhyaeducationacademy.com"];
+
+      // Send admin notification
       await resend.emails.send({
-        from: "Newsletter <onboarding@resend.dev>",
-        to: process.env.ADMIN_EMAIL || "admin@example.com",
+        from: "Newsletter <contact@radhyaeducationacademy.com>",
+        to: adminEmail,
         subject: "📧 New Newsletter Subscription",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb;">
@@ -83,10 +85,73 @@ export async function POST(request) {
         `,
       });
 
-      console.log("✅ Newsletter subscription email sent successfully");
+      // Send user confirmation email
+      await resend.emails.send({
+        from: "Radhya Education <contact@radhyaeducationacademy.com>",
+        to: [sanitizedEmail],
+        subject: "✅ Welcome to Radhya Education Newsletter!",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb;">
+            <div style="background-color: #ffffff; border-radius: 8px; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+              <div style="text-align: center; margin-bottom: 30px;">
+                <h1 style="color: #270652; margin: 0; font-size: 28px;">Welcome! 🎓</h1>
+                <p style="color: #666; margin: 10px 0 0 0;">You're now subscribed to Radhya Education newsletter</p>
+              </div>
+              
+              <div style="background-color: #4D964F; color: white; border-radius: 8px; padding: 20px; margin-bottom: 25px; text-align: center;">
+                <p style="margin: 0; font-size: 18px; font-weight: bold;">What to Expect?</p>
+                <p style="margin: 10px 0 0 0;">Latest courses, career tips, and exclusive offers</p>
+              </div>
+              
+              <div style="background-color: #f8f9fa; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+                <h3 style="color: #270652; margin-top: 0;">Your Subscription Details:</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                  <tr>
+                    <td style="padding: 8px 0; color: #666; font-weight: bold; width: 40%;">Email:</td>
+                    <td style="padding: 8px 0; color: #333;">${sanitizedEmail}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; color: #666; font-weight: bold;">Status:</td>
+                    <td style="padding: 8px 0; color: #4D964F; font-weight: bold;">✅ Active</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; color: #666; font-weight: bold;">Subscribed:</td>
+                    <td style="padding: 8px 0; color: #333;">${new Date().toLocaleDateString()}</td>
+                  </tr>
+                </table>
+              </div>
+              
+              <div style="background-color: #e3f2fd; border-left: 4px solid #2196f3; padding: 15px; border-radius: 4px; margin-bottom: 25px;">
+                <p style="margin: 0; color: #1976d2; font-weight: bold;">📚 Newsletter Content:</p>
+                <p style="margin: 8px 0 0 0; color: #666;">
+                  • New course announcements<br>
+                  • Career guidance and tips<br>
+                  • Special discounts and offers<br>
+                  • Education industry insights
+                </p>
+              </div>
+              
+              <div style="text-align: center; margin-bottom: 20px;">
+                <p style="color: #999; font-size: 14px; margin: 0;">Want to unsubscribe?</p>
+                <p style="color: #270652; font-size: 14px; margin: 5px 0 0 0;">
+                  <a href="mailto:contact@radhyaeducationacademy.com" style="color: #270652; text-decoration: none;">contact@radhyaeducationacademy.com</a>
+                </p>
+              </div>
+              
+              <p style="color: #999; font-size: 12px; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center;">
+                This is an automated confirmation. No need to reply.<br>
+                © 2024 Radhya Education. All rights reserved.
+              </p>
+            </div>
+          </div>
+        `,
+      });
+
+      console.log("✅ Newsletter emails sent successfully");
     } catch (emailError) {
-      console.error("⚠️ Failed to send newsletter email:", emailError);
-      // Continue - we might want to store the email even if notification fails
+      console.error("❌ Failed to send newsletter emails:", emailError);
+      console.error("Email error details:", emailError.message);
+      // Continue - subscription was successful even if email failed
     }
 
     return new Response(

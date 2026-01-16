@@ -5,6 +5,7 @@ import { useState, useEffect, Suspense } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import CounsellingForm from "./CounsellingForm";
 
 // Lazy load heavy components
 const AllInOneSection = dynamic(() => import("./All-in-one"), {
@@ -176,6 +177,41 @@ useEffect(() => {
       text: "Choosing the Amity Online MBA through Radhya education was one of my best career decisions. This course helped me choose the right career path, and the guidance on practical application made all the difference.",
       rating: 4,
     },
+    {
+  id: 8,
+  name: "Ankit Verma",
+  title: "Product Executive, Innovatech Solutions",
+  text: "Radhya education helped me connect my learning with real business challenges. The counsellor’s guidance on choosing the right MBA specialisation gave me clarity I was missing for years. I now feel more confident about my career direction.",
+  rating: 5,
+},
+{
+  id: 9,
+  name: "Neha Kulkarni",
+  title: "Content Strategist, BrandNest Studio",
+  text: "The counselling experience was extremely professional and personalised. Radhya education didn’t push programs blindly — they helped me understand how each option would affect my long-term career growth.",
+  rating: 5,
+},
+{
+  id: 10,
+  name: "Saurabh Malhotra",
+  title: "Supply Chain Analyst, LogiCore Systems",
+  text: "What stood out for me was the clarity around ROI and skill relevance. Radhya education made sure I wasn’t just enrolling in a degree, but investing in the right career move.",
+  rating: 5,
+},
+{
+  id: 11,
+  name: "Pooja Iyer",
+  title: "Corporate Trainer, LearnSphere",
+  text: "The structured guidance and honest counselling approach helped me avoid confusion. I finally chose a program that aligned with both my professional goals and personal schedule.",
+  rating: 4,
+},
+{
+  id: 12,
+  name: "Rahul Bansal",
+  title: "Operations Manager, CoreLine Industries",
+  text: "Radhya education made online learning feel purposeful. The counsellor explained how each subject links to real workplace outcomes, which motivated me to stay consistent with my studies.",
+  rating: 5,
+},
   ];
 
   // pagination logic: 6 cards per "page"
@@ -203,9 +239,12 @@ useEffect(() => {
 const [showAllBlogs, setShowAllBlogs] = useState(false);
   const visibleBlogs = hydrated && showAllBlogs ? blogs : blogs.slice(0, 3);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);  
+
   return (
     <div className="flex flex-col bg-white font-sans">
       <HeroSection />
+     
 
     {/* LOGO MARQUEE SECTION */}
    <div className="h-[120px]">
@@ -225,9 +264,9 @@ const [showAllBlogs, setShowAllBlogs] = useState(false);
           <div className="flex flex-col gap-6 mb-8">
             {/* First Row: Heading and Description side by side */}
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-[#270652]">
+              <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold text-[#270652]">
                 Knowledge Corner
-              </h1>
+              </h2>
              <p className="text-black text-sm md:text-base w-55 word-break lg:text-left text-align-left">
                 Stay updated with the latest industry insights and trends.
               </p>
@@ -365,7 +404,20 @@ className="bg-[#3D077E] text-white px-4 text-xs md:text-[16px] md:px-7 py-1 -mt-
       <ContactSection />
 
         <FaqSection/>
-      <ConnectToday />
+       <section className="w-full h-60 md:h-90 bg-[#3C087E] mt-5 md:mt-8 xl:mt-20 py-20 flex flex-col items-center text-left">
+            <h1 className="text-xl md:text-4xl font-[Inter] font-bold text-white max-w-4xl leading-tight text-center px-4">
+              Get Expert Career Counselling for the Right Online, Offline & Distance Learning Courses
+            </h1>
+      
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(true)}
+              className=" mt-5 md:mt-15 text-white py-3 px-5 lg:px-10 xl:px-15 rounded-xl md:text-lg  bg-[#EEA727] border-0 border-transparent  shadow-[#db990a]  shadow-md transform hover:scale-105 duration 200 font-semibold hover:shadow-lg transition duration-200"
+            >
+              Connect Now
+            </button>
+            {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} />}
+          </section>
     </div>
   );
 }

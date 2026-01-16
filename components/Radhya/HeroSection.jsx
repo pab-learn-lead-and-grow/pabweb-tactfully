@@ -16,7 +16,7 @@ export default function Hero({ className }) {
           <div className="text-center">
 
             {/* HEADLINE */}
-            <motion.h1
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -25,7 +25,7 @@ export default function Hero({ className }) {
               <span className="bg-[linear-gradient(90deg,#FFB901_0%,#AD6F35_35.58%,#57216D_52.4%,#3C087E_100%)] bg-clip-text text-transparent">
                 #GyaanKiUdaan
               </span>
-            </motion.h1>
+            </motion.h2>
 
             {/* SUBTEXT */}
             <motion.p
@@ -78,7 +78,7 @@ export default function Hero({ className }) {
                 width={800}
                 height={400}
                 sizes="(max-width: 640px) 90vw, (max-width: 768px) 500px, (max-width: 1024px) 600px, (max-width: 1280px) 700px, 800px"
-                priority
+                fetchPriority="high"
                 className="w-full max-w-[500px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] drop-shadow-2xl"
               />
             </motion.div>

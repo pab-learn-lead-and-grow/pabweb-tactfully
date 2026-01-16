@@ -838,12 +838,12 @@ export default function Page() {
       <div className="bg-white rounded-xl p-6 shadow-md relative w-full">
 
         {/* ICON LINE */}
-        <div className="absolute top-0 bottom-0 left-6 flex flex-col items-center">
-          <div className="bg-[#270652] text-white p-2 rounded-full mt-6 z-10">
-            <ChevronsDown size={16} />
-          </div>
-          <div className="w-0.5 bg-[#270652] flex-1 mb-4"></div>
-        </div>
+        <div className="absolute top-0 bottom-0 flex flex-col items-center">
+                            <div className="bg-[#270652] text-white p-2 sm:p-3 rounded-full shadow z-10 mt-4 sm:mt-6">
+                              <ChevronsDown size={16} />
+                            </div>
+                            <div className="w-0.5 bg-[#270652] flex-1 mb-4"></div>
+                          </div>
 
         {/* TITLE */}
         <h3 className="text-2xl font-bold text-[#270652] ml-16 mb-4">
@@ -867,8 +867,8 @@ export default function Page() {
                   whileHover={{ x: 6 }}
                   className="flex items-center gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-[#270652] flex items-center justify-center">
-                    <Check size={14} className="text-white" />
+                  <div className="w-6 h-6 rounded-full bg-white hover:bg-[#270652] flex items-center justify-center">
+                    <Check size={14} className="text-[#270652] hover:text-white" />
                   </div>
                   <span className="text-sm md:text-base text-gray-800">
                     {topic}
