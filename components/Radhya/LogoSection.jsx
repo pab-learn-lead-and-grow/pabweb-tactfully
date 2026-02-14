@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function LogoSection({ logos }) {
   return (
     <div className="w-full h-[120px] overflow-hidden relative">
-      <div className="flex animate-scroll-slow hover:animation-pause">
+      <div className="flex  animate-scroll-fast  hover:animation-pause">
         {[...logos, ...logos].map((logo, idx) => (
           <Link
             key={idx}

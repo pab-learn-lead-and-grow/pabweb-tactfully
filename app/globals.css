@@ -48,8 +48,7 @@ body {
   transform: translateX(100%);
 }
 
-/* Logo scroll animation */
-@keyframes scroll-slow {
+@keyframes scroll {
   0% {
     transform: translateX(0);
   }
@@ -58,13 +57,16 @@ body {
   }
 }
 
-.animate-scroll-slow {
-  animation: scroll-slow 30s linear infinite;
+
+
+.animate-scroll-fast {
+  animation: scroll 10s linear infinite;
 }
 
 .hover\:animation-pause:hover {
   animation-play-state: paused;
 }
+
 
 .swiper-wrapper {
   transition-timing-function: linear !important;

@@ -588,7 +588,7 @@ export default function Page() {
                    viewport={{ once: true }}
                    className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
                  >
-                 NMIMS is one of India’s leading management universities, known for its academic excellence and global recognition. Through PAB, you get access to its Online MBA a program designed for working professionals who want to learn from the best and achieve measurable career growth.
+                 NMIMS is one of India’s leading management universities, known for its academic excellence and global recognition. Through Radhya Education Academy, you get access to its Online MBA a program designed for working professionals who want to learn from the best and achieve measurable career growth.
                  </motion.p>
      
                  {/* STATS */}
