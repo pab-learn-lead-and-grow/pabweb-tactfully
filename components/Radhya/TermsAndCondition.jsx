@@ -4,17 +4,18 @@ export const metadata = {
     "Terms & Conditions of Radhya Education Academy Private Limited governing use of the website, services, user responsibilities, and legal policies.",
 };
 
+function PolicySection({ title, children }) {
+  return (
+    <div className="mb-6">
+      <h2 className="text-xl md:text-2xl font-semibold text-black mb-4">
+        {title}
+      </h2>
+      <div className="text-sm md:text-base space-y-2">{children}</div>
+    </div>
+  );
+}
+
 export default function TermsConditionsPage() {
-  function PolicySection({ title, children }) {
-    return (
-      <div className="mb-6">
-        <h2 className="text-xl md:text-2xl font-semibold text-black mb-4">
-          {title}
-        </h2>
-        <div className="text-sm md:text-base space-y-2">{children}</div>
-      </div>
-    );
-  }
 
   return (
     <div className="mt-18 flex flex-col text-black">

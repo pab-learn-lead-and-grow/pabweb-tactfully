@@ -93,7 +93,7 @@ const handleSubmit = async (e) => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-8 md:px-10 py-12 bg-white grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div className="max-w-7xl mx-auto px-8 md:px-10 py-12 bg-white grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* LEFT SECTION */}
       <div className="flex flex-col bg-white justify-center space-y-3">
         <h2 className="text-3xl md:text-4xl xl:text-[54px] font-bold leading-snug text-black">

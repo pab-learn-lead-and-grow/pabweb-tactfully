@@ -58,27 +58,28 @@ export default function CounsellorVerification() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full mt-20 max-w-6xl bg-[#EBE7FC] rounded-3xl shadow-[0_20px_60px_rgba(52,88,149,0.15)] p-10  overflow-hidden grid md:grid-cols-2 gap-10 items-center"
+          className="w-full mt-20 max-w-6xl bg-[#EBE7FC] rounded-3xl shadow-[0_20px_60px_rgba(52,88,149,0.15)] lg:p-10  overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
         >
           {/* IMAGE */}
-        <div className="relative h-56 md:h-full p-10 flex items-center justify-center">
+          <div className="relative aspect-[1138/836] md:h-full">
   {status === "verified" ? (
     <video
       key="verified-video"
-      src="/verification-successfull.mp4"   
+      src="/verification-successfull.mp4"  
+      alt="Counsellor Verification Success" 
       autoPlay
       loop
       muted
       playsInline
-      className="w-full h-full object-contain rounded-2xl"
+      className=" object-contain rounded-2xl"
     />
     
   ) : (
     <Image
-      src="/verification.jpg"
+      src="/counsellor-placeholder.png"
       alt="Counsellor Verification"
       fill
-      className="object-cover rounded-2xl"
+      className=" object-cover rounded-2xl"
       priority
     />
   )}
@@ -86,8 +87,11 @@ export default function CounsellorVerification() {
 
 
           {/* FORM */}
-          <div className="p-6 md:p-10 flex flex-col justify-center bg-white rounded-3xl shadow-[0_20px_60px_rgba(52,88,149,0.15)]">
-            <div className="mb-8">
+          <div className="p-2 md:p-10 flex flex-col justify-center bg-white rounded-3xl shadow-[0_20px_60px_rgba(52,88,149,0.15)]">
+            
+                {/* SHOW INPUT ONLY IF NOT VERIFIED */}
+      {status !== "verified" && (
+        <>
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4">
                <svg width="77" height="77" viewBox="0 0 77 77" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clipPath="url(#clip0_2640_132)">
@@ -96,7 +100,7 @@ export default function CounsellorVerification() {
 </g>
 </g>
 <defs>
-<filter id="filter0_d_2640_132" x="2.41669" y="1.41165" width="72.1667" height="82.1767" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d_2640_132" x="2.41669" y="1.41165" width="72.1667" height="82.1767" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>
@@ -107,8 +111,8 @@ export default function CounsellorVerification() {
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2640_132" result="shape"/>
 </filter>
 <linearGradient id="paint0_linear_2640_132" x1="38.5" y1="1.41165" x2="38.5" y2="75.5883" gradientUnits="userSpaceOnUse">
-<stop stop-color="#7B2AE1"/>
-<stop offset="1" stop-color="#09224D"/>
+<stop stopColor="#7B2AE1"/>
+<stop offset="1" stopColor="#09224D"/>
 </linearGradient>
 <clipPath id="clip0_2640_132">
 <rect width="77" height="77" fill="white"/>
@@ -122,29 +126,32 @@ export default function CounsellorVerification() {
                  Verify your Counselor
               </h2>
 
-              <p className="text-[#3C3C43] text-base md:text-xl mt-2 max-w-sm">
+              <p className="text-[#3C3C43] text-base md:text-xl mt-2 mb-8 max-w-sm">
               Enter the CP ID to instantly verify your counselor’s authenticity
               </p>
-            </div>
+            
 
-            <input
-              type="text"
-              value={cpId}
-              onChange={(e) => {
-                setCpId(e.target.value.toUpperCase());
-                setStatus("idle");
-              }}
-              placeholder="Enter CP ID (CP-10112)"
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-[#3C087E]/10 text-black placeholder-gray-700 focus:bg-white  focus:outline-none focus:ring-2 focus:ring-[#345895] transition"
-            />
+           
+          <input
+            type="text"
+            value={cpId}
+            onChange={(e) => {
+              setCpId(e.target.value.toUpperCase());
+              setStatus("idle");
+            }}
+            placeholder="Enter CP ID (CP-10112)"
+            className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-[#3C087E]/10 text-black placeholder-gray-700 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#345895] transition"
+          />
 
-            <button
-              onClick={handleVerify}
-              disabled={loading}
-              className="mt-5 w-full bg-[#3C087E] hover:bg-[#2a4575] disabled:opacity-60 transition text-white font-semibold py-3 rounded-xl shadow-md hover:shadow-lg"
-            >
-              {loading ? "Verifying..." : "Verify & Connect"}
-            </button>
+          <button
+            onClick={handleVerify}
+            disabled={loading}
+            className="mt-5 w-full bg-[#3C087E] hover:bg-[#2a4575] disabled:opacity-60 transition text-white font-semibold py-3 rounded-xl shadow-md hover:shadow-lg"
+          >
+            {loading ? "Verifying..." : "Verify & Connect"}
+          </button>
+        </>
+      )}
 
             {/* STATUS */}
             <AnimatePresence mode="wait">
@@ -182,8 +189,8 @@ export default function CounsellorVerification() {
 <path d="M68.1667 11.2292L36.0833 0L4 11.2292V37.0883C4 50.3291 12.1299 59.5852 19.708 65.3313C24.2833 68.7656 29.3016 71.5661 34.6267 73.6569C34.9904 73.7938 35.3561 73.9243 35.724 74.0483L36.0833 74.1767L36.4491 74.0483C37.1506 73.8047 37.8459 73.5436 38.5345 73.2655C43.4937 71.2223 48.1727 68.5561 52.4587 65.3313C60.04 59.5852 68.1667 50.3291 68.1667 37.0883V11.2292ZM32.8782 48.0448L19.2717 34.4318L23.8082 29.892L32.8814 38.9684L51.031 20.8189L55.5707 25.3555L32.8782 48.0448Z" fill="url(#paint0_linear_2641_441)"/>
 </g>
 <defs>
-<filter id="filter0_d_2641_441" x="0" y="0" width="72.1667" height="82.1767" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter0_d_2641_441" x="0" y="0" width="72.1667" height="82.1767" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>
 <feGaussianBlur stdDeviation="2"/>
@@ -193,8 +200,8 @@ export default function CounsellorVerification() {
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2641_441" result="shape"/>
 </filter>
 <linearGradient id="paint0_linear_2641_441" x1="36.0833" y1="0" x2="36.0833" y2="74.1767" gradientUnits="userSpaceOnUse">
-<stop stop-color="#4D964F"/>
-<stop offset="1" stop-color="#011401"/>
+<stop stopColor="#4D964F"/>
+<stop offset="1" stopColor="#011401"/>
 </linearGradient>
 </defs>
 </svg>
@@ -220,6 +227,17 @@ export default function CounsellorVerification() {
             <li>✔ Officially Approved by R.E.A</li>
             <li>✔ Certified & Student-Trusted Counselling Partner</li>
           </ul>
+
+            {/* Optional Reset Button */}
+              <button
+                onClick={() => {
+                  setStatus("idle");
+                  setCpId("");
+                }}
+                className="mt-6 text-sm text-black underline"
+              >
+                Verify Another Counsellor
+              </button>
         </div>
       </div>
     </motion.div>

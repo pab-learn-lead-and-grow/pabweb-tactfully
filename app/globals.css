@@ -63,6 +63,19 @@ body {
   animation: scroll 10s linear infinite;
 }
 
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-slow {
+  animation: marquee-vertical 20s linear infinite;
+}
+
 .hover\:animation-pause:hover {
   animation-play-state: paused;
 }

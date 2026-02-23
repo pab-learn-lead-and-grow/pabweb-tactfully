@@ -11,7 +11,13 @@ export default function Footer() {
     { name: "About Us", href: "/about-us" },
     { name: "Careers", href: "/jobs-at-radhya" },
     { name: "Blogs", href: "/#blogs" },
+    { name: "News and Articles", href: "/news" },
     { name: "Contact Us", href: "/contact-us" },
+    { name: "UGC Approvals", href: "/ugc-approved-universities" },
+    { name: "University Response Time", href: "/university-response-time" },
+    { name: "Verify Counsellors", href: "/counsellor-verification" },
+    { name: "College Cards", href: "/college-cards" },
+    { name: "Universities List", href: "/universitieslist" },
   ];
 
   const pathname = usePathname();

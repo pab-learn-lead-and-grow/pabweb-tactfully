@@ -12,6 +12,16 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
     reactRemoveProperties: process.env.NODE_ENV === 'production'
   },
+
+ images: {
+  remotePatterns: [
+    {
+      protocol: "https",
+      hostname: "bkcaoaoebbzrhbsfkjbm.supabase.co",
+      pathname: "/storage/v1/object/public/**",
+    },
+  ],
+},
   
   // Security Headers (CSP temporarily disabled due to font loading issue)
   async headers() {

@@ -4,8 +4,7 @@ export const metadata = {
     "Privacy Policy of Radhya Education Academy Private Limited explaining data collection, usage, cookies, and user rights.",
 };
 
-export default function PrivacyPolicyPage() {
-  function PolicySection({ title, children }) {
+function PolicySection({ title, children }) {
   return (
     <div className="mb-6">
       <h2 className="text-xl md:text-2xl font-semibold text-black mb-4">
@@ -15,6 +14,8 @@ export default function PrivacyPolicyPage() {
     </div>
   );
 }
+
+export default function PrivacyPolicyPage() {
   return (
     <div className="mt-18 flex flex-col text-black">
       {/* Main Content */}

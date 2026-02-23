@@ -1286,24 +1286,68 @@ return (
                     onMouseLeave={() => setMoreOpen(false)}
                     className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg border border-gray-100 p-2"
                   >
-                    <Link
-                      className="block py-2 px-3 rounded hover:bg-purple-50"
-                      href="/contact-us"
-                    >
-                      Contact us
-                    </Link>
-                    <Link
-                      className="block py-2 px-3 rounded hover:bg-purple-50"
-                      href="/jobs-at-radhya"
-                    >
-                      Careers
-                    </Link>
-                    <Link
-                      className="block py-2 px-3 rounded hover:bg-purple-50"
-                      href="/about-us"
-                    >
-                      About us
-                    </Link>
+                   <Link
+  className="block py-2 px-3 rounded hover:bg-purple-50"
+  href="/"
+>
+  Home
+</Link>
+
+<Link
+  className="block py-2 px-3 rounded hover:bg-purple-50"
+  href="/about-us"
+>
+  About Us
+</Link>
+
+<Link
+  className="block py-2 px-3 rounded hover:bg-purple-50"
+  href="/jobs-at-radhya"
+>
+  Careers
+</Link>
+
+<Link
+  className="block py-2 px-3 rounded hover:bg-purple-50"
+  href="/#blogs"
+>
+  Blogs
+</Link>
+
+<Link
+  className="block py-2 px-3 rounded hover:bg-purple-50"
+  href="/news"
+>
+  News and Articles
+</Link>
+
+<Link
+  className="block py-2 px-3 rounded hover:bg-purple-50"
+  href="/contact-us"
+>
+  Contact Us
+</Link>
+
+<Link
+  className="block py-2 px-3 rounded hover:bg-purple-50"
+  href="/ugc-approved-universities"
+>
+  UGC Approvals
+</Link>
+
+<Link
+  className="block py-2 px-3 rounded hover:bg-purple-50"
+  href="/university-response-time"
+>
+  University Response Time
+</Link>
+
+<Link
+  className="block py-2 px-3 rounded hover:bg-purple-50"
+  href="/counsellor-verification"
+>
+  Verify Counsellors
+</Link>
                   </div>
                 )}
               </div>
@@ -1541,46 +1585,105 @@ return (
                 </button>
                 {moreOpen && (
                   <div className="pl-4">
-                    <Link
-                      className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-                      href="/#blogs"
-                      onClick={() => {
-                        handleLinkClick();
-                        handleMobileCloseAll();
-                      }}
-                    >
-                      Gallery
-                    </Link>
-                    <Link
-                      className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-                      href="/contact-page-radhya"
-                      onClick={() => {
-                        handleLinkClick();
-                        handleMobileCloseAll();
-                      }}
-                    >
-                      Contact us
-                    </Link>
-                    <Link
-                      className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-                      href="/jobs-at-radhya"
-                      onClick={() => {
-                        handleLinkClick();
-                        handleMobileCloseAll();
-                      }}
-                    >
-                      Careers
-                    </Link>
-                    <Link
-                      className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-                      href="/about-radhya"
-                      onClick={() => {
-                        handleLinkClick();
-                        handleMobileCloseAll();
-                      }}
-                    >
-                      About us
-                    </Link>
+                   
+                   <Link
+  className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
+  href="/"
+  onClick={() => {
+    handleLinkClick();
+    handleMobileCloseAll();
+  }}
+>
+  Home
+</Link>
+
+<Link
+  className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
+  href="/about-us"
+  onClick={() => {
+    handleLinkClick();
+    handleMobileCloseAll();
+  }}
+>
+  About Us
+</Link>
+
+<Link
+  className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
+  href="/jobs-at-radhya"
+  onClick={() => {
+    handleLinkClick();
+    handleMobileCloseAll();
+  }}
+>
+  Careers
+</Link>
+
+<Link
+  className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
+  href="/#blogs"
+  onClick={() => {
+    handleLinkClick();
+    handleMobileCloseAll();
+  }}
+>
+  Blogs
+</Link>
+
+<Link
+  className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
+  href="/news"
+  onClick={() => {
+    handleLinkClick();
+    handleMobileCloseAll();
+  }}
+>
+  News and Articles
+</Link>
+
+<Link
+  className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
+  href="/contact-us"
+  onClick={() => {
+    handleLinkClick();
+    handleMobileCloseAll();
+  }}
+>
+  Contact Us
+</Link>
+
+<Link
+  className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
+  href="/ugc-approved-universities"
+  onClick={() => {
+    handleLinkClick();
+    handleMobileCloseAll();
+  }}
+>
+  UGC Approvals
+</Link>
+
+<Link
+  className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
+  href="/university-response-time"
+  onClick={() => {
+    handleLinkClick();
+    handleMobileCloseAll();
+  }}
+>
+  University Response Time
+</Link>
+
+<Link
+  className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
+  href="/counsellor-verification"
+  onClick={() => {
+    handleLinkClick();
+    handleMobileCloseAll();
+  }}
+>
+  Verify Counsellors
+</Link>
                   </div>
                 )}
               </div>

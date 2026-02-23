@@ -1,0 +1,212 @@
+"use client";
+
+import { useState } from "react";
+
+export default function HelpSection() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "University Response Page",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        setStatus(result.error || "Something went wrong.");
+      } else {
+        setStatus("✅ Message sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      setStatus("❌ Something went wrong. Please try again.");
+    }
+
+    setLoading(false);
+  };
+
+  return (
+    <section className="w-full py-12 lg:py-24 px-4">
+      <div className="max-w-6xl mx-auto bg-[#3C087E]/10 rounded-3xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+        {/* LEFT */}
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#3C087E] mb-4">
+            We’re Here to Help You
+          </h2>
+
+          <p className="text-[#3C3C43] text-sm sm:text-lg mb-8 max-w-lg">
+            Facing an issue with your university? Share your concern with us 
+            and our team will review and guide you toward the right resolution.
+          </p>
+
+         <div className="bg-white rounded-2xl p-6 shadow-md flex justify-center items-center h-[300px]">
+  <img
+    src="/Help.png"
+    alt="Help"
+    className="max-h-full w-auto object-contain"
+  />
+</div>
+        </div>
+
+        {/* RIGHT FORM */}
+<div>
+  <form onSubmit={handleSubmit}>
+
+    {/* First + Last */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <div>
+        <label
+          htmlFor="firstName"
+          className="block text-[#3C087E] font-medium mb-1"
+        >
+          First Name
+        </label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="Your name"
+          value={formData.firstName}
+          onChange={handleChange}
+          required
+          className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-purple-500"   />
+      </div>
+
+      <div>
+        <label
+          htmlFor="lastName"
+          className="block text-[#3C087E] font-medium mb-1"
+        >
+          Last Name
+        </label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Your last name"
+          value={formData.lastName}
+          onChange={handleChange}
+          required
+          className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-purple-500" />
+      </div>
+    </div>
+
+    {/* Email */}
+    <div>
+      <label
+        htmlFor="email"
+        className="block text-[#3C087E] font-medium mb-1 mt-2"
+      >
+        Email Address
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Your E-mail address"
+        value={formData.email}
+        onChange={handleChange}
+        required
+         className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-purple-500" />
+    </div>
+
+    {/* Phone */}
+    <div>
+      <label
+        htmlFor="phone"
+        className="block text-[#3C087E] font-medium mb-1 mt-2"
+      >
+        Phone Number
+      </label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="+91 XXXXXXXXXX"
+        value={formData.phone}
+        onChange={handleChange}
+        required
+        className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-purple-500"  />
+    </div>
+
+    {/* Message */}
+    <div>
+      <label
+        htmlFor="message"
+        className="block text-[#3C087E] font-medium mb-1 mt-2"
+      >
+        Message
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        rows={4}
+        placeholder="Your message..."
+        value={formData.message}
+        onChange={handleChange}
+        className="w-full border border-gray-300 rounded-lg px-4 py-2 text-black bg-white placeholder-gray-600 focus:ring-2 focus:ring-purple-500" />
+    </div>
+
+    {/* Submit */}
+    <button
+      type="submit"
+      disabled={loading}
+      className="bg-[#3C087E] hover:bg-[#270652] text-white px-6 py-3 mt-2 rounded-lg transition"
+    >
+      {loading ? "Sending..." : "Send Message"}
+    </button>
+
+    {/* Status */}
+    {status && (
+      <p
+        className={`mt-3 text-sm ${
+          status.startsWith("✅")
+            ? "text-green-600"
+            : "text-red-600"
+        }`}
+      >
+        {status}
+      </p>
+    )}
+
+  </form>
+</div>
+
+      </div>
+    </section>
+  );
+}
