@@ -262,7 +262,7 @@ export default function Page() {
                   viewport={{ once: true }}
                   className="text-white text-[12px] md:text-[16px] italic font-light"
                 >
-                  Certificate in Online Mode
+                  Online Certificate in Business Management
                 </motion.p>
       
                 {/* TITLE + DESCRIPTION */}
@@ -274,7 +274,7 @@ export default function Page() {
                     viewport={{ once: true }}
                     className="text-white text-[20px] md:text-3xl lg:text-4xl xl:text-[54px] font-[Inter] font-bold mt-1 leading-tight"
                   >
-                    Certificate Program in Business Management
+                    NMIMS Online Certificate Program
                   </motion.h1>
       
                   <motion.p
@@ -395,9 +395,9 @@ export default function Page() {
                                      transition={{ duration: 0.5 }}
                                      viewport={{ once: true }}
                                    >
-                                     <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                     <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
                                        <Counter end={25} />%
-                                     </h3>
+                                     </p>
                                       <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
                                        Average Salary Growth
                                      </p>
@@ -410,9 +410,9 @@ export default function Page() {
                                      transition={{ duration: 0.5, delay: 0.1 }}
                                      viewport={{ once: true }}
                                    >
-                                     <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                     <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
                                        <Counter end={82000} />
-                                     </h3>
+                                     </p>
                                       <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                                        Strong Global Alumni Network
                                      </p>
@@ -425,9 +425,9 @@ export default function Page() {
                                      transition={{ duration: 0.5, delay: 0.2 }}
                                      viewport={{ once: true }}
                                    >
-                                     <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                                     <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
                                        <Counter end={500} />+
-                                     </h3>
+                                     </p>
                                       <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                                        Hiring Partners
                                      </p>
@@ -440,11 +440,11 @@ export default function Page() {
             <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
               {/* ===== Top Text Section ===== */}
               <div className="max-w-6xl text-left mx-auto">
-                <h2 className="text-xl md:text-2xl font-regular lg:text-[42px] leading-normal text-gray-900">
+                <p className="text-xl md:text-2xl font-regular lg:text-[42px] leading-normal text-gray-900">
                   <span className="text-red-600 ">
                     Explore the essentials of business management {" "}
                   </span>
-                  with this 6-month certificate program designed to offer a strong preview of the business world.</h2>
+                  with this 6-month certificate program designed to offer a strong preview of the business world.</p>
               </div>
       
               {/* ===== Bottom Card Section ===== */}
@@ -458,9 +458,9 @@ export default function Page() {
       
                   {/* Content */}
                   <div>
-                    <h3 className="lg:text-2xl text-[#270652] mb-1">
+                    <p className="lg:text-2xl text-[#270652] mb-1">
                       Learn basics of business management
-                    </h3>
+                    </p>
                     <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
                     Understand the foundational concepts of business management and how they apply in real-world settings to build a strong career in the field.</p>
                   </div>
@@ -475,9 +475,9 @@ export default function Page() {
       
                   {/* Content */}
                   <div>
-                    <h3 className="lg:text-2xl text-[#270652] mb-1">
+                    <p className="lg:text-2xl text-[#270652] mb-1">
                       Skills to solve business challenges
-                    </h3>
+                    </p>
                     <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
                      Gain essential business skills that empower you to analyze issues, think strategically, and create solutions for real-world challenges.
                     </p>
@@ -486,7 +486,12 @@ export default function Page() {
               </div>
             </section>
       
-           <WhyChooseUs cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
+           <WhyChooseUs  title={
+    <>
+      Why Choose NMIMS <br />
+      Online Certificate Program
+    </>
+  } cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
 
       <section className="w-full bg-[#3C0879]/5 mt-15 py-16 px-4 md:px-12 lg:px-20 rounded-xl text-[#270652] font-[Inter]">
              <div className="grid grid-cols-1 lg:grid-cols-3 items-start gap-10">
@@ -497,7 +502,7 @@ export default function Page() {
                  transition={{ duration: 0.6 }}
                  className="text-5xl md:text-5xl font-[Inter] font-bold lg:pl-6"
                >
-                 Syllabus
+                 NMIMS Online certificate Program Syllabus
                </motion.h2>
      
                {/* MIDDLE: Divider + Topics */}
@@ -524,14 +529,14 @@ export default function Page() {
      
                  {/* Topics Text */}
                  <div className="">
-                   <motion.h3
+                   <motion.p
                      initial={{ opacity: 0, y: -20 }}
                      whileInView={{ opacity: 1, y: 0 }}
                      transition={{ duration: 0.6 }}
                      className="text-2xl md:text-3xl text-[#3C0879] font-semibold mb-4 whitespace-nowrap"
                    >
                      Topics Covered
-                   </motion.h3>
+                   </motion.p>
      
                    <ul className="space-y-3 text-base md:text-lg">
                      {topics.map((topic, index) => (
@@ -564,7 +569,7 @@ export default function Page() {
              </div>
            </section>
      
-     <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
+     <section className="w-full px-4 md:px-10 lg:px-20 py-12 lg:py-24 font-[Inter]">
              <div className="max-w-7xl mx-auto">
                {/* Title animation */}
                <motion.h2
@@ -572,9 +577,9 @@ export default function Page() {
                  whileInView={{ opacity: 1, x: 0 }}
                  transition={{ duration: 0.6 }}
                  viewport={{ once: true }}
-                 className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#270652]"
+                 className="inline-block text-[32px] md:text-5xl font-bold text-[#270652]"
                >
-                 Eligibility Criteria
+                 Eligibility for NMIMS Online certificate Program
                </motion.h2>
      
                {/* Card container */}
@@ -664,9 +669,9 @@ export default function Page() {
                                  viewport={{ once: true }}
                                  className="bg-[#3C087E]/5 text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
                                >
-                                 <h3 className="text-[#270652] text-md md:text-2xl font-semibold italic mb-5">
+                                 <p className="text-[#270652] text-md md:text-2xl font-semibold italic mb-5">
                                    Exam Slot Booking
-                                 </h3>
+                                 </p>
                    
                                  {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
                                  <div className="space-y-5 text-lg leading-relaxed max-w-[380] mx-auto text-black">
@@ -696,9 +701,9 @@ export default function Page() {
                                  viewport={{ once: true }}
                                  className="bg-[#3C087E]/5 text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
                                >
-                                 <h3 className="text-[#270652] text-lg md:text-2xl font-semibold italic mb-5">
+                                 <p className="text-[#270652] text-lg md:text-2xl font-semibold italic mb-5">
                                    Exam Slot Timings
-                                 </h3>
+                                 </p>
                    
                                  <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-center text-black">
                                    For end-term examinations, NMIMS provides three available slots:
@@ -777,7 +782,7 @@ export default function Page() {
             >
               {/* Heading */}
               <h2 className="text-[#270652] text-[42px] md:text-[50px] lg:text-[60px] xl:text-[62px] font-bold leading-tight">
-                Fees Structure
+                Fees Structure for NMIMS Online Certificate Program
               </h2>
 
               {/* Subtitle */}
@@ -831,9 +836,9 @@ export default function Page() {
               className="w-full lg:w-[60%]"
             >
               <div className="bg-[#3C087E]/10 rounded-3xl p-8 md:p-12 shadow-sm">
-                <h3 className="text-[#270652] text-3xl md:text-4xl font-bold text-center mb-8">
+                <h2 className="text-[#270652] text-3xl md:text-4xl font-bold text-center mb-8">
                   Note
-                </h3>
+                </h2>
                 <p className="text-[#1F1F1F] leading-relaxed text-sm md:text-base">
                   Note: To get a detailed understanding of the fee structure,
                   contact a student counsellor.

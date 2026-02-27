@@ -15,10 +15,10 @@ const inter = Inter({
 
 export const metadata = {
   title:{
-    default:  "Radhya Education || Best Education Consultant ",
-    template: "%s | Radhya Education",
+    default:  "Radhya Education Academy || Best Education Consultant ",
+    template: "%s | Radhya Education Academy",
   },
-  description: "Explore online programs from top universities with personalized counselling",
+  description: "Explore online programs from top universities with personalized counselling from Radhya Education Academy.",
  
 };
 

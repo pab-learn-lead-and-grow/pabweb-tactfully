@@ -391,7 +391,7 @@ export default function Page() {
                                       viewport={{ once: true }}
                                       className="text-white text-2xl md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
                                     >
-                                     Online B.Com Degree
+                                     Manipal Jaipur Online B.Com
                                     </motion.h1>
                         
                                     <motion.p
@@ -522,9 +522,9 @@ export default function Page() {
                                     transition={{ duration: 0.5 }}
                                     viewport={{ once: true }}
                                   >
-                                    <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                                    <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                       NAAC A+
-                                    </h3>
+                                    </p>
                                      <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                                       Rajasthan's First
                                     </p>
@@ -537,9 +537,9 @@ export default function Page() {
                                     transition={{ duration: 0.5, delay: 0.1 }}
                                     viewport={{ once: true }}
                                   >
-                                    <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                                    <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                       UGC
-                                    </h3>
+                                    </p>
                                      <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                                       Entitled Degree
                                     </p>
@@ -552,9 +552,9 @@ export default function Page() {
                                     transition={{ duration: 0.5, delay: 0.2 }}
                                     viewport={{ once: true }}
                                   >
-                                    <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                                    <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                                       #9
-                                    </h3>
+                                    </p>
                                     <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                                       Rank By Careers360
                                     </p>
@@ -586,9 +586,9 @@ export default function Page() {
           
                       {/* Content */}
                       <div>
-                        <h3 className="lg:text-2xl text-[#270652] mb-1">
+                        <p className="lg:text-2xl text-[#270652] mb-1">
                           Master multi-disciplinary practices
-                        </h3>
+                        </p>
                         <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
                          Strengthen your ability to tackle business challenges by integrating knowledge from finance, accounting, policy frameworks, and global trade practices.
                          </p>
@@ -604,9 +604,9 @@ export default function Page() {
           
                       {/* Content */}
                       <div>
-                        <h3 className="lg:text-2xl text-[#270652] mb-1">
+                        <p className="lg:text-2xl text-[#270652] mb-1">
                           Get Access To Exclusive Coursera Benefits
-                        </h3>
+                        </p>
                         <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
                           Choose from 10,000+ courses & professional certifications from
                           leading global universities while pursuing your degree.
@@ -616,9 +616,10 @@ export default function Page() {
                   </div>
                 </section>
 
-      <WhyChooseUs cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
+      <WhyChooseUs title="Why Choose MUJ Online BCOM " cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
 
       <CourseCurriculumSection
+      title="MUJ Online BCOM Syllabus"
   years={[1, 2, 3]}
   data={{
     /* ========================= YEAR 1 ========================= */
@@ -845,7 +846,7 @@ export default function Page() {
         <div className="p-6 md:p-10">
           {/* Heading */}
           <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#270652] mb-4 md:mb-7">
-            Eligibility Criteria
+            Eligibility for MUJ Online BCOM
           </h2>
 
           {/* Indian Students */}
@@ -966,9 +967,9 @@ export default function Page() {
                       viewport={{ once: true }}
                       className="bg-[#3C087E]/5 text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
                     >
-                      <h3 className=" text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
+                      <p className=" text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
                         Exam Slot Booking
-                      </h3>
+                      </p>
         
                       {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
                       <div className="space-y-5 text-lg leading-relaxed max-w-[380] text-black mx-auto">
@@ -1000,9 +1001,9 @@ export default function Page() {
                       viewport={{ once: true }}
                       className="bg-[#3C087E]/5 text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
                     >
-                      <h3 className="text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
+                      <p className="text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
                         Exam Slot Timings
-                      </h3>
+                      </p>
         
                       <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-black text-center">
                         For end-term examinations, MUJ provides three available slots:
@@ -1095,7 +1096,7 @@ export default function Page() {
       {/* LEFT SIDE TEXT */}
       <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
         <h2 className="text-[#270652] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4 md:mb-10">
-          Fees Structure
+          Fees Structure for MUJ Online BCOM
         </h2>
 
         {/* Subtitle */}

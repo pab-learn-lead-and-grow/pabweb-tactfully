@@ -570,7 +570,7 @@ export default function Page() {
             viewport={{ once: true }}
             className="text-white text-[12px] md:text-[16px] italic font-light"
           >
-            Degree in Online Mode
+             Bachelor of Business Administration
           </motion.p>
 
           {/* TITLE + DESCRIPTION */}
@@ -582,7 +582,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
             >
-              Bachelor of Business Administration
+             NMIMS Online BBA
             </motion.h1>
 
             <motion.p
@@ -716,9 +716,9 @@ export default function Page() {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
                   <Counter end={25} />%
-                </h3>
+                </p>
                 <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
                   Average Salary Growth
                 </p>
@@ -731,9 +731,9 @@ export default function Page() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
                   <Counter end={82000} />
-                </h3>
+                </p>
                 <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                   Strong Global Alumni Network
                 </p>
@@ -746,9 +746,9 @@ export default function Page() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
                   <Counter end={500} />+
-                </h3>
+                </p>
                 <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                   Hiring Partners
                 </p>
@@ -782,9 +782,9 @@ export default function Page() {
 
             {/* Content */}
             <div>
-              <h3 className="lg:text-2xl text-[#270652] mb-1">
+              <p className="lg:text-2xl text-[#270652] mb-1">
                 Industry-Ready Curriculum
-              </h3>
+              </p>
               <p className="text-[#6C757D] text-xs lg:text-[16px] leading-relaxed">
                 The NMIMS Online BBA is designed to give students a strong
                 foundation in business, management, and leadership.{" "}
@@ -801,9 +801,9 @@ export default function Page() {
 
             {/* Content */}
             <div>
-              <h3 className="lg:text-2xl text-[#270652] mb-1">
+              <p className="lg:text-2xl text-[#270652] mb-1">
                 Early Career Advantage
-              </h3>
+              </p>
               <p className="text-[#6C757D] text-xs lg:text-[16px] leading-relaxed">
                 The Online BBA builds strong early fundamentals for management,
                 entrepreneurship, and higher studies.
@@ -813,7 +813,7 @@ export default function Page() {
         </div>
       </section>
 
-      <WhyChooseUs cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
+      <WhyChooseUs title="Why Choose NMIMS Online BBA" cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
 
       <section className="w-full bg-white px-4 md:px-16 py-10 lg:py-20 font-[Inter]">
         {/* TITLE */}
@@ -824,7 +824,7 @@ export default function Page() {
           viewport={{ once: true }}
           className="text-[32px] md:text-[64px] leading-[110%] font-bold text-center text-[#270652] mb-10"
         >
-          Syllabus
+          NMIMS Online BBA Syllabus
         </motion.h2>
 
         {/* MAIN WRAPPER */}
@@ -942,9 +942,9 @@ export default function Page() {
               </div>
 
               {/* TITLE */}
-              <h3 className="text-2xl font-bold text-[#270652] ml-16 mb-4">
+              <p className="text-2xl font-bold text-[#270652] ml-16 mb-4">
                 Topics Covered
-              </h3>
+              </p>
 
               {/* TOPICS LIST */}
               <AnimatePresence mode="wait">
@@ -1024,7 +1024,7 @@ export default function Page() {
             viewport={{ once: true }}
             className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#270652]"
           >
-            Eligibility Criteria
+            Eligibility for NMIMS Online BBA
           </motion.h2>
 
           {/* Card container */}
@@ -1075,9 +1075,9 @@ export default function Page() {
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
              {/* Faded Background Heading */}
-             <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
+             <h2 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
                EXAMINATION PROCESS
-             </h1>
+             </h2>
      
              <div className="max-w-6xl mx-auto relative">
                {/* Main Animated Heading */}
@@ -1114,9 +1114,9 @@ export default function Page() {
                    viewport={{ once: true }}
                    className="bg-[#3C087E]/5 text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
                  >
-                   <h3 className="text-[#270652] text-md md:text-2xl font-semibold italic mb-5">
+                   <p className="text-[#270652] text-md md:text-2xl font-semibold italic mb-5">
                      Exam Slot Booking
-                   </h3>
+                   </p>
      
                    {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
                    <div className="space-y-5 text-lg leading-relaxed max-w-[380] mx-auto text-black">
@@ -1146,9 +1146,9 @@ export default function Page() {
                    viewport={{ once: true }}
                    className="bg-[#3C087E]/5 text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
                  >
-                   <h3 className="text-[#270652] text-lg md:text-2xl font-semibold italic mb-5">
+                   <p className="text-[#270652] text-lg md:text-2xl font-semibold italic mb-5">
                      Exam Slot Timings
-                   </h3>
+                   </p>
      
                    <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-center text-black">
                      For end-term examinations, NMIMS provides three available slots:
@@ -1218,7 +1218,7 @@ export default function Page() {
             {/* LEFT SIDE TEXT */}
             <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
               <h2 className="text-[#270652] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4">
-                Fees Structure
+                Fees Structure for NMIMS Online BBA
               </h2>
 
               <p className="text-gray-700 text-sm md:text-base leading-tight lg:max-w-xl mb-6">
@@ -1311,9 +1311,9 @@ export default function Page() {
 
           {/* Scholarship Policy */}
           <div className="mt-8">
-            <h3 className="text-black text-lg md:text-xl font-semibold mb-2">
+            <p className="text-black text-lg md:text-xl font-semibold mb-2">
               Scholarship Policy
-            </h3>
+            </p>
 
             <p className="text-black text-sm md:text-base leading-relaxed">
               The University offers special incentives to our armed forces,
@@ -1383,17 +1383,17 @@ export default function Page() {
       </section>
       <section className="w-full bg-white px-4 md:px-12 lg:px-20 py-10 font-[Inter]">
         {/* Small Header */}
-        <motion.p
+        <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-black text-lg md:text-xl mb-2"
         >
           What will you gain?
-        </motion.p>
+        </motion.h2>
 
         {/* Main Heading */}
-        <motion.h2
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -1401,7 +1401,7 @@ export default function Page() {
         >
           This isnt just another degree its a <br />
           transformation in how you think, work and grow.
-        </motion.h2>
+        </motion.p>
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">

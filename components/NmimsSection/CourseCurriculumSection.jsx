@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronsDown } from "lucide-react";
 
-const Syllabus = ({ years, data }) => {
+const Syllabus = ({ title = "Program Syllabus", years, data }) => {
   const [activeYear, setActiveYear] = useState(years[0]);
 
   // Controls for dropdown open/close
@@ -119,9 +119,9 @@ const Syllabus = ({ years, data }) => {
     <div className="mt-10 lg:mt-20">
       <div className="max-w-6xl mx-auto font-[Inter]">
         {/* Heading */}
-        <div className="text-[36px] md:text-[48px] lg:text-[64px] font-extrabold text-center text-[#270652] mb-8">
-          Syllabus
-        </div>
+        <h2 className="text-[36px] md:text-[48px] lg:text-[64px] font-extrabold text-center text-[#270652] mb-8">
+          {title}
+        </h2>
 
         {/* YEAR TABS */}
         <div className="flex mx-5 gap-4 mb-12">

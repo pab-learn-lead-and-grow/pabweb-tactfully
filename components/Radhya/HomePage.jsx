@@ -336,7 +336,7 @@ const [showAllBlogs, setShowAllBlogs] = useState(false);
             </div>
           </div>
 
-          <div className="bg-[#F5F5F5] rounded-xl shadow-md p-5 h-[900px] lg:sticky lg:top-10 overflow-hidden"
+          <div className=" rounded-xl shadow-md p-5 h-[900px] lg:sticky lg:top-10 overflow-hidden"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}>
             <div className="flex justify-between items-center mb-5">

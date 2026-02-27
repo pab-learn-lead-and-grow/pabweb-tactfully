@@ -211,9 +211,9 @@ With more than three decades of academic excellence and cutting-edge, technology
                            transition={{ duration: 0.5 }}
                            viewport={{ once: true }}
                          >
-                           <h3 className="text-[18px] sm:text-[24px] md:text-[29px] lg:text-[36px] xl:text-[64px] font-bold">
+                           <p className="text-[18px] sm:text-[24px] md:text-[29px] lg:text-[36px] xl:text-[64px] font-bold">
                              A++
-                           </h3>
+                           </p>
                            <p className="text-[8px]  md:text-[16px] xl:text-[22px]  md:text-sm font-bold opacity-90 leading-tight">
                             NAAC accreditation
                            </p>
@@ -226,9 +226,9 @@ With more than three decades of academic excellence and cutting-edge, technology
                            transition={{ duration: 0.5, delay: 0.1 }}
                            viewport={{ once: true }}
                          >
-                           <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                           <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
                              2000+
-                           </h3>
+                           </p>
                            <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                              Hiring Corporates
                            </p>
@@ -241,9 +241,9 @@ With more than three decades of academic excellence and cutting-edge, technology
                            transition={{ duration: 0.5, delay: 0.2 }}
                            viewport={{ once: true }}
                          >
-                           <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold ">
+                           <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold ">
                              42 LPA
-                           </h3>
+                           </p>
                            <p className="text-[8px] md:text-[16px] xl:text-[22px]  md:text-sm font-bold opacity-90 leading-tight">
                              Highest Salary Offered
                            </p>

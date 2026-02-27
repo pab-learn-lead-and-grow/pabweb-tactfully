@@ -23,11 +23,11 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
           
           {/* Left Heading */}
           <div className="lg:pr-8">
-            <h1
+            <p
               className="text-white font-[Inter] text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-semibold leading-tight"
             >
               {heading}
-            </h1>
+            </p>
           </div>
 
           {/* Top Faculty Cards */}

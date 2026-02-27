@@ -425,7 +425,7 @@ export default function Page() {
                     viewport={{ once: true }}
                     className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
                   >
-                    MA in Public Policy & Governance
+                    AMITY Online MA
                   </motion.h1>
       
                   <motion.p
@@ -551,9 +551,9 @@ export default function Page() {
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                    <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                       NAAC A+
-                    </h3>
+                    </p>
                     <p className="text-[8px]  md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
                       accredited
                     </p>
@@ -566,9 +566,9 @@ export default function Page() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                    <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                       1.6 lakh+
-                    </h3>
+                    </p>
                     <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                       working professionals enrolled
                     </p>
@@ -581,9 +581,9 @@ export default function Page() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                    <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
                       AICTE
-                    </h3>
+                    </p>
                     <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                       approved
                     </p>
@@ -615,9 +615,9 @@ export default function Page() {
 
             {/* Content */}
             <div>
-              <h3 className="lg:text-2xl text-[#270652] mb-1">
+              <p className="lg:text-2xl text-[#270652] mb-1">
                 Real World projects
-              </h3>
+              </p>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
                Work on live projects and real-world case studies that prepare you to excel in your industry.
                </p>
@@ -633,9 +633,9 @@ export default function Page() {
 
             {/* Content */}
             <div>
-              <h3 className="lg:text-2xl text-[#270652] mb-1">
+              <p className="lg:text-2xl text-[#270652] mb-1">
                 Global education
-              </h3>
+              </p>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
                Experience a truly global education with renowned international faculty.
               </p>
@@ -644,7 +644,7 @@ export default function Page() {
         </div>
       </section>
 
-      <WhyChooseUs cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
+      <WhyChooseUs title="Why Choose AMITY Online MA" cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
 
       <section className="w-full bg-white px-4 md:px-16 py-20">
         {/* Title */}
@@ -654,7 +654,7 @@ export default function Page() {
           transition={{ duration: 0.6 }}
           className="text-[32px] md:text-[64px] leading-[110%] font-extrabold font-[Inter] text-center text-[#270652] mb-10"
         >
-          Syllabus
+          AMITY Online MA Syllabus
         </motion.h2>
 
         {/* MAIN WRAPPER */}
@@ -786,9 +786,9 @@ export default function Page() {
               </div>
 
               {/* TITLE */}
-              <h3 className="text-[20px] sm:text-[26px] md:text-3xl font-bold text-[#270652] ml-12 sm:ml-16 mb-3">
+              <p className="text-[20px] sm:text-[26px] md:text-3xl font-bold text-[#270652] ml-12 sm:ml-16 mb-3">
                 Topics Covered
-              </h3>
+              </p>
 
               {/* TOPICS LIST */}
               <AnimatePresence mode="wait">
@@ -867,7 +867,7 @@ export default function Page() {
         <div className="p-10 md:p-20">
           {/* Heading */}
           <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#270652] mb-4 md:mb-7">
-            Eligibility Criteria
+            Eligibility  for AMITY Online MA
           </h2>
           <ul className="text-black text-[12px] space-y-2 md:space-y-4 list-disc px-5 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
             <li>
@@ -930,9 +930,9 @@ export default function Page() {
 
        <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
                                           {/* Faded Background Heading */}
-                                          <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
+                                          <h2 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
                                             EXAMINATION PROCESS
-                                          </h1>
+                                          </h2>
                                   
                                           <div className="max-w-6xl mx-auto relative">
                                             {/* Main Animated Heading */}
@@ -969,9 +969,9 @@ export default function Page() {
                                                 viewport={{ once: true }}
                                                 className="bg-[#3C087E]/5 text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
                                               >
-                                                <h3 className=" text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
+                                                <p className=" text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
                                                   Exam Slot Booking
-                                                </h3>
+                                                </p>
                                   
                                                 {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
                                                 <div className="space-y-5 text-lg leading-relaxed max-w-[380] text-black mx-auto">
@@ -1003,9 +1003,9 @@ export default function Page() {
                                                 viewport={{ once: true }}
                                                 className="bg-[#3C087E]/5 text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
                                               >
-                                                <h3 className="text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
+                                                <p className="text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
                                                   Exam Slot Timings
-                                                </h3>
+                                                </p>
                                   
                                                 <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-black text-center">
                                                   For end-term examinations, Amity university provides three available slots:
@@ -1097,7 +1097,7 @@ export default function Page() {
             {/* LEFT SIDE TEXT */}
             <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
               <h2 className="text-[#270652] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4 md:mb-10">
-                Fees Structure
+                Fees Structure for AMITY Online MA
               </h2>
 
               {/* Subtitle */}
@@ -1138,7 +1138,7 @@ export default function Page() {
       />
 
       <section className="w-full flex items-center justify-center px-6 md:px-18">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-10">
           {/* LEFT CONTENT */}
           <div className="space-y-5">
             <p className="text-[#1F1717] mb-1 mt-5 text-sm font-medium">

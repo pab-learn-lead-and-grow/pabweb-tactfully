@@ -646,7 +646,7 @@ export default function Page() {
                  viewport={{ once: true }}
                  className="text-white text-[12px] md:text-[16px] italic font-light"
                >
-                 Degree in Online Mode
+                  Master of Business Administration (WX)
                </motion.p>
      
                {/* TITLE + DESCRIPTION */}
@@ -658,7 +658,7 @@ export default function Page() {
                    viewport={{ once: true }}
                    className="text-white text-[20px] md:text-[32px] lg:text-5xl xl:text-[60px] font-[Inter] font-bold mt-1 leading-tight"
                  >
-                   Master of Business Administration (WX)
+                  NMIMS Online MBA (WX)
                  </motion.h1>
      
                  <motion.p
@@ -788,9 +788,9 @@ export default function Page() {
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                    <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
                       <Counter end={25} />%
-                    </h3>
+                    </p>
                      <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
                       Average Salary Growth
                     </p>
@@ -803,9 +803,9 @@ export default function Page() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                    <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
                       <Counter end={82000} />
-                    </h3>
+                    </p>
                      <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                       Strong Global Alumni Network
                     </p>
@@ -818,9 +818,9 @@ export default function Page() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     viewport={{ once: true }}
                   >
-                    <h3 className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
+                    <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
                       <Counter end={500} />+
-                    </h3>
+                    </p>
                      <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                       Hiring Partners
                     </p>
@@ -833,13 +833,13 @@ export default function Page() {
       <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
         {/* ===== Top Text Section ===== */}
         <div className="max-w-6xl text-left mx-auto">
-          <h2 className="text-xl md:text-2xl font-regular lg:text-[42px] leading-normal text-gray-900">
+          <p className="text-xl md:text-2xl font-regular lg:text-[42px] leading-normal text-gray-900">
             <span className="text-red-600 ">
               The MBA (WX) brings campus-level prestige and rigour{" "}
             </span>
             to working professionals through a flexible model, shaping strategic
             leaders who drive impact and value.
-          </h2>
+          </p>
         </div>
 
         {/* ===== Bottom Card Section ===== */}
@@ -853,9 +853,9 @@ export default function Page() {
 
             {/* Content */}
             <div>
-              <h3 className="lg:text-2xl text-[#270652] mb-4">
+              <p className="lg:text-2xl text-[#270652] mb-4">
                 Build your academic forte
-              </h3>
+              </p>
               <ul className="text-gray-700 text-sm lg:text-[16px] leading-relaxed list-disc ml-5">
                 <li>Modules from Harvard Business Publishing Education</li>
                 <li>Robust Curriculum</li>
@@ -876,9 +876,9 @@ export default function Page() {
 
             {/* Content */}
             <div>
-              <h3 className="lg:text-2xl text-[#270652] mb-4">
+              <p className="lg:text-2xl text-[#270652] mb-4">
                 2 years of experiential learning
-              </h3>
+              </p>
               <ul className="text-gray-700 text-sm lg:text-[16px] leading-relaxed list-disc ml-5">
                 <li>On Campus Program Immersion Capstone</li>
                 <li>Project for hands-on learning</li>
@@ -889,7 +889,7 @@ export default function Page() {
         </div>
       </section>
 
-      <WhyChooseUs cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
+      <WhyChooseUs title="Why CHoose NMIMS Online MBA WX " cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
 
       <section className="w-full bg-white px-4 md:px-16 py-10 lg:py-20 font-[Inter]">
         {/* TITLE */}
@@ -900,7 +900,7 @@ export default function Page() {
           viewport={{ once: true }}
           className="text-[32px] md:text-[64px] leading-[110%] font-extrabold text-center text-[#270652] mb-10"
         >
-          Syllabus
+          NMIMS Online MBA WX Syllabus
         </motion.h2>
 
         {/* MAIN WRAPPER */}
@@ -1017,9 +1017,9 @@ export default function Page() {
               </div>
 
               {/* TITLE */}
-              <h3 className="text-2xl font-bold text-[#270652] ml-16 mb-4">
+              <p className="text-2xl font-bold text-[#270652] ml-16 mb-4">
                 Topics Covered
-              </h3>
+              </p>
 
               {/* TOPICS LIST */}
               <AnimatePresence mode="wait">
@@ -1099,7 +1099,7 @@ export default function Page() {
             viewport={{ once: true }}
             className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#270652]"
           >
-            Eligibility Criteria
+            Eligibility for NMIMS Online MBA WX
           </motion.h2>
 
           {/* Card container */}
@@ -1152,9 +1152,9 @@ export default function Page() {
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
         {/* Faded Background Heading */}
-        <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[rgba(6,78,146,0.1)] select-none tracking-tight whitespace-nowrap">
+        <h2 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[rgba(6,78,146,0.1)] select-none tracking-tight whitespace-nowrap">
           EXAMINATION PROCESS
-        </h1>
+        </h2>
 
         <div className="max-w-5xl mx-auto relative">
           {/* Main Heading */}
@@ -1189,9 +1189,9 @@ export default function Page() {
             viewport={{ once: true }}
             className="bg-[#3C087E]/10 text-[#3C087E] p-8 md:p-12 rounded-3xl shadow-xl max-w-4xl mx-auto"
           >
-            <h3 className="text-center text-lg md:text-2xl font-semibold italic mb-8">
+            <p className="text-center text-lg md:text-2xl font-semibold italic mb-8">
               Exam Slot Booking
-            </h3>
+            </p>
 
             {/* POINTS WRAPPER */}
             <div
@@ -1287,8 +1287,8 @@ export default function Page() {
               className="w-full lg:w-[40%] flex flex-col items-center text-center"
             >
               {/* Heading */}
-              <h2 className="text-[#270652] text-[42px] md:text-[60px] font-bold leading-tight">
-                Fees Structure
+              <h2 className="text-[#270652] text-[42px] md:text-[60px] text-left font-bold leading-tight">
+                Fees for NMIMS Online MBA WX Program
               </h2>
 
               {/* Subtitle */}
@@ -1340,9 +1340,9 @@ export default function Page() {
               className="w-full lg:w-[60%]"
             >
               <div className="bg-[#3C087E]/5 rounded-3xl p-8 md:p-12 shadow-sm">
-                <h3 className="text-[#270652] text-3xl md:text-4xl font-bold text-center mb-8">
+                <p className="text-[#270652] text-3xl md:text-4xl font-bold text-center mb-8">
                   Note
-                </h3>
+                </p>
 
                 {/* Bullets */}
                 <ul className="space-y-5 text-[#1F1F1F] text-base leading-relaxed">
@@ -1410,7 +1410,7 @@ export default function Page() {
 
             <h2 className="text-[#270652] text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight">
               NMIMS Online <br />
-              MBA (WX) <br />
+              MBA (WX)
               Certificate
             </h2>
 
@@ -1452,17 +1452,17 @@ export default function Page() {
       </section>
       <section className="w-full bg-white px-4 md:px-12 lg:px-20 py-16 font-[Inter]">
         {/* Small Header */}
-        <motion.p
+        <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-black text-lg md:text-xl mb-2"
         >
           What will you gain?
-        </motion.p>
+        </motion.h2>
 
         {/* Main Heading */}
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -1470,7 +1470,7 @@ export default function Page() {
         >
           This isnt just another degree its a <br />
           transformation in how you think, work and grow.
-        </motion.h2>
+        </motion.div>
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
