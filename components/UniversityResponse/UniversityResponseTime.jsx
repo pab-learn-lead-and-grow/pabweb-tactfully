@@ -138,8 +138,8 @@ export default function UniversityResponseTable() {
                 <tr>
                    <th className="p-3 text-left w-20">S.no</th>
     <th className="p-3 text-left w-[30%]">University Name</th>
-    <th className="p-3 text-left w-25">Response Time</th>
-    <th className="p-3 text-left w-[35%]">Ratings</th>
+    <th className="p-3 text-left w-35">Response Time</th>
+    <th className="p-3 text-left w-25">Ratings</th>
     <th className="p-3 text-center w-25">Compare</th>
                 </tr>
               </thead>
@@ -172,8 +172,8 @@ export default function UniversityResponseTable() {
                         {uni.response_time}/10
                       </td>
 
-                      <td className="p-3 w-60">
-                          <div style={{ width: '100%', backgroundColor: '#e5e7eb', borderRadius: '9999px', height: '8px' }}>
+                      <td className="p-3 w-40">
+                          <div style={{ width: '60%', backgroundColor: '#e5e7eb', borderRadius: '9999px', height: '8px' }}>
                             <div
                               style={{
                                 backgroundColor: '#4285F4',
