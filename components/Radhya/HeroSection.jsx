@@ -52,7 +52,7 @@ export default function Hero({ className }) {
                 onClick={() => setShowForm(true)}
                 className="px-3 py-1 md:px-4 md:py-2 text-[12px] md:text-md lg:text-[16px] rounded-lg bg-[#F6A410] border-0 border-transparent shadow-[#db990a] transform text-white font-semibold shadow-md transition-all duration-300 ease-out"
               >
-                Explore Programs →
+                Explore Universities →
               </motion.button>
 
               <motion.button
