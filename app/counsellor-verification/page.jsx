@@ -58,10 +58,10 @@ export default function CounsellorVerification() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full mt-20 max-w-6xl bg-[#EBE7FC] rounded-3xl shadow-[0_20px_60px_rgba(52,88,149,0.15)] lg:p-10  overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
+          className="w-full mt-20 max-w-6xl bg-[#EBE7FC] rounded-3xl shadow-[0_20px_60px_rgba(52,88,149,0.15)] p-5 lg:p-10  overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
         >
           {/* IMAGE */}
-          <div className="relative aspect-[1138/836] md:h-full">
+          <div className="relative aspect-[1138/836]">
   {status === "verified" ? (
     <video
       key="verified-video"
@@ -87,7 +87,7 @@ export default function CounsellorVerification() {
 
 
           {/* FORM */}
-          <div className="p-2 md:p-10 flex flex-col justify-center bg-white rounded-3xl shadow-[0_20px_60px_rgba(52,88,149,0.15)]">
+          <div className="p-4 md:p-10 flex flex-col justify-center bg-white rounded-3xl shadow-[0_20px_60px_rgba(52,88,149,0.15)]">
             
                 {/* SHOW INPUT ONLY IF NOT VERIFIED */}
       {status !== "verified" && (
@@ -269,7 +269,7 @@ export default function CounsellorVerification() {
         </motion.div>
       </section>
 
-      <section className="w-full h-60 md:h-90 bg-[#3C087E] mt-5 md:mt-8 xl:mt-20 py-20 flex flex-col items-center text-left">
+      <section className="w-full h-60 md:h-90 bg-[#3C087E] mt-5 md:mt-8 xl:mt-20 py-10 md:py-20 flex flex-col items-center text-left">
         <h2 className="text-xl md:text-4xl font-[Inter] font-bold text-white max-w-4xl leading-tight text-center px-4">
           Connect with expert verified counsellor,
           <br />
@@ -283,6 +283,7 @@ export default function CounsellorVerification() {
           Call Now
         </a>
       </section>
+      
     </>
   );
 }

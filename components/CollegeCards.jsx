@@ -64,7 +64,7 @@ export default function CollegeCards() {
 
       {/* GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-        {universities.map((uni) => (
+        {universities.map((uni, index) => (
           <div
             key={uni.university_id}
             className="bg-white rounded-2xl shadow-md p-5 transition hover:shadow-xl"
@@ -76,7 +76,8 @@ export default function CollegeCards() {
                 alt={uni.name}
                 fill
                 className="object-cover"
-                unoptimized
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={index < 2}
               />
 
               {/* LOGO */}
@@ -86,7 +87,8 @@ export default function CollegeCards() {
                   alt={uni.name}
                   width={120}
                   height={80}
-                  unoptimized
+                  className="object-contain"
+                  sizes="120px"
                 />
               </div>
             </div>
@@ -102,16 +104,16 @@ export default function CollegeCards() {
             <div className="inline-flex items-center gap-2 mt-4 bg-[#3C087E]/10 px-3 py-2 rounded-lg">
               {" "}
               {uni.accreditation?.map((acc, i) => (
-  <Image
-    key={i}
-    src={getLogoUrl(acc.logo)}
-    alt={acc.name}
-    width={112}
-    height={60}
-    className="object-contain w-14 sm:w-16 md:w-24 h-auto"
-    unoptimized
-  />
-))}
+              <Image
+                key={i}
+                src={getLogoUrl(acc.logo)}
+                alt={acc.name}
+                width={112}
+                height={60}
+                className="object-contain w-14 sm:w-16 md:w-24 h-auto"
+                sizes="(max-width: 640px) 56px, (max-width: 768px) 64px, 96px"
+              />
+            ))}
             </div>
 
             {/* PROGRESS METRICS */}
