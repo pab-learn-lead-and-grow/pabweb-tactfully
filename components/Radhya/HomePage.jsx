@@ -1,14 +1,13 @@
-"use client";
+'use client';
+
 import Image from "next/image";
 import HeroSection from "./HeroSection";
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { ChevronLeft, ChevronRight, Star, Clock } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { supabase } from "@/lib/supabaseClient";
 import CounsellingForm from "./CounsellingForm";
 
-// Lazy load heavy components
 const AllInOneSection = dynamic(() => import("./All-in-one"), {
   loading: () => <div className="h-64 bg-gray-100 animate-pulse"></div>
 });
@@ -28,20 +27,8 @@ const LogoSection = dynamic(() => import("./LogoSection"), {
   loading: () => <div className="h-32 bg-gray-100 animate-pulse"></div>
 });
 
-export default function HomePage() {
-  const [hydrated, setHydrated] = useState(false);
-  const [latestNews, setLatestNews] = useState([]);
+export default function HomePage({ latestNews = [] }) {
   const [isPaused, setIsPaused] = useState(false);
-  const BUCKET_URL = "https://bkcaoaoebbzrhbsfkjbm.supabase.co/storage/v1/object/public/News";
-
-  const getImageUrl = (path) => {
-    if (!path) return "/help.png";
-    let cleanPath = String(path).trim();
-    if (cleanPath.includes("supabase.co")) {
-      cleanPath = cleanPath.replace(/[^a-zA-Z0-9/:._-]/g, '');
-    }
-    return cleanPath || "/help.png";
-  };
 
   const timeAgo = (dateString) => {
     const now = new Date();
@@ -55,60 +42,6 @@ export default function HomePage() {
     if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
     return past.toLocaleDateString();
   };
-
- useEffect(() => {
-   const fetchNews = async () => {
-      const { data } = await supabase
-        .from("news")
-        .select(`
-          news_id,
-          title,
-          slug,
-          image_url,
-          published_at,
-          news_categories (
-            category_name
-          )
-        `)
-        .eq("is_published", true)
-        .order("published_at", { ascending: false })
-        .limit(30);
-
-      const newsWithImages = data?.map((item) => ({
-        ...item,
-        image_url: getImageUrl(item.image_url),
-      }));
-
-      setLatestNews(newsWithImages || []);
-   };
-
-    fetchNews();
-  }, []);
-
-  useEffect(() => {
-  const section = document.getElementById("blogs");
-  if (!section) return;
-
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry.isIntersecting) {
-        if (window.location.hash === "#blogs") {
-          const cleanUrl =
-            window.location.pathname + window.location.search;
-
-          window.history.replaceState(null, "", cleanUrl);
-        }
-      }
-    },
-    { threshold: 0.3 }
-  );
-
-  observer.observe(section);
-
-  return () => observer.disconnect();
-}, []);
-
-
 
   const blogs = [
     {
@@ -142,7 +75,7 @@ export default function HomePage() {
       topic: "Evolution",
       date: "16 Jan 2026",
       title:
-        "How Online MBA’s Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
+        "How Online MBA's Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
       image: "/Blog4/background.png",
       path: "blogs/the-digital-revolution",
     },
@@ -164,13 +97,8 @@ export default function HomePage() {
       image: "/Blog6/background.png",
       path: "blogs/how-online-bba-builds-entrepreneurs",
     },
-];
+  ];
 
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-
-  // logo paths
   const logos = [
     { src: "/nmims.png", href: "/nmims" },
     { src: "/manipal.png", href: "/muj" },
@@ -178,7 +106,6 @@ export default function HomePage() {
     { src: "/jain.png", href: "/jain" },
     { src: "/smu.png", href: "/smu" },
   ];
-
 
   const testimonials = [
     {
@@ -235,21 +162,21 @@ export default function HomePage() {
   id: 8,
   name: "Ankit Verma",
   title: "Product Executive, Innovatech Solutions",
-  text: "Radhya education helped me connect my learning with real business challenges. The counsellor’s guidance on choosing the right MBA specialisation gave me clarity I was missing for years. I now feel more confident about my career direction.",
+  text: "Radhya education helped me connect my learning with real business challenges. The counsellor's guidance on choosing the right MBA specialisation gave me clarity I was missing for years. I now feel more confident about my career direction.",
   rating: 5,
 },
 {
   id: 9,
   name: "Neha Kulkarni",
   title: "Content Strategist, BrandNest Studio",
-  text: "The counselling experience was extremely professional and personalised. Radhya education didn’t push programs blindly — they helped me understand how each option would affect my long-term career growth.",
+  text: "The counselling experience was extremely professional and personalised. Radhya education didn't push programs blindly — they helped me understand how each option would affect my long-term career growth.",
   rating: 5,
 },
 {
   id: 10,
   name: "Saurabh Malhotra",
   title: "Supply Chain Analyst, LogiCore Systems",
-  text: "What stood out for me was the clarity around ROI and skill relevance. Radhya education made sure I wasn’t just enrolling in a degree, but investing in the right career move.",
+  text: "What stood out for me was the clarity around ROI and skill relevance. Radhya education made sure I wasn't just enrolling in a degree, but investing in the right career move.",
   rating: 5,
 },
 {
@@ -268,7 +195,6 @@ export default function HomePage() {
 },
   ];
 
-  // pagination logic: 6 cards per "page"
   const CARDS_PER_PAGE = 6;
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = Math.max(
@@ -290,8 +216,8 @@ export default function HomePage() {
     setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
   };
 
-const [showAllBlogs, setShowAllBlogs] = useState(false);
-  const visibleBlogs = hydrated && showAllBlogs ? blogs : blogs.slice(0, 4);
+  const [showAllBlogs, setShowAllBlogs] = useState(false);
+  const visibleBlogs = showAllBlogs ? blogs : blogs.slice(0, 4);
 
   const [isModalOpen, setIsModalOpen] = useState(false);  
 
@@ -349,7 +275,7 @@ const [showAllBlogs, setShowAllBlogs] = useState(false);
                   {[...latestNews, ...latestNews].map((item, idx) => (
                     <Link key={`${item.news_id}-${idx}`} href={`/news/${item.slug}`}>
                       <div className="flex gap-3 items-start hover:bg-white p-2 rounded-lg transition cursor-pointer">
-                        <Image src={getImageUrl(item.image_url)} alt={item.title} width={80} height={60} className="object-cover rounded-lg shrink-0" unoptimized />
+                        <Image src={item.image_url} alt={item.title} width={80} height={60} className="object-cover rounded-lg shrink-0" unoptimized />
                         <div className="flex-1 min-w-0">
                           <p className="text-[10px] text-gray-500 mb-0.5">{item.news_categories?.category_name}</p>
                           <p className="text-sm font-medium text-gray-900 line-clamp-2">{item.title}</p>

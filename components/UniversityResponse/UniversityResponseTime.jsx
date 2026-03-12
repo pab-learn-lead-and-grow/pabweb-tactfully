@@ -332,19 +332,7 @@ export default function UniversityResponseTable() {
                               }}
                             ></div>
                </div>
-              
-             <div
-  style={{ backgroundColor: "#d1d5db" }}  // light gray track
-  className="w-full rounded-full h-2"
->
-  <div
-    className="h-2 rounded-full"
-    style={{
-      backgroundColor: "#3C087E",
-      width: `${(Number(uni.response_time) || 0) * 10}%`,
-    }}
-  ></div>
-</div>
+            
             </div>
           ))}
         </div>
