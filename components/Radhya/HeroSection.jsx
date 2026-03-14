@@ -73,7 +73,7 @@ export default function Hero({ className }) {
               className="flex mt-6 justify-center"
             >
               <Image
-                src="/radhyahero.png"
+                src="/radhyaHero.png"
                 alt="HeroImage"
                 width={800}
                 height={400}

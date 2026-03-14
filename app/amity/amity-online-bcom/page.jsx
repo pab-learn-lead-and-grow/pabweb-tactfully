@@ -1,8 +1,20 @@
 import AmityBcom from "@/components/Amity/AmityBcom";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title: "Amity Online BCom - UGC Approved Degree Program",
+  metadataBase: new URL(siteUrl),
+
+  title: "Amity Online BCom | UGC-Approved BCom Degree Program",
+
   description:
-    "Amity Online BCom offers a UGC-approved commerce degree with flexible online learning, industry-relevant curriculum and career support",
+    "Amity Online BCom is a UGC-approved undergraduate commerce degree offering flexible online learning, industry-focused curriculum, and career opportunities in finance, accounting, and business.",
+
+  alternates: {
+    canonical: "/amity/amity-online-bcom/",
+  },
+
   keywords: [
     "Amity Online BCom",
     "Amity University online BCom",
@@ -12,9 +24,29 @@ export const metadata = {
     "UGC approved online BCom",
     "Amity online programs",
   ],
+
+  openGraph: {
+    title: "Amity Online BCom | UGC-Approved Commerce Degree",
+    description:
+      "Explore Amity University Online BCom program with flexible learning, industry-relevant curriculum, and a UGC-approved undergraduate commerce degree.",
+    url: `${siteUrl}/amity/amity-online-bcom/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Amity Online BCom | UGC Approved Program",
+    description:
+      "Apply for Amity University Online BCom and earn a UGC-approved commerce degree with flexible online learning.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
+
 export default function Amity() {
-    return (
-        <AmityBcom />
-    );
+  return <AmityBcom />;
 }

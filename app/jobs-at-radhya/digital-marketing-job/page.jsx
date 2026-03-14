@@ -1,8 +1,20 @@
-import JobDetails from "@/components/Career/DigitalMarketing.jsx";
+import JobDetails from "@/components/Career/DigitalMarketing";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title: "Digital Marketing Specialist Job at Radhya",
+  metadataBase: new URL(siteUrl),
+
+  title: "Digital Marketing Specialist Job | Radhya Education Careers",
+
   description:
-    "Digital Marketing Specialist job at Radhya Education. Manage Google Ads and Meta Ads campaigns, optimize performance and grow your career in education marketing",
+    "Apply for the Digital Marketing Specialist role at Radhya Education. Manage Google Ads and Meta Ads campaigns, optimize paid marketing performance, and grow your career in the education marketing industry.",
+
+  alternates: {
+    canonical: "/jobs-at-radhya/digital-marketing-job/",
+  },
+
   keywords: [
     "Digital Marketing Specialist job",
     "Google Ads specialist job",
@@ -12,9 +24,24 @@ export const metadata = {
     "Radhya digital marketing careers",
     "education marketing jobs",
   ],
+
+  openGraph: {
+    title: "Digital Marketing Specialist Job | Radhya Education Careers",
+    description:
+      "Join Radhya Education as a Digital Marketing Specialist and manage high-performance Google Ads and Meta Ads campaigns in the education sector.",
+    url: `${siteUrl}/jobs-at-radhya/digital-marketing-job/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Digital Marketing Specialist Job | Radhya Education",
+    description:
+      "Apply for the Digital Marketing Specialist role at Radhya Education and grow your career in paid media and performance marketing.",
+  },
 };
+
 export default function DigitalMarketingPage() {
-    return(
-         <JobDetails />
-        );
+  return <JobDetails />;
 }

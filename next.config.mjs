@@ -1,68 +1,69 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactCompiler: true,
-  
-  // Bundle Optimization (backend only)
+  trailingSlash: true,
+  compress: true,
+
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
-  },
-  
-  // Compiler optimizations (backend only)
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-    reactRemoveProperties: process.env.NODE_ENV === 'production'
+    optimizePackageImports: ["lucide-react", "framer-motion"],
   },
 
- images: {
-  remotePatterns: [
-    {
-      protocol: "https",
-      hostname: "bkcaoaoebbzrhbsfkjbm.supabase.co",
-      pathname: "/storage/v1/object/public/**",
-    },
-  ],
-},
-  
-  // Security Headers (CSP temporarily disabled due to font loading issue)
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+    reactRemoveProperties: process.env.NODE_ENV === "production",
+  },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "bkcaoaoebbzrhbsfkjbm.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
+    ],
+  },
+
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'DENY'
+            key: "X-Frame-Options",
+            value: "DENY",
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
           },
           {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()'
-          }
-          // CSP temporarily disabled - uncomment when font issue is resolved
-          // {
-          //   key: 'Content-Security-Policy',
-          //   value: [
-          //     "default-src 'self'",
-          //     "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
-          //     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-          //     "font-src 'self' https://fonts.gstatic.com",
-          //     "img-src 'self' data: https: blob:",
-          //     "connect-src 'self' https://*.supabase.co https://api.resend.com",
-          //     "frame-src 'self' https://www.google.com https://www.google.com/maps",
-          //     "child-src 'self' https://www.google.com/maps"
-          //   ].join('; ')
-          // }
-        ]
-      }
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+          },
+        ],
+      },
     ];
-  }
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.radhyaeducationacademy.com",
+          },
+        ],
+        destination: "https://radhyaeducationacademy.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

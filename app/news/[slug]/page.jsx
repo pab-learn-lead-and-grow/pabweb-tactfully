@@ -1,4 +1,6 @@
 import CategoryNewsClient from "@/components/News/CategoryNewsClient";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 import { getCategoryNews } from "@/app/actions/getCategoryNews";
 
 export async function generateMetadata({ params }) {

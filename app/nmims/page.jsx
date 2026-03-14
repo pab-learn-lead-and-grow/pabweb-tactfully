@@ -1,7 +1,37 @@
 import NmimsPage from "@/components/Nmims/NmimsPage";
 
-export default function Nmims() {
-    return (
-        <NmimsPage />
-    );
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
+export const metadata = {
+  metadataBase: new URL(siteUrl),
+
+  title: "NMIMS Online Programs | UGC Approved Courses",
+
+  description:
+    "Explore NMIMS online programs including MBA, BBA, and BCom. SVKM's Narsee Monjee Institute of Management Studies offers UGC-approved degrees with NAAC A++ accreditation and industry-focused curriculum.",
+
+  alternates: {
+    canonical: "/nmims/",
+  },
+
+  openGraph: {
+    title: "NMIMS Online Programs | Radhya Education Academy",
+    description:
+      "Explore UGC-approved NMIMS online programs including MBA, BBA, and BCom with NAAC A++ accreditation.",
+    url: `${siteUrl}/nmims/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "NMIMS Online Programs | Radhya Education Academy",
+    description:
+      "Discover NMIMS online MBA, BBA, and BCom programs with UGC approval and NAAC A++ accreditation.",
+  },
+};
+
+export default function NmimsUniversityPage() {
+  return <NmimsPage />;
 }

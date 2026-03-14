@@ -1,8 +1,20 @@
 import SmuMa from "@/components/Smu/SmuMa";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title: "SMU Online MA - UGC Approved Degree Program",
+  metadataBase: new URL(siteUrl),
+
+  title: "SMU Online MA | UGC Approved Master of Arts Degree",
+
   description:
-    "SMU Online MA offers a UGC-approved postgraduate arts degree with flexible online learning, industry-relevant curriculum and academic support",
+    "SMU Online MA from Sikkim Manipal University is a UGC-approved Master of Arts degree offering flexible online learning, academic support, and a career-focused curriculum.",
+
+  alternates: {
+    canonical: "/smu/sikkim-manipal-online-ma/",
+  },
+
   keywords: [
     "SMU Online MA",
     "Sikkim Manipal University online MA",
@@ -12,10 +24,24 @@ export const metadata = {
     "UGC approved online MA",
     "SMU online programs",
   ],
+
+  openGraph: {
+    title: "SMU Online MA | UGC Approved Master of Arts Degree",
+    description:
+      "Explore SMU Online MA from Sikkim Manipal University with flexible online learning, industry-relevant curriculum, and UGC-approved recognition.",
+    url: `${siteUrl}/smu/sikkim-manipal-online-ma/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "SMU Online MA | Radhya Education Academy",
+    description:
+      "Learn about SMU Online MA from Sikkim Manipal University and explore flexible UGC-approved postgraduate arts programs.",
+  },
 };
 
-export default function Smu() {
-    return (
-        <SmuMa />
-    );
+export default function SmuOnlineMaPage() {
+  return <SmuMa />;
 }

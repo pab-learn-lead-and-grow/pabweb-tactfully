@@ -72,8 +72,8 @@ export default function CareerPage() {
               practical, and fun.
             </p>
             <p className="text-black mt-3 text-[15px] max-w-xl">
-              Whether you’re a strategist, designer, counselor, or storyteller —
-              if you love helping people grow, you’ll fit right in.
+              Whether you're a strategist, designer, counselor, or storyteller —
+              if you love helping people grow, you'll fit right in.
               <button className=" text-[#D68E0E] text-sm hover:bg-blue-50 transition">
                 Learn more
               </button>

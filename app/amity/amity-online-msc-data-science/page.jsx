@@ -1,20 +1,52 @@
 import AmityMsc from "@/components/Amity/AmityMsc";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title: "Amity Online MSc - UGC Approved Degree Program",
+  metadataBase: new URL(siteUrl),
+
+  title: "Amity Online MSc Data Science | UGC-Approved MSc Degree Program",
+
   description:
-    "Amity Online MSc offers a UGC-approved postgraduate science degree with flexible online learning, industry-relevant curriculum and academic support",
+    "Amity Online MSc in Data Science is a UGC-approved postgraduate program offering flexible online learning, industry-relevant curriculum, and career opportunities in analytics and data science.",
+
+  alternates: {
+    canonical: "/amity/amity-online-msc-data-science/",
+  },
+
   keywords: [
-    "Amity Online MSc",
+    "Amity Online MSc Data Science",
     "Amity University online MSc",
     "Amity distance MSc",
-    "Amity online science postgraduate degree",
-    "Online MSc India",
+    "Amity online data science degree",
+    "Online MSc Data Science India",
     "UGC approved online MSc",
     "Amity online programs",
   ],
+
+  openGraph: {
+    title: "Amity Online MSc Data Science | UGC-Approved Degree Program",
+    description:
+      "Explore Amity University Online MSc Data Science program with flexible learning, industry-focused curriculum, and a UGC-approved postgraduate degree.",
+    url: `${siteUrl}/amity/amity-online-msc-data-science/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Amity Online MSc Data Science | UGC Approved Program",
+    description:
+      "Apply for Amity University Online MSc in Data Science and build advanced skills for careers in analytics and technology.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
+
 export default function Amity() {
-    return (
-        <AmityMsc />
-    );
+  return <AmityMsc />;
 }

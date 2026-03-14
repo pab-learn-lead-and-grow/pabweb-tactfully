@@ -1,4 +1,6 @@
 "use client";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";

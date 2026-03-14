@@ -1,20 +1,47 @@
 import JainPage from "@/components/Jain/JainPage";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title: "JAIN University Online - UGC Approved Degree Programs",
+  metadataBase: new URL(siteUrl),
+
+  title: "JAIN University Online Courses | UGC-Approved UG & PG Programs",
+
   description:
-    "JAIN University Online offers UGC-approved undergraduate and postgraduate degree programs with flexible online learning and industry-relevant curriculum",
+    "Explore JAIN University Online courses including MBA, BBA, BCom and other UG & PG programs. UGC-approved degrees with flexible online learning and industry-focused curriculum.",
+
+  alternates: {
+    canonical: "/jain/",
+  },
+
   keywords: [
     "JAIN University Online",
+    "JAIN University online courses",
+    "JAIN online MBA",
     "JAIN online degree programs",
     "JAIN University distance education",
-    "JAIN online UG PG courses",
-    "Online degree programs India",
-    "UGC approved online university",
-    "JAIN University online programs",
+    "UGC approved online university India",
+    "JAIN online UG PG programs",
   ],
+
+  openGraph: {
+    title: "JAIN University Online Courses | UGC-Approved Degree Programs",
+    description:
+      "Discover JAIN University Online programs including MBA, BBA, and other UGC-approved degrees with flexible online learning.",
+    url: `${siteUrl}/jain/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "JAIN University Online Courses | UGC Approved Programs",
+    description:
+      "Explore JAIN University Online programs and earn a UGC-approved degree with flexible learning.",
+  },
 };
+
 export default function Jain() {
-    return (
-        <JainPage />
-    );
+  return <JainPage />;
 }

@@ -1,8 +1,20 @@
 import MujMba from "@/components/Muj/MujMba";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title: "Manipal Jaipur Online MBA - UGC Approved Degree",
+  metadataBase: new URL(siteUrl),
+
+  title: "Manipal University Jaipur Online MBA | UGC Approved MBA Degree",
+
   description:
-    "Manipal Jaipur Online MBA offers a UGC-approved management degree with flexible online learning, industry-relevant curriculum and career support for professionals",
+    "Manipal University Jaipur Online MBA offers a UGC-approved management degree with flexible online learning, industry-focused curriculum, and career support for professionals and working executives.",
+
+  alternates: {
+    canonical: "/muj/manipal-jaipur-online-mba/",
+  },
+
   keywords: [
     "Manipal Jaipur Online MBA",
     "Manipal University Jaipur online MBA",
@@ -12,10 +24,24 @@ export const metadata = {
     "UGC approved online MBA",
     "Manipal Jaipur online programs",
   ],
+
+  openGraph: {
+    title: "Manipal University Jaipur Online MBA | Radhya Education Academy",
+    description:
+      "Explore MUJ Online MBA with flexible learning, industry-focused curriculum, and UGC-approved recognition.",
+    url: `${siteUrl}/muj/manipal-jaipur-online-mba/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "MUJ Online MBA | Radhya Education Academy",
+    description:
+      "Discover Manipal University Jaipur Online MBA and explore flexible UGC-approved management programs.",
+  },
 };
 
-export default function Muj() {
-    return (
-        <MujMba />
-    );
+export default function MujOnlineMbaPage() {
+  return <MujMba />;
 }

@@ -1,4 +1,6 @@
 "use client";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 
 import Image from "next/image";
 import { motion } from "framer-motion";

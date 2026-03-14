@@ -1,12 +1,58 @@
 // app/news/[categorySlug]/[slug]/page.jsx
 
 import Image from "next/image";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({ params }) {
+  const { slug, newsSlug } = await params;
+  const articleSlug = newsSlug;
+  
+  const { data: article } = await supabase
+    .from("news")
+    .select("title, description, image_url")
+    .eq("slug", articleSlug)
+    .single();
+    
+  if (!article) {
+    return {
+      title: "News Article | Radhya Education Academy",
+    };
+  }
+  
+  const BUCKET_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/News`;
+  const imageUrl = article.image_url?.startsWith("http") 
+    ? article.image_url 
+    : `${BUCKET_URL}/${article.image_url}`;
+  
+  return {
+    title: `${article.title} | Radhya Education Academy`,
+    description: article.description || "Read the latest news and articles from Radhya Education Academy",
+    alternates: {
+      canonical: `${siteUrl}/news/${slug}/${newsSlug}/`,
+    },
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      url: `${siteUrl}/news/${slug}/${newsSlug}/`,
+      siteName: "Radhya Education Academy",
+      type: "article",
+      images: imageUrl ? [{ url: imageUrl }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.description,
+      images: imageUrl ? [imageUrl] : [],
+    },
+  };
+}
 export default async function ArticlePage({ params }) {
   const { slug, newsSlug } = await params;
 

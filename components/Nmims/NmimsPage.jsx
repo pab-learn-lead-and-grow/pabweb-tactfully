@@ -137,9 +137,9 @@ export default function Page() {
     <main className="flex flex-col items-center w-full bg-white">
       <section className="w-full bg-white px-4 md:px-10 xl:px-15 mt-20 py-10">
         <div className="w-full mx-auto flex flex-col md:flex-row items-center justify-between">
-          <h1 className=" text-4xl md:text-5xl lg:text-[64px] xl:text-[80px] font-bold leading-none bg-[linear-gradient(90deg,#000000_0%,#3C3C43_15.87%,#BA1C22_42.31%,#D3272A_100%)] bg-clip-text text-transparent">
+          <h2 className=" text-4xl md:text-5xl lg:text-[64px] xl:text-[80px] font-bold leading-none bg-[linear-gradient(90deg,#000000_0%,#3C3C43_15.87%,#BA1C22_42.31%,#D3272A_100%)] bg-clip-text text-transparent">
             NMIMS - CDOE
-          </h1>
+          </h2>
 
           {/* Right LOGO */}
           <motion.div

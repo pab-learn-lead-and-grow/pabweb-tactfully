@@ -152,9 +152,9 @@ export default function Page() {
     <main className="flex flex-col items-center w-full bg-white">
        <section className="w-full bg-white px-4 md:px-10 xl:px-15 mt-20 py-10">
       <div className="w-full mx-auto flex flex-col md:flex-row items-center justify-between">
-         <h1 className=" text-4xl md:text-5xl lg:text-[64px] xl:text-[80px] font-bold leading-none bg-linear-to-r from-[#81320C] to-[#E75A16] bg-clip-text text-transparent">
+         <h2 className=" text-4xl md:text-5xl lg:text-[64px] xl:text-[80px] font-bold leading-none bg-linear-to-r from-[#81320C] to-[#E75A16] bg-clip-text text-transparent">
              Manipal Jaipur
-         </h1>
+         </h2>
 
         {/* Right LOGO */}
         <motion.div

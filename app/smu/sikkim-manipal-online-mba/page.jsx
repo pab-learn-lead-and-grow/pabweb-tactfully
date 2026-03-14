@@ -1,8 +1,20 @@
 import SmuMba from "@/components/Smu/SmuMba";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title: "SMU Online MBA - UGC Approved Degree Program",
+  metadataBase: new URL(siteUrl),
+
+  title: "SMU Online MBA | UGC Approved MBA Degree",
+
   description:
-    "SMU Online MBA offers a UGC-approved management degree with flexible online learning, industry-relevant curriculum and career support for working professionals",
+    "SMU Online MBA from Sikkim Manipal University is a UGC-approved management degree designed for working professionals with flexible online learning, industry-focused curriculum, and career support.",
+
+  alternates: {
+    canonical: "/smu/sikkim-manipal-online-mba/",
+  },
+
   keywords: [
     "SMU Online MBA",
     "Sikkim Manipal University online MBA",
@@ -12,9 +24,24 @@ export const metadata = {
     "UGC approved online MBA",
     "SMU online programs",
   ],
+
+  openGraph: {
+    title: "SMU Online MBA | UGC Approved MBA Degree",
+    description:
+      "Explore SMU Online MBA from Sikkim Manipal University with flexible learning, industry-relevant curriculum, and UGC-approved recognition.",
+    url: `${siteUrl}/smu/sikkim-manipal-online-mba/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "SMU Online MBA | Radhya Education Academy",
+    description:
+      "Learn about SMU Online MBA from Sikkim Manipal University and explore flexible UGC-approved MBA programs.",
+  },
 };
-export default function Smu() {
-    return (
-        <SmuMba />
-    );
+
+export default function SmuOnlineMbaPage() {
+  return <SmuMba />;
 }

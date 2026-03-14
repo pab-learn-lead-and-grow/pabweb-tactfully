@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import Script from "next/script";
 
 
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -13,13 +14,56 @@ const inter = Inter({
 });
 
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title:{
-    default:  "Radhya Education Academy || Best Education Consultant ",
+  
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Radhya Education Academy || Best Education Consultant ",
     template: "%s | Radhya Education Academy",
   },
-  description: "Explore online programs from top universities with personalized counselling from Radhya Education Academy.",
- 
+  description:
+    "Explore online programs from top universities with personalized counselling from Radhya Education Academy.",
+  keywords: [
+    "online education",
+    "distance learning",
+    "online MBA",
+    "UGC approved universities",
+    "career counselling",
+    "online degree programs",
+  ],
+  authors: [{ name: "Radhya Education Academy" }],
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: siteUrl,
+    siteName: "Radhya Education Academy",
+    title: "Radhya Education Academy | Best Online & Distance Education Consultancy",
+    description: "Explore online programs from top universities with personalized counselling from Radhya Education Academy.",
+    images: [
+      {
+        url: "/radhyaLogo.png",
+        width: 180,
+        height: 60,
+        alt: "Radhya Education Academy Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Radhya Education Academy | Best Online & Distance Education Consultancy",
+    description: "Explore online programs from top universities with personalized counselling from Radhya Education Academy.",
+    images: ["/radhyaLogo.png"],
+    creator: "@radhyaeducation",
+  },
+  alternates: {
+    canonical: `${siteUrl}/`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {

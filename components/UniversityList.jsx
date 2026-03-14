@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { useState } from "react";
 import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import FAQ from "@/components/NmimsSection/FAQ";
 import ConnectToday from "./NmimsSection/ConnectToday";
 
-export default function UniversityList() {
-  const [universitieslist, setUniversitiesList] = useState([]);
+export default function UniversityList({ initialData = [] }) {
+  const [universitieslist, setUniversitiesList] = useState(initialData);
   const [showForm, setShowForm] = useState(false);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
@@ -32,20 +31,7 @@ export default function UniversityList() {
     }
   ];
 
-  useEffect(() => {
-    const fetchUniversities = async () => {
-      const { data } = await supabase
-        .from("universitieslist")
-        .select("*")
-        .order("name");
-
-      setUniversitiesList(data || []);
-    };
-
-    fetchUniversities();
-  }, []);
-
- const filteredData = universitieslist.filter((uni) =>
+  const filteredData = universitieslist.filter((uni) =>
   uni.name.toLowerCase().includes(search.toLowerCase())
 );
 

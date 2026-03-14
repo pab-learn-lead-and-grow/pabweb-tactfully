@@ -1,8 +1,20 @@
 import NmimsWx from "@/components/Nmims/NmimsWx";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title: "NMIMS MBA WX - Executive Online MBA Program",
+  metadataBase: new URL(siteUrl),
+
+  title: "NMIMS MBA WX | Executive MBA for Working Professionals",
+
   description:
-    "NMIMS MBA WX is an executive online MBA designed for working professionals, offering flexible learning, industry-relevant curriculum and career advancement",
+    "NMIMS MBA WX is an executive MBA designed for working professionals, offering flexible learning, industry-focused curriculum, and career advancement through the NMIMS online learning platform.",
+
+  alternates: {
+    canonical: "/nmims/nmims-mumbai-online-mba-working-executives/",
+  },
+
   keywords: [
     "NMIMS MBA WX",
     "NMIMS Executive MBA WX",
@@ -12,9 +24,24 @@ export const metadata = {
     "NMIMS WX MBA program",
     "NMIMS executive online programs",
   ],
+
+  openGraph: {
+    title: "NMIMS MBA WX | Executive MBA for Working Professionals",
+    description:
+      "Explore NMIMS MBA WX designed for working professionals with flexible learning and industry-focused curriculum.",
+    url: `${siteUrl}/nmims/nmims-mumbai-online-mba-working-executives/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "NMIMS MBA WX | Radhya Education Academy",
+    description:
+      "Discover NMIMS MBA WX executive program designed for working professionals.",
+  },
 };
-export default function Nmims() {
-    return (
-        <NmimsWx />
-    );
+
+export default function NmimsWxPage() {
+  return <NmimsWx />;
 }

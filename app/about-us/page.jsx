@@ -1,8 +1,21 @@
 import AboutUs from "@/components/Radhya/AboutUs";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title: "About Radhya Education | Online Education Partner",
+  metadataBase: new URL(siteUrl),
+
+  title:
+    "About Radhya Education Academy | Trusted Online Education Partner in India",
+
   description:
-    "About Radhya Education – your trusted education partner helping students choose the right online degrees with expert counselling and university support",
+    "Learn about Radhya Education Academy, a trusted education partner helping students choose the right online degrees through expert counselling, university partnerships, and career guidance.",
+
+  alternates: {
+    canonical: "/about-us/",
+  },
+
   keywords: [
     "About Radhya",
     "Radhya Education",
@@ -12,9 +25,30 @@ export const metadata = {
     "university admission guidance",
     "Radhya education services",
   ],
+
+  openGraph: {
+    title:
+      "About Radhya Education Academy | Trusted Online Education Partner in India",
+    description:
+      "Discover the mission and vision of Radhya Education Academy and how we help students choose the right online degree programs.",
+    url: `${siteUrl}/about-us/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "About Radhya Education Academy",
+    description:
+      "Learn about Radhya Education Academy and our mission to guide students in choosing the right online education programs.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
-export default function about(){
-    return(
-        <AboutUs />
-    );
+
+export default function About() {
+  return <AboutUs />;
 }

@@ -1,8 +1,20 @@
 import SmuBcom from "@/components/Smu/SmuBcom";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
-  title: "SMU Online BCom - UGC Approved Degree Program",
+  metadataBase: new URL(siteUrl),
+
+  title: "SMU Online BCom | UGC Approved Bachelor of Commerce Degree",
+
   description:
-    "SMU Online BCom offers a UGC-approved commerce degree with flexible online learning, industry-relevant curriculum and career support for students",
+    "SMU Online BCom from Sikkim Manipal University is a UGC-approved Bachelor of Commerce degree offering flexible online learning, industry-relevant curriculum, and strong academic support.",
+
+  alternates: {
+    canonical: "/smu/sikkim-manipal-online-bcom/",
+  },
+
   keywords: [
     "SMU Online BCom",
     "Sikkim Manipal University online BCom",
@@ -12,10 +24,24 @@ export const metadata = {
     "UGC approved online BCom",
     "SMU online programs",
   ],
+
+  openGraph: {
+    title: "SMU Online BCom | UGC Approved Bachelor of Commerce Degree",
+    description:
+      "Explore SMU Online BCom from Sikkim Manipal University with flexible learning, industry-focused curriculum, and UGC-approved recognition.",
+    url: `${siteUrl}/smu/sikkim-manipal-online-bcom/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "SMU Online BCom | Radhya Education Academy",
+    description:
+      "Learn about SMU Online BCom from Sikkim Manipal University and explore flexible UGC-approved commerce degree programs.",
+  },
 };
 
-export default function Smu() {
-    return (
-        <SmuBcom />
-    );
+export default function SmuOnlineBcomPage() {
+  return <SmuBcom />;
 }

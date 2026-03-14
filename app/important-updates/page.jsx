@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div className="mt-10 py-20">
         <ContactSection/>
         <ConnectToday/>
     </div>
