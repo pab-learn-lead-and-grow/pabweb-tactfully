@@ -84,9 +84,11 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
      <body className={`${inter.className} scrollbar-hide`}>
+          <Suspense fallback={null}>
         <Navbar />
         {children}
         <Footer />
+        </Suspense>
       </body>
     </html>
   );
