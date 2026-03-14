@@ -1,17 +1,22 @@
-
 import UniversityList from "@/components/UniversityList";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
-
 import { getUniversities } from "../actions/getUniversities";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
+  metadataBase: new URL(siteUrl),
+
   title: "Compare UGC Approved Universities in India | Online & Distance Education",
+
   description:
-    "Compare top UGC approved universities in India for online MBA and distance education. Check recognition, fees, specializations and choose the right university.",
-   alternates: {
-    canonical: "https://radhyaeducationacademy.com/universitieslist/",
+    "Compare top UGC-approved universities in India offering online and distance education programs. Check recognition, fees, courses, and specializations to choose the right university.",
+
+  alternates: {
+    canonical: "/universitieslist/",
   },
-    keywords: [
+
+  keywords: [
     "Compare UGC Approved Universities",
     "UGC approved universities in India",
     "Compare online MBA universities",
@@ -20,22 +25,26 @@ export const metadata = {
   ],
 
   openGraph: {
-    title: "https://radhyaeducationacademy.com/universitieslist/ - UGC Approved Program | Radhya Education Academy",
-    description: "Learn about this UGC-approved online degree program at Radhya Education Academy",
-    url: "https://radhyaeducationacademy.com/universitieslist/",
+    title:
+      "Compare UGC Approved Universities in India | Radhya Education Academy",
+    description:
+      "Compare top UGC-approved universities offering online and distance education programs. Explore fees, recognition, and courses before choosing the right university.",
+    url: `${siteUrl}/universitieslist/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },
+
   twitter: {
     card: "summary",
-    title: "Radhya Education Academy - Online Programs",
-    description: "Explore UGC-approved online degree programs from top universities",
-  }
+    title:
+      "Compare UGC Approved Universities in India | Radhya Education Academy",
+    description:
+      "Explore and compare UGC-approved universities offering online and distance learning programs in India.",
+  },
 };
 
-export default async function Universities(){
+export default async function UniversitiesPage() {
   const universities = await getUniversities();
-  return(
-    <UniversityList initialData={universities} />
-  );
+
+  return <UniversityList initialData={universities} />;
 }
