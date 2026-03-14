@@ -1,3 +1,5 @@
+import Disclaimer from "@/components/Radhya/DisclaimerPage";
+
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
@@ -7,7 +9,7 @@ export const metadata = {
   title: "Disclaimer | Radhya Education Academy",
 
   description:
-    "Read the Disclaimer of Radhya Education Academy Private Limited outlining website usage, service limitations, third-party information sources, and user responsibilities.",
+    "Read the Disclaimer of Radhya Education Academy outlining the limitations of liability, website usage terms, and accuracy of information provided on our platform.",
 
   alternates: {
     canonical: "/disclaimer/",
@@ -16,7 +18,7 @@ export const metadata = {
   openGraph: {
     title: "Disclaimer | Radhya Education Academy",
     description:
-      "Official disclaimer for Radhya Education Academy website covering service scope, content accuracy, and legal limitations.",
+      "Understand the website disclaimer of Radhya Education Academy, including limitations of liability and informational use of the content provided.",
     url: `${siteUrl}/disclaimer/`,
     siteName: "Radhya Education Academy",
     type: "website",
@@ -26,6 +28,10 @@ export const metadata = {
     card: "summary",
     title: "Disclaimer | Radhya Education Academy",
     description:
-      "Read the official disclaimer of Radhya Education Academy regarding website use, services, and user responsibilities.",
+      "Review the disclaimer of Radhya Education Academy regarding website content, liability limitations, and information accuracy.",
   },
 };
+
+export default function DisclaimerPage() {
+  return <Disclaimer />;
+}
