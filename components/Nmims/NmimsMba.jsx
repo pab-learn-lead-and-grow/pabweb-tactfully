@@ -1225,7 +1225,7 @@ export default function Page() {
             <CareerServices onCtaClick={() => setIsModalOpen(true)} />
     
      <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
-  <div className="px-2 w-full">
+    <div className="px-2 w-full">
     <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
 
       {/* LEFT SIDE TEXT */}

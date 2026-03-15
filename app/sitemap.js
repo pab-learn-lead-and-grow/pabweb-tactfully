@@ -1,6 +1,10 @@
 /** @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap */
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
+// Detect staging environment
+const isStaging = baseUrl.includes("staging");
 
 const staticRoutes = [
   "/",
@@ -75,6 +79,12 @@ const staticRoutes = [
 ];
 
 export default function sitemap() {
+
+  // Disable sitemap on staging
+  if (isStaging) {
+    return [];
+  }
+
   return staticRoutes.map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
