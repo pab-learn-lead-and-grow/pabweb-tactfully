@@ -20,10 +20,10 @@ export default function Hero({ className }) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl md:text-5xl lg:text-8xl font-bold leading-[1.1] leading-tight"
+              className="text-4xl md:text-5xl lg:text-8xl font-bold leading-tight"
             >
               <span className="bg-[linear-gradient(90deg,#FFB901_0%,#AD6F35_35.58%,#57216D_52.4%,#3C087E_100%)] bg-clip-text text-transparent">
-                #GyaanKaMaidaan
+                #Tactfully
               </span>
             </motion.h2>
 
