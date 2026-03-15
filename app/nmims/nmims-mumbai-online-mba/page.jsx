@@ -1,7 +1,7 @@
 import NmimsMba from "@/components/Nmims/NmimsMba";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
-
+export const dynamic = "force-static";
 export const metadata = {
   title: "NMIMS Online MBA - Accredited Distance Degree Program",
   description:
