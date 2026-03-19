@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CounsellingModal from "./CounsellingModal";
+import MotionWrapper from "./MotionWrapper";
 import { useState } from "react";
 
 export default function UnivCourses({

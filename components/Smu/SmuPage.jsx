@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import React from "react";
+import MotionWrapper from "../Radhya/MotionWrapper";
 import MujCareerServices from "../NmimsSection/MujCareerServices" ;
 import Enrollment from "../NmimsSection/Enrollment";
 import FAQ from "../NmimsSection/FAQ";
@@ -275,7 +276,6 @@ export default function Page() {
 
   <UnivCourses
   heading="Courses"
-  onDownloadBrochure={() => setIsModalOpen(true)}
   courses={[
     {
       id: 1,
