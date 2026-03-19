@@ -1,7 +1,8 @@
 import MujPage from "@/components/Muj/MujPage";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
-
+export const dynamic = "force-static";
 export const metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Manipal Jaipur University - UGC Approved Online Programs",
   description:
     "Manipal Jaipur University offers UGC-approved online undergraduate and postgraduate degree programs with flexible learning and industry-relevant curriculum",

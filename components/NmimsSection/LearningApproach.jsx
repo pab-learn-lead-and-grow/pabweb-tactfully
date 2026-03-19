@@ -1,19 +1,18 @@
-"use client";
 
-import { motion } from "framer-motion";
+import CounsellingModal from "../Radhya/CounsellingModal";
+import MotionWrapper from "../Radhya/MotionWrapper";
 
 export default function LearningApproach({
   title = "Learning Approach",
   subtitle = "",
   cards = [], // [{ icon: IconComponent, title: "...", desc: "..." }]
   ctaText = "Ready to Learn?",
-  onCtaClick = () => {},
 }) {
   return (
     <div className="relative pointer-events-auto">
     <section className="relative z-10 w-full px-4 lg:px-30 lg:py-10">
       {/* Heading */}
-      <motion.div
+      <MotionWrapper
         className="max-w-5xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,12 +28,12 @@ export default function LearningApproach({
             {subtitle}
           </p>
         )}
-      </motion.div>
+      </MotionWrapper>
 
       {/* Dynamic Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 gap-8 mt-14">
         {cards.map((item, i) => (
-          <motion.div
+          <MotionWrapper
             key={i}
             className="bg-white shadow-md rounded-2xl p-10 md:p-5 lg:p-10 border border-gray-100 flex flex-col items-start text-left"
             initial={{ opacity: 0, y: 40 }}
@@ -56,21 +55,20 @@ export default function LearningApproach({
             <p className="text-gray-600 md:text-md leading-relaxed">
               {item.desc}
             </p>
-          </motion.div>
+          </MotionWrapper>
         ))}
       </div>
 
      {/* CTA Button */}
 <div className="relative z-20 flex items-center justify-center mt-12">
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.97 }}
-    transition={{ duration: 0.2 }}
-    onClick={onCtaClick}
-    className="pointer-events-auto text-white mt-4 px-8 py-3 rounded-lg text-md bg-[#F6A410] shadow-lg flex items-center justify-center"
+  <CounsellingModal>
+  <button
+   
+    className="pointer-events-auto text-white mt-4 px-8 py-3 rounded-lg text-md bg-[#F6A410] hover:scale-105 shadow-lg flex items-center justify-center"
   >
     {ctaText}
-  </motion.button>
+  </button>
+  </CounsellingModal>
 </div>
 
 

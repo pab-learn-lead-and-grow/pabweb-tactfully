@@ -1,64 +1,53 @@
-"use client";
+
 import Image from "next/image";
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
-
-import Link from "next/link"; // Added import
-
+import RelatedBlogs from "./RelatedBlogs";
+import MotionWrapper from "../Radhya/MotionWrapper";
 export default function Page() {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-  };
 
-  const [showAllRelated, setShowAllRelated] = useState(false);
 
-  const blogs = [
+ const blogs = [
     {
       id: 1,
       title:
-        " How An Online MBA Helps You Raise From Employee To Leader",
+        "How An Online MBA Helps You Raise From Employee To Leader",
       image: "/Blog2/background.png",
-      path: "online-mba-for-career-growth",
+      path: "/blogs/online-mba-for-career-growth",
     },
     {
       id: 2,
       title: "Why NMIMS Is The Top Choice For Working Professionals In India",
       image: "/Blog3/background.png",
-      path: "nmims-for-working-professionals",
+      path: "/blogs/nmims-for-working-professionals",
     },
     {
       id: 3,
       title:
         "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
       image: "/Blog1/background.png",
-      path: "online-vs-regular-mba",
+      path: "/blogs/online-vs-regular-mba",
     },
     {
       id: 4,
       title:
         "How Online MBA’s Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
       image: "/Blog4/background.png",
-      path: "the-digital-revolution",
+      path: "/blogs/the-digital-revolution",
     },
     {
       id: 5,
       title:
         "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility",
       image: "/Blog5/background.png",
-      path: "the-financial-catalyst",
+      path: "/blogs/the-financial-catalyst",
     },
     {
       id: 6,
       title:
         "How Online BBA Builds Entrepreneurs And How Online MBA Shapes Future CEOs",
       image: "/Blog6/background.png",
-      path: "how-online-bba-builds-entrepreneurs",
+      path: "/blogs/how-online-bba-builds-entrepreneurs",
     },
   ];
-
-  const visibleRelatedBlogs = showAllRelated ? blogs : blogs.slice(0, 4);
 
   return (
     <section className="w-full flex flex-col font-[Inter] items-center bg-white">
@@ -152,7 +141,7 @@ export default function Page() {
         </div>
 
         {/* CENTER CONTENT */}
-        <motion.div
+        <MotionWrapper
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -477,58 +466,10 @@ export default function Page() {
             specializations typically included in a modern Online MBA
             curriculum?
           </p>
-        </motion.div>
+        </MotionWrapper>
 
         {/* RIGHT SIDE BLOG LINKS */}
-        <div className="flex flex-col gap-4 lg:mt-5 w-full bg-white rounded-2xl self-start h-fit shadow-lg p-4 pr-6">
-          <h2 className="text-2xl font-bold text-[#270652] mb-2">
-            Related Articles
-          </h2>
-
-          {visibleRelatedBlogs.map((blog) => (
-            <motion.div
-              key={blog.id}
-              variants={cardVariants}
-              initial="hidden"
-              animate="show"
-              className="flex gap-3 pb-4 border-gray-200"
-            >
-              {/* IMAGE */}
-              <div className="w-[100px] h-[70px] rounded-lg overflow-hidden shrink-0">
-                <Image
-                  src={blog.image}
-                  alt={blog.title}
-                  width={100}
-                  height={70}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-
-              {/* CONTENT */}
-              <div className="flex-1 min-w-0 flex flex-col justify-between">
-                <p className="text-[10px] leading-[1.4] text-black break-word">
-                  {blog.title}
-                </p>
-
-                <Link
-                  href={blog.path}
-                  className="mt-2 w-fit text-white bg-[#3d077e] text-[10px] px-3 py-1 rounded hover:bg-blue-950 transition inline-block"
-                >
-                  Read More
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-
-          <button
-            onClick={() => setShowAllRelated(true)}
-            className="w-full mt-2 bg-[#F6A410] border-0 border-transparent shadow-[#F6A410] shadow-md transform 
-      active:scale-100 hover:scale-105 text-white py-1 xl:py-2 rounded-lg font-semibold flex items-center justify-center gap-2 transition"
-          >
-            View More
-            <ChevronRight size={18} />
-          </button>
-        </div>
+          <RelatedBlogs blogs={blogs} />
       </div>
     </section>
   );

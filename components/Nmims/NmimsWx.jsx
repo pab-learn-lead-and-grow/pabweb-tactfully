@@ -1,4 +1,4 @@
-"use client";
+
 import Image from "next/image";
 import {
   Download,
@@ -22,8 +22,6 @@ import {
   UserLock,
   ListMinus,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
 import React from "react";
 import LearningApproach from "../NmimsSection/LearningApproach";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
@@ -33,46 +31,13 @@ import Faculties from "../NmimsSection/Faculties";
 import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
-import CounsellingForm from "@/components/Radhya/CounsellingForm";
+import MotionWrapper from "../Radhya/MotionWrapper";
+import FeesCarousel from "../NmimsSection/FeesCrousel";
+import SyllabusSection from "../NmimsSection/Syllabus";
+import SnapshotSection from "../NmimsSection/SnapshotSection";
+import CounsellingModal from "../Radhya/CounsellingModal";
 
 export default function Page() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const Counter = ({ end, duration = 2000 }) => {
-    const [value, setValue] = useState(0);
-    const [hasAnimated, setHasAnimated] = useState(false);
-    const ref = React.useRef(null);
-
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const entry = entries[0];
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-
-            let start = 0;
-            const increment = end / (duration / 16);
-
-            const counter = setInterval(() => {
-              start += increment;
-              if (start >= end) {
-                clearInterval(counter);
-                setValue(end);
-              } else {
-                setValue(Math.floor(start));
-              }
-            }, 16);
-          }
-        },
-        { threshold: 0.4 }
-      );
-
-      if (ref.current) observer.observe(ref.current);
-
-      return () => observer.disconnect();
-    }, [end, duration, hasAnimated]);
-
-    return <span ref={ref}>{value}</span>;
-  };
 
   const learningCards = [
     {
@@ -123,13 +88,19 @@ export default function Page() {
     { id: 5, name: "Operation and Supply Chain Management" },
   ];
 
-  const terms = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  const terms = [ 0, 1, 2, 3, 4, 5, 6, 7, 8];
 
-  const getTermLabel = (term) => {
-    if (term === 0) return "Foundation (HSBE)";
-    return `${ordinal(term)} Term`;
+  const termSuffix = {
+    0:"th",
+    1: "st",
+    2: "nd",
+    3: "rd",
+    4: "th",
+    5: "th",
+    6: "th",
+    7: "th",
+    8: "th",
   };
-
   const topicsData = {
     0: [
       "Management Communication",
@@ -480,13 +451,7 @@ export default function Page() {
       8: ["Project or Industry Experience"],
     },
   };
-  const [activeSubject, setActiveSubject] = useState(1);
-  const [activeterms, setActiveterms] = useState(0);
-  const ordinal = (n) => {
-    const s = ["th", "st", "nd", "rd"];
-    const v = n % 100;
-    return n + (s[(v - 20) % 10] || s[v] || s[0]);
-  };
+  
 
   const faqs = [
     {
@@ -606,7 +571,7 @@ export default function Page() {
              </div>
              {/* LOGO – move to left screen edge, keep same height */}
              <div className="relative z-10 w-full mt-20 md:mt-28">
-               <motion.div
+               <MotionWrapper
                  initial={{ opacity: 0, x: -30 }}
                  whileInView={{ opacity: 1, x: 0 }}
                  transition={{ duration: 0.6 }}
@@ -622,13 +587,13 @@ export default function Page() {
                className="object-contain w-[140px] sm:w-[180px] lg:w-[220px]"
              />
                  </div>
-               </motion.div>
+               </MotionWrapper>
              </div>
      
              {/* CONTENT WRAPPER */}
              <div className="relative z-10 max-w-7xl mx-auto p-6 sm:p-10">
                {/* Most Loved */}
-               <motion.span
+               <MotionWrapper
                  initial={{ opacity: 0, x: -20 }}
                  whileInView={{ opacity: 1, x: 0 }}
                  transition={{ duration: 0.6 }}
@@ -636,10 +601,10 @@ export default function Page() {
                  className="inline-block bg-[#FFB901] text-white text-[12px] lg:text-[18px] mt-8 lg:mt-6  mb-2 font-sm px-4 py-1 rounded-full"
                >
                  Most-Loved
-               </motion.span>
+               </MotionWrapper>
      
                {/* Subtext */}
-               <motion.p
+               <MotionWrapper
                  initial={{ opacity: 0, x: -20 }}
                  whileInView={{ opacity: 1, x: 0 }}
                  transition={{ duration: 0.6, delay: 0.1 }}
@@ -647,11 +612,12 @@ export default function Page() {
                  className="text-white text-[12px] md:text-[16px] italic font-light"
                >
                   Master of Business Administration (WX)
-               </motion.p>
+               </MotionWrapper>
      
                {/* TITLE + DESCRIPTION */}
                <div className="flex flex-col items-start">
-                 <motion.h1
+                 <MotionWrapper
+                 as="h1"
                    initial={{ opacity: 0, y: -20 }}
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ duration: 0.7 }}
@@ -659,9 +625,9 @@ export default function Page() {
                    className="text-white text-[20px] md:text-[32px] lg:text-5xl xl:text-[60px] font-[Inter] font-bold mt-1 leading-tight"
                  >
                   NMIMS Online MBA (WX)
-                 </motion.h1>
+                 </MotionWrapper>
      
-                 <motion.p
+                 <MotionWrapper
                    initial={{ opacity: 0 }}
                    whileInView={{ opacity: 1 }}
                    transition={{ duration: 0.7, delay: 0.2 }}
@@ -669,10 +635,10 @@ export default function Page() {
                    className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
                  >
                   The MBA (WX) Executive Program brings the prestige and rigour of a campus MBA directly to working professionals through a flexible learning model. It develops strategic, insightful leaders capable of influencing decisions and creating measurable value in the corporate sphere.
-                 </motion.p>
+                 </MotionWrapper>
      
                  {/* STATS */}
-                 <motion.div
+                 <MotionWrapper
                    initial={{ opacity: 0, y: 20 }}
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ duration: 0.7 }}
@@ -695,30 +661,34 @@ export default function Page() {
                        </p>
                      </div>
                    ))}
-                 </motion.div>
+                 </MotionWrapper>
      
                  {/* BUTTONS – CENTERED */}
-                 <motion.div
+                 <MotionWrapper
                    initial={{ opacity: 0, y: 25 }}
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ duration: 0.7 }}
                    viewport={{ once: true }}
                    className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
                  >
-                    <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                        transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
-                                  Download Brochure
-                                  <Download className="w-4 h-4 md:w-5 md:h-5" />
-                                </button>
-                  
-                                <button onClick={() => setIsModalOpen(true)} className=" bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
-                        ease-out
-                        hover:scale-105 hover:shadow-lg
-                        active:scale-100 flex items-center justify-center gap-2 px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium">
-                                  Talk to an Expert
-                                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-                                </button>
-                 </motion.div>
+                     <CounsellingModal>
+               <button className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
+                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
+                             Download Brochure
+                             <Download className="w-4 h-4 md:w-5 md:h-5" />
+                           </button>
+                           </CounsellingModal>
+<CounsellingModal>
+  <button
+    className="bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
+    ease-out hover:scale-105 hover:shadow-lg active:scale-100 flex items-center justify-center gap-2
+    px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium"
+  >
+    Talk to an Expert
+    <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+  </button>
+</CounsellingModal>
+                 </MotionWrapper>
                </div>
              </div>
            </section>
@@ -759,77 +729,13 @@ export default function Page() {
         </div>
       </section>
      {/* ======= SNAPSHOT SECTION ======= */}
-          <section className="w-full xl:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
-            <div className="max-w-7xl mx-auto">
-              {/* HEADING */}
-              <motion.h2
-                initial={{ opacity: 0, y: -30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#270652] mb-3 md:mb-8 text-center"
-              >
-                A Snapshot of Success
-              </motion.h2>
-              {/* BLUE BAR */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="bg-[#3C087e]/5 rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
-              >
-                {/* ALWAYS 3 COLUMNS */}
-                <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
-                  {/* STAT 1 */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                  >
-                    <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
-                      <Counter end={25} />%
-                    </p>
-                     <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
-                      Average Salary Growth
-                    </p>
-                  </motion.div>
-    
-                  {/* STAT 2 */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
-                      <Counter end={82000} />
-                    </p>
-                     <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                      Strong Global Alumni Network
-                    </p>
-                  </motion.div>
-    
-                  {/* STAT 3 */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ once: true }}
-                  >
-                    <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
-                      <Counter end={500} />+
-                    </p>
-                     <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                      Hiring Partners
-                    </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-          </section>
-
+           <SnapshotSection
+  stats={[
+    { value: 25, suffix: "%", label: "Average Salary Growth" },
+    { value: 82000, label: "Strong Global Alumni Network" },
+    { value: 500, suffix: "+", label: "Hiring Partners" },
+  ]}
+/>
       <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
         {/* ===== Top Text Section ===== */}
         <div className="max-w-6xl text-left mx-auto">
@@ -889,210 +795,24 @@ export default function Page() {
         </div>
       </section>
 
-      <WhyChooseUs title="Why CHoose NMIMS Online MBA WX " cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
+      <WhyChooseUs title="Why CHoose NMIMS Online MBA WX " cards={whyCards} />
 
-      <section className="w-full bg-white px-4 md:px-16 py-10 lg:py-20 font-[Inter]">
-        {/* TITLE */}
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-[32px] md:text-[64px] leading-[110%] font-extrabold text-center text-[#270652] mb-10"
-        >
-          NMIMS Online MBA WX Syllabus
-        </motion.h2>
+     <SyllabusSection
+  title="NMIMS Online MBA WX Syllabus"
+  subjects={subjects}
+  semesters={terms}
+  semSuffix={termSuffix}
+  topicsData={topicsData}
+  unitLabel="Term"
+/>
 
-        {/* MAIN WRAPPER */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="
-              bg-[#3C087E]/10 rounded-[30px]
-              p-4 sm:p-6 md:p-12
-              flex flex-col xl:flex-row gap-6 md:gap-10
-            "
-        >
-          {/* ================= MOBILE SUBJECTS + SEMESTERS ================= */}
-          <div className="grid grid-cols-2 gap-10 md:gap-20 lg:gap-40 w-full xl:hidden">
-            {/* SUBJECTS */}
-            <div className="flex flex-col">
-              <div className="max-h-[140px] overflow-y-auto no-scrollbar">
-                <div className="flex flex-col gap-2">
-                  {subjects.map((sub) => (
-                    <motion.button
-                      key={sub.id}
-                      whileHover={{ scale: 1.05 }}
-                      onClick={() => {
-                        setActiveSubject(sub.id);
-                        setActiveterms(0);
-                      }}
-                      className={`px-3 py-2 rounded-full text-xs font-semibold
-                          ${
-                            activeSubject === sub.id
-                             ? "bg-[#3C087E] text-white shadow"
-                                : "bg-white text-[#3C087E] border-[#3C087E] border-dashed border-2"
-                            }`}
-                    >
-                      {sub.name}
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* SEMESTERS */}
-            <div className="flex flex-col">
-              <div className="max-h-[140px] overflow-y-auto no-scrollbar">
-                <div className="flex flex-col gap-2">
-                  {terms.map((term) => (
-                    <motion.button
-                      key={term}
-                      whileHover={{ scale: 1.05 }}
-                      onClick={() => setActiveterms(term)}
-                      className={`px-3 py-2 rounded-full text-xs font-semibold
-                          ${
-                            activeterms === term
-                              ? "bg-[#3C087E] text-white shadow"
-                                : "bg-white text-[#3C087E] border-[#3C087E] border-dashed border-2"
-                             }`}
-                    >
-                      {getTermLabel(term)}
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-
-              {/* DOWNLOAD BUTTON */}
-              <motion.button
-                onClick={() => setIsModalOpen(true)}
-                whileHover={{ scale: 1.05 }}
-                className="
-                    mt-4  bg-[#F6A410]
-                    text-white px-2 py-2 rounded-xl text-[10px]
-                    shadow-md flex items-center justify-center gap-2
-                  "
-              >
-                DOWNLOAD SYLLABUS
-                <ChevronRight size={14} />
-              </motion.button>
-            </div>
-          </div>
-
-          {/* ================= DESKTOP SUBJECTS ================= */}
-          <div className="hidden xl:flex w-[30%] justify-center">
-            <div className="max-h-100 overflow-y-auto no-scrollbar w-[90%] flex flex-col gap-4 mt-10">
-              {subjects.map((sub) => (
-                <motion.button
-                  key={sub.id}
-                  whileHover={{ scale: 1.05 }}
-                  onClick={() => {
-                    setActiveSubject(sub.id);
-                    setActiveterms(0);
-                  }}
-                  className={`px-4 py-3 rounded-full font-semibold
-                      ${
-                        activeSubject === sub.id
-                          ? "bg-[#3C087E] text-white shadow"
-                          : "bg-white text-[#3C087E] border-[#3C087E] border-dashed border-2"
-                            }`}
-                >
-                  {sub.name}
-                </motion.button>
-              ))}
-            </div>
-          </div>
-
-          {/* ================= TOPICS ================= */}
-          <div className="w-full xl:w-[40%] flex justify-center mt-6">
-            <div className="bg-white rounded-xl p-6 shadow-md relative w-full">
-              {/* ICON LINE */}
-              <div className="absolute top-0 bottom-0 left-6 flex flex-col items-center">
-                <div className="bg-[#270652] text-white p-2 rounded-full mt-6 z-10">
-                  <ChevronsDown size={16} />
-                </div>
-                <div className="w-0.5 bg-[#270652] flex-1 mb-4"></div>
-              </div>
-
-              {/* TITLE */}
-              <p className="text-2xl font-bold text-[#270652] ml-16 mb-4">
-                Topics Covered
-              </p>
-
-              {/* TOPICS LIST */}
-              <AnimatePresence mode="wait">
-                <motion.ul
-                  key={`${activeSubject}-${activeterms}`}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex flex-col gap-3 ml-16"
-                >
-                  {topicsData[activeSubject][activeterms].map((topic, i) => (
-                    <motion.li
-                      key={i}
-                      whileHover={{ x: 6 }}
-                      className="flex items-center gap-3"
-                    >
-                      <div className="w-6 h-6 rounded-full shrink-0 bg-[#270652] flex items-center justify-center">
-                        <Check size={14} className="text-white" />
-                      </div>
-                      <span className="text-sm md:text-base text-gray-800">
-                        {topic}
-                      </span>
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* ================= DESKTOP TERMS ================= */}
-          <div className="hidden xl:flex w-[30%] flex-col items-center mt-10">
-            <div className="max-h-63 overflow-y-auto no-scrollbar w-[90%] flex flex-col gap-4">
-              {terms.map((term) => (
-                <motion.button
-                  key={term}
-                  whileHover={{ scale: 1.05 }}
-                  onClick={() => setActiveterms(term)}
-                  className={`px-4 py-3 rounded-full font-semibold
-                      ${
-                        activeterms === term
-                          ? "bg-[#3C087E] text-white shadow"
-                                : "bg-white text-[#3C087E] border-[#3C087E] border-dashed border-2"
-                           
-                      }`}
-                >
-                  {getTermLabel(term)}
-                </motion.button>
-              ))}
-            </div>
-
-            {/* DOWNLOAD BUTTON */}
-            <motion.button
-              onClick={() => setIsModalOpen(true)}
-              whileHover={{ scale: 1.05 }}
-              className="
-                  mt-6 w-[90%]
-                  bg-[#F6A410]
-                  text-white px-3 py-4 rounded-2xl
-                  shadow-lg flex items-center justify-center gap-4
-                "
-            >
-              DOWNLOAD SYLLABUS
-              <ChevronRight size={20} />
-            </motion.button>
-          </div>
-        </motion.div>
-      </section>
+      
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter]">
         <div className="max-w-7xl mx-auto">
           {/* Title animation */}
-          <motion.h2
+          <MotionWrapper
+          as="h2"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -1100,10 +820,10 @@ export default function Page() {
             className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#270652]"
           >
             Eligibility for NMIMS Online MBA WX
-          </motion.h2>
+          </MotionWrapper>
 
           {/* Card container */}
-          <motion.div
+          <MotionWrapper
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -1111,7 +831,7 @@ export default function Page() {
             className="mt-6 flex flex-col md:flex-row max-w-7xl items-center gap-20"
           >
             {/* Left text */}
-            <motion.p
+            <MotionWrapper
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -1122,10 +842,10 @@ export default function Page() {
               University or an equivalent degree recognised by Association of
               Indian Universities (AIU) with a minimum of 55% and 3 + years of
               Work Experience (50% for SC/ST/OBC/PwD).
-            </motion.p>
+            </MotionWrapper>
 
             {/* Right image animation */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -1137,8 +857,8 @@ export default function Page() {
                 alt="Eligibility Illustration"
                 className="w-full max-w-[420px] md:max-w-[520px] h-auto rounded-xl object-contain"
               />
-            </motion.div>
-          </motion.div>
+            </MotionWrapper>
+          </MotionWrapper>
         </div>
       </section>
 
@@ -1147,7 +867,6 @@ export default function Page() {
         subtitle="Get a work-life-study balance with this program designed for working professionals delivered via latest learning management systems."
         cards={learningCards}
         ctaText="Ready to Learn ? Click Here"
-        onCtaClick={() => setIsModalOpen(true)}
       />
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
@@ -1158,7 +877,8 @@ export default function Page() {
 
         <div className="max-w-5xl mx-auto relative">
           {/* Main Heading */}
-          <motion.h2
+          <MotionWrapper
+          as="h2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -1166,10 +886,10 @@ export default function Page() {
             className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#270652] mb-6"
           >
             EXAMINATION PROCESS
-          </motion.h2>
+          </MotionWrapper>
 
           {/* Sub Text */}
-          <motion.p
+          <MotionWrapper
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -1179,10 +899,10 @@ export default function Page() {
             The NMIMS Online MBA (WX) follows a structured and transparent
             examination process designed to evaluate learners through continuous
             assessments and end-term evaluations.
-          </motion.p>
+          </MotionWrapper>
 
           {/* SINGLE CARD */}
-          <motion.div
+          <MotionWrapper
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -1203,7 +923,7 @@ export default function Page() {
       "
             >
               {/* POINT 1 */}
-              <motion.div
+              <MotionWrapper
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
@@ -1215,10 +935,10 @@ export default function Page() {
                   Learners must book their examination slots through the NMIMS
                   Student Portal.
                 </p>
-              </motion.div>
+              </MotionWrapper>
 
               {/* POINT 2 */}
-              <motion.div
+              <MotionWrapper
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
@@ -1230,9 +950,9 @@ export default function Page() {
                   All exam slot details are shared well in advance, allowing
                   candidates to schedule their tests conveniently.
                 </p>
-              </motion.div>
+              </MotionWrapper>
             </div>
-          </motion.div>
+          </MotionWrapper>
         </div>
       </section>
 
@@ -1272,14 +992,14 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <CareerServices onCtaClick={() => setIsModalOpen(true)} />
+      <CareerServices />
 
       <section className="w-full font-[Inter] py-20 flex justify-center">
         <div className="w-full max-w-7xl px-4 md:px-10">
           {/* WRAPPER */}
           <div className="flex flex-col lg:flex-row justify-between gap-16">
             {/* ================= LEFT SIDE ================= */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -1298,13 +1018,13 @@ export default function Page() {
               </p>
 
               {/* Fee Card */}
-              <motion.div
+               <MotionWrapper
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
                 className=" bg-linear-to-b from-[#270652] to-[#3C087E]/50 
-                     text-white w-[200px] h-[285px] md:w-[260px] rounded-2xl shadow-xl p-8 flex flex-col mt-20 items-center"
+                     text-white w-[200px] h-[285px] md:w-[260px] rounded-2xl shadow-xl p-8 flex flex-col mt-10 items-center"
               >
                 <p className="text-lg font-semibold mb-1">Program Fee</p>
                 <p className="text-[10px] tracking-wider opacity-80 mb-3">
@@ -1316,23 +1036,21 @@ export default function Page() {
                 <div className="w-full h-0.5 bg-white/40 my-2"></div>
 
                 <p className="text-3xl font-bold mt-8">₹4,00,000/-</p>
-              </motion.div>
+              </MotionWrapper>
 
               {/* Button */}
-              <motion.button
-                onClick={() => setIsModalOpen(true)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.2 }}
-                className="mt-10 bg-[#F6A410] 
-                     text-white px-10 py-3 rounded-xl shadow-lg"
+             <CounsellingModal>
+              <button
+                
+                className="hidden lg:flex text-white bg-[#F6A410] font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 mt-10 w-fit"
               >
                 Compare all Plans
-              </motion.button>
-            </motion.div>
+              </button>
+              </CounsellingModal>
+            </MotionWrapper>
 
             {/* ================= RIGHT SIDE ================= */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -1388,7 +1106,7 @@ export default function Page() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </MotionWrapper>
           </div>
         </div>
       </section>
@@ -1430,12 +1148,14 @@ export default function Page() {
 
             {/* CTA BUTTON */}
           <div className="flex justify-center md:justify-start">
+  <CounsellingModal>
   <button
-    onClick={() => setIsModalOpen(true)}
+    
     className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200"
   >
     Know more
   </button>
+  </CounsellingModal>
 </div>
 
           </div>
@@ -1452,17 +1172,18 @@ export default function Page() {
       </section>
       <section className="w-full bg-white px-4 md:px-12 lg:px-20 py-16 font-[Inter]">
         {/* Small Header */}
-        <motion.h2
+        <MotionWrapper
+        as="h2"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-black text-lg md:text-xl mb-2"
         >
           What will you gain?
-        </motion.h2>
+        </MotionWrapper>
 
         {/* Main Heading */}
-        <motion.div
+        <MotionWrapper
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -1470,14 +1191,14 @@ export default function Page() {
         >
           This isnt just another degree its a <br />
           transformation in how you think, work and grow.
-        </motion.div>
+        </MotionWrapper>
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
           {/* LEFT COLUMN */}
           <div className="flex flex-col gap-12">
             {/* Item 1 */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -1500,10 +1221,10 @@ export default function Page() {
                   goals.
                 </p>
               </div>
-            </motion.div>
+            </MotionWrapper>
 
             {/* Item 2 */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -1524,13 +1245,13 @@ export default function Page() {
                   holders, and experienced industry leaders.
                 </p>
               </div>
-            </motion.div>
+            </MotionWrapper>
           </div>
 
           {/* RIGHT COLUMN */}
           <div className="flex flex-col gap-12">
             {/* Item 3 */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -1553,10 +1274,10 @@ export default function Page() {
                   effectively in diverse business environments.
                 </p>
               </div>
-            </motion.div>
+            </MotionWrapper>
 
             {/* Item 4 */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -1578,13 +1299,13 @@ export default function Page() {
                   more effectively.
                 </p>
               </div>
-            </motion.div>
+            </MotionWrapper>
           </div>
         </div>
       </section>
       <section className="w-full bg-white py-10 lg:py-20 md:px-12 lg:px-20">
         <div className="w-full md:bg-[#270652] rounded-4xl py-12 px-6 md:px-12 lg:px-15">
-          <motion.div
+          <MotionWrapper
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -1593,7 +1314,8 @@ export default function Page() {
           >
             {/* Title */}
             <div className="text-center md:mb-4 pb-3">
-              <motion.h2
+              <MotionWrapper
+              as="h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -1604,11 +1326,11 @@ export default function Page() {
                             leading-tight"
               >
                 Career Opportunities
-              </motion.h2>
+              </MotionWrapper>
             </div>
 
             {/* Subtitle */}
-            <motion.p
+            <MotionWrapper
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -1617,12 +1339,12 @@ export default function Page() {
               This program gives you the foundation to dive into all major
               aspects of Business Administration and unlock exciting career
               opportunities in diverse business functions.
-            </motion.p>
+            </MotionWrapper>
 
             {/* Content Section */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               {/* LEFT IMAGE */}
-              <motion.div
+              <MotionWrapper
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -1644,10 +1366,10 @@ export default function Page() {
           mx-auto
         "
                 />
-              </motion.div>
+              </MotionWrapper>
 
               {/* RIGHT LIST */}
-              <motion.div
+              <MotionWrapper
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -1659,7 +1381,7 @@ export default function Page() {
                   "Marketinng Analyst",
                   "Senior Strategy Manager",
                 ].map((role, index) => (
-                  <motion.div
+                  <MotionWrapper
                     key={index}
                     initial={{ opacity: 0, x: 25 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -1672,18 +1394,17 @@ export default function Page() {
                     <span className="text-gray-900 font-semibold text-lg">
                       {role}
                     </span>
-                  </motion.div>
+                  </MotionWrapper>
                 ))}
 
                 {/* CTA */}
-                <motion.button
-                  onClick={() => setIsModalOpen(true)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
+               <CounsellingModal>
+                <button
                   className="
                     w-[200px] 
                     mt-6 py-3 px-6 
                     rounded-lg 
+                    hover:scale-105
                     text-white text-sm 
                     bg-[#F6A410]
                     self-center md:self-start
@@ -1691,10 +1412,10 @@ export default function Page() {
                   "
                 >
                   Know more
-                </motion.button>
-              </motion.div>
+                </button></CounsellingModal>
+              </MotionWrapper>
             </div>
-          </motion.div>
+          </MotionWrapper>
         </div>
       </section>
       <Faculties
@@ -1727,46 +1448,46 @@ export default function Page() {
             {/* BODY */}
             <tbody className="divide-y divide-[#D6D6D6]">
               {[
-                { p: "Application Start Date", d: "17th October, 2025" },
+                { p: "Application Start Date", d: "	16.1.2026" },
                 {
-                  p: "paymment Start Date",
-                  d: "17th October, 2025",
+                  p: "payment Start Date",
+                  d: "	16.1.2026",
                 },
                 {
                   p: "Last Date For Application",
-                  d: "6th January, 2026",
+                  d: "3.4.2026",
                 },
                 {
                   p: "Last Date For Loan Application",
-                  d: "7th January, 2026",
+                  d: "6.4.2026",
                 },
                 {
                   p: "Last Date For Interview",
-                  d: "8th January, 2026",
+                  d: "7.4.2026",
                 },
                 {
                   p: "Interview Result Declaration",
-                  d: "10th January, 2026",
+                  d: "9.4.2026",
                 },
                 {
                   p: "Last Date Of Document Submission",
-                  d: "10th January, 2026",
+                  d: "11.4.2026",
                 },
                 {
                   p: "Last Date For Loan Approval",
-                  d: "10th January, 2026",
+                  d: "13.4.2026",
                 },
                 {
                   p: "Last Date For Program Fee Payment",
-                  d: "13th January, 2026",
+                  d: "14.4.2026",
                 },
                 {
                   p: "Last Date Of Admission",
-                  d: "13th January, 2026",
+                  d: "15.4.2026",
                 },
                 {
                   p: "Lecture Start Date",
-                  d: "27th January, 2026",
+                  d: "27.4.2026",
                 },
               ].map((row, i) => (
                 <tr
@@ -1785,7 +1506,6 @@ export default function Page() {
       <FAQ faqs={faqs} />
 
       <ConnectToday />
-      {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} />}
     </main>
   );
 }

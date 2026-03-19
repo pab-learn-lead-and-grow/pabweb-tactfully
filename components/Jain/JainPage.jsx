@@ -1,20 +1,18 @@
-"use client";
+
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
 import React from "react";
 import MujCareerServices from "../NmimsSection/MujCareerServices" ;
 import Enrollment from "../NmimsSection/Enrollment";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
-import CounsellingForm from "@/components/Radhya/CounsellingForm";
+import CounsellingModal from "../Radhya/CounsellingModal";
+import MotionWrapper from "../Radhya/MotionWrapper";
 import Faculties from "../NmimsSection/Faculties";
 import ContactSection from "../Radhya/ContactSection";
 import UnivCourses from "../Radhya/UnivCourses";
 import { ContactRound, FileUser, MessagesSquare, Users } from "lucide-react";
 
 export default function Page() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
    const benefits = [
     {
       icon: (
@@ -135,7 +133,7 @@ export default function Page() {
          </h2>
 
         {/* Right LOGO */}
-        <motion.div
+        <MotionWrapper
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -149,7 +147,7 @@ export default function Page() {
             height={180}
             className="object-contain w-[320px] md:w-[250px] lg:w-[400px] xl:w-[500px] pr-10 mt-10 md:mt-0"
           />
-        </motion.div>
+        </MotionWrapper>
 
       </div>
     </section>
@@ -184,7 +182,8 @@ With more than three decades of academic excellence and cutting-edge, technology
                  <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
                    <div className="max-w-7xl mx-auto">
                      {/* HEADING */}
-                     <motion.h2
+                     <MotionWrapper
+                     as="h2"
                        initial={{ opacity: 0, y: -30 }}
                        whileInView={{ opacity: 1, y: 0 }}
                        transition={{ duration: 0.6 }}
@@ -192,10 +191,10 @@ With more than three decades of academic excellence and cutting-edge, technology
                        className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#270652] mb-3 md:mb-8 text-center"
                      >
                        A Snapshot of Success
-                     </motion.h2>
+                     </MotionWrapper>
            
                      {/* BLUE BAR */}
-                     <motion.div
+                     <MotionWrapper
                        initial={{ opacity: 0, scale: 0.95 }}
                        whileInView={{ opacity: 1, scale: 1 }}
                        transition={{ duration: 0.6, delay: 0.2 }}
@@ -205,7 +204,7 @@ With more than three decades of academic excellence and cutting-edge, technology
                        {/* ALWAYS 3 COLUMNS */}
                        <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
                          {/* STAT 1 */}
-                         <motion.div
+                         <MotionWrapper
                            initial={{ opacity: 0, y: 30 }}
                            whileInView={{ opacity: 1, y: 0 }}
                            transition={{ duration: 0.5 }}
@@ -217,10 +216,10 @@ With more than three decades of academic excellence and cutting-edge, technology
                            <p className="text-[8px]  md:text-[16px] xl:text-[22px]  md:text-sm font-bold opacity-90 leading-tight">
                             NAAC accreditation
                            </p>
-                         </motion.div>
+                         </MotionWrapper>
            
                          {/* STAT 2 */}
-                         <motion.div
+                         <MotionWrapper
                            initial={{ opacity: 0, y: 30 }}
                            whileInView={{ opacity: 1, y: 0 }}
                            transition={{ duration: 0.5, delay: 0.1 }}
@@ -232,10 +231,10 @@ With more than three decades of academic excellence and cutting-edge, technology
                            <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                              Hiring Corporates
                            </p>
-                         </motion.div>
+                         </MotionWrapper>
            
                          {/* STAT 3 */}
-                         <motion.div
+                         <MotionWrapper
                            initial={{ opacity: 0, y: 30 }}
                            whileInView={{ opacity: 1, y: 0 }}
                            transition={{ duration: 0.5, delay: 0.2 }}
@@ -247,16 +246,15 @@ With more than three decades of academic excellence and cutting-edge, technology
                            <p className="text-[8px] md:text-[16px] xl:text-[22px]  md:text-sm font-bold opacity-90 leading-tight">
                              Highest Salary Offered
                            </p>
-                         </motion.div>
+                         </MotionWrapper>
                        </div>
-                     </motion.div>
+                     </MotionWrapper>
                    </div>
                  </section>
            
 
   <UnivCourses
   heading="Courses"
-  onDownloadBrochure={() => setIsModalOpen(true)}
   courses={[
     {
       id: 1,
@@ -341,7 +339,7 @@ With more than three decades of academic excellence and cutting-edge, technology
         defaultOpen={2} // Step 3 open by default
       />
 
-      <MujCareerServices  benefits={benefits}  onCtaClick={() => setIsModalOpen(true)} />
+      <MujCareerServices  benefits={benefits}  />
 
       <Faculties
         heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."
@@ -355,7 +353,6 @@ With more than three decades of academic excellence and cutting-edge, technology
       <FAQ faqs={faqs} />
 
       <ConnectToday />
-      {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} />}
     </main>
   );
 }

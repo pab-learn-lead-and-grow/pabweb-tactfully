@@ -101,7 +101,7 @@ const [errors, setErrors] = useState({});
     <div className="fixed modal inset-0 z-9999 w-screen flex font-[Inter] items-start justify-center pt-12 backdrop-blur-xl overflow-y-auto"
     >
       {/* DARK OVERLAY */}
-      <div className=" inset-0 bg-black/50" onClick={onClose} />
+      <div className=" absolute bg-black/50" onClick={onClose} />
 
       <div className="relative w-full max-w-5xl bg-white rounded-3xl shadow-3xl my-auto">
          

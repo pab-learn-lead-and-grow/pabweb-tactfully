@@ -1,4 +1,3 @@
-"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +14,7 @@ export default function LogoSection({ logos }) {
           >
             <Image
               src={logo.src}
-              alt="logo"
+              alt={logo.alt}
               width={640}
               height={219}
               loading="lazy"

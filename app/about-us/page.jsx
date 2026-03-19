@@ -2,7 +2,7 @@ import AboutUs from "@/components/Radhya/AboutUs";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
-
+export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
@@ -50,5 +50,31 @@ export const metadata = {
 };
 
 export default function About() {
-  return <AboutUs />;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Radhya Education Academy",
+    url: "https://radhyaeducationacademy.com",
+    logo: "https://radhyaeducationacademy.com/radhyaLogo.png",
+    description:
+      "Radhya Education Academy helps students and working professionals choose the right online and offline education programs through expert counselling and university partnerships.",
+    foundingCountry: "India",
+    areaServed: "India",
+    sameAs: ["https://www.instagram.com/pablearnleadandgrow/"],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Educational Counselling",
+      areaServed: "India",
+      availableLanguage: ["English", "Hindi"],
+    },
+  };
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <AboutUs />
+    </>
+  );
 }

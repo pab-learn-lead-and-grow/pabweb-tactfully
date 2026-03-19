@@ -1,9 +1,7 @@
-"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
-import { usePathname } from "next/navigation";
+import NewsletterForm from "./NewsletterForm";
 
 export default function Footer() {
   const links = [
@@ -20,7 +18,6 @@ export default function Footer() {
     { name: "Universities List", href: "/universitieslist" },
   ];
 
-  const pathname = usePathname();
 
   const programLinks = [
     { label: "Online MBA", category: "online-mba" },
@@ -49,52 +46,6 @@ export default function Footer() {
     { name: "Jain Online", path: "/jain" },
   ];
 
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
-
-  const handleSubscribe = async () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailRegex.test(email)) {
-      setMessage("Please enter a valid email address");
-      return;
-    }
-
-    if (!email) {
-      setMessage("Please enter an email address");
-      return;
-    }
-
-    setLoading(true);
-    setMessage("");
-
-// Call newsletter API that handles both database insert and emails
-    try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: email
-        }),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok || !result.success) {
-        setMessage("Something went wrong. Try again.");
-        return;
-      }
-
-      setMessage("Subscribed successfully 🎉");
-      setEmail("");
-    } catch (error) {
-      console.error("Newsletter submission error:", error);
-      setMessage("Something went wrong. Try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
 <footer className="w-full bg-white p-5 flex min-h-[90vh] xl:min-h-[50vh] items-center">
@@ -237,10 +188,7 @@ className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
                 {programLinks.map((item, i) => (
                   <li key={i}>
                     <Link
-                      href={{
-                        pathname, // 👈 stay on SAME page
-                        query: { category: item.category },
-                      }}
+                     href={`/?category=${item.category}`}
                       scroll={false} // 👈 no jump
                       className="hover:text-[#3C087E] transition"
                     >
@@ -252,36 +200,7 @@ className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
             </div>
 
             {/* --- Newsletter --- */}
-            <div>
-              <h3 className="font-semibold text-xs md:text-sm text-black mb-1">
-                Newsletter
-              </h3>
-              <p className="text-[11px] md:text-xs text-black mb-2">
-                Subscribe to our newsletter
-              </p>
-              <div className="flex flex-col text-[#3C087E] space-y-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email Address"
-                  className="w-full border bg-[#3C087E]/10 rounded-md px-3 py-2 text-[11px] md:text-xs focus:outline-none focus:border-[#3C087E]"
-                />
-
-                <button
-                  onClick={handleSubscribe}
-                  disabled={loading}
-className="bg-[#3C087E]/10 text-white rounded-md py-2 text-[11px] md:text-xs bg-linear-to-r from-[#9542FF] to-[#180135] border-0 border-transparent shadow-[#020b34] transform shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 disabled:opacity-60"
-                >
-                  {loading ? "Subscribing..." : "Subscribe now"}
-                </button>
-                {message && (
-                  <p className="text-[11px] md:text-xs text-[#3C087E]">
-                    {message}
-                  </p>
-                )}
-              </div>
-            </div>
+            <NewsletterForm />
           </div>
         </div>
 

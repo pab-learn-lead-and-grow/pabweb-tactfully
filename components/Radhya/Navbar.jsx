@@ -3,25 +3,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Menu } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
 import CounsellingForm from "./CounsellingForm.jsx";
 import { supabase } from "@/lib/supabaseClient";
-import { useRef } from "react";
 
-export default function Navbar() {
+function NavbarContent() {
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [user, setUser] = useState(null);
   const [hydrated, setHydrated] = useState(false);
 
-  // desktop dropdown states
   const [exploreOpen, setExploreOpen] = useState(false);
   const [topUnivOpen, setTopUnivOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
 
-  // mobile-specific dropdown states
   const [mobileExploreOpen, setMobileExploreOpen] = useState(false);
   const [mobileTopUnivOpen, setMobileTopUnivOpen] = useState(false);
 
@@ -1708,5 +1705,13 @@ return (
       </nav>
       {showForm && <CounsellingForm onClose={() => setShowForm(false)} />}
     </div>
+  );
+}
+
+export default function Navbar() {
+  return (
+    <Suspense fallback={null}>
+      <NavbarContent />
+    </Suspense>
   );
 }

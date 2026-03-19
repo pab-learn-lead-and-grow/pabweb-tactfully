@@ -1,7 +1,5 @@
-"use client";
-
+import MotionWrapper from "./MotionWrapper";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import ConnectToday from "../NmimsSection/ConnectToday";
 
 export default function WhatSetsUsApart() {
@@ -42,39 +40,38 @@ export default function WhatSetsUsApart() {
     <main>
     <section className="w-full bg-white px-4 sm:px-8 md:px-12 lg:px-20 py-16 font-[Inter]">
   {/* HEADER */}
-  <motion.div
-    initial={{ opacity: 0, y: 16 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.4 }}
-    className=" md:mb-20 mt-12"
-  >
+ <MotionWrapper
+  initial={{ opacity: 0, y: 16 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4 }}
+  className="md:mb-20 mt-12"
+>
   <div className="flex justify-center lg:justify-start">
-  <div className="inline-block text-center lg:text-left">
-    <h2
-    className="
-    text-4xl md:text-5xl lg:text-[96px]
-    font-bold leading-none 
-    bg-[linear-gradient(90deg,#FFB901_0%,#AD6F35_35.58%,#57216D_52.4%,#3C087E_100%)]
-    bg-clip-text text-transparent">
-    At Radhya
-    </h2>
-    <div className="flex justify-center lg:justify-end">
-      <p className="handdrawn-underline text-sm md:text-xl translate:-x-10 text-[#D68E0E] italic leading-none mt-2">
-        Education Academy
-      </p>
+    <div className="inline-block text-center lg:text-left">
+      <h2
+        className="text-4xl md:text-5xl lg:text-[96px]
+        font-bold leading-none
+        bg-[linear-gradient(90deg,#FFB901_0%,#AD6F35_35.58%,#57216D_52.4%,#3C087E_100%)]
+        bg-clip-text text-transparent"
+      >
+        At Radhya
+      </h2>
+
+      <div className="flex justify-center lg:justify-end">
+        <p className="handdrawn-underline text-sm md:text-xl text-[#D68E0E] italic leading-none mt-2">
+          Education Academy
+        </p>
+      </div>
     </div>
-
   </div>
-</div>
-
-  </motion.div>
+</MotionWrapper>
 
   {/* MAIN GRID */}
   <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-6 max-w-7xl mx-auto mt-20">
     {/* LEFT STACK (Education + Learning) */}
     <div className="flex flex-col gap-6">
       {/* EDUCATION */}
-      <motion.div
+      <MotionWrapper
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.45 }}
@@ -121,10 +118,10 @@ export default function WhatSetsUsApart() {
             className="w-[140px] md:w-40 lg:w-full lg:p-6 h-auto object-contain"
           />
         </div>
-      </motion.div>
+      </MotionWrapper>
 
       {/* LEARNING */}
-      <motion.div
+      <MotionWrapper
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.45, delay: 0.1 }}
@@ -172,11 +169,11 @@ export default function WhatSetsUsApart() {
             className="w-40 md:w-[200px] lg:w-full lg:p-6 h-auto object-contain"
           />
         </div>
-      </motion.div>
+      </MotionWrapper>
     </div>
 
     {/* RIGHT CARD (Career) */}
-    <motion.div
+    <MotionWrapper
       initial={{ opacity: 0, x: 30 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
@@ -203,7 +200,7 @@ export default function WhatSetsUsApart() {
         </p>
       </div>
 
-      <div className="mt-6 lg:mt-10 xl-mt-20 flex justify-center">
+      <div className="mt-6 lg:mt-10 xl:mt-20 flex justify-center">
         <Image
           src="/aboutUs/aboutCar.png"
           alt="Career"
@@ -212,7 +209,7 @@ export default function WhatSetsUsApart() {
           className="w-[180px] md:w-[260px] lg:w-[450px] h-auto object-contain"
         />
       </div>
-    </motion.div>
+    </MotionWrapper>
   </div>
 </section>
 
@@ -220,20 +217,23 @@ export default function WhatSetsUsApart() {
 
       <section className="w-full font-[Inter] px-6 md:px-16 lg:px-24 py-16">
         {/* HEADING */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="
-          text-4xl md:text-5xl lg:text-[64px] 
-          font-bold 
-          bg-[#270652]
-          bg-clip-text text-transparent
-          leading-tight mb-2
-        "
-        >
-          What Sets Us Apart
-        </motion.h2>
+       <MotionWrapper
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4 }}
+>
+  <h2
+    className="
+      text-4xl md:text-5xl lg:text-[64px]
+      font-bold
+      bg-[#270652]
+      bg-clip-text text-transparent
+      leading-tight mb-2
+    "
+  >
+    What Sets Us Apart
+  </h2>
+</MotionWrapper>
 
         <p className="text-[#333333] text-sm md:text-md lg:text-[22px] mb-12">
           We turn direction into transformation.
@@ -245,7 +245,7 @@ export default function WhatSetsUsApart() {
             const isRight = index % 2 === 1; // 2nd + 4th item on right
 
             return (
-              <motion.div
+              <MotionWrapper
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -286,7 +286,7 @@ export default function WhatSetsUsApart() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </MotionWrapper>
             );
           })}
         </div>
@@ -294,7 +294,7 @@ export default function WhatSetsUsApart() {
       <section className="w-full bg-white px-6 md:px-16 lg:px-24 py-20 font-[Inter]">
         <div className="max-w-7xl mx-auto ">
           {/* VISION */}
-          <motion.div
+          <MotionWrapper
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -325,10 +325,10 @@ export default function WhatSetsUsApart() {
               <p className="text-gray-600 text-xs md:text-lg lg:text-[15px] xl:text-[22px] leading-tight max-w-6xl">
              We aspire to be the leading provider of comprehensive learning and counselling solutions, empowering students, working professionals, and organizations to make informed and confident education choices. Whether it is online learning opportunities or traditional offline education pathways, our goal is to guide individuals and teams toward the right programs, equipping them with the knowledge, skills, and clarity needed to achieve their academic and professional aspirations in an ever-evolving world.</p>
             </div>
-          </motion.div>
+          </MotionWrapper>
 
           {/* MISSION */}
-          <motion.div
+          <MotionWrapper
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -348,7 +348,7 @@ export default function WhatSetsUsApart() {
 
             {/* Content */}
             <div>
-              <p className= "inline-block bg-gradient-to-r from-[#3C087E] to-[#FFB901] bg-clip-text text-transparent font-semibold italic text-lg mb-1">
+              <p className= "inline-block bg-linear-to-r from-[#3C087E] to-[#FFB901] bg-clip-text text-transparent font-semibold italic text-lg mb-1">
                  Mission
               </p>
 
@@ -359,7 +359,7 @@ export default function WhatSetsUsApart() {
               <p className="text-gray-600 text-xs md:text-lg lg:text-[15px] xl:text-[22px] leading-tight max-w-6xl">
               Our mission is to support students and working professionals as they navigate their education and career paths, helping them overcome barriers and achieve meaningful growth. By providing reliable information, personalized counselling, and access to suitable online and offline learning opportunities, we enable smarter decision-making and create transformative experiences that empower individuals to reach their full potential and achieve their biggest career goals.</p>
             </div>
-          </motion.div>
+          </MotionWrapper>
         </div>
       </section>
       <ConnectToday />

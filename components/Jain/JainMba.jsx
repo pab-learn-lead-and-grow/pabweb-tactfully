@@ -1,4 +1,4 @@
-"use client";
+
 import Image from "next/image";
 import {
   Download,
@@ -25,8 +25,6 @@ import {
   Grid2X2Plus,
   ChevronsRightLeft,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
 import React from "react";
 import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
@@ -37,10 +35,12 @@ import Faculties from "../NmimsSection/Faculties";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
 import Link from "next/link";
-import CounsellingForm from "@/components/Radhya/CounsellingForm";
+import MotionWrapper from "../Radhya/MotionWrapper";
+import CounsellingModal from "../Radhya/CounsellingModal";
+import SyllabusSection from "../NmimsSection/Syllabus";
+import FeesCarousel from "../NmimsSection/FeesCrousel";
 
 export default function Page() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const learningCards = [
     {
       icon: BookMarked,
@@ -134,90 +134,6 @@ export default function Page() {
     },
   ];
 
-
-
-
-  /* fees crousel */
-    function FeesCarousel() {
-      const cards = [
-        {
-          title: "One Time Payment",
-          amount: "₹1,96,000/-",
-          sub: "Inclusive of all taxes",
-        },
-        {
-          title: "Semester Wise",
-          amount: "₹49,000/-",
-          sub: "Inclusive of all taxes",
-        },
-        {
-          title: "EMI starting at",
-          amount: "₹12,781/-",
-          sub: "per month [0% interest No Hidden Cost]",
-        },
-      ];
-  
-      const [index, setIndex] = useState(0);
-  
-      // Auto-scroll every 3 seconds
-      useEffect(() => {
-        const timer = setInterval(() => {
-          setIndex((prev) => (prev + 1) % cards.length);
-        }, 3000);
-  
-        return () => clearInterval(timer);
-      }, []);
-  
-      return (
-        <div className="w-full flex flex-col items-center">
-          {/* CARD */}
-          <div className="relative w-full flex justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 80 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -80 }}
-                transition={{ duration: 0.6 }}
-                className="bg-linear-to-b from-[#270652] to-[#3C087E]/50 rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
-              >
-                <div>
-                  <p className="font-semibold text-white">{cards[index].title}</p>
-                  <p className="text-xs text-white mt-1">(in INR)</p>
-                  <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">MBA</p>
-                  <div className="w-12 mx-auto h-0.5 bg-white mt-3" />
-                </div>
-  
-                <p className="text-2xl font-medium text-white mt-4">
-                  {cards[index].amount}
-                </p>
-  
-                {cards[index].sub && (
-                  <p className="text-xs text-white italic whitespace-pre-line">
-                    {cards[index].sub}
-                  </p>
-                )}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-  
-          {/* DOTS */}
-          <div className="flex gap-2 mt-4">
-            {cards.map((_, i) => (
-              <motion.button
-                key={i}
-                onClick={() => setIndex(i)}
-                animate={{
-                  scale: index === i ? 1.2 : 1,
-                  backgroundColor: index === i ? "#270652" : "#d1d5db",
-                }}
-                className="w-3 h-3 rounded-full"
-              />
-            ))}
-          </div>
-        </div>
-      );
-    }
 
   const subjects = [
   { id: 1, name: "Finance & Marketing" },
@@ -1093,9 +1009,6 @@ const semSuffix = {
 
 
 
-  const [activeSubject, setActiveSubject] = useState(1);
-  const [activeSemester, setActiveSemester] = useState(1);
-
   const whyCards = [
     {
       logo: Star,
@@ -1178,7 +1091,7 @@ const semSuffix = {
                         </div>
                         {/* LOGO – move to left screen edge, keep same height */}
                         <div className="relative z-10 w-full mt-20 md:mt-28">
-                          <motion.div
+                          <MotionWrapper
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
@@ -1194,7 +1107,7 @@ const semSuffix = {
                           className="object-contain w-[140px] sm:w-[180px] lg:w-[220px]"
                         />
                             </div>
-                          </motion.div>
+                          </MotionWrapper>
                         </div>
                 
                         {/* CONTENT WRAPPER */}
@@ -1202,7 +1115,7 @@ const semSuffix = {
                         
                 
                           {/* Subtext */}
-                          <motion.p
+                          <MotionWrapper
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
@@ -1211,11 +1124,12 @@ const semSuffix = {
                           >
                              Master of Business Administration
                            
-                          </motion.p>
+                          </MotionWrapper>
                 
                           {/* TITLE + DESCRIPTION */}
                           <div className="flex flex-col items-start">
-                            <motion.h1
+                            <MotionWrapper
+                            as="h1"
                               initial={{ opacity: 0, y: -20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.7 }}
@@ -1223,19 +1137,19 @@ const semSuffix = {
                               className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
                             >
                              JAIN Online MBA
-                            </motion.h1>
+                            </MotionWrapper>
                 
-                            <motion.p
+                            <MotionWrapper
                               initial={{ opacity: 0 }}
                               whileInView={{ opacity: 1 }}
                               transition={{ duration: 0.7, delay: 0.2 }}
                               viewport={{ once: true }}
                               className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
                             >
-                            Advance your career with our industry-aligned Online MBA - flexible, future-ready, and tailored with electives that empower you to specialize and succeed in today’s competitive world. </motion.p>
+                            Advance your career with our industry-aligned Online MBA - flexible, future-ready, and tailored with electives that empower you to specialize and succeed in today’s competitive world. </MotionWrapper>
                 
                             {/* STATS */}
-                            <motion.div
+                            <MotionWrapper
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.7 }}
@@ -1258,30 +1172,34 @@ const semSuffix = {
                                   </p>
                                 </div>
                               ))}
-                            </motion.div>
+                            </MotionWrapper>
                 
                             {/* BUTTONS – CENTERED */}
-                            <motion.div
+                            <MotionWrapper
                               initial={{ opacity: 0, y: 25 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.7 }}
                               viewport={{ once: true }}
                               className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
                             >
-                               <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
-                                             Download Brochure
-                                             <Download className="w-4 h-4 md:w-5 md:h-5" />
-                                           </button>
-                             
-                                           <button onClick={() => setIsModalOpen(true)} className=" bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
-                                   ease-out
-                                   hover:scale-105 hover:shadow-lg
-                                   active:scale-100 flex items-center justify-center gap-2 px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium">
-                                             Talk to an Expert
-                                             <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-                                           </button>
-                            </motion.div>
+                                                        <CounsellingModal>
+               <button className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
+                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
+                             Download Brochure
+                             <Download className="w-4 h-4 md:w-5 md:h-5" />
+                           </button>
+                           </CounsellingModal>
+<CounsellingModal>
+  <button
+    className="bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
+    ease-out hover:scale-105 hover:shadow-lg active:scale-100 flex items-center justify-center gap-2
+    px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium"
+  >
+    Talk to an Expert
+    <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+  </button>
+</CounsellingModal>
+                            </MotionWrapper>
                           </div>
                         </div>
                       </section>
@@ -1317,7 +1235,8 @@ const semSuffix = {
                            <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
                              <div className="max-w-7xl mx-auto">
                                {/* HEADING */}
-                               <motion.h2
+                               <MotionWrapper
+                               as="h2"
                                  initial={{ opacity: 0, y: -30 }}
                                  whileInView={{ opacity: 1, y: 0 }}
                                  transition={{ duration: 0.6 }}
@@ -1325,10 +1244,10 @@ const semSuffix = {
                                  className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#270652] mb-3 md:mb-8 text-center"
                                >
                                  A Snapshot of Success
-                               </motion.h2>
+                               </MotionWrapper>
                      
                                {/* BLUE BAR */}
-                               <motion.div
+                               <MotionWrapper
                                  initial={{ opacity: 0, scale: 0.95 }}
                                  whileInView={{ opacity: 1, scale: 1 }}
                                  transition={{ duration: 0.6, delay: 0.2 }}
@@ -1338,7 +1257,7 @@ const semSuffix = {
                                  {/* ALWAYS 3 COLUMNS */}
                                  <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
                                    {/* STAT 1 */}
-                                   <motion.div
+                                   <MotionWrapper
                                      initial={{ opacity: 0, y: 30 }}
                                      whileInView={{ opacity: 1, y: 0 }}
                                      transition={{ duration: 0.5 }}
@@ -1350,10 +1269,10 @@ const semSuffix = {
                                      <p className="text-[8px]  md:text-[16px] xl:text-[22px]  md:text-sm font-bold opacity-90 leading-tight">
                                        NAAC accreditation
                                      </p>
-                                   </motion.div>
+                                   </MotionWrapper>
                      
                                    {/* STAT 2 */}
-                                   <motion.div
+                                   <MotionWrapper
                                      initial={{ opacity: 0, y: 30 }}
                                      whileInView={{ opacity: 1, y: 0 }}
                                      transition={{ duration: 0.5, delay: 0.1 }}
@@ -1365,10 +1284,10 @@ const semSuffix = {
                                      <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                                        Hiring Corporates
                                      </p>
-                                   </motion.div>
+                                   </MotionWrapper>
                      
                                    {/* STAT 3 */}
-                                   <motion.div
+                                   <MotionWrapper
                                      initial={{ opacity: 0, y: 30 }}
                                      whileInView={{ opacity: 1, y: 0 }}
                                      transition={{ duration: 0.5, delay: 0.2 }}
@@ -1380,9 +1299,9 @@ const semSuffix = {
                                      <p className="text-[8px] md:text-[16px] xl:text-[22px]  md:text-sm font-bold opacity-90 leading-tight">
                                        Highest Salary Offered
                                      </p>
-                                   </motion.div>
+                                   </MotionWrapper>
                                  </div>
-                               </motion.div>
+                               </MotionWrapper>
                              </div>
                            </section>
      
@@ -1437,234 +1356,23 @@ const semSuffix = {
                </div>
              </div>
            </section>
-      <WhyChooseUs title="Why Choose JAIN Online MBA" cards={whyCards}  onCtaClick={() => setIsModalOpen(true)} />
+      <WhyChooseUs title="Why Choose JAIN Online MBA" cards={whyCards} />
 
-     <section className="w-full bg-white px-4 md:px-16 py-10 lg:py-20">
-                        {/* Title */}
-                        <motion.h2
-                          initial={{ opacity: 0, y: -20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6 }}
-                          className="text-[32px] md:text-[64px] leading-[110%] font-extrabold font-[Inter] text-center text-[#270652] mb-10"
-                        >
-                          JAIN Online MBA Syllabus
-                        </motion.h2>
-                      
-                        {/* MAIN WRAPPER */}
-                        <motion.div
-                          initial={{ opacity: 0, y: 40 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.7 }}
-                          className="
-                            bg-[#3C087E]/10 rounded-[30px]
-                            p-4 sm:p-6 md:p-12
-                            flex flex-col xl:flex-row gap-6 md:gap-10
-                          "
-                        >
-                      
-                          {/** ------------------------------------------------ */}
-                          {/** MOBILE 2-COLUMN WRAPPER (LEFT + RIGHT)          */}
-                          {/** ------------------------------------------------ */}
-                          <div className="grid grid-cols-2 gap-4 md:gap-20 lg:gap-30 w-full xl:hidden">
-                      
-                            {/* LEFT COLUMN (Subjects) - MOBILE */}
-                            <div className="col-span-1">
-                              <div className="flex flex-col items-center">
-                                <div className="w-full">
-                                  <div className="flex flex-col w-full h-[180px] md:h-[250px] overflow-y-auto no-scrollbar gap-2 sm:gap-3 mt-4 items-center">
-                                    {subjects.map((sub) => (
-                                      <motion.button
-                                        key={sub.id}
-                                        onClick={() => {
-                                          setActiveSubject(sub.id);
-                                          setActiveSemester(1);
-                                        }}
-                                        whileHover={{ scale: 1.05 }}
-                                        className={`w-full px-2 py-2 sm:px-3 sm:py-2 rounded-full
-                                          text-[10px] sm:text-xs md:text-sm font-semibold
-                                          ${
-                                            activeSubject === sub.id
-                                                ? "bg-[#3C087E] text-white"
-                          : "bg-white text-black border-2 border-dashed border-[#3C087E]"
-                         }
-                                        `}
-                                      >
-                                        {sub.name}
-                                      </motion.button>
-                                    ))}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                      
-                            {/* RIGHT COLUMN (Semesters) - MOBILE */}
-                            <div className="col-span-1">
-                              <div className="flex flex-col items-center">
-                                <div className="flex flex-col gap-2 sm:gap-3 w-full mt-4">
-                                  {semesters.map((sem) => (
-                                    <motion.button
-                                      key={sem}
-                                      onClick={() => setActiveSemester(sem)}
-                                      whileHover={{ scale: 1.05 }}
-                                      className={`px-2 py-2 sm:px-3 sm:py-2 rounded-full
-                                        text-[10px] sm:text-xs md:text-sm font-semibold
-                                        ${
-                                          activeSemester === sem
-                                              ? "bg-[#3C087E] text-white"
-                          : "bg-white text-black border-2 border-dashed border-[#3C087E]"
-                         }
-                                      `}
-                                    >
-                                      {sem}
-                                      {semSuffix[sem]} Semester
-                                    </motion.button>
-                                  ))}
-                      
-                                  {/* DOWNLOAD BUTTON */}
-                                  <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    onClick={() => setIsModalOpen(true)}
-                                    className="
-                                       w-full bg-[#F6A410] text-white px-3 py-2 sm:py-3
-                                      rounded-xl text-[10px] sm:text-xs md:text-sm
-                                       shadow-md
-                                      flex items-center justify-center gap-2
-                                    "
-                                  >
-                                    DOWNLOAD SYLLABUS
-                                    <ChevronRight size={14} />
-                                  </motion.button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                      
-                          {/** ------------------------------------------------ */}
-                          {/** DESKTOP LEFT COLUMN (Subjects) - UNCHANGED     */}
-                          {/** ------------------------------------------------ */}
-                          <div className="hidden xl:flex w-[30%] flex-col items-center">
-                            <div className="max-h-[400px] w-[90%]">
-                              <div className="flex flex-col w-full h-[350px] overflow-y-auto no-scrollbar gap-4 mt-10 items-center">
-                                {subjects.map((sub) => (
-                                  <motion.button
-                                    key={sub.id}
-                                    onClick={() => {
-                                      setActiveSubject(sub.id);
-                                      setActiveSemester(1);
-                                    }}
-                                    whileHover={{ scale: 1.05 }}
-                                    className={`w-full px-4 py-3 rounded-full font-semibold
-                                      ${
-                                        activeSubject === sub.id
-                                           ? "bg-[#3C087E] text-white"
-                          : "bg-white text-black border-2 border-dashed border-[#3C087E]"
-                        }`}
-                                  >
-                                    {sub.name}
-                                  </motion.button>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                      
-                          {/** ------------------------------------------------ */}
-                          {/** MIDDLE COLUMN (Topics) - FULL WIDTH ON MOBILE   */}
-                          {/** ------------------------------------------------ */}
-                          <div className="w-full flex flex-col mt-8 items-center justify-center xl:w-[40%]">
-                            <div className="bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md relative w-full">
-                      
-                              {/* ICON + LINE */}
-                              <div className="absolute top-0 bottom-0 flex flex-col items-center">
-                                <div className="bg-[#270652] text-white p-2 sm:p-3 rounded-full shadow z-10 mt-4 sm:mt-6">
-                                  <ChevronsDown size={16} />
-                                </div>
-                                <div className="w-0.5 bg-[#270652] flex-1 mb-4"></div>
-                              </div>
-                      
-                              {/* TITLE */}
-                              <p className="text-[20px] sm:text-[26px] md:text-3xl font-bold text-[#270652] ml-12 sm:ml-16 mb-3">
-                                Topics Covered
-                              </p>
-                      
-                              {/* TOPICS LIST */}
-                              <AnimatePresence mode="wait">
-                                <motion.ul
-                                  key={activeSubject + '-' + activeSemester}
-                                  initial={{ opacity: 0, x: 30 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  exit={{ opacity: 0, x: -30 }}
-                                  transition={{ duration: 0.35 }}
-                                  className="flex flex-col gap-3 ml-12 sm:ml-16"
-                                >
-                                  {topicsData[activeSubject][activeSemester].map((topic, index) => (
-                                    <motion.li
-                                      key={index}
-                                      whileHover={{ x: 6 }}
-                                      className="flex gap-2 sm:gap-3 items-center group cursor-pointer"
-                                    >
-                                      <motion.div
-                                        whileHover={{ scale: 1.1 }}
-                                        className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 flex items-center justify-center rounded-full bg-white group-hover:bg-[#270652] transition"
-                                      >
-                                        <Check
-                                          size={12}
-                                          className="sm:size-16 text-[#270652] group-hover:text-white transition"
-                                        />
-                                      </motion.div>
-                      
-                                      <span className="text-gray-800 text-xs sm:text-sm md:text-base group-hover:text-[#270652] transition">
-                                        {topic}
-                                      </span>
-                                    </motion.li>
-                                  ))}
-                                </motion.ul>
-                              </AnimatePresence>
-                      
-                            </div>
-                          </div>
-                      
-                          {/** ------------------------------------------------ */}
-                          {/** DESKTOP RIGHT COLUMN (Semesters) - UNCHANGED    */}
-                          {/** ------------------------------------------------ */}
-                          <div className="hidden xl:flex w-[30%] flex-col items-start xl:items-center mt-10">
-                            <div className="flex flex-col gap-4 w-full xl:w-[90%]">
-                              {semesters.map((sem) => (
-                                <motion.button
-                                  key={sem}
-                                  onClick={() => setActiveSemester(sem)}
-                                  whileHover={{ scale: 1.05 }}
-                                  className={`px-4 py-3 rounded-full font-semibold
-                                    ${
-                                      activeSemester === sem
-                                          ? "bg-[#3C087E] text-white"
-                          : "bg-white text-black border-2 border-dashed border-[#3C087E]"
-                        }`}
-                                >
-                                  {sem}
-                                  {semSuffix[sem]} Semester
-                                </motion.button>
-                              ))}
-                      
-                              <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                onClick={() => setIsModalOpen(true)}
-                                className="mt-8 w-full bg-[#F6A410] text-white px-4 py-4 rounded-2xl shadow-md flex items-center justify-center gap-4"
-                              >
-                                DOWNLOAD SYLLABUS
-                                <ChevronRight size={20} />
-                              </motion.button>
-                            </div>
-                          </div>
-                      
-                        </motion.div>
-                      </section>
+     
+         <SyllabusSection
+  title="JAIN Online MBA Syllabus"
+  subjects={subjects}
+  semesters={semesters}
+  semSuffix={semSuffix}
+  topicsData={topicsData}
+/>
 
       <section className="w-full font-[Inter] px-4 md:px-10 lg:px-20 py-6">
   <div className="p-6 md:p-10">
     <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10">
 
       {/* LEFT — TEXT (60%) */}
-      <motion.div
+      <MotionWrapper
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
@@ -1694,7 +1402,7 @@ const semSuffix = {
             Candidates who are in the final semester of the Bachelors Program are also eligible to apply.
           </li>
         </ul>
-      </motion.div>
+      </MotionWrapper>
     </div>
   </div>
 </section>
@@ -1705,7 +1413,6 @@ const semSuffix = {
         subtitle="Journey towards online degree programs"
         cards={learningCards}
         ctaText="Ready to Learn ? Click Here"
-        onCtaClick={() => setIsModalOpen(true)}
       />
 
           <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
@@ -1716,7 +1423,8 @@ const semSuffix = {
                                                   
                                                           <div className="max-w-6xl mx-auto relative">
                                                             {/* Main Animated Heading */}
-                                                            <motion.h2
+                                                            <MotionWrapper
+                                                            as="h2"
                                                               initial={{ opacity: 0, y: 30 }}
                                                               whileInView={{ opacity: 1, y: 0 }}
                                                               transition={{ duration: 0.6 }}
@@ -1724,10 +1432,10 @@ const semSuffix = {
                                                               className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#270652] mb-6"
                                                             >
                                                               EXAMINATION PROCESS
-                                                            </motion.h2>
+                                                            </MotionWrapper>
                                                   
                                                             {/* Sub Text */}
-                                                            <motion.p
+                                                            <MotionWrapper
                                                               initial={{ opacity: 0 }}
                                                               whileInView={{ opacity: 1 }}
                                                               transition={{ duration: 0.8, delay: 0.2 }}
@@ -1737,12 +1445,12 @@ const semSuffix = {
                                                               The Jain University Online MBA follows a structured and
                                                               transparent examination process designed to evaluate learners
                                                               through continuous assessments and end-term evaluations.
-                                                            </motion.p>
+                                                            </MotionWrapper>
                                                   
                                                             {/* Cards Wrapper */}
                                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                                               {/* Left Card */}
-                                                              <motion.div
+                                                              <MotionWrapper
                                                                 initial={{ opacity: 0, x: -40 }}
                                                                 whileInView={{ opacity: 1, x: 0 }}
                                                                 transition={{ duration: 0.6 }}
@@ -1773,10 +1481,10 @@ const semSuffix = {
                                                                     </p>
                                                                   </div>
                                                                 </div>
-                                                              </motion.div>
+                                                              </MotionWrapper>
                                                   
                                                               {/* Right Card */}
-                                                              <motion.div
+                                                              <MotionWrapper
                                                                 initial={{ opacity: 0, x: 40 }}
                                                                 whileInView={{ opacity: 1, x: 0 }}
                                                                 transition={{ duration: 0.6 }}
@@ -1807,7 +1515,7 @@ const semSuffix = {
                                                                   Candidates may choose their preferred slot based on
                                                                   availability.
                                                                 </p>
-                                                              </motion.div>
+                                                              </MotionWrapper>
                                                             </div>
                                                           </div>
                                                         </section>
@@ -1869,7 +1577,7 @@ const semSuffix = {
                                                           </div>
                                                         </section>
           
-                <MujCareerServices benefits={benefits} onCtaClick={() => setIsModalOpen(true)} />
+                <MujCareerServices benefits={benefits}  />
           
                 <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
                   <div className="px-2 w-full">
@@ -1886,20 +1594,41 @@ const semSuffix = {
                         </p>
           
                       {/* CTA visible only on large screens */}
-                        <button onClick={() => setIsModalOpen(true)} className="hidden lg:flex text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
+                        <CounsellingModal>
+                          <button className="hidden lg:flex text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
                           Compare all Plans
                         </button>
+                        </CounsellingModal>
                       </div>
           
                       {/* RIGHT SIDE CARDS */}
                       <div className="w-full lg:w-[35%] flex justify-center">
-                        <FeesCarousel />
+                        <FeesCarousel 
+                        cards = {[
+        {
+          title: "One Time Payment",
+          amount: "₹1,96,000/-",
+          sub: "Inclusive of all taxes",
+        },
+        {
+          title: "Semester Wise",
+          amount: "₹49,000/-",
+          sub: "Inclusive of all taxes",
+        },
+        {
+          title: "EMI starting at",
+          amount: "₹12,781/-",
+          sub: "per month [0% interest No Hidden Cost]",
+        },
+      ]}
+      />
                       </div>
           
                       {/* CTA below carousel on mobile only */}
-                      <button onClick={() => setIsModalOpen(true)} className="lg:hidden text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+                     <CounsellingModal>
+                       <button  className="lg:hidden text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
                         Compare all Plans
-                      </button>
+                      </button></CounsellingModal>
                     </div>
                   </div>
                 </section>
@@ -1948,12 +1677,13 @@ const semSuffix = {
            
                        {/* CTA BUTTON */}
                       <div className="flex justify-center md:justify-start">
-  <button
-    onClick={() => setIsModalOpen(true)}
+ <CounsellingModal>
+   <button
     className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200"
   >
     Know more
   </button>
+ </CounsellingModal>
 </div>
 
                      </div>
@@ -1971,30 +1701,31 @@ const semSuffix = {
            
                   <section className="w-full bg-white mt-10 lg:mt-20 px-4 md:px-12 lg:px-20 font-[Inter]">
                    {/* Small Header */}
-                   <motion.p
+                   <MotionWrapper
                      initial={{ opacity: 0, y: 10 }}
                      whileInView={{ opacity: 1, y: 0 }}
                      transition={{ duration: 0.5 }}
                      className="text-black text-lg md:text-xl mb-2"
                    >
                      What will you gain?
-                   </motion.p>
+                   </MotionWrapper>
                  
                    {/* Main Heading */}
-                   <motion.h2
+                   <MotionWrapper
+                   as="h2"
                      initial={{ opacity: 0, y: 20 }}
                      whileInView={{ opacity: 1, y: 0 }}
                      transition={{ duration: 0.6 }}
                      className="text-[#270652] font-bold text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] leading-tight max-w-7xl mb-12"
                    >
                      This is more than a degree it's a journey that reshapes your mindset, your skills, and your growth.
-                   </motion.h2>
+                   </MotionWrapper>
                  
                    {/* LIST WRAPPER */}
                    <div className="flex flex-col gap-10 max-w-7xl">
                  
                      {/* ITEM 1 */}
-                     <motion.div
+                     <MotionWrapper
                        initial={{ opacity: 0, x: -30 }}
                        whileInView={{ opacity: 1, x: 0 }}
                        transition={{ duration: 0.6 }}
@@ -2007,10 +1738,10 @@ const semSuffix = {
                        <p className="text-black text-[16px] md:text-[24px] mt-4 leading-tight">
                          Build strategic management capabilities to excel in executive and global leadership roles.
                        </p>
-                     </motion.div>
+                     </MotionWrapper>
                  
                      {/* ITEM 2 */}
-                     <motion.div
+                     <MotionWrapper
                        initial={{ opacity: 0, x: -30 }}
                        whileInView={{ opacity: 1, x: 0 }}
                        transition={{ duration: 0.6, delay: 0.1 }}
@@ -2023,10 +1754,10 @@ const semSuffix = {
                        <p className="text-black text-[16px] md:text-[24px] max-w-7xl leading-tight">
                          Strengthen your financial acumen to pursue careers in corporate finance, investment banking, or entrepreneurial ventures.
                        </p>
-                     </motion.div>
+                     </MotionWrapper>
                  
                      {/* ITEM 3 */}
-                     <motion.div
+                     <MotionWrapper
                        initial={{ opacity: 0, x: 30 }}
                        whileInView={{ opacity: 1, x: 0 }}
                        transition={{ duration: 0.6 }}
@@ -2039,10 +1770,10 @@ const semSuffix = {
                        <p className="text-black text-[16px] md:text-[24px] max-w-7xl leading-tight">
                          Enhance your communication and negotiation skills to foster strong business relationships and solve complex challenges.
                        </p>
-                     </motion.div>
+                     </MotionWrapper>
                  
                      {/* ITEM 4 */}
-                     <motion.div
+                     <MotionWrapper
                        initial={{ opacity: 0, x: 30 }}
                        whileInView={{ opacity: 1, x: 0 }}
                        transition={{ duration: 0.6, delay: 0.1 }}
@@ -2055,10 +1786,10 @@ const semSuffix = {
                        <p className="text-black text-[16px] md:text-[22px] max-w-7xl leading-tight">
                          Gain deep insights into marketing and consumer behavior for opportunities in brand management and market research.
                        </p>
-                     </motion.div>
+                     </MotionWrapper>
                  
                      {/* ITEM 5 */}
-                     <motion.div
+                     <MotionWrapper
                        initial={{ opacity: 0, x: 30 }}
                        whileInView={{ opacity: 1, x: 0 }}
                        transition={{ duration: 0.6, delay: 0.1 }}
@@ -2071,14 +1802,14 @@ const semSuffix = {
                        <p className="text-black text-[16px] md:text-[24px] max-w-7xl leading-tight">
                          Develop expertise in data-driven decision-making to advance in consulting, operations, or business intelligence roles.
                        </p>
-                     </motion.div>
+                     </MotionWrapper>
                  
                    </div>
                  </section>
                  
                  <section className="w-full bg-white py-10 lg:py-20 md:px-12 lg:px-20">
                    <div className="w-full md:bg-[#270652] rounded-4xl py-12 px-6 md:px-12 lg:px-15">
-                     <motion.div
+                     <MotionWrapper
                        initial={{ opacity: 0, y: 40 }}
                        whileInView={{ opacity: 1, y: 0 }}
                        transition={{ duration: 0.6 }}
@@ -2087,7 +1818,8 @@ const semSuffix = {
                      >
                        {/* Title */}
                        <div className="text-center md:mb-4 pb-3">
-                         <motion.h2
+                         <MotionWrapper
+                         as="h2"
                            initial={{ opacity: 0, y: 20 }}
                            whileInView={{ opacity: 1, y: 0 }}
                            transition={{ duration: 0.5 }}
@@ -2098,11 +1830,11 @@ const semSuffix = {
                                                  leading-tight"
                          >
                            Career Opportunities
-                         </motion.h2>
+                         </MotionWrapper>
                        </div>
            
                        {/* Subtitle */}
-                       <motion.p
+                       <MotionWrapper
                          initial={{ opacity: 0 }}
                          whileInView={{ opacity: 1 }}
                          transition={{ duration: 0.5, delay: 0.2 }}
@@ -2111,12 +1843,12 @@ const semSuffix = {
                          Gain practical, job-ready skills through online programs designed
                          to help you grasp industry fundamentals and begin your career with
                          confidence.
-                       </motion.p>
+                       </MotionWrapper>
            
                        {/* Content Section */}
                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                          {/* LEFT IMAGE */}
-                         <motion.div
+                         <MotionWrapper
                            initial={{ opacity: 0, x: -40 }}
                            whileInView={{ opacity: 1, x: 0 }}
                            transition={{ duration: 0.6 }}
@@ -2138,10 +1870,10 @@ const semSuffix = {
                                mx-auto
                              "
                            />
-                         </motion.div>
+                         </MotionWrapper>
            
                          {/* RIGHT LIST */}
-                         <motion.div
+                         <MotionWrapper
                            initial={{ opacity: 0, x: 40 }}
                            whileInView={{ opacity: 1, x: 0 }}
                            transition={{ duration: 0.6 }}
@@ -2154,7 +1886,7 @@ const semSuffix = {
                              "IT Strategy Consultant",
                              "Technology Consultant",
                            ].map((role, index) => (
-                             <motion.div
+                             <MotionWrapper
                                key={index}
                                initial={{ opacity: 0, x: 25 }}
                                whileInView={{ opacity: 1, x: 0 }}
@@ -2167,29 +1899,28 @@ const semSuffix = {
                                <span className="text-gray-900 font-semibold text-lg">
                                  {role}
                                </span>
-                             </motion.div>
+                             </MotionWrapper>
                            ))}
            
                            {/* CTA */}
-                           <motion.button
-                             whileHover={{ scale: 1.05 }}
-                             whileTap={{ scale: 0.97 }}
-                            onClick={() => setIsModalOpen(true)}
-                             className="
-                                         w-[200px] 
-                                         mt-6 py-3 px-6 
-                                         rounded-lg 
-                                         text-white text-sm 
-                                         bg-[#F6A410]
-                                         self-center md:self-start
-                                         shadow-md
-                                       "
-                           >
-                             Know more
-                           </motion.button>
-                         </motion.div>
+                           <CounsellingModal>
+                <button
+                  className="
+                    w-[200px] 
+                    mt-6 py-3 px-6 
+                    rounded-lg 
+                    hover:scale-105
+                    text-white text-sm 
+                    bg-[#F6A410]
+                    self-center md:self-start
+                    shadow-lg
+                  "
+                >
+                  Know more
+                </button></CounsellingModal>
+                         </MotionWrapper>
                        </div>
-                     </motion.div>
+                     </MotionWrapper>
                    </div>
                  </section>
 
@@ -2219,7 +1950,6 @@ const semSuffix = {
       <FAQ faqs={faqs} />
 
       <ConnectToday />
-      {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} />}
     </main>
   );
 }

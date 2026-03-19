@@ -1,0 +1,65 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus } from "lucide-react";
+import MotionWrapper from "../Radhya/MotionWrapper";
+
+export default function FAQAccordion({ faqs }) {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <section className="w-full bg-white px-10 md:px-10 py-20">
+
+      {/* Title Animation */}
+      <MotionWrapper
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-[#270652] font-bold flex flex-row items-center justify-center font-[Inter] text-3xl md:text-5xl xl:text-[64px] mb-10"
+      >
+        <h2>Frequently Asked Questions</h2>
+      </MotionWrapper>
+
+      {/* FAQ Cards */}
+      <div className="flex flex-col gap-6 max-w-5xl mx-auto">
+        {faqs.map((item, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-md rounded-xl p-4 md:p-6 cursor-pointer"
+            onClick={() => toggleFAQ(index)}
+          >
+            <div className="flex items-center justify-between text-black">
+              <p className="md:text-xl font-semibold">{item.q}</p>
+
+              <Plus
+                size={24}
+                className={`transition-transform ${
+                  openIndex === index ? "rotate-180" : ""
+                }`}
+              />
+            </div>
+
+            <AnimatePresence>
+              {openIndex === index && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-black mt-4 text-sm md:text-base overflow-hidden"
+                >
+                  {item.a}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}

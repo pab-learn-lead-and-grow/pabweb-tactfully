@@ -1,12 +1,9 @@
-"use client";
 
 import Image from "next/image";
-import CounsellingForm from "@/components/Radhya/CounsellingForm";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import MotionWrapper from "./MotionWrapper";
+import CounsellingModal from "./CounsellingModal";
 
 export default function Hero({ className }) {
-  const [showForm, setShowForm] = useState(false);
 
   return (
     <section className={`relative overflow-hidden ${className || ""}`}>
@@ -16,7 +13,8 @@ export default function Hero({ className }) {
           <div className="text-center">
 
             {/* HEADLINE */}
-            <motion.h2
+            <MotionWrapper
+            as="h2"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -25,10 +23,10 @@ export default function Hero({ className }) {
               <span className="bg-[linear-gradient(90deg,#FFB901_0%,#AD6F35_35.58%,#57216D_52.4%,#3C087E_100%)] bg-clip-text text-transparent">
                 #GyaanKiUdaan
               </span>
-            </motion.h2>
+            </MotionWrapper>
 
             {/* SUBTEXT */}
-            <motion.p
+            <MotionWrapper
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -37,36 +35,32 @@ export default function Hero({ className }) {
               Empowering Minds, Elevating Futures{" "}
               <br className="block lg:hidden" />
               Through The Flight Of Knowledge.
-            </motion.p>
+            </MotionWrapper>
 
             {/* BUTTONS */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
               className="relative z-10 mt-6 flex items-center justify-center gap-2 md:gap-4"
             >
-              <motion.button
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowForm(true)}
-                className="px-3 py-1 md:px-4 md:py-2 text-[12px] md:text-md lg:text-[16px] rounded-lg bg-[#F6A410] border-0 border-transparent shadow-[#db990a] transform text-white font-semibold shadow-md transition-all duration-300 ease-out"
+             <CounsellingModal >
+               <button className="px-3 py-1 md:px-4 md:py-2 text-[12px] md:text-md lg:text-[16px] hover:scale-105 rounded-lg bg-[#F6A410] border-0 border-transparent shadow-[#db990a] transform text-white font-semibold shadow-md transition-all duration-300 ease-out"
               >
                 Explore Programs →
-              </motion.button>
+              </button>
+             </CounsellingModal>
 
-              <motion.button
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowForm(true)}
-                className="px-3 py-1 md:px-4 md:py-2 text-[12px] md:text-md lg:text-[16px] font-semibold rounded-lg bg-[#3D077E] border-0 border-transparent shadow-[#181047] transform text-white shadow-md transition-all duration-300 ease-out"
+              <CounsellingModal>
+                <button className="px-3 py-1 md:px-4 md:py-2 text-[12px] md:text-md lg:text-[16px] font-semibold hover:scale-105 rounded-lg bg-[#3D077E] border-0 border-transparent shadow-[#181047] transform text-white shadow-md transition-all duration-300 ease-out"
               >
                 Talk to an Expert →
-              </motion.button>
-            </motion.div>
+              </button>
+              </CounsellingModal>
+            </MotionWrapper>
 
             {/* IMAGE */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
@@ -82,13 +76,13 @@ export default function Hero({ className }) {
                 fetchPriority="high"
                 className="w-full max-w-[500px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] drop-shadow-2xl"
               />
-            </motion.div>
+            </MotionWrapper>
 
           </div>
         </div>
       </div>
 
-      {showForm && <CounsellingForm onClose={() => setShowForm(false)} />}
+     
     </section>
   );
 }

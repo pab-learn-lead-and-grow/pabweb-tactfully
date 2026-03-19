@@ -1,9 +1,7 @@
-"use client";
 
 import Image from "next/image";
 import React from "react";
-import CounsellingForm from "@/components/Radhya/CounsellingForm";
-import { useState } from "react";
+import CounsellingModal from "./CounsellingModal";
 
 
 const TITLE = "All-in-one space that's got your back, always";
@@ -20,7 +18,6 @@ const ITEMS = [
 ];
 
 export default function AllInOneSection() {
-  const [showForm, setShowForm] = useState(false);
 
   return (
     <section className="my-8">
@@ -42,17 +39,16 @@ export default function AllInOneSection() {
 
         {/* CTA */}
         <div className="mt-12 flex justify-center">
-          <button
-            type="button"
-            onClick={() => setShowForm(true)}
-             className="px-5 xl:px-10 py-2 rounded-lg text-white text-xl font-medium transition-all duration-300 ease-out hover:scale-105 bg-[#EEA727] border-0 border-transparent shadow-[#b36e06] shadow-md transform active:scale-100"
+          <CounsellingModal>
+            <button className="px-5 xl:px-10 py-2 rounded-lg text-white text-xl font-medium transition-all duration-300 ease-out hover:scale-105 bg-[#EEA727] border-0 border-transparent shadow-[#b36e06] shadow-md transform active:scale-100"
           >
             Unlock the Whole Experience
           </button>
+          </CounsellingModal>
         </div>
 
       </div>
-      {showForm && <CounsellingForm onClose={() => setShowForm(false)} />}
+     
     </section>
   );
 }

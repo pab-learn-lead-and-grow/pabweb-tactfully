@@ -1,5 +1,7 @@
 import NmimsCert from "@/components/Nmims/NmimsCert";
 
+export const dynamic = "force-static";
+
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 

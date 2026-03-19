@@ -1,8 +1,9 @@
 import MujBba from "@/components/Muj/MujBba";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
-
+export const dynamic = "force-static";
 export const metadata = {
+   metadataBase: new URL(siteUrl),
   title: "Manipal Jaipur Online BBA - UGC Approved Degree",
   description:
     "Manipal Jaipur Online BBA offers a UGC-approved undergraduate business degree with flexible online learning, industry-relevant curriculum and career support",
@@ -19,7 +20,7 @@ export const metadata = {
     "Manipal Jaipur online programs",
   ],
   openGraph: {
-    title: "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-bba/ - UGC Approved Program | Radhya Education Academy",
+    title: "Manipal University Jaipur Online BBA - UGC Approved Program | Radhya Education Academy",
     description: "Learn about this UGC-approved online degree program at Radhya Education Academy",
     url: "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-bba/",
     siteName: "Radhya Education Academy",

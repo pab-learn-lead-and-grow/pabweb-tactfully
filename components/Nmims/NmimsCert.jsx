@@ -1,4 +1,4 @@
-"use client";
+
 import Image from "next/image";
 import {
   Download,
@@ -19,58 +19,21 @@ import {
   Option,
   UserLock,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
 import React from "react";
 import FAQ from "../NmimsSection/FAQ";
+import SyllabusSection from "../NmimsSection/Syllabus";
 import ConnectToday from "../NmimsSection/ConnectToday";
-import CounsellingForm from "@/components/Radhya/CounsellingForm";
+import MotionWrapper from "../Radhya/MotionWrapper";
+import CounsellingModal from "../Radhya/CounsellingModal";
 import Faculties from "../NmimsSection/Faculties";
 import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
 import CareerServices from "../NmimsSection/CareerServices";
 import LearningApproach from "../NmimsSection/LearningApproach";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
+import SnapshotSection from "../NmimsSection/SnapshotSection";
 
 export default function Page() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const Counter = ({ end, duration = 2000 }) => {
-    const [value, setValue] = useState(0);
-    const [hasAnimated, setHasAnimated] = useState(false);
-    const ref = React.useRef(null);
-
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const entry = entries[0];
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-
-            let start = 0;
-            const increment = end / (duration / 16);
-
-            const counter = setInterval(() => {
-              start += increment;
-              if (start >= end) {
-                clearInterval(counter);
-                setValue(end);
-              } else {
-                setValue(Math.floor(start));
-              }
-            }, 16);
-          }
-        },
-        { threshold: 0.4 }
-      );
-
-      if (ref.current) observer.observe(ref.current);
-
-      return () => observer.disconnect();
-    }, [end, duration, hasAnimated]);
-
-    return <span ref={ref}>{value}</span>;
-  };
-
    const steps = [
     {
       num: "01",
@@ -95,14 +58,27 @@ export default function Page() {
   ];
 
 
-  const topics = [
-    "Financial Accounting",
-    "Micro Economics & Macro Economics",
-    "Business Communication",
-    "Organisational Behaviour",
-    "Marketing Management",
-    "Quantitative Methods - I",
+ const subjects = [
+    { id: 1, name: "Business Management" }
   ];
+
+  const semesters = [1];
+  const semSuffix = {
+    1: "st",
+  };
+
+  const topicsData = {
+    1: {
+      1: [
+        "Business Communication",
+        "Financial Accounting",
+        "Micro Economics & Macro Economics",
+        "Organisation Behaviour",
+        "Marketing Management",
+        "Quantitative Methods - I",
+      ],
+    },
+  };
 
   const faqs = [
     {
@@ -222,7 +198,7 @@ export default function Page() {
               </div>
               {/* LOGO – move to left screen edge, keep same height */}
               <div className="relative z-10 w-full mt-20 md:mt-28">
-                <motion.div
+                <MotionWrapper
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
@@ -238,13 +214,13 @@ export default function Page() {
                 className="object-contain w-[140px] sm:w-[180px] lg:w-[220px]"
               />
                   </div>
-                </motion.div>
+                </MotionWrapper>
               </div>
       
               {/* CONTENT WRAPPER */}
               <div className="relative z-10 max-w-7xl mx-auto p-6 sm:p-10">
                 {/* Most Loved */}
-                <motion.span
+                <MotionWrapper
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
@@ -252,10 +228,10 @@ export default function Page() {
                   className="inline-block bg-[#FFB901] text-white text-[12px] lg:text-[18px] mt-8 lg:mt-6  mb-2 font-sm px-4 py-1 rounded-full"
                 >
                   Most-Loved
-                </motion.span>
+                </MotionWrapper>
       
                 {/* Subtext */}
-                <motion.p
+                <MotionWrapper
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
@@ -263,11 +239,12 @@ export default function Page() {
                   className="text-white text-[12px] md:text-[16px] italic font-light"
                 >
                   Online Certificate in Business Management
-                </motion.p>
+                </MotionWrapper>
       
                 {/* TITLE + DESCRIPTION */}
                 <div className="flex flex-col items-start">
-                  <motion.h1
+                  <MotionWrapper
+                  as="h1"
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
@@ -275,9 +252,9 @@ export default function Page() {
                     className="text-white text-[20px] md:text-3xl lg:text-4xl xl:text-[54px] font-[Inter] font-bold mt-1 leading-tight"
                   >
                     NMIMS Online Certificate Program
-                  </motion.h1>
+                  </MotionWrapper>
       
-                  <motion.p
+                  <MotionWrapper
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.7, delay: 0.2 }}
@@ -285,9 +262,9 @@ export default function Page() {
                     className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
                   >
                    Explore the essentials of business management with this 6-month certificate program designed to offer a strong preview of the business world.
-                  </motion.p>
+                  </MotionWrapper>
       
-                  <motion.div className="grid grid-cols-3 divide-x-2 divide-white mt-5 -mx-5 lg:-mx-10 gap-y-2 font-[Inter] w-full">
+                  <MotionWrapper className="grid grid-cols-3 divide-x-2 divide-white mt-5 -mx-5 lg:-mx-10 gap-y-2 font-[Inter] w-full">
   {stats.map((stat, idx) => (
     <div
       key={idx}
@@ -301,31 +278,35 @@ export default function Page() {
       </p>
     </div>
   ))}
-</motion.div>
+</MotionWrapper>
 
       
                   {/* BUTTONS – CENTERED */}
-                  <motion.div
+                  <MotionWrapper
                     initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                     viewport={{ once: true }}
                     className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
                   >
-                     <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                         transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
-                                   Download Brochure
-                                   <Download className="w-4 h-4 md:w-5 md:h-5" />
-                                 </button>
-                   
-                                 <button onClick={() => setIsModalOpen(true)} className=" bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
-                         ease-out
-                         hover:scale-105 hover:shadow-lg
-                         active:scale-100 flex items-center justify-center gap-2 px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium">
-                                   Talk to an Expert
-                                   <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-                                 </button>
-                  </motion.div>
+                    <CounsellingModal>
+               <button className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
+                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
+                             Download Brochure
+                             <Download className="w-4 h-4 md:w-5 md:h-5" />
+                           </button>
+                           </CounsellingModal>
+<CounsellingModal>
+  <button
+    className="bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
+    ease-out hover:scale-105 hover:shadow-lg active:scale-100 flex items-center justify-center gap-2
+    px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium"
+  >
+    Talk to an Expert
+    <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+  </button>
+</CounsellingModal>
+                  </MotionWrapper>
                 </div>
               </div>
             </section>
@@ -366,76 +347,13 @@ export default function Page() {
                          </div>
                        </section>
                       {/* ======= SNAPSHOT SECTION ======= */}
-                           <section className="w-full xl:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
-                             <div className="max-w-7xl mx-auto">
-                               {/* HEADING */}
-                               <motion.h2
-                                 initial={{ opacity: 0, y: -30 }}
-                                 whileInView={{ opacity: 1, y: 0 }}
-                                 transition={{ duration: 0.6 }}
-                                 viewport={{ once: true }}
-                                 className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
-                               >
-                                 A Snapshot of Success
-                               </motion.h2>
-                               {/* BLUE BAR */}
-                               <motion.div
-                                 initial={{ opacity: 0, scale: 0.95 }}
-                                 whileInView={{ opacity: 1, scale: 1 }}
-                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                 viewport={{ once: true }}
-                                 className="bg-[#3C087E]/5 rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
-                               >
-                                 {/* ALWAYS 3 COLUMNS */}
-                                 <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
-                                   {/* STAT 1 */}
-                                   <motion.div
-                                     initial={{ opacity: 0, y: 30 }}
-                                     whileInView={{ opacity: 1, y: 0 }}
-                                     transition={{ duration: 0.5 }}
-                                     viewport={{ once: true }}
-                                   >
-                                     <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
-                                       <Counter end={25} />%
-                                     </p>
-                                      <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
-                                       Average Salary Growth
-                                     </p>
-                                   </motion.div>
-                     
-                                   {/* STAT 2 */}
-                                   <motion.div
-                                     initial={{ opacity: 0, y: 30 }}
-                                     whileInView={{ opacity: 1, y: 0 }}
-                                     transition={{ duration: 0.5, delay: 0.1 }}
-                                     viewport={{ once: true }}
-                                   >
-                                     <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
-                                       <Counter end={82000} />
-                                     </p>
-                                      <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                       Strong Global Alumni Network
-                                     </p>
-                                   </motion.div>
-                     
-                                   {/* STAT 3 */}
-                                   <motion.div
-                                     initial={{ opacity: 0, y: 30 }}
-                                     whileInView={{ opacity: 1, y: 0 }}
-                                     transition={{ duration: 0.5, delay: 0.2 }}
-                                     viewport={{ once: true }}
-                                   >
-                                     <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[64px] font-bold">
-                                       <Counter end={500} />+
-                                     </p>
-                                      <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
-                                       Hiring Partners
-                                     </p>
-                                   </motion.div>
-                                 </div>
-                               </motion.div>
-                             </div>
-                           </section>
+                           <SnapshotSection
+  stats={[
+    { value: 25, suffix: "%", label: "Average Salary Growth" },
+    { value: 82000, label: "Strong Global Alumni Network" },
+    { value: 500, suffix: "+", label: "Hiring Partners" },
+  ]}
+/>
       
             <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
               {/* ===== Top Text Section ===== */}
@@ -491,88 +409,26 @@ export default function Page() {
       Why Choose NMIMS <br />
       Online Certificate Program
     </>
-  } cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
+  } cards={whyCards} />
 
-      <section className="w-full bg-[#3C0879]/5 mt-15 py-16 px-4 md:px-12 lg:px-20 rounded-xl text-[#270652] font-[Inter]">
-             <div className="grid grid-cols-1 lg:grid-cols-3 items-start gap-10">
-               {/* LEFT: Syllabus */}
-               <motion.h2
-                 initial={{ opacity: 0, x: -40 }}
-                 whileInView={{ opacity: 1, x: 0 }}
-                 transition={{ duration: 0.6 }}
-                 className="text-5xl md:text-5xl font-[Inter] font-bold lg:pl-6"
-               >
-                 NMIMS Online certificate Program Syllabus
-               </motion.h2>
-     
-               {/* MIDDLE: Divider + Topics */}
-               <div className="flex items-start justify-center gap-6">
-                 {/* Vertical Timeline */}
-                 <motion.div
-                   initial={{ opacity: 0, y: 20 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   transition={{ duration: 0.8 }}
-                   className="flex flex-col items-center"
-                 >
-                   <div className="relative flex flex-col items-center">
-                     <div className="bg-[#270652] text-white p-3 rounded-full shadow z-10">
-                       <ChevronsDown size={18} />
-                     </div>
-     
-                     {/* STATIC VERTICAL LINE (height controlled by JS) */}
-                     <div
-                       style={{ height: 250 }}
-                       className="w-0.5 bg-[#270652] absolute top-10 left-1/2 -translate-x-1/2"
-                     ></div>
-                   </div>
-                 </motion.div>
-     
-                 {/* Topics Text */}
-                 <div className="">
-                   <motion.p
-                     initial={{ opacity: 0, y: -20 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 0.6 }}
-                     className="text-2xl md:text-3xl text-[#3C0879] font-semibold mb-4 whitespace-nowrap"
-                   >
-                     Topics Covered
-                   </motion.p>
-     
-                   <ul className="space-y-3 text-base md:text-lg">
-                     {topics.map((topic, index) => (
-                       <motion.li
-                         key={index}
-                         initial={{ opacity: 0, x: -20 }}
-                         whileInView={{ opacity: 1, x: 0 }}
-                         transition={{ duration: 0.4, delay: index * 0.1 }}
-                         className="flex items-center gap-2"
-                       >
-                         <span className="text-[#F6A410]">✔</span> {topic}
-                       </motion.li>
-                     ))}
-                   </ul>
-                 </div>
-               </div>
-     
-               {/* RIGHT: Button */}
-               <div className="flex lg:justify-end justify-start lg:items-start text-white items-center">
-                 <motion.button
-                   onClick={() => setIsModalOpen(true)}
-                   initial={{ opacity: 0, y: 20 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   transition={{ duration: 0.6 }}
-                   className="bg-[#F6A410] border-0 border-transparent shadow-lg transform hover:scale-105 duration 200 px-6 py-2 lg:mt-60 rounded-lg text-sm md:text-base font-semibold whitespace-nowrap"
-                 >
-                   DOWNLOAD SYLLABUS →
-                 </motion.button>
-               </div>
-             </div>
-           </section>
+     <SyllabusSection
+ title={
+    <>
+       NMIMS Online Certificate Program <br />
+      Business Management Syllabus
+    </>
+  }
+  subjects={subjects}
+  semesters={semesters}
+  semSuffix={semSuffix}
+  topicsData={topicsData}
+/>
      
      <section className="w-full px-4 md:px-10 lg:px-20 py-12 lg:py-24 font-[Inter]">
              <div className="max-w-7xl mx-auto">
                {/* Title animation */}
-               <motion.h2
+               <MotionWrapper
+               as="h2"
                  initial={{ opacity: 0, x: -40 }}
                  whileInView={{ opacity: 1, x: 0 }}
                  transition={{ duration: 0.6 }}
@@ -580,10 +436,10 @@ export default function Page() {
                  className="inline-block text-[32px] md:text-5xl font-bold text-[#270652]"
                >
                  Eligibility for NMIMS Online certificate Program
-               </motion.h2>
+               </MotionWrapper>
      
                {/* Card container */}
-               <motion.div
+               <MotionWrapper
                  initial={{ opacity: 0, y: 40 }}
                  whileInView={{ opacity: 1, y: 0 }}
                  transition={{ duration: 0.6 }}
@@ -591,7 +447,7 @@ export default function Page() {
                  className="mt-6 flex flex-col md:flex-row max-w-7xl items-center gap-20"
                >
                  {/* Left text */}
-                 <motion.p
+                 <MotionWrapper
                    initial={{ opacity: 0, y: 20 }}
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ duration: 0.6, delay: 0.2 }}
@@ -599,10 +455,10 @@ export default function Page() {
                    className="text-black  text-[20px] md:text-3xl font-medium leading-relaxed md:w-3/5"
                  >
                   Eligibility criteria - HSC (10+2) in any discipline from a recognised Board.
-                 </motion.p>
+                 </MotionWrapper>
      
                  {/* Right image animation */}
-                 <motion.div
+                 <MotionWrapper
                    initial={{ opacity: 0, x: 40 }}
                    whileInView={{ opacity: 1, x: 0 }}
                    transition={{ duration: 0.6, delay: 0.3 }}
@@ -615,8 +471,8 @@ export default function Page() {
                    className="w-full max-w-[420px] md:max-w-[520px] h-auto rounded-xl object-contain"
            
                    />
-                 </motion.div>
-               </motion.div>
+                 </MotionWrapper>
+               </MotionWrapper>
              </div>
            </section>
 
@@ -625,7 +481,6 @@ export default function Page() {
             subtitle="Get a work-life-study balance with this program designed for working professionals delivered via latest learning management systems."
             cards={learningCards}
             ctaText="Ready to Learn ? Click Here"
-            onCtaClick={() => setIsModalOpen(true)}
           />
     
           <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
@@ -636,7 +491,8 @@ export default function Page() {
                    
                            <div className="max-w-6xl mx-auto relative">
                              {/* Main Animated Heading */}
-                             <motion.h2
+                             <MotionWrapper
+                             as="h2"
                                initial={{ opacity: 0, y: 30 }}
                                whileInView={{ opacity: 1, y: 0 }}
                                transition={{ duration: 0.6 }}
@@ -644,10 +500,10 @@ export default function Page() {
                                className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#270652] mb-6"
                              >
                                EXAMINATION PROCESS
-                             </motion.h2>
+                             </MotionWrapper>
                    
                              {/* Sub Text */}
-                             <motion.p
+                             <MotionWrapper
                                initial={{ opacity: 0 }}
                                whileInView={{ opacity: 1 }}
                                transition={{ duration: 0.8, delay: 0.2 }}
@@ -657,12 +513,12 @@ export default function Page() {
                                The NMIMS Online MBA follows a structured and transparent
                                examination process designed to evaluate learners through continuous
                                assessments and end-term evaluations.
-                             </motion.p>
+                             </MotionWrapper>
                    
                              {/* Cards Wrapper */}
                              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                {/* Left Card */}
-                               <motion.div
+                               <MotionWrapper
                                  initial={{ opacity: 0, x: -40 }}
                                  whileInView={{ opacity: 1, x: 0 }}
                                  transition={{ duration: 0.6 }}
@@ -691,10 +547,10 @@ export default function Page() {
                                      </p>
                                    </div>
                                  </div>
-                               </motion.div>
+                               </MotionWrapper>
                    
                                {/* Right Card */}
-                               <motion.div
+                               <MotionWrapper
                                  initial={{ opacity: 0, x: 40 }}
                                  whileInView={{ opacity: 1, x: 0 }}
                                  transition={{ duration: 0.6 }}
@@ -725,7 +581,7 @@ export default function Page() {
                                    Candidates may choose their preferred slot based on
                                    availability.
                                  </p>
-                               </motion.div>
+                               </MotionWrapper>
                              </div>
                            </div>
                          </section>
@@ -766,14 +622,14 @@ export default function Page() {
                              </div>
                            </div>
                          </section>
-          <CareerServices onCtaClick={() => setIsModalOpen(true)} />
+          <CareerServices />
 
       <section className="w-full font-[Inter] py-20 flex justify-center">
         <div className="w-full max-w-7xl px-4 md:px-10">
           {/* WRAPPER */}
-          <div className="flex flex-col lg:flex-row justify-between gap-16">
+          <div className="flex flex-col lg:flex-row justify-between gap-10">
             {/* ================= LEFT SIDE ================= */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -792,11 +648,7 @@ export default function Page() {
               </p>
 
               {/* Fee Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
+              <MotionWrapper
                 className=" bg-linear-to-b from-[#270652] to-[#3C087E]/50 
                           text-white w-[200px] h-[285px] md:w-[260px] rounded-2xl shadow-xl p-8 flex flex-col mt-20 items-center"
               >
@@ -812,23 +664,21 @@ export default function Page() {
                 <div className="w-full h-0.5 bg-white/40 my-2"></div>
 
                 <p className="text-3xl font-bold mt-8">₹55,000/-</p>
-              </motion.div>
+              </MotionWrapper>
 
               {/* Button */}
-              <motion.button
-                onClick={() => setIsModalOpen(true)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.2 }}
+              <CounsellingModal>
+              <button
                 className="mt-10 bg-[#F6A410] font-semibold
-                          text-white px-10 py-3 rounded-xl shadow-lg"
+                          text-white px-10 py-3 rounded-xl hover:scale-105 shadow-lg"
               >
                 Compare all Plans
-              </motion.button>
-            </motion.div>
+              </button>
+              </CounsellingModal>
+            </MotionWrapper>
 
             {/* ================= RIGHT SIDE ================= */}
-            <motion.div
+            <MotionWrapper
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -904,7 +754,7 @@ export default function Page() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </MotionWrapper>
           </div>
         </div>
       </section>
@@ -945,12 +795,14 @@ export default function Page() {
 
       {/* CTA BUTTON */}
      <div className="flex justify-center md:justify-start">
+   <CounsellingModal>
   <button
-    onClick={() => setIsModalOpen(true)}
+    
     className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200"
   >
     Know more
   </button>
+  </CounsellingModal>
 </div>
 
 
@@ -968,7 +820,7 @@ export default function Page() {
   </div>
 </section>
      <section className="w-full bg-white font-[Inter] px-6 md:px-12 lg:px-20 mt-8">
-  <motion.div
+  <MotionWrapper
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
@@ -992,7 +844,7 @@ export default function Page() {
       {/* LEFT: Points */}
       <div className="flex-1 max-w-xl flex flex-col gap-6">
         {/* Point 1 */}
-        <motion.div
+        <MotionWrapper
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -1010,10 +862,10 @@ export default function Page() {
             Prepare for real-world success with industry-aligned skills and UGC-entitled programs from India's top online education provider.
             </p>
           </div>
-        </motion.div>
+        </MotionWrapper>
 
         {/* Point 2 */}
-        <motion.div
+        <MotionWrapper
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
@@ -1031,10 +883,10 @@ export default function Page() {
              Build job-ready expertise with a robust curriculum trusted by India's leading corporates and emerging start-ups, designed to help you solve practical business challenges.
              </p>
           </div>
-        </motion.div>
+        </MotionWrapper>
 
         {/* Point 3 */}
-        <motion.div
+        <MotionWrapper
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -1052,11 +904,11 @@ export default function Page() {
              Learn from a distinguished faculty of seasoned academicians and industry professionals who bring deep insights into both the curriculum and real-world business practices.
              </p>
           </div>
-        </motion.div>
+        </MotionWrapper>
       </div>
 
      {/* RIGHT: Image */}
-<motion.div
+<MotionWrapper
   initial={{ opacity: 0, x: 40 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -1077,14 +929,14 @@ export default function Page() {
       priority
     />
   </div>
-</motion.div>
+</MotionWrapper>
 
     </div>
-  </motion.div>
+  </MotionWrapper>
 </section>
       <section className="w-full bg-white py-20 md:px-12 lg:px-20">
               <div className="w-full md:bg-[#270652] rounded-4xl py-12 px-6 md:px-12 lg:px-15">
-                <motion.div
+                <MotionWrapper
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -1093,7 +945,8 @@ export default function Page() {
                 >
                   {/* Title */}
                   <div className="text-center md:mb-4 pb-3">
-                    <motion.h2
+                    <MotionWrapper
+                    as="h2"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5 }}
@@ -1104,23 +957,23 @@ export default function Page() {
                             leading-tight"
                     >
                       Career Opportunities
-                    </motion.h2>
+                    </MotionWrapper>
                   </div>
       
                   {/* Subtitle */}
-                  <motion.p
+                  <MotionWrapper
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-center text-black text-[18px] md:text-[20px] max-w-2xl mx-auto md:mb-12"
                   >
                   Gain practical, job-ready skills through diploma programs designed to help you grasp industry fundamentals and begin your career with confidence.
-                   </motion.p>
+                   </MotionWrapper>
       
                   {/* Content Section */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                     {/* LEFT IMAGE */}
-                    <motion.div
+                    <MotionWrapper
                       initial={{ opacity: 0, x: -40 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6 }}
@@ -1142,10 +995,10 @@ export default function Page() {
           mx-auto
         "
                       />
-                    </motion.div>
+                    </MotionWrapper>
       
                     {/* RIGHT LIST */}
-                    <motion.div
+                    <MotionWrapper
                       initial={{ opacity: 0, x: 40 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6 }}
@@ -1156,7 +1009,7 @@ export default function Page() {
                         "Business Development Manager",
                         "Franchiser",
                       ].map((role, index) => (
-                        <motion.div
+                        <MotionWrapper
                           key={index}
                           initial={{ opacity: 0, x: 25 }}
                           whileInView={{ opacity: 1, x: 0 }}
@@ -1169,29 +1022,28 @@ export default function Page() {
                           <span className="text-gray-900 font-semibold text-lg">
                             {role}
                           </span>
-                        </motion.div>
+                        </MotionWrapper>
                       ))}
       
                       {/* CTA */}
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.97 }}
-                        onClick={() => setIsModalOpen(true)}
-                        className="
+                      <CounsellingModal>
+                <button
+                  className="
                     w-[200px] 
                     mt-6 py-3 px-6 
                     rounded-lg 
+                    hover:scale-105
                     text-white text-sm 
                     bg-[#F6A410]
                     self-center md:self-start
                     shadow-lg
                   "
-                      >
-                        Know more
-                      </motion.button>
-                    </motion.div>
+                >
+                  Know more
+                </button></CounsellingModal>
+                    </MotionWrapper>
                   </div>
-                </motion.div>
+                </MotionWrapper>
               </div>
             </section>
      <Faculties
@@ -1220,49 +1072,49 @@ export default function Page() {
           </thead>
     
           {/* BODY */}
-          <tbody className="divide-y divide-[#D6D6D6]">
-              {[
-              { p: "Registration Starts", d: "22nd September, 2025" },
-              {
-                p: "Admission Without Late Fees",
-                d: "22nd September, 2025 To 31st January, 2026",
-              },
-              {
-                p: "Admission With Late Fees Of Rs. 500/-",
-                d: "1st February, 2026 To 28th February, 2026",
-              },
-              {
-                p: "Admission With Late Fees Of Rs. 1000/-",
-                d: "1st March, 2026 To 16th March, 2026",
-              },
-              { p: "Closure Of Registration", d: "16th March, 2026" },
-              { p: "Re-Registration Starts", d: "22nd September, 2025" },
-              {
-                p: "Re-Registration Without Late Fees",
-                d: "22nd September, 2025 To 31st January, 2026",
-              },
-              {
-                p: "Re-Registration With Late Fees Of Rs. 1000/-",
-                d: "1st February, 2026 To 16th March, 2026",
-              },
-              { p: "Last Date Of Admission", d: "16th March, 2026" },
-            ].map((row, i) => (
-              <tr
-                key={i}
-                className="text-[10px] text-black sm:text-[12px] md:text-[14px] lg:text-[16px]"
-              >
-                <td className="py-3 px-2 wrap-break-words">{row.p}</td>
-                <td className="py-3 px-2 wrap-break-words">{row.d}</td>
-              </tr>
-            ))}
-          </tbody>
+         <tbody className="divide-y divide-[#D6D6D6]">
+        {[
+          { p: "Registration Starts", d: "19th March, 2026" },
+          {
+            p: "Admission Without Late Fees",
+            d: "19th March, 2026 to 10th August, 2026",
+          },
+          {
+            p: "Admission With Late Fees Of Rs. 500/-",
+            d: "11th August, 2026 to 31st August, 2026",
+          },
+          {
+            p: "Admission With Late Fees Of Rs. 1000/-",
+            d: "1st September, 2026 to 16th September, 2026",
+          },
+          { p: "Last Date of Admission", d: "16th September, 2026" },
+          { p: "Re-Registration Starts", d: "	19th March, 2026" },
+          {
+            p: "Re-Registration Without Late Fees",
+            d: "19th March, 2026 to 31st July, 2026",
+          },
+          {
+            p: "Re-Registration With Late Fees Of Rs. 1000/-",
+            d: "1st August, 2026 to 10th September, 20266",
+          },
+          { p: "Closure of Re-Registration", d: "10th September, 2026" },
+        ].map((row, i) => (
+          <tr
+            key={i}
+            className="text-[10px] text-black sm:text-[12px] md:text-[14px] lg:text-[16px]"
+          >
+            <td className="py-3 px-2 wrap-break-words">{row.p}</td>
+            <td className="py-3 px-2 wrap-break-words">{row.d}</td>
+          </tr>
+        ))}
+      </tbody>
         </table>
       </div>
     </section>
      <FAQ faqs={faqs} />
      
            <ConnectToday />
-      {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} />}
+     
     </main>
   );
 }

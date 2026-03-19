@@ -2,7 +2,7 @@ import CategoryNewsClient from "@/components/News/CategoryNewsClient";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
 import { getCategoryNews } from "@/app/actions/getCategoryNews";
-
+export const dynamic = "force-static";
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const { categoryName } = await getCategoryNews(slug);

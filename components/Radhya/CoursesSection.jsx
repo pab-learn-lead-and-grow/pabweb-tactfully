@@ -1,4 +1,6 @@
 // components/CoursesSection.jsx
+
+"use client";
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";

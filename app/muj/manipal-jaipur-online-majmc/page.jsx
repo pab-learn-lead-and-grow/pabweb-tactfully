@@ -1,8 +1,8 @@
 import MujMajmc from "@/components/Muj/MujMajmc";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
-
-
+export const dynamic = "force-static";
 export const metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Manipal Jaipur Online MAJMC - UGC Approved Degree",
   description:
     "Manipal Jaipur Online MAJMC offers a UGC-approved journalism and mass communication degree with flexible online learning, practical curriculum and career support",

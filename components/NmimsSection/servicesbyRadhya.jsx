@@ -1,6 +1,5 @@
-"use client";
 
-import { motion } from "framer-motion";
+import MotionWrapper from "../Radhya/MotionWrapper";
 
 export default function ServicesByRadhya() {
   const servicesRadhya = [
@@ -37,29 +36,31 @@ export default function ServicesByRadhya() {
       <div className="  md:px-10 relative">
         <div className="flex items-center gap-40">
           {/* TITLE + DESCRIPTION */}
-          <motion.h2
+          <MotionWrapper
+            as = "h2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             className="text-[#270652] text-[36px] lg:text-[64px] md:text-[48px] font-bold font-[Inter] leading-10 whitespace-nowrap"
           >
             Services by Radhya
-          </motion.h2>
+          </MotionWrapper>
 
           {/* Horizontal line */}
           <div className="h-px bg-black w-[572px] md:w-[250px] lg:w-[600px] mt-15"></div>
         </div>
 
-        <motion.p
+        <MotionWrapper
+          as = "p"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
           className="text-[#270652] text-xl md:text-[36px] font-regular italic leading-relaxed"
         >
           Education Academy
-        </motion.p>
+        </MotionWrapper>
 
-        <motion.p
+        <MotionWrapper
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
@@ -70,13 +71,13 @@ export default function ServicesByRadhya() {
           and dedicated post-admission assistance. With quick 30-minute query
           resolution and continuous progress tracking, you get a smooth,
           guided, and growth-focused learning experience.
-        </motion.p>
+        </MotionWrapper>
 
         {/* INNER GRID */}
         <div className=" mt-10 p-4 md:p-8 ">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
             {servicesRadhya.map((item, index) => (
-              <motion.div
+              <MotionWrapper
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +98,7 @@ export default function ServicesByRadhya() {
                     {item.desc}
                   </p>
                 </div>
-              </motion.div>
+              </MotionWrapper>
             ))}
           </div>
         </div>

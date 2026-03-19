@@ -1,8 +1,7 @@
 import JainBba from "@/components/Jain/JainBba";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
-
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
