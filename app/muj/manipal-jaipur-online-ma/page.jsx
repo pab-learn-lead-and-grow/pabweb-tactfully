@@ -1,8 +1,9 @@
 import MujMa from "@/components/Muj/MujMa";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
-
+export const dynamic = "force-static";
 export const metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Manipal Jaipur Online MA - UGC Approved Degree",
   description:
     "Manipal Jaipur Online MA offers a UGC-approved postgraduate degree with flexible online learning, industry-relevant curriculum and academic support",

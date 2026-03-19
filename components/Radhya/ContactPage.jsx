@@ -1,4 +1,4 @@
-"use client";
+
 import ContactSection from "./ContactSection";
 import Image from "next/image";
 import ConnectToday from "../NmimsSection/ConnectToday";

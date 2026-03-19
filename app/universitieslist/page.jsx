@@ -1,6 +1,8 @@
 import UniversityList from "@/components/UniversityList";
 import { getUniversities } from "../actions/getUniversities";
 
+export const dynamic = "force-static";
+
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 

@@ -73,7 +73,7 @@ const handleSubmit = async (e) => {
         }
       } catch (emailError) {
         console.error("Email notification error:", emailError);
-        // Don't fail the form if email fails
+        
       }
 
       setStatus("✅ Message sent successfully!");

@@ -1,8 +1,3 @@
-export const metadata = {
-  title: "Terms & Conditions | Radhya Education Academy",
-  description:
-    "Terms & Conditions of Radhya Education Academy Private Limited governing use of the website, services, user responsibilities, and legal policies.",
-};
 
 function PolicySection({ title, children }) {
   return (

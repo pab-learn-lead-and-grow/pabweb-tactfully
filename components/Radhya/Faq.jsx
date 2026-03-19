@@ -1,4 +1,8 @@
+
+"use client";
+
 import { useState } from 'react';
+
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(-1); // Default to closed for SSR

@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import CounsellingModal from "./CounsellingModal";
 import { useState } from "react";
 
 export default function UnivCourses({
   heading,
   courses = [],
-  onDownloadBrochure,
 }) {
   const [showAll, setShowAll] = useState(false);
 
@@ -92,12 +92,13 @@ export default function UnivCourses({
                 Dive Deeper
               </Link>
 
-              <button
-                onClick={onDownloadBrochure}     
-className="text-sm px-3 py-1.5 rounded-xl bg-[#3D077E] text-white font-medium shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl active:scale-100 whitespace-nowrap"
-           >
-                Download Brochure
-              </button>
+              <CounsellingModal>
+  <button
+    className="text-sm px-3 py-1.5 rounded-xl bg-[#3D077E] text-white font-medium shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl active:scale-100 whitespace-nowrap"
+  >
+    Download Brochure
+  </button>
+</CounsellingModal>
             </div>
           </div>
         ))}

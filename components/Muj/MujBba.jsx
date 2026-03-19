@@ -1,4 +1,4 @@
-"use client";
+
 import Image from "next/image";
 import {
   Download,
@@ -27,8 +27,6 @@ import {
   Star,
   Building2,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
 import React from "react";
 import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
@@ -39,10 +37,11 @@ import CourseCurriculumSection from "@/components/NmimsSection/CourseCurriculumS
 import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
 import MujCareerServices from "../NmimsSection/MujCareerServices";
-import CounsellingForm from "@/components/Radhya/CounsellingForm";
+import FeesCarousel from "../NmimsSection/FeesCrousel";
+import CounsellingModal from "../Radhya/CounsellingModal";
+import MotionWrapper from "../Radhya/MotionWrapper";
 
 export default function Page() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const steps = [
     {
@@ -182,89 +181,7 @@ export default function Page() {
     },
   ];
 
-  /* fees crousel */
-      function FeesCarousel() {
-        const cards = [
-          {
-            title: "Full Course Fee",
-            amount: "₹1,35,000/-",
-            sub: "Inclusive of all taxes",
-          },
-           {
-            title: "Semester Wise",
-            amount: "₹22,500/-",
-             sub: "Inclusive of all taxes",
-          },
-          {
-            title: "EMI starting at",
-            amount: "₹3,750/-",
-            sub: "per month [Terms & Conditions apply]",
-          },
-         
-        ];
-    
-        const [index, setIndex] = useState(0);
-    
-        // Auto-scroll every 3 seconds
-        useEffect(() => {
-          const timer = setInterval(() => {
-            setIndex((prev) => (prev + 1) % cards.length);
-          }, 3000);
-    
-          return () => clearInterval(timer);
-        }, []);
-    
-        return (
-          <div className="w-full flex flex-col items-center">
-            {/* CARD */}
-            <div className="relative w-full flex justify-center">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 80 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -80 }}
-                  transition={{ duration: 0.6 }}
-                  className="bg-linear-to-b from-[#270652] to-[#3C087E]/50 rounded-2xl shadow-lg p-8 w-[80%] md:w-[60%] lg:w-[80%] h-[260px] flex flex-col justify-between text-center"
-                >
-                  <div>
-                    <p className="font-semibold text-white">{cards[index].title}</p>
-                    <p className="text-xs text-white mt-1">(in INR)</p>
-                    <p className="text-[#C4C4C4] font-bold text-[22px] mt-3">BBA</p>
-                    <div className="w-12 mx-auto h-0.5 bg-white mt-3" />
-                  </div>
-    
-                  <p className="text-2xl font-medium text-white mt-4">
-                    {cards[index].amount}
-                  </p>
-    
-                  {cards[index].sub && (
-                    <p className="text-xs text-white italic whitespace-pre-line">
-                      {cards[index].sub}
-                    </p>
-                  )}
-                </motion.div>
-              </AnimatePresence>
-            </div>
-    
-            {/* DOTS */}
-            <div className="flex gap-2 mt-4">
-              {cards.map((_, i) => (
-                <motion.button
-                  key={i}
-                  onClick={() => setIndex(i)}
-                  animate={{
-                    scale: index === i ? 1.2 : 1,
-                    backgroundColor: index === i ? "#270652" : "#d1d5db",
-                  }}
-                  className="w-3 h-3 rounded-full"
-                />
-              ))}
-            </div>
-          </div>
-        );
-      }
-
+  
   const benefits = [
     {
       icon: (
@@ -338,7 +255,7 @@ export default function Page() {
                           </div>
                           {/* LOGO – move to left screen edge, keep same height */}
                           <div className="relative z-10 w-full mt-20 md:mt-28">
-                            <motion.div
+                            <MotionWrapper
                               initial={{ opacity: 0, x: -30 }}
                               whileInView={{ opacity: 1, x: 0 }}
                               transition={{ duration: 0.6 }}
@@ -354,13 +271,13 @@ export default function Page() {
                             className="object-contain w-[140px] sm:w-[180px] lg:w-[220px]"
                           />
                               </div>
-                            </motion.div>
+                            </MotionWrapper>
                           </div>
                   
                           {/* CONTENT WRAPPER */}
                           <div className="relative z-10 max-w-7xl mx-auto p-6 sm:p-10">
                            {/* Most Loved */}
-                                                                    <motion.span
+                                                                    <MotionWrapper
                                                                       initial={{ opacity: 0, x: -20 }}
                                                                       whileInView={{ opacity: 1, x: 0 }}
                                                                       transition={{ duration: 0.6 }}
@@ -368,10 +285,10 @@ export default function Page() {
                                                                       className="inline-flex items-center gap-2 bg-[#ffb901] text-white text-[12px] md:text-[16px] lg:text-[18px] mt-6 mb-2 px-2 md:px-4 md:py-1 rounded-full"
                                                                     >
                                                                       4.8 <Star  className="w-3 h-3 md:w-4 md:h-4"/>
-                                                                    </motion.span>
+                                                                    </MotionWrapper>
                   
                             {/* Subtext */}
-                            <motion.p
+                            <MotionWrapper
                               initial={{ opacity: 0, x: -20 }}
                               whileInView={{ opacity: 1, x: 0 }}
                               transition={{ duration: 0.6, delay: 0.1 }}
@@ -379,11 +296,12 @@ export default function Page() {
                               className="text-white text-[12px] md:text-[16px] italic font-light"
                             >
                                Bachelor of Business Administration
-                            </motion.p>
+                            </MotionWrapper>
                   
                             {/* TITLE + DESCRIPTION */}
                             <div className="flex flex-col items-start">
-                              <motion.h1
+                              <MotionWrapper
+                              as="h1"
                                 initial={{ opacity: 0, y: -20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7 }}
@@ -391,9 +309,9 @@ export default function Page() {
                                 className="text-white text-2xl md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
                               >
                                Manipal Jaipur Online BBA 
-                              </motion.h1>
+                              </MotionWrapper>
                   
-                              <motion.p
+                              <MotionWrapper
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 transition={{ duration: 0.7, delay: 0.2 }}
@@ -401,10 +319,10 @@ export default function Page() {
                                 className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
                               >
                               Launch your management career with MUJ’s Online BBA, a 3-year program for 10+2 students. Choose from 7 electives like Digital Marketing, Finance, and Retail. Learn flexibly through live/recorded classes and expert support, plus gain Coursera certifications for industry-ready skills.
-                               </motion.p>
+                               </MotionWrapper>
                   
                               {/* STATS */}
-                              <motion.div
+                              <MotionWrapper
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7 }}
@@ -427,30 +345,34 @@ export default function Page() {
                                     </p>
                                   </div>
                                 ))}
-                              </motion.div>
+                              </MotionWrapper>
                   
                               {/* BUTTONS – CENTERED */}
-                              <motion.div
+                              <MotionWrapper
                                 initial={{ opacity: 0, y: 25 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7 }}
                                 viewport={{ once: true }}
                                 className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
                               >
-                                 <button onClick={() => setIsModalOpen(true)} className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                                     transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
-                                               Download Brochure
-                                               <Download className="w-4 h-4 md:w-5 md:h-5" />
-                                             </button>
-                               
-                                             <button onClick={() => setIsModalOpen(true)} className=" bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
-                                     ease-out
-                                     hover:scale-105 hover:shadow-lg
-                                     active:scale-100 flex items-center justify-center gap-2 px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium">
-                                               Talk to an Expert
-                                               <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-                                             </button>
-                              </motion.div>
+                                 <CounsellingModal>
+               <button className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
+                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
+                             Download Brochure
+                             <Download className="w-4 h-4 md:w-5 md:h-5" />
+                           </button>
+                           </CounsellingModal>
+<CounsellingModal>
+  <button
+    className="bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
+    ease-out hover:scale-105 hover:shadow-lg active:scale-100 flex items-center justify-center gap-2
+    px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium"
+  >
+    Talk to an Expert
+    <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+  </button>
+</CounsellingModal>
+                              </MotionWrapper>
                             </div>
                           </div>
                         </section>
@@ -494,7 +416,8 @@ export default function Page() {
                       <section className="w-full xl:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
                         <div className="max-w-7xl mx-auto">
                           {/* HEADING */}
-                          <motion.h2
+                          <MotionWrapper
+                          as="h2"
                             initial={{ opacity: 0, y: -30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
@@ -502,10 +425,10 @@ export default function Page() {
                             className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
                           >
                             A Snapshot of Success
-                          </motion.h2>
+                          </MotionWrapper>
                 
                           {/* BLUE BAR */}
-                          <motion.div
+                          <MotionWrapper
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
@@ -515,7 +438,7 @@ export default function Page() {
                             {/* ALWAYS 3 COLUMNS */}
                             <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#37087E]">
                               {/* STAT 1 */}
-                              <motion.div
+                              <MotionWrapper
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5 }}
@@ -527,10 +450,10 @@ export default function Page() {
                                  <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                                   Rajasthan's First
                                 </p>
-                              </motion.div>
+                              </MotionWrapper>
                 
                               {/* STAT 2 */}
-                              <motion.div
+                              <MotionWrapper
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -542,10 +465,10 @@ export default function Page() {
                                  <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                                   Entitled Degree
                                 </p>
-                              </motion.div>
+                              </MotionWrapper>
                 
                               {/* STAT 3 */}
-                              <motion.div
+                              <MotionWrapper
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -557,9 +480,9 @@ export default function Page() {
                                 <p className="text-[8px]  md:text-[16px] xl:text-[22px]   md:text-sm font-bold opacity-90 leading-tight">
                                   Rank By Careers360
                                 </p>
-                              </motion.div>
+                              </MotionWrapper>
                             </div>
-                          </motion.div>
+                          </MotionWrapper>
                         </div>
                       </section>
      
@@ -615,7 +538,7 @@ export default function Page() {
              </div>
            </section>
 
-      <WhyChooseUs title="Why Choose MUJ Online BBA" cards={whyCards} onCtaClick={() => setIsModalOpen(true)} />
+      <WhyChooseUs title="Why Choose MUJ Online BBA" cards={whyCards} />
 
       <CourseCurriculumSection
       title="MUJ Online BBA Syllabus"
@@ -921,7 +844,6 @@ export default function Page() {
         subtitle="Get a work-life-study balance with this program designed for working professionals delivered via latest learning management systems."
         cards={learningCards}
         ctaText="Ready to Learn ? Click Here"
-        onCtaClick={() => setIsModalOpen(true)}
       />
 
     <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
@@ -932,7 +854,8 @@ export default function Page() {
     
             <div className="max-w-6xl mx-auto relative">
               {/* Main Animated Heading */}
-              <motion.h2
+              <MotionWrapper
+              as="h2"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -940,10 +863,10 @@ export default function Page() {
                 className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#270652] mb-6"
               >
                 EXAMINATION PROCESS
-              </motion.h2>
+              </MotionWrapper>
     
               {/* Sub Text */}
-              <motion.p
+              <MotionWrapper
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -953,12 +876,12 @@ export default function Page() {
                 The Manipal University Jaipur Online BBA follows a structured and
                 transparent examination process designed to evaluate learners
                 through continuous assessments and end-term evaluations.
-              </motion.p>
+              </MotionWrapper>
     
               {/* Cards Wrapper */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Left Card */}
-                <motion.div
+                <MotionWrapper
                   initial={{ opacity: 0, x: -40 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
@@ -989,10 +912,10 @@ export default function Page() {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </MotionWrapper>
     
                 {/* Right Card */}
-                <motion.div
+                <MotionWrapper
                   initial={{ opacity: 0, x: 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
@@ -1023,7 +946,7 @@ export default function Page() {
                     Candidates may choose their preferred slot based on
                     availability.
                   </p>
-                </motion.div>
+                </MotionWrapper>
               </div>
             </div>
           </section>
@@ -1085,7 +1008,7 @@ export default function Page() {
             </div>
           </section>
      
-           <MujCareerServices benefits={benefits}  onCtaClick={() => setIsModalOpen(true)} />
+           <MujCareerServices benefits={benefits} />
 
      <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
   <div className="px-2 w-full">
@@ -1104,20 +1027,43 @@ export default function Page() {
         </p>
 
         {/* CTA visible only on large screens */}
-        <button onClick={() => setIsModalOpen(true)} className="hidden lg:flex text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit">
+        <CounsellingModal>
+        <button  className="hidden lg:flex text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit">
           Compare all Plans
         </button>
+        </CounsellingModal>
       </div>
 
       {/* RIGHT SIDE CARDS */}
       <div className="w-full lg:w-[35%] flex justify-center">
-        <FeesCarousel />
+        <FeesCarousel
+         cards = {[
+          {
+            title: "Full Course Fee",
+            amount: "₹1,35,000/-",
+            sub: "Inclusive of all taxes",
+          },
+           {
+            title: "Semester Wise",
+            amount: "₹22,500/-",
+             sub: "Inclusive of all taxes",
+          },
+          {
+            title: "EMI starting at",
+            amount: "₹3,750/-",
+            sub: "per month [Terms & Conditions apply]",
+          },
+         
+        ]}
+        />
       </div>
 
       {/* CTA below carousel on mobile only */}
-      <button onClick={() => setIsModalOpen(true)} className="lg:hidden text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+        <CounsellingModal>
+      <button className="lg:hidden text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
         Compare all Plans
       </button>
+      </CounsellingModal>
 
     </div>
   </div>
@@ -1125,7 +1071,7 @@ export default function Page() {
 
 
       <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-[Inter]">
-        <motion.div
+        <MotionWrapper
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -1157,7 +1103,7 @@ export default function Page() {
               System) and academic content only within India.
             </li>
           </ul>
-        </motion.div>
+        </MotionWrapper>
       </section>
 
       <Enrollment
@@ -1196,12 +1142,13 @@ export default function Page() {
      
            {/* CTA BUTTON */}
            <div className="flex justify-center md:justify-start">
+            <CounsellingModal>
   <button
-    onClick={() => setIsModalOpen(true)}
     className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200"
   >
     Know more
   </button>
+  </CounsellingModal>
 </div>
 
      
@@ -1221,17 +1168,18 @@ export default function Page() {
      
            <section className="w-full bg-white mt-10 lg:mt-20 px-4 md:px-12 lg:px-20 font-[Inter]">
              {/* Small Header */}
-             <motion.h2
+             <MotionWrapper
+             as="h2"
                initial={{ opacity: 0, y: 10 }}
                whileInView={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.5 }}
                className="text-black text-lg md:text-xl mb-2"
              >
                What will you gain?
-             </motion.h2>
+             </MotionWrapper>
      
              {/* Main Heading */}
-             <motion.h2
+             <MotionWrapper
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.6 }}
@@ -1239,14 +1187,14 @@ export default function Page() {
              >
                The program offers strong academics, interactive learning, and full
                flexibility to help professionals grow confidently.
-             </motion.h2>
+             </MotionWrapper>
      
              {/* Two Column Layout */}
              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-5">
                {/* LEFT COLUMN */}
                <div className="flex flex-col gap-12">
                  {/* Item 1 */}
-                 <motion.div
+                 <MotionWrapper
                    initial={{ opacity: 0, x: -30 }}
                    whileInView={{ opacity: 1, x: 0 }}
                    transition={{ duration: 0.6 }}
@@ -1283,10 +1231,10 @@ export default function Page() {
                        that match current industry demands.
                      </p>
                    </div>
-                 </motion.div>
+                 </MotionWrapper>
      
                  {/* Item 2 */}
-                  <motion.div
+                  <MotionWrapper
                    initial={{ opacity: 0, x: 30 }}
                    whileInView={{ opacity: 1, x: 0 }}
                    transition={{ duration: 0.6, delay: 0.1 }}
@@ -1323,11 +1271,11 @@ export default function Page() {
                        to take on professional challenges.{" "}
                      </p>
                    </div>
-                 </motion.div>
+                 </MotionWrapper>
                
      
                  {/* Item 3 */}
-                 <motion.div
+                 <MotionWrapper
                    initial={{ opacity: 0, x: 30 }}
                    whileInView={{ opacity: 1, x: 0 }}
                    transition={{ duration: 0.6 }}
@@ -1364,13 +1312,13 @@ export default function Page() {
                        with structured career support and placement services
                      </p>{" "}
                    </div>
-                 </motion.div>
+                 </MotionWrapper>
                </div>
      
                {/* RIGHT COLUMN */}
                <div className="flex flex-col gap-12">
                  {/* Item 4 */}
-                 <motion.div
+                 <MotionWrapper
                    initial={{ opacity: 0, x: -30 }}
                    whileInView={{ opacity: 1, x: 0 }}
                    transition={{ duration: 0.6, delay: 0.1 }}
@@ -1407,10 +1355,10 @@ export default function Page() {
                        through projects, case studies, and real-world examples{" "}
                      </p>
                    </div>
-                 </motion.div>
+                 </MotionWrapper>
      
                  {/* Item 5 */}
-                 <motion.div
+                 <MotionWrapper
                    initial={{ opacity: 0, x: 30 }}
                    whileInView={{ opacity: 1, x: 0 }}
                    transition={{ duration: 0.6, delay: 0.1 }}
@@ -1447,10 +1395,10 @@ export default function Page() {
                        that strengthens your professional profile.{" "}
                      </p>
                    </div>
-                 </motion.div>
+                 </MotionWrapper>
      
                  {/* Item 6 */}
-                  <motion.div
+                  <MotionWrapper
                    initial={{ opacity: 0, x: 30 }}
                    whileInView={{ opacity: 1, x: 0 }}
                    transition={{ duration: 0.6 }}
@@ -1488,13 +1436,13 @@ export default function Page() {
                        interactions
                      </p>{" "}
                    </div>
-                 </motion.div>
+                 </MotionWrapper>
                </div>
              </div>
            </section>
             <section className="w-full bg-white py-10 lg:py-20 md:px-12 lg:px-20">
                   <div className="w-full md:bg-[#270652] rounded-4xl py-20 px-6 md:px-12 lg:px-20">
-                    <motion.div
+                    <MotionWrapper
                       initial={{ opacity: 0, y: 40 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6 }}
@@ -1503,7 +1451,8 @@ export default function Page() {
                     >
                       {/* Title */}
                       <div className="text-center md:mb-4 pb-3">
-                        <motion.h2
+                        <MotionWrapper
+                        as="h2"
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5 }}
@@ -1514,23 +1463,23 @@ export default function Page() {
                                 leading-tight"
                         >
                           Career Opportunities
-                        </motion.h2>
+                        </MotionWrapper>
                       </div>
           
                       {/* Subtitle */}
-                      <motion.p
+                      <MotionWrapper
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-center text-black text-[18px] md:text-[20px] max-w-2xl mx-auto md:mb-12"
                       >
                         Gain practical, job-ready skills through diploma programs designed to help you grasp industry fundamentals and begin your career with confidence.
-                      </motion.p>
+                      </MotionWrapper>
           
                       {/* Content Section */}
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                         {/* LEFT IMAGE */}
-                        <motion.div
+                        <MotionWrapper
                           initial={{ opacity: 0, x: -40 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.6 }}
@@ -1552,10 +1501,10 @@ export default function Page() {
               mx-auto
             "
                           />
-                        </motion.div>
+                        </MotionWrapper>
           
                         {/* RIGHT LIST */}
-                        <motion.div
+                        <MotionWrapper
                           initial={{ opacity: 0, x: 40 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.6 }}
@@ -1568,7 +1517,7 @@ export default function Page() {
                             "Operations Analyst",
                             "Research and Development Operations ",
                           ].map((role, index) => (
-                            <motion.div
+                            <MotionWrapper
                               key={index}
                               initial={{ opacity: 0, x: 25 }}
                               whileInView={{ opacity: 1, x: 0 }}
@@ -1581,29 +1530,28 @@ export default function Page() {
                               <span className="text-gray-900 font-semibold text-lg">
                                 {role}
                               </span>
-                            </motion.div>
+                            </MotionWrapper>
                           ))}
           
                           {/* CTA */}
-                          <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.97 }}
-                            onClick={() => setIsModalOpen(true)}
-                            className="
-                        w-[200px] 
-                        mt-6 py-3 px-6 
-                        rounded-lg 
-                        text-white text-sm 
-                        bg-[#F6A104]
-                        self-center md:self-start
-                        shadow-md
-                      "
-                          >
-                            Know more
-                          </motion.button>
-                        </motion.div>
+                          <CounsellingModal>
+                <button
+                  className="
+                    w-[200px] 
+                    mt-6 py-3 px-6 
+                    rounded-lg 
+                    hover:scale-105
+                    text-white text-sm 
+                    bg-[#F6A410]
+                    self-center md:self-start
+                    shadow-lg
+                  "
+                >
+                  Know more
+                </button></CounsellingModal>
+                        </MotionWrapper>
                       </div>
-                    </motion.div>
+                    </MotionWrapper>
                   </div>
                 </section>
 
@@ -1633,7 +1581,6 @@ export default function Page() {
       <FAQ faqs={faqs} />
 
       <ConnectToday />
-      {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} />}
     </main>
   );
 }

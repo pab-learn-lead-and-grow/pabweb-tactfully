@@ -1,11 +1,9 @@
-"use client";
+
 import Image from "next/image";
 import { Briefcase, Clock, MapPin, Wallet } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function CareerPage() {
-  const router = useRouter();
-
   const career = [
     {
       time: "10 min ago",
@@ -123,12 +121,12 @@ export default function CareerPage() {
                     <MapPin size={16} className="text-[#D68E0E]" />{" "}
                     {job.location}
                   </div>
-                  <button
-                    onClick={() => router.push(job.link)}
-                    className="ml-auto bg-[#3C087E] text-white px-4 py-1.5 rounded-md text-xs hover:bg-[#00246e] transition"
-                  >
-                    Job Details
-                  </button>
+                 <Link
+  href={job.link}
+  className="ml-auto bg-[#3C087E] text-white px-4 py-1.5 rounded-md text-xs hover:bg-[#00246e] transition inline-block"
+>
+  Job Details
+</Link>
                 </div>
               </div>
             ))}

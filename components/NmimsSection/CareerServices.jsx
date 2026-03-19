@@ -1,6 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
+import CounsellingModal from "../Radhya/CounsellingModal";
+import MotionWrapper from "../Radhya/MotionWrapper";
 import {
   FileUser,
   Route,
@@ -10,7 +9,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-export default function CareerServices({ onCtaClick }) {
+export default function CareerServices() {
   const benefits = [
     {
       icon: <FileUser strokeWidth={1.0} className="text-[#3C087E]  w-18 h-18" />,
@@ -47,7 +46,7 @@ export default function CareerServices({ onCtaClick }) {
       </h2>
 
       {/* Main rounded container */}
-      <motion.div
+      <MotionWrapper
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -58,7 +57,7 @@ export default function CareerServices({ onCtaClick }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {/* Top 3 */}
           {benefits.slice(0, 3).map((item, index) => (
-            <motion.div
+            <MotionWrapper
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -73,13 +72,13 @@ export default function CareerServices({ onCtaClick }) {
               <p className="text-[#3C3C43] text-sm max-w-60 mx-auto leading-relaxed">
                 {item.text}
               </p>
-            </motion.div>
+            </MotionWrapper>
           ))}
 
           {/* Bottom 2 */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-3 flex flex-col md:flex-row justify-center gap-20 mt-6">
             {benefits.slice(3, 5).map((item, index) => (
-              <motion.div
+              <MotionWrapper
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -94,24 +93,23 @@ export default function CareerServices({ onCtaClick }) {
                 <p className="text-[#3C3C43] text-sm leading-relaxed">
                   {item.text}
                 </p>
-              </motion.div>
+              </MotionWrapper>
             ))}
           </div>
         </div>
 
         {/* CTA Button */}
         <div className="flex justify-center mt-12">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={onCtaClick}
-            className="bg-[#F6A410] text-white mt-4 px-6 py-2 rounded-lg text-sm border-0 shadow-lg transform hover:scale-105 duration-200 flex items-center justify-center gap-4 transition"
-          >
+          <CounsellingModal>
+          <button
+  className="bg-[#F6A410] text-white mt-4 px-6 py-2 rounded-lg text-sm border-0 shadow-lg transform hover:scale-105 duration-200 flex items-center justify-center gap-4 transition"
+>
             Explore Your Benefits
             <ArrowRight size={16} />
-          </motion.button>
+          </button>
+          </CounsellingModal>
         </div>
-      </motion.div>
+      </MotionWrapper>
     </section>
   );
 }

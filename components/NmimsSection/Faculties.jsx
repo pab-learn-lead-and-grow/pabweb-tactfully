@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import MotionWrapper from "../Radhya/MotionWrapper";
 import { CornerDownRight } from "lucide-react";
 
 export default function Faculties({ heading, topFaculty, bottomFaculty }) {
@@ -22,7 +20,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start mb-6 sm:mb-8 md:mb-10">
           
           {/* Left Heading */}
-          <div className="lg:pr-8">
+          <div className="lg:pr-2">
             <p
               className="text-white font-[Inter] text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-semibold leading-tight"
             >
@@ -33,7 +31,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
           {/* Top Faculty Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-5 md:gap-6">
             {topFaculty.map((member, index) => (
-              <motion.div
+              <MotionWrapper
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -57,7 +55,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
                     {member.title}
                   </p>
                 </div>
-              </motion.div>
+              </MotionWrapper>
             ))}
           </div>
         </div>
@@ -65,7 +63,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
         {/* Bottom Faculty Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-5 md:gap-6 mb-6 sm:mb-8">
           {bottomFaculty.map((member, index) => (
-            <motion.div
+            <MotionWrapper
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +87,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
                   {member.title}
                 </p>
               </div>
-            </motion.div>
+            </MotionWrapper>
           ))}
         </div>
 
