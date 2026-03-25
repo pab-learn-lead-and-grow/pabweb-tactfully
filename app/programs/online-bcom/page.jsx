@@ -1,0 +1,73 @@
+import OnlineBcom from "@/components/Programs/onlineBcom";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
+export const dynamic = "force-static";
+
+export const metadata = {
+  metadataBase: new URL(siteUrl),
+
+  title:
+    "Online B.Com 2026: Top Colleges, Fees, Admission & Career Opportunities",
+
+  description:
+    "Explore top Online B.Com colleges in India with updated fees, eligibility, admission process, and career opportunities. Compare universities and choose the best course.",
+
+  alternates: {
+    canonical: "/online-bcom/",
+  },
+
+  keywords: [
+    "Online BCom India",
+    "best online BCom colleges",
+    "UGC approved online BCom",
+    "online BCom fees India",
+    "online BCom after 12th",
+    "top universities for online BCom",
+    "online BCom eligibility",
+    "online BCom admission 2026",
+    "online commerce degree India",
+  ],
+
+  openGraph: {
+    title:
+      "Online BCom in India 2026 | Fees, Colleges, Admission & Career Scope",
+    description:
+      "Compare top Online BCom universities in India with updated fees, eligibility and career opportunities in commerce, finance and accounting.",
+    url: `${siteUrl}/online-bcom/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Online BCom in India | Top Colleges & Fees",
+    description:
+      "Find the best UGC-approved Online BCom programs in India and build a career in accounting, finance, banking and business.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  other: {
+    "script:ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "Online BCom in India",
+      description:
+        "Online BCom programs offered by top UGC-approved universities in India for students after 12th with career opportunities in accounting, finance, banking, taxation and business management.",
+      provider: {
+        "@type": "Organization",
+        name: "Radhya Education Academy",
+        url: siteUrl,
+      },
+    }),
+  },
+};
+
+export default function OnlineBcomPage() {
+  return <OnlineBcom />;
+}

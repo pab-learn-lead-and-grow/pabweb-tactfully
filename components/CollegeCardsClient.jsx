@@ -117,13 +117,14 @@ export default function CollegeCardsClient({ universities }) {
 
             {/* BUTTONS */}
             <div className="flex gap-4 mt-4">
-              <CounsellingModal>
-                <button
+              
+                <Link
+                href={`${uni.path}`}
                 className="px-5 bg-[#FFD66C] hover:scale-105 hover:bg-yellow-500 text-black py-2 rounded-lg"
               >
                 View Details
-              </button>
-              </CounsellingModal>
+              </Link>
+              
 
               <CounsellingModal>
                 <button

@@ -2,7 +2,7 @@ import MotionWrapper from "../Radhya/MotionWrapper";
 import CounsellingModal from "../Radhya/CounsellingModal";
 import { ArrowRight } from "lucide-react";
 
-export default function CareerServicesSection({
+export default function CareerServicesSection({ title = "Career Services",
   benefits = [],
 }) {
   return (
@@ -14,7 +14,7 @@ export default function CareerServicesSection({
         whileInView={{ opacity: 1, y: 0 }}
         className="text-center text-[#270652] text-[34px] md:text-[48px] lg:text-[56px] font-bold"
       >
-        Career Services
+        {title}
       </MotionWrapper>
 
       {/* MAIN CONTAINER */}

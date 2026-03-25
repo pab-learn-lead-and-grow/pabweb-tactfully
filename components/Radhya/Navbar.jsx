@@ -5,14 +5,11 @@ import Link from "next/link";
 import { ChevronDown, Menu } from "lucide-react";
 import { useState, useEffect, useRef, Suspense } from "react";
 import { useRouter } from "next/navigation";
-import { usePathname, useSearchParams } from "next/navigation";
 import CounsellingForm from "./CounsellingForm.jsx";
-import { supabase } from "@/lib/supabaseClient";
 
 function NavbarContent() {
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const [user, setUser] = useState(null);
   const [hydrated, setHydrated] = useState(false);
 
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -29,71 +26,7 @@ function NavbarContent() {
     useState(null);
 
   const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-useEffect(() => {
-  const slug = searchParams.get("category");
-  if (!slug) return;
-
-  const mappedCategory = CATEGORY_SLUG_MAP[slug];
-  if (!mappedCategory || !categoryData[mappedCategory]) return;
-
-  setSelectedCategory(mappedCategory);
-
-  // Desktop behavior
-  setTopUnivOpen(true);
-
-  // Mobile behavior
-  if (window.innerWidth < 1280) {
-    setIsOpen(true);
-    setMobileTopUnivOpen(true);
-  }
-
-  setExploreOpen(false);
-  setMobileExploreOpen(false);
-  setMoreOpen(false);
-}, [searchParams]);
-
-
   const mobileMenuRef = useRef(null);
-
-
-  const CATEGORY_SLUG_MAP = {
-    "online-mba": "Online MBA",
-    "executive-mba": "Executive MBA",
-    "online-bba": "Online BBA",
-    "online-bcom": "Online B.COM",
-    "online-bcom-hons": "Online B.COM(Hons.)",
-    "online-bcom-int": "Online B.COM(Int.)",
-    "online-mca": "Online MCA",
-    "online-bca": "Online BCA",
-    "online-ba": "Online BA",
-    "online-ma": "Online MA",
-    "online-msc": "Online MSc",
-    "online-certification": "Online Certification",
-    "online-diploma": "Online Diploma",
-    "online-majmc": "Online MAJMC",
-    "online-bajmc": "Online BAJMC",
-    "integrated-programs": "Integrated Programs",
-  };
-
- 
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const { data } = await supabase.auth.getUser();
-      setUser(data?.user || null);
-    };
-    fetchUser();
-
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setUser(session?.user || null);
-      }
-    );
-
-    return () => listener.subscription.unsubscribe();
-  }, [supabase]);
 
 
 
@@ -139,10 +72,6 @@ useEffect(() => {
   };
 }, [topUnivOpen, hydrated]);
 
-
-const clearCategoryFromUrl = () => {
-  router.replace(pathname, { scroll: false });
-};
 
 
 
@@ -233,6 +162,12 @@ const handleProgramAction = (program) => {
           title: "Masters of Business Administration",
           logo: "/smu.png",
           path: "/smu/sikkim-manipal-online-mba",
+        },
+        {
+          id: 6,
+          title: "Masters of Business Administration",
+          logo: "/bennett.png",
+          path: "/bennett/bennett-online-mba",
         },
       ],
     },
@@ -412,6 +347,12 @@ const handleProgramAction = (program) => {
           title: "Bachelor of Business Administration",
           logo: "/jain.png",
           path: "/jain/jain-online-bba",
+        },
+        {
+          id: 5,
+          title: "Bachelor of Business Administration",
+          logo: "/bennett.png",
+          path: "/bennett/bennett-online-bba",
         },
       ],
     },
@@ -1281,7 +1222,7 @@ return (
                 {moreOpen && (
                   <div
                     onMouseLeave={() => setMoreOpen(false)}
-                    className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg border border-gray-100 p-2"
+                    className="absolute right-0 mt-2 w-58 bg-white text-black rounded-lg shadow-lg border border-gray-100 p-1"
                   >
                    <Link
   className="block py-2 px-3 rounded hover:bg-purple-50"

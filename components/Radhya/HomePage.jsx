@@ -29,6 +29,8 @@ const logos = [
   { src: "/amity.png", href: "/amity", alt: "Amity University" },
   { src: "/jain.png", href: "/jain", alt: "Jain University" },
   { src: "/smu.png", href: "/smu", alt: "Sikkim Manipal University" },
+   { src: "/bennett.png", href: "/bennett", alt: "Bennett University" },
+  { src: "/shoolini.png", href: "/shoolini", alt: "Shoolini University" },
 ];
 
   return (

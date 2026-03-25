@@ -32,10 +32,10 @@ import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import MotionWrapper from "../Radhya/MotionWrapper";
-import FeesCarousel from "../NmimsSection/FeesCrousel";
 import SyllabusSection from "../NmimsSection/Syllabus";
 import SnapshotSection from "../NmimsSection/SnapshotSection";
 import CounsellingModal from "../Radhya/CounsellingModal";
+import UnivCourses from "../Radhya/UnivCourses";
 
 export default function Page() {
 
@@ -997,25 +997,21 @@ export default function Page() {
       <section className="w-full font-[Inter] py-20 flex justify-center">
         <div className="w-full max-w-7xl px-4 md:px-10">
           {/* WRAPPER */}
-          <div className="flex flex-col lg:flex-row justify-between gap-16">
+          <div className="flex flex-col lg:flex-row justify-between">
             {/* ================= LEFT SIDE ================= */}
             <MotionWrapper
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="w-full lg:w-[40%] flex flex-col items-center text-center"
+              className="w-full lg:w-[45%] flex flex-col items-center text-center"
             >
               {/* Heading */}
               <h2 className="text-[#270652] text-[42px] md:text-[60px] text-left font-bold leading-tight">
                 Fees for NMIMS Online MBA WX Program
               </h2>
 
-              {/* Subtitle */}
-              <p className="text-gray-700 text-base md:text-lg mt-10">
-                Convenient Fee Payment Option: <br />
-                Choose your preferred fee payment option
-              </p>
+            
 
               {/* Fee Card */}
                <MotionWrapper
@@ -1418,6 +1414,76 @@ export default function Page() {
           </MotionWrapper>
         </div>
       </section>
+
+         <UnivCourses
+                    heading="Explore All Programs"
+                    courses={[
+                      {
+                        id: 1,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Master of Business Administration",
+                        subtitle: "NMIMS Mumbai",
+                        tag: "Most-Loved",
+                        duration: "2 years",
+                        validity: "4 years",
+                        coursePath: "/nmims/nmims-mumbai-online-mba",
+                      },
+                      {
+                        id: 2,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Bachelor of Business Administration",
+                        subtitle: "NMIMS Mumbai",
+                        tag: "Trending",
+                        duration: "3 years",
+                        validity: "6 years",
+                        coursePath: "/nmims/nmims-mumbai-online-bba",
+                      },
+                      {
+                        id: 3,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Master of Business Admin.(WX)",
+                        subtitle: "NMIMS Mumbai",
+                        tag: "Most-Loved",
+                        duration: "2 years",
+                        validity: "4 years",
+                        coursePath: "/nmims/nmims-mumbai-online-mba-working-executives",
+                      },
+                      {
+                        id: 4,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Bachelor of Commerce",
+                        subtitle: "NMIMS Mumbai",
+                        duration: "3 years",
+                        validity: "6 years",
+                        coursePath: "/nmims/nmims-mumbai-online-bcom",
+                      },
+                      {
+                        id: 5,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Online Diploma",
+                        subtitle: "NMIMS Mumbai",
+                        duration: "1 year",
+                        validity: "2 years",
+                        coursePath: "/nmims/nmims-mumbai-online-diploma",
+                      },
+                      {
+                        id: 6,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Certification in Business Management",
+                        subtitle: "NMIMS Mumbai",
+                        duration: "6 months",
+                        validity: "2 years",
+                        coursePath: "/nmims/nmims-mumbai-online-certification",
+                      },
+                    ]}
+                  />
+
       <Faculties
         heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."
         topFaculty={topFaculty}

@@ -3,6 +3,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import CounsellingForm from "./CounsellingForm";
@@ -57,6 +58,14 @@ const CATEGORIES = [
         badges: ["NAAC A+", "Sikkim","IIRF Rank 1"],
         image: "/smu.png",
         path: "/smu/sikkim-manipal-online-mba"
+      },
+       {
+        id: "bennett-mba",
+        university: "Bennett University Online",
+        programTitle: "Master of Business Administration",
+        badges: ["NAAC A+", "Noida", "AIU Member" , "Times Group"],
+        image: "/bennett.png",
+        path: "/bennett/bennett-online-mba"
       },
     ],
   },
@@ -281,6 +290,14 @@ const CATEGORIES = [
         badges: ["AI Driven", "Bangalore", "NAAC A++", "AIU Member"],
         image: "/jain.png",
         path: "/jain/jain-online-bba"
+      },  
+      {
+        id: "bba-5",
+        university: "Bennett university Online",
+        programTitle: "Bachelor of Business Administration",
+        badges: ["NAAC A+", "Noida", "AIU Member", "Times Group"],
+        image: "/bennett.png",
+        path: "/bennett/bennett-online-bba"
       },  
     ],
   },
@@ -720,7 +737,7 @@ return (
 /* ProgramCard component */
 function ProgramCard({ program, onDive, onDownload }) {
   return (
-    <div className="bg-white border rounded-xl shadow-sm overflow-hidden flex flex-col h-[360px]">
+    <div className="bg-white border rounded-xl shadow-sm overflow-hidden flex flex-col h-[400px]">
       {/* Top logo area */}
       <div className="relative w-full h-28 ">
         <Image
@@ -774,6 +791,15 @@ className="text-sm px-3 py-1.5 rounded-xl bg-[#3D077E] text-white font-medium sh
             Download Brochure
           </button>
         </div>
+
+        <div className="flex w-full mt-2">
+              <Link
+                href="/university-response-time"
+                className="w-full text-center text-sm px-3 py-1.5 rounded-xl bg-[#8e6109] text-white font-medium shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl active:scale-100"
+              >
+                Compare with other Universities
+              </Link>
+            </div>
       </div>
     </div>
   );

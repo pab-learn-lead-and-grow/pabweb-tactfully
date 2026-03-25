@@ -2,8 +2,11 @@ import CounsellingModal from "../Radhya/CounsellingModal";
 import MotionWrapper from "../Radhya/MotionWrapper";
 import { ArrowRight } from "lucide-react";
 
-export default function WhyChooseUs({  title = "Why Choose Us", cards = [] }) {
-  // Decide grid behavior based on number of cards
+export default function WhyChooseUs({
+  title = "Why Choose Us",
+  subtitle = "", // 👈 NEW OPTIONAL PROP
+  cards = [],
+}) {
   const isFourCards = cards.length === 4;
   const isSixCards = cards.length === 6;
 
@@ -22,17 +25,30 @@ export default function WhyChooseUs({  title = "Why Choose Us", cards = [] }) {
       transition={{ duration: 0.6 }}
       className="w-full max-w-7xl mx-auto px-5 mb-15 text-left"
     >
-      {/* FIXED SECTION HEADING */}
+      {/* HEADING */}
       <MotionWrapper
-        as = "h2"
+        as="h2"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         viewport={{ once: false }}
-        className="text-[32px] font-[Inter] flex items-center justify-center text-center lg:text-[56px] xl:text-[64px] font-bold text-[#270652] mb-5  md:mb-10"
+        className="text-[32px] font-[Inter] flex flex-col items-center justify-center text-center lg:text-[56px] xl:text-[64px] font-bold text-[#270652] mb-2"
       >
         {title}
       </MotionWrapper>
+
+      {/* ✅ SUBTITLE (only renders if passed) */}
+      {subtitle && (
+        <MotionWrapper
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          viewport={{ once: false }}
+          className="text-center text-black text-sm md:text-lg max-w-4xl mx-auto mb-6 md:mb-10"
+        >
+          {subtitle}
+        </MotionWrapper>
+      )}
 
       {/* Cards Grid */}
       <div className={gridClasses}>
@@ -45,12 +61,10 @@ export default function WhyChooseUs({  title = "Why Choose Us", cards = [] }) {
             transition={{ duration: 0.5, delay: index * 0.15 }}
             className="bg-[#A4A4A4]/5 p-4 shadow-md rounded-xl hover:shadow-xl transition-shadow flex gap-2"
           >
-            {/* Dynamic Icon */}
             <div className="w-[30%] flex items-center justify-center">
               <card.logo size={70} strokeWidth={1.0} className="text-[#270652]" />
             </div>
 
-            {/* Dynamic Title + Subheading */}
             <div className="w-[70%]">
               <h3 className="text-[20px] md:text-3xl font-semibold text-[#270652] text-left mt-2 mb-2">
                 {card.heading}
@@ -63,7 +77,7 @@ export default function WhyChooseUs({  title = "Why Choose Us", cards = [] }) {
         ))}
       </div>
 
-      {/* FIXED CTA BUTTON */}
+      {/* CTA */}
       <MotionWrapper
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -72,12 +86,10 @@ export default function WhyChooseUs({  title = "Why Choose Us", cards = [] }) {
         className="w-full flex items-center justify-center"
       >
         <CounsellingModal>
-        <button 
-          className="text-white mt-4 px-16 py-3 rounded-lg text-sm bg-[#F6A410] border-0 border-transparent shadow-[#9c7835] shadow-md transform hover:scale-105 duration 200 flex items-center justify-center gap-4 transition"
-        >
-          Get Full Access
-          <ArrowRight size={16} />
-        </button>
+          <button className="text-white mt-4 px-16 py-3 rounded-lg text-sm bg-[#F6A410] shadow-[#9c7835] shadow-md hover:scale-105 duration-200 flex items-center gap-4">
+            Get Full Access
+            <ArrowRight size={16} />
+          </button>
         </CounsellingModal>
       </MotionWrapper>
     </MotionWrapper>

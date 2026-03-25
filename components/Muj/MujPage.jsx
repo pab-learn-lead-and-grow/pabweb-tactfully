@@ -5,11 +5,13 @@ import React from "react";
 import MujCareerServices from "../NmimsSection/MujCareerServices" ;
 import Enrollment from "../NmimsSection/Enrollment";
 import FAQ from "../NmimsSection/FAQ";
+import LogoSection from "../Radhya/LogoSection";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import Faculties from "../NmimsSection/Faculties";
 import ContactSection from "../Radhya/ContactSection";
 import UnivCourses from "../Radhya/UnivCourses";
 import { ArrowUpWideNarrow, Boxes, ChartNoAxesColumn, ContactRound, GalleryVertical, Headphones } from "lucide-react";
+import UniversityCards from "../NmimsSection/Logocards";
 
 export default function Page() {
     const steps = [
@@ -144,6 +146,36 @@ export default function Page() {
       image: "/muj/faculties/varun.png",
     },
   ];
+
+ const universities = [
+  {
+    src: "/nmims.png",
+    alt: "NMIMS",
+    name: "NMIMS Mumbai",
+    href: "/nmims/nmims-mumbai-online-mba",
+  },
+  {
+    src: "/manipal.png",
+    alt: "Manipal",
+    name: "Manipal Jaipur",
+    href: "/muj/manipal-jaipur-online-mba",
+  },
+  {
+    src: "/amity.png",
+    alt: "Amity",
+    name: "Amity University",
+    href: "/amity/amity-online-mba",
+  },
+  {
+    src: "/jain.png",
+    alt: "Jain",
+    name: "Jain University",
+    href: "/jain/jain-online-mba",
+  },
+  { src: "/bennett.png", href: "/bennett", alt: "Bennett University", name: "Bennett University" },
+  { src: "/shoolini.png", href: "/shoolini", alt: "Shoolini University", name: "Shoolini University" },
+  { src: "/smu.png", href: "/smu", alt: "Sikkim Manipal University", name: "Sikkim Manipal University" },
+];
 
   return (
     <main className="flex flex-col items-center w-full bg-white">
@@ -386,6 +418,27 @@ export default function Page() {
 
 
       <FAQ faqs={faqs} />
+
+        <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+                                <div className="max-w-7xl mx-auto">
+                                  {/* HEADING */}
+                                  <MotionWrapper
+                                  as="h2"
+                                    initial={{ opacity: 0, y: -30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6 }}
+                                    viewport={{ once: true }}
+                                    className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
+                                  >
+                                    Explore other top universities
+                                  </MotionWrapper>
+                                </div>
+                              </section>
+                   
+                               <div className="h-[120px]">
+                          <UniversityCards logos={universities} />
+                         </div>
+      
 
       <ConnectToday />
     </main>

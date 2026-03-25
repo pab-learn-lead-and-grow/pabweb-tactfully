@@ -1,0 +1,73 @@
+import OnlineBcomInt from "@/components/Programs/onlineBcomInt";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
+export const dynamic = "force-static";
+
+export const metadata = {
+  metadataBase: new URL(siteUrl),
+
+  title:
+    "Online B.Com International 2026: Colleges, Fees, Admission & Global Career Scope",
+
+  description:
+    "Explore Online B.Com International programs with global curriculum, top colleges, fees, and career opportunities in international business.",
+
+  alternates: {
+    canonical: "/online-bcom-international/",
+  },
+
+  keywords: [
+    "Online BCom International India",
+    "international BCom online degree",
+    "global commerce degree online",
+    "UGC approved international BCom",
+    "online BCom international fees India",
+    "online BCom global curriculum",
+    "BCom international admission 2026",
+    "study international business online India",
+    "global finance degree online",
+  ],
+
+  openGraph: {
+    title:
+      "Online BCom International 2026 | Fees, Colleges & Global Career Scope",
+    description:
+      "Compare Online BCom International programs with global curriculum, fees, eligibility and career opportunities in international business and finance.",
+    url: `${siteUrl}/online-bcom-international/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Online BCom International | Global Commerce Degree",
+    description:
+      "Find top Online BCom International programs and build a career in global business, finance, trade and multinational companies.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  other: {
+    "script:ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "Online BCom International in India",
+      description:
+        "Online BCom International programs offered by top universities with global curriculum, focusing on international business, finance, trade and global markets.",
+      provider: {
+        "@type": "Organization",
+        name: "Radhya Education Academy",
+        url: siteUrl,
+      },
+    }),
+  },
+};
+
+export default function OnlineBcomIntPage() {
+  return <OnlineBcomInt />;
+}

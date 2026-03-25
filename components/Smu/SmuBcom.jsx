@@ -38,6 +38,7 @@ import CourseCurriculumSection from "@/components/NmimsSection/CourseCurriculumS
 import CounsellingModal from "../Radhya/CounsellingModal";
 import FeesCarousel from "../NmimsSection/FeesCrousel";
 import MotionWrapper from "../Radhya/MotionWrapper";
+import UnivCourses from "../Radhya/UnivCourses";
 
 export default function Page() {
   const curriculumData = {
@@ -1293,6 +1294,75 @@ export default function Page() {
           </MotionWrapper>
         </div>
       </section>
+
+      <UnivCourses
+        heading="Explore All Programs"
+        courses={[
+          {
+            id: 1,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Master of Business Administration",
+            subtitle: "Sikkim Manipal",
+            tag: "Most-Loved",
+            duration: "2 years",
+            validity: "4 years",
+            coursePath: "/smu/sikkim-manipal-online-mba",
+          },
+           {
+            id: 2,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Bachelor of Arts",
+            subtitle: "Sikkim Manipal",
+            tag: "Most-Loved",
+            duration: "3 years",
+            validity: "6 years",
+            coursePath: "/smu/sikkim-manipal-online-bba",
+          },
+          {
+            id: 3,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Bachelor of Commerce",
+            subtitle: "Sikkim Manipal",
+            tag: "Most-Loved",
+            duration: "3 years",
+            validity: "6 years",
+            coursePath: "/smu/sikkim-manipal-online-bcom",
+          },
+          {
+            id: 4,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Master of Computer Applications",
+            subtitle: "Sikkim Manipal",
+            duration: "2 years",
+            validity: "4 years",
+            coursePath: "/smu/sikkim-manipal-online-mca",
+          },
+           {
+            id: 5,
+             universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Master of Arts",
+            subtitle: "Sikkim Manipal",
+            duration: "2 years",
+            validity: "4 years",
+            coursePath: "/smu/sikkim-manipal-online-ma",
+          },
+           {
+            id: 6,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Master of Commerce",
+            subtitle: "Manipal Jaipur",
+            duration: "2 years",
+            validity: "4 years",
+            coursePath: "/smu/sikkim-manipal-online-mcom",
+          },
+        ]}
+      />
 
       <Faculties
         heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."

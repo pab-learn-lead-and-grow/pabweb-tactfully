@@ -1,0 +1,73 @@
+import OnlineMsc from "@/components/Programs/onlineMsc";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
+export const dynamic = "force-static";
+
+export const metadata = {
+  metadataBase: new URL(siteUrl),
+
+  title:
+    "Online MSc 2026: Top Colleges, Fees, Admission & Career Opportunities",
+
+  description:
+    "Explore Online MSc programs with top universities, updated fees, eligibility, and career scope in science, technology, and research fields.",
+
+  alternates: {
+    canonical: "/online-msc/",
+  },
+
+  keywords: [
+    "Online MSc India",
+    "best online MSc colleges",
+    "UGC approved online MSc",
+    "online MSc fees India",
+    "online MSc after graduation",
+    "top universities for online MSc",
+    "online MSc eligibility",
+    "online MSc admission 2026",
+    "online science masters degree",
+  ],
+
+  openGraph: {
+    title:
+      "Online MSc in India 2026 | Fees, Colleges, Admission & Career Scope",
+    description:
+      "Compare top Online MSc universities in India with updated fees, eligibility, specializations and career opportunities in science, IT and analytics.",
+    url: `${siteUrl}/online-msc/`,
+    siteName: "Radhya Education Academy",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Online MSc in India | Top Colleges & Fees",
+    description:
+      "Find the best UGC-approved Online MSc programs in India and advance your career in science, data analytics, IT and research.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  other: {
+    "script:ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "Online MSc in India",
+      description:
+        "Online MSc programs offered by top UGC-approved universities in India with specializations in data science, IT, mathematics, physics, chemistry and other science fields.",
+      provider: {
+        "@type": "Organization",
+        name: "Radhya Education Academy",
+        url: siteUrl,
+      },
+    }),
+  },
+};
+
+export default function OnlineMscPage() {
+  return <OnlineMsc />;
+}

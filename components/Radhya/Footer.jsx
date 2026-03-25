@@ -20,22 +20,23 @@ export default function Footer() {
 
 
   const programLinks = [
-    { label: "Online MBA", category: "online-mba" },
-    { label: "Executive MBA", category: "executive-mba" },
-    { label: "Online BBA", category: "online-bba" },
-    { label: "Online B.Com", category: "online-bcom" },
-    { label: "Online B.Com(Hons.)", category: "online-bcom-hons" },
-    { label: "Online B.Com(Int.)", category: "online-bcom-int" },
-    { label: "Online MCA", category: "online-mca" },
-    { label: "Online BCA", category: "online-bca" },
-    { label: "Online BA", category: "online-ba" },
-    { label: "Online MA", category: "online-ma" },
-    { label: "Online MSc", category: "online-msc" },
-    { label: "Online Certifications", category: "online-certification" },
-    { label: "Online Diploma", category: "online-diploma" },
-    { label: "Online MAJMC", category: "online-majmc" },
-    { label: "Online BAJMC", category: "online-bajmc" },
-    { label: "Integrated Program", category: "integrated-programs" },
+    { label: "Online MBA", path: "/programs/online-mba" },
+    { label: "Online BBA", path: "/programs/online-bba" },
+    { label: "Executive MBA", path: "/programs/online-mba-wx" },
+    { label: "Online MCA", path: "/programs/online-mca" },
+    { label: "Online BCA", path: "/programs/online-bca" },
+    { label: "Online BA", path: "/programs/online-ba" },
+    { label: "Online MA", path: "/programs/online-ma" },
+    { label: "Online MSc", path: "/programs/online-msc" },
+    { label: "Online MCom", path: "/programs/online-mcom" },
+    { label: "Online B.Com", path: "/programs/online-bcom" },
+    { label: "Online B.Com(Hons.)", path: "/programs/online-bcom-honours" },
+    { label: "Online B.Com(Int.)", path: "/programs/online-bcom-international" },
+    { label: "Online Diploma", path: "/programs/online-diploma" },
+    { label: "Online MAJMC", path: "/programs/online-majmc" },
+    { label: "Online BAJMC", path: "/programs/online-bajmc" },
+    { label: "Online Certification", path: "/nmims/nmims-mumbai-online-certification" },
+    { label: "Integrated Program", path: "/amity/amity-online-integrated-programs" },
   ];
 
   const universities = [
@@ -44,6 +45,8 @@ export default function Footer() {
     { name: "Amity Online", path: "/amity" },
     { name: "Sikkim Manipal", path: "/smu" },
     { name: "Jain Online", path: "/jain" },
+    { name: "Shoolini Online", path: "/shoolini" },
+    { name: "Bennett Online", path: "/bennett" },
   ];
 
 
@@ -140,25 +143,7 @@ className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
 
           {/* --- Right Section (Other Columns) --- */}
           <div className="col-span-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-5 mt-5">
-            {/* --- Universities --- */}
-            <div>
-              <h3 className="font-semibold text-xs md:text-sm text-black mb-2">
-                Universities
-              </h3>
-              <ul className="space-y-1 text-[11px] md:text-xs text-black">
-                {universities.map((uni) => (
-                  <li key={uni.path}>
-                    <Link
-                      href={uni.path}
-                      className="hover:text-[#3C087E] transition"
-                    >
-                      {uni.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+            
             {/* --- Quick Links --- */}
             <div>
               <h3 className="font-semibold text-xs md:text-sm text-black mb-2">
@@ -178,6 +163,26 @@ className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
               </ul>
             </div>
 
+            {/* --- Universities --- */}
+            <div>
+              <h3 className="font-semibold text-xs md:text-sm text-black mb-2">
+                Universities
+              </h3>
+              <ul className="space-y-1 text-[11px] md:text-xs text-black">
+                {universities.map((uni) => (
+                  <li key={uni.path}>
+                    <Link
+                      href={uni.path}
+                      className="hover:text-[#3C087E] transition"
+                    >
+                      {uni.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+
             {/* --- Program Offered --- */}
             <div>
               <h3 className="font-semibold text-xs md:text-sm text-black mb-2">
@@ -188,8 +193,7 @@ className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
                 {programLinks.map((item, i) => (
                   <li key={i}>
                     <Link
-                     href={`/?category=${item.category}`}
-                      scroll={false} // 👈 no jump
+                     href={`${item.path}`}
                       className="hover:text-[#3C087E] transition"
                     >
                       {item.label}

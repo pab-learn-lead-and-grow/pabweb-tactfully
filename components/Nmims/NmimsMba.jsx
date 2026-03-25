@@ -33,6 +33,8 @@ import ConnectToday from "../NmimsSection/ConnectToday";
 import LearningApproach from "../NmimsSection/LearningApproach";
 import Faculties from "../NmimsSection/Faculties";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
+import UnivCourses from "../Radhya/UnivCourses";
+import SpecializationSection from "../Programs/SpecializationSection";
 
 export default function Page() {
 
@@ -176,6 +178,34 @@ export default function Page() {
       image: "/nmims/mba/faculties/arun.png",
     },
   ];
+
+  const specializationsData = [
+  {
+    slug: "finance",
+    specialization_name: "Financial Management",
+    cover_image: "/specializations/finance.png",
+  },
+  {
+    slug: "media",
+    specialization_name: "Marketing Management",
+    cover_image: "/specializations/marketing.png",
+  },
+  {
+    slug: "business",
+    specialization_name: "Business Management",
+    cover_image: "/specializations/analytics.png",
+  },
+  {
+    slug: "hr",
+    specialization_name: "Human Resource Management",
+    cover_image: "/specializations/hr.png",
+  },
+   {
+    slug: "logistics",
+    specialization_name: "Operation and Data Science Management",
+    cover_image: "/specializations/sales.png",
+  },
+];
 
   const subjects = [
     { id: 1, name: "Business Management" },
@@ -622,7 +652,14 @@ export default function Page() {
 
       <WhyChooseUs title="Why Choose NMIMS Online MBA" cards={whyCards} />
       
-
+      <SpecializationSection
+  title="Specializations & Electives"
+  description={[
+    " NMIMS Online MBA offers industry-aligned specialisations designed to match current market demands and future career opportunities. Students can choose a specialization based on their interests and career goals, gaining in-depth knowledge and practical skills to stand out in a competitive business environment.",
+  ]}
+  programName="MBA"
+  specializations={specializationsData}
+/>
     <SyllabusSection
   title="NMIMS Online MBA Syllabus"
   subjects={subjects}
@@ -662,7 +699,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="text-black  text-[20px] md:text-3xl font-medium leading-tight md:w-3/5"
             >
-              Bachelor's Degree (10+2+3) in any discipline from recognized University or an equivalent degree recognised by Association of Indian Universities (AIU) with a minimum of 55% and 3 + years of Work Experience (50% for SC/ST/OBC/PwD).
+              Bachelor’s Degree (10+2+3) in any discipline from recognised University or an equivalent degree recognised by Association of Indian Universities (AIU) with minimum 50% marks at Graduation Level. (45% for SC/ST/OBC/PwD).
             </MotionWrapper>
 
             {/* Right image animation */}
@@ -1264,6 +1301,75 @@ export default function Page() {
           </MotionWrapper>
         </div>
       </section>
+
+         <UnivCourses
+                    heading="Explore All Programs"
+                    courses={[
+                      {
+                        id: 1,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Master of Business Administration",
+                        subtitle: "NMIMS Mumbai",
+                        tag: "Most-Loved",
+                        duration: "2 years",
+                        validity: "4 years",
+                        coursePath: "/nmims/nmims-mumbai-online-mba",
+                      },
+                      {
+                        id: 2,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Bachelor of Business Administration",
+                        subtitle: "NMIMS Mumbai",
+                        tag: "Trending",
+                        duration: "3 years",
+                        validity: "6 years",
+                        coursePath: "/nmims/nmims-mumbai-online-bba",
+                      },
+                      {
+                        id: 3,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Master of Business Admin.(WX)",
+                        subtitle: "NMIMS Mumbai",
+                        tag: "Most-Loved",
+                        duration: "2 years",
+                        validity: "4 years",
+                        coursePath: "/nmims/nmims-mumbai-online-mba-working-executives",
+                      },
+                      {
+                        id: 4,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Bachelor of Commerce",
+                        subtitle: "NMIMS Mumbai",
+                        duration: "3 years",
+                        validity: "6 years",
+                        coursePath: "/nmims/nmims-mumbai-online-bcom",
+                      },
+                      {
+                        id: 5,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Online Diploma",
+                        subtitle: "NMIMS Mumbai",
+                        duration: "1 year",
+                        validity: "2 years",
+                        coursePath: "/nmims/nmims-mumbai-online-diploma",
+                      },
+                      {
+                        id: 6,
+                        universityLogo: "/nmims.png",
+                        universityName: "NMIMS",
+                        title: "Certification in Business Management",
+                        subtitle: "NMIMS Mumbai",
+                        duration: "6 months",
+                        validity: "2 years",
+                        coursePath: "/nmims/nmims-mumbai-online-certification",
+                      },
+                    ]}
+                  />
 
       <Faculties
         heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."

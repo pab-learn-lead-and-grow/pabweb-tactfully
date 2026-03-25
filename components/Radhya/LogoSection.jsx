@@ -6,7 +6,7 @@ export default function LogoSection({ logos }) {
   return (
     <div className="w-full h-[120px] overflow-hidden relative">
       <div className="flex  animate-scroll-fast  hover:animation-pause">
-        {[...logos, ...logos].map((logo, idx) => (
+        {[...logos, ...logos, ...logos].map((logo, idx) => (
           <Link
             key={idx}
             href={logo.href}

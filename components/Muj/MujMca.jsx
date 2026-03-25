@@ -39,6 +39,7 @@ import Faculties from "../NmimsSection/Faculties";
 import CourseCurriculumSection from "@/components/NmimsSection/CourseCurriculumSection";
 import FAQ from "../NmimsSection/FAQ";
 import CounsellingForm from "@/components/Radhya/CounsellingForm";
+import UnivCourses from "../Radhya/UnivCourses";
 
 export default function Page() {
 
@@ -1463,6 +1464,100 @@ years={[1, 2]}
                          </MotionWrapper>
                        </div>
                      </section>
+
+                       <UnivCourses
+                                       heading="Explore All Programs"
+                                       courses={[
+                                         {
+                                           id: 1,
+                                           universityLogo: "/manipal.png",
+                                           universityName: "MUJ",
+                                           title: "Master of Business Administration",
+                                           subtitle: "Manipal Jaipur",
+                                           tag: "Most-Loved",
+                                           duration: "2 years",
+                                           validity: "4 years",
+                                           coursePath: "/muj/manipal-jaipur-online-mba",
+                                         },
+                                          {
+                                           id: 2,
+                                           universityLogo: "/manipal.png",
+                                           universityName: "MUJ",
+                                           title: "Bachelor of Business Administration",
+                                           subtitle: "Manipal Jaipur",
+                                           tag: "Most-Loved",
+                                           duration: "3 years",
+                                           validity: "6 years",
+                                           coursePath: "/muj/manipal-jaipur-online-bba",
+                                         },
+                                         {
+                                           id: 3,
+                                           universityLogo: "/manipal.png",
+                                           universityName: "MUJ",
+                                           title: "Bachelor of Commerce",
+                                           subtitle: "Manipal Jaipur",
+                                           tag: "Most-Loved",
+                                           duration: "3 years",
+                                           validity: "6 years",
+                                           coursePath: "/muj/manipal-jaipur-online-bcom",
+                                         },
+                                         {
+                                           id: 4,
+                                           universityLogo: "/manipal.png",
+                                           universityName: "MUJ",
+                                           title: "Bachelor of Computer Applications",
+                                           subtitle: "Manipal Jaipur",
+                                           tag: "Most-Loved",
+                                           duration: "3 years",
+                                           validity: "6 years",
+                                           coursePath: "/muj/manipal-jaipur-online-bca",
+                                         },
+                                         {
+                                           id: 5,
+                                            universityLogo: "/manipal.png",
+                                           universityName: "MUJ",
+                                           title: "Master of Computer Applications",
+                                           subtitle: "Manipal Jaipur",
+                                           tag: "Most-Loved",
+                                           duration: "2 years",
+                                           validity: "4 years",
+                                           coursePath: "/muj/manipal-jaipur-online-mca",
+                                         },
+                                         {
+                                           id: 6,
+                                            universityLogo: "/manipal.png",
+                                           universityName: "MUJ",
+                                           title: "Master of Commerce",
+                                           subtitle: "Manipal Jaipur",
+                                           tag: "Most-Loved",
+                                           duration: "2 years",
+                                           validity: "4 years",
+                                           coursePath: "/muj/manipal-jaipur-online-mcom",
+                                         },
+                                          {
+                                           id: 7,
+                                            universityLogo: "/manipal.png",
+                                           universityName: "MUJ",
+                                           title: "Master of Arts in Economics",
+                                           subtitle: "Manipal Jaipur",
+                                           tag: "Most-Loved",
+                                           duration: "2 years",
+                                           validity: "4 years",
+                                           coursePath: "/muj/manipal-jaipur-online-ma",
+                                         },
+                                          {
+                                           id: 8,
+                                           universityLogo: "/manipal.png",
+                                           universityName: "MUJ",
+                                           title: "MA-JMC",
+                                           subtitle: "Manipal Jaipur",
+                                           tag: "Most-Loved",
+                                           duration: "2 years",
+                                           validity: "4 years",
+                                           coursePath: "/muj/manipal-jaipur-online-majmc",
+                                         },
+                                       ]}
+                                     />
       <Faculties
         heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."
         topFaculty={topFaculty}

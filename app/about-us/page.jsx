@@ -58,7 +58,6 @@ export default function About() {
     logo: "https://radhyaeducationacademy.com/radhyaLogo.png",
     description:
       "Radhya Education Academy helps students and working professionals choose the right online and offline education programs through expert counselling and university partnerships.",
-    foundingCountry: "India",
     areaServed: "India",
     sameAs: ["https://www.instagram.com/pablearnleadandgrow/"],
     contactPoint: {

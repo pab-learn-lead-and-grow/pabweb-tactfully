@@ -38,6 +38,7 @@ import MotionWrapper from "../Radhya/MotionWrapper";
 import CounsellingModal from "../Radhya/CounsellingModal";
 import SyllabusSection from "../NmimsSection/Syllabus";
 import FeesCarousel from "../NmimsSection/FeesCrousel";
+import UnivCourses from "../Radhya/UnivCourses";
 
 export default function Page() {
   const learningCards = [
@@ -1340,6 +1341,85 @@ const topicsData = {
                            </MotionWrapper>
                          </div>
                        </section>
+
+                        <UnivCourses
+                                                heading="Explore All Programs"
+                                                courses={[
+                                                  {
+                                                    id: 1,
+                                                    universityLogo: "/jain.png",
+                                                    universityName: "JAIN Logo",
+                                                    title: "Master of Business Administration",
+                                                    subtitle: "JAIN University",
+                                                    tag: "Most-Loved",
+                                                    duration: "2 years",
+                                                    validity: "4 years",
+                                                    coursePath: "/jain/jain-online-mba",
+                                                  },
+                                                    {
+                                                    id: 2,
+                                                    universityLogo: "/jain.png",
+                                                    universityName: "JAIN Logo",
+                                                    title: "Bachelor of Business Administration",
+                                                    subtitle: "JAIN University",
+                                                    tag: "Most-Loved",
+                                                    duration: "3 years",
+                                                    validity: "5 years",
+                                                    coursePath: "/jain/jain-online-bba",
+                                                  },
+                                                   {
+                                                    id: 3,
+                                                    universityLogo: "/jain.png",
+                                                    universityName: "JAIN Logo",
+                                                     title: "Bachelor of Computer Applications",
+                                                    subtitle: "JAIN University",
+                                                    tag: "Most-Loved",
+                                                    duration: "3 years",
+                                                    validity: "5 years",
+                                                    coursePath: "/jain/jain-online-bca",
+                                                  },
+                                                  {
+                                                    id: 4,
+                                                    universityLogo: "/jain.png",
+                                                    universityName: "JAIN Logo",
+                                                    title: "Bachelor of Commerce",
+                                                    subtitle: "JAIN University",
+                                                    duration: "3 years",
+                                                    validity: "5 years",
+                                                    coursePath: "/jain/jain-online-bcom",
+                                                  },
+                                                   {
+                                                    id: 5,
+                                                    universityLogo: "/jain.png",
+                                                    universityName: "JAIN Logo",
+                                                    title: "Master of Arts",
+                                                    subtitle: "JAIN University",
+                                                    duration: "2 years",
+                                                    validity: "4 years",
+                                                    coursePath: "/jain/jain-online-ma",
+                                                  },
+                                                  {
+                                                    id: 6,
+                                                    universityLogo: "/jain.png",
+                                                    universityName: "JAIN Logo",
+                                                    title: "Master of Computer Applications",
+                                                    subtitle: "JAIN University",
+                                                    duration: "2 years",
+                                                    validity: "4 years",
+                                                    coursePath: "/jain/jain-online-mca",
+                                                  },
+                                                   {
+                                                    id: 7,
+                                                    universityLogo: "/jain.png",
+                                                    universityName: "JAIN Logo",
+                                                    title: "Master of Commerce",
+                                                    subtitle: "JAIN University",
+                                                    duration: "2 years",
+                                                    validity: "4 years",
+                                                    coursePath: "/jain/jain-online-mcom",
+                                                  },
+                                                ]}
+                                              />
       
             <Faculties
                    heading="With a diverse range of expertise spanning various disciplines, our faculty brings a wealth of knowledge and real-world experience to the virtual classroom."

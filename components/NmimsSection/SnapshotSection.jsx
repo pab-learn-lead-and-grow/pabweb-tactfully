@@ -7,9 +7,9 @@ export default function SnapshotSection({ stats }) {
       <div className="max-w-7xl mx-auto">
         
         {/* STATIC HEADING */}
-        <h2 className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#270652] mb-3 md:mb-8 text-center">
+        <h3 className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-extrabold text-[#270652] mb-3 md:mb-8 text-center">
           A Snapshot of Success
-        </h2>
+        </h3>
 
         {/* BLUE BAR */}
         <MotionWrapper
@@ -27,14 +27,14 @@ export default function SnapshotSection({ stats }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] xl:text-[64px] font-bold">
+                <p className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
                   <AnimatedCounter
                     end={stat.value}
                     suffix={stat.suffix}
                   />
                 </p>
 
-                <p className="text-[8px] md:text-[16px] xl:text-[22px] font-bold opacity-90 leading-tight">
+                <p className="text-[8px] md:text-[16px] xl:text-[20px] font-bold opacity-90 leading-tight">
                   {stat.label}
                 </p>
               </MotionWrapper>

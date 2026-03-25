@@ -1,4 +1,4 @@
-"use client";
+
 import Image from "next/image";
 import {
   Download,
@@ -7,8 +7,6 @@ import {
   Speech,
   GlobeLock,
   Check,
-  ChevronRight,
-  ChevronsDown,
   ArrowRight,
   BookCheck,
   Headset,
@@ -29,8 +27,6 @@ import CounsellingModal from  "../Radhya/CounsellingModal";
 import MotionWrapper from "../Radhya/MotionWrapper";
 import SyllabusSection from "../NmimsSection/Syllabus";
 import FeesCarousel from "../NmimsSection/FeesCrousel";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
 import React from "react";
 import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
@@ -41,6 +37,7 @@ import MujCareerServices from "../NmimsSection/MujCareerServices";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
 import Link from "next/link";
+import UnivCourses from "../Radhya/UnivCourses";
 
 export default function Page() {
   const learningCards = [
@@ -1792,6 +1789,144 @@ const topicsData = {
                </MotionWrapper>
              </div>
            </section>
+
+             <UnivCourses
+                         heading="Explore All Programs"
+                         courses={[
+                           {
+                             id: 1,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                             title: "Master of Business Administration",
+                             subtitle: "AMITY University",
+                             tag: "Most-Loved",
+                             duration: "2 years",
+                             validity: "4 years",
+                             coursePath: "/amity/amity-online-mba",
+                           },
+                             {
+                             id: 2,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                             title: "Bachelor of Business Administration",
+                             subtitle: "AMITY University",
+                             tag: "Most-Loved",
+                             duration: "3 years",
+                             validity: "6 years",
+                             coursePath: "/amity/amity-online-bba",
+                           },
+                            {
+                             id: 3,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                              title: "Bachelor of Computer Applications",
+                             subtitle: "AMITY University",
+                             tag: "Most-Loved",
+                             duration: "3 years",
+                             validity: "6 years",
+                             coursePath: "/amity/amity-online-bca",
+                           },
+                            {
+                             id: 4,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                              title: "Bachelor of Arts",
+                             duration: "3 years",
+                             validity: "6 years",
+                             coursePath: "/amity/amity-online-ba",
+                           },
+                             {
+                             id: 5,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                              title: "BA-JMC",
+                             subtitle: "AMITY University",
+                             duration: "3 years",
+                             validity: "6 years",
+                             coursePath: "/amity/amity-online-bajmc",
+                           },
+                            {
+                             id: 6,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                              title: "Bachelor of Commerce",
+                             subtitle: "AMITY University",
+                             duration: "3 years",
+                             validity: "6 years",
+                             coursePath: "/amity/amity-online-bcom",
+                           },
+                            {
+                             id: 7,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                              title: "Bachelor of Commerce (Hons.)",
+                             subtitle: "AMITY University",
+                             duration: "3 years",
+                             validity: "6 years",
+                             coursePath: "/amity/amity-online-bcom-honours",
+                           },
+                            {
+                             id: 8,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                              title: "Bachelor of Commerce (IFAC)",
+                             subtitle: "AMITY University",
+                             duration: "3 years",
+                             validity: "6 years",
+                             coursePath: "/amity/amity-online-bcom-international-finance-and-accounting",
+                           },
+                            {
+                             id: 9,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                              title: "Master of Arts",
+                             subtitle: "AMITY University",
+                             duration: "2 years",
+                             validity: "4 years",
+                             coursePath: "/amity/amity-online-ma",
+                           },
+                            {
+                             id: 10,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                              title: "MA-JMC",
+                             subtitle: "AMITY University",
+                             duration: "2 years",
+                             validity: "4 years",
+                             coursePath: "/amity/amity-online-majmc",
+                           },
+                            {
+                             id: 11,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                              title: "Master of Computer Applications",
+                             subtitle: "AMITY University",
+                             duration: "2 years",
+                             validity: "4 years",
+                             coursePath: "/amity/amity-online-mca",
+                           },
+                            {
+                             id: 12,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                              title: "Master of Science",
+                             subtitle: "AMITY University",
+                             duration: "2 years",
+                             validity: "4 years",
+                             coursePath: "/amity/amity-online-msc-data-science",
+                           },
+                           {
+                             id: 13,
+                             universityLogo: "/amity.png",
+                             universityName: "AMITY Logo",
+                             title: "Integrated Programs",
+                             subtitle: "AMITY University",
+                             duration: "4.5 years",
+                             validity: "10 years",
+                             coursePath: "/amity/amity-online-integrated-programs",
+                           },
+                         ]}
+                       />
 
       <Faculties
         heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."
