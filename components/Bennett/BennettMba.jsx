@@ -30,7 +30,7 @@ import MotionWrapper from "../Radhya/MotionWrapper";
 import SyllabusSection from "../NmimsSection/Syllabus";
 import FeesCarousel from "../NmimsSection/FeesCrousel";
 import React from "react";
-import SpecializationSection from "../programs/SpecializationSection";
+import SpecializationSection from "../Programs/SpecializationSection";
 import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
 import LearningApproach from "../NmimsSection/LearningApproach";
@@ -169,7 +169,7 @@ export default function Page() {
   {
     slug: "sales",
     specialization_name: "Sales and Marketing",
-    cover_image: "/specializations/sales.png",
+    cover_image: "/specializations/marketing.png",
   },
   {
     slug: "finance",
@@ -194,7 +194,7 @@ export default function Page() {
    {
     slug: "logistics",
     specialization_name: "Logistics & Supply Chain Management",
-    cover_image: "/specializations/logistics.png",
+    cover_image: "/specializations/supply.png",
   },
 ];
 
@@ -657,7 +657,7 @@ const topicsData = {
                 </div>
               </section>
                   <section className="w-full bg-white pt-0 p-10">
-                    {/* ======= ABOUT Bennnett SECTION ======= */}
+                    {/* ======= ABOUT Bennett SECTION ======= */}
                     <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
                       {/* LEFT TEXT */}
                       <div>
@@ -755,7 +755,7 @@ const topicsData = {
 />
 
           <SyllabusSection
-  title="Bennnett Online MBA Syllabus"
+  title="Bennett Online MBA Syllabus"
   subjects={subjects}
   semesters={semesters}
   semSuffix={semSuffix}
@@ -767,7 +767,7 @@ const topicsData = {
         <div className="p-6 md:p-10">
           {/* Heading */}
           <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#270652] mb-4 md:mb-7">
-            Eligibility for Bennnett Online MBA
+            Eligibility for Bennett Online MBA
           </h2>
           {/* for Indian Students */}
           <div className="mb-5">
@@ -919,7 +919,7 @@ const topicsData = {
                  {/* LEFT SIDE TEXT */}
                  <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
                    <h2 className="text-[#270652] text-[42px] md:text-[56px] font-bold leading-[110%] mb-4 ">
-                     Fees Structure for Bennnett Online MBA
+                     Fees Structure for Bennett Online MBA
                    </h2>
      
                    {/* Subtitle */}

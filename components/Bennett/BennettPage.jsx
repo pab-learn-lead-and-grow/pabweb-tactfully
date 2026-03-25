@@ -95,28 +95,48 @@ export default function Page() {
     },
   ];
 
-  const faqs = [
-    {
-      q: "Is the NMIMS Online MBA valid and recognized?",
-      a: "Yes, it is UGC-approved and offered by a NAAC A++ accredited university.",
-    },
-    {
-      q: "Can working professionals balance this MBA with a full-time job?",
-      a: "Absolutely. The program is designed for flexible, self-paced learning.",
-    },
-    {
-      q: "Does NMIMS offer placement support?",
-      a: "Yes-through job portals, resume coaching, interview prep, and 500+ hiring partners",
-    },
-    {
-      q: "Are live classes available?",
-      a: "Yes, alongside recorded sessions you can access anytime.",
-    },
-    {
-      q: "How long is the NMIMS Online MBA?",
-      a: "The program duration is 24 months.",
-    },
-  ];
+ const faqs = [
+  {
+    q: "What is Bennett University Online?",
+    a: "Bennett University Online is the Centre for Distance & Online Education offering UGC-approved programs like Online MBA and BBA.",
+  },
+  {
+    q: "Is Bennett University Online approved and valid?",
+    a: "Yes, Bennett University is UGC-recognized, and its online programs are valid for jobs and higher education.",
+  },
+  {
+    q: "Which courses are offered by Bennett University Online?",
+    a: "Bennett University Online offers programs like Online MBA, Online BBA, and other industry-focused courses.",
+  },
+  {
+    q: "Who is Bennett University backed by?",
+    a: "Bennett University is backed by The Times Group, one of India’s leading media and education conglomerates.",
+  },
+  {
+    q: "Are Bennett University Online degrees recognized?",
+    a: "Yes, the degrees are UGC-entitled and equivalent to regular degrees as per university guidelines.",
+  },
+  {
+    q: "Is Bennett University Online good for working professionals?",
+    a: "Yes, the programs are designed with flexible learning, making them suitable for working professionals.",
+  },
+  {
+    q: "What is the admission process for Bennett University Online?",
+    a: "The admission process typically includes registration, document submission, fee payment, and confirmation.",
+  },
+  {
+    q: "Does Bennett University Online provide placement support?",
+    a: "Yes, students get access to career support services like resume building, interview preparation, and job opportunities.",
+  },
+  {
+    q: "What is the mode of learning in Bennett University Online?",
+    a: "The programs are delivered through an online learning platform with live and recorded sessions.",
+  },
+  {
+    q: "Why choose Bennett University Online?",
+    a: "It offers industry-aligned curriculum, flexible learning, AI-enabled platforms, and strong brand credibility backed by The Times Group.",
+  },
+];
 
   const topFaculty = [
     {

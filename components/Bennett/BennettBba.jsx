@@ -712,7 +712,7 @@ export default function Page() {
         </div>
       </section>
       <section className="w-full bg-white pt-0 p-10">
-        {/* ======= ABOUT Bennnett SECTION ======= */}
+        {/* ======= ABOUT Bennett SECTION ======= */}
         <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
@@ -836,7 +836,7 @@ export default function Page() {
       />
 
       <SyllabusSection
-        title="Bennnett Online BBA Syllabus"
+        title="Bennett Online BBA Syllabus"
         subjects={subjects}
         semesters={semesters}
         semSuffix={semSuffix}
@@ -847,7 +847,7 @@ export default function Page() {
         <div className="p-6 md:p-10">
           {/* Heading */}
           <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#270652] mb-4 md:mb-7">
-            Eligibility for Bennnett Online BBA
+            Eligibility for Bennett Online BBA
           </h2>
           {/* for Indian Students */}
           <div className="mb-5">
