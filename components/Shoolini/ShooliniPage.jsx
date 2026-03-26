@@ -326,7 +326,7 @@ const universities = [
             tag: "Most-Loved",
             duration: "2 years",
             validity: "4 years",
-            coursePath: "/online-mba",
+            coursePath: "/programs/online-mba" ,
           },
           {
             id: 2,
@@ -337,7 +337,7 @@ const universities = [
             tag: "Trending",
             duration: "3 years",
             validity: "6 years",
-            coursePath: "/online-bba",
+            coursePath: "/programs/online-bba",
           },
           {
             id: 3,
@@ -348,7 +348,7 @@ const universities = [
             tag: "Most-Loved",
             duration: "2 years",
             validity: "4 years",
-            coursePath: "/online-mba",
+            coursePath: "/programs/online-mba-wx",
           },
           {
             id: 4,
@@ -358,7 +358,7 @@ const universities = [
             subtitle:  "Shoolini University",
             duration: "3 years",
             validity: "6 years",
-            coursePath: "online-bcom",
+            coursePath: "/programs/online-bcom",
           },
           {
             id: 5,
@@ -368,7 +368,7 @@ const universities = [
             subtitle:  "Shoolini University",
             duration: "3 years",
             validity: "6 years",
-            coursePath: "/online-bca",
+            coursePath: "/programs/online-bca",
           },
            {
             id: 6,
@@ -378,7 +378,7 @@ const universities = [
             subtitle:  "Shoolini University",
             duration: "2 years",
             validity: "4 years",
-            coursePath: "/online-mca",
+            coursePath: "/programs/online-mca",
           },
            {
             id: 7,
@@ -388,7 +388,7 @@ const universities = [
             subtitle:  "Shoolini University",
             duration: "2 years",
             validity: "4 years",
-            coursePath: "/online-ma",
+            coursePath: "/programs/online-ma",
           },
            {
             id: 8,
@@ -398,7 +398,7 @@ const universities = [
             subtitle:  "Shoolini University",
             duration: "2 years",
             validity: "4 years",
-            coursePath: "/online-majmc",
+            coursePath: "/programs/online-majmc",
           },
            {
             id: 9,
@@ -408,7 +408,7 @@ const universities = [
             subtitle:  "Shoolini University",
             duration: "2 years",
             validity: "4 years",
-            coursePath: "/online-msc",
+            coursePath: "/programs/online-msc",
           },
         ]}
       />

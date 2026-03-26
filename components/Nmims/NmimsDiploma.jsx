@@ -36,6 +36,7 @@ import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import CounsellingModal from "../Radhya/CounsellingModal";
 import UnivCourses from "../Radhya/UnivCourses";
+import SpecializationSection from "../Programs/SpecializationSection";
 
 export default function Page() {
  
@@ -80,6 +81,35 @@ export default function Page() {
         desc: "Receive quick assistance through chat, ticketing, and call-back options ensuring smooth learning.",
       },
     ];
+
+     const specializationsData = [
+  {
+    slug: "finance",
+    specialization_name: "Finance Management",
+    cover_image: "/specializations/finance.png",
+  },
+  {
+    slug: "marketing",
+    specialization_name: "Marketing Management",
+    cover_image: "/specializations/marketing.png",
+  },
+  {
+    slug: "business",
+    specialization_name: "Business Management",
+    cover_image: "/specializations/analytics.png",
+  },
+  {
+    slug: "hr",
+    specialization_name: "Human Resource Management",
+    cover_image: "/specializations/hr.png",
+  },
+   {
+    slug: "logistics",
+    specialization_name: "Operations Management",
+    cover_image: "/specializations/data.png",
+  },
+];
+
 
   const subjects = [
     { id: 1, name: "Finance Management" },
@@ -534,6 +564,11 @@ export default function Page() {
       </section>
 
       <WhyChooseUs title="Why Choose NMIMS Online Diploma" cards={whyCards}  />
+
+      <SpecializationSection title="Specializations & Electives" 
+       description={[
+    "The Diploma program offers focused specialisations designed to build practical, job-ready skills in a shorter duration. These specialisations help learners gain domain-specific knowledge in areas like finance, marketing, HR, and analytics, making them well-prepared for entry-level roles or career transitions. The curriculum is aligned with industry needs to ensure immediate applicability in real-world business environments.",
+  ]} programName="Diploma" specializations={specializationsData} />
 
      <SyllabusSection
   title="NMIMS Online Diploma Syllabus"

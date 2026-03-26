@@ -13,11 +13,12 @@ const staticRoutes = [
   "/privacy-policy",
   "/terms-and-conditions",
   "/disclaimer",
-  "/important-updates",
+  "/counsellor-verification",
   "/university-response-time",
   "/ugc-approved-universities",
   "/universitieslist",
   "/college-cards",
+  "/shoolini",
   "/jobs-at-radhya",
   "/jobs-at-radhya/inside-sales-fresher-job",
   "/jobs-at-radhya/inside-sales-experienced-job",
@@ -69,6 +70,24 @@ const staticRoutes = [
   "/smu/sikkim-manipal-online-mca",
   "/smu/sikkim-manipal-online-ma",
   "/smu/sikkim-manipal-online-mcom",
+  "/bennett",
+  "/bennett/bennett-online-mba",
+  "/bennett/bennett-online-bba",
+  "/programs/online-mba",
+  "/programs/online-mba-wx",
+  "/programs/online-bba",
+  "/programs/online-bca",
+  "/programs/online-bcom",
+  "/programs/online-bcom-honours",
+  "/programs/online-bcom-international",
+  "/programs/online-ba",
+  "/programs/online-bajmc",
+  "/programs/online-mca",
+  "/programs/online-mcom",
+  "/programs/online-ma",
+  "/programs/online-majmc",
+  "/programs/online-msc",
+  "/programs/online-diploma",
   "/blogs/online-mba-for-career-growth",
   "/blogs/nmims-for-working-professionals",
   "/blogs/how-online-bba-builds-entrepreneurs",
@@ -82,10 +101,16 @@ export default function sitemap() {
   if (isStaging) return [];
 
   return staticRoutes.map((path) => ({
-    url: `${baseUrl}${path}`,
+    url: `${baseUrl}${path}/`,
     lastModified: new Date(),
     changeFrequency:
-      path === "/" || path.startsWith("/nmims") || path.startsWith("/amity")
+      path === "/" ||
+      path.startsWith("/nmims") ||
+      path.startsWith("/amity") ||
+      path.startsWith("/smu") ||
+      path.startsWith("/muj") ||
+      path.startsWith("/bennett") ||
+      path.startsWith("/programs")
         ? "weekly"
         : "monthly",
     priority:
@@ -95,7 +120,10 @@ export default function sitemap() {
           path.startsWith("/amity") ||
           path.startsWith("/jain") ||
           path.startsWith("/muj") ||
-          path.startsWith("/smu")
+          path.startsWith("/smu") ||
+          path.startsWith("/shoolini") ||
+          path.startsWith("/bennett") ||
+          path.startsWith("/programs")
         ? 0.9
         : 0.7,
   }));

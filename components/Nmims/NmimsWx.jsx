@@ -36,6 +36,7 @@ import SyllabusSection from "../NmimsSection/Syllabus";
 import SnapshotSection from "../NmimsSection/SnapshotSection";
 import CounsellingModal from "../Radhya/CounsellingModal";
 import UnivCourses from "../Radhya/UnivCourses";
+import SpecializationSection from "../Programs/SpecializationSection";
 
 export default function Page() {
 
@@ -79,6 +80,12 @@ export default function Page() {
       desc: "On Document approval, Payment approval & Student verification your admission will be confirmed, and a 'student number' will be issued to you by the University.",
     },
   ];
+
+  const specializationsData = [ { slug: "finance", specialization_name: "Applied Finance", cover_image: "/specializations/finance.png", }, 
+    { slug: "marketing", specialization_name: "Marketing Management", cover_image: "/specializations/marketing.png", },
+     { slug: "leadership", specialization_name: "Leadership And Strategy", cover_image: "/specializations/leadership.png", },
+      { slug: "digital", specialization_name: "Digital Marketing", cover_image: "/specializations/digital.png", },
+       { slug: "logistics", specialization_name: "Operation & Supply Chain Management", cover_image: "/specializations/supply.png", }, ];
 
   const subjects = [
     { id: 1, name: "Marketing Management" },
@@ -796,6 +803,11 @@ export default function Page() {
       </section>
 
       <WhyChooseUs title="Why CHoose NMIMS Online MBA WX " cards={whyCards} />
+
+      <SpecializationSection title="Specializations & Electives" 
+             description={[
+    "NMIMS Online MBA (WX) offers advanced, industry-driven specialisations designed for working professionals aiming to accelerate their career growth. The program focuses on leadership development, strategic thinking, and real-world business application through flexible learning formats. With options like Applied Finance, Marketing, Operations & Supply Chain, and Digital Marketing, learners gain in-depth expertise while balancing their professional commitments and enhancing their managerial capabilities.",
+  ]} programName="Online MBA (WX)" specializations={specializationsData} />
 
      <SyllabusSection
   title="NMIMS Online MBA WX Syllabus"

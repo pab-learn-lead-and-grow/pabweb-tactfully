@@ -203,7 +203,7 @@ export default function Page() {
    {
     slug: "logistics",
     specialization_name: "Operation and Data Science Management",
-    cover_image: "/specializations/sales.png",
+    cover_image: "/specializations/data.png",
   },
 ];
 

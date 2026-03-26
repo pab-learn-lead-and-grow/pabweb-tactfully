@@ -35,6 +35,7 @@ import CounsellingModal from "@/components/Radhya/CounsellingModal";
 import SnapshotSection from "../NmimsSection/SnapshotSection";
 import MotionWrapper from "../Radhya/MotionWrapper";
 import UnivCourses from "../Radhya/UnivCourses";
+import SpecializationSection from "../Programs/SpecializationSection";
 
 export default function Page() {
 
@@ -79,6 +80,25 @@ export default function Page() {
       desc: "Receive quick assistance through chat, ticketing, and call-back options ensuring smooth and uninterrupted learning.",
     },
   ];
+
+   const specializationsData = [
+  {
+    slug: "finance",
+    specialization_name: "Finance",
+    cover_image: "/specializations/finance.png",
+  },
+  {
+    slug: "marketing",
+    specialization_name: "Marketing",
+    cover_image: "/specializations/marketing.png",
+  },
+  {
+    slug: "business",
+    specialization_name: "Business Analytics",
+    cover_image: "/specializations/analytics.png",
+  },
+];
+
 
   const subjects = [
     { id: 1, name: "Business Analytics" },
@@ -618,6 +638,15 @@ export default function Page() {
       </section>
 
       <WhyChooseUs title="Why Choose NMIMS Online BBA" cards={whyCards} />
+
+      <SpecializationSection
+        title="Specializations & Electives"
+         description={[
+    "NMIMS Online BBA offers foundational and industry-relevant specialisations designed to build strong business fundamentals and early career readiness. Students can explore key domains like finance, marketing, HR, and analytics while developing practical skills, business understanding, and decision-making abilities essential for future career growth or higher education like MBA.",
+  ]}
+        programName="BBA"
+        specializations={specializationsData}
+      />
 
 <SyllabusSection
   title="NMIMS Online BBA Syllabus"

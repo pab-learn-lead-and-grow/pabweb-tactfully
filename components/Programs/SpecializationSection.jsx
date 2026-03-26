@@ -89,7 +89,7 @@ export default function SpecializationSection({
 }
 
 
-/* CARD COMPONENT (NO LINK) */
+/* CARD COMPONENT */
 
 function SpecializationCard({ spec, programName, index }) {
  const imageUrl = spec.cover_image;
@@ -112,7 +112,7 @@ function SpecializationCard({ spec, programName, index }) {
         />
       </div>
 
-      <div className="p-4 font-semibold text-gray-900 text-center">
+      <div className="p-1 font-semibold text-gray-900 text-center">
         {programName} in {spec.specialization_name}
       </div>
     </MotionWrapper>
