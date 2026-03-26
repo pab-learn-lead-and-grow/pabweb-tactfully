@@ -10,7 +10,6 @@ import Faculties from "../NmimsSection/Faculties";
 import ContactSection from "../Radhya/ContactSection";
 import UnivCourses from "../Radhya/UnivCourses";
 import { ContactRound, FileUser, MessagesSquare, Users } from "lucide-react";
-import LogoSection from "../Radhya/LogoSection";
 import UniversityCards from "../NmimsSection/Logocards";
 
 export default function Page() {
