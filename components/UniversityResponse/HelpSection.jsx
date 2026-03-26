@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import FAQ from "../NmimsSection/FAQ";
 
 export default function HelpSection() {
   const [formData, setFormData] = useState({
@@ -57,8 +58,51 @@ export default function HelpSection() {
     setLoading(false);
   };
 
+   const faqs = [
+  {
+    q: "What is university response time in online education?",
+    a: "University response time refers to how quickly a university replies to student queries related to admissions, courses, fees, and counseling. In online education, response time is important because the entire admission process depends on communication through calls, emails, or chat platforms. Faster response time indicates better support and efficient communication systems.",
+  },
+  {
+    q: "Why is response time important when choosing an online university?",
+    a: "Response time is important because it directly impacts your admission experience. A fast-responding university helps you get quick answers, complete your admission smoothly, and avoid delays. Slow response time can create confusion, delay decision-making, and sometimes lead to missed admission deadlines.",
+  },
+  {
+    q: "Which online universities respond the fastest in India?",
+    a: "The fastest responding online universities are usually those with dedicated admission support teams and strong communication systems. These universities typically respond within a few minutes to a few hours through calls, WhatsApp, or email. However, response time can vary depending on workload and inquiry volume.",
+  },
+  {
+    q: "How can I compare university response time in India?",
+    a: "You can compare university response time by analyzing how quickly they respond to queries, how detailed their responses are, and how efficiently they follow up. Platforms like Radhya Education Academy provide structured comparisons based on real student interactions and inquiry handling.",
+  },
+  {
+    q: "What is considered a good response time for online universities?",
+    a: "A good response time for online universities is usually within a few minutes to a few hours. Universities that respond within 24 hours are considered moderate, while those taking more than 24 hours are generally considered slow in terms of response.",
+  },
+  {
+    q: "What does slow response time indicate about a university?",
+    a: "Slow response time may indicate poor communication systems, lack of proper admission support, or high inquiry load without efficient handling. It can also reflect a lower focus on student experience, which may affect your overall journey with the university.",
+  },
+  {
+    q: "Do top online universities always have fast response time?",
+    a: "Not always. While many top universities have strong support systems, response time can still vary depending on demand and internal processes. That’s why it is important to compare response time rather than assuming all top universities respond quickly.",
+  },
+  {
+    q: "Does response time affect the admission process?",
+    a: "Yes, response time plays a major role in the admission process. Faster responses help you complete documentation, understand eligibility, and secure admission on time. Slow responses can delay the entire process and create unnecessary stress.",
+  },
+  {
+    q: "Which communication channels are used by universities to respond?",
+    a: "Online universities usually respond through multiple channels such as phone calls, WhatsApp, email, and website chat support. Universities with faster response time are generally active across all these channels and provide quick assistance.",
+  },
+  {
+    q: "How does Radhya Education Academy measure response time?",
+    a: "Radhya Education Academy measures response time based on real student inquiries and interactions. Factors like initial response speed, follow-up communication, clarity of answers, and availability across channels are considered to provide a reliable comparison.",
+  },
+];
+
   return (
-    <section className="w-full py-12 lg:py-24 px-4">
+    <section className="w-full py-12 px-4">
       <div className="max-w-6xl mx-auto bg-[#3C087E]/10 rounded-3xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
         {/* LEFT */}
@@ -207,6 +251,8 @@ export default function HelpSection() {
 </div>
 
       </div>
+
+      <FAQ faqs={faqs} />
     </section>
   );
 }

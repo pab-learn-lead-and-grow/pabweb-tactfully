@@ -1,3 +1,4 @@
+import Image from "next/image";
 import MotionWrapper from "../Radhya/MotionWrapper";
 import { CornerDownRight } from "lucide-react";
 
@@ -5,7 +6,6 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
   return (
     <div className="min-h-content font-[Inter] px-18 bg-[#270652] py-8 sm:py-12 md:py-16 lg:py-20">
       <div className="w-full mx-auto">
-        
         {/* Header */}
         <div className="flex items-center gap-2 mb-6 sm:mb-8 md:mb-12">
           <span>
@@ -18,12 +18,9 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
 
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start mb-6 sm:mb-8 md:mb-10">
-          
           {/* Left Heading */}
           <div className="lg:pr-2">
-            <p
-              className="text-white font-[Inter] text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-semibold leading-tight"
-            >
+            <p className="text-white font-[Inter] text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-semibold leading-tight">
               {heading}
             </p>
           </div>
@@ -39,11 +36,12 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
                 viewport={{ once: true }}
                 className=" backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
-                <div className="aspect-3/3 relative overflow-hidden bg-[#270652]">
-                  <img
+                <div className="w-64 aspect-square relative overflow-hidden bg-[#270652]">
+                  <Image
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover transition-all duration-300"
+                    fill
+                    className="object-cover transition-all duration-300"
                   />
                 </div>
 

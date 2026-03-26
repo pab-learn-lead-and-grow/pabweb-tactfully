@@ -9,10 +9,10 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "University Response Time | Radhya Education Academy",
+  title: "Online University Response Time Comparison India 2026 | Fast Support",
 
   description:
-    "Check the university response time for admission queries, counselling requests, and application support. Radhya Education Academy helps students get timely responses from top universities.",
+    "Compare response time of online universities in India. Find which universities reply fastest for admission queries, counseling & support.",
 
   alternates: {
     canonical: "/university-response-time/",

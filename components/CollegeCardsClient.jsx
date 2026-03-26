@@ -136,13 +136,13 @@ export default function CollegeCardsClient({ universities }) {
             </div>
           </div>
         ))}
+       
       </div>
-
-      {/* VIEW MORE */}
-      <div className="flex justify-end mt-10">
-        <Link href="/universitieslist">
-          <button className="bg-[#3C087E] text-white px-8 py-3 rounded-full text-sm font-semibold shadow-md hover:scale-105">
-            View More
+        {/* VIEW MORE */}
+      <div className="flex justify-center mt-12">
+        <Link href="/online-universities-directory-india/">
+          <button className="bg-[#d62809] text-white px-20 py-3 rounded-xl text-base font-semibold shadow-md hover:scale-105">
+            View All Universities
           </button>
         </Link>
       </div>

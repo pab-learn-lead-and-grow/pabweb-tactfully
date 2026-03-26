@@ -24,6 +24,7 @@ export default function robots() {
       {
         userAgent: "*",
         allow: "/",
+        disallow: "/_next/"
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

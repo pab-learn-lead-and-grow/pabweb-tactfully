@@ -6,16 +6,17 @@ import NewsletterForm from "./NewsletterForm";
 export default function Footer() {
   const links = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about-us" },
-    { name: "Careers", href: "/jobs-at-radhya" },
+    { name: "About Us", href: "/about-us/" },
+    { name: "Careers", href: "/jobs-at-radhya/" },
     { name: "Blogs", href: "/#blogs" },
-    { name: "News and Articles", href: "/news" },
-    { name: "Contact Us", href: "/contact-us" },
-    { name: "UGC Approvals", href: "/ugc-approved-universities" },
-    { name: "University Response Time", href: "/university-response-time" },
-    { name: "Verify Counsellors", href: "/counsellor-verification" },
-    { name: "College Cards", href: "/college-cards" },
-    { name: "Universities List", href: "/universitieslist" },
+    { name: "News and Articles", href: "/news/" },
+    { name: "Contact Us", href: "/contact-us/" },
+    { name: "UGC Approvals", href: "/ugc-approved-universities/" },
+    { name: "University Response Time", href: "/university-response-time/" },
+    { name: "Verify Counsellors", href: "/counsellor-verification/" },
+    { name: "Universities List", href: "/online-universities-directory-india/" },
+    { name: "Top Online Universities", href: "/top-online-universities-india/" },
+    
   ];
 
 

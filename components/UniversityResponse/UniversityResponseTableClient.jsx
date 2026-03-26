@@ -63,20 +63,28 @@ export default function UniversityResponseTableClient({
     setShowModal(true);
   }
 
+ 
+
   return (
     <>
-      <section className="w-full py-12 lg:py-24 mt-10 px-4 bg-white">
+      <section className="w-full py-12 lg:pt-20 mt-10 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
 
           {/* Heading */}
           <div className="text-center mb-10">
-            <h1 className="text-2xl md:text-5xl font-bold text-[#3C087E]">
-              University Response Time - Comparison
+            <h1 className="text-2xl md:text-5xl max-w-4xl mx-auto  leading-[110%] font-bold text-[#3C087E]">
+              Online University Response Time Comparison in India (2026)
             </h1>
-            <p className="text-gray-500 text-sm sm:text-base mt-3 max-w-2xl mx-auto">
-              Safe, secure, and transparent guidance starts with verified
-              university response tracking.
-            </p>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+   Choosing an online university is not just about courses, fees, or rankings - it is also about how quickly the university responds to your queries. In today’s fast-moving admission process, students expect quick responses, clear communication, and reliable support from universities.</p>
+
+      <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+   Many students face delays because universities take too long to respond to admission queries, provide incomplete information, or lack proper support systems. This creates confusion, delays decision-making, and sometimes leads to missed admission opportunities.
+
+</p>
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+  To solve this problem, Radhya Education Academy provides a detailed online university response time comparison in India, helping you understand which universities respond quickly and offer better admission support. This allows you to choose a university that values your time and ensures a smooth admission experience.
+</p>
           </div>
 
           {/* Search Bar */}
@@ -224,7 +232,127 @@ export default function UniversityResponseTableClient({
             </div>
           </div>
 
+           <div className="text-start mt-20">
+            <h2 className="text-2xl md:text-4xl leading-[120%] font-bold text-[#3C087E] mb-4">
+           What is University Response Time in Online Education
+        </h2>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+ University response time refers to how quickly a university replies to student queries related to admissions, courses, fees, and counseling.
+</p>
+
+      <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+ In online education, response time plays a critical role because the entire admission process depends on communication through calls, emails, or chat platforms. A faster response time indicates that the university has an efficient support system and prioritizes student queries.
+
+</p>
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+  A slow response time, on the other hand, can create confusion, delay the admission process, and negatively impact the student experience.
+</p>
+          </div>
+           <div className="text-start max-w-6xl mt-14">
+            <h2 className="text-2xl md:text-4xl  leading-[120%] font-bold text-[#3C087E] mb-4">
+           Why Response Time is Important for Students
+        </h2>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+ Response time directly affects how smoothly a student can complete their admission process.</p>
+
+      <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+When a university responds quickly:</p>
+<ul className="list-disc px-5 text-start text-black mt-2">
+<li>Flexible learning schedule</li>
+<li>Lower fees compared to regular programs</li>
+<li>Access to digital learning resources</li>
+<li>Opportunity to learn while working</li>
+ </ul>
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+ However, when response time is slow:</p>
+ <ul className="list-disc px-5 text-start text-black mt-2">
+<li>Flexible learning schedule</li>
+<li>Lower fees compared to regular programs</li>
+<li>Access to digital learning resources</li>
+<li>Opportunity to learn while working</li>
+ </ul>
+  <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+ This is why response time is an important factor when choosing an online university.</p>
+          </div>
+           <div className="text-start max-w-6xl mt-14">
+            <h2 className="text-2xl md:text-4xl  leading-[120%] font-bold text-[#3C087E] mb-4">
+          How We Measure University Response Time
+        </h2>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+ At Radhya Education Academy, we evaluate university response time based on real student interactions and inquiry handling.</p>
+
+      <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+We analyze:</p>
+<ul className="list-disc px-5 text-start text-black mt-2">
+<li>Time taken to respond to first query</li>
+<li>Speed of follow-up responses</li>
+<li>Availability of counseling support</li>
+<li>Response across channels (call, WhatsApp, email)</li>
+<li>Clarity and usefulness of responses</li>
+ </ul>
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+This ensures that the comparison is practical, unbiased, and helpful for students.</p>
+          </div>
+            <div className="text-start max-w-6xl mt-14">
+            <h2 className="text-2xl md:text-4xl  leading-[120%] font-bold text-[#3C087E] mb-4">
+          Online University Response Time Comparison in India
+        </h2>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+ This section provides a comparative overview of how different universities respond to student queries.</p>
+
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+Universities can generally be categorized into:</p>
+<p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+<strong>Fast Response Universities : </strong>
+ These universities respond within a few minutes to a few hours and provide complete guidance.</p>
+<p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+<strong>Moderate Response Universities : </strong>
+ These universities take several hours to respond and may require follow-ups.</p>
+<p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+<strong>Slow Response Universities : </strong>
+ These universities take more than 24 hours to respond or provide incomplete information.</p>
+<p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+This comparison helps students identify which universities provide better communication and faster support.</p>
+          </div>
+            <div className="text-start max-w-6xl mt-14">
+            <h2 className="text-2xl md:text-4xl  leading-[120%] font-bold text-[#3C087E] mb-4">
+            Fast vs Slow Response – What It Indicates
+        </h2>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+Response time is often a reflection of the university’s internal systems and student support quality.</p>
+
+      <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+Fast response usually indicates:</p>
+<ul className="list-disc px-5 text-start text-black mt-2">
+<li>Strong admission support team</li>
+<li>Efficient communication system</li>
+<li>Student-focused approach</li>
+<li>Better overall experience</li>
+ </ul>
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+Slow response may indicate:
+</p>
+ <ul className="list-disc px-5 text-start text-black mt-2">
+<li>Poor support infrastructure</li>
+<li>High inquiry load without proper handling</li>
+<li>Lack of student priority</li>
+ </ul>
+  <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+Understanding this difference helps you choose a university that provides a smoother experience.</p>
+          </div>
+          <div className="text-start max-w-6xl mt-14">
+            <h2 className="text-2xl md:text-4xl  leading-[120%] font-bold text-[#3C087E] mb-4">
+          Choose a University That Values Your Time
+        </h2>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+ When selecting an online university, it is important to consider not just academic factors but also how responsive the university is.</p>
+
+      <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+A university that responds quickly ensures that your admission journey is smooth, transparent, and stress-free. It also reflects how supportive the institution will be during your course.</p>
+ 
+          </div>
         </div>
+       
       </section>
 
       {/* Bottom Compare Bar */}
@@ -330,6 +458,7 @@ export default function UniversityResponseTableClient({
           </div>
         </div>
       )}
+
     </>
   );
 }

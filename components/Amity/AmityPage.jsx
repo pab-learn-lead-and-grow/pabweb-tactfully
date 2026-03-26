@@ -224,12 +224,13 @@ export default function Page() {
           </div>
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
-          <div className="relative w-full h-full flex md:justify-end ">
-            <div className="max-w-7xl mb-10 md:m-0 overflow-hidden">
-              <img
+         <div className="relative w-full h-100 flex md:justify-end">
+                     <div className="max-w-7xl mb-10 md:mb-0 overflow-hidden relative w-full h-full">
+                       <Image
                 src="/amity/amityUniv.png"
                 alt="University"
-                className="w-full h-full rounded-2xl object-cover"
+                 fill
+               className="rounded-2xl object-cover"
               />
             </div>
           </div>

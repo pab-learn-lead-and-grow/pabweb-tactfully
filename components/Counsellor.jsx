@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, PhoneCall } from "lucide-react";
 import Image from "next/image";
 import { createClient } from "@supabase/supabase-js";
+import FAQ from "./NmimsSection/FAQ";
+import CounsellingModal from "./Radhya/CounsellingModal";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -44,16 +46,65 @@ export default function CounsellorVerification() {
     }
   };
 
+  const faqs = [
+  {
+    q: "How can I verify an education counsellor in India?",
+    a: "You can verify an education counsellor by checking their association with universities, verifying their credentials, and using trusted platforms like Radhya Education Academy to confirm their authenticity.",
+  },
+  {
+    q: "Why is it important to verify an admission counsellor?",
+    a: "Verifying an admission counsellor helps you avoid fraud, misinformation, and admission in unrecognized universities. It ensures that you receive accurate guidance and a safe admission process.",
+  },
+  {
+    q: "What are the risks of choosing an unverified counsellor?",
+    a: "Unverified counsellors may provide false information, charge hidden fees, or guide you toward non-approved universities, which can negatively impact your career.",
+  },
+  {
+    q: "How do I know if a counsellor is authorized by a university?",
+    a: "You can check official documentation, verify with the university, or use platforms that provide counsellor verification services.",
+  },
+  {
+    q: "Can a fake counsellor affect my admission?",
+    a: "Yes, a fake counsellor can misguide you, delay your admission, or even enroll you in an unrecognized program.",
+  },
+  {
+    q: "Is counsellor verification necessary for online education?",
+    a: "Yes, since online education relies heavily on counsellors, verification is important to ensure you receive genuine and accurate information.",
+  },
+  {
+    q: "What details are required to verify a counsellor?",
+    a: "You may need to provide the counsellor’s name, contact details, organization, and the university they are associated with.",
+  },
+  {
+    q: "Does Radhya Education Academy provide verified counsellors?",
+    a: "Yes, Radhya Education Academy helps students connect with trusted and verified counsellors for safe and reliable admission guidance.",
+  },
+  {
+    q: "Can I trust online admission counsellors?",
+    a: "You should only trust online admission counsellors after verifying their authenticity and association with recognized universities.",
+  },
+  {
+    q: "What should I do if my counsellor is not verified?",
+    a: "If your counsellor is not verified, it is advisable to avoid proceeding and seek guidance from a trusted platform or verified counsellor.",
+  },
+];
+
   return (
     <>
-      <section className="min-h-[85vh] mt-10 px-4 max-w-6xl items-center mx-auto py-12 lg:py-24">
+      <section className=" mt-10 px-4 max-w-6xl items-center mx-auto py-12 lg:pt-20">
         <div className=" text-center">
-          <h2 className="text-3xl lg:text-5xl xl:text-[64px]  font-bold text-[#3C087E] mb-4">
-            Verify your Counsellor
-          </h2>
-          <p className="text-xl sm:text-2xl leading-tight text-[#3C3C43]">
-            Before you trust, take a moment to verify. Use the CP ID to check your counsellor’s profile instantly. Safe, secure, and transparent guidance starts here.
-          </p>
+          <h1 className="text-3xl lg:text-5xl leading-[110%]  font-bold text-[#3C087E] mb-4">
+            Education Counsellor Verification in India (Check Authorized Advisor)
+          </h1>
+          <p className="text-sm sm:text-xl  leading-tight text-black">
+            Choosing the right education counsellor is just as important as choosing the right university. Many students rely on counsellors for admission guidance, course selection, and university recommendations. However, with the increasing demand for online and distance education, there has also been a rise in unauthorized or misleading counsellors.
+</p>
+<p className="text-sm sm:text-xl leading-tight mt-2 text-black">
+            Students often face issues such as incorrect information, hidden charges, false promises of placement, or admission in unrecognized universities. This not only affects their career but also leads to financial loss and confusion.
+</p>
+<p className="text-sm sm:text-xl  leading-tight mt-2 text-black">
+           To help students make safe and informed decisions, Radhya Education Academy provides a dedicated education counsellor verification platform. This page allows you to verify whether your counsellor is genuine, authorized, and associated with trusted universities, ensuring a secure and transparent admission process.
+</p>
           </div>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -269,6 +320,116 @@ export default function CounsellorVerification() {
           </div>
         </motion.div>
       </section>
+       <div className="mt-20">
+          <h2 className="text-2xl md:text-4xl  mx-auto leading-[120%] font-bold text-center text-[#3C087E] mb-4">
+       What is Education Counsellor Verification
+        </h2>
+           <p className="text-sm md:text-base text-black max-w-5xl mt-4 mx-auto text-justify">
+     Education counsellor verification is the process of checking whether a counsellor or admission advisor is authorized, genuine, and associated with recognized universities or institutions.
+     </p>
+
+      <p className="text-sm md:text-base text-black max-w-5xl mt-4 mx-auto text-justify">
+     This helps students ensure that they are receiving accurate guidance and not being misled by unauthorized agents. Verification involves checking credentials, affiliations, communication authenticity, and transparency in the admission process.
+</p>
+      </div>
+
+         <div className="text-start max-w-5xl mx-auto justify-center mt-14">
+             <h2 className="text-2xl md:text-4xl text-center leading-[120%] font-bold text-[#3C087E] mb-4">
+            Why It is Important to Verify Your Counsellor
+        </h2>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+  Verifying your counsellor is crucial to avoid fraud, misinformation, and poor decision-making.
+        </p>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+Many students unknowingly trust unverified counsellors and face issues such as:
+</p>
+
+<ul className="list-disc px-5 text-start text-black mt-2">
+<li>Admission in non-approved universities</li>
+<li>Hidden fees or incorrect fee structure</li>
+<li>False promises regarding placements</li>
+<li>Lack of support after admission</li>
+ </ul>
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+By verifying your counsellor, you can ensure that you are dealing with a reliable and authorized professional.</p>
+          </div>
+
+           <div className="text-start max-w-5xl mx-auto justify-center mt-14">
+             <h2 className="text-2xl md:text-4xl text-center leading-[120%] font-bold text-[#3C087E] mb-4">
+            How to Verify an Education Counsellor
+        </h2>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+  You can verify a counsellor by checking the following:
+        </p>
+
+<ul className="list-disc px-5 text-start text-black mt-2">
+<li>Official association with universities</li>
+<li>Verified contact details</li>
+<li>Transparent communication</li>
+<li>Proper documentation and process</li>
+<li>Reviews and student feedback</li>
+ </ul>
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+Using a trusted platform like Radhya Education Academy makes this process easier and more reliable.</p>
+          </div>
+
+            <div className="text-start max-w-5xl mx-auto justify-center mt-14">
+             <h2 className="text-2xl md:text-4xl text-center leading-[120%] font-bold text-[#3C087E] mb-4">
+           Verify Counsellor with Radhya Education Academy
+        </h2>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+ Radhya Education Academy provides a simple and reliable way to verify counsellors.
+        </p>
+         <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+ You Can:
+
+        </p>
+
+<ul className="list-disc px-5 text-start text-black mt-2">
+<li>Submit counsellor details</li>
+<li>Check authorization status</li>
+<li>Get expert guidance</li>
+<li>Confirm university affiliations</li>
+ </ul>
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+This ensures that you are connected with the right person for your admission journey.</p>
+          </div>
+            <div className="text-start max-w-5xl mx-auto justify-center mt-14">
+             <h2 className="text-2xl md:text-4xl text-center leading-[120%] font-bold text-[#3C087E] mb-4">
+           Signs of a Genuine Education Counsellor
+        </h2>
+              <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+A genuine counsellor usually:
+        </p>
+<ul className="list-disc px-5 text-start text-black mt-2">
+<li>Provides accurate and clear information</li>
+<li>Shares verified university details</li>
+<li>Does not make false promises</li>
+<li>Offers transparent fee structure</li>
+<li>Provides support throughout the admission process</li>
+ </ul>
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-justify">
+Recognizing these signs can help you make safer decisions.</p>
+          </div>
+           <div className="text-start max-w-5xl mx-auto justify-center mt-14 mb-8">
+             <h2 className="text-2xl md:text-4xl text-center leading-[120%] font-bold text-[#3C087E] mb-4">
+            Protect Your Admission Journey
+        </h2>
+              <p className="text-sm md:text-base text-center  text-black max-w-6xl mt-4 mx-auto">
+Your education is a long-term investment, and choosing the wrong counsellor can affect your future.
+        </p>
+ <p className="text-sm md:text-base text-black max-w-6xl mt-4 mx-auto text-center">
+Always verify before you trust. Taking a few minutes to check your counsellor can save you from major issues later.</p>
+          </div>
+         {/* VIEW MORE */}
+                  <div className="flex justify-center">
+                    <CounsellingModal>
+                      <button className="bg-[#EEA727] text-white px-15 py-3 rounded-xl text-base font-semibold shadow-md hover:scale-105">
+                        Talk to a Genuine Counsellor
+                      </button>
+                    </CounsellingModal>
+                  </div>
+            <FAQ faqs={faqs} />
 
       <section className="w-full h-60 md:h-90 bg-[#3C087E] mt-5 md:mt-8 xl:mt-20 py-10 md:py-20 flex flex-col items-center text-left">
         <h1 className="text-xl md:text-4xl font-[Inter] font-bold text-white max-w-4xl leading-tight text-center px-4">

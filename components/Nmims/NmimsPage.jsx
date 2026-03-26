@@ -179,12 +179,13 @@ const universities = [
           </div>
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
-          <div className="relative w-full h-full flex md:justify-end ">
-            <div className="max-w-7xl overflow-hidden">
-              <img
+          <div className="relative w-full h-100 flex md:justify-end">
+            <div className="max-w-7xl mb-10 md:mb-0 overflow-hidden relative w-full h-full">
+              <Image
                 src="/nmims/nmimsUniv.png"
                 alt="Students"
-                className="w-full h-[95%] rounded-2xl object-cover"
+                fill
+                className="rounded-2xl object-cover"
               />
             </div>
           </div>

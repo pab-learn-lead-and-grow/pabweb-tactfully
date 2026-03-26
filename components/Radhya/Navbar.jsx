@@ -1275,6 +1275,13 @@ return (
 
 <Link
   className="block py-2 px-3 rounded hover:bg-purple-50"
+  href="/top-online-universities-india/"
+>
+  Top Online Universities
+</Link>
+
+<Link
+  className="block py-2 px-3 rounded hover:bg-purple-50"
   href="/university-response-time"
 >
   University Response Time
@@ -1599,6 +1606,17 @@ return (
   }}
 >
   UGC Approvals
+</Link>
+
+<Link
+  className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
+  href="/top-online-universities-india/"
+  onClick={() => {
+    handleLinkClick();
+    handleMobileCloseAll();
+  }}
+>
+  Top Online Universities
 </Link>
 
 <Link

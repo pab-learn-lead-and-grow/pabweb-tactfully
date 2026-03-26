@@ -15,7 +15,7 @@ export const metadata = {
     "Compare top UGC-approved universities in India offering online and distance education programs. Check recognition, fees, courses, and specializations to choose the right university.",
 
   alternates: {
-    canonical: "/universitieslist/",
+    canonical: "/online-universities-directory-india/",
   },
 
   keywords: [
@@ -31,7 +31,7 @@ export const metadata = {
       "Compare UGC Approved Universities in India | Radhya Education Academy",
     description:
       "Compare top UGC-approved universities offering online and distance education programs. Explore fees, recognition, and courses before choosing the right university.",
-    url: `${siteUrl}/universitieslist/`,
+    url: `${siteUrl}/online-universities-directory-india/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

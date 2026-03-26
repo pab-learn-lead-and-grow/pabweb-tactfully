@@ -59,7 +59,7 @@ export default function About() {
     description:
       "Radhya Education Academy helps students and working professionals choose the right online and offline education programs through expert counselling and university partnerships.",
     areaServed: "India",
-    sameAs: ["https://www.instagram.com/pablearnleadandgrow/"],
+    sameAs: ["https://www.instagram.com/radhyaeducationacademy"],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Educational Counselling",

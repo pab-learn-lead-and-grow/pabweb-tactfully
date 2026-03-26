@@ -6,13 +6,13 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "University Accreditations & Approvals in India | UGC, NAAC, AICTE",
+  title: "Top Online Universities in India 2026 | Best MBA, BBA Colleges",
 
   description:
-    "Check university accreditations and approvals in India including UGC, NAAC, and AICTE recognition. Verify approved universities before taking admission in online or distance learning programs.",
+    "Explore top online universities in India for MBA, BBA & more. Compare UGC approved colleges, fees, rankings & placements. Find the best online degree today.",
 
   alternates: {
-    canonical: "/college-cards/",
+    canonical: "/top-online-universities-india/",
   },
 
   keywords: [
@@ -28,7 +28,7 @@ export const metadata = {
     title: "University Accreditations & Approvals in India | UGC, NAAC, AICTE",
     description:
       "Explore recognized university accreditations including UGC, NAAC, and AICTE approvals before choosing an online or distance degree program.",
-    url: `${siteUrl}/college-cards/`,
+    url: `${siteUrl}/top-online-universities-india/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

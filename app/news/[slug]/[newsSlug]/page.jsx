@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
     : `${BUCKET_URL}/${article.image_url}`;
   
   return {
-    title: `${article.title} | Radhya Education Academy`,
+    title: `${article.title}`,
     description: article.description || "Read the latest news and articles from Radhya Education Academy",
     alternates: {
       canonical: `${siteUrl}/news/${slug}/${newsSlug}/`,

@@ -9,10 +9,10 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
 
   title:
-    "Counsellor Verification | Verify Radhya Education Counsellor CP ID",
+    " Verify Education Counsellor in India | Check Authorized Admission Partner",
 
   description:
-    "Verify your counsellor’s CP ID instantly with Radhya Education Academy’s secure counsellor verification system. Ensure you are guided by an officially verified education counsellor.",
+    " Verify your education counsellor online. Check if your admission advisor is authorized, genuine, and trusted before taking admission in any university.",
 
   alternates: {
     canonical: "/counsellor-verification/",

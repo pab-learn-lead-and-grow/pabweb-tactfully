@@ -8,10 +8,10 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "UGC Approved Universities | Recognised Online & Distance Programs",
+  title: "UGC Approved Universities in India 2026 | Online & Distance List",
 
   description:
-    "Explore UGC-recognised universities offering online and distance education programs in India. Ensure credibility, nationwide validity, and industry-relevant degrees.",
+    " Explore UGC approved universities in India for online and distance education. Check verified list, courses, eligibility, and choose the right university.",
 
   alternates: {
     canonical: "/ugc-approved-universities/",

@@ -468,7 +468,7 @@ const topicsData = {
       logo: SplinePointer,
       heading: "Career Upskilling",
       subheading:
-        "Enhance your professional profile with advanced business knowledge and leadership capabilities for career growth.",
+        "Enhance your professional profile with advanced business knowledge and leadership cailities for career growth.",
     },
   ];
 
