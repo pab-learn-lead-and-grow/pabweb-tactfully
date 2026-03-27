@@ -1090,7 +1090,7 @@ Scholarships are provided as tuition fee waivers and are granted after successfu
                {/* RIGHT IMAGE (visible only on md+ screens) */}
                <div className="hidden md:flex justify-center mt-5">
                  <img
-                   src="/bennett/degree/mbaSample.png"
+                   src="/bennett/degree/mba.png"
                    alt="Bennett University Online MBA degree certificate sample"
                    className="w-full max-w-sm rounded-lg shadow-sm"
                  />

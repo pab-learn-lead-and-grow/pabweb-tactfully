@@ -1166,7 +1166,7 @@ BBA Degree Certificate
           {/* RIGHT IMAGE (visible only on md+ screens) */}
           <div className="hidden md:flex justify-center mt-5">
             <img
-              src="/bennett/degree/bbaSample.png"
+              src="/bennett/degree/mba.png"
               alt="Bennett University Online BBA degree certificate sample"
               className="w-full max-w-sm rounded-lg shadow-sm"
             />
