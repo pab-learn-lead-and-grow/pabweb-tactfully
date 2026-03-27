@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactCompiler: true,
+
+  // ✅ Enforce trailing slash (important for SEO consistency)
   trailingSlash: true,
+
+  // ✅ Enable compression
   compress: true,
 
   experimental: {
@@ -9,7 +13,10 @@ const nextConfig = {
   },
 
   compiler: {
+    // ✅ Remove console logs in production
     removeConsole: process.env.NODE_ENV === "production",
+
+    // ✅ Remove React dev props in production
     reactRemoveProperties: process.env.NODE_ENV === "production",
   },
 
@@ -42,7 +49,8 @@ const nextConfig = {
           },
           {
             key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+            value:
+              "camera=(), microphone=(), geolocation=(), browsing-topics=()",
           },
         ],
       },
@@ -51,6 +59,7 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // ✅ Force www → non-www (canonical domain)
       {
         source: "/:path*",
         has: [
@@ -60,6 +69,13 @@ const nextConfig = {
           },
         ],
         destination: "https://radhyaeducationacademy.com/:path*",
+        permanent: true,
+      },
+
+      // ✅ Optional: normalize duplicate blog URLs (no trailing slash → slash)
+      {
+        source: "/blogs/:slug",
+        destination: "/blogs/:slug/",
         permanent: true,
       },
     ];

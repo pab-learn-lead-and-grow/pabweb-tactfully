@@ -8,8 +8,10 @@ export async function generateMetadata({ params }) {
   const { categoryName } = await getCategoryNews(slug);
   
   return {
-    title: `${categoryName} News | Radhya Education`,
+    title: `${categoryName} News | Latest ${categoryName} News & Updates`,
     description: `Browse latest ${categoryName} news and updates from top universities in India.`,
+    alternates: { canonical: `${siteUrl}/news/${slug}/`,
+},
   };
 }
 

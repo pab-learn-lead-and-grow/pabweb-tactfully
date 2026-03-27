@@ -151,29 +151,29 @@ const universities = [
     src: "/nmims.png",
     alt: "NMIMS",
     name: "NMIMS Mumbai",
-    href: "/nmims/nmims-mumbai-online-mba",
+    href: "/nmims/",
   },
   {
     src: "/manipal.png",
     alt: "Manipal",
     name: "Manipal Jaipur",
-    href: "/muj/manipal-jaipur-online-mba",
+    href: "/muj/",
   },
   {
     src: "/amity.png",
     alt: "Amity",
     name: "Amity University",
-    href: "/amity/amity-online-mba",
+    href: "/amity/",
   },
   {
     src: "/jain.png",
     alt: "Jain",
     name: "Jain University",
-    href: "/jain/jain-online-mba",
+    href: "/jain/",
   },
-  { src: "/bennett.png", href: "/bennett", alt: "Bennett University", name: "Bennett University" },
-  { src: "/shoolini.png", href: "/shoolini", alt: "Shoolini University", name: "Shoolini University" },
-  { src: "/smu.png", href: "/smu", alt: "Sikkim Manipal University", name: "Sikkim Manipal University" },
+  { src: "/bennett.png", href: "/bennett/", alt: "Bennett University", name: "Bennett University" },
+  { src: "/shoolini.png", href: "/shoolini/", alt: "Shoolini University", name: "Shoolini University" },
+  { src: "/smu.png", href: "/smu/", alt: "Sikkim Manipal University", name: "Sikkim Manipal University" },
 ];
 
   return (
