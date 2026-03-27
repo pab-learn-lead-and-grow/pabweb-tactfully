@@ -23,6 +23,9 @@ export async function generateMetadata({ params }) {
   if (!article) {
     return {
       title: "News Article | Radhya Education Academy",
+       alternates: {
+        canonical: `${siteUrl}/news/${slug}/${newsSlug}/`,
+      },
     };
   }
   
@@ -34,7 +37,7 @@ export async function generateMetadata({ params }) {
   return {
     title: `${article.title}`,
     description: article.description || "Read the latest news and articles from Radhya Education Academy",
-    alternates: {
+     alternates: {
       canonical: `${siteUrl}/news/${slug}/${newsSlug}/`,
     },
     openGraph: {

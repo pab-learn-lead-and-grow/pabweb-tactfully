@@ -10,8 +10,7 @@ export async function generateMetadata({ params }) {
   return {
     title: `${categoryName} News | Latest ${categoryName} News & Updates`,
     description: `Browse latest ${categoryName} news and updates from top universities in India.`,
-    alternates: { canonical: `${siteUrl}/news/${slug}/`,
-},
+    alternates: { canonical: `${siteUrl}/news/${slug}/` },
   };
 }
 
