@@ -39,8 +39,11 @@ export async function getLatestNews() {
         slug,
         image_url,
         published_at,
+        primary_category_id,
         news_categories (
-          category_name
+          category_id,
+          category_name,
+          slug
         )
       `)
       .eq("is_published", true)
@@ -55,6 +58,8 @@ export async function getLatestNews() {
     const newsWithImages = (data || []).map((item) => ({
       ...item,
       image_url: getImageUrl(item.image_url),
+      categorySlug: item.news_categories?.slug || '',
+      categoryName: item.news_categories?.category_name || '',
     }));
 
     return newsWithImages;

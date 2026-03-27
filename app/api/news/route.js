@@ -11,8 +11,11 @@ export async function GET() {
         slug,
         image_url,
         published_at,
+        primary_category_id,
         news_categories (
-          category_name
+          category_id,
+          category_name,
+          slug
         )
       `)
       .eq("is_published", true)
@@ -27,7 +30,13 @@ export async function GET() {
       );
     }
 
-    return NextResponse.json({ success: true, data });
+    const newsWithCategory = (data || []).map((item) => ({
+      ...item,
+      categorySlug: item.news_categories?.slug || '',
+      categoryName: item.news_categories?.category_name || '',
+    }));
+
+    return NextResponse.json({ success: true, data: newsWithCategory });
   } catch (err) {
     console.error("News API error:", err);
     return NextResponse.json(

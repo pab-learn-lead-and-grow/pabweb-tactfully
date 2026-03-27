@@ -15,7 +15,7 @@ export const metadata = {
     "Discover Online MA programs with top colleges, updated fees, eligibility, and career opportunities in arts, humanities, and specialized domains.",
 
   alternates: {
-    canonical: "/online-ma/",
+    canonical: "/programs/online-ma/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online MA in India 2026 | Fees, Colleges, Admission & Career Scope",
     description:
       "Compare top Online MA universities in India with updated fees, eligibility, specializations and career opportunities.",
-    url: `${siteUrl}/online-ma/`,
+    url: `${siteUrl}/programs/online-ma/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

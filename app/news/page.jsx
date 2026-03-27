@@ -9,7 +9,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Latest Education News & Updates | Radhya Education Academy",
+  title: "Latest Education News & Updates ",
 
   description:
     "Stay updated with the latest news, trends, and insights in online education, distance learning, and career guidance from top universities in India.",

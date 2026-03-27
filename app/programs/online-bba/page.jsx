@@ -15,7 +15,7 @@ export const metadata = {
     "Explore Online BBA colleges in India with updated fees, eligibility, and career opportunities. Start your business career today.",
 
   alternates: {
-    canonical: "/online-bba/",
+    canonical: "/programs/online-bba/",
   },
 
   keywords: [
@@ -34,7 +34,7 @@ export const metadata = {
       "Online BBA in India 2026 | Fees, Colleges, Admission & Career Scope",
     description:
       "Compare top Online BBA universities in India with updated fees, eligibility and career opportunities after 12th.",
-    url: `${siteUrl}/online-bba/`,
+    url: `${siteUrl}/programs/online-bba/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

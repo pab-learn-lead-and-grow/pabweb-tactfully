@@ -15,7 +15,7 @@ export const metadata = {
     "Explore Online BAJMC programs with top colleges, updated fees, eligibility, and career opportunities in media, journalism, and communication.",
 
   alternates: {
-    canonical: "/online-bajmc/",
+    canonical: "/programs/online-bajmc/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online BAJMC in India 2026 | Fees, Colleges, Admission & Career Scope",
     description:
       "Compare top Online BAJMC universities in India with updated fees, eligibility and career opportunities in journalism, media and digital communication.",
-    url: `${siteUrl}/online-bajmc/`,
+    url: `${siteUrl}/programs/online-bajmc/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

@@ -50,7 +50,7 @@ export default function CategoryNewsClient({ categories, news, categoryName, slu
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {news.slice(0, visibleCount).map((item) => (
-            <Link key={item.news_id} href={`/news/${slug}/${item.slug}`}>
+            <Link key={item.news_id} href={`/news/${item.categorySlug}/${item.slug}`}>
               <div className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                 <div className="relative h-[360px] overflow-hidden">
                   <Image

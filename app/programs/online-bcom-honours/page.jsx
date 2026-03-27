@@ -15,7 +15,7 @@ export const metadata = {
     "Discover Online B.Com (Hons.) programs with top colleges, updated fees, eligibility, and career opportunities. Build a strong foundation in commerce.",
 
   alternates: {
-    canonical: "/online-bcom-honours/",
+    canonical: "/programs/online-bcom-honours/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online BCom Honours in India 2026 | Fees, Colleges & Admission",
     description:
       "Compare top Online BCom Honours universities in India with updated fees, eligibility and career opportunities in finance, accounting and taxation.",
-    url: `${siteUrl}/online-bcom-honours/`,
+    url: `${siteUrl}/programs/online-bcom-honours/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

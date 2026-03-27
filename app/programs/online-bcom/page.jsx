@@ -15,7 +15,7 @@ export const metadata = {
     "Explore top Online B.Com colleges in India with updated fees, eligibility, admission process, and career opportunities. Compare universities and choose the best course.",
 
   alternates: {
-    canonical: "/online-bcom/",
+    canonical: "/programs/online-bcom/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online BCom in India 2026 | Fees, Colleges, Admission & Career Scope",
     description:
       "Compare top Online BCom universities in India with updated fees, eligibility and career opportunities in commerce, finance and accounting.",
-    url: `${siteUrl}/online-bcom/`,
+    url: `${siteUrl}/programs/online-bcom/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

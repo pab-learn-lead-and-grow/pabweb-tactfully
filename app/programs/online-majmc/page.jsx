@@ -15,7 +15,7 @@ export const metadata = {
     "Discover Online MAJMC programs with top colleges, updated fees, eligibility, and career opportunities in journalism and mass communication.",
 
   alternates: {
-    canonical: "/online-majmc/",
+    canonical: "/programs/online-majmc/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online MAJMC in India 2026 | Fees, Colleges & Career Scope",
     description:
       "Compare top Online MAJMC universities in India with updated fees, eligibility and career opportunities in journalism, media and digital communication.",
-    url: `${siteUrl}/online-majmc/`,
+    url: `${siteUrl}/programs/online-majmc/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

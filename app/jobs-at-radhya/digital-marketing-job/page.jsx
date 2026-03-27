@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Digital Marketing Specialist Job | Radhya Education Careers",
+  title: "Digital Marketing Specialist Job",
 
   description:
     "Apply for the Digital Marketing Specialist role at Radhya Education. Manage Google Ads and Meta Ads campaigns, optimize paid marketing performance, and grow your career in the education marketing industry.",

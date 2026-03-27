@@ -30,7 +30,7 @@ export default function KnowledgeSection({ latestNews = [] }) {
       title:
         "Online MBA For Career Growth: How An Online MBA Helps You Raise From Employee To Leader",
       image: "/Blog2/background.png",
-      path: "blogs/online-mba-for-career-growth",
+      path: "/blogs/online-mba-for-career-growth",
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ export default function KnowledgeSection({ latestNews = [] }) {
       date: "16 Jan 2026",
       title: "Why NMIMS Is The Top Choice For Working Professionals In India",
       image: "/Blog3/background.png",
-      path: "blogs/nmims-for-working-professionals",
+      path: "/blogs/nmims-for-working-professionals",
     },
     {
       id: 3,
@@ -47,7 +47,7 @@ export default function KnowledgeSection({ latestNews = [] }) {
       title:
         "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
       image: "/Blog1/background.png",
-      path: "blogs/online-vs-regular-mba",
+      path: "/blogs/online-vs-regular-mba",
     },
     {
       id: 4,
@@ -56,7 +56,7 @@ export default function KnowledgeSection({ latestNews = [] }) {
       title:
         "How Online MBA's Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
       image: "/Blog4/background.png",
-      path: "blogs/the-digital-revolution",
+      path: "/blogs/the-digital-revolution",
     },
     {
       id: 5,
@@ -65,7 +65,7 @@ export default function KnowledgeSection({ latestNews = [] }) {
       title:
         "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility",
       image: "/Blog5/background.png",
-      path: "blogs/the-financial-catalyst",
+      path: "/blogs/the-financial-catalyst",
     },
     {
       id: 6,
@@ -74,7 +74,7 @@ export default function KnowledgeSection({ latestNews = [] }) {
       title:
         "How Online BBA Builds Entrepreneurs And How Online MBA Shapes Future CEOs",
       image: "/Blog6/background.png",
-      path: "blogs/how-online-bba-builds-entrepreneurs",
+      path: "/blogs/how-online-bba-builds-entrepreneurs",
     },
   ];
 
@@ -173,7 +173,7 @@ export default function KnowledgeSection({ latestNews = [] }) {
 
                       <div className="flex-1 min-w-0">
                         <p className="text-[10px] text-gray-500 mb-0.5">
-                          {item.news_categories?.category_name}
+                          {item.categoryName}
                         </p>
 
                         <p className="text-sm font-medium text-gray-900 line-clamp-2">

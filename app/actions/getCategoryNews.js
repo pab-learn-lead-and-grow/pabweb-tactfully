@@ -21,7 +21,7 @@ export async function getCategoryNews(slug) {
 
     const { data: currentCategory } = await supabaseServer
       .from("news_categories")
-      .select("category_id, category_name")
+      .select("category_id, category_name, slug")
       .eq("slug", slug)
       .single();
 
@@ -30,19 +30,29 @@ export async function getCategoryNews(slug) {
     }
 
     const { data: newsData } = await supabaseServer
-      .from("news_category_map")
+      .from("news")
       .select(`
-        news:news_id (
-          news_id,
-          title,
-          slug,
-          image_url,
-          published_at
+        news_id,
+        title,
+        slug,
+        image_url,
+        published_at,
+        primary_category_id,
+        news_categories (
+          category_id,
+          category_name,
+          slug
         )
       `)
-      .eq("category_id", currentCategory.category_id);
+      .eq("primary_category_id", currentCategory.category_id)
+      .eq("is_published", true)
+      .order("published_at", { ascending: false });
 
-    const formattedNews = newsData?.map((item) => item.news).filter(Boolean) || [];
+    const formattedNews = (newsData || []).map((item) => ({
+      ...item,
+      categorySlug: item.news_categories?.slug || '',
+      categoryName: item.news_categories?.category_name || '',
+    }));
 
     const attachImages = formattedNews.map((item) => {
       if (!item.image_url) return item;

@@ -15,7 +15,7 @@ export const metadata = {
     "Explore Online MBA in India with fees, eligibility, top universities, syllabus and placement opportunities. Compare UGC-approved colleges and choose the best MBA program.",
 
   alternates: {
-    canonical: "/online-mba/",
+    canonical: "/programs/online-mba/",
   },
 
   keywords: [
@@ -34,7 +34,7 @@ export const metadata = {
       "Online MBA 2026: Top Universities, Fees, Admission, Eligibility & Placements",
     description:
       "Explore top Online MBA colleges in India with updated fees, eligibility, admission process, and placements. Compare universities and choose the best MBA program.",
-    url: `${siteUrl}/online-mba/`,
+    url: `${siteUrl}/programs/online-mba/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

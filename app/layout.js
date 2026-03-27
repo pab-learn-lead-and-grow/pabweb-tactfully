@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Radhya/Navbar";
 import Footer from "../components/Radhya/Footer";
-import { Suspense } from "react";
 import Script from "next/script";
 
 

@@ -432,11 +432,11 @@ Always verify before you trust. Taking a few minutes to check your counsellor ca
             <FAQ faqs={faqs} />
 
       <section className="w-full h-60 md:h-90 bg-[#3C087E] mt-5 md:mt-8 xl:mt-20 py-10 md:py-20 flex flex-col items-center text-left">
-        <h1 className="text-xl md:text-4xl font-[Inter] font-bold text-white max-w-4xl leading-tight text-center px-4">
+        <p className="text-xl md:text-4xl font-[Inter] font-bold text-white max-w-4xl leading-tight text-center px-4">
           Connect with expert verified counsellor,
           <br />
           for personalised career counselling.
-        </h1>
+        </p>
 
         <a
           href="tel:6206372776"

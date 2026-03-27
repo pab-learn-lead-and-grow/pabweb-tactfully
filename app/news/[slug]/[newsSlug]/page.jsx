@@ -8,7 +8,7 @@ import { supabase } from "@/lib/supabaseClient";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export async function generateMetadata({ params }) {
   const { slug, newsSlug } = await params;
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   
   const { data: article } = await supabase
     .from("news")
-    .select("title, description, image_url")
+    .select("title, excerpt, image_url")
     .eq("slug", articleSlug)
     .single();
     
@@ -36,13 +36,13 @@ export async function generateMetadata({ params }) {
   
   return {
     title: `${article.title}`,
-    description: article.description || "Read the latest news and articles from Radhya Education Academy",
+    description: article.excerpt || "Read the latest news and articles from Radhya Education Academy",
      alternates: {
       canonical: `${siteUrl}/news/${slug}/${newsSlug}/`,
     },
     openGraph: {
       title: article.title,
-      description: article.description,
+      description: article.excerpt,
       url: `${siteUrl}/news/${slug}/${newsSlug}/`,
       siteName: "Radhya Education Academy",
       type: "article",
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }) {
     twitter: {
       card: "summary_large_image",
       title: article.title,
-      description: article.description,
+      description: article.excerpt,
       images: imageUrl ? [imageUrl] : [],
     },
   };
@@ -78,8 +78,6 @@ export default async function ArticlePage({ params }) {
     .eq("category_id", article.primary_category_id)
     .single();
 
-  console.log("categoryData:", categoryData);
-
   if (!categoryData || categoryData.slug !== categorySlug) {
     return <div className="p-20">Article not found - category mismatch: {categoryData?.slug} !== {categorySlug}</div>;
   }
@@ -91,31 +89,32 @@ export default async function ArticlePage({ params }) {
 
   /* ================= FETCH RELATED (SAME CATEGORY) ================= */
 
- const { data: relatedMap, error: relatedError } = await supabase
-  .from("news_category_map")
-  .select(`
-    news:news_id (
+  const { data: relatedNews, error: relatedError } = await supabase
+    .from("news")
+    .select(`
       news_id,
       title,
       slug,
       published_at,
-      is_published
-    )
-  `)
-  .eq("category_id", article.primary_category_id);
+      is_published,
+      primary_category_id,
+      news_categories (
+        category_id,
+        category_name,
+        slug
+      )
+    `)
+    .eq("primary_category_id", article.primary_category_id)
+    .eq("is_published", true)
+    .neq("news_id", article.news_id)
+    .order("published_at", { ascending: false })
+    .limit(6);
 
-const related = relatedMap
-  ?.map(item => item.news)
-  .filter(n => 
-    n.news_id !== article.news_id && 
-    n.is_published === true
-  )
-  .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
-  .map(n => ({
+  const related = (relatedNews || []).map(n => ({
     ...n,
-    categorySlug,
-    categoryName: categoryData.category_name,
-  })) || [];
+    categorySlug: n.news_categories?.slug || categorySlug,
+    categoryName: n.news_categories?.category_name || categoryData.category_name,
+  }));
 
   /* ================= IMAGE URL ================= */
 

@@ -59,7 +59,6 @@ const nextConfig = {
 
   async redirects() {
     return [
-      // ✅ Force www → non-www (canonical domain)
       {
         source: "/:path*",
         has: [
@@ -69,13 +68,6 @@ const nextConfig = {
           },
         ],
         destination: "https://radhyaeducationacademy.com/:path*",
-        permanent: true,
-      },
-
-      // ✅ Optional: normalize duplicate blog URLs (no trailing slash → slash)
-      {
-        source: "/blogs/:slug",
-        destination: "/blogs/:slug/",
         permanent: true,
       },
     ];

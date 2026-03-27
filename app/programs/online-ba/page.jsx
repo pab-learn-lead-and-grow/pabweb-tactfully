@@ -15,7 +15,7 @@ export const metadata = {
     "Explore Online BA courses in India with top colleges, updated fees, eligibility, and career options in arts, humanities, and social sciences.",
 
   alternates: {
-    canonical: "/online-ba/",
+    canonical: "/programs/online-ba/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online BA in India 2026 | Fees, Colleges, Admission & Career Scope",
     description:
       "Compare top Online BA universities in India with updated fees, eligibility and career opportunities in humanities and social sciences.",
-    url: `${siteUrl}/online-ba/`,
+    url: `${siteUrl}/programs/online-ba/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

@@ -14,48 +14,55 @@ const supabaseServer = createClient(supabaseUrl, supabaseServiceKey, {
 
 export async function getNewsData() {
   try {
-    const [mapRes, newsRes, catRes] = await Promise.all([
-      supabaseServer.from("news_category_map").select("*").eq("is_primary", true),
-      supabaseServer.from("news").select("*"),
+    const [newsRes, catRes] = await Promise.all([
+      supabaseServer
+        .from("news")
+        .select(`
+          news_id,
+          title,
+          slug,
+          image_url,
+          published_at,
+          is_published,
+          trending,
+          primary_category_id,
+          news_categories (
+            category_id,
+            category_name,
+            slug
+          )
+        `)
+        .eq("is_published", true),
       supabaseServer.from("news_categories").select("*"),
     ]);
 
-    const mapData = mapRes.data || [];
     const newsData = newsRes.data || [];
     const catData = catRes.data || [];
-
-    const newsMap = {};
-    newsData.forEach((n) => (newsMap[n.news_id] = n));
     const catMap = {};
     catData.forEach((c) => (catMap[c.category_id] = c));
 
-    const merged = mapData
-      .map((m) => {
-        const newsItem = newsMap[m.news_id];
-        if (!newsItem) return null;
-        
-        let imageUrl = newsItem.image_url;
-        if (imageUrl && !imageUrl.startsWith("http")) {
-          const { data } = supabaseServer.storage.from("News").getPublicUrl(imageUrl);
-          imageUrl = data?.publicUrl;
-        }
-        
-        return {
-          ...newsItem,
-          image_url: imageUrl,
-          categorySlug: catMap[m.category_id]?.slug,
-          news_categories: catMap[m.category_id],
-        };
-      })
-      .filter(Boolean);
+    const merged = newsData.map((item) => {
+      let imageUrl = item.image_url;
+      if (imageUrl && !imageUrl.startsWith("http")) {
+        const { data } = supabaseServer.storage.from("News").getPublicUrl(imageUrl);
+        imageUrl = data?.publicUrl;
+      }
+      
+      return {
+        ...item,
+        image_url: imageUrl,
+        categorySlug: catMap[item.primary_category_id]?.slug || '',
+        categoryName: catMap[item.primary_category_id]?.category_name || '',
+        news_categories: catMap[item.primary_category_id] || null,
+      };
+    });
 
     const trending = merged
-      .filter((item) => item.trending === true && item.is_published === true)
+      .filter((item) => item.trending === true)
       .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
       .slice(0, 6);
 
     const latest = merged
-      .filter((item) => item.is_published === true)
       .sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
 
     const categories = catData.sort((a, b) => a.category_name.localeCompare(b.category_name));

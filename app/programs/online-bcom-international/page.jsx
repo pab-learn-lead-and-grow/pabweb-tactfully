@@ -15,7 +15,7 @@ export const metadata = {
     "Explore Online B.Com International programs with global curriculum, top colleges, fees, and career opportunities in international business.",
 
   alternates: {
-    canonical: "/online-bcom-international/",
+    canonical: "/programs/online-bcom-international/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online BCom International 2026 | Fees, Colleges & Global Career Scope",
     description:
       "Compare Online BCom International programs with global curriculum, fees, eligibility and career opportunities in international business and finance.",
-    url: `${siteUrl}/online-bcom-international/`,
+    url: `${siteUrl}/programs/online-bcom-international/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

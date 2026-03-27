@@ -15,7 +15,7 @@ export const metadata = {
     "Discover Online MCA programs with top colleges, updated fees, eligibility, and career scope in IT, software development, and technology roles.",
 
   alternates: {
-    canonical: "/online-mca/",
+    canonical: "/programs/online-mca/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online MCA in India 2026 | Fees, Colleges, Admission & Career Scope",
     description:
       "Compare top Online MCA universities in India with updated fees, eligibility and career opportunities in IT, software development and data science.",
-    url: `${siteUrl}/online-mca/`,
+    url: `${siteUrl}/programs/online-mca/`,
     siteName: "Radhya Education Academy",
     type: "website",
     images: [

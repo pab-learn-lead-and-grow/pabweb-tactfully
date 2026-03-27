@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Inside Sales Executive Fresher Job | Radhya Education Careers",
+  title: "Inside Sales Executive Job (Fresher)",
 
   description:
     "Apply for the Inside Sales Executive Fresher role at Radhya Education. Kickstart your career in education sales with professional training, career growth opportunities, and performance incentives.",

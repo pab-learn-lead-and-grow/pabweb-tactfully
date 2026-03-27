@@ -15,7 +15,7 @@ export const metadata = {
     "Explore Online MSc programs with top universities, updated fees, eligibility, and career scope in science, technology, and research fields.",
 
   alternates: {
-    canonical: "/online-msc/",
+    canonical: "/programs/online-msc/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online MSc in India 2026 | Fees, Colleges, Admission & Career Scope",
     description:
       "Compare top Online MSc universities in India with updated fees, eligibility, specializations and career opportunities in science, IT and analytics.",
-    url: `${siteUrl}/online-msc/`,
+    url: `${siteUrl}/programs/online-msc/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

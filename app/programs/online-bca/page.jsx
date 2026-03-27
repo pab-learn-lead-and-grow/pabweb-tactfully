@@ -15,7 +15,7 @@ export const metadata = {
     "Explore Online BCA programs in India with updated fees, eligibility, and admission details. Start your career in IT and software development.",
 
   alternates: {
-    canonical: "/online-bca/",
+    canonical: "/programs/online-bca/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online BCA in India 2026 | Fees, Colleges, Admission & Career Scope",
     description:
       "Compare top Online BCA universities in India with updated fees, eligibility and career opportunities in IT, software and data science.",
-    url: `${siteUrl}/online-bca/`,
+    url: `${siteUrl}/programs/online-bca/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

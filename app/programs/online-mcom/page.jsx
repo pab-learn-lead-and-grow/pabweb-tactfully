@@ -15,7 +15,7 @@ export const metadata = {
     "Explore Online M.Com colleges in India with updated fees, eligibility, and admission details. Advance your career in finance, accounting, and commerce.",
 
   alternates: {
-    canonical: "/online-mcom/",
+    canonical: "/programs/online-mcom/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online MCom in India 2026 | Fees, Colleges, Admission & Career Scope",
     description:
       "Compare top Online MCom universities in India with updated fees, eligibility and career opportunities in commerce, finance and accounting.",
-    url: `${siteUrl}/online-mcom/`,
+    url: `${siteUrl}/programs/online-mcom/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

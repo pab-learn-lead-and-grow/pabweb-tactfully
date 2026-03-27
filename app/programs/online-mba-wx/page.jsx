@@ -1,5 +1,4 @@
 import ExecutiveMBA from "@/components/Programs/MbaWx";
-import MbaWx from "@/components/Programs/MbaWx";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -16,7 +15,7 @@ export const metadata = {
     "Explore Online MBA for Working Professionals (MBA WX) in India with fees, eligibility, top universities and career benefits. Compare executive MBA programs designed for experienced professionals.",
 
   alternates: {
-    canonical: "/online-mba-wx/",
+    canonical: "/programs/online-mba-wx/",
   },
 
   keywords: [
@@ -36,7 +35,7 @@ export const metadata = {
       "Executive MBA 2026: Top Colleges, Fees, Admission, Eligibility & Career Growth",
     description:
       "Explore Executive MBA programs for working professionals with top colleges, fees, eligibility, and career opportunities.",
-    url: `${siteUrl}/online-mba-wx/`,
+    url: `${siteUrl}/programs/online-mba-wx/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

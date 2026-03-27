@@ -15,7 +15,7 @@ export const metadata = {
     "Explore online diploma courses in India with top programs, fees, eligibility, and career opportunities. Upgrade your skills with flexible learning.",
 
   alternates: {
-    canonical: "/online-diploma/",
+    canonical: "/programs/online-diploma/",
   },
 
   keywords: [
@@ -35,7 +35,7 @@ export const metadata = {
       "Online Diploma Courses in India 2026 | Fees, Colleges & Career Scope",
     description:
       "Compare top Online Diploma programs in India with updated fees, eligibility and career opportunities across multiple fields.",
-    url: `${siteUrl}/online-diploma/`,
+    url: `${siteUrl}/programs/online-diploma/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

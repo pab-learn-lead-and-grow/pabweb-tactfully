@@ -100,31 +100,38 @@ const staticRoutes = [
 export default function sitemap() {
   if (isStaging) return [];
 
-  return staticRoutes.map((path) => ({
-    url: `${baseUrl}${path}/`,
-    lastModified: new Date(),
-    changeFrequency:
-      path === "/" ||
-      path.startsWith("/nmims") ||
-      path.startsWith("/amity") ||
-      path.startsWith("/smu") ||
-      path.startsWith("/muj") ||
-      path.startsWith("/bennett") ||
-      path.startsWith("/programs")
-        ? "weekly"
-        : "monthly",
-    priority:
+  return staticRoutes.map((path) => {
+    const url =
       path === "/"
-        ? 1
-        : path.startsWith("/nmims") ||
-          path.startsWith("/amity") ||
-          path.startsWith("/jain") ||
-          path.startsWith("/muj") ||
-          path.startsWith("/smu") ||
-          path.startsWith("/shoolini") ||
-          path.startsWith("/bennett") ||
-          path.startsWith("/programs")
-        ? 0.9
-        : 0.7,
-  }));
+        ? `${baseUrl}/` // ✅ FIX: only single slash
+        : `${baseUrl}${path}/`;
+
+    return {
+      url,
+      lastModified: new Date(),
+      changeFrequency:
+        path === "/" ||
+        path.startsWith("/nmims") ||
+        path.startsWith("/amity") ||
+        path.startsWith("/smu") ||
+        path.startsWith("/muj") ||
+        path.startsWith("/bennett") ||
+        path.startsWith("/programs")
+          ? "weekly"
+          : "monthly",
+      priority:
+        path === "/"
+          ? 1
+          : path.startsWith("/nmims") ||
+            path.startsWith("/amity") ||
+            path.startsWith("/jain") ||
+            path.startsWith("/muj") ||
+            path.startsWith("/smu") ||
+            path.startsWith("/shoolini") ||
+            path.startsWith("/bennett") ||
+            path.startsWith("/programs")
+          ? 0.9
+          : 0.7,
+    };
+  });
 }
