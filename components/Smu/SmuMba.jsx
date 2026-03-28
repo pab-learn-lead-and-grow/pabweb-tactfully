@@ -1432,7 +1432,7 @@ export default function Page() {
                   tag: "Most-Loved",
                   duration: "3 years",
                   validity: "6 years",
-                  coursePath: "/smu/sikkim-manipal-online-bba",
+                  coursePath: "/smu/sikkim-manipal-online-ba",
                 },
                 {
                   id: 3,

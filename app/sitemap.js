@@ -64,7 +64,6 @@ const staticRoutes = [
   "/muj/manipal-jaipur-online-majmc",
   "/smu",
   "/smu/sikkim-manipal-online-mba",
-  "/smu/sikkim-manipal-online-bba",
   "/smu/sikkim-manipal-online-bcom",
   "/smu/sikkim-manipal-online-ba",
   "/smu/sikkim-manipal-online-mca",

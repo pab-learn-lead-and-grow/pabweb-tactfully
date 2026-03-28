@@ -856,8 +856,7 @@ export default function Page() {
             </h3>
             <ul className="text-black text-[12px] list-disc px-5 space-y-2 md:space-y-4 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               <li>
-                Applicants must have passed 10+2 from a recognized board with a
-                minimum required percentage and English as a compulsory subject.
+                Applicants must have passed XII standard from any recognised Education Board with minimum 60% marks (Class XII Best of 3 subjects score) and English as compulsory subject OR IB Board with minimum score of 24 credits, 3 Higher level and 3 standard level subjects.
               </li>
             </ul>
           </div>
@@ -868,8 +867,7 @@ export default function Page() {
             </h3>
             <ul className="text-black text-[12px] list-disc px-5 space-y-2 md:space-y-4 md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               <li>
-                Applicants must have completed equivalent qualification with
-                required marks and meet English language requirements.
+                Applicants must have passed with 55% aggregate marks in grade 12th/ A level or equivalent and English language requirement (ELR)
               </li>
             </ul>
           </div>
@@ -1092,6 +1090,7 @@ The Bennett University Online BBA fees are designed to be affordable and accessi
                              <li>
                               Loan cancellation charges, if any, will be applicable as per the lender’s policies.
                              </li>
+                             <li>Bennett University follows the cancellation and refund policy as per UGC guidelines.</li>
                             
                            </ul>
                  
@@ -1147,7 +1146,7 @@ BBA Degree Certificate
             {/* IMAGE that appears ONLY on mobile, above CTA */}
             <div className="md:hidden flex justify-center">
               <img
-                src="/bennett/degree/bbaSample.png"
+                src="/bennett/degree/mba.png"
                 alt="Bennett University Online BBA degree certificate sample"
                 className="w-full max-w-xs rounded-lg shadow-sm"
               />

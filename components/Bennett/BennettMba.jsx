@@ -1013,6 +1013,7 @@ Scholarships are provided as tuition fee waivers and are granted after successfu
                        <li>
                         Loan cancellation charges, if any, will be applicable as per the lender’s policies.
                        </li>
+                        <li>Bennett University follows the cancellation and refund policy as per UGC guidelines.</li>
                       
                      </ul>
            
@@ -1068,7 +1069,7 @@ Scholarships are provided as tuition fee waivers and are granted after successfu
                  {/* IMAGE that appears ONLY on mobile, above CTA */}
                  <div className="md:hidden flex justify-center">
                    <img
-                     src="/bennett/degree/mbaSample.png"
+                     src="/bennett/degree/mba.png"
                      alt="Bennett University Online MBA degree certificate sample"
                      className="w-full max-w-xs rounded-lg shadow-sm"
                    />
