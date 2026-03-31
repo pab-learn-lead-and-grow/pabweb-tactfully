@@ -8,7 +8,7 @@ import { supabase } from "@/lib/supabaseClient";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-export const dynamic = 'force-static';
+export const revalidate = 3600; // ISR: Revalidate every hour
 
 export async function generateMetadata({ params }) {
   const { slug, newsSlug } = await params;

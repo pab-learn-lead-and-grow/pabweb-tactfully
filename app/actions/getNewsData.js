@@ -5,14 +5,30 @@ import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-const supabaseServer = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false,
-  },
-});
+const supabaseServer = supabaseUrl && supabaseServiceKey
+  ? createClient(supabaseUrl, supabaseServiceKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    })
+  : null;
+
+let newsDataCache = null;
+let newsDataCacheTimestamp = 0;
+const NEWS_DATA_CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 export async function getNewsData() {
+  const now = Date.now();
+  
+  if (newsDataCache && (now - newsDataCacheTimestamp) < NEWS_DATA_CACHE_DURATION) {
+    return newsDataCache;
+  }
+  
+  if (!supabaseServer) {
+    return newsDataCache || { trending: [], latest: [], categories: [] };
+  }
+  
   try {
     const [newsRes, catRes] = await Promise.all([
       supabaseServer
@@ -43,7 +59,7 @@ export async function getNewsData() {
 
     const merged = newsData.map((item) => {
       let imageUrl = item.image_url;
-      if (imageUrl && !imageUrl.startsWith("http")) {
+      if (imageUrl && !imageUrl.startsWith("http") && supabaseServer) {
         const { data } = supabaseServer.storage.from("News").getPublicUrl(imageUrl);
         imageUrl = data?.publicUrl;
       }
@@ -67,9 +83,11 @@ export async function getNewsData() {
 
     const categories = catData.sort((a, b) => a.category_name.localeCompare(b.category_name));
 
-    return { trending, latest, categories };
+    newsDataCache = { trending, latest, categories };
+    newsDataCacheTimestamp = now;
+    return newsDataCache;
   } catch (err) {
     console.error("getNewsData error:", err);
-    return { trending: [], latest: [], categories: [] };
+    return newsDataCache || { trending: [], latest: [], categories: [] };
   }
 }

@@ -60,10 +60,16 @@ export const metadata = {
       description:
         "Online MCom programs offered by top UGC-approved universities in India with specialization in accounting, finance, banking, taxation and commerce.",
       provider: {
-        "@type": "Organization",
-        name: "Radhya Education Academy",
-        url: siteUrl,
+        "@id": "https://radhyaeducationacademy.com/#organization"
       },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      }
     }),
   },
 };

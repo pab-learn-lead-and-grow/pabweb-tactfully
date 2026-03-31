@@ -60,10 +60,16 @@ export const metadata = {
       description:
         "Online BCom International programs offered by top universities with global curriculum, focusing on international business, finance, trade and global markets.",
       provider: {
-        "@type": "Organization",
-        name: "Radhya Education Academy",
-        url: siteUrl,
+        "@id": "https://radhyaeducationacademy.com/#organization"
       },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      }
     }),
   },
 };

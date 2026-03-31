@@ -1,0 +1,498 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://radhyaeducationacademy.com/#organization",
+      "name": "Radhya Education Academy",
+      "url": "https://radhyaeducationacademy.com",
+      "description": "Online education consultancy helping students and working professionals choose UGC-approved online degree programs in India.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "contact@radhyaeducationacademy.com"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://radhyaeducationacademy.com/#website",
+      "url": "https://radhyaeducationacademy.com",
+      "name": "Radhya Education Academy",
+      "publisher": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://radhyaeducationacademy.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://radhyaeducationacademy.com/#about",
+      "url": "https://radhyaeducationacademy.com/about-us/",
+      "name": "About Us - Radhya Education Academy",
+      "isPartOf": {
+        "@id": "https://radhyaeducationacademy.com/#website"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://radhyaeducationacademy.com/#contact",
+      "url": "https://radhyaeducationacademy.com/contact-us/",
+      "name": "Contact Us - Radhya Education Academy",
+      "isPartOf": {
+        "@id": "https://radhyaeducationacademy.com/#website"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-mba/#course",
+      "name": "Online MBA",
+      "alternateName": "Master of Business Administration",
+      "url": "https://radhyaeducationacademy.com/programs/online-mba/",
+      "description": "Online MBA programs offered by top UGC-approved universities in India with flexible learning and career growth opportunities.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      },
+      "subjectOf": {
+        "@type": "Article",
+        "url": "https://radhyaeducationacademy.com/blogs/online-mba-for-career-growth/"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-mba-wx/#course",
+      "name": "Online Executive MBA",
+      "alternateName": "Working Executive MBA",
+      "url": "https://radhyaeducationacademy.com/programs/online-mba-wx/",
+      "description": "Online MBA programs designed for working professionals with flexible learning, leadership development and career advancement opportunities.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-bba/#course",
+      "name": "Online BBA",
+      "alternateName": "Bachelor of Business Administration",
+      "url": "https://radhyaeducationacademy.com/programs/online-bba/",
+      "description": "Online BBA programs offered by top UGC-approved universities in India for students after 12th with flexible learning and strong career foundation.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      },
+      "subjectOf": {
+        "@type": "Article",
+        "url": "https://radhyaeducationacademy.com/blogs/how-online-bba-builds-entrepreneurs/"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-bca/#course",
+      "name": "Online BCA",
+      "alternateName": "Bachelor of Computer Applications",
+      "url": "https://radhyaeducationacademy.com/programs/online-bca/",
+      "description": "Online BCA programs offered by top UGC-approved universities in India for students after 12th with career opportunities in IT, software development, data science and technology fields.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-mca/#course",
+      "name": "Online MCA",
+      "alternateName": "Master of Computer Applications",
+      "url": "https://radhyaeducationacademy.com/programs/online-mca/",
+      "description": "Online MCA programs offered by top UGC-approved universities in India with career opportunities in software development, data science, cloud computing and IT fields.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-bcom/#course",
+      "name": "Online BCom",
+      "alternateName": "Bachelor of Commerce",
+      "url": "https://radhyaeducationacademy.com/programs/online-bcom/",
+      "description": "Online BCom programs offered by top UGC-approved universities in India for students after 12th with career opportunities in accounting, finance, banking, taxation and business management.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-bcom-honours/#course",
+      "name": "Online BCom Honours",
+      "url": "https://radhyaeducationacademy.com/programs/online-bcom-honours/",
+      "description": "Online BCom Honours programs offered by top UGC-approved universities in India for students after 12th with specialization in accounting, finance, taxation and business studies.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-bcom-international/#course",
+      "name": "Online BCom International Finance and Accounting",
+      "url": "https://radhyaeducationacademy.com/programs/online-bcom-international/",
+      "description": "Online BCom International programs offered by top universities with global curriculum, focusing on international business, finance, trade and global markets.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-ba/#course",
+      "name": "Online BA",
+      "alternateName": "Bachelor of Arts",
+      "url": "https://radhyaeducationacademy.com/programs/online-ba/",
+      "description": "Online BA programs offered by top UGC-approved universities in India for students after 12th with flexible learning and diverse career opportunities in humanities and social sciences.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-ma/#course",
+      "name": "Online MA",
+      "alternateName": "Master of Arts",
+      "url": "https://radhyaeducationacademy.com/programs/online-ma/",
+      "description": "Online MA programs offered by top UGC-approved universities in India with specializations in humanities, social sciences, public policy, psychology, economics and more.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-mcom/#course",
+      "name": "Online MCom",
+      "alternateName": "Master of Commerce",
+      "url": "https://radhyaeducationacademy.com/programs/online-mcom/",
+      "description": "Online MCom programs offered by top UGC-approved universities in India with specialization in accounting, finance, banking, taxation and commerce.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-bajmc/#course",
+      "name": "Online BAJMC",
+      "alternateName": "Bachelor of Arts in Journalism and Mass Communication",
+      "url": "https://radhyaeducationacademy.com/programs/online-bajmc/",
+      "description": "Online BAJMC programs offered by top UGC-approved universities in India for students after 12th with career opportunities in journalism, media, PR, advertising and digital communication.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-majmc/#course",
+      "name": "Online MAJMC",
+      "alternateName": "Master of Arts in Journalism and Mass Communication",
+      "url": "https://radhyaeducationacademy.com/programs/online-majmc/",
+      "description": "Online MAJMC programs offered by top UGC-approved universities in India with career opportunities in journalism, media, PR, advertising and digital communication.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-msc/#course",
+      "name": "Online MSc",
+      "alternateName": "Master of Science",
+      "url": "https://radhyaeducationacademy.com/programs/online-msc/",
+      "description": "Online MSc programs offered by top UGC-approved universities in India with specializations in data science, IT, mathematics, physics, chemistry and other science fields.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://radhyaeducationacademy.com/programs/online-diploma/#course",
+      "name": "Online Diploma",
+      "url": "https://radhyaeducationacademy.com/programs/online-diploma/",
+      "description": "Online diploma programs offered by top institutions in India with flexible learning and career-focused skills across business, IT, healthcare, design and other domains.",
+      "provider": {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Online Degree Program"
+      }
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://radhyaeducationacademy.com/amity/#university",
+      "name": "Amity University Online",
+      "alternateName": "Amity",
+      "url": "https://radhyaeducationacademy.com/amity/",
+      "makesOffer": [
+        { "@type": "Course", "name": "Online MBA", "url": "https://radhyaeducationacademy.com/amity/amity-online-mba/" },
+        { "@type": "Course", "name": "Online BBA", "url": "https://radhyaeducationacademy.com/amity/amity-online-bba/" },
+        { "@type": "Course", "name": "Online BCom", "url": "https://radhyaeducationacademy.com/amity/amity-online-bcom/" },
+        { "@type": "Course", "name": "Online BCom Honours", "url": "https://radhyaeducationacademy.com/amity/amity-online-bcom-honours/" },
+        { "@type": "Course", "name": "Online BCom International Finance and Accounting", "url": "https://radhyaeducationacademy.com/amity/amity-online-bcom-international-finance-and-accounting/" },
+        { "@type": "Course", "name": "Online BA", "url": "https://radhyaeducationacademy.com/amity/amity-online-ba/" },
+        { "@type": "Course", "name": "Online BCA", "url": "https://radhyaeducationacademy.com/amity/amity-online-bca/" },
+        { "@type": "Course", "name": "Online MCA", "url": "https://radhyaeducationacademy.com/amity/amity-online-mca/" },
+        { "@type": "Course", "name": "Online MA", "url": "https://radhyaeducationacademy.com/amity/amity-online-ma/" },
+        { "@type": "Course", "name": "Online MCom", "url": "https://radhyaeducationacademy.com/amity/amity-online-mcom/" },
+        { "@type": "Course", "name": "Online MAJMC", "url": "https://radhyaeducationacademy.com/amity/amity-online-majmc/" },
+        { "@type": "Course", "name": "Online BAJMC", "url": "https://radhyaeducationacademy.com/amity/amity-online-bajmc/" },
+        { "@type": "Course", "name": "Online MSc Data Science", "url": "https://radhyaeducationacademy.com/amity/amity-online-msc-data-science/" },
+        { "@type": "Course", "name": "Online Integrated Programs", "url": "https://radhyaeducationacademy.com/amity/amity-online-integrated-programs/" }
+      ]
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://radhyaeducationacademy.com/jain/#university",
+      "name": "Jain University Online",
+      "alternateName": "Jain",
+      "url": "https://radhyaeducationacademy.com/jain/",
+      "makesOffer": [
+        { "@type": "Course", "name": "Online MBA", "url": "https://radhyaeducationacademy.com/jain/jain-online-mba/" },
+        { "@type": "Course", "name": "Online BBA", "url": "https://radhyaeducationacademy.com/jain/jain-online-bba/" },
+        { "@type": "Course", "name": "Online BCom", "url": "https://radhyaeducationacademy.com/jain/jain-online-bcom/" },
+        { "@type": "Course", "name": "Online BCA", "url": "https://radhyaeducationacademy.com/jain/jain-online-bca/" },
+        { "@type": "Course", "name": "Online MCA", "url": "https://radhyaeducationacademy.com/jain/jain-online-mca/" },
+        { "@type": "Course", "name": "Online MA", "url": "https://radhyaeducationacademy.com/jain/jain-online-ma/" },
+        { "@type": "Course", "name": "Online MCom", "url": "https://radhyaeducationacademy.com/jain/jain-online-mcom/" }
+      ]
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://radhyaeducationacademy.com/nmims/#university",
+      "name": "NMIMS Mumbai",
+      "alternateName": "Narsee Monjee Institute of Management Studies",
+      "url": "https://radhyaeducationacademy.com/nmims/",
+      "makesOffer": [
+        { "@type": "Course", "name": "Online MBA", "url": "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-mba/" },
+        { "@type": "Course", "name": "Online MBA for Working Executives", "url": "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-mba-working-executives/" },
+        { "@type": "Course", "name": "Online BBA", "url": "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-bba/" },
+        { "@type": "Course", "name": "Online BCom", "url": "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-bcom/" },
+        { "@type": "Course", "name": "Online Diploma", "url": "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-diploma/" },
+        { "@type": "Course", "name": "Online Certification", "url": "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-certification/" }
+      ]
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://radhyaeducationacademy.com/smu/#university",
+      "name": "Sikkim Manipal University",
+      "alternateName": "SMU",
+      "url": "https://radhyaeducationacademy.com/smu/",
+      "makesOffer": [
+        { "@type": "Course", "name": "Online MBA", "url": "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-mba/" },
+        { "@type": "Course", "name": "Online BCom", "url": "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-bcom/" },
+        { "@type": "Course", "name": "Online BA", "url": "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-ba/" },
+        { "@type": "Course", "name": "Online MCA", "url": "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-mca/" },
+        { "@type": "Course", "name": "Online MA", "url": "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-ma/" },
+        { "@type": "Course", "name": "Online MCom", "url": "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-mcom/" }
+      ]
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://radhyaeducationacademy.com/muj/#university",
+      "name": "Manipal Jaipur",
+      "alternateName": "MUJ",
+      "url": "https://radhyaeducationacademy.com/muj/",
+      "makesOffer": [
+        { "@type": "Course", "name": "Online MBA", "url": "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-mba/" },
+        { "@type": "Course", "name": "Online BBA", "url": "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-bba/" },
+        { "@type": "Course", "name": "Online BCom", "url": "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-bcom/" },
+        { "@type": "Course", "name": "Online BCA", "url": "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-bca/" },
+        { "@type": "Course", "name": "Online MCA", "url": "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-mca/" },
+        { "@type": "Course", "name": "Online MA", "url": "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-ma/" },
+        { "@type": "Course", "name": "Online MCom", "url": "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-mcom/" },
+        { "@type": "Course", "name": "Online MAJMC", "url": "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-majmc/" }
+      ]
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://radhyaeducationacademy.com/shoolini/#university",
+      "name": "Shoolini University",
+      "url": "https://radhyaeducationacademy.com/shoolini/"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://radhyaeducationacademy.com/bennett/#university",
+      "name": "Bennett University Online",
+      "alternateName": "Bennett",
+      "url": "https://radhyaeducationacademy.com/bennett/",
+      "makesOffer": [
+        { "@type": "Course", "name": "Online MBA", "url": "https://radhyaeducationacademy.com/bennett/bennett-online-mba/" },
+        { "@type": "Course", "name": "Online BBA", "url": "https://radhyaeducationacademy.com/bennett/bennett-online-bba/" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://radhyaeducationacademy.com/blogs/online-mba-for-career-growth/#article",
+      "headline": "Online MBA for Career Growth",
+      "url": "https://radhyaeducationacademy.com/blogs/online-mba-for-career-growth/",
+      "about": {
+        "@type": "Course",
+        "name": "Online MBA"
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://radhyaeducationacademy.com/blogs/nmims-for-working-professionals/#article",
+      "headline": "NMIMS for Working Professionals",
+      "url": "https://radhyaeducationacademy.com/blogs/nmims-for-working-professionals/",
+      "about": {
+        "@type": "CollegeOrUniversity",
+        "name": "NMIMS Mumbai"
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://radhyaeducationacademy.com/blogs/how-online-bba-builds-entrepreneurs/#article",
+      "headline": "How Online BBA Builds Entrepreneurs",
+      "url": "https://radhyaeducationacademy.com/blogs/how-online-bba-builds-entrepreneurs/",
+      "about": {
+        "@type": "Course",
+        "name": "Online BBA"
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://radhyaeducationacademy.com/blogs/online-vs-regular-mba/#article",
+      "headline": "Online vs Regular MBA",
+      "url": "https://radhyaeducationacademy.com/blogs/online-vs-regular-mba/",
+      "about": {
+        "@type": "Course",
+        "name": "Online MBA"
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://radhyaeducationacademy.com/blogs/the-financial-catalyst/#article",
+      "headline": "The Financial Catalyst",
+      "url": "https://radhyaeducationacademy.com/blogs/the-financial-catalyst/"
+    },
+    {
+      "@type": "Article",
+      "@id": "https://radhyaeducationacademy.com/blogs/the-digital-revolution/#article",
+      "headline": "The Digital Revolution",
+      "url": "https://radhyaeducationacademy.com/blogs/the-digital-revolution/"
+    }
+  ]
+}

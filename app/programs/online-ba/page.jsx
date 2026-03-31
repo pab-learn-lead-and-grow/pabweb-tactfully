@@ -60,10 +60,16 @@ export const metadata = {
       description:
         "Online BA programs offered by top UGC-approved universities in India for students after 12th with flexible learning and diverse career opportunities in humanities and social sciences.",
       provider: {
-        "@type": "Organization",
-        name: "Radhya Education Academy",
-        url: siteUrl,
+        "@id": "https://radhyaeducationacademy.com/#organization"
       },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      }
     }),
   },
 };

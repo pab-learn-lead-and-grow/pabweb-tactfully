@@ -373,41 +373,44 @@ export default function Page() {
                                </div>
                              </section>
            
-                 <section className="w-full bg-white p-10 pt-0">
-                   {/* ======= ABOUT NMIMS SECTION ======= */}
-                   <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
-                     {/* LEFT TEXT */}
-                     <div>
-                       <h2 className="text-[32px] md:text-4xl mt-15 lg:text-[64px] font-bold text-[#270652] mb-6">
-                         About <span className="text-[#F26722] ">MUJ </span>
-                       </h2>
-           
-                       <p className="text-black leading-relaxed text-xs lg:text-[18px] mb-10">
-                         Manipal University Jaipur (MUJ) is a UGC-approved, NAAC A+
-                         accredited university known for its strong academic standards and
-                         industry-relevant teaching. As part of the prestigious Manipal
-                         Group, MUJ brings innovation, credibility, and global recognition
-                         to online education. Its UGC-entitled online degree programs
-                         provide flexible learning options for students and working
-                         professionals across India. Backed by an extensive curriculum,
-                         experienced faculty, and a cutting-edge digital platform, MUJ
-                         offers a complete learning experience aligned with industry
-                         expectations.
-                       </p>
-                     </div>
-           
-                     {/* RIGHT IMAGE WITH CURVED SHAPE */}
-                     <div className="relative w-full h-full flex md:justify-end ">
-                       <div className="max-w-7xl overflow-hidden md:-mr-10 ">
-                         <img
-                           src="/muj/aboutMuj.png"
-                           alt="Students"
-                           className="w-full h-full rounded-2xl md:rounded-bl-full object-cover"
-                         />
-                       </div>
-                     </div>
-                   </div>
-                 </section>
+ <section className="w-full bg-white py-10 px-4 lg:px-10 pt-0">
+        {/* ======= ABOUT MUJ SECTION ======= */}
+        <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
+          {/* LEFT TEXT */}
+          <div>
+            <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-10 lg:mt-15 font-bold text-[#270652] mb-4">
+                   About <span className="text-[#F26722] ">MUJ </span>
+                 </h2>
+     
+                 <p className="text-black leading-relaxed text-xs lg:text-[18px] mb-10">
+                   Manipal University Jaipur (MUJ) is a UGC-approved, NAAC A+
+                   accredited university known for its strong academic standards and
+                   industry-relevant teaching. As part of the prestigious Manipal
+                   Group, MUJ brings innovation, credibility, and global recognition
+                   to online education. Its UGC-entitled online degree programs
+                   provide flexible learning options for students and working
+                   professionals across India. Backed by an extensive curriculum,
+                   experienced faculty, and a cutting-edge digital platform, MUJ
+                   offers a complete learning experience aligned with industry
+                   expectations.
+                 </p>
+               </div>
+     
+               {/* RIGHT IMAGE WITH CURVED SHAPE */}
+                               <div className="relative w-full h-full flex md:justify-end">
+                        <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-full">
+                          <Image
+                            src="/muj/aboutMuj.png"
+                            alt="Students"
+                            fill
+                            className="rounded-2xl md:rounded-bl-full object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            priority
+                          />
+                        </div>
+                      </div>
+             </div>
+           </section>
                  {/* ======= SNAPSHOT SECTION ======= */}
                            <section className="w-full xl:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
                              <div className="max-w-7xl mx-auto">
@@ -1023,7 +1026,7 @@ export default function Page() {
       />
 
       <section className="w-full flex items-center justify-center pt-10 px-6 md:px-18">
-       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-20">
+       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center font-[Inter] lg:gap-20">
      
          {/* LEFT CONTENT */}
          <div className="space-y-5">
@@ -1042,11 +1045,14 @@ export default function Page() {
      
            {/* IMAGE that appears ONLY on mobile, above CTA */}
            <div className="md:hidden flex justify-center">
-             <img
+             <Image
                src="/muj/mujBcaDegree.png"
                alt="Certificate Preview"
-               className="w-full max-w-xs rounded-lg shadow-sm"
-             />
+               width={300}
+                      height={200}
+                      className="w-full max-w-xs rounded-lg shadow-sm"
+                      sizes="100vw"
+                    />
            </div>
      
            {/* CTA BUTTON */}
@@ -1065,11 +1071,14 @@ export default function Page() {
      
          {/* RIGHT IMAGE (visible only on md+ screens) */}
          <div className="hidden md:flex justify-center mt-5">
-           <img
+           <Image
              src="/muj/mujBcaDegree.png"
              alt="Certificate Preview"
-             className="w-full max-w-sm rounded-lg shadow-sm"
-           />
+             width={400}
+        height={250}
+        className="w-full max-w-sm rounded-lg shadow-sm"
+        sizes="(max-width: 768px) 100vw, 400px"
+      />
          </div>
      
        </div>

@@ -21,10 +21,50 @@ export default function robots() {
 
   return {
     rules: [
-      {
+       {
         userAgent: "*",
         allow: "/",
-        disallow: "/_next/"
+        disallow: [
+          "/_next/",
+          "/*?category=", 
+        ],
+      },
+      // AI Crawlers (explicit allow - optional but good)
+      {
+        userAgent: "GPTBot",
+        allow: "/",
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
+      },
+      {
+        userAgent: "Google-Extended",
+        allow: "/",
+      },
+      {
+        userAgent: "CCBot",
+        allow: "/",
+      },
+      {
+        userAgent: "anthropic-ai",
+        allow: "/",
+      },
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: "/",
+      },
+      {
+        userAgent: "YouBot", // You.com AI
+        allow: "/",
+      },
+      {
+        userAgent: "Meta-ExternalAgent", // Meta AI
+        allow: "/",
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

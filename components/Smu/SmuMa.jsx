@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import {
   Download,
@@ -60,7 +59,6 @@ export default function Page() {
       desc: "Learning Path AI helps structure study schedules for improved learning outcomes and better results.",
     },
   ];
-
 
   const steps = [
     {
@@ -152,7 +150,7 @@ export default function Page() {
 
   const semesters = [1, 2, 3, 4];
 
-    const semSuffix = {
+  const semSuffix = {
     1: "st",
     2: "nd",
     3: "rd",
@@ -248,7 +246,6 @@ export default function Page() {
       ],
     },
   };
-  
 
   const whyCards = [
     {
@@ -408,7 +405,7 @@ export default function Page() {
           {/* TITLE + DESCRIPTION */}
           <div className="flex flex-col items-start">
             <MotionWrapper
-            as="h1"
+              as="h1"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
@@ -470,33 +467,34 @@ export default function Page() {
               className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
             >
               <CounsellingModal>
-               <button className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
-                             Download Brochure
-                             <Download className="w-4 h-4 md:w-5 md:h-5" />
-                           </button>
-                           </CounsellingModal>
-<CounsellingModal>
-  <button
-    className="bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
+                <button
+                  className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
+                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium"
+                >
+                  Download Brochure
+                  <Download className="w-4 h-4 md:w-5 md:h-5" />
+                </button>
+              </CounsellingModal>
+              <CounsellingModal>
+                <button
+                  className="bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
     ease-out hover:scale-105 hover:shadow-lg active:scale-100 flex items-center justify-center gap-2
     px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium"
-  >
-    Talk to an Expert
-    <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-  </button>
-</CounsellingModal>
+                >
+                  Talk to an Expert
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                </button>
+              </CounsellingModal>
             </MotionWrapper>
           </div>
         </div>
       </section>
-
-      <section className="w-full bg-white p-10 pt-0">
-        {/* ======= ABOUT NMIMS SECTION ======= */}
+      <section className="w-full bg-white py-10 px-4 lg:px-10 pt-0">
+        {/* ======= ABOUT SMU SECTION ======= */}
         <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-[32px] md:text-4xl mt-15 lg:text-[64px] font-bold text-[#270652] mb-6">
+            <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-10 lg:mt-15 font-bold text-[#270652] mb-4">
               About <span className="text-[#B35531] ">SMU </span>
             </h2>
 
@@ -510,12 +508,15 @@ export default function Page() {
           </div>
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
-          <div className="relative w-full h-full flex md:justify-end ">
-            <div className="max-w-7xl overflow-hidden md:-mr-10">
-              <img
+          <div className="relative w-full h-full flex md:justify-end">
+            <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-full">
+              <Image
                 src="/smu/aboutSmu.jpeg"
                 alt="Students"
-                className="w-full h-full rounded-2xl md:rounded-bl-full object-cover"
+                fill
+                className="rounded-2xl md:rounded-bl-full object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
           </div>
@@ -526,7 +527,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <MotionWrapper
-          as="h2"
+            as="h2"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -668,17 +669,17 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <WhyChooseUs title = "Why Choose SMU Online MA" cards={whyCards}  />
+      <WhyChooseUs title="Why Choose SMU Online MA" cards={whyCards} />
 
       {/* ======================= SYLLABUS SECTION ======================= */}
 
-         <SyllabusSection
-  title="SMU Online MA Syllabus"
-  subjects={subjects}
-  semesters={semesters}
-  semSuffix={semSuffix}
-  topicsData={topicsData}
-/>
+      <SyllabusSection
+        title="SMU Online MA Syllabus"
+        subjects={subjects}
+        semesters={semesters}
+        semSuffix={semSuffix}
+        topicsData={topicsData}
+      />
 
       <section className="w-full font-[Inter] px-4 md:px-10 lg:px-20 py-12">
         <div className="p-6 md:p-10">
@@ -760,7 +761,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto relative">
           {/* Main Animated Heading */}
           <MotionWrapper
-          as="h2"
+            as="h2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -913,9 +914,7 @@ export default function Page() {
         </div>
       </section>
 
-      <MujCareerServices
-        benefits={benefits}
-      />
+      <MujCareerServices benefits={benefits} />
 
       <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
         <div className="px-2 w-full">
@@ -935,45 +934,41 @@ export default function Page() {
 
               {/* CTA visible only on large screens */}
               <CounsellingModal>
-                <button
-                className="hidden lg:flex text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit"
-              >
-                Compare all Plans
-              </button>
+                <button className="hidden lg:flex text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit">
+                  Compare all Plans
+                </button>
               </CounsellingModal>
             </div>
 
             {/* RIGHT SIDE CARDS */}
             <div className="w-full lg:w-[35%] flex justify-center">
-              <FeesCarousel 
-              cards = {[
-      {
-        title: "Annual Payment",
-        amount: "₹75,000/-",
-        sub: "Inclusive of all taxes",
-      },
-      {
-        title: "Semester Wise",
-        amount: "₹18,750/-",
-        sub: "Inclusive of all taxes",
-      },
-      {
-        title: "EMI starting at",
-        amount: "₹3,125/-",
-        sub: "per month [Terms & Conditions apply]",
-      },
-    ]}
-    />
+              <FeesCarousel
+                cards={[
+                  {
+                    title: "Annual Payment",
+                    amount: "₹75,000/-",
+                    sub: "Inclusive of all taxes",
+                  },
+                  {
+                    title: "Semester Wise",
+                    amount: "₹18,750/-",
+                    sub: "Inclusive of all taxes",
+                  },
+                  {
+                    title: "EMI starting at",
+                    amount: "₹3,125/-",
+                    sub: "per month [Terms & Conditions apply]",
+                  },
+                ]}
+              />
             </div>
 
             {/* CTA below carousel on mobile only */}
-          <CounsellingModal>
-              <button
-              className="lg:hidden text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit mx-auto mt-3"
-            >
-              Compare all Plans
-            </button>
-          </CounsellingModal>
+            <CounsellingModal>
+              <button className="lg:hidden text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+                Compare all Plans
+              </button>
+            </CounsellingModal>
           </div>
         </div>
       </section>
@@ -1043,32 +1038,36 @@ export default function Page() {
 
             {/* IMAGE that appears ONLY on mobile, above CTA */}
             <div className="md:hidden flex justify-center">
-              <img
+              <Image
                 src="/smu/smuMaDegree.png"
                 alt="Certificate Preview"
-                className="w-full max-w-xs rounded-lg shadow-sm"
-              />
+                width={300}
+                      height={200}
+                      className="w-full max-w-xs rounded-lg shadow-sm"
+                      sizes="100vw"
+                    />
             </div>
 
             {/* CTA BUTTON  */}
             <div className="flex justify-center md:justify-start">
-             <CounsellingModal>
-               <button
-                className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200"
-              >
-                Know more
-              </button>
-             </CounsellingModal>
+              <CounsellingModal>
+                <button className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200">
+                  Know more
+                </button>
+              </CounsellingModal>
             </div>
           </div>
 
           {/* RIGHT IMAGE (visible only on md+ screens) */}
           <div className="hidden md:flex justify-center mt-5">
-            <img
+            <Image
               src="/smu/smuMaDegree.png"
               alt="Certificate Preview"
-              className="w-full max-w-sm rounded-lg shadow-sm"
-            />
+               width={400}
+        height={250}
+        className="w-full max-w-sm rounded-lg shadow-sm"
+        sizes="(max-width: 768px) 100vw, 400px"
+      />
           </div>
         </div>
       </section>
@@ -1076,7 +1075,7 @@ export default function Page() {
       <section className="w-full bg-white mt-10 lg:mt-20 px-4 md:px-12 lg:px-20 font-[Inter]">
         {/* Small Header */}
         <MotionWrapper
-        as="h2"
+          as="h2"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -1283,7 +1282,7 @@ export default function Page() {
             {/* Title */}
             <div className="text-center md:mb-4 pb-3">
               <MotionWrapper
-              as="h2"
+                as="h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -1367,9 +1366,9 @@ export default function Page() {
                 ))}
 
                 {/* CTA */}
-                 <CounsellingModal>
-                <button
-                  className="
+                <CounsellingModal>
+                  <button
+                    className="
                     w-[200px] 
                     mt-6 py-3 px-6 
                     rounded-lg 
@@ -1379,83 +1378,84 @@ export default function Page() {
                     self-center md:self-start
                     shadow-lg
                   "
-                >
-                  Know more
-                </button></CounsellingModal>
+                  >
+                    Know more
+                  </button>
+                </CounsellingModal>
               </MotionWrapper>
             </div>
           </MotionWrapper>
         </div>
       </section>
 
-       <UnivCourses
-              heading="Explore All Programs"
-              courses={[
-                {
-                  id: 1,
-                  universityLogo: "/smu.png",
-                  universityName: "SMU",
-                  title: "Master of Business Administration",
-                  subtitle: "Sikkim Manipal",
-                  tag: "Most-Loved",
-                  duration: "2 years",
-                  validity: "4 years",
-                  coursePath: "/smu/sikkim-manipal-online-mba",
-                },
-                 {
-                  id: 2,
-                  universityLogo: "/smu.png",
-                  universityName: "SMU",
-                  title: "Bachelor of Arts",
-                  subtitle: "Sikkim Manipal",
-                  tag: "Most-Loved",
-                  duration: "3 years",
-                  validity: "6 years",
-                  coursePath: "/smu/sikkim-manipal-online-ba",
-                },
-                {
-                  id: 3,
-                  universityLogo: "/smu.png",
-                  universityName: "SMU",
-                  title: "Bachelor of Commerce",
-                  subtitle: "Sikkim Manipal",
-                  tag: "Most-Loved",
-                  duration: "3 years",
-                  validity: "6 years",
-                  coursePath: "/smu/sikkim-manipal-online-bcom",
-                },
-                {
-                  id: 4,
-                  universityLogo: "/smu.png",
-                  universityName: "SMU",
-                  title: "Master of Computer Applications",
-                  subtitle: "Sikkim Manipal",
-                  duration: "2 years",
-                  validity: "4 years",
-                  coursePath: "/smu/sikkim-manipal-online-mca",
-                },
-                 {
-                  id: 5,
-                   universityLogo: "/smu.png",
-                  universityName: "SMU",
-                  title: "Master of Arts",
-                  subtitle: "Sikkim Manipal",
-                  duration: "2 years",
-                  validity: "4 years",
-                  coursePath: "/smu/sikkim-manipal-online-ma",
-                },
-                 {
-                  id: 6,
-                  universityLogo: "/smu.png",
-                  universityName: "SMU",
-                  title: "Master of Commerce",
-                  subtitle: "Manipal Jaipur",
-                  duration: "2 years",
-                  validity: "4 years",
-                  coursePath: "/smu/sikkim-manipal-online-mcom",
-                },
-              ]}
-            />
+      <UnivCourses
+        heading="Explore All Programs"
+        courses={[
+          {
+            id: 1,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Master of Business Administration",
+            subtitle: "Sikkim Manipal",
+            tag: "Most-Loved",
+            duration: "2 years",
+            validity: "4 years",
+            coursePath: "/smu/sikkim-manipal-online-mba",
+          },
+          {
+            id: 2,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Bachelor of Arts",
+            subtitle: "Sikkim Manipal",
+            tag: "Most-Loved",
+            duration: "3 years",
+            validity: "6 years",
+            coursePath: "/smu/sikkim-manipal-online-ba",
+          },
+          {
+            id: 3,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Bachelor of Commerce",
+            subtitle: "Sikkim Manipal",
+            tag: "Most-Loved",
+            duration: "3 years",
+            validity: "6 years",
+            coursePath: "/smu/sikkim-manipal-online-bcom",
+          },
+          {
+            id: 4,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Master of Computer Applications",
+            subtitle: "Sikkim Manipal",
+            duration: "2 years",
+            validity: "4 years",
+            coursePath: "/smu/sikkim-manipal-online-mca",
+          },
+          {
+            id: 5,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Master of Arts",
+            subtitle: "Sikkim Manipal",
+            duration: "2 years",
+            validity: "4 years",
+            coursePath: "/smu/sikkim-manipal-online-ma",
+          },
+          {
+            id: 6,
+            universityLogo: "/smu.png",
+            universityName: "SMU",
+            title: "Master of Commerce",
+            subtitle: "Manipal Jaipur",
+            duration: "2 years",
+            validity: "4 years",
+            coursePath: "/smu/sikkim-manipal-online-mcom",
+          },
+        ]}
+      />
 
       <Faculties
         heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."

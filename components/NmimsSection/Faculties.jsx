@@ -69,12 +69,13 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
               viewport={{ once: true }}
               className=" backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
-              <div className="aspect-3/3 relative overflow-hidden bg-[#270652]">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover transition-all duration-300"
-                />
+             <div className="w-64 aspect-square relative overflow-hidden bg-[#270652]">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-all duration-300"
+                  />
               </div>
 
               <div className="p-4 sm:p-5">

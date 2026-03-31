@@ -60,10 +60,16 @@ export const metadata = {
       description:
         "Online MSc programs offered by top UGC-approved universities in India with specializations in data science, IT, mathematics, physics, chemistry and other science fields.",
       provider: {
-        "@type": "Organization",
-        name: "Radhya Education Academy",
-        url: siteUrl,
+        "@id": "https://radhyaeducationacademy.com/#organization"
       },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      }
     }),
   },
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import FAQ from "../NmimsSection/FAQ";
 
 export default function HelpSection() {
@@ -107,8 +108,8 @@ export default function HelpSection() {
 
         {/* LEFT */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#3C087E] mb-4">
-            We’re Here to Help You
+          <h2 className="text-2xl md:text-4xl font-bold text-[#3C087E] mb-4">
+            We're Here to Help You
           </h2>
 
           <p className="text-[#3C3C43] text-sm sm:text-lg mb-8 max-w-lg">
@@ -116,11 +117,14 @@ export default function HelpSection() {
             and our team will review and guide you toward the right resolution.
           </p>
 
-         <div className="bg-white rounded-2xl p-6 shadow-md flex justify-center items-center h-[300px]">
-  <img
+         <div className="bg-white rounded-2xl p-6 shadow-md flex justify-center items-center h-[300px] relative">
+  <Image
     src="/Help.png"
     alt="Help"
+    width={300}
+    height={300}
     className="max-h-full w-auto object-contain"
+    sizes="(max-width: 768px) 100vw, 300px"
   />
 </div>
         </div>

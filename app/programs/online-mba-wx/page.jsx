@@ -60,10 +60,16 @@ export const metadata = {
       description:
         "Online MBA WX programs designed for working professionals with flexible learning, leadership development and career advancement opportunities.",
       provider: {
-        "@type": "Organization",
-        name: "Radhya Education Academy",
-        url: siteUrl,
+        "@id": "https://radhyaeducationacademy.com/#organization"
       },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      }
     }),
   },
 };

@@ -460,12 +460,12 @@ export default function Page() {
                 </div>
               </div>
             </section>
-      <section className="w-full bg-white pt-0 p-10">
+<section className="w-full bg-white py-10 px-4 lg:px-10 pt-0">
         {/* ======= ABOUT AMITY SECTION ======= */}
         <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-15 font-bold text-[#270652] mb-6">
+            <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-10 lg:mt-15 font-bold text-[#270652] mb-4">
               About <span className="text-[#F9BD04] ">Amity </span>
             </h2>
 
@@ -482,15 +482,18 @@ export default function Page() {
           </div>
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
-          <div className="relative w-full h-full flex md:justify-end  ">
-            <div className="max-w-7xl overflow-hidden  lg:-mr-10 ">
-              <img
-                src="/amity/aboutAmity.png"
-                alt="Students"
-                className="w-full h-full rounded-2xl md:rounded-bl-full object-content"
-              />
-            </div>
+                 <div className="relative w-full h-full flex md:justify-end">
+          <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-full">
+            <Image
+              src="/amity/aboutAmity.png"
+              alt="Students"
+              fill
+              className="rounded-2xl md:rounded-bl-full object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
           </div>
+        </div>
         </div>
       </section>
           {/* ======= SNAPSHOT SECTION ======= */}
@@ -941,10 +944,13 @@ export default function Page() {
 
             {/* IMAGE that appears ONLY on mobile, above CTA */}
             <div className="md:hidden flex justify-center">
-              <img
+              <Image
                 src="/amity/degree/amityBbaDegree.png"
                 alt="Certificate Preview"
-                className="w-full max-w-xs rounded-lg shadow-sm"
+                width={300}
+          height={200}
+          className="w-full max-w-xs rounded-lg shadow-sm"
+          sizes="100vw"
               />
             </div>
 
@@ -963,10 +969,13 @@ export default function Page() {
 
           {/* RIGHT IMAGE (visible only on md+ screens) */}
           <div className="hidden md:flex justify-center mt-5">
-            <img
+            <Image
               src="/amity/degree/amityBbaDegree.png"
               alt="Certificate Preview"
-              className="w-full max-w-sm rounded-lg shadow-sm"
+              width={400}
+        height={250}
+        className="w-full max-w-sm rounded-lg shadow-sm"
+        sizes="(max-width: 768px) 100vw, 400px"
             />
           </div>
         </div>

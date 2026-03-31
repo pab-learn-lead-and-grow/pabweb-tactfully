@@ -60,24 +60,22 @@ export default function Hero({ className }) {
             </MotionWrapper>
 
             {/* IMAGE */}
-            <MotionWrapper
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-              className="flex mt-6 justify-center"
-            >
-              <Image
-                src="/radhyaHeroImg.png"
-                alt="HeroImage"
-                width={800}
-                height={400}
-                loading="lazy"
-                sizes="(max-width: 640px) 90vw, (max-width: 768px) 500px, (max-width: 1024px) 600px, (max-width: 1280px) 700px, 800px"
-                fetchPriority="high"
-                className="w-full max-w-[500px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] drop-shadow-2xl"
-              />
-            </MotionWrapper>
-
+           <MotionWrapper
+  initial={{ opacity: 0, scale: 0.85 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+  className="flex mt-6 justify-center"
+>
+  <Image
+    src="/radhyaHeroImg.png"
+    alt="HeroImage"
+    width={800}
+    height={400}
+    priority
+    sizes="(max-width: 640px) 90vw, (max-width: 768px) 500px, (max-width: 1024px) 600px, (max-width: 1280px) 700px, 800px"
+    className="w-full max-w-[500px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] drop-shadow-2xl"
+  />
+</MotionWrapper>
           </div>
         </div>
       </div>

@@ -5,12 +5,18 @@ import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-const supabaseServer = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false,
-  },
-});
+const supabaseServer = supabaseUrl && supabaseServiceKey
+  ? createClient(supabaseUrl, supabaseServiceKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    })
+  : null;
+
+let newsCache = null;
+let newsCacheTimestamp = 0;
+const NEWS_CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 function getImageUrl(path) {
   if (!path) return "/help.png";
@@ -25,11 +31,23 @@ function getImageUrl(path) {
     return cleanPath;
   }
   
+  if (!supabaseServer) return "/help.png";
+  
   const { data } = supabaseServer.storage.from("News").getPublicUrl(cleanPath);
   return data?.publicUrl || "/help.png";
 }
 
 export async function getLatestNews() {
+  const now = Date.now();
+  
+  if (newsCache && (now - newsCacheTimestamp) < NEWS_CACHE_DURATION) {
+    return newsCache;
+  }
+  
+  if (!supabaseServer) {
+    return newsCache || [];
+  }
+  
   try {
     const { data, error } = await supabaseServer
       .from("news")
@@ -52,7 +70,7 @@ export async function getLatestNews() {
 
     if (error) {
       console.error("Supabase fetch error:", error);
-      return [];
+      return newsCache || [];
     }
 
     const newsWithImages = (data || []).map((item) => ({
@@ -62,9 +80,11 @@ export async function getLatestNews() {
       categoryName: item.news_categories?.category_name || '',
     }));
 
-    return newsWithImages;
+    newsCache = newsWithImages;
+    newsCacheTimestamp = now;
+    return newsCache;
   } catch (err) {
     console.error("getLatestNews error:", err);
-    return [];
+    return newsCache || [];
   }
 }

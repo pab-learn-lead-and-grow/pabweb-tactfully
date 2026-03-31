@@ -192,53 +192,57 @@ const universities = [
   return (
     <main className="flex flex-col items-center w-full bg-white">
       <section className="w-full bg-white px-4 md:px-10 xl:px-15 mt-20 py-10">
-        <div className="w-full mx-auto flex flex-col md:flex-row items-center justify-between">
-          <h2 className=" text-4xl md:text-5xl lg:text-[64px] xl:text-[80px] font-bold leading-none bg-[linear-gradient(90deg,#000000_0%,#3C3C43_15.87%,#BA1C22_42.31%,#D3272A_100%)] bg-clip-text text-transparent">
-            Shoolini Online
-          </h2>
+          <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-5 items-center gap-6">
+          {/* LEFT - 60% */}
+       <h1 className="lg:col-span-3 text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight bg-linear-to-r from-[#D3272A] to-[#3C3C43]  bg-clip-text text-transparent">
+         Shoolini University Online Courses 2026: Fees, Admission, MBA, BBA & Review
+       </h1>
+     
 
-          {/* Right LOGO */}
-          <MotionWrapper
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="flex justify-end"
-          >
-            <Image
-              src="/shoolini.png"
-              alt="Shoolini Logo"
-              width={526}
-              height={180}
-              className="object-contain w-[320px] md:w-[250px] lg:w-[400px] xl:w-[526px] pr-10 mt-10 md:mt-0"
-            />
-          </MotionWrapper>
+         {/* RIGHT - 40% */}
+               <MotionWrapper
+                 initial={{ opacity: 0, scale: 0.9 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 transition={{ duration: 0.5, ease: "easeOut" }}
+                 viewport={{ once: true }}
+                 className="lg:col-span-2 flex justify-center lg:justify-end"
+               >
+                 <Image
+                    src="/shoolini.png"
+                    alt="Shoolini Logo"
+                    width={526}
+                    height={180}
+                    className="object-contain w-[320px] md:w-[250px] lg:w-[400px] xl:w-[500px] pr-10 mt-10 md:mt-0"
+                  />
+                </MotionWrapper>
+        
         </div>
       </section>
       <section className="w-full bg-white px-10 xl:px-15 ">
         {/* ======= ABOUT NMIMS SECTION ======= */}
-        <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
+        <div className="w-full mx-auto lg:mb-20 mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-[32px] md:text-4xl lg:text-[64px]  text-center md:text-left font-extrabold text-[#270652] mb-12">
-              About Shoolini
+            <h2 className="text-[32px] md:text-4xl lg:text-[44px]  text-center md:text-left font-bold text-[#270652] mb-4">
+              About Shoolini University
             </h2>
 
-            <p className="text-black leading-relaxed font-inter  text-center md:text-left text-xs lg:text-[18px] mb-10">
+
+            <p className="text-black leading-relaxed font-inter  text-center md:text-left text-xs lg:text-[18px] mb-10 md:mb-0">
               Shoolini University of Biotechnology and Management Sciences was established in 2009 and is located in Himachal Pradesh, India. It is recognized by the University Grants Commission and has earned a NAAC A+ accreditation for its academic excellence. In a relatively short span, the university has developed into a leading multidisciplinary institution known for its strong emphasis on research, innovation, and industry-relevant education. Shoolini provides a dynamic and engaging learning environment that supports both intellectual development and personal growth. The university also promotes hands-on learning through practical exposure, enabling students to gain a deeper understanding of real-world industry applications.
             </p>
           </div>
-
-          {/* RIGHT IMAGE WITH CURVED SHAPE */}
-          <div className="relative w-full h-full flex md:justify-end ">
-            <div className="max-w-7xl overflow-hidden">
-              <img
-                src="/shooliniUniv.png"
-                alt="Shoolini University"
-                className="w-full h-[95%] rounded-2xl object-cover"
-              />
-            </div>
-          </div>
+           {/* RIGHT IMAGE WITH CURVED SHAPE */}
+                  <div className="relative w-full h-100 flex md:justify-end">
+                              <div className="max-w-7xl mb-10 md:mb-0 overflow-hidden relative w-full h-full">
+                                <Image
+                         src="/shooliniUniv.png"
+                         alt="University"
+                          fill
+                        className="rounded-2xl object-cover"
+                       />
+                     </div>
+                   </div>
         </div>
       </section>
       {/* ======= SNAPSHOT SECTION ======= */}

@@ -60,10 +60,16 @@ export const metadata = {
       description:
         "Online BCom Honours programs offered by top UGC-approved universities in India for students after 12th with specialization in accounting, finance, taxation and business studies.",
       provider: {
-        "@type": "Organization",
-        name: "Radhya Education Academy",
-        url: siteUrl,
+        "@id": "https://radhyaeducationacademy.com/#organization"
       },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      }
     }),
   },
 };

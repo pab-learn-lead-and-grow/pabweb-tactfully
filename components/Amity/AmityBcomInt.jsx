@@ -1,4 +1,4 @@
-"use client";
+
 import Image from "next/image";
 import {
   Download,
@@ -7,8 +7,6 @@ import {
   Speech,
   GlobeLock,
   Check,
-  ChevronRight,
-  ChevronsDown,
   ArrowRight,
   BookCheck,
   Headset,
@@ -25,9 +23,6 @@ import {
   Tally4,
   Star,
 } from "lucide-react";
-import CounsellingForm from "@/components/Radhya/CounsellingForm";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
 import React from "react";
 import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
@@ -187,10 +182,6 @@ const topicsData = {
     ],
 }
 };
-
-  const [activeSubject, setActiveSubject] = useState(1);
-  const [activeSemester, setActiveSemester] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const faqs = [ { q: "What is the duration and format of the IF&A program?", a: "The program runs for 3 years (6 semesters) and is delivered fully online, allowing students to study flexibly from anywhere.", }, { q: "What is the eligibility criteria for admission?", a: "Applicants must have completed 10+2 (or equivalent) from a recognised board to be eligible for admission.", }, { q: "Is the degree recognized, and does it offer ACCA accreditation/exemptions?", a: "Yes, the IF&A specialization is accredited by ACCA (UK), providing global recognition and offering up to 9 ACCA paper exemptions.", }, { q: "What does the curriculum cover — what subjects and skills will I learn?", a: "The curriculum covers key areas such as financial accounting, corporate law, taxation, auditing & assurance, cost accounting, international financial management, business mathematics, financial reporting, and ethics & corporate governance, aligned with global accounting standards.", }, { q: "Can I pursue this degree while working or handling other commitments?", a: "Yes, the fully online format with live and recorded lectures, digital resources, and flexible scheduling makes it ideal for working professionals and learners with other responsibilities.", }, ];
   const whyCards = [
@@ -394,39 +385,42 @@ const topicsData = {
                 </div>
               </div>
             </section>
-      <section className="w-full bg-white pt-0 p-10">
-        {/* ======= ABOUT AMITY SECTION ======= */}
-        <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
-          {/* LEFT TEXT */}
-          <div>
-            <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-15 font-bold text-[#270652] mb-6">
-              About <span className="text-[#F9BD04] ">Amity </span>
-            </h2>
-
-            <p className="text-black leading-relaxed text-sm md:text-[18px] mb-10">
-              Amity University Online, approved by the UGC, is a leading
-              provider of online higher education in India, offering various
-              undergraduate, postgraduate, diploma, and certificate programs.
-              Built for students and working professionals, it delivers a
-              flexible learning experience through live and recorded classes,
-              supported by downloadable resources. The university is
-              particularly known for its industry-focused programs in
-              management, IT, and computer applications.
-            </p>
-          </div>
-
-          {/* RIGHT IMAGE WITH CURVED SHAPE */}
-          <div className="relative w-full h-full flex md:justify-end  ">
-            <div className="max-w-7xl overflow-hidden  md:-mr-10 ">
-              <img
-                src="/amity/aboutAmity.png"
-                alt="Students"
-                className="w-full h-full rounded-2xl md:rounded-bl-full object-content"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+     <section className="w-full bg-white py-10 px-4 lg:px-10 pt-0">
+             {/* ======= ABOUT AMITY SECTION ======= */}
+             <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
+               {/* LEFT TEXT */}
+               <div>
+                 <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-10 lg:mt-15 font-bold text-[#270652] mb-4">
+                   About <span className="text-[#F9BD04] ">Amity </span>
+                 </h2>
+     
+                 <p className="text-black leading-relaxed text-sm md:text-[18px] mb-10">
+                   Amity University Online, approved by the UGC, is a leading
+                   provider of online higher education in India, offering various
+                   undergraduate, postgraduate, diploma, and certificate programs.
+                   Built for students and working professionals, it delivers a
+                   flexible learning experience through live and recorded classes,
+                   supported by downloadable resources. The university is
+                   particularly known for its industry-focused programs in
+                   management, IT, and computer applications.
+                 </p>
+               </div>
+     
+               {/* RIGHT IMAGE WITH CURVED SHAPE */}
+                      <div className="relative w-full h-full flex md:justify-end">
+               <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-full">
+                 <Image
+                   src="/amity/aboutAmity.png"
+                   alt="Students"
+                   fill
+                   className="rounded-2xl md:rounded-bl-full object-cover"
+                   sizes="(max-width: 768px) 100vw, 50vw"
+                   priority
+                 />
+               </div>
+             </div>
+             </div>
+           </section>
        {/* ======= SNAPSHOT SECTION ======= */}
             <section className="w-full mt-10  px-4 md:px-10 lg:px-20 font-[Inter]">
               <div className="max-w-7xl mx-auto">
@@ -878,11 +872,14 @@ const topicsData = {
 
             {/* IMAGE that appears ONLY on mobile, above CTA */}
             <div className="md:hidden flex justify-center">
-              <img
+              <Image
                 src="/amity/degree/amityBcomDegree.png"
                 alt="Certificate Preview"
-                className="w-full max-w-xs rounded-lg shadow-sm"
-              />
+                width={300}
+          height={200}
+          className="w-full max-w-xs rounded-lg shadow-sm"
+          sizes="100vw"
+        />
             </div>
 
             {/* CTA BUTTON */}
@@ -900,11 +897,14 @@ const topicsData = {
 
           {/* RIGHT IMAGE (visible only on md+ screens) */}
           <div className="hidden md:flex justify-center mt-5">
-            <img
+            <Image
               src="/amity/degree/amityBcomDegree.png"
               alt="Certificate Preview"
-              className="w-full max-w-sm rounded-lg shadow-sm"
-            />
+              width={400}
+        height={250}
+        className="w-full max-w-sm rounded-lg shadow-sm"
+        sizes="(max-width: 768px) 100vw, 400px"
+      />
           </div>
         </div>
       </section>

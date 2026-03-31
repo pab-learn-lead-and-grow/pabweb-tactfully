@@ -1,0 +1,126 @@
+{
+  "site": {
+    "name": "Radhya Education Academy",
+    "url": "https://radhyaeducationacademy.com",
+    "description": "Online education consultancy helping students and working professionals choose UGC-approved online degree programs in India.",
+    "region": "India",
+    "type": "Education Consultancy"
+  },
+
+  "pages": {
+    "main": [
+      "https://radhyaeducationacademy.com/",
+      "https://radhyaeducationacademy.com/about-us/",
+      "https://radhyaeducationacademy.com/contact-us/",
+      "https://radhyaeducationacademy.com/privacy-policy/",
+      "https://radhyaeducationacademy.com/terms-and-conditions/",
+      "https://radhyaeducationacademy.com/disclaimer/",
+      "https://radhyaeducationacademy.com/counsellor-verification/",
+      "https://radhyaeducationacademy.com/university-response-time/",
+      "https://radhyaeducationacademy.com/ugc-approved-universities/",
+      "https://radhyaeducationacademy.com/online-universities-directory-india/",
+      "https://radhyaeducationacademy.com/top-online-universities-india/"
+    ],
+
+    "jobs": [
+      "https://radhyaeducationacademy.com/jobs-at-radhya/",
+      "https://radhyaeducationacademy.com/jobs-at-radhya/inside-sales-fresher-job/",
+      "https://radhyaeducationacademy.com/jobs-at-radhya/inside-sales-experienced-job/",
+      "https://radhyaeducationacademy.com/jobs-at-radhya/digital-marketing-job/"
+    ],
+
+    "universities": [
+      "https://radhyaeducationacademy.com/amity/",
+      "https://radhyaeducationacademy.com/jain/",
+      "https://radhyaeducationacademy.com/nmims/",
+      "https://radhyaeducationacademy.com/smu/",
+      "https://radhyaeducationacademy.com/muj/",
+      "https://radhyaeducationacademy.com/shoolini/",
+      "https://radhyaeducationacademy.com/bennett/"
+    ],
+
+    "programs": [
+      "https://radhyaeducationacademy.com/programs/online-mba/",
+      "https://radhyaeducationacademy.com/programs/online-mba-wx/",
+      "https://radhyaeducationacademy.com/programs/online-bba/",
+      "https://radhyaeducationacademy.com/programs/online-bca/",
+      "https://radhyaeducationacademy.com/programs/online-bcom/",
+      "https://radhyaeducationacademy.com/programs/online-bcom-honours/",
+      "https://radhyaeducationacademy.com/programs/online-bcom-international/",
+      "https://radhyaeducationacademy.com/programs/online-ba/",
+      "https://radhyaeducationacademy.com/programs/online-bajmc/",
+      "https://radhyaeducationacademy.com/programs/online-mca/",
+      "https://radhyaeducationacademy.com/programs/online-mcom/",
+      "https://radhyaeducationacademy.com/programs/online-ma/",
+      "https://radhyaeducationacademy.com/programs/online-majmc/",
+      "https://radhyaeducationacademy.com/programs/online-msc/",
+      "https://radhyaeducationacademy.com/programs/online-diploma/"
+    ],
+
+    "university_programs": [
+      "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-mba/",
+      "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-mba-working-executives/",
+      "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-bba/",
+      "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-bcom/",
+      "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-diploma/",
+      "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-certification/",
+
+      "https://radhyaeducationacademy.com/amity/amity-online-mba/",
+      "https://radhyaeducationacademy.com/amity/amity-online-bba/",
+      "https://radhyaeducationacademy.com/amity/amity-online-bcom/",
+      "https://radhyaeducationacademy.com/amity/amity-online-bcom-honours/",
+      "https://radhyaeducationacademy.com/amity/amity-online-bcom-international-finance-and-accounting/",
+      "https://radhyaeducationacademy.com/amity/amity-online-ba/",
+      "https://radhyaeducationacademy.com/amity/amity-online-bca/",
+      "https://radhyaeducationacademy.com/amity/amity-online-mca/",
+      "https://radhyaeducationacademy.com/amity/amity-online-ma/",
+      "https://radhyaeducationacademy.com/amity/amity-online-mcom/",
+      "https://radhyaeducationacademy.com/amity/amity-online-majmc/",
+      "https://radhyaeducationacademy.com/amity/amity-online-bajmc/",
+      "https://radhyaeducationacademy.com/amity/amity-online-msc-data-science/",
+      "https://radhyaeducationacademy.com/amity/amity-online-integrated-programs/",
+
+      "https://radhyaeducationacademy.com/jain/jain-online-mba/",
+      "https://radhyaeducationacademy.com/jain/jain-online-bba/",
+      "https://radhyaeducationacademy.com/jain/jain-online-bcom/",
+      "https://radhyaeducationacademy.com/jain/jain-online-bca/",
+      "https://radhyaeducationacademy.com/jain/jain-online-mca/",
+      "https://radhyaeducationacademy.com/jain/jain-online-ma/",
+      "https://radhyaeducationacademy.com/jain/jain-online-mcom/",
+
+      "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-mba/",
+      "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-bba/",
+      "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-bcom/",
+      "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-bca/",
+      "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-mca/",
+      "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-ma/",
+      "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-mcom/",
+      "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-majmc/",
+
+      "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-mba/",
+      "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-bcom/",
+      "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-ba/",
+      "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-mca/",
+      "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-ma/",
+      "https://radhyaeducationacademy.com/smu/sikkim-manipal-online-mcom/",
+
+      "https://radhyaeducationacademy.com/bennett/bennett-online-mba/",
+      "https://radhyaeducationacademy.com/bennett/bennett-online-bba/"
+    ],
+
+    "blogs": [
+      "https://radhyaeducationacademy.com/blogs/online-mba-for-career-growth/",
+      "https://radhyaeducationacademy.com/blogs/nmims-for-working-professionals/",
+      "https://radhyaeducationacademy.com/blogs/how-online-bba-builds-entrepreneurs/",
+      "https://radhyaeducationacademy.com/blogs/online-vs-regular-mba/",
+      "https://radhyaeducationacademy.com/blogs/the-financial-catalyst/",
+      "https://radhyaeducationacademy.com/blogs/the-digital-revolution/"
+    ],
+
+    "news": [
+      "https://radhyaeducationacademy.com/news/"
+    ]
+  },
+
+  "last_updated": "2026-03-28"
+}

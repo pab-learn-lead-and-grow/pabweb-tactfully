@@ -56,6 +56,10 @@ export default function WhatSetsUsApart() {
       >
         At Radhya
       </h2>
+      {/* SEO H1 (hidden) */}
+<h1 className="sr-only">
+  About Radhya Education Academy - Online Education & Career Counselling Experts
+</h1>
 
       <div className="flex justify-center lg:justify-end">
         <p className="handdrawn-underline text-sm md:text-xl text-[#D68E0E] italic leading-none mt-2">

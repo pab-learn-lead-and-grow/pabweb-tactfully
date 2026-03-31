@@ -410,39 +410,42 @@ const subjects = [
                </div>
              </div>
            </section>
-      <section className="w-full bg-white pt-0 p-10">
-        {/* ======= ABOUT AMITY SECTION ======= */}
-        <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
-          {/* LEFT TEXT */}
-          <div>
-            <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-15 font-bold text-[#270652] mb-6">
-              About <span className="text-[#F9BD04] ">Amity </span>
-            </h2>
-
-            <p className="text-black leading-relaxed text-sm md:text-[18px] mb-10">
-              Amity University Online, approved by the UGC, is a leading
-              provider of online higher education in India, offering various
-              undergraduate, postgraduate, diploma, and certificate programs.
-              Built for students and working professionals, it delivers a
-              flexible learning experience through live and recorded classes,
-              supported by downloadable resources. The university is
-              particularly known for its industry-focused programs in
-              management, IT, and computer applications.
-            </p>
-          </div>
-
-          {/* RIGHT IMAGE WITH CURVED SHAPE */}
-          <div className="relative w-full h-full flex md:justify-end  ">
-            <div className="max-w-7xl overflow-hidden  lg:-mr-10 ">
-              <img
-                src="/amity/aboutAmity.png"
-                alt="Students"
-                className="w-full h-full rounded-2xl md:rounded-bl-full object-content"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+     <section className="w-full bg-white py-10 px-4 lg:px-10 pt-0">
+             {/* ======= ABOUT AMITY SECTION ======= */}
+             <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
+               {/* LEFT TEXT */}
+               <div>
+                 <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-10 lg:mt-15 font-bold text-[#270652] mb-4">
+                   About <span className="text-[#F9BD04] ">Amity </span>
+                 </h2>
+     
+                 <p className="text-black leading-relaxed text-sm md:text-[18px] mb-10">
+                   Amity University Online, approved by the UGC, is a leading
+                   provider of online higher education in India, offering various
+                   undergraduate, postgraduate, diploma, and certificate programs.
+                   Built for students and working professionals, it delivers a
+                   flexible learning experience through live and recorded classes,
+                   supported by downloadable resources. The university is
+                   particularly known for its industry-focused programs in
+                   management, IT, and computer applications.
+                 </p>
+               </div>
+     
+               {/* RIGHT IMAGE WITH CURVED SHAPE */}
+                      <div className="relative w-full h-full flex md:justify-end">
+               <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-full">
+                 <Image
+                   src="/amity/aboutAmity.png"
+                   alt="Students"
+                   fill
+                   className="rounded-2xl md:rounded-bl-full object-cover"
+                   sizes="(max-width: 768px) 100vw, 50vw"
+                   priority
+                 />
+               </div>
+             </div>
+             </div>
+           </section>
         {/* ======= SNAPSHOT SECTION ======= */}
              <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
                <div className="max-w-7xl mx-auto">
@@ -577,7 +580,7 @@ const subjects = [
   topicsData={topicsData}
 />
 
-      <section className="w-full font-[Inter] px-4 md:px-10 lg:px-20 py-6">
+      <section className="w-full font-[Inter] px-4 md:px-10 lg:px-10 py-6">
         <div className="p-4 md:p-10">
           {/* Heading */}
           <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#270652] mb-4 md:mb-7">
@@ -898,15 +901,17 @@ const subjects = [
             <p className="text-[#3C3C43] max-w-[350px] text-base">
           A comprehensive 3-year undergraduate program providing a thorough exploration of theoretical concepts and practical aspects in BA in Journalism and Mass Communication.
           </p>
-
-            {/* IMAGE that appears ONLY on mobile, above CTA */}
-            <div className="md:hidden flex justify-center">
-              <img
-                src="/amity/degree/amityBajmcDegree.png"
-                alt="Certificate Preview"
-                className="w-full max-w-xs rounded-lg shadow-sm"
-              />
-            </div>
+             {/* MOBILE IMAGE */}
+                  <div className="md:hidden flex justify-center">
+                    <Image
+                      src="/amity/degree/amityBajmcDegree.png"
+                      alt="Certificate Preview"
+                      width={300}
+                      height={200}
+                      className="w-full max-w-xs rounded-lg shadow-sm"
+                      sizes="100vw"
+                    />
+                  </div>
 
             {/* CTA BUTTON */}
            <div className="flex justify-center md:justify-start">
@@ -923,11 +928,14 @@ const subjects = [
 
           {/* RIGHT IMAGE (visible only on md+ screens) */}
           <div className="hidden md:flex justify-center mt-5">
-            <img
+            <Image
               src="/amity/degree/amityBajmcDegree.png"
               alt="Certificate Preview"
-              className="w-full max-w-sm rounded-lg shadow-sm"
-            />
+              width={400}
+        height={250}
+        className="w-full max-w-sm rounded-lg shadow-sm"
+        sizes="(max-width: 768px) 100vw, 400px"
+      />
           </div>
         </div>
       </section>

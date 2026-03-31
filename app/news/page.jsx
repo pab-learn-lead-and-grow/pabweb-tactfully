@@ -4,7 +4,7 @@ import { getNewsData } from "@/app/actions/getNewsData";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
-export const dynamic = "force-static";
+export const revalidate = 3600; // ISR: Revalidate every hour
 
 export const metadata = {
   metadataBase: new URL(siteUrl),

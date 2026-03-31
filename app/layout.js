@@ -103,6 +103,23 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-PJYRD1BLTD');
           `}
         </Script>
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EducationalOrganization",
+              "@id": "https://radhyaeducationacademy.com/#organization",
+              "name": "Radhya Education Academy",
+              "url": "https://radhyaeducationacademy.com",
+              "description": "Education consultancy helping students with Online MBA, Distance Education and career guidance.",
+              "areaServed": "India",
+              "sameAs": []
+            })
+          }}
+        />
       </head>
      <body className={`${inter.className} scrollbar-hide`}>
         <Navbar />

@@ -5,14 +5,20 @@ import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-const supabaseServer = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false,
-  },
-});
+const supabaseServer = supabaseUrl && supabaseServiceKey
+  ? createClient(supabaseUrl, supabaseServiceKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    })
+  : null;
 
 export async function getCategoryNews(slug) {
+  if (!supabaseServer) {
+    return { categories: [], news: [], categoryName: "" };
+  }
+  
   try {
     const { data: categoryData } = await supabaseServer
       .from("news_categories")
@@ -64,6 +70,7 @@ export async function getCategoryNews(slug) {
         const fixedName = name.charAt(0).toUpperCase() + name.slice(1);
         return { ...item, image_url: `/${fixedName}.${ext}` };
       }
+      if (!supabaseServer) return item;
       const { data } = supabaseServer.storage.from("News").getPublicUrl(item.image_url);
       return { ...item, image_url: data?.publicUrl };
     });

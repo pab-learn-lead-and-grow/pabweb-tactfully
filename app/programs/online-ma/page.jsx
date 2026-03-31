@@ -60,10 +60,16 @@ export const metadata = {
       description:
         "Online MA programs offered by top UGC-approved universities in India with specializations in humanities, social sciences, public policy, psychology, economics and more.",
       provider: {
-        "@type": "Organization",
-        name: "Radhya Education Academy",
-        url: siteUrl,
+        "@id": "https://radhyaeducationacademy.com/#organization"
       },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      }
     }),
   },
 };

@@ -208,19 +208,22 @@ Whether you aim to upgrade your skills, switch careers, or improve your job pros
                 </MotionWrapper>
     
                 {/* Right image animation */}
-                <MotionWrapper
-                  initial={{ opacity: 0, x: 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="md:w-[45%] w-full flex justify-end pr-0 mt-0 md:pr-0"
-                >
-                  <img
-                    src="/nmims/nmimsEligibility.png"
-                     alt="Eligibility criteria for Online diploma admission in India"
-                    className="w-full max-w-[420px] md:max-w-[520px] h-auto rounded-xl object-contain"
-                  />
-                </MotionWrapper>
+                           <MotionWrapper
+                             initial={{ opacity: 0, x: 40 }}
+                             whileInView={{ opacity: 1, x: 0 }}
+                             transition={{ duration: 0.6, delay: 0.3 }}
+                             viewport={{ once: true }}
+                             className="md:w-[45%] w-full flex justify-end pr-0 mt-0 md:pr-0"
+                           >
+                             <Image
+                               src="/nmims/nmimsEligibility.png"
+                               alt="Eligibility criteria for Online Diploma admission in India"
+                               width={520}
+                               height={350}
+                               className="w-full max-w-105  h-auto rounded-xl object-contain"
+                               sizes="(max-width: 768px) 100vw, 520px"
+                             />
+                           </MotionWrapper>
               </MotionWrapper>
             </div>
           </section>

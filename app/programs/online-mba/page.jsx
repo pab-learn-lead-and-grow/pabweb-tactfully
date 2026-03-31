@@ -57,13 +57,18 @@ export default function OnlineMbaPage() {
     "@context": "https://schema.org",
     "@type": "Course",
     name: "Online MBA in India",
-    description:
-      "Online MBA programs offered by top UGC-approved universities in India with flexible learning and career growth opportunities.",
+    description: "Online MBA programs offered by top UGC-approved universities in India with flexible learning and career growth opportunities.",
     provider: {
-      "@type": "Organization",
-      name: "Radhya Education Academy",
-      url: siteUrl,
+      "@id": "https://radhyaeducationacademy.com/#organization"
     },
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "online"
+    },
+    offers: {
+      "@type": "Offer",
+      category: "Online Degree Program"
+    }
   };
 
   return (

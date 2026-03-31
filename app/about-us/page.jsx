@@ -50,29 +50,8 @@ export const metadata = {
 };
 
 export default function About() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Radhya Education Academy",
-    url: "https://radhyaeducationacademy.com",
-    logo: "https://radhyaeducationacademy.com/radhyaLogo.png",
-    description:
-      "Radhya Education Academy helps students and working professionals choose the right online and offline education programs through expert counselling and university partnerships.",
-    areaServed: "India",
-    sameAs: ["https://www.instagram.com/radhyaeducationacademy"],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "Educational Counselling",
-      areaServed: "India",
-      availableLanguage: ["English", "Hindi"],
-    },
-  };
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
       <AboutUs />
     </>
   );

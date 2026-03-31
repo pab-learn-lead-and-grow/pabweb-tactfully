@@ -67,10 +67,16 @@ export const metadata = {
       description:
         "Online MCA programs offered by top UGC-approved universities in India with career opportunities in software development, data science, cloud computing and IT fields.",
       provider: {
-        "@type": "Organization",
-        name: "Radhya Education Academy",
-        url: siteUrl,
+        "@id": "https://radhyaeducationacademy.com/#organization"
       },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      }
     }),
   },
 };

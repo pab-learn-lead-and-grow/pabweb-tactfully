@@ -28,6 +28,11 @@ export function middleware(request) {
     return NextResponse.redirect(redirectUrl, 301)
   }
 
+  if (pathname === '/privacy-policy' || pathname === '/terms-and-conditions' || pathname === '/disclaimer') {
+    const redirectUrl = new URL(`${pathname}/`, request.url)
+    return NextResponse.redirect(redirectUrl, 301)
+  }
+
   const category = url.searchParams.get('category')
   if (category) {
     const categoryMap = {

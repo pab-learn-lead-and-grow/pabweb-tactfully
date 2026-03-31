@@ -39,9 +39,13 @@ export default function NewsClient({ trending, latest, categories }) {
   };
 
   return (
-    <div className="mt-10 py-12 lg:py-24 min-h-screen p-5 lg:p-[60px]">
+    <div className="mt-10 py-12  min-h-screen p-5 lg:p-[60px]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-10 flex gap-4 bg-[#3C087E]/10 items-center px-3 py-4 rounded-lg ">
+       <h1 className="lg:col-span-3 text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight mb-4  text-[#270625]">
+                    Latest Education News, Trends & Updates in India
+                   </h1>
+
+         <div className="mb-10 flex gap-4 bg-[#3C087E]/10 items-center px-3 py-4 rounded-lg ">
           <svg
             className="h-4 w-4 text-[#3C087E]"
             fill="none"
@@ -63,7 +67,6 @@ export default function NewsClient({ trending, latest, categories }) {
             className="bg-transparent outline-none text-sm w-full text-[#3C087E]"
           />
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-16">
           <div className="lg:col-span-2">
             {currentTrending?.image_url && (

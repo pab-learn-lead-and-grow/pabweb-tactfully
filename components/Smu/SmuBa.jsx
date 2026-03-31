@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import {
   Download,
@@ -26,7 +25,7 @@ import {
   Building2,
 } from "lucide-react";
 import React from "react";
-import MujCareerServices from "../NmimsSection/MujCareerServices"
+import MujCareerServices from "../NmimsSection/MujCareerServices";
 import ServicesByRadhya from "../NmimsSection/servicesbyRadhya";
 import Enrollment from "../NmimsSection/Enrollment";
 import LearningApproach from "../NmimsSection/LearningApproach";
@@ -239,149 +238,153 @@ export default function Page() {
     { value: "15-20", label: "hours per week" },
   ];
   return (
-   <main className="flex flex-col items-center w-full bg-white">
-        <section className="relative min-h-[50vh] w-full ">
-                                               {/* Background Image */}
-                                               <div className="absolute inset-0">
-                                                 <Image
-                                                   src="/smu/smuUniv.png"
-                                                   alt="Campus"
-                                                   fill
-                                                   className="object-cover object-center"
-                                                 />
-                                                 <div className="absolute inset-0 bg-black/80" />
-                                               </div>
-                                               {/* LOGO – move to left screen edge, keep same height */}
-                                               <div className="relative z-10 w-full mt-20 md:mt-28">
-                                                 <MotionWrapper
-                                                   initial={{ opacity: 0, x: -30 }}
-                                                   whileInView={{ opacity: 1, x: 0 }}
-                                                   transition={{ duration: 0.6 }}
-                                                   viewport={{ once: true }}
-                                                   className="flex"
-                                                 >
-                                                   <div className="bg-white rounded-r-2xl shadow-md h-[60px] sm:h-[80px] lg:h-[100px] -mb-5 flex items-center px-3 sm:px-4">
-                                               <Image
-                                                 src="/smu.png"
-                                                 alt="SMU Logo"
-                                                 width={220}
-                                                 height={100}
-                                                 className="object-contain w-[140px] sm:w-[180px] lg:w-[220px]"
-                                               />
-                                                   </div>
-                                                 </MotionWrapper>
-                                               </div>
-                                       
-                                               {/* CONTENT WRAPPER */}
-                                               <div className="relative z-10 max-w-7xl mx-auto p-6 sm:p-10">
-                                                {/* Most Loved */}
-                                                                                         <MotionWrapper
-                                                                                           initial={{ opacity: 0, x: -20 }}
-                                                                                           whileInView={{ opacity: 1, x: 0 }}
-                                                                                           transition={{ duration: 0.6 }}
-                                                                                           viewport={{ once: true }}
-                                                                                           className="inline-flex items-center gap-2 bg-[#ffb901] text-white text-[12px] md:text-[16px] lg:text-[18px] mt-6 mb-2 px-2 md:px-4 md:py-1 rounded-full"
-                                                                                         >
-                                                                                           4.5 <Star  className="w-3 h-3 md:w-4 md:h-4"/>
-                                                                                         </MotionWrapper>
-                                       
-                                                 {/* Subtext */}
-                                                 <MotionWrapper
-                                                   initial={{ opacity: 0, x: -20 }}
-                                                   whileInView={{ opacity: 1, x: 0 }}
-                                                   transition={{ duration: 0.6, delay: 0.1 }}
-                                                   viewport={{ once: true }}
-                                                   className="text-white text-[12px] md:text-[16px] italic font-light"
-                                                 >
-                                                    Bachelor of Arts
-                                                 </MotionWrapper>
-                                       
-                                                 {/* TITLE + DESCRIPTION */}
-                                                 <div className="flex flex-col items-start">
-                                                   <MotionWrapper
-                                                   as="h1"
-                                                     initial={{ opacity: 0, y: -20 }}
-                                                     whileInView={{ opacity: 1, y: 0 }}
-                                                     transition={{ duration: 0.7 }}
-                                                     viewport={{ once: true }}
-                                                     className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
-                                                   >
-                                                  Sikkim Manipal Online BA Degree
-                 
-                                                   </MotionWrapper>
-                                       
-                                                   <MotionWrapper
-                                                     initial={{ opacity: 0 }}
-                                                     whileInView={{ opacity: 1 }}
-                                                     transition={{ duration: 0.7, delay: 0.2 }}
-                                                     viewport={{ once: true }}
-                                                     className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
-                                                   >
-                                                   Sikkim Manipal University’s 100% online BA offers an updated curriculum in English, Sociology, and Political Science with AI-powered learning, flexible live/recorded classes, interactive forums, quizzes, and networking—preparing learners for diverse career opportunities from home.
-                                                </MotionWrapper>
-                                       
-                                                   {/* STATS */}
-                                                   <MotionWrapper
-                                                     initial={{ opacity: 0, y: 20 }}
-                                                     whileInView={{ opacity: 1, y: 0 }}
-                                                     transition={{ duration: 0.7 }}
-                                                     viewport={{ once: true }}
-                                                     className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4 lg:-mx-5 xl:-mx-15 gap-y-5 font-[Inter] w-full"
-                                                   >
-                                                     {stats.map((stat, idx) => (
-                                                       <div
-                                                         key={idx}
-                                                         className={`text-center py-2 lg:py-6 
+    <main className="flex flex-col items-center w-full bg-white">
+      <section className="relative min-h-[50vh] w-full ">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/smu/smuUniv.png"
+            alt="Campus"
+            fill
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/80" />
+        </div>
+        {/* LOGO – move to left screen edge, keep same height */}
+        <div className="relative z-10 w-full mt-20 md:mt-28">
+          <MotionWrapper
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex"
+          >
+            <div className="bg-white rounded-r-2xl shadow-md h-[60px] sm:h-[80px] lg:h-[100px] -mb-5 flex items-center px-3 sm:px-4">
+              <Image
+                src="/smu.png"
+                alt="SMU Logo"
+                width={220}
+                height={100}
+                className="object-contain w-[140px] sm:w-[180px] lg:w-[220px]"
+              />
+            </div>
+          </MotionWrapper>
+        </div>
+
+        {/* CONTENT WRAPPER */}
+        <div className="relative z-10 max-w-7xl mx-auto p-6 sm:p-10">
+          {/* Most Loved */}
+          <MotionWrapper
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 bg-[#ffb901] text-white text-[12px] md:text-[16px] lg:text-[18px] mt-6 mb-2 px-2 md:px-4 md:py-1 rounded-full"
+          >
+            4.5 <Star className="w-3 h-3 md:w-4 md:h-4" />
+          </MotionWrapper>
+
+          {/* Subtext */}
+          <MotionWrapper
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-white text-[12px] md:text-[16px] italic font-light"
+          >
+            Bachelor of Arts
+          </MotionWrapper>
+
+          {/* TITLE + DESCRIPTION */}
+          <div className="flex flex-col items-start">
+            <MotionWrapper
+              as="h1"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
+            >
+              Sikkim Manipal Online BA Degree
+            </MotionWrapper>
+
+            <MotionWrapper
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
+            >
+              Sikkim Manipal University’s 100% online BA offers an updated
+              curriculum in English, Sociology, and Political Science with
+              AI-powered learning, flexible live/recorded classes, interactive
+              forums, quizzes, and networking—preparing learners for diverse
+              career opportunities from home.
+            </MotionWrapper>
+
+            {/* STATS */}
+            <MotionWrapper
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4 lg:-mx-5 xl:-mx-15 gap-y-5 font-[Inter] w-full"
+            >
+              {stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className={`text-center py-2 lg:py-6 
                                          ${idx % 2 === 0 ? "border-r-2 border-white" : ""} 
                                          ${idx !== stats.length - 1 ? "lg:border-r-2 lg:border-white" : ""}
                                        `}
-                                                       >
-                                                         <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold text-white mb-1">
-                                                           {stat.value}
-                                                         </p>
-                                                         <p className="text-white text-[10px] md:text-[16px] lg:text-[18px] xl:text-[22px] font-bold">
-                                                           {stat.label}
-                                                         </p>
-                                                       </div>
-                                                     ))}
-                                                   </MotionWrapper>
-                                       
-                                                   {/* BUTTONS – CENTERED */}
-                                                   <MotionWrapper
-                                                     initial={{ opacity: 0, y: 25 }}
-                                                     whileInView={{ opacity: 1, y: 0 }}
-                                                     transition={{ duration: 0.7 }}
-                                                     viewport={{ once: true }}
-                                                     className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
-                                                   >
-                                                      <CounsellingModal>
-               <button className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
-                             Download Brochure
-                             <Download className="w-4 h-4 md:w-5 md:h-5" />
-                           </button>
-                           </CounsellingModal>
-<CounsellingModal>
-  <button
-    className="bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
+                >
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold text-white mb-1">
+                    {stat.value}
+                  </p>
+                  <p className="text-white text-[10px] md:text-[16px] lg:text-[18px] xl:text-[22px] font-bold">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </MotionWrapper>
+
+            {/* BUTTONS – CENTERED */}
+            <MotionWrapper
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
+            >
+              <CounsellingModal>
+                <button
+                  className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
+                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium"
+                >
+                  Download Brochure
+                  <Download className="w-4 h-4 md:w-5 md:h-5" />
+                </button>
+              </CounsellingModal>
+              <CounsellingModal>
+                <button
+                  className="bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
     ease-out hover:scale-105 hover:shadow-lg active:scale-100 flex items-center justify-center gap-2
     px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium"
-  >
-    Talk to an Expert
-    <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-  </button>
-</CounsellingModal>
-                                                   </MotionWrapper>
-                                                 </div>
-                                               </div>
-                                             </section>
-
-      <section className="w-full bg-white p-10 pt-0">
+                >
+                  Talk to an Expert
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                </button>
+              </CounsellingModal>
+            </MotionWrapper>
+          </div>
+        </div>
+      </section>
+      <section className="w-full bg-white py-10 px-4 lg:px-10 pt-0">
         {/* ======= ABOUT SMU SECTION ======= */}
         <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-[32px] md:text-4xl mt-15 lg:text-[64px] font-bold text-[#270652] mb-6">
+            <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-10 lg:mt-15 font-bold text-[#270652] mb-4">
               About <span className="text-[#B35531] ">SMU </span>
             </h2>
 
@@ -395,99 +398,113 @@ export default function Page() {
           </div>
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
-          <div className="relative w-full h-full flex md:justify-end ">
-            <div className="max-w-7xl overflow-hidden md:-mr-10">
-              <img
+          <div className="relative w-full h-full flex md:justify-end">
+            <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-full">
+              <Image
                 src="/smu/aboutSmu.jpeg"
                 alt="Students"
-                className="w-full h-full rounded-2xl md:rounded-bl-full object-cover"
+                fill
+                className="rounded-2xl md:rounded-bl-full object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
           </div>
         </div>
       </section>
       {/* ======= SNAPSHOT SECTION ======= */}
-                  <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
-                    <div className="max-w-7xl mx-auto">
-                      {/* HEADING */}
-                      <MotionWrapper
-                      as="h2"
-                        initial={{ opacity: 0, y: -30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                        className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
-                      >
-                        A Snapshot of Success
-                      </MotionWrapper>
-            
-                      {/* BLUE BAR */}
-                      <MotionWrapper
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        viewport={{ once: true }}
-                        className="bg-[#3C087E]/5 rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
-                      >
-                        {/* ALWAYS 3 COLUMNS */}
-                        <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
-                          {/* STAT 1 */}
-                          <MotionWrapper
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            viewport={{ once: true }}
-                          >
-                            <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                              NAAC A+
-                            </p>
-                            <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
-                              accredited
-                            </p>
-                          </MotionWrapper>
-            
-                          {/* STAT 2 */}
-                          <MotionWrapper
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            viewport={{ once: true }}
-                          >
-                            <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                              UGC
-                            </p>
-                            <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
-                              Entitled Degree
-                            </p>
-                          </MotionWrapper>
-            
-                          {/* STAT 3 */}
-                          <MotionWrapper
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            viewport={{ once: true }}
-                          >
-                            <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
-                              Rank 1
-                            </p>
-                            <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
-                              in North East by IIRF
-                            </p>
-                          </MotionWrapper>
-                        </div>
-                      </MotionWrapper>
-                    </div>
-                  </section>
+      <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+        <div className="max-w-7xl mx-auto">
+          {/* HEADING */}
+          <MotionWrapper
+            as="h2"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
+          >
+            A Snapshot of Success
+          </MotionWrapper>
+
+          {/* BLUE BAR */}
+          <MotionWrapper
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-[#3C087E]/5 rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-full py-4 sm:py-6 md:py-10 px-8 sm:px-10 md:px-16"
+          >
+            {/* ALWAYS 3 COLUMNS */}
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-center text-[#3C087E]">
+              {/* STAT 1 */}
+              <MotionWrapper
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                  NAAC A+
+                </p>
+                <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
+                  accredited
+                </p>
+              </MotionWrapper>
+
+              {/* STAT 2 */}
+              <MotionWrapper
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                  UGC
+                </p>
+                <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
+                  Entitled Degree
+                </p>
+              </MotionWrapper>
+
+              {/* STAT 3 */}
+              <MotionWrapper
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[16px] sm:text-[24px] md:text-[30px] lg:text-[36px]  xl:text-[62px] font-bold">
+                  Rank 1
+                </p>
+                <p className="text-[8px] md:text-[16px] xl:text-[22px] md:text-sm font-bold opacity-90 leading-tight">
+                  in North East by IIRF
+                </p>
+              </MotionWrapper>
+            </div>
+          </MotionWrapper>
+        </div>
+      </section>
 
       <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
         {/* ===== Top Text Section ===== */}
         <div className="max-w-6xl text-left mx-auto">
           <h2 className="text-xl md:text-2xl font-regular lg:text-[42px] leading-normal text-gray-900">
             <span className="text-[#B35531] ">
-             The online Bachelor of Arts (BA) from Sikkim Manipal University (SMU) offers an up-to-date curriculum to equip learners with in-demand skills and knowledge for the evolving job market.
-             </span>
-             With a combination of English, Sociology, and Political Science, this three-year online BA degree program enables learners to explore career opportunities across various fields of study. This 100% online degree course in India is delivered through an AI-enabled learning management system that allows learners to access industry-oriented learning resources, attend live and recorded classes, participate in discussion forums, resolve queries using an AI tutor, and take quizzes – all from the comfort of their homes. Learners can also boost their career prospects by networking with peers and faculty and joining the prestigious Manipal alumni status.
+              The online Bachelor of Arts (BA) from Sikkim Manipal University
+              (SMU) offers an up-to-date curriculum to equip learners with
+              in-demand skills and knowledge for the evolving job market.
+            </span>
+            With a combination of English, Sociology, and Political Science,
+            this three-year online BA degree program enables learners to explore
+            career opportunities across various fields of study. This 100%
+            online degree course in India is delivered through an AI-enabled
+            learning management system that allows learners to access
+            industry-oriented learning resources, attend live and recorded
+            classes, participate in discussion forums, resolve queries using an
+            AI tutor, and take quizzes – all from the comfort of their homes.
+            Learners can also boost their career prospects by networking with
+            peers and faculty and joining the prestigious Manipal alumni status.
           </h2>
         </div>
 
@@ -503,11 +520,14 @@ export default function Page() {
             {/* Content */}
             <div>
               <p className="lg:text-2xl text-[#270652] mb-1">
-               Fully Online, Flexible & Affordable Degree with UGC-Entitlement
-               </p>
+                Fully Online, Flexible & Affordable Degree with UGC-Entitlement
+              </p>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
-              The Online BA from SMU offers a UGC-entitled 3-year undergraduate degree, delivered entirely online. With a modest total fee (₹75,000) and semester-wise payment option, it makes quality higher education accessible and budget-friendly.
-               </p>
+                The Online BA from SMU offers a UGC-entitled 3-year
+                undergraduate degree, delivered entirely online. With a modest
+                total fee (₹75,000) and semester-wise payment option, it makes
+                quality higher education accessible and budget-friendly.
+              </p>
             </div>
           </div>
 
@@ -521,324 +541,327 @@ export default function Page() {
             {/* Content */}
             <div>
               <p className="lg:text-2xl text-[#270652] mb-1">
-              Multi-Disciplinary Humanities & Social-Science Foundation + Career-Ready Skills
+                Multi-Disciplinary Humanities & Social-Science Foundation +
+                Career-Ready Skills
               </p>
               <p className="text-gray-700 text-xs lg:text-[16px] leading-relaxed">
-              With specializations in English, Political Science and Sociology, this BA program builds strong analytical, critical thinking, and communication skills preparing learners for a wide range of career paths in fields like content creation, public service, academia, research, media, and social sectors.
+                With specializations in English, Political Science and
+                Sociology, this BA program builds strong analytical, critical
+                thinking, and communication skills preparing learners for a wide
+                range of career paths in fields like content creation, public
+                service, academia, research, media, and social sectors.
               </p>
             </div>
           </div>
         </div>
       </section>
-      <WhyChooseUs title = "Why Choose SMU Online BA" cards={whyCards} />
+      <WhyChooseUs title="Why Choose SMU Online BA" cards={whyCards} />
 
-          <CourseCurriculumSection
- title = "SMU Online BA Syllabus" 
-years={[1, 2, 3]}
-  data={{
-    /* ----------------------------- YEAR 1 ----------------------------- */
-    1: {
-      semesters: {
-        semester1: {
-          title: "Semester 1",
-          coreSubjects: [
-            "Natural Science - 1",
-            "Communicative English",
-            "Indian English Literature",
-            "Foundations of Political Science",
-            "Introduction to Sociology",
-          ],
-
-          specialization: {
-            useRadio: false,
-            data: [
-              {
-                name: "Sociology",
-                topics: [
-                  "Introduction to Sociology",
+      <CourseCurriculumSection
+        title="SMU Online BA Syllabus"
+        years={[1, 2, 3]}
+        data={{
+          /* ----------------------------- YEAR 1 ----------------------------- */
+          1: {
+            semesters: {
+              semester1: {
+                title: "Semester 1",
+                coreSubjects: [
+                  "Natural Science - 1",
+                  "Communicative English",
+                  "Indian English Literature",
                   "Foundations of Political Science",
-                  "Indian English Literature",
-                  "Communicative English",
-                  "Natural Science",
-                ],
-              },
-              {
-                name: "English",
-                topics: [
-                  "Indian English Literature",
-                  "Communicative English",
-                  "Natural Science",
                   "Introduction to Sociology",
-                  "Foundations of Political Science",
                 ],
-              },
-              {
-                name: "Political Science",
-                topics: [
-                   "Foundations of Political Science",
-                  "Introduction to Sociology",
-                  "Indian English Literature",
-                  "Communicative English",
-                  "Natural Science",
-                ],
-              },
-            ],
-          },
-        },
 
-        semester2: {
-          title: "Semester 2",
-          coreSubjects: [
-            "Functional English",
-            "Environmental Studies",
-            "World Literature",
-            "Political Theory",
-            "Sociology in India",
-          ],
-
-          specialization: {
-            useRadio: false,
-            data: [
-              {
-                name: "English",
-                topics: [
-                  "World Literature",
-                  "Functional English",
-                   "Sociology in India",
-                  "Political Theory",
-                  "Environmental Studies",
-                ],
+                specialization: {
+                  useRadio: false,
+                  data: [
+                    {
+                      name: "Sociology",
+                      topics: [
+                        "Introduction to Sociology",
+                        "Foundations of Political Science",
+                        "Indian English Literature",
+                        "Communicative English",
+                        "Natural Science",
+                      ],
+                    },
+                    {
+                      name: "English",
+                      topics: [
+                        "Indian English Literature",
+                        "Communicative English",
+                        "Natural Science",
+                        "Introduction to Sociology",
+                        "Foundations of Political Science",
+                      ],
+                    },
+                    {
+                      name: "Political Science",
+                      topics: [
+                        "Foundations of Political Science",
+                        "Introduction to Sociology",
+                        "Indian English Literature",
+                        "Communicative English",
+                        "Natural Science",
+                      ],
+                    },
+                  ],
+                },
               },
-              {
-                name: "Sociology",
-                topics: [
-                  "Sociology in India",
-                  "Political Theory",
-                  "World Literature",
+
+              semester2: {
+                title: "Semester 2",
+                coreSubjects: [
                   "Functional English",
                   "Environmental Studies",
-                ],
-              },
-              {
-                name: "Political Science",
-                topics: [
+                  "World Literature",
                   "Political Theory",
                   "Sociology in India",
-                  "World Literature",
-                  "Functional English",
-                  "Environmental Studies",
                 ],
+
+                specialization: {
+                  useRadio: false,
+                  data: [
+                    {
+                      name: "English",
+                      topics: [
+                        "World Literature",
+                        "Functional English",
+                        "Sociology in India",
+                        "Political Theory",
+                        "Environmental Studies",
+                      ],
+                    },
+                    {
+                      name: "Sociology",
+                      topics: [
+                        "Sociology in India",
+                        "Political Theory",
+                        "World Literature",
+                        "Functional English",
+                        "Environmental Studies",
+                      ],
+                    },
+                    {
+                      name: "Political Science",
+                      topics: [
+                        "Political Theory",
+                        "Sociology in India",
+                        "World Literature",
+                        "Functional English",
+                        "Environmental Studies",
+                      ],
+                    },
+                  ],
+                },
               },
-            ],
+            },
           },
-        },
-      },
-    },
 
-    /* ----------------------------- YEAR 2 ----------------------------- */
-    2: {
-      semesters: {
-        semester3: {
-          title: "Semester 3",
-          coreSubjects: [
-            "Digital Fluency",
-            "Academic Writing",
-            "Essays and Poetry",
-            "Comparative Political Analysis",
-            "Rural Sociology",
-          ],
-
-          specialization: {
-            useRadio: false,
-            data: [
-              {
-                name: "Political Science",
-                topics: [
-                  "Comparative Political Analysis",
-                  "Rural Sociology",
-                  "Essays and Poetry",
-                  "Universal Human Values",
+          /* ----------------------------- YEAR 2 ----------------------------- */
+          2: {
+            semesters: {
+              semester3: {
+                title: "Semester 3",
+                coreSubjects: [
                   "Digital Fluency",
-                ],
-              },
-              {
-                name: "English",
-                topics: [
+                  "Academic Writing",
                   "Essays and Poetry",
                   "Comparative Political Analysis",
                   "Rural Sociology",
-                  "Universal Human Values",
-                  "Digital Fluency",
                 ],
-              },
-              {
-                name: "Political Science",
-                topics: [ 
-                  "Rural Sociology",
-                  "Comparative Political Analysis",
-                  "Essays and Poetry",
-                  "Universal Human Values",
-                  "Digital Fluency",
-                ],
-              },
-            ],
-          },
-        },
 
-        semester4: {
-          title: "Semester 4",
-          coreSubjects: [
-            "New Literature in English",
-            "Literary Terms, Forms, and Movements",
-            "Classical Indian Political Thought",
-            "Theories of International Relations",
-            "Urban Sociology",
-            "Methods in Social Research",
-          ],
-
-          specialization: {
-            useRadio: false,
-            data: [
-              {
-                name: "English",
-                topics: [
-                   "New Literature in English",
-                  "Literary Terms, Forms, and Movements",
-                  "Women Writing in English",
-                  "Classical Indian Political Thought",
-                  "Urban Sociology",
-                ],
+                specialization: {
+                  useRadio: false,
+                  data: [
+                    {
+                      name: "Political Science",
+                      topics: [
+                        "Comparative Political Analysis",
+                        "Rural Sociology",
+                        "Essays and Poetry",
+                        "Universal Human Values",
+                        "Digital Fluency",
+                      ],
+                    },
+                    {
+                      name: "English",
+                      topics: [
+                        "Essays and Poetry",
+                        "Comparative Political Analysis",
+                        "Rural Sociology",
+                        "Universal Human Values",
+                        "Digital Fluency",
+                      ],
+                    },
+                    {
+                      name: "Political Science",
+                      topics: [
+                        "Rural Sociology",
+                        "Comparative Political Analysis",
+                        "Essays and Poetry",
+                        "Universal Human Values",
+                        "Digital Fluency",
+                      ],
+                    },
+                  ],
+                },
               },
-               {
-                name: "Sociology",
-                topics: [
-                   "Urban Sociology",
-                  "Family, Kinship, and Marriage",
-                  "Principle of Sociology",
-                  "Classical Indian Political Thought", 
+
+              semester4: {
+                title: "Semester 4",
+                coreSubjects: [
                   "New Literature in English",
-                ],
-              },
-               {
-                name: "Political Science",
-                topics: [
+                  "Literary Terms, Forms, and Movements",
                   "Classical Indian Political Thought",
                   "Theories of International Relations",
-                  "Political Economy",
                   "Urban Sociology",
-                  "New Literature in English",
+                  "Methods in Social Research",
                 ],
+
+                specialization: {
+                  useRadio: false,
+                  data: [
+                    {
+                      name: "English",
+                      topics: [
+                        "New Literature in English",
+                        "Literary Terms, Forms, and Movements",
+                        "Women Writing in English",
+                        "Classical Indian Political Thought",
+                        "Urban Sociology",
+                      ],
+                    },
+                    {
+                      name: "Sociology",
+                      topics: [
+                        "Urban Sociology",
+                        "Family, Kinship, and Marriage",
+                        "Principle of Sociology",
+                        "Classical Indian Political Thought",
+                        "New Literature in English",
+                      ],
+                    },
+                    {
+                      name: "Political Science",
+                      topics: [
+                        "Classical Indian Political Thought",
+                        "Theories of International Relations",
+                        "Political Economy",
+                        "Urban Sociology",
+                        "New Literature in English",
+                      ],
+                    },
+                  ],
+                },
               },
-            ],
+            },
           },
-        },
-      },
-    },
 
-    /* ----------------------------- YEAR 3 ----------------------------- */
-    3: {
-      semesters: {
-        semester5: {
-          title: "Semester 5",
-          coreSubjects: [
-            "One Act Plays",
-            "Poetry: Evolution, Elements and Genres",
-            "Human Rights",
-            "Political Processes in India",
-            "Sociology of Change and Development",
-            "Social Problems in India",
-          ],
-
-          specialization: {
-            useRadio: false,
-            data: [
-              {
-                name: "English",
-                topics: [
-                  "Victorian and Modern Literature",
+          /* ----------------------------- YEAR 3 ----------------------------- */
+          3: {
+            semesters: {
+              semester5: {
+                title: "Semester 5",
+                coreSubjects: [
+                  "One Act Plays",
                   "Poetry: Evolution, Elements and Genres",
-                  "Children’s Literature",
                   "Human Rights",
-                  "Social Problems in India",
-                ],
-              },
-               {
-                name: "Sociology",
-                topics: [
-                  "Classical Sociological Thinkers",
-                  "Social Problems in India",
-                  "Social Demography",
-                  "Human Rights",
-                  "Children’s Literature",
-                ],
-              },
-               {
-                name: "Political Science",
-                topics: [
                   "Political Processes in India",
-                  "India’s Foreign Policy in a Globalized World",
-                  "Children’s Literature",
-                  "Human Rights",
+                  "Sociology of Change and Development",
                   "Social Problems in India",
                 ],
+
+                specialization: {
+                  useRadio: false,
+                  data: [
+                    {
+                      name: "English",
+                      topics: [
+                        "Victorian and Modern Literature",
+                        "Poetry: Evolution, Elements and Genres",
+                        "Children’s Literature",
+                        "Human Rights",
+                        "Social Problems in India",
+                      ],
+                    },
+                    {
+                      name: "Sociology",
+                      topics: [
+                        "Classical Sociological Thinkers",
+                        "Social Problems in India",
+                        "Social Demography",
+                        "Human Rights",
+                        "Children’s Literature",
+                      ],
+                    },
+                    {
+                      name: "Political Science",
+                      topics: [
+                        "Political Processes in India",
+                        "India’s Foreign Policy in a Globalized World",
+                        "Children’s Literature",
+                        "Human Rights",
+                        "Social Problems in India",
+                      ],
+                    },
+                  ],
+                },
               },
-            ],
-          },
-        },
 
-        semester6: {
-          title: "Semester 6",
-          coreSubjects: [
-            "American Literature",
-            "Novels and Short Stories",
-            "Public Policy and Administration in India",
-            "United Nations and Global Conflicts",
-            "Social Movement in India",
-            "Sociology of Change and Development",
-          ],
-
-          specialization: {
-            useRadio: false,
-            data: [
-              {
-                name: "English",
-                topics: [
+              semester6: {
+                title: "Semester 6",
+                coreSubjects: [
                   "American Literature",
-                  "One Act Plays: Introduction & Studies",
                   "Novels and Short Stories",
-                  "United Nations and Global Conflicts",
-                  "Sociology of Change and Development",
-                ],
-              },
-               {
-                name: "Sociology",
-                topics: [
-                  "Sociology of Change and Development",
-                  "Sociology of Education",
-                  "Social Movements in India",
-                  "United Nations and Global Conflicts",
-                  "American Literature",
-                ],
-              },
-               {
-                name: "Political Science",
-                topics: [
-                  "United Nations and Global Conflicts",
                   "Public Policy and Administration in India",
-                  "Gender and Politics",
+                  "United Nations and Global Conflicts",
+                  "Social Movement in India",
                   "Sociology of Change and Development",
-                  "American Literature",
                 ],
+
+                specialization: {
+                  useRadio: false,
+                  data: [
+                    {
+                      name: "English",
+                      topics: [
+                        "American Literature",
+                        "One Act Plays: Introduction & Studies",
+                        "Novels and Short Stories",
+                        "United Nations and Global Conflicts",
+                        "Sociology of Change and Development",
+                      ],
+                    },
+                    {
+                      name: "Sociology",
+                      topics: [
+                        "Sociology of Change and Development",
+                        "Sociology of Education",
+                        "Social Movements in India",
+                        "United Nations and Global Conflicts",
+                        "American Literature",
+                      ],
+                    },
+                    {
+                      name: "Political Science",
+                      topics: [
+                        "United Nations and Global Conflicts",
+                        "Public Policy and Administration in India",
+                        "Gender and Politics",
+                        "Sociology of Change and Development",
+                        "American Literature",
+                      ],
+                    },
+                  ],
+                },
               },
-            ],
+            },
           },
-        },
-      },
-    },
-  }}
-/>
-
-
+        }}
+      />
 
       <section className="w-full font-[Inter] px-4 md:px-10 lg:px-20 py-12">
         <div className="p-6 md:p-10">
@@ -858,10 +881,12 @@ years={[1, 2, 3]}
               Educational qualification
             </h4>
             <p className="text-black text-[12px] md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
-                  Candidates must have completed 10+2 from a recognized national or state board institution or 10+3 diploma from a recognized national or state institute.
-             </p>
+              Candidates must have completed 10+2 from a recognized national or
+              state board institution or 10+3 diploma from a recognized national
+              or state institute.
+            </p>
 
-             <h3 className="text-[20px] md:text-3xl lg:text-5xl italic text-[#3C087E] md:mb-4">
+            <h3 className="text-[20px] md:text-3xl lg:text-5xl italic text-[#3C087E] md:mb-4">
               For NRI & foreign students
             </h3>
 
@@ -871,18 +896,27 @@ years={[1, 2, 3]}
             </h4>
             <ul className="text-black text-[12px] px-5 list-disc md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
               <li>
-                 Candidates must have completed 10+2 / intermediate / senior secondary from a recognized board or an equivalent qualification as recognized by the Association of Indian Universities in any discipline.
-                 </li>
+                Candidates must have completed 10+2 / intermediate / senior
+                secondary from a recognized board or an equivalent qualification
+                as recognized by the Association of Indian Universities in any
+                discipline.
+              </li>
               <li>
-                 Candidates who have completed 10+2 education outside India must produce a certificate of equivalence issued by the Association of Indian Universities.
-                  </li>
+                Candidates who have completed 10+2 education outside India must
+                produce a certificate of equivalence issued by the Association
+                of Indian Universities.
+              </li>
             </ul>
 
             <h4 className="font-bold text-[16px] md:text-2xl xl:text-[36px] text-black mb-1">
-              Other requirements 
+              Other requirements
             </h4>
             <p className="text-black text-[12px] md:text-2xl xl:text-[32px] mb-2 md:mb-5 leading-tight">
-              Candidates who are not Indian citizens or residing outside India and holding NRE or PIO status will be billed an international fee for respective degrees & may need to submit documents mentioned but not limited to CV, address proof, valid visa, PR card & passport copy as part of the application process.
+              Candidates who are not Indian citizens or residing outside India
+              and holding NRE or PIO status will be billed an international fee
+              for respective degrees & may need to submit documents mentioned
+              but not limited to CV, address proof, valid visa, PR card &
+              passport copy as part of the application process.
             </p>
           </div>
         </div>
@@ -896,166 +930,166 @@ years={[1, 2, 3]}
       />
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
-                          {/* Faded Background Heading */}
-                          <h2 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
-                            EXAMINATION PROCESS
-                          </h2>
-                  
-                          <div className="max-w-6xl mx-auto relative">
-                            {/* Main Animated Heading */}
-                            <MotionWrapper
-                            as="h2"
-                              initial={{ opacity: 0, y: 30 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.6 }}
-                              viewport={{ once: true }}
-                              className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#270652] mb-6"
-                            >
-                              EXAMINATION PROCESS
-                            </MotionWrapper>
-                  
-                            {/* Sub Text */}
-                            <MotionWrapper
-                              initial={{ opacity: 0 }}
-                              whileInView={{ opacity: 1 }}
-                              transition={{ duration: 0.8, delay: 0.2 }}
-                              viewport={{ once: true }}
-                              className="text-left text-black text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
-                            >
-                              The Sikkim Manipal Online BA follows a structured and
-                              transparent examination process designed to evaluate learners
-                              through continuous assessments and end-term evaluations.
-                            </MotionWrapper>
-                  
-                            {/* Cards Wrapper */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                              {/* Left Card */}
-                              <MotionWrapper
-                                initial={{ opacity: 0, x: -40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6 }}
-                                viewport={{ once: true }}
-                                className="bg-[#3C087E]/5 text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
-                              >
-                                <p className=" text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
-                                  Exam Slot Booking
-                                </p>
-                  
-                                {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
-                                <div className="space-y-5 text-lg leading-relaxed max-w-[380] text-black mx-auto">
-                                  {/* POINT 1 */}
-                                  <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                                    <span className="text-lg lg:text-2xl leading-none">✦</span>
-                                    <p className="text-left text-lg lg:text-2xl mb-6">
-                                      Learners must book their examination slots through the SMU
-                                      Student Portal.
-                                    </p>
-                                  </div>
-                  
-                                  {/* POINT 2 */}
-                                  <div className="grid grid-cols-[30px_auto] gap-3 items-start">
-                                    <span className="text-lg lg:text-2xl leading-no">✦</span>
-                                    <p className="text-lg lg:text-2xl text-left">
-                                      All exam slot details are shared well in advance, allowing
-                                      candidates to schedule their tests conveniently.
-                                    </p>
-                                  </div>
-                                </div>
-                              </MotionWrapper>
-                  
-                              {/* Right Card */}
-                              <MotionWrapper
-                                initial={{ opacity: 0, x: 40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6 }}
-                                viewport={{ once: true }}
-                                className="bg-[#3C087E]/5 text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
-                              >
-                                <p className="text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
-                                  Exam Slot Timings
-                                </p>
-                  
-                                <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-black text-center">
-                                  For end-term examinations, SMU provides three available slots:
-                                </p>
-                  
-                                {/* Exam Time Circles */}
-                                <div className="flex items-center justify-center text-black gap-6 mb-7">
-                                  {["9 AM", "1 PM", "5 PM"].map((slot, i) => (
-                                    <div
-                                      key={i}
-                                      className="w-15 h-15 border border-black rounded-full flex items-center justify-center text-lg font-semibold"
-                                    >
-                                      {slot}
-                                    </div>
-                                  ))}
-                                </div>
-                  
-                                <p className="text-lg lg:text-2xl max-w-[380] text-black text-center">
-                                  Candidates may choose their preferred slot based on
-                                  availability.
-                                </p>
-                              </MotionWrapper>
-                            </div>
-                          </div>
-                        </section>
-                  
-                        <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
-                          <div className="max-w-6xl mx-auto p-6 md:p-10">
-                            {/* HEADING */}
-                            <h2 className="text-[24px] md:text-[40px] font-bold italic text-[#270652] mb-12 text-center">
-                              ASSESSMENT STRUCTURE (100 MARKS)
-                            </h2>
-                  
-                            {/* TWO CATEGORIES */}
-                            <div className="grid grid-cols-1 md:grid-cols-2  text-black gap-12">
-                              {/* LEFT CATEGORY */}
-                              <div className="space-y-2 w-full">
-                                <div className="w-full rounded-lg border border-[#270652] py-3 text-center italic font-semibold bg-white">
-                                  External Assessment – 70 Marks
-                                </div>
-                  
-                                {/* FULL-WIDTH SPLIT ROW */}
-                                <div className="grid grid-cols-2 gap-2 w-full">
-                                  <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
-                                    MCQ (40 Marks)
-                                  </div>
-                                  <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
-                                    Descriptive Answers (30 Marks)
-                                  </div>
-                                </div>
-                              </div>
-                  
-                              {/* RIGHT CATEGORY */}
-                              <div className="space-y-2 w-full">
-                                <div className="w-full rounded-lg border border-[#270652] py-3 text-center italic font-semibold bg-white">
-                                  Internal Assessment – 30 Marks
-                                </div>
-                  
-                                {/* FULL-WIDTH SPLIT ROW */}
-                                <div className="grid grid-cols-2 gap-2 w-full">
-                                  <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
-                                    Quiz
-                                  </div>
-                                  <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
-                                    Assignment
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                  
-                            {/* PASSING CRITERIA */}
-                            <div className="border border-[#e5e7eb] rounded-lg p-5 mt-12 bg-white">
-                              <p className="font-semibold text-black mb-1">Passing Criteria</p>
-                              <ul className="list-disc pl-6 text-[#3C3C43] text-sm md:text-lg">
-                                <li>
-                                  A candidate must secure a minimum of 40% to successfully pass
-                                  the course.
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </section>
+        {/* Faded Background Heading */}
+        <h2 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
+          EXAMINATION PROCESS
+        </h2>
+
+        <div className="max-w-6xl mx-auto relative">
+          {/* Main Animated Heading */}
+          <MotionWrapper
+            as="h2"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-[28px] md:text-[56px] lg:text-[64px] font-bold text-center text-[#270652] mb-6"
+          >
+            EXAMINATION PROCESS
+          </MotionWrapper>
+
+          {/* Sub Text */}
+          <MotionWrapper
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-left text-black text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16"
+          >
+            The Sikkim Manipal Online BA follows a structured and transparent
+            examination process designed to evaluate learners through continuous
+            assessments and end-term evaluations.
+          </MotionWrapper>
+
+          {/* Cards Wrapper */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Left Card */}
+            <MotionWrapper
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-[#3C087E]/5 text-white p-10 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
+            >
+              <p className=" text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
+                Exam Slot Booking
+              </p>
+
+              {/* Bulleted list with ICON COLUMN + TEXT COLUMN */}
+              <div className="space-y-5 text-lg leading-relaxed max-w-[380] text-black mx-auto">
+                {/* POINT 1 */}
+                <div className="grid grid-cols-[30px_auto] gap-3 items-start">
+                  <span className="text-lg lg:text-2xl leading-none">✦</span>
+                  <p className="text-left text-lg lg:text-2xl mb-6">
+                    Learners must book their examination slots through the SMU
+                    Student Portal.
+                  </p>
+                </div>
+
+                {/* POINT 2 */}
+                <div className="grid grid-cols-[30px_auto] gap-3 items-start">
+                  <span className="text-lg lg:text-2xl leading-no">✦</span>
+                  <p className="text-lg lg:text-2xl text-left">
+                    All exam slot details are shared well in advance, allowing
+                    candidates to schedule their tests conveniently.
+                  </p>
+                </div>
+              </div>
+            </MotionWrapper>
+
+            {/* Right Card */}
+            <MotionWrapper
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-[#3C087E]/5 text-white p-5 flex flex-col items-center justify-center rounded-3xl shadow-xl text-center"
+            >
+              <p className="text-md md:text-2xl text-[#3C087E] font-semibold italic mb-5">
+                Exam Slot Timings
+              </p>
+
+              <p className="text-lg lg:text-2xl max-w-[380] mb-6 text-black text-center">
+                For end-term examinations, SMU provides three available slots:
+              </p>
+
+              {/* Exam Time Circles */}
+              <div className="flex items-center justify-center text-black gap-6 mb-7">
+                {["9 AM", "1 PM", "5 PM"].map((slot, i) => (
+                  <div
+                    key={i}
+                    className="w-15 h-15 border border-black rounded-full flex items-center justify-center text-lg font-semibold"
+                  >
+                    {slot}
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-lg lg:text-2xl max-w-[380] text-black text-center">
+                Candidates may choose their preferred slot based on
+                availability.
+              </p>
+            </MotionWrapper>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
+        <div className="max-w-6xl mx-auto p-6 md:p-10">
+          {/* HEADING */}
+          <h2 className="text-[24px] md:text-[40px] font-bold italic text-[#270652] mb-12 text-center">
+            ASSESSMENT STRUCTURE (100 MARKS)
+          </h2>
+
+          {/* TWO CATEGORIES */}
+          <div className="grid grid-cols-1 md:grid-cols-2  text-black gap-12">
+            {/* LEFT CATEGORY */}
+            <div className="space-y-2 w-full">
+              <div className="w-full rounded-lg border border-[#270652] py-3 text-center italic font-semibold bg-white">
+                External Assessment – 70 Marks
+              </div>
+
+              {/* FULL-WIDTH SPLIT ROW */}
+              <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
+                  MCQ (40 Marks)
+                </div>
+                <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
+                  Descriptive Answers (30 Marks)
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT CATEGORY */}
+            <div className="space-y-2 w-full">
+              <div className="w-full rounded-lg border border-[#270652] py-3 text-center italic font-semibold bg-white">
+                Internal Assessment – 30 Marks
+              </div>
+
+              {/* FULL-WIDTH SPLIT ROW */}
+              <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
+                  Quiz
+                </div>
+                <div className="w-full rounded-lg border border-[#270652] py-3 text-sm text-center bg-white">
+                  Assignment
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* PASSING CRITERIA */}
+          <div className="border border-[#e5e7eb] rounded-lg p-5 mt-12 bg-white">
+            <p className="font-semibold text-black mb-1">Passing Criteria</p>
+            <ul className="list-disc pl-6 text-[#3C3C43] text-sm md:text-lg">
+              <li>
+                A candidate must secure a minimum of 40% to successfully pass
+                the course.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <MujCareerServices benefits={benefits} />
 
@@ -1076,41 +1110,42 @@ years={[1, 2, 3]}
               </p>
 
               {/* CTA visible only on large screens */}
-             <CounsellingModal>
-               <button className="hidden lg:flex text-white bg-[#F6A410] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit">
-                Compare all Plans
-              </button>
-             </CounsellingModal>
+              <CounsellingModal>
+                <button className="hidden lg:flex text-white bg-[#F6A410] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit">
+                  Compare all Plans
+                </button>
+              </CounsellingModal>
             </div>
 
             {/* RIGHT SIDE CARDS */}
             <div className="w-full lg:w-[35%] flex justify-center">
               <FeesCarousel
-              cards = {[
-          {
-            title: "Annual Payment",
-            amount: "₹75,000/-",
-            sub: "Inclusive of all taxes",
-          },
-          {
-            title: "Semester Wise",
-            amount: "₹12,500/-",
-            sub: "Inclusive of all taxes",
-          },
-          {
-            title: "EMI starting at",
-            amount: "₹2,083/-",
-            sub: "per month [Terms & Conditions apply]",
-          },
-        ]} />
+                cards={[
+                  {
+                    title: "Annual Payment",
+                    amount: "₹75,000/-",
+                    sub: "Inclusive of all taxes",
+                  },
+                  {
+                    title: "Semester Wise",
+                    amount: "₹12,500/-",
+                    sub: "Inclusive of all taxes",
+                  },
+                  {
+                    title: "EMI starting at",
+                    amount: "₹2,083/-",
+                    sub: "per month [Terms & Conditions apply]",
+                  },
+                ]}
+              />
             </div>
 
             {/* CTA below carousel on mobile only */}
-           <CounsellingModal>
-             <button className="lg:hidden text-white bg-[#F6A410] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
-              Compare all Plans
-            </button>
-           </CounsellingModal>
+            <CounsellingModal>
+              <button className="lg:hidden text-white bg-[#F6A410] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
+                Compare all Plans
+              </button>
+            </CounsellingModal>
           </div>
         </div>
       </section>
@@ -1167,8 +1202,9 @@ years={[1, 2, 3]}
             </p>
 
             <h2 className="text-[#270652] text-[32px] md:text-[40px] lg:text-[64px] font-bold leading-tight">
-              Sikkim Manipal<br/>
-               University Online <br />
+              Sikkim Manipal
+              <br />
+              University Online <br />
               BA Certificate
             </h2>
 
@@ -1179,34 +1215,36 @@ years={[1, 2, 3]}
 
             {/* IMAGE that appears ONLY on mobile, above CTA */}
             <div className="md:hidden flex justify-center">
-              <img
+              <Image
                 src="/smu/smuBaDegree.png"
                 alt="Certificate Preview"
-                className="w-full max-w-xs rounded-lg shadow-sm"
-              />
+                width={300}
+                      height={200}
+                      className="w-full max-w-xs rounded-lg shadow-sm"
+                      sizes="100vw"
+                    />
             </div>
 
             {/* CTA BUTTON  */}
-          <div className="flex justify-center md:justify-start">
-<CounsellingModal>
-    <button
-  
-    className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200"
-  >
-    Know more
-  </button>
-</CounsellingModal>
-</div>
-
+            <div className="flex justify-center md:justify-start">
+              <CounsellingModal>
+                <button className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200">
+                  Know more
+                </button>
+              </CounsellingModal>
+            </div>
           </div>
 
           {/* RIGHT IMAGE (visible only on md+ screens) */}
           <div className="hidden md:flex justify-center mt-5">
-            <img
+            <Image
               src="/smu/smuBaDegree.png"
               alt="Certificate Preview"
-              className="w-full max-w-sm rounded-lg shadow-sm"
-            />
+               width={400}
+        height={250}
+        className="w-full max-w-sm rounded-lg shadow-sm"
+        sizes="(max-width: 768px) 100vw, 400px"
+      />
           </div>
         </div>
       </section>
@@ -1214,7 +1252,7 @@ years={[1, 2, 3]}
       <section className="w-full bg-white mt-10 lg:mt-20 px-4 md:px-12 lg:px-20 font-[Inter]">
         {/* Small Header */}
         <MotionWrapper
-        as="h2"
+          as="h2"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -1270,11 +1308,14 @@ years={[1, 2, 3]}
 
               <div>
                 <p className="text-black text-lg md:text-xl font-bold mb-2">
-                 Flexible, 100% Online Learning that Fits You
+                  Flexible, 100% Online Learning that Fits You
                 </p>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
-                  Study from anywhere at your own pace — all lectures, assignments, and exams are delivered through a full online platform. This makes the program ideal if you are working, managing personal commitments, or located far from a campus.
-                   </p>
+                  Study from anywhere at your own pace — all lectures,
+                  assignments, and exams are delivered through a full online
+                  platform. This makes the program ideal if you are working,
+                  managing personal commitments, or located far from a campus.
+                </p>
               </div>
             </MotionWrapper>
 
@@ -1310,14 +1351,16 @@ years={[1, 2, 3]}
 
               <div>
                 <p className="text-black text-lg md:text-xl font-bold mb-2">
-                 Affordable, Recognized Degree with Good Value
+                  Affordable, Recognized Degree with Good Value
                 </p>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
-                 SMU’s Online BA is UGC-entitled, offered by a NAAC A+ accredited university, and carries the same validity as an on-campus degree. Plus, the fee structure is budget-friendly, with semester-wise payments or EMI options.
-              </p>
+                  SMU’s Online BA is UGC-entitled, offered by a NAAC A+
+                  accredited university, and carries the same validity as an
+                  on-campus degree. Plus, the fee structure is budget-friendly,
+                  with semester-wise payments or EMI options.
+                </p>
               </div>
             </MotionWrapper>
-            
           </div>
 
           {/* RIGHT COLUMN */}
@@ -1354,14 +1397,17 @@ years={[1, 2, 3]}
 
               <div>
                 <p className="text-black text-lg md:text-xl font-bold mb-2">
-                 Versatile Career & Academic Pathways
+                  Versatile Career & Academic Pathways
                 </p>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
-                Graduates can pursue further education, or explore roles across sectors — journalism, content writing, public administration, social research, media, education, civil services, and more — thanks to the program’s interdisciplinary exposure.
+                  Graduates can pursue further education, or explore roles
+                  across sectors — journalism, content writing, public
+                  administration, social research, media, education, civil
+                  services, and more — thanks to the program’s interdisciplinary
+                  exposure.
                 </p>
               </div>
             </MotionWrapper>
-            
 
             {/* Item 4 */}
             <MotionWrapper
@@ -1395,11 +1441,14 @@ years={[1, 2, 3]}
 
               <div>
                 <p className="text-black text-lg md:text-xl font-bold mb-2">
-                 Strong Foundation in Humanities & Social Sciences
+                  Strong Foundation in Humanities & Social Sciences
                 </p>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
-                 The curriculum covers core disciplines like English Literature, Political Science, and Sociology — giving you critical thinking, communication, analytical, and societal-awareness skills useful for diverse career paths.
-                 </p>
+                  The curriculum covers core disciplines like English
+                  Literature, Political Science, and Sociology — giving you
+                  critical thinking, communication, analytical, and
+                  societal-awareness skills useful for diverse career paths.
+                </p>
               </div>
             </MotionWrapper>
           </div>
@@ -1417,7 +1466,7 @@ years={[1, 2, 3]}
             {/* Title */}
             <div className="text-center md:mb-4 pb-3">
               <MotionWrapper
-              as="h2"
+                as="h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -1501,9 +1550,9 @@ years={[1, 2, 3]}
                 ))}
 
                 {/* CTA */}
-               <CounsellingModal>
-                <button
-                  className="
+                <CounsellingModal>
+                  <button
+                    className="
                     w-[200px] 
                     mt-6 py-3 px-6 
                     rounded-lg 
@@ -1513,9 +1562,10 @@ years={[1, 2, 3]}
                     self-center md:self-start
                     shadow-lg
                   "
-                >
-                  Know more
-                </button></CounsellingModal>
+                  >
+                    Know more
+                  </button>
+                </CounsellingModal>
               </MotionWrapper>
             </div>
           </MotionWrapper>
@@ -1536,7 +1586,7 @@ years={[1, 2, 3]}
             validity: "4 years",
             coursePath: "/smu/sikkim-manipal-online-mba",
           },
-           {
+          {
             id: 2,
             universityLogo: "/smu.png",
             universityName: "SMU",
@@ -1568,9 +1618,9 @@ years={[1, 2, 3]}
             validity: "4 years",
             coursePath: "/smu/sikkim-manipal-online-mca",
           },
-           {
+          {
             id: 5,
-             universityLogo: "/smu.png",
+            universityLogo: "/smu.png",
             universityName: "SMU",
             title: "Master of Arts",
             subtitle: "Sikkim Manipal",
@@ -1578,7 +1628,7 @@ years={[1, 2, 3]}
             validity: "4 years",
             coursePath: "/smu/sikkim-manipal-online-ma",
           },
-           {
+          {
             id: 6,
             universityLogo: "/smu.png",
             universityName: "SMU",

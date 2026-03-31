@@ -206,10 +206,10 @@ export default function Page() {
           Understanding the Strategic Value of a Digital MBA
           </h2>
           <p className="text-black text-[14px] leading-5">
-          The Online MBA has rapidly evolved into one of the most sought-after graduate business degrees globally, prized by working professionals who require strategic flexibility without making any concessions on academic quality or corporate recognition. This digital structure empowers individuals by providing a top-tier credential that is highly accessible, removing geographic barriers, and allowing for efficient, seamless integration into demanding full-time work and family schedules.
+          The Online MBA has rapidly evolved into one of the most sought-after graduate business degrees globally, prized by working professionals who require strategic flexibility without making any concessions on academic quality or corporate recognition. This digital structure empowers individuals by providing a top-tier credential that is highly accessible, removing geographic barriers, and allowing for efficient, seamless integration into demanding full-time work and family schedules.
           </p>
            <p className="text-black text-[14px] leading-5">         
-           Professionals are increasingly turning to flexible MBA pathways because they avoid the career disruption and income loss that is mandatory with a full-time, campus program. This choice significantly improves the overall Return on Investment (ROI) because you strategically continue earning your full salary while studying.
+           Professionals are increasingly turning to flexible MBA pathways because they avoid the career disruption and income loss that is mandatory with a full-time, campus program. This choice significantly improves the overall Return on Investment (ROI) because you strategically continue earning your full salary while studying.
            </p>
 
           <h2 className="text-2xl -mb-5 font-semibold text-[#3C087E]">
@@ -256,16 +256,16 @@ export default function Page() {
     </p>
      <ul className="list-disc px-5">
             <li className="text-[14px] text-black font-normal leading-5">
-          The industry you target (high-demand sectors like finance, technology, and consulting often offer premium salaries).
+          The industry you target (high-demand sectors like finance, technology, and consulting often offer premium salaries).
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-           The reputation and accreditation (AACSB, AMBA, EQUIS) of your chosen institution.
+           The reputation and accreditation (AACSB, AMBA, EQUIS) of your chosen institution.
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-            Your pre-program managerial experience.
+            Your pre-program managerial experience.
          </li>
             <li className="text-[14px] text-black font-normal leading-5">
-        The quality of the professional network you cultivate during your studies
+        The quality of the professional network you cultivate during your studies
            </li>
           </ul>
 
@@ -275,7 +275,7 @@ export default function Page() {
  Transitioning Across Industries
  </p>
  <p className="text-black text-[14px] leading-5">
- An Online MBA serves as a powerful catalyst for career transition. It makes major pivots - such as moving from a highly technical role in engineering to a strategic leadership position in finance - not just possible, but highly realistic. The degree instantly confers business fluency, market credibility, and a comprehensive suite of transferable skills that employers are actively seeking.
+ An Online MBA serves as a powerful catalyst for career transition. It makes major pivots - such as moving from a highly technical role in engineering to a strategic leadership position in finance - not just possible, but highly realistic. The degree instantly confers business fluency, market credibility, and a comprehensive suite of transferable skills that employers are actively seeking.
  </p>
   <p className="text-black -mb-5 text-[16px] font-medium leading-5">
    Moving from Specialist to Managerial Roles
@@ -304,17 +304,17 @@ Online MBA graduates are primed to move out of specialist roles and into broader
  Development of Advanced Leadership Skills
  </p>
  <p className="text-black -mb-5 text-[14px] leading-5">
-The curriculum is intentionally designed to forge a strong leadership foundation by blending strategic thinking, sophisticated communication, and complex decision-making frameworks. Using virtual collaboration tools that perfectly mimic real remote-team dynamics, graduates are prepared to immediately step into leadership roles faster by demonstrating proficiency in:
+The curriculum is intentionally designed to forge a strong leadership foundation by blending strategic thinking, sophisticated communication, and complex decision-making frameworks. Using virtual collaboration tools that perfectly mimic real remote-team dynamics, graduates are prepared to immediately step into leadership roles faster by demonstrating proficiency in:
 </p>
  <ul className="list-disc px-5">
             <li className="text-[14px] text-black font-normal leading-5">
-          Strong cross-functional thinking.
+          Strong cross-functional thinking.
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-            Rigorous data-driven decision-making.
+            Rigorous data-driven decision-making.
             </li>
             <li className="text-[14px] text-black font-normal leading-5">
-            Critical high adaptability to changing business environments.
+            Critical high adaptability to changing business environments.
          </li>
           </ul>
 
@@ -336,21 +336,21 @@ The curriculum is intentionally designed to forge a strong leadership foundatio
        Mid-Career Professionals
        </p>
         <p className="text-black text-[14px] leading-5">
-      Individuals with 5-10 years of prior experience often see the fastest and most significant ROI. Their accumulated professional experience pairs seamlessly with the new graduate business credential, making them immediately marketable for senior roles.
+      Individuals with 5-10 years of prior experience often see the fastest and most significant ROI. Their accumulated professional experience pairs seamlessly with the new graduate business credential, making them immediately marketable for senior roles.
        </p>
 
         <p className="text-black text-[16px] -mb-5 font-medium leading-5">
         Entrepreneurs and Start-Up Founders
        </p>
         <p className="text-black text-[14px] leading-5">
-     For those building their own ventures, an Online MBA provides essential, practical skills in financial modeling, scaling operations, and strategic leadership - all of which are critical to building a profitable, sustainable business.
+     For those building their own ventures, an Online MBA provides essential, practical skills in financial modeling, scaling operations, and strategic leadership - all of which are critical to building a profitable, sustainable business.
      </p>
   
   <p className="text-black text-[16px] -mb-5 font-medium leading-5">
         Global Networking and Credibility
        </p>
         <p className="text-black text-[14px] leading-5">
-     Digital networks can be even broader and more global than traditional campus networks. Furthermore, the myth that Online MBAs lack respect is consistently debunked: accreditation from recognized bodies like AACSB or EQUIS ensures the degree is viewed as equally credible by employers worldwide.
+     Digital networks can be even broader and more global than traditional campus networks. Furthermore, the myth that Online MBAs lack respect is consistently debunked: accreditation from recognized bodies like AACSB or EQUIS ensures the degree is viewed as equally credible by employers worldwide.
      </p>
           
           <h2 className="text-[#3C087E] -mb-5 font-semibold text-2xl md:text-2xl lg:text-2xl">
@@ -399,7 +399,7 @@ The curriculum is intentionally designed to forge a strong leadership foundatio
           
          
          <p className="text-black text-[14px] leading-5">
-           An Online MBA is one of the strongest, most flexible investments available for significantly increasing your salary, opening new career pathways, and accelerating your leadership potential. With lower costs and strong, verifiable long-term returns, it is the strategic choice for professionals ready to level up.
+           An Online MBA is one of the strongest, most flexible investments available for significantly increasing your salary, opening new career pathways, and accelerating your leadership potential. With lower costs and strong, verifiable long-term returns, it is the strategic choice for professionals ready to level up.
            </p>
 
          </MotionWrapper>

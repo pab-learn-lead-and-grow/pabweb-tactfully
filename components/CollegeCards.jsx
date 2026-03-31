@@ -4,6 +4,8 @@ import ConnectToday from "./NmimsSection/ConnectToday";
 import FAQ from "./NmimsSection/FAQ";
 import Link from "next/link";
 
+export const revalidate = 3600; // Revalidate every hour
+
 export default async function CollegeCards() {
 
   const faqs = [

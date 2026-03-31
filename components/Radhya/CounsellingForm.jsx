@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { CircleCheckBig, ShieldCheck } from "lucide-react";
+import Image from "next/image";
 
 export default function CounsellingForm({ onClose }) {
   const [formData, setFormData] = useState({
@@ -108,31 +109,33 @@ const [errors, setErrors] = useState({});
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] lg:min-h-[600px]">
           {/* LEFT */}
           <div className="bg-white rounded-2xl p-6 flex flex-col justify-center items-center relative">
-            <h2 className="text-3xl md:text-[36px] font-semibold leading-tight text-[#270652] italic text-center">
-              Stuck & Confused?
-              <br /> Tell us, we'll help.
-            </h2>
+  <h2 className="text-3xl md:text-[36px] font-semibold leading-tight text-[#270652] italic text-center">
+    Stuck & Confused?
+    <br /> Tell us, we'll help.
+  </h2>
 
-            <div className="relative max-w-sm hidden md:block">
-              <img
-                src="/counselling.png"
-                alt="Confused you ?"
-                className="w-full h-auto"
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                }}
-              />
-            </div>
+  <div className="relative max-w-sm hidden md:block w-full h-[250px]">
+    <Image
+      src="/counselling.png"
+      alt="Confused you?"
+      fill
+      className="object-contain"
+      sizes="(max-width: 768px) 100vw, 300px"
+      onError={(e) => {
+        e.currentTarget.style.display = "none";
+      }}
+    />
+  </div>
 
-            <div className="mt-5 md:mt-0 lg:mb-10 text-center px-2">
-              <div className="inline-flex items-center gap-1.5 bg-[#4D964F]/5 py-1 px-3 rounded-lg">
-                <CircleCheckBig size={14} className="text-[#4D964F]" />
-                <span className="text-[10px] text-[#4D964F] italic">
-                  Only a certified mentor will assist you.
-                </span>
-              </div>
-            </div>
-          </div>
+  <div className="mt-5 md:mt-0 lg:mb-10 text-center px-2">
+    <div className="inline-flex items-center gap-1.5 bg-[#4D964F]/5 py-1 px-3 rounded-lg">
+      <CircleCheckBig size={14} className="text-[#4D964F]" />
+      <span className="text-[10px] text-[#4D964F] italic">
+        Only a certified mentor will assist you.
+      </span>
+    </div>
+  </div>
+</div>
 
           {/* RIGHT */}
           <div className="bg-white rounded-2xl p-6">

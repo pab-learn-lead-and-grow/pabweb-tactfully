@@ -60,10 +60,16 @@ export const metadata = {
       description:
         "Online diploma programs offered by top institutions in India with flexible learning and career-focused skills across business, IT, healthcare, design and other domains.",
       provider: {
-        "@type": "Organization",
-        name: "Radhya Education Academy",
-        url: siteUrl,
+        "@id": "https://radhyaeducationacademy.com/#organization"
       },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      }
     }),
   },
 };

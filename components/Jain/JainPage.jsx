@@ -158,41 +158,43 @@ export default function Page() {
   return (
     <main className="flex flex-col items-center w-full bg-white">
        <section className="w-full bg-white px-4 md:px-10 xl:px-15 mt-20 py-10">
-      <div className="w-full mx-auto flex flex-col md:flex-row items-center justify-between">
-         <h2 className=" text-4xl md:text-5xl lg:text-[64px] xl:text-[80px] font-bold leading-none bg-linear-to-r from-[#0E385F] to-[#F9BD04] bg-clip-text text-transparent">
-            Jain University
-         </h2>
-
-        {/* Right LOGO */}
-        <MotionWrapper
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="flex justify-end"
-        >
-          <Image
-            src="/jain.png"
-            alt="JAIN Logo"
-            width={526}
-            height={180}
-            className="object-contain w-[320px] md:w-[250px] lg:w-[400px] xl:w-[500px] pr-10 mt-10 md:mt-0"
-          />
-        </MotionWrapper>
-
-      </div>
-    </section>
+            <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-5 items-center gap-6">
+             
+             {/* LEFT - 60% */}
+             <h1 className="lg:col-span-3 text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight bg-linear-to-r from-[#0E385F] to-[#F9BD04]  bg-clip-text text-transparent">
+               JAIN University Online Courses 2026: Fees, Admission, MBA, BBA & Review
+             </h1>
+           
+             {/* RIGHT - 40% */}
+             <MotionWrapper
+               initial={{ opacity: 0, scale: 0.9 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               transition={{ duration: 0.5, ease: "easeOut" }}
+               viewport={{ once: true }}
+               className="lg:col-span-2 flex justify-center lg:justify-end"
+             >
+               <Image
+                  src="/jain.png"
+                  alt="JAIN Logo"
+                  width={526}
+                  height={180}
+                  className="object-contain w-[320px] md:w-[250px] lg:w-[400px] xl:w-[500px] pr-10 mt-10 md:mt-0"
+                />
+              </MotionWrapper>
+      
+            </div>
+          </section>
       <section className="w-full bg-white px-10 xl:px-15 ">
         {/* ======= ABOUT NMIMS SECTION ======= */}
         <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
-            <h2 className="text-[32px] md:text-4xl lg:text-[64px] text-center md:text-left font-extrabold text-[#270652] mb-12">
-              About JAIN
+           <h2 className="text-[32px] md:text-4xl lg:text-[44px]  text-center md:text-left font-bold text-[#270652] mb-4">
+              About JAIN University
             </h2>
 
-            <p className="text-black leading-relaxed text-center md:text-left  font-inter text-xs lg:text-[18px] mb-18">
-            JAIN Online, a division of the NAAC A++ accredited JAIN (Deemed-to-be University), offers UGC-entitled online degree programs designed to equip learners with modern knowledge and industry-ready skills. Our goal is to help individuals confidently shape and advance their professional journeys.<br />
+            <p className="text-black leading-relaxed text-center md:text-left  font-inter text-xs lg:text-[18px] mb-10 ">
+               JAIN Online, a division of the NAAC A++ accredited JAIN (Deemed-to-be University), offers UGC-entitled online degree programs designed to equip learners with modern knowledge and industry-ready skills. Our goal is to help individuals confidently shape and advance their professional journeys.<br />
 With more than three decades of academic excellence and cutting-edge, technology-driven learning systems, we focus on both academic achievement and personal growth to ensure holistic development. Supported by experienced faculty and digital learning experts, our flexible online platform allows learners to study anytime, anywhere, and at their own pace.
                  </p>
           </div>
