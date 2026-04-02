@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Careers at Radhya Education ",
+  title: "Careers at Radhya Education Academy",
 
   description:
     "Explore exciting career opportunities at Radhya Education. Join our team and build your career in the fast-growing online education and career guidance industry.",

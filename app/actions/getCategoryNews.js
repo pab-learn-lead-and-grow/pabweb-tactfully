@@ -35,6 +35,13 @@ export async function getCategoryNews(slug) {
       return { categories: categoryData || [], news: [], categoryName: "" };
     }
 
+    const { data: newsInCategory } = await supabaseServer
+      .from("news_category_map")
+      .select("news_id")
+      .eq("category_id", currentCategory.category_id);
+
+    const newsIds = (newsInCategory || []).map(n => n.news_id);
+
     const { data: newsData } = await supabaseServer
       .from("news")
       .select(`
@@ -50,14 +57,14 @@ export async function getCategoryNews(slug) {
           slug
         )
       `)
-      .eq("primary_category_id", currentCategory.category_id)
+      .in("news_id", newsIds.length > 0 ? newsIds : [0])
       .eq("is_published", true)
       .order("published_at", { ascending: false });
 
     const formattedNews = (newsData || []).map((item) => ({
       ...item,
-      categorySlug: item.news_categories?.slug || '',
-      categoryName: item.news_categories?.category_name || '',
+      categorySlug: currentCategory.slug,
+      categoryName: currentCategory.category_name,
     }));
 
     const attachImages = formattedNews.map((item) => {

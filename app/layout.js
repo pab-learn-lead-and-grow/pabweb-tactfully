@@ -23,8 +23,7 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-  default: "Radhya Education Academy | Online & Distance Education Consultancy in India",
-  template: "%s | Radhya Education Academy",
+  default: "Online & Distance Education Consultancy in India | Radhya Education Academy",
 },
 
   description:
@@ -89,7 +88,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PJYRD1BLTD"

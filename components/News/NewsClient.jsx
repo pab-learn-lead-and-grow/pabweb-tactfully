@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -35,17 +35,17 @@ export default function NewsClient({ trending, latest, categories }) {
     if (minutes < 60) return `${minutes} min ago`;
     if (hours < 24) return `${hours} hr ago`;
     if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
-    return past.toLocaleDateString();
+    return past.toLocaleDateString("en-GB");
   };
 
   return (
     <div className="mt-10 py-12  min-h-screen p-5 lg:p-[60px]">
       <div className="max-w-6xl mx-auto">
-       <h1 className="lg:col-span-3 text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight mb-4  text-[#270625]">
-                    Latest Education News, Trends & Updates in India
-                   </h1>
+        <h1 className="lg:col-span-3 text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight mb-4  text-[#270625]">
+          Latest Education News, Trends & Updates in India
+        </h1>
 
-         <div className="mb-10 flex gap-4 bg-[#3C087E]/10 items-center px-3 py-4 rounded-lg ">
+        <div className="mb-10 flex gap-4 bg-[#3C087E]/10 items-center px-3 py-4 rounded-lg ">
           <svg
             className="h-4 w-4 text-[#3C087E]"
             fill="none"
@@ -70,24 +70,17 @@ export default function NewsClient({ trending, latest, categories }) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-16">
           <div className="lg:col-span-2">
             {currentTrending?.image_url && (
-              <Link href={`/news/${currentTrending.categorySlug}/${currentTrending.slug}`}>
-                <div>
-                  <div className="relative h-[300px] rounded-xl overflow-hidden">
+              <Link href={`/news/${currentTrending.slug}`}>
+                <div className="w-full">
+                  <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden">
                     <Image
                       src={currentTrending.image_url}
                       alt={currentTrending.title}
                       fill
-                      className="object-cover hover:scale-105 transition duration-300"
-                      sizes="100vw"
-                      unoptimized
+                      className="object-cover transition-transform duration-300 hover:scale-105"
+                      sizes="(max-width: 1024px) 100vw, 66vw"
+                      priority
                     />
-                  </div>
-                  <h2 className="text-2xl font-bold mt-4 text-black">
-                    {currentTrending.title}
-                  </h2>
-                  <div className="text-sm flex gap-4 text-gray-500 mt-2">
-                    <p>{currentTrending.news_categories?.category_name}</p> |
-                    <span>{timeAgo(currentTrending.published_at)}</span>
                   </div>
                 </div>
               </Link>
@@ -119,16 +112,17 @@ export default function NewsClient({ trending, latest, categories }) {
             </h3>
             <div className="space-y-5">
               {trending.map((item) => (
-                <Link key={item.news_id} href={`/news/${item.categorySlug}/${item.slug}`}>
+                <Link key={item.news_id} href={`/news/${item.slug}`}>
                   <div className="flex gap-4 items-start hover:bg-white p-3 rounded-lg transition">
-                    <Image
-                      src={item.image_url}
-                      alt={item.title}
-                      width={100}
-                      height={70}
-                      className="rounded-lg object-cover"
-                      unoptimized
-                    />
+                    <div className="relative w-[100px] aspect-video rounded-lg overflow-hidden flex-shrink-0">
+                      <Image
+                        src={item.image_url}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
                     <div>
                       <h4 className="font-medium text-black">{item.title}</h4>
                       <div className="flex items-center text-xs text-gray-500 gap-3">
@@ -149,7 +143,7 @@ export default function NewsClient({ trending, latest, categories }) {
             </h3>
             <div className="space-y-4 text-black">
               {filteredLatest.slice(0, 6).map((item) => (
-                <Link key={item.news_id} href={`/news/${item.categorySlug}/${item.slug}`}>
+                <Link key={item.news_id} href={`/news/${item.slug}`}>
                   <div className="hover:bg-gray-100 p-2 rounded-md transition">
                     <p className="text-sm font-medium">{item.title}</p>
                   </div>
@@ -162,13 +156,15 @@ export default function NewsClient({ trending, latest, categories }) {
         <div className="py-12 lg:py-24">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredLatest.slice(0, visibleCount).map((item) => (
-              <Link key={item.news_id} href={`/news/${item.categorySlug}/${item.slug}`}>
+              <Link key={item.news_id} href={`/news/${item.slug}`}>
                 <div className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                  <div className="relative h-[350px] overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden">
                     <Image
                       src={item.image_url}
                       alt={item.title}
                       fill
+                      priority
+                      fetchPriority="high"
                       className="object-cover group-hover:scale-105 transition duration-300"
                       sizes="(max-width:768px) 100vw, 33vw"
                       unoptimized

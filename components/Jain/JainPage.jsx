@@ -288,7 +288,7 @@ With more than three decades of academic excellence and cutting-edge, technology
            
 
   <UnivCourses
-  heading="Courses"
+  heading="Jain University Online Courses "
   courses={[
     {
       id: 1,

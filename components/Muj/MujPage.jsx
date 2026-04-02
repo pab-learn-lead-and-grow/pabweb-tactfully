@@ -308,7 +308,7 @@ export default function Page() {
 
 
   <UnivCourses
-  heading="Courses"
+   heading="MUJ Online Courses "
   courses={[
     {
       id: 1,

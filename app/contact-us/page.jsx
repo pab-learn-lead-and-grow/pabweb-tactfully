@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Contact Radhya Education | Expert Counselling & Admission Support",
+  title: "Contact Radhya Education Academy | Expert Counselling & Admission Support",
 
   description:
     "Contact Radhya Education Academy for expert guidance on online degree programs, university admissions, and personalized career counselling support.",

@@ -9,39 +9,33 @@ import { useState } from "react";
 export default function UnivCourses({ heading, courses = [] }) {
   const [showAll, setShowAll] = useState(false);
 
-  const visibleCourses = showAll ? courses : courses.slice(0, 3);
-
   return (
-    <section className="bg-white px-6 md:px-12 lg:px-20 mt-10 xl:mt-20 py-16">
+    <section className="bg-white px-6 md:px-12 lg:px-10 mt-10 py-12">
       {/* HEADER */}
       <div className="flex items-center justify-between mb-10 gap-4">
-        <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-[#270652]">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#270652]">
           {heading}
         </h2>
 
         <button
           onClick={() => setShowAll((p) => !p)}
-          className="
-      bg-[#270652] hover:[#3C087E]/50 text-white
-      px-4 py-1
-      rounded-full
-      text-sm font-medium
-      transition
-      w-fit shrink-0
-    "
+          className="bg-[#270652] hover:[#3C087E]/50 text-white px-4 py-1 rounded-full text-sm font-medium transition w-fit shrink-0"
         >
           {showAll ? "Show Less" : "View More"}
         </button>
       </div>
 
       {/* COURSE CARDS */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {visibleCourses.map((course) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {courses.map((course, index) => (
           <div
             key={course.id}
-            className="border rounded-xl p-6 bg-white shadow-sm hover:shadow-md transition"
+            className={`
+              border rounded-xl p-6 bg-white shadow-sm hover:shadow-md transition
+              ${!showAll && index >= 3 ? "hidden" : ""}
+            `}
           >
-            {/* TOP LOGOS */}
+           {/* TOP LOGOS */}
             <div className="flex items-start justify-between mb-6">
               <div className="flex gap-4  items-center">
                 <Image
@@ -104,6 +98,15 @@ export default function UnivCourses({ heading, courses = [] }) {
               </Link>
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* SEO SAFE INTERNAL LINKS (NO UI IMPACT) */}
+      <div className="sr-only">
+        {courses.map((course) => (
+          <Link key={`seo-${course.id}`} href={course.coursePath}>
+            {course.title} - {course.subtitle}
+          </Link>
         ))}
       </div>
     </section>

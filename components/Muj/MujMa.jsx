@@ -1009,7 +1009,7 @@ export default function Page() {
                  width={300}
                       height={200}
                       className="w-full max-w-xs rounded-lg shadow-sm"
-                      sizes="100vw"
+                      sizes="(max-width: 768px) 90vw, 300px"
                     />
               </div>
         
@@ -1352,7 +1352,7 @@ export default function Page() {
                    </section>
 
                      <UnivCourses
-                                     heading="Explore All Programs"
+                                     heading="MUJ Online Courses "
                                      courses={[
                                        {
                                          id: 1,

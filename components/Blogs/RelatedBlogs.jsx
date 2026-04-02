@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react"; 
@@ -29,6 +30,7 @@ export default function RelatedBlogs({ blogs }) {
           animate="show"
           className="flex gap-3 pb-4 border-gray-200"
         >
+          {/* IMAGE */}
           <div className="w-[100px] h-[70px] rounded-lg overflow-hidden shrink-0">
             <Image
               src={blog.image}
@@ -39,16 +41,13 @@ export default function RelatedBlogs({ blogs }) {
             />
           </div>
 
-          <div className="flex-1 min-w-0 flex flex-col justify-between">
-            <p className="text-[10px] text-black">
-              {blog.title}
-            </p>
-
+          {/* CONTENT */}
+          <div className="flex-1 min-w-0 flex flex-col justify-center">
             <Link
               href={blog.path}
-              className="mt-2 w-fit text-white bg-[#3d077e] text-[10px] px-3 py-1 rounded"
+              className="text-[12px] font-medium text-black hover:text-[#3d077e] transition-colors"
             >
-              Read More
+              {blog.title}
             </Link>
           </div>
         </MotionWrapper>

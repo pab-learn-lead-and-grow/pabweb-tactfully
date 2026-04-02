@@ -30,7 +30,7 @@ export async function getNewsData() {
   }
   
   try {
-    const [newsRes, catRes] = await Promise.all([
+    const [newsRes, catRes, mapRes] = await Promise.all([
       supabaseServer
         .from("news")
         .select(`
@@ -39,7 +39,6 @@ export async function getNewsData() {
           slug,
           image_url,
           published_at,
-          is_published,
           trending,
           primary_category_id,
           news_categories (
@@ -49,13 +48,29 @@ export async function getNewsData() {
           )
         `)
         .eq("is_published", true),
-      supabaseServer.from("news_categories").select("*"),
+      supabaseServer.from("news_categories").select("category_id, category_name, slug"),
+      supabaseServer
+        .from("news_category_map")
+        .select(`
+          news_id,
+          category_id,
+          is_primary
+        `),
     ]);
 
     const newsData = newsRes.data || [];
     const catData = catRes.data || [];
+    const mapData = mapRes.data || [];
+    
     const catMap = {};
     catData.forEach((c) => (catMap[c.category_id] = c));
+
+    const newsPrimaryMap = {};
+    mapData.forEach((m) => {
+      if (m.is_primary === true) {
+        newsPrimaryMap[m.news_id] = m.category_id;
+      }
+    });
 
     const merged = newsData.map((item) => {
       let imageUrl = item.image_url;
@@ -64,12 +79,15 @@ export async function getNewsData() {
         imageUrl = data?.publicUrl;
       }
       
+      const primaryCatId = newsPrimaryMap[item.news_id] || item.primary_category_id;
+      const primaryCat = catMap[primaryCatId] || item.news_categories;
+      
       return {
         ...item,
         image_url: imageUrl,
-        categorySlug: catMap[item.primary_category_id]?.slug || '',
-        categoryName: catMap[item.primary_category_id]?.category_name || '',
-        news_categories: catMap[item.primary_category_id] || null,
+        categorySlug: primaryCat?.slug || '',
+        categoryName: primaryCat?.category_name || '',
+        news_categories: primaryCat || null,
       };
     });
 

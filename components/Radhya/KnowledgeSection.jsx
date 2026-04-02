@@ -19,7 +19,7 @@ export default function KnowledgeSection({ latestNews = [] }) {
     if (minutes < 60) return `${minutes} min ago`;
     if (hours < 24) return `${hours} hr ago`;
     if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
-    return past.toLocaleDateString();
+    return past.toLocaleDateString("en-GB");
   };
 
   const blogs = [
@@ -159,7 +159,7 @@ export default function KnowledgeSection({ latestNews = [] }) {
                 {[...latestNews, ...latestNews].map((item, idx) => (
                   <Link
                     key={`${item.news_id}-${idx}`}
-                    href={`/news/${item.categorySlug}/${item.slug}`}
+                    href={`/news/${item.slug}`}
                   >
                     <div className="flex gap-3 items-start hover:bg-white p-2 rounded-lg transition cursor-pointer">
                       <Image

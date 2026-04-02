@@ -217,10 +217,6 @@ const nextConfig = {
               "camera=(), microphone=(), geolocation=(), browsing-topics=()",
           },
           {
-            key: "Strict-Transport-Security",
-            value: "max-age=31536000; includeSubDomains",
-          },
-          {
             key: "Cache-Control",
             value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
           },

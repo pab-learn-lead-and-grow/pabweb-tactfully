@@ -6,7 +6,7 @@ import { getLatestNews } from "./actions/getNews";
 export const dynamic = 'force-static';
 
 export const metadata = {
-  title: "Radhya Education Academy | Best Online & Distance Education Consultancy in India",
+  title: "Best Online & Distance Education Consultancy in India | Radhya Education Academy",
   description:
     "Radhya Education helps you choose the right online degree with expert counselling.",
 };

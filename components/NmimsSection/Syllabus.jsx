@@ -15,6 +15,7 @@ export default function SyllabusSection({
 }) {
   const [activeSubject, setActiveSubject] = useState(subjects[0].id);
   const [activeSemester, setActiveSemester] = useState(semesters[0]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className="w-full bg-white px-4 md:px-16 py-10">
@@ -92,8 +93,8 @@ export default function SyllabusSection({
               </div>
 
               {/* DOWNLOAD BUTTON */}
+              <CounsellingModal>
               <motion.button
-                onClick={() => setIsModalOpen(true)}
                 whileHover={{ scale: 1.05 }}
                 className="
                 mt-4 bg-[#F6A410]
@@ -104,6 +105,7 @@ export default function SyllabusSection({
                 DOWNLOAD SYLLABUS
                 <ChevronRight size={14} />
               </motion.button>
+              </CounsellingModal>
             </div>
         </div>
 

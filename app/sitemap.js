@@ -94,6 +94,20 @@ const staticRoutes = [
   "/blogs/the-financial-catalyst",
   "/blogs/the-digital-revolution",
   "/news",
+  "/news/ugc",
+  "/news/aicte",
+  "/news/higher-education",
+  "/news/online-mba",
+  "/news/online-learning",
+  "/news/ugc-warning-on-fake-universities",
+  "/news/online-mba-validity-india-2026-ugc-aicte-rules",
+  "/news/top-ugc-approved-online-mba-colleges-india-2026",
+  "/news/aicte-new-guidelines-2026-online-distance-education-rules",
+  "/news/ugc-approved-universities-list-2026-online-learning",
+  "/news/aicte-approval-process-2026-college-rules-india",
+  "/news/nep-2026-update-impact-on-students-india",
+  "/news/online-mba-trends-2026-skills-salary-growth",
+  "/news/ugc-aicte-new-bill-2026-single-education-regulator",
 ];
 
 export default function sitemap() {

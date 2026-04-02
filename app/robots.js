@@ -23,7 +23,10 @@ export default function robots() {
     rules: [
        {
         userAgent: "*",
-        allow: "/",
+        allow:[
+          "/_next/static/",
+          "/_next/image/",
+        ],
         disallow: [
           "/_next/",
           "/*?category=", 

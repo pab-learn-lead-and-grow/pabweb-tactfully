@@ -15,7 +15,7 @@ export async function getUniversities() {
 
   const { data, error } = await supabaseServer
     .from("universitieslist")
-    .select("*")
+    .select("id, name")
     .order("name");
 
   if (error) {

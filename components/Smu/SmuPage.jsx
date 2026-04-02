@@ -312,7 +312,7 @@ const universities = [
                        </section>
 
   <UnivCourses
-  heading="Courses"
+  heading="SMU Online Courses "
   courses={[
     {
       id: 1,

@@ -53,7 +53,23 @@ export default async function CollegeCards() {
 
   const { data: universities } = await supabase
     .from("universities")
-    .select("*")
+    .select(`
+      university_id,
+      name,
+      image_url,
+      logo_url,
+      rating,
+      accreditation,
+      education_quality,
+      placement_assistance,
+      brand_value,
+      response_time,
+      ticket_resolution,
+      alumni_strength,
+      fees,
+      emi_available,
+      path
+    `)
     .order("rating", { ascending: false });
 
   return (

@@ -202,7 +202,7 @@ const universities = [
 />
 
       <UnivCourses
-        heading="Courses"
+        heading="NMIMS Online Courses "
         courses={[
           {
             id: 1,

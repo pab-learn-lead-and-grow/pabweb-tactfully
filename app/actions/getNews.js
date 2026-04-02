@@ -49,36 +49,58 @@ export async function getLatestNews() {
   }
   
   try {
-    const { data, error } = await supabaseServer
-      .from("news")
-      .select(`
-        news_id,
-        title,
-        slug,
-        image_url,
-        published_at,
-        primary_category_id,
-        news_categories (
+    const [newsRes, mapRes] = await Promise.all([
+      supabaseServer
+        .from("news")
+        .select(`
+          news_id,
+          title,
+          slug,
+          image_url,
+          published_at,
+          primary_category_id,
+          news_categories (
+            category_id,
+            category_name,
+            slug
+          )
+        `)
+        .eq("is_published", true)
+        .order("published_at", { ascending: false })
+        .limit(50),
+      supabaseServer
+        .from("news_category_map")
+        .select(`
+          news_id,
           category_id,
-          category_name,
-          slug
-        )
-      `)
-      .eq("is_published", true)
-      .order("published_at", { ascending: false })
-      .limit(30);
+          is_primary
+        `),
+    ]);
 
-    if (error) {
-      console.error("Supabase fetch error:", error);
-      return newsCache || [];
-    }
+    const newsData = newsRes.data || [];
+    const mapData = mapRes.data || [];
 
-    const newsWithImages = (data || []).map((item) => ({
-      ...item,
-      image_url: getImageUrl(item.image_url),
-      categorySlug: item.news_categories?.slug || '',
-      categoryName: item.news_categories?.category_name || '',
-    }));
+    const newsPrimaryMap = {};
+    mapData.forEach((m) => {
+      if (m.is_primary === true) {
+        newsPrimaryMap[m.news_id] = m.category_id;
+      }
+    });
+
+    const newsWithImages = (newsData || []).map((item) => {
+      const primaryCatId = newsPrimaryMap[item.news_id] || item.primary_category_id;
+      const primaryCat = primaryCatId ? { 
+        slug: item.news_categories?.slug, 
+        category_name: item.news_categories?.category_name 
+      } : null;
+      
+      return {
+        ...item,
+        image_url: getImageUrl(item.image_url),
+        categorySlug: primaryCat?.slug || item.news_categories?.slug || '',
+        categoryName: primaryCat?.category_name || item.news_categories?.category_name || '',
+      };
+    });
 
     newsCache = newsWithImages;
     newsCacheTimestamp = now;

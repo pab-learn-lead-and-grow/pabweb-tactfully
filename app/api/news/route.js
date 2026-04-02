@@ -3,40 +3,66 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const { data, error } = await supabase
-      .from("news")
-      .select(`
-        news_id,
-        title,
-        slug,
-        image_url,
-        published_at,
-        primary_category_id,
-        news_categories (
+    const [newsRes, mapRes] = await Promise.all([
+      supabase
+        .from("news")
+        .select(`
+          news_id,
+          title,
+          slug,
+          image_url,
+          published_at,
+          primary_category_id,
+          news_categories (
+            category_id,
+            category_name,
+            slug
+          )
+        `)
+        .eq("is_published", true)
+        .order("published_at", { ascending: false })
+        .limit(50),
+      supabase
+        .from("news_category_map")
+        .select(`
+          news_id,
           category_id,
-          category_name,
-          slug
-        )
-      `)
-      .eq("is_published", true)
-      .order("published_at", { ascending: false })
-      .limit(30);
+          is_primary
+        `),
+    ]);
 
-    if (error) {
-      console.error("Supabase fetch error:", error);
-      return NextResponse.json(
-        { success: false, error: "Failed to fetch news" },
-        { status: 500 }
-      );
-    }
+    const newsData = newsRes.data || [];
+    const mapData = mapRes.data || [];
 
-    const newsWithCategory = (data || []).map((item) => ({
-      ...item,
-      categorySlug: item.news_categories?.slug || '',
-      categoryName: item.news_categories?.category_name || '',
-    }));
+    const newsPrimaryMap = {};
+    mapData.forEach((m) => {
+      if (m.is_primary === true) {
+        newsPrimaryMap[m.news_id] = m.category_id;
+      }
+    });
 
-    return NextResponse.json({ success: true, data: newsWithCategory });
+    const newsWithCategory = (newsData || []).map((item) => {
+      const primaryCatId = newsPrimaryMap[item.news_id] || item.primary_category_id;
+      const primaryCat = primaryCatId ? { 
+        slug: item.news_categories?.slug, 
+        category_name: item.news_categories?.category_name 
+      } : null;
+      
+      return {
+        ...item,
+        categorySlug: primaryCat?.slug || item.news_categories?.slug || '',
+        categoryName: primaryCat?.category_name || item.news_categories?.category_name || '',
+      };
+    });
+
+    return NextResponse.json(
+      { success: true, data: newsWithCategory },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
+        },
+      }
+    );
   } catch (err) {
     console.error("News API error:", err);
     return NextResponse.json(
