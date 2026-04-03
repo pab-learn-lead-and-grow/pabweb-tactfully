@@ -5,6 +5,25 @@ const siteUrl =
 
 export const dynamic = "force-static";
 
+const schema =  {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "Online MBA in India",
+      description: "Online MBA programs offered by top UGC-approved universities in India with flexible learning and career growth opportunities.",
+      provider: {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online",
+        courseWorkload: "PT10H"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      },
+  }
+
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
@@ -50,31 +69,16 @@ export const metadata = {
     index: true,
     follow: true,
   },
+
 };
 
 export default function OnlineMbaPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    name: "Online MBA in India",
-    description: "Online MBA programs offered by top UGC-approved universities in India with flexible learning and career growth opportunities.",
-    provider: {
-      "@id": "https://radhyaeducationacademy.com/#organization"
-    },
-    hasCourseInstance: {
-      "@type": "CourseInstance",
-      courseMode: "online"
-    },
-    offers: {
-      "@type": "Offer",
-      category: "Online Degree Program"
-    }
-  };
 
   return (
     <>
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <OnlineMba />

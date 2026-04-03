@@ -5,6 +5,25 @@ const siteUrl =
 
 export const dynamic = "force-static";
 
+ const schema = {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "Online MBA for Working Professionals (WX)",
+      description:
+        "Online MBA WX programs designed for working professionals with flexible learning, leadership development and career advancement opportunities.",
+      provider: {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online",
+         courseWorkload: "PT10H"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      },
+  }
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
@@ -52,28 +71,18 @@ export const metadata = {
     follow: true,
   },
 
-  other: {
-    "script:ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Course",
-      name: "Online MBA for Working Professionals (WX)",
-      description:
-        "Online MBA WX programs designed for working professionals with flexible learning, leadership development and career advancement opportunities.",
-      provider: {
-        "@id": "https://radhyaeducationacademy.com/#organization"
-      },
-      hasCourseInstance: {
-        "@type": "CourseInstance",
-        courseMode: "online"
-      },
-      offers: {
-        "@type": "Offer",
-        category: "Online Degree Program"
-      }
-    }),
-  },
 };
 
 export default function MbaWxPage() {
-  return <ExecutiveMBA />;
+  return (
+     <>
+       <script
+         type="application/ld+json"
+          suppressHydrationWarning
+         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+       />
+       <ExecutiveMBA />
+     </>
+   );
+ 
 }

@@ -762,9 +762,9 @@ export default function Page() {
    
          <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
                     {/* Faded Background Heading */}
-                    <h1 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
+                    <h2 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
                       EXAMINATION PROCESS
-                    </h1>
+                    </h2>
             
                     <div className="max-w-6xl mx-auto relative">
                       {/* Main Animated Heading */}

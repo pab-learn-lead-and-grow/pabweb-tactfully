@@ -5,6 +5,24 @@ const siteUrl =
 
 export const dynamic = "force-static";
 
+const schema = {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "Online MCA in India",
+      description:
+        "Online MCA programs offered by top UGC-approved universities in India with career opportunities in software development, data science, cloud computing and IT fields.",
+      provider: {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      },
+  }
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
@@ -59,28 +77,18 @@ export const metadata = {
     follow: true,
   },
 
-  other: {
-    "script:ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Course",
-      name: "Online MCA in India",
-      description:
-        "Online MCA programs offered by top UGC-approved universities in India with career opportunities in software development, data science, cloud computing and IT fields.",
-      provider: {
-        "@id": "https://radhyaeducationacademy.com/#organization"
-      },
-      hasCourseInstance: {
-        "@type": "CourseInstance",
-        courseMode: "online"
-      },
-      offers: {
-        "@type": "Offer",
-        category: "Online Degree Program"
-      }
-    }),
-  },
+  
 };
 
 export default function OnlineMcaPage() {
-  return <OnlineMca />;
+  return (
+     <>
+       <script
+         type="application/ld+json"
+         suppressHydrationWarning
+         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+       />
+       <OnlineMca />
+     </>
+   );
 }

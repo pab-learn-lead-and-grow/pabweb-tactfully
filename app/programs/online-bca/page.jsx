@@ -4,7 +4,26 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
 export const dynamic = "force-static";
+  const schema = {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "Online BCA in India",
+      description:
+        "Online BCA programs offered by top UGC-approved universities in India for students after 12th with career opportunities in IT, software development, data science and technology fields.",
+      provider: {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online",
+        courseWorkload: "PT10H"
 
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      },
+  }
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
@@ -52,28 +71,18 @@ export const metadata = {
     follow: true,
   },
 
-  other: {
-    "script:ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Course",
-      name: "Online BCA in India",
-      description:
-        "Online BCA programs offered by top UGC-approved universities in India for students after 12th with career opportunities in IT, software development, data science and technology fields.",
-      provider: {
-        "@id": "https://radhyaeducationacademy.com/#organization"
-      },
-      hasCourseInstance: {
-        "@type": "CourseInstance",
-        courseMode: "online"
-      },
-      offers: {
-        "@type": "Offer",
-        category: "Online Degree Program"
-      }
-    }),
-  },
+ 
 };
 
 export default function OnlineBcaPage() {
-  return <OnlineBca />;
+  return (
+     <>
+       <script
+         type="application/ld+json"
+         suppressHydrationWarning
+         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+       />
+       <OnlineBca />
+     </>
+   );
 }

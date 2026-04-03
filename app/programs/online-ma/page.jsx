@@ -5,6 +5,26 @@ const siteUrl =
 
 export const dynamic = "force-static";
 
+const schema = {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "Online MA in India",
+      description:
+        "Online MA programs offered by top UGC-approved universities in India with specializations in humanities, social sciences, public policy, psychology, economics and more.",
+      provider: {
+        "@id": "https://radhyaeducationacademy.com/#organization"
+      },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online",
+        courseWorkload: "PT10H"
+      },
+      offers: {
+        "@type": "Offer",
+        category: "Online Degree Program"
+      },
+  }
+
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
@@ -52,28 +72,17 @@ export const metadata = {
     follow: true,
   },
 
-  other: {
-    "script:ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Course",
-      name: "Online MA in India",
-      description:
-        "Online MA programs offered by top UGC-approved universities in India with specializations in humanities, social sciences, public policy, psychology, economics and more.",
-      provider: {
-        "@id": "https://radhyaeducationacademy.com/#organization"
-      },
-      hasCourseInstance: {
-        "@type": "CourseInstance",
-        courseMode: "online"
-      },
-      offers: {
-        "@type": "Offer",
-        category: "Online Degree Program"
-      }
-    }),
-  },
 };
 
 export default function OnlineMaPage() {
-  return <OnlineMa />;
+  return (
+     <>
+       <script
+         type="application/ld+json"
+          suppressHydrationWarning
+         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+       />
+       <OnlineMa />
+     </>
+   );
 }

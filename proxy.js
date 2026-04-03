@@ -29,8 +29,7 @@ export function proxy(request) {
   }
 
   if (pathname === '/privacy-policy' || pathname === '/terms-and-conditions' || pathname === '/disclaimer') {
-    const redirectUrl = new URL(`${pathname}/`, request.url)
-    return NextResponse.redirect(redirectUrl, 301)
+    return NextResponse.next()
   }
 
   const category = url.searchParams.get('category')
