@@ -70,13 +70,6 @@ export async function getCategoryNews(slug) {
     const attachImages = formattedNews.map((item) => {
       if (!item.image_url) return item;
       if (item.image_url.startsWith("http")) return item;
-      if (item.image_url.includes("/") === false) {
-        const parts = item.image_url.split(".");
-        const name = parts[0];
-        const ext = parts[1];
-        const fixedName = name.charAt(0).toUpperCase() + name.slice(1);
-        return { ...item, image_url: `/${fixedName}.${ext}` };
-      }
       if (!supabaseServer) return item;
       const { data } = supabaseServer.storage.from("News").getPublicUrl(item.image_url);
       return { ...item, image_url: data?.publicUrl };

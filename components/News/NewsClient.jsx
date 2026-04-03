@@ -72,7 +72,7 @@ export default function NewsClient({ trending, latest, categories }) {
             {currentTrending?.image_url && (
               <Link href={`/news/${currentTrending.slug}`}>
                 <div className="w-full">
-                  <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden">
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden">
                     <Image
                       src={currentTrending.image_url}
                       alt={currentTrending.title}

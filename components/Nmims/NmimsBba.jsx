@@ -834,14 +834,14 @@ export default function Page() {
             {/* Left Category */}
             <div className="space-y-2">
               <div className="w-full rounded-lg border border-gray-200 py-3 text-center italic font-semibold text-black bg-white">
-                Internal Assessment-60 Marks
+                Internal Assessment-70 Marks
               </div>
             </div>
 
             {/* Right Category */}
             <div className="space-y-2">
               <div className="w-full rounded-lg border border-gray-200 py-3 text-center italic font-semibold text-black bg-white">
-                External Assessment-40 Marks
+                External Assessment-30 Marks
               </div>
             </div>
           </div>

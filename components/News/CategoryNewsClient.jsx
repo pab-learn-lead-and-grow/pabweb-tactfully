@@ -1,10 +1,17 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function CategoryNewsClient({ categories, news, categoryName, categoryTitle, slug, categoryContent }) {
+export default function CategoryNewsClient({
+  categories,
+  news,
+  categoryName,
+  categoryTitle,
+  slug,
+  categoryContent,
+}) {
   const [visibleCount, setVisibleCount] = useState(6);
 
   const timeAgo = (dateString) => {
@@ -20,9 +27,17 @@ export default function CategoryNewsClient({ categories, news, categoryName, cat
     return past.toLocaleDateString("en-GB");
   };
 
+
+  const formattedNews = news.map(item => ({
+    ...item,
+    image_url: item.image_url?.startsWith("http") || item.image_url?.startsWith("/")
+      ? item.image_url
+      : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/News/${item.image_url}`
+  }));
+
   const renderContent = (content) => {
     if (!content) return null;
-    
+
     let items = content;
     if (Array.isArray(content) && content.length > 0) {
       if (Array.isArray(content[0])) {
@@ -31,34 +46,46 @@ export default function CategoryNewsClient({ categories, news, categoryName, cat
         items = content;
       }
     }
-    
+
     if (!Array.isArray(items)) return null;
 
     return items.map((item, index) => {
-      if (typeof item === 'string') {
+      if (typeof item === "string") {
         return (
-          <p key={index} className="text-gray-600 text-sm md:text-base leading-relaxed max-w-5xl mb-2">
+          <p
+            key={index}
+            className="text-gray-600 text-sm md:text-base leading-relaxed max-w-5xl mb-2"
+          >
             {item}
           </p>
         );
       }
       if (item.type === "paragraph") {
         return (
-          <p key={index} className="text-gray-600 text-sm md:text-base leading-relaxed text-justify max-w-5xl mb-2">
+          <p
+            key={index}
+            className="text-gray-600 text-sm md:text-base leading-relaxed text-justify max-w-5xl mb-2"
+          >
             {item.text}
           </p>
         );
       }
       if (item.type === "heading") {
         return (
-          <p key={index} className="text-[#270652] text-lg md:text-xl font-bold leading-relaxed mb-2">
+          <p
+            key={index}
+            className="text-[#270652] text-lg md:text-xl font-bold leading-relaxed mb-2"
+          >
             {item.text}
           </p>
         );
       }
       if (item.type === "list") {
         return (
-          <ul key={index} className="list-disc list-inside text-gray-600 text-sm md:text-base leading-tight max-w-5xl mb-4 space-y-1">
+          <ul
+            key={index}
+            className="list-disc list-inside text-gray-600 text-sm md:text-base leading-tight max-w-5xl mb-4 space-y-1"
+          >
             {item.items?.map((listItem, i) => (
               <li key={i}>{listItem}</li>
             ))}
@@ -100,19 +127,19 @@ export default function CategoryNewsClient({ categories, news, categoryName, cat
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {news.slice(0, visibleCount).map((item) => (
+          {formattedNews.slice(0, visibleCount).map((item) => (
             <Link key={item.news_id} href={`/news/${item.slug}`}>
               <div className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                <div className="relative aspect-video overflow-hidden">
+                <div className="relative w-full aspect-video overflow-hidden">
                   <Image
                     src={item.image_url}
                     alt={item.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition duration-300"
-                    sizes="(max-width:768px) 100vw, 33vw"
-                    unoptimized
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
+
                 <div className="p-4">
                   <h2 className="text-base font-semibold text-black  mb-2">
                     {item.title}

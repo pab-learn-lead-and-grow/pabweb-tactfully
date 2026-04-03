@@ -62,7 +62,7 @@ export default function NewsContent({
       </div>
 
       {imageUrl && (
-       <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-10">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-10">
   <Image
     src={imageUrl}
     alt={article.title}
