@@ -8,7 +8,7 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "SMU Online BCom | UGC Approved Bachelor of Commerce Degree",
+   title: "Sikkim Manipal Online BCom Program | Admission and Fees",
 
   description:
     "SMU Online BCom from Sikkim Manipal University is a UGC-approved Bachelor of Commerce degree offering flexible online learning, industry-relevant curriculum, and strong academic support.",

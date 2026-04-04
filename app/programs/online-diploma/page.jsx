@@ -26,8 +26,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online Diploma Courses 2026: Top Programs, Fees, Admission & Career Scope",
+ title: "Online Diploma Courses India 2026: Fees, Colleges & Admission",
 
   description:
     "Explore online diploma courses in India with top programs, fees, eligibility, and career opportunities. Upgrade your skills with flexible learning.",

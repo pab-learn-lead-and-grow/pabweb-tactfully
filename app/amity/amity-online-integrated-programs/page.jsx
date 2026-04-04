@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Amity Online Dual Degree Program | UGC-Approved Integrated Courses",
+  title: "Amity University Online Integrated Programs Fees & Admission 2026",
 
   description:
     "Amity Online Dual Degree Program allows students to pursue two UGC-approved degrees simultaneously with flexible online learning and career-focused curriculum.",

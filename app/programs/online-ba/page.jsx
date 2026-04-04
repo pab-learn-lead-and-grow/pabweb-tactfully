@@ -27,8 +27,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online BA 2026: Top Colleges, Fees, Admission & Career Opportunities",
+  title: "Online BA India 2026: Fees, Colleges & Admission",
 
   description:
     "Explore Online BA courses in India with top colleges, updated fees, eligibility, and career options in arts, humanities, and social sciences.",

@@ -8,7 +8,7 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "SMU Online MBA | UGC Approved MBA Degree",
+   title: "Sikkim Manipal Online MBA Program | Admission and Fees",
 
   description:
     "SMU Online MBA from Sikkim Manipal University is a UGC-approved management degree designed for working professionals with flexible online learning, industry-focused curriculum, and career support.",

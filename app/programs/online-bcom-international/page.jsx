@@ -26,8 +26,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online B.Com International 2026: Colleges, Fees, Admission & Global Career Scope",
+  title: "Online BCom International 2026: Fees, Colleges & Admission",
 
   description:
     "Explore Online B.Com International programs with global curriculum, top colleges, fees, and career opportunities in international business.",

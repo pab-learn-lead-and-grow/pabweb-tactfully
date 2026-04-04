@@ -23,7 +23,7 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-  default: "Online & Distance Education Consultancy in India | Radhya Education Academy",
+  default: "Best Online & Distance Education Consultant in India",
 },
 
   description:

@@ -4,7 +4,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacad
 export const dynamic = "force-static";
 export const metadata = {
    metadataBase: new URL(siteUrl),
-  title: "Manipal Jaipur Online BBA - UGC Approved Degree",
+   title: "Manipal Jaipur Online BBA Program | Admission and Fees",
   description:
     "Manipal Jaipur Online BBA offers a UGC-approved undergraduate business degree with flexible online learning, industry-relevant curriculum and career support",
   alternates: {

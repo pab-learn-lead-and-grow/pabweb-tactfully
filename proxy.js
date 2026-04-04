@@ -28,10 +28,6 @@ export function proxy(request) {
     return NextResponse.redirect(redirectUrl, 301)
   }
 
-  if (pathname === '/privacy-policy' || pathname === '/terms-and-conditions' || pathname === '/disclaimer') {
-    return NextResponse.next()
-  }
-
   const category = url.searchParams.get('category')
   if (category) {
     const categoryMap = {

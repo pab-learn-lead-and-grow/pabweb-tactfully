@@ -26,8 +26,7 @@ const schema =  {
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online BBA 2026: Top Colleges, Fees, Admission, Eligibility & Career Scope",
+  title: "Online BBA India 2026: Fees, Colleges & Admission",
 
   description:
     "Explore Online BBA colleges in India with updated fees, eligibility, and career opportunities. Start your business career today.",

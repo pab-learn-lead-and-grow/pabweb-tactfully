@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "JAIN Online MA | UGC-Approved MA Degree Program",
+  title: "JAIN University Online MA Fees & Admission 2026",
 
   description:
     "JAIN Online MA is a UGC-approved postgraduate arts degree offering flexible online learning, industry-relevant curriculum, and academic support for career advancement.",

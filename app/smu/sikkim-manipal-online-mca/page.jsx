@@ -8,7 +8,7 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "SMU Online MCA | UGC Approved Master of Computer Applications",
+   title: "Sikkim Manipal Online MCA Program | Admission and Fees",
 
   description:
     "SMU Online MCA from Sikkim Manipal University is a UGC-approved Master of Computer Applications degree offering flexible online learning, industry-focused curriculum, and career support for IT professionals.",

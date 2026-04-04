@@ -8,7 +8,7 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "NMIMS Online BBA | UGC Approved Business Administration Degree",
+  title: "NMIMS Mumbai Online BBA Program | Admission and Fees",
 
   description:
     "NMIMS Online BBA from SVKM's Narsee Monjee Institute of Management Studies offers a UGC-approved business administration degree with flexible online learning, industry-relevant curriculum, and career support for students.",

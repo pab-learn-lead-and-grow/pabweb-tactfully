@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "JAIN Online BCA | UGC-Approved BCA Degree Program",
+  title: "JAIN University Online BCA Fees & Admission 2026",
 
   description:
     "JAIN Online BCA is a UGC-approved undergraduate computer applications degree offering flexible online learning, industry-relevant curriculum, and career opportunities in the IT and software sector.",

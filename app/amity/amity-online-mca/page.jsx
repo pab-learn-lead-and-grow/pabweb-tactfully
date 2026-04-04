@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Amity Online MCA | UGC-Approved MCA Degree Program",
+  title: "Amity University Online MCA Fees & Admission 2026",
 
   description:
     "Amity Online MCA is a UGC-approved postgraduate computer applications degree offering flexible online learning, industry-focused curriculum, and career opportunities in IT and software development.",

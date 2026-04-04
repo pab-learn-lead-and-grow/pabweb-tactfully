@@ -27,8 +27,7 @@ const schema = {
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online BAJMC 2026: Top Colleges, Fees, Admission & Career Scope",
+  title: "Online BAJMC India 2026: Fees, Colleges & Admission",
 
   description:
     "Explore Online BAJMC programs with top colleges, updated fees, eligibility, and career opportunities in media, journalism, and communication.",

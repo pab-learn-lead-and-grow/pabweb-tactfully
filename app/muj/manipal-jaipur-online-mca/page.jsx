@@ -5,7 +5,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacad
 export const dynamic = "force-static";
 export const metadata = {
    metadataBase: new URL(siteUrl),
-  title: "Manipal Jaipur Online MCA - UGC Approved Degree",
+  title: "Manipal Jaipur Online MCA Program | Admission and Fees",
   description:
     "Manipal Jaipur Online MCA offers a UGC-approved postgraduate computer applications degree with flexible online learning, industry-relevant curriculum and career support",
   alternates: {

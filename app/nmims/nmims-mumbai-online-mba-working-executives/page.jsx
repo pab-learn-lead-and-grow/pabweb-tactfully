@@ -8,7 +8,7 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "NMIMS MBA WX | Executive MBA for Working Professionals",
+  title: "NMIMS Mumbai Online MBA WX Program | Admission and Fees",
 
   description:
     "NMIMS MBA WX is an executive MBA designed for working professionals, offering flexible learning, industry-focused curriculum, and career advancement through the NMIMS online learning platform.",

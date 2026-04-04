@@ -5,9 +5,8 @@ const siteUrl =
 export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
-
-  title:
-    "Amity Online BCom International Finance & Accounting | UGC-Approved Degree",
+  title: "Amity University Online BCom I Fees & Admission 2026",
+  
 
   description:
     "Amity Online BCom International Finance & Accounting is a UGC-approved global commerce degree offering flexible online learning, international curriculum, and career opportunities in finance and accounting.",

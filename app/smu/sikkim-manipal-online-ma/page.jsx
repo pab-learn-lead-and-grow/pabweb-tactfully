@@ -8,7 +8,7 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "SMU Online MA | UGC Approved Master of Arts Degree",
+   title: "Sikkim Manipal Online MA Program | Admission and Fees",
 
   description:
     "SMU Online MA from Sikkim Manipal University is a UGC-approved Master of Arts degree offering flexible online learning, academic support, and a career-focused curriculum.",

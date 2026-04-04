@@ -26,8 +26,7 @@ const schema = {
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online MCA 2026: Top Colleges, Fees, Admission & Career Opportunities",
+title: "Online MCA India 2026: Fees, Colleges & Admission",
 
   description:
     "Discover Online MCA programs with top colleges, updated fees, eligibility, and career scope in IT, software development, and technology roles.",

@@ -4,7 +4,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacad
 export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: "NMIMS Online MBA - Accredited Distance Degree Program",
+  title: "NMIMS Mumbai Online MBA Program | Admission and Fees",
   description:
     "NMIMS Online MBA helps you earn a UGC-approved management degree online with flexible learning, industry-relevant curriculum and support for working professionals",
   alternates: {

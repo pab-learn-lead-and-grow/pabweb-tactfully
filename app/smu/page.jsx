@@ -8,8 +8,8 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Sikkim Manipal University Online Programs | UGC Approved Courses",
-
+  title: "Sikkim Manipal Online Programs | UGC Approved Courses",
+  
   description:
     "Explore Sikkim Manipal University (SMU) online programs including MBA, MCA, BBA, BA, BCom and more. UGC-approved degrees with flexible online learning for students and working professionals.",
 

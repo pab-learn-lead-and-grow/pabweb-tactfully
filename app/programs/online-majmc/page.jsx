@@ -26,8 +26,7 @@ const schema = {
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online MAJMC 2026: Top Colleges, Fees, Admission & Career Opportunities",
+ title: "Online MAJMC India 2026: Fees, Colleges & Admission",
 
   description:
     "Discover Online MAJMC programs with top colleges, updated fees, eligibility, and career opportunities in journalism and mass communication.",

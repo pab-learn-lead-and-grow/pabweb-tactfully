@@ -26,8 +26,7 @@ const schema = {
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online B.Com (Hons.) 2026: Colleges, Fees, Admission & Career Scope",
+ title: "Online BCom Honours India 2026: Fees, Colleges & Admission",
 
   description:
     "Discover Online B.Com (Hons.) programs with top colleges, updated fees, eligibility, and career opportunities. Build a strong foundation in commerce.",

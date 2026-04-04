@@ -27,8 +27,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online BCA 2026: Top Colleges, Fees, Admission & Career Scope",
+  title: "Online BCA India 2026: Fees, Colleges & Admission",
 
   description:
     "Explore Online BCA programs in India with updated fees, eligibility, and admission details. Start your career in IT and software development.",

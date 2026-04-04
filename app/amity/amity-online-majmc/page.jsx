@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Amity Online MAJMC | UGC-Approved Journalism & Mass Communication Degree",
+  title: "Amity University Online MAJMC Fees & Admission 2026",
 
   description:
     "Amity Online MAJMC is a UGC-approved postgraduate journalism and mass communication degree offering flexible online learning, industry-focused curriculum, and career opportunities in media and communication.",

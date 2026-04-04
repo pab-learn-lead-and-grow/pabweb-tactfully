@@ -26,10 +26,7 @@ export const dynamic = "force-static";
   }
 export const metadata = {
   metadataBase: new URL(siteUrl),
-
-  title:
-    "Online MBA for Working Professionals (WX) 2026: Fees, Top Colleges, Admission & Eligibility",
-
+   title: "Online executive MBA India 2026: Fees, Colleges & Admission",
   description:
     "Explore Online MBA for Working Professionals (MBA WX) in India with fees, eligibility, top universities and career benefits. Compare executive MBA programs designed for experienced professionals.",
 

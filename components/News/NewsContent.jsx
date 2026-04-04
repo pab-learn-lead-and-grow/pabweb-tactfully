@@ -42,9 +42,9 @@ export default function NewsContent({
         />
       )}
      <div className="mt-10 max-w-6xl mx-auto py-12 p-5 lg:p-15">
-      <h1 className="text-3xl lg:text-4xl font-bold text-[#3C087E] mb-4">
+      <h2 className="text-3xl lg:text-4xl font-bold text-[#3C087E] mb-4">
         {article.title}
-      </h1>
+      </h2>
 
       <div className="flex items-center text-sm text-[#3C087E] gap-4 mb-2">
         {categoryData && (

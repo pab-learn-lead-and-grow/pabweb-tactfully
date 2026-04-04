@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "JAIN Online BCom | UGC-Approved BCom Degree Program",
+  title: "JAIN University Online BCom Fees & Admission 2026",
 
   description:
     "JAIN Online BCom is a UGC-approved undergraduate commerce degree offering flexible online learning, industry-relevant curriculum, and career opportunities in finance, accounting, and business.",

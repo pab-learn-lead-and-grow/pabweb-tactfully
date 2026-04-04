@@ -21,33 +21,33 @@ export default function Footer() {
 
 
   const programLinks = [
-    { label: "Online MBA", path: "/programs/online-mba" },
-    { label: "Online BBA", path: "/programs/online-bba" },
-    { label: "Executive MBA", path: "/programs/online-mba-wx" },
-    { label: "Online MCA", path: "/programs/online-mca" },
-    { label: "Online BCA", path: "/programs/online-bca" },
-    { label: "Online BA", path: "/programs/online-ba" },
-    { label: "Online MA", path: "/programs/online-ma" },
-    { label: "Online MSc", path: "/programs/online-msc" },
-    { label: "Online MCom", path: "/programs/online-mcom" },
-    { label: "Online B.Com", path: "/programs/online-bcom" },
-    { label: "Online B.Com(Hons.)", path: "/programs/online-bcom-honours" },
-    { label: "Online B.Com(Int.)", path: "/programs/online-bcom-international" },
-    { label: "Online Diploma", path: "/programs/online-diploma" },
-    { label: "Online MAJMC", path: "/programs/online-majmc" },
-    { label: "Online BAJMC", path: "/programs/online-bajmc" },
-    { label: "Online Certification", path: "/nmims/nmims-mumbai-online-certification" },
-    { label: "Integrated Program", path: "/amity/amity-online-integrated-programs" },
+    { label: "Online MBA", path: "/programs/online-mba/" },
+    { label: "Online BBA", path: "/programs/online-bba/" },
+    { label: "Executive MBA", path: "/programs/online-mba-wx/" },
+    { label: "Online MCA", path: "/programs/online-mca/" },
+    { label: "Online BCA", path: "/programs/online-bca/" },
+    { label: "Online BA", path: "/programs/online-ba/" },
+    { label: "Online MA", path: "/programs/online-ma/" },
+    { label: "Online MSc", path: "/programs/online-msc/" },
+    { label: "Online MCom", path: "/programs/online-mcom/" },
+    { label: "Online B.Com", path: "/programs/online-bcom/" },
+    { label: "Online B.Com(Hons.)", path: "/programs/online-bcom-honours/" },
+    { label: "Online B.Com(Int.)", path: "/programs/online-bcom-international/" },
+    { label: "Online Diploma", path: "/programs/online-diploma/" },
+    { label: "Online MAJMC", path: "/programs/online-majmc/" },
+    { label: "Online BAJMC", path: "/programs/online-bajmc/" },
+    { label: "Online Certification", path: "/nmims/nmims-mumbai-online-certification/" },
+    { label: "Integrated Program", path: "/amity/amity-online-integrated-programs/" },
   ];
 
   const universities = [
-    { name: "NMIMS CDOE", path: "/nmims" },
-    { name: "Manipal Jaipur", path: "/muj" },
-    { name: "Amity Online", path: "/amity" },
-    { name: "Sikkim Manipal", path: "/smu" },
-    { name: "Jain Online", path: "/jain" },
-    { name: "Shoolini Online", path: "/shoolini" },
-    { name: "Bennett Online", path: "/bennett" },
+    { name: "NMIMS CDOE", path: "/nmims/" },
+    { name: "Manipal Jaipur", path: "/muj/" },
+    { name: "Amity Online", path: "/amity/" },
+    { name: "Sikkim Manipal", path: "/smu/" },
+    { name: "Jain Online", path: "/jain/" },
+    { name: "Shoolini Online", path: "/shoolini/" },
+    { name: "Bennett Online", path: "/bennett/" },
   ];
 
 
@@ -219,13 +219,13 @@ className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
           </p>
           <div className="flex space-x-2 mt-2 md:mt-0">
            
-            <a href="/privacy-policy" className="hover:text-[#3C087E]">
+            <a href="/privacy-policy/" className="hover:text-[#3C087E]">
               Privacy Policy {""}||
             </a>
-              <Link href="/disclaimer" className="hover:text-[#3C087E]">
+              <Link href="/disclaimer/" className="hover:text-[#3C087E]">
               Disclaimer {""}||
             </Link>
-            <a href="/terms-and-conditions" className="hover:text-[#3C087E]">
+            <a href="/terms-and-conditions/" className="hover:text-[#3C087E]">
             Terms & Conditions
             </a>
           </div>

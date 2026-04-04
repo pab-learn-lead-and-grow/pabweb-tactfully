@@ -6,7 +6,7 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Manipal University Jaipur Online BCom | UGC Approved Commerce Degree",
+  title: "Manipal Jaipur Online BCom Program | Admission and Fees",
 
   description:
     "Manipal University Jaipur Online BCom offers a UGC-approved Bachelor of Commerce degree with flexible online learning, industry-relevant curriculum, and career support for students.",

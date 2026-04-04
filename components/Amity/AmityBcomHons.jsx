@@ -7,8 +7,6 @@ import {
   Speech,
   GlobeLock,
   Check,
-  ChevronRight,
-  ChevronsDown,
   ArrowRight,
   BookCheck,
   Headset,

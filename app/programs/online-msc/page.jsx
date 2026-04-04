@@ -25,8 +25,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online MSc 2026: Top Colleges, Fees, Admission & Career Opportunities",
+  title: "Online MSc India 2026: Fees, Colleges & Admission",
 
   description:
     "Explore Online MSc programs with top universities, updated fees, eligibility, and career scope in science, technology, and research fields.",

@@ -26,8 +26,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online B.Com 2026: Top Colleges, Fees, Admission & Career Opportunities",
+ title: "Online BCom India 2026: Fees, Colleges & Admission",
 
   description:
     "Explore top Online B.Com colleges in India with updated fees, eligibility, admission process, and career opportunities. Compare universities and choose the best course.",

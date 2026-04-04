@@ -8,7 +8,7 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "NMIMS Online Certification Programs | Industry-Focused Courses",
+  title: "NMIMS Mumbai Online Certification Programs | Admission and Fees",
 
   description:
     "Explore NMIMS online certification programs designed to build industry-relevant skills. Flexible learning options help students and working professionals upgrade their careers.",

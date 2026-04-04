@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Amity Online MA | UGC-Approved MA Degree Program",
+  title: "Amity University Online MA Fees & Admission 2026",
 
   description:
     "Amity Online MA is a UGC-approved postgraduate arts degree offering flexible online learning, industry-focused curriculum, and academic support for career growth.",

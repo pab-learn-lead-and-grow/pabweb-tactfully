@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Amity Online MSc Data Science | UGC-Approved MSc Degree Program",
+  title: "Amity University Online MSc Fees & Admission 2026",
 
   description:
     "Amity Online MSc in Data Science is a UGC-approved postgraduate program offering flexible online learning, industry-relevant curriculum, and career opportunities in analytics and data science.",

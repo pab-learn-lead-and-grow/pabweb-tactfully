@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Manipal University Jaipur Online MBA | UGC Approved MBA Degree",
+  title: "Manipal Jaipur Online MBA Program | Admission and Fees",
 
   description:
     "Manipal University Jaipur Online MBA offers a UGC-approved management degree with flexible online learning, industry-focused curriculum, and career support for professionals and working executives.",

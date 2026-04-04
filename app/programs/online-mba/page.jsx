@@ -27,8 +27,7 @@ const schema =  {
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online MBA in India 2026: Fees, Top Colleges, Admission, Eligibility & Placements",
+  title: "Online MBA India 2026: Fees, Colleges & Admission",
 
   description:
     "Explore Online MBA in India with fees, eligibility, top universities, syllabus and placement opportunities. Compare UGC-approved colleges and choose the best MBA program.",

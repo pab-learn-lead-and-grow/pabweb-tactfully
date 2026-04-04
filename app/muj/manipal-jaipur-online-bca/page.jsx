@@ -4,7 +4,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacad
 export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Manipal Jaipur Online BCA - UGC Approved Degree",
+  title: "Manipal Jaipur Online BCA Program | Admission and Fees",
   description:
     "Manipal Jaipur Online BCA offers a UGC-approved computer applications degree with flexible online learning, industry-relevant curriculum and career support",
   alternates: {

@@ -8,7 +8,7 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "SMU Online BA | UGC Approved Bachelor of Arts Degree",
+  title: "Sikkim Manipal Online BA Program | Admission and Fees",
 
   description:
     "SMU Online BA from Sikkim Manipal University is a UGC-approved Bachelor of Arts degree offering flexible online learning, academic support, and career-focused curriculum.",

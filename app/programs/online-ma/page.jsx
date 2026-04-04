@@ -27,9 +27,7 @@ const schema = {
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-
-  title:
-    "Online MA 2026: Top Colleges, Fees, Admission & Career Opportunities",
+title: "Online MA India 2026: Fees, Colleges & Admission",
 
   description:
     "Discover Online MA programs with top colleges, updated fees, eligibility, and career opportunities in arts, humanities, and specialized domains.",

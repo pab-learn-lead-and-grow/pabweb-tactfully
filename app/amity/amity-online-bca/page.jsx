@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Amity Online BCA | UGC-Approved BCA Degree Program",
+  title: "Amity University Online BCA Fees & Admission 2026",
 
   description:
     "Amity Online BCA is a UGC-approved undergraduate computer applications degree offering flexible online learning, industry-focused curriculum, and career opportunities in IT and software development.",

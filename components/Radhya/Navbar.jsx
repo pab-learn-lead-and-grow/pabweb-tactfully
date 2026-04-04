@@ -1233,14 +1233,14 @@ return (
 
 <Link
   className="block py-2 px-3 rounded hover:bg-purple-50"
-  href="/about-us"
+  href="/about-us/"
 >
   About Us
 </Link>
 
 <Link
   className="block py-2 px-3 rounded hover:bg-purple-50"
-  href="/jobs-at-radhya"
+  href="/jobs-at-radhya/"
 >
   Careers
 </Link>
@@ -1254,21 +1254,21 @@ return (
 
 <Link
   className="block py-2 px-3 rounded hover:bg-purple-50"
-  href="/news"
+  href="/news/"
 >
   News and Articles
 </Link>
 
 <Link
   className="block py-2 px-3 rounded hover:bg-purple-50"
-  href="/contact-us"
+  href="/contact-us/"
 >
   Contact Us
 </Link>
 
 <Link
   className="block py-2 px-3 rounded hover:bg-purple-50"
-  href="/ugc-approved-universities"
+  href="/ugc-approved-universities/"
 >
   UGC Approvals
 </Link>
@@ -1282,14 +1282,14 @@ return (
 
 <Link
   className="block py-2 px-3 rounded hover:bg-purple-50"
-  href="/university-response-time"
+  href="/university-response-time/"
 >
   University Response Time
 </Link>
 
 <Link
   className="block py-2 px-3 rounded hover:bg-purple-50"
-  href="/counsellor-verification"
+  href="/counsellor-verification/"
 >
   Verify Counsellors
 </Link>
@@ -1544,7 +1544,7 @@ return (
 
 <Link
   className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-  href="/about-us"
+  href="/about-us/"
   onClick={() => {
     handleLinkClick();
     handleMobileCloseAll();
@@ -1555,7 +1555,7 @@ return (
 
 <Link
   className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-  href="/jobs-at-radhya"
+  href="/jobs-at-radhya/"
   onClick={() => {
     handleLinkClick();
     handleMobileCloseAll();
@@ -1577,7 +1577,7 @@ return (
 
 <Link
   className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-  href="/news"
+  href="/news/"
   onClick={() => {
     handleLinkClick();
     handleMobileCloseAll();
@@ -1588,7 +1588,7 @@ return (
 
 <Link
   className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-  href="/contact-us"
+  href="/contact-us/"
   onClick={() => {
     handleLinkClick();
     handleMobileCloseAll();
@@ -1599,7 +1599,7 @@ return (
 
 <Link
   className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-  href="/ugc-approved-universities"
+  href="/ugc-approved-universities/"
   onClick={() => {
     handleLinkClick();
     handleMobileCloseAll();
@@ -1621,7 +1621,7 @@ return (
 
 <Link
   className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-  href="/university-response-time"
+  href="/university-response-time/"
   onClick={() => {
     handleLinkClick();
     handleMobileCloseAll();
@@ -1632,7 +1632,7 @@ return (
 
 <Link
   className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-  href="/counsellor-verification"
+  href="/counsellor-verification/"
   onClick={() => {
     handleLinkClick();
     handleMobileCloseAll();

@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "JAIN Online MBA | UGC-Approved MBA Degree Program",
+  title: "JAIN University Online MBA Fees & Admission 2026",
 
   description:
     "JAIN Online MBA is a UGC-approved management degree designed for working professionals. Learn through flexible online classes, industry-focused curriculum, and career-oriented specializations.",

@@ -25,8 +25,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title:
-    "Online M.Com 2026: Top Colleges, Fees, Admission & Career Opportunities",
+ title: "Online MCom India 2026: Fees, Colleges & Admission",
 
   description:
     "Explore Online M.Com colleges in India with updated fees, eligibility, and admission details. Advance your career in finance, accounting, and commerce.",

@@ -8,7 +8,7 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "NMIMS Online Diploma Programs | Industry-Focused Courses",
+  title: "NMIMS Mumbai Online Diploma Programs | Admission and Fees",
 
   description:
     "Explore NMIMS online diploma programs designed for working professionals. Gain industry-focused skills with flexible learning and career-oriented curriculum.",

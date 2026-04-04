@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Amity Online BCom | UGC-Approved BCom Degree Program",
+  title: "Amity University Online BCom Fees & Admission 2026",
 
   description:
     "Amity Online BCom is a UGC-approved undergraduate commerce degree offering flexible online learning, industry-focused curriculum, and career opportunities in finance, accounting, and business.",
