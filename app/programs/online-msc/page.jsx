@@ -15,7 +15,8 @@ export const dynamic = "force-static";
       },
       hasCourseInstance: {
         "@type": "CourseInstance",
-        courseMode: "online"
+        courseMode: "online",
+        courseWorkload: "PT10H"
       },
       offers: {
         "@type": "Offer",

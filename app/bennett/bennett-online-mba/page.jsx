@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Bennett University Online MBA 2026: Fees, Admission, Eligibility, Review & Placement",
+   title: "Bennett University Online MBA Fees & Admission 2026",
 
   description:
     "Check Bennett University Online MBA fees, eligibility, syllabus, placements & reviews for 2026. Compare with top universities and apply with expert guidance.",
