@@ -75,6 +75,9 @@ export async function getLatestBlogsHome() {
       
       return {
         ...item,
+        slug: item.slug?.trim() || "",
+        title: item.title?.trim() || "",
+        excerpt: item.excerpt?.trim() || "",
         image_url: getImageUrl(item.image_url),
         categoryName: category?.category_name || '',
       };

@@ -97,6 +97,9 @@ export async function getLatestBlogs() {
       
       return {
         ...item,
+        slug: item.slug?.trim() || "",
+        title: item.title?.trim() || "",
+        excerpt: item.excerpt?.trim() || "",
         image_url: getImageUrl(item.image_url),
         categorySlug: '',
         categoryName: primaryCat?.category_name || item.blogs_categories?.category_name || '',

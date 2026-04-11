@@ -87,6 +87,7 @@ const staticRoutes = [
   "/programs/online-majmc",
   "/programs/online-msc",
   "/programs/online-diploma",
+  "/blogs",
   "/blogs/online-mba-for-career-growth",
   "/blogs/nmims-for-working-professionals",
   "/blogs/how-online-bba-builds-entrepreneurs",

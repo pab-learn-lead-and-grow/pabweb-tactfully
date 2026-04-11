@@ -86,6 +86,9 @@ export async function getBlogData() {
       
       return {
         ...item,
+        slug: item.slug?.trim() || "",
+        title: item.title?.trim() || "",
+        excerpt: item.excerpt?.trim() || "",
         image_url: imageUrl,
         categorySlug: '',
         categoryName: primaryCat?.category_name || '',
