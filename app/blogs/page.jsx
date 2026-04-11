@@ -8,7 +8,7 @@ export const revalidate = 3600;
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "Latest Education Blogs & Insights",
+  title: "Top Online MBA Blogs, Fees, ROI & Career Insights in India",
 
   description:
     "Read insightful blogs about online education, distance learning, career guidance, and university programs in India.",

@@ -127,7 +127,7 @@ export default function BlogsClient({ trending, latest, categories }) {
     <div className="mt-10 py-12 min-h-screen p-5 lg:p-[60px]">
       <div className="max-w-6xl mx-auto">
         <h1 className="lg:col-span-3 text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight mb-4 text-[#270625]">
-          Latest Education Blogs & Insights
+          Online MBA, Distance Learning & Career Blogs
         </h1>
 
         <div className="mb-10 flex gap-4 bg-[#3C087E]/10 items-center px-3 py-4 rounded-lg">
