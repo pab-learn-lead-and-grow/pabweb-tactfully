@@ -1199,7 +1199,7 @@ return (
           <div className="flex items-center gap-3">
             <div className="hidden xl:flex items-center gap-3 text-xs lg:text-sm xl:text-base text-gray-800">
               <Link
-                href="/#blogs"
+                href="/blogs/"
                 className="hover:text-[#3C087E] font-medium scroll-true"
               >
                 Blogs
@@ -1247,7 +1247,7 @@ return (
 
 <Link
   className="block py-2 px-3 rounded hover:bg-purple-50"
-  href="/#blogs"
+  href="/blogs/"
 >
   Blogs
 </Link>

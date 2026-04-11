@@ -8,7 +8,7 @@ export default function Footer() {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about-us/" },
     { name: "Careers", href: "/jobs-at-radhya/" },
-    { name: "Blogs", href: "/#blogs" },
+    { name: "Blogs", href: "/blogs/" },
     { name: "News and Articles", href: "/news/" },
     { name: "Contact Us", href: "/contact-us/" },
     { name: "UGC Approvals", href: "/ugc-approved-universities/" },
@@ -16,6 +16,7 @@ export default function Footer() {
     { name: "Verify Counsellors", href: "/counsellor-verification/" },
     { name: "Universities List", href: "/online-universities-directory-india/" },
     { name: "Top Online Universities", href: "/top-online-universities-india/" },
+    { name: "Online MBA Validity", href: "/is-online-mba-valid-in-india-for-government-private-jobs/" },
     
   ];
 
@@ -48,6 +49,9 @@ export default function Footer() {
     { name: "Jain Online", path: "/jain/" },
     { name: "Shoolini Online", path: "/shoolini/" },
     { name: "Bennett Online", path: "/bennett/" },
+    { name: "Symbiosis Online MBA", path: "/symbiosis-online-mba-fees-eligibility-specializations-admission-guide/" },
+    { name: "XLRI Executive MBA", path: "/xlri-executive-mba-placements/" },
+    { name: "Amity Online MBA Fees", path: "/amity-online-mba-fees-roi-placements/" },
   ];
 
 

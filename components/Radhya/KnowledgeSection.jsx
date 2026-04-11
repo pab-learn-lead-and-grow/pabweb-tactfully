@@ -5,9 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { Clock } from "lucide-react";
 
-export default function KnowledgeSection({ latestNews = [] }) {
+export default function KnowledgeSection({ latestNews = [], latestBlogs = [] }) {
   const [isPaused, setIsPaused] = useState(false);
-  const [showAllBlogs, setShowAllBlogs] = useState(false);
 
   const timeAgo = (dateString) => {
     const now = new Date();
@@ -22,63 +21,16 @@ export default function KnowledgeSection({ latestNews = [] }) {
     return past.toLocaleDateString("en-GB");
   };
 
-  const blogs = [
-    {
-      id: 1,
-      topic: "Advancement",
-      date: "16 Jan 2026",
-      title:
-        "Online MBA For Career Growth: How An Online MBA Helps You Raise From Employee To Leader",
-      image: "/Blog2/background.png",
-      path: "/blogs/online-mba-for-career-growth",
-    },
-    {
-      id: 2,
-      topic: "NMIMS",
-      date: "16 Jan 2026",
-      title: "Why NMIMS Is The Top Choice For Working Professionals In India",
-      image: "/Blog3/background.png",
-      path: "/blogs/nmims-for-working-professionals",
-    },
-    {
-      id: 3,
-      topic: "Clarity",
-      date: "16 Jan 2026",
-      title:
-        "Online MBA vs Regular MBA: Which One Is Right for Working Professionals?",
-      image: "/Blog1/background.png",
-      path: "/blogs/online-vs-regular-mba",
-    },
-    {
-      id: 4,
-      topic: "Evolution",
-      date: "16 Jan 2026",
-      title:
-        "How Online MBA's Are Reshaping Global Careers With Data, Trends And Inspiring Success Stories",
-      image: "/Blog4/background.png",
-      path: "/blogs/the-digital-revolution",
-    },
-    {
-      id: 5,
-      topic: "ROI",
-      date: "16 Jan 2026",
-      title:
-        "Top 10 Reasons A Modern Online MBA Dramatically Boosts Your Salary And Acc Career Mobility",
-      image: "/Blog5/background.png",
-      path: "/blogs/the-financial-catalyst",
-    },
-    {
-      id: 6,
-      topic: "Leadership",
-      date: "16 Jan 2026",
-      title:
-        "How Online BBA Builds Entrepreneurs And How Online MBA Shapes Future CEOs",
-      image: "/Blog6/background.png",
-      path: "/blogs/how-online-bba-builds-entrepreneurs",
-    },
-  ];
+  const blogs = latestBlogs.map((blog) => ({
+    id: blog.blogs_id,
+    title: blog.title,
+    image: blog.image_url,
+    path: `/blogs/${blog.slug}`,
+    categoryName: blog.categoryName || "",
+    published_at: blog.published_at,
+  }));
 
-  const visibleBlogs = showAllBlogs ? blogs : blogs.slice(0, 4);
+  const visibleBlogs = blogs.slice(0, 4);
 
   return (
     <section id="blogs" className="bg-white p-5 lg:p-[60px] mb-2">
@@ -95,52 +47,48 @@ export default function KnowledgeSection({ latestNews = [] }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {visibleBlogs.map((blog) => (
-              <div key={blog.id} className="bg-white">
-                <div className="relative h-[220px] bg-gray-200 rounded-xl overflow-hidden">
-                  <Image
-                    src={blog.image}
-                    alt={blog.title}
-                    width={400}
-                    height={220}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <div className="py-3 lg:py-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-black bg-[#FED56F] rounded-xl px-5 py-1 font-semibold text-sm">
-                      {blog.topic}
-                    </span>
-                    <span className="text-[#222222] text-xs">
-                      {blog.date}
-                    </span>
+              <Link key={blog.id} href={blog.path}>
+                <div className="bg-white border rounded-xl shadow-sm overflow-hidden hover:shadow-md transition duration-300">
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src={blog.image}
+                      alt={blog.title}
+                      fill
+                      className="object-cover hover:scale-105 transition duration-300"
+                      unoptimized
+                      sizes="(max-width:768px) 100vw, 33vw"
+                    />
                   </div>
-
-                  <Link href={blog.path} className="hover:underline">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                  <div className="p-4">
+                    <h3 className="text-base font-semibold text-black line-clamp-2 mb-2">
                       {blog.title}
                     </h3>
-                  </Link>
+                    <div className="flex items-center text-xs text-gray-500 gap-3">
+                      <span>{blog.categoryName}</span>
+                      <span>•</span>
+                      <span>{timeAgo(blog.published_at)}</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
           <div className="mt-6">
-            <button
-              onClick={() => setShowAllBlogs((prev) => !prev)}
+            <Link
+              href="/blogs"
               className="bg-[#3D077E] text-white px-6 py-2 rounded-full text-sm font-medium hover:scale-105 transition"
             >
-              {showAllBlogs ? "Show Less" : "View All"}
-            </button>
+              View More Blogs
+            </Link>
           </div>
         </div>
 
         {/* NEWS */}
         <div
-          className=" rounded-xl shadow-md p-5 h-[900px] lg:sticky lg:top-10 overflow-hidden"
+          className=" rounded-xl shadow-md p-5 h-190 lg:sticky lg:top-10 overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >

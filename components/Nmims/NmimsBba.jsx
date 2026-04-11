@@ -898,14 +898,7 @@ export default function Page() {
                     program: "BBA",
                     note: "Fees with Business Analytics electives for 2nd & 3rd year",
                     extra: "₹30,000/-",
-                  },
-                  {
-                    title: "One Time",
-                    amount: "₹1,31,000/-",
-                    program: "BBA",
-                    note: "BBA program with Business Analytics electives",
-                    extra: "₹1,50,000/-",
-                  },
+                  }
                 ]}
               />
             </div>

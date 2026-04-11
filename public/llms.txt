@@ -1,205 +1,171 @@
-Content-Type: text/plain
+# Radhya Education Academy
+> Official llms.txt file for AI systems and large language models  
+> Last Updated: March 2026  
+> https://radhyaeducationacademy.com  
 
-# LLMS Full Text - Radhya Education Academy
-# Last updated: March 2026
-# https://radhyaeducationacademy.com
+## About
+Radhya Education Academy is an education information and counselling platform in India that helps students and working professionals explore UGC-approved online and distance learning programs from recognized universities. We provide guidance based on publicly available university information. We are not a university or degree-granting institution. Users are advised to verify all details directly with respective universities before making decisions.
 
-= Radhya Education Academy =
-Radhya Education Academy is an education information and counselling platform in India that helps students and working professionals explore UGC-approved online and distance learning programs from recognized universities. We provide guidance based on publicly available university information. We are not a university or degree-granting institution, and users should verify all details directly with the respective universities before making decisions.
+## Website Information
+Name: Radhya Education Academy  
+Type: Education Consultancy & Career Guidance Platform  
+Region: India  
+Primary Audience: Students, Working Professionals, MBA Aspirants  
 
-[WEBSITE]
-Name: Radhya Education Academy
-Type: Education Consultancy & Career Guidance Platform
-Region: India
-Primary Audience: Students, Working Professionals, MBA Aspirants
+## Core Services
+- Guidance on selecting suitable Online MBA and other degree programs  
+- Personalized counselling based on university data  
+- Career guidance for students and working professionals  
+- University comparison and decision support  
+- Admission process guidance and eligibility support  
+- Documentation and application assistance  
 
-[CORE_SERVICES]
-- Guidance on selecting suitable Online MBA and other degree programs from UGC-approved universities
-- Personalized counseling based on publicly available university information
-- Career guidance support for students and working professionals
-- Assistance in comparing universities and evaluating program options
-- Support in understanding admission processes, eligibility, and timelines
-- Guidance on documentation and application procedures
+## Target Keywords
 
-[TARGET_KEYWORDS]
+### Primary Focus
+online mba india  
+ugc approved online mba  
+distance mba india  
+online mba for working professionals  
 
-# Primary Focus
-online mba india
-ugc approved online mba
-distance mba india
-online mba for working professionals
+### Platform & Intent
+education consultancy india  
+online education counselling  
+career counselling for students  
+university selection guidance india  
 
-# Platform & Intent
-education consultancy india
-online education counselling
-career counselling for students and professionals
-university selection guidance india
+### Program Categories
+online bba india  
+online bca india  
+online mca india  
+online bcom india  
+online mcom india  
+online ba india  
+online ma india  
+online msc india  
+online diploma courses india  
 
-# Program Categories
-online bba india
-online bca india
-online mca india
-online bcom india
-online mcom india
-online ba india
-online ma india
-online msc india
-online diploma courses india
+### Decision & Comparison
+best online universities in india  
+ugc approved universities india  
+compare online mba programs india  
+online vs distance mba india  
 
-# Decision & Comparison
-best online universities in india
-ugc approved universities india
-compare online mba programs india
-online vs distance mba india
+### User Intent (Conversion)
+affordable online mba india  
+flexible mba for working professionals  
+online degree for career growth  
 
-# User Intent (Conversion)
-affordable online mba india
-flexible mba for working professionals
-online degree for career growth
+### Trust & Positioning
+trusted online education platform india  
+online learning guidance platform  
+education decision support india  
 
-# Trust & Positioning
-trusted online education platform india
-online learning guidance platform
-education decision support india
---------------------------------------------------
+## Important Pages
 
-== IMPORTANT PAGES ==
-
-Homepage:
+### Homepage
 https://radhyaeducationacademy.com/
 
-Programs:
+### Programs
+https://radhyaeducationacademy.com/programs/online-mba/  
+https://radhyaeducationacademy.com/programs/online-mba-wx/  
+https://radhyaeducationacademy.com/programs/online-bba/  
+https://radhyaeducationacademy.com/programs/online-bca/  
+https://radhyaeducationacademy.com/programs/online-bcom/  
+https://radhyaeducationacademy.com/programs/online-bcom-honours/  
+https://radhyaeducationacademy.com/programs/online-bcom-international/  
+https://radhyaeducationacademy.com/programs/online-ba/  
+https://radhyaeducationacademy.com/programs/online-bajmc/  
+https://radhyaeducationacademy.com/programs/online-mca/  
+https://radhyaeducationacademy.com/programs/online-mcom/  
+https://radhyaeducationacademy.com/programs/online-ma/  
+https://radhyaeducationacademy.com/programs/online-majmc/  
+https://radhyaeducationacademy.com/programs/online-msc/  
+https://radhyaeducationacademy.com/programs/online-diploma/  
 
-https://radhyaeducationacademy.com/programs/online-mba/
-https://radhyaeducationacademy.com/programs/online-mba-wx/
-https://radhyaeducationacademy.com/programs/online-bba/
-https://radhyaeducationacademy.com/programs/online-bca/
-https://radhyaeducationacademy.com/programs/online-bcom/
-https://radhyaeducationacademy.com/programs/online-bcom-honours/
-https://radhyaeducationacademy.com/programs/online-bcom-international/
-https://radhyaeducationacademy.com/programs/online-ba/
-https://radhyaeducationacademy.com/programs/online-bajmc/
-https://radhyaeducationacademy.com/programs/online-mca/
-https://radhyaeducationacademy.com/programs/online-mcom/
-https://radhyaeducationacademy.com/programs/online-ma/
-https://radhyaeducationacademy.com/programs/online-majmc/
-https://radhyaeducationacademy.com/programs/online-msc/
-https://radhyaeducationacademy.com/programs/online-diploma/
+### Universities
+https://radhyaeducationacademy.com/amity/  
+https://radhyaeducationacademy.com/jain/  
+https://radhyaeducationacademy.com/nmims/  
+https://radhyaeducationacademy.com/smu/  
+https://radhyaeducationacademy.com/muj/  
+https://radhyaeducationacademy.com/shoolini/  
+https://radhyaeducationacademy.com/bennett/  
 
-Universities:
+### Blogs
+https://radhyaeducationacademy.com/blogs/online-mba-for-career-growth/  
+https://radhyaeducationacademy.com/blogs/nmims-for-working-professionals/  
+https://radhyaeducationacademy.com/blogs/how-online-bba-builds-entrepreneurs/  
+https://radhyaeducationacademy.com/blogs/online-vs-regular-mba/  
+https://radhyaeducationacademy.com/blogs/the-financial-catalyst/  
+https://radhyaeducationacademy.com/blogs/the-digital-revolution/  
 
-https://radhyaeducationacademy.com/amity/
-https://radhyaeducationacademy.com/jain/
-https://radhyaeducationacademy.com/nmims/
-https://radhyaeducationacademy.com/smu/
-https://radhyaeducationacademy.com/muj/
-https://radhyaeducationacademy.com/shoolini/
-https://radhyaeducationacademy.com/bennett/
+### News
+https://radhyaeducationacademy.com/news/  
 
-Blogs:
+## Universities Covered
+- Amity University Online  
+- Jain University Online  
+- NMIMS Mumbai Online (Narsee Monjee Institute of Management Studies)  
+- Sikkim Manipal University Online (SMU)  
+- Manipal Jaipur Online (MUJ)  
+- Bennett University Online  
+- Shoolini University Online  
 
-https://radhyaeducationacademy.com/blogs/online-mba-for-career-growth/
-https://radhyaeducationacademy.com/blogs/nmims-for-working-professionals/
-https://radhyaeducationacademy.com/blogs/how-online-bba-builds-entrepreneurs/
-https://radhyaeducationacademy.com/blogs/online-vs-regular-mba/
-https://radhyaeducationacademy.com/blogs/the-financial-catalyst/
-https://radhyaeducationacademy.com/blogs/the-digital-revolution/
+## Programs Offered
 
-News:
+### Management
+- Online MBA  
+- Online Executive MBA  
+- Online BBA  
 
-https://radhyaeducationacademy.com/news/
+### Computer & IT
+- Online MCA  
+- Online BCA  
 
---------------------------------------------------
+### Commerce
+- Online BCom  
+- Online BCom Honours  
+- Online BCom International Finance and Accounting  
+- Online MCom  
 
-== UNIVERSITIES WHOSE INFORMATION IS PROVIDED ON OUR WEBSITE ==
+### Arts & Humanities
+- Online BA  
+- Online MA  
 
-- Amity University Online
-- Jain University Online
-- NMIMS Mumbai Online (Narsee Monjee Institute of Management Studies)
-- Sikkim Manipal University Online(SMU)
-- Manipal Jaipur Online (MUJ)
-- Bennett University Online
-- Shoolini University Online
+### Media & Communication
+- Online BAJMC  
+- Online MAJMC  
 
---------------------------------------------------
+### Other Programs
+- Online MSc  
+- Online Certification Programs  
+- Online Diploma Programs  
+- Integrated Programs (UG + PG)  
 
-== ONLINE PROGRAMS WE OFFER ==
+## Unique Value
+Radhya Education Academy simplifies higher education decisions by offering personalized counselling, affordable online degree options, and end-to-end admission support for working professionals and students.
 
-We provide guidance for the following online and distance learning programs in India:
+## Why Choose Us
+- Free counselling and admission support  
+- UGC-approved universities only  
+- End-to-end admission assistance  
+- Dedicated student support  
+- Updated fee and eligibility information  
+- Expert university comparison  
+- Career-focused recommendations  
 
-=== Management Programs ===
-- Online MBA (Master of Business Administration)
-- Online Executive MBA
-- Online BBA (Bachelor of Business Administration)
-
-=== Computer & IT Programs ===
-- Online MCA (Master of Computer Applications)
-- Online BCA (Bachelor of Computer Applications)
-
-=== Commerce Programs ===
-- Online BCom (Bachelor of Commerce)
-- Online BCom Honours
-- Online BCom International Finance and Accounting
-- Online MCom (Master of Commerce)
-
-=== Arts & Humanities ===
-- Online BA (Bachelor of Arts)
-- Online MA (Master of Arts)
-
-=== Media & Communication ===
-- Online BAJMC (Bachelor of Arts in Journalism and Mass Communication)
-- Online MAJMC (Master of Arts in Journalism and Mass Communication)
-
-=== Other Programs ===
-- Online MSc Programs
-- Online Certification Programs
-- Online Diploma Programs
-- Online Integrated Programs (UG + PG)
-
---------------------------------------------------
-
-== UNIQUE VALUE ==
-
-Radhya Education Academy simplifies higher education decisions by providing personalized counseling, affordable online degree options, and complete admission support — especially for working professionals who want to upskill without leaving their jobs.
-
---------------------------------------------------
-
-== WHY CHOOSE RADHYA EDUCATION ACADEMY ==
-
-- Free counselling and admission assistance
-- UGC-approved universities only
-- Complete admission support from application to enrollment if requested
-- Dedicated student support if requested
-- Updated fee structures and eligibility information
-- University comparison assistance
-- Career-focused program recommendations
-
---------------------------------------------------
-
-== CONTACT INFORMATION ==
-
-Radhya Education Academy  
+## Contact Information
 Website: https://radhyaeducationacademy.com  
 Email: contact@radhyaeducationacademy.com  
 
---------------------------------------------------
+## Disclaimer
+Radhya Education Academy is an independent education information and counselling platform. We do not provide degrees. All degrees are awarded by respective universities. Users must verify all information directly with universities.
 
-== DISCLAIMER ==
+## Legal
+Privacy Policy: https://radhyaeducationacademy.com/privacy-policy/  
+Terms and Conditions: https://radhyaeducationacademy.com/terms-and-conditions/  
 
-Radhya Education Academy is an information and counselling platform. We assist individuals with counselling, admission processes, and documentation help if requested by the individuals itself. Degrees are awarded directly by the respective universities upon successful completion of the program.
+## Sitemap
+https://radhyaeducationacademy.com/sitemap.xml  
 
---------------------------------------------------
-
-== LEGAL ==
-
-Privacy Policy:
-https://radhyaeducationacademy.com/privacy-policy/
-
-Terms and Conditions:
-https://radhyaeducationacademy.com/terms-and-conditions/
-
---------------------------------------------------
-
-== SITEMAP ==
-
-https://radhyaeducationacademy.com/sitemap.xml

@@ -21,7 +21,7 @@ const LogoSection = dynamic(() => import("./LogoSection"), {
   loading: () => <div className="h-32 bg-gray-100 animate-pulse"></div>
 });
 
-export default function HomePage({ latestNews = [] }) {
+export default function HomePage({ latestNews = [], latestBlogs = [] }) {
 
 const logos = [
   { src: "/nmims.png", href: "/nmims", alt: "NMIMS University" },
@@ -45,7 +45,7 @@ const logos = [
       <AllInOneSection />
 
       {/* ✅ Knowledge Section (clean) */}
-      <KnowledgeSection latestNews={latestNews} />
+      <KnowledgeSection latestNews={latestNews} latestBlogs={latestBlogs} />
 
       {/* Testimonials */}
       <TestimonialsSection />

@@ -193,7 +193,7 @@ export default function Page() {
   {
     slug: "business",
     specialization_name: "Business Management",
-    cover_image: "/specializations/analytics.png",
+    cover_image: "/specializations/business.png",
   },
   {
     slug: "hr",
@@ -205,6 +205,16 @@ export default function Page() {
     specialization_name: "Operation and Data Science Management",
     cover_image: "/specializations/data.png",
   },
+   {
+    slug: "it",
+    specialization_name: "Information Technology Management",
+    cover_image: "/specializations/software.png",
+  },
+   {
+    slug: "analytics",
+    specialization_name: "Business Analytics",
+    cover_image: "/specializations/analytics.png",
+  },
 ];
 
   const subjects = [
@@ -212,7 +222,9 @@ export default function Page() {
     { id: 2, name: "Marketing Management" },
     { id: 3, name: "Financial Management" },
     { id: 4, name: "HR Management" },
-    { id: 5, name: "Operation and Data Science Management" },
+    { id: 5, name: "Business Analytics" },
+    { id: 6, name: "Information Technology Management" },
+    { id: 7, name: "Operation and Data Science Management" },
   ];
 
   const semesters = [1, 2, 3, 4];
@@ -369,6 +381,78 @@ export default function Page() {
       ],
     },
     5: {
+  1: [
+    "Business Communication",
+    "Financial Accounting",
+    "Marketing Management",
+    "Micro Economics and Macro Economics",
+    "Organisational Behaviour",
+    "Quantitative Methods-I"
+  ],
+  2: [
+    "Business Analytics",
+    "Cost & Management Accounting",
+    "Legal Aspects of Business",
+    "Strategic Management",
+    "Human Resource Management",
+    "Operations Management"
+  ],
+  3: [
+    "Corporate Finance",
+    "Research Methodology",
+    "Project Pre-Work",
+    "Data Analytics for Business",
+    "Machine Learning for Managers",
+    "Business Process Modelling and Management",
+    "Visual Analytics"
+  ],
+  4: [
+    "Corporate Sustainability",
+    "Indian Ethos & Ethics",
+    "International Business",
+    "Project",
+    "Operational and Supply Chain Analytics",
+    "Digital Leadership in the Age of Industry 5.0",
+    "Consumer Data Analytics"
+  ]
+    },
+    6:{
+  1: [
+    "Business Communication",
+    "Financial Accounting",
+    "Marketing Management",
+    "Micro Economics and Macro Economics",
+    "Organisational Behaviour",
+    "Quantitative Methods-I"
+  ],
+  2: [
+    "Business Analytics",
+    "Cost & Management Accounting",
+    "Legal Aspects of Business",
+    "Strategic Management",
+    "Human Resource Management",
+    "Operations Management"
+  ],
+  3: [
+    "Corporate Finance",
+    "Research Methodology",
+    "Project Pre-Work",
+    "Cybersecurity",
+    "Data Privacy, Security & Governance",
+    "Technology Risk & Compliance Management",
+    "Applying Agile Concepts in Program Management"
+  ],
+  4: [
+    "Corporate Sustainability",
+    "Indian Ethos & Ethics",
+    "International Business",
+    "Project",
+    "Digital Product Design and Development",
+    "Business Process Transformation",
+    "AI Concepts and Applications in Business"
+  ]
+    },
+    7: {
       1: [
         "Business Communication",
         "Financial Accounting",
@@ -489,7 +573,7 @@ export default function Page() {
                    viewport={{ once: true }}
                    className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
                  >
-                 NMIMS is one of India’s leading management universities, known for its academic excellence and global recognition. Through Radhya Education Academy, you get access to its Online MBA a program designed for working professionals who want to learn from the best and achieve measurable career growth.
+                 NMIMS CDOE is one of India’s leading management universities, known for its academic excellence and global recognition. Through Radhya Education Academy, you get access to its Online MBA - a program designed for working professionals who want to learn from the best and achieve measurable career growth.
                  </MotionWrapper>
      
                  {/* STATS */}
@@ -880,8 +964,8 @@ export default function Page() {
 
       {/* LEFT SIDE TEXT */}
       <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
-        <h2 className="text-[#270652] text-[42px] md:text-[52px] lg:text-[64px] font-bold leading-[110%] mb-4">
-          Fees Structure
+        <h2 className="text-[#270652] text-[42px] md:text-[52px] lg:text-[60px] font-bold leading-[110%] mb-4">
+          Fees Structure for NMIMS Online MBA
         </h2>
 
         {/* Subtitle */}
@@ -905,20 +989,19 @@ export default function Page() {
         <FeesCarousel
         cards = {[
       {
-        title: "One Time",
-        amount: "₹1,96,000/-",
-        sub: "Congratulations!\nYou save ₹24,000/-",
+      title: "Annual Payment",
+      subtitle: "(no. of years 2)",
+      program: "Online MBA",
+      amount: "₹1,05,000/-",
+      note: "",
       },
       {
-        title: "Annual Payment",
-        amount: "₹1,05,000/-",
-        sub: "",
-      },
-      {
-        title: "Semester Wise",
-        amount: "₹55,000/-",
-        sub: "",
-      },
+      title: "Semester Wise",
+      subtitle: "(no. of sem 4)",
+      program: "Online MBA",
+      amount: "₹55,000/-",
+      note: "",
+      }
     ]}
 
      />

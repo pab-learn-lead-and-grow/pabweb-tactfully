@@ -817,7 +817,7 @@ export default function Page() {
       title: "Annual Payment",
       subtitle: "(no. of years 1)",
       program: "Online Diploma",
-      amount: "₹1,10,000/-",
+      amount: "₹1,05,000/-",
       note: "",
     },
     {
@@ -826,13 +826,6 @@ export default function Page() {
       program: "Online Diploma",
       amount: "₹55,000/-",
       note: "",
-    },
-    {
-      title: "One Time",
-      subtitle: "(in INR)",
-      program: "Online Diploma",
-      amount: "₹1,05,000/-",
-      note: "Congratulations!\nYou save ₹5,000/-",
     },
   ]}
   />

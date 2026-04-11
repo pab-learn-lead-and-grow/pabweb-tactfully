@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ConnectToday from "../NmimsSection/ConnectToday";
+import UniversityCards from "../NmimsSection/Logocards";
+import MotionWrapper from "../Radhya/MotionWrapper";
 
 export default function NewsClient({ trending, latest, categories }) {
   const [activeTrending, setActiveTrending] = useState(0);
@@ -38,8 +41,39 @@ export default function NewsClient({ trending, latest, categories }) {
     return past.toLocaleDateString("en-GB");
   };
 
+   const universities = [
+    {
+      src: "/nmims.png",
+      alt: "NMIMS",
+      name: "NMIMS Mumbai",
+      href: "/nmims/",
+    },
+    {
+      src: "/manipal.png",
+      alt: "Manipal",
+      name: "Manipal Jaipur",
+      href: "/muj/",
+    },
+    {
+      src: "/amity.png",
+      alt: "Amity",
+      name: "Amity University",
+      href: "/amity/",
+    },
+    {
+      src: "/jain.png",
+      alt: "Jain",
+      name: "Jain University",
+      href: "/jain/",
+    },
+    { src: "/bennett.png", href: "/bennett/", alt: "Bennett University", name: "Bennett University" },
+    { src: "/shoolini.png", href: "/shoolini/", alt: "Shoolini University", name: "Shoolini University" },
+    { src: "/smu.png", href: "/smu/", alt: "Sikkim Manipal University", name: "Sikkim Manipal University" },
+  ];
+
   return (
-    <div className="mt-10 py-12  min-h-screen p-5 lg:p-[60px]">
+   <>
+    <div className="mt-10 py-12 p-5 lg:p-15">
       <div className="max-w-6xl mx-auto">
         <h1 className="lg:col-span-3 text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight mb-4  text-[#270625]">
           Latest Education News, Trends & Updates in India
@@ -198,5 +232,28 @@ export default function NewsClient({ trending, latest, categories }) {
         </div>
       </div>
     </div>
+    <section className="w-full mt-10 px-4 md:px-10 lg:px-20 font-[Inter]">
+                                               <div className="max-w-7xl mx-auto">
+                                                 {/* HEADING */}
+                                                 <MotionWrapper
+                                                 as="h2"
+                                                   initial={{ opacity: 0, y: -30 }}
+                                                   whileInView={{ opacity: 1, y: 0 }}
+                                                   transition={{ duration: 0.6 }}
+                                                   viewport={{ once: true }}
+                                                   className="text-[28px] sm:text-[36px] md:text-5xl leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
+                                                 >
+                                                   Explore other top universities
+                                                 </MotionWrapper>
+                                               </div>
+                                             </section>
+                                  
+                                              <div className="h-[120px]">
+                                         <UniversityCards logos={universities} />
+                                        </div>
+                                
+              
+                    <ConnectToday />
+   </>
   );
 }

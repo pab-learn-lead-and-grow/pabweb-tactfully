@@ -8,6 +8,9 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import CounsellingForm from "@/components/Radhya/CounsellingForm";
 import Script from "next/script";
+import ConnectToday from "../NmimsSection/ConnectToday";
+import UniversityCards from "../NmimsSection/Logocards";
+import MotionWrapper from "../Radhya/MotionWrapper";
 
 function BlogCTA({ onOpen }) {
   return (
@@ -31,6 +34,36 @@ export default function NewsContent({
   articleSchema
 }) {
   const [showModal, setShowModal] = useState(false);
+
+   const universities = [
+    {
+      src: "/nmims.png",
+      alt: "NMIMS",
+      name: "NMIMS Mumbai",
+      href: "/nmims/",
+    },
+    {
+      src: "/manipal.png",
+      alt: "Manipal",
+      name: "Manipal Jaipur",
+      href: "/muj/",
+    },
+    {
+      src: "/amity.png",
+      alt: "Amity",
+      name: "Amity University",
+      href: "/amity/",
+    },
+    {
+      src: "/jain.png",
+      alt: "Jain",
+      name: "Jain University",
+      href: "/jain/",
+    },
+    { src: "/bennett.png", href: "/bennett/", alt: "Bennett University", name: "Bennett University" },
+    { src: "/shoolini.png", href: "/shoolini/", alt: "Shoolini University", name: "Shoolini University" },
+    { src: "/smu.png", href: "/smu/", alt: "Sikkim Manipal University", name: "Sikkim Manipal University" },
+  ];
 
   return (
     <>
@@ -138,6 +171,29 @@ export default function NewsContent({
         <CounsellingForm onClose={() => setShowModal(false)} />
       )}
     </div>
+
+      <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+                                           <div className="max-w-7xl mx-auto">
+                                             {/* HEADING */}
+                                             <MotionWrapper
+                                             as="h2"
+                                               initial={{ opacity: 0, y: -30 }}
+                                               whileInView={{ opacity: 1, y: 0 }}
+                                               transition={{ duration: 0.6 }}
+                                               viewport={{ once: true }}
+                                               className="text-[28px] sm:text-[36px] md:text-5xl leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
+                                             >
+                                               Explore other top universities
+                                             </MotionWrapper>
+                                           </div>
+                                         </section>
+                              
+                                          <div className="h-[120px]">
+                                     <UniversityCards logos={universities} />
+                                    </div>
+                            
+          
+                <ConnectToday />
     </>
   );
 }
