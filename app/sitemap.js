@@ -93,6 +93,14 @@ const staticRoutes = [
   "/blogs/online-vs-regular-mba",
   "/blogs/the-financial-catalyst",
   "/blogs/the-digital-revolution",
+  "/blogs/nmims-online-mba-registration-2026-guide",
+  "/blogs/nmims-online-mba-marketing-2026-guide",
+  "/blogs/ignou-vs-nmims-online-mba-2026",
+  "/blogs/nmims-online-mba-salary-growth-2026",
+  "/amity-online-mba-fees-roi-placements",
+  "/is-online-mba-valid-in-india-for-government-private-jobs",
+  "/symbiosis-online-mba-fees-eligibility-specializations-admission-guide",
+  "/xlri-executive-mba-placements",
   "/news",
   "/news/ugc",
   "/news/aicte",
@@ -108,6 +116,9 @@ const staticRoutes = [
   "/news/nep-2026-update-impact-on-students-india",
   "/news/online-mba-trends-2026-skills-salary-growth",
   "/news/ugc-aicte-new-bill-2026-single-education-regulator",
+  "/news/online-learning-expanding-higher-education-access-2026",
+  "/news/maharashtra-cet-2026-schedule-revised",
+  "/news/online-education-future-digital-universities-india-2026",
 ];
 
 export default function sitemap() {
