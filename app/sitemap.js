@@ -1,4 +1,4 @@
-/** @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap */
+import { supabase } from "@/lib/supabaseClient";
 
 const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -88,75 +88,81 @@ const staticRoutes = [
   "/programs/online-msc",
   "/programs/online-diploma",
   "/blogs",
-  "/blogs/online-mba-for-career-growth",
-  "/blogs/nmims-for-working-professionals",
-  "/blogs/how-online-bba-builds-entrepreneurs",
-  "/blogs/online-vs-regular-mba",
-  "/blogs/the-financial-catalyst",
-  "/blogs/the-digital-revolution",
-  "/blogs/nmims-online-mba-registration-2026-guide",
-  "/blogs/nmims-online-mba-marketing-2026-guide",
-  "/blogs/ignou-vs-nmims-online-mba-2026",
-  "/blogs/nmims-online-mba-salary-growth-2026",
-  "/amity-online-mba-fees-roi-placements",
-  "/is-online-mba-valid-in-india-for-government-private-jobs",
-  "/symbiosis-online-mba-fees-eligibility-specializations-admission-guide",
-  "/xlri-executive-mba-placements",
-  "/news",
-  "/news/ugc",
-  "/news/aicte",
-  "/news/higher-education",
-  "/news/online-mba",
-  "/news/online-learning",
-  "/news/ugc-warning-on-fake-universities",
-  "/news/online-mba-validity-india-2026-ugc-aicte-rules",
-  "/news/top-ugc-approved-online-mba-colleges-india-2026",
-  "/news/aicte-new-guidelines-2026-online-distance-education-rules",
-  "/news/ugc-approved-universities-list-2026-online-learning",
-  "/news/aicte-approval-process-2026-college-rules-india",
-  "/news/nep-2026-update-impact-on-students-india",
-  "/news/online-mba-trends-2026-skills-salary-growth",
-  "/news/ugc-aicte-new-bill-2026-single-education-regulator",
-  "/news/online-learning-expanding-higher-education-access-2026",
-  "/news/maharashtra-cet-2026-schedule-revised",
-  "/news/online-education-future-digital-universities-india-2026",
 ];
 
-export default function sitemap() {
+async function getDynamicRoutes() {
+  const [newsRes, blogsRes, newsCategoriesRes, blogCategoriesRes] = await Promise.all([
+    supabase
+      .from("news")
+      .select("slug, published_at")
+      .eq("is_published", true)
+      .order("published_at", { ascending: false }),
+    supabase
+      .from("blogs")
+      .select("slug, published_at")
+      .eq("is_published", true)
+      .order("published_at", { ascending: false }),
+    supabase
+      .from("news_categories")
+      .select("slug, updated_at"),
+    supabase
+      .from("blogs_categories")
+      .select("slug, updated_at"),
+  ]);
+
+  const newsArticles = (newsRes.data || []).map((item) => ({
+    url: `${baseUrl}/news/${item.slug}/`,
+    lastModified: item.published_at ? new Date(item.published_at) : new Date(),
+    changeFrequency: "daily",
+    priority: 0.9,
+  }));
+
+  const blogArticles = (blogsRes.data || []).map((item) => ({
+    url: `${baseUrl}/blog/${item.slug}/`,
+    lastModified: item.published_at ? new Date(item.published_at) : new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const newsCategories = (newsCategoriesRes.data || []).map((item) => ({
+    url: `${baseUrl}/news/${item.slug}/`,
+    lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
+  const blogCategories = (blogCategoriesRes.data || []).map((item) => ({
+    url: `${baseUrl}/blogs/${item.slug}/`,
+    lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
+
+  return [...newsArticles, ...blogArticles, ...newsCategories, ...blogCategories];
+}
+
+export default async function sitemap() {
   if (isStaging) return [];
 
-  return staticRoutes.map((path) => {
-    const url =
-      path === "/"
-        ? `${baseUrl}/` // ✅ FIX: only single slash
-        : `${baseUrl}${path}/`;
+  const staticUrls = staticRoutes.map((path) => {
+    const isProgramOrUniversity =
+      path.startsWith("/nmims") ||
+      path.startsWith("/amity") ||
+      path.startsWith("/smu") ||
+      path.startsWith("/muj") ||
+      path.startsWith("/bennett") ||
+      path.startsWith("/programs") ||
+      path.startsWith("/jain");
 
     return {
-      url,
+      url: path === "/" ? `${baseUrl}/` : `${baseUrl}${path}/`,
       lastModified: new Date(),
-      changeFrequency:
-        path === "/" ||
-        path.startsWith("/nmims") ||
-        path.startsWith("/amity") ||
-        path.startsWith("/smu") ||
-        path.startsWith("/muj") ||
-        path.startsWith("/bennett") ||
-        path.startsWith("/programs")
-          ? "weekly"
-          : "monthly",
-      priority:
-        path === "/"
-          ? 1
-          : path.startsWith("/nmims") ||
-            path.startsWith("/amity") ||
-            path.startsWith("/jain") ||
-            path.startsWith("/muj") ||
-            path.startsWith("/smu") ||
-            path.startsWith("/shoolini") ||
-            path.startsWith("/bennett") ||
-            path.startsWith("/programs")
-          ? 0.9
-          : 0.7,
+      changeFrequency: isProgramOrUniversity ? "weekly" : "monthly",
+      priority: path === "/" ? 1 : isProgramOrUniversity ? 0.9 : 0.7,
     };
   });
+
+  const dynamicUrls = await getDynamicRoutes();
+
+  return [...staticUrls, ...dynamicUrls];
 }

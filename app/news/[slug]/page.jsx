@@ -11,16 +11,21 @@ function buildArticleSchema(article, imageUrl, siteUrl) {
   if (!article) return null;
   
   const publishedDate = article.published_at 
-    ? new Date(article.published_at).toISOString().split('T')[0]
-    : null;
+    ? new Date(article.published_at).toISOString()
+    : new Date().toISOString();
 
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "NewsArticle",
     "headline": article.title,
-    ...(publishedDate && { "datePublished": publishedDate }),
-    ...(imageUrl && { "image": imageUrl }),
+    "datePublished": publishedDate,
+    "dateModified": publishedDate,
+    "image": imageUrl ? [imageUrl] : [],
     "description": article.excerpt,
+    "author": {
+      "@type": "Organization",
+      "name": "Radhya Education Academy"
+    },
     "publisher": {
       "@type": "Organization",
       "name": "Radhya Education Academy",

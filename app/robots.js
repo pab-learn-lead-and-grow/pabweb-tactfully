@@ -15,7 +15,7 @@ export default function robots() {
           disallow: "/",
         },
       ],
-      sitemap: `${baseUrl}/sitemap.xml`,
+sitemap: `${baseUrl}/sitemap-index.xml`,
     };
   }
 

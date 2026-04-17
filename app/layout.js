@@ -119,6 +119,12 @@ export default function RootLayout({ children }) {
             })
           }}
         />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS Feed"
+          href="/rss.xml"
+        />
       </head>
      <body className={`${inter.className} scrollbar-hide`}>
         <Navbar />

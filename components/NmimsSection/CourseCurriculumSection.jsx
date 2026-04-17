@@ -12,7 +12,22 @@ const Syllabus = ({ title = "Program Syllabus", years, data }) => {
   const [selectedSpecialization, setSelectedSpecialization] = useState({});
 
   // Controls for radio type (super/dual)
-  const [selectedType, setSelectedType] = useState({});
+ const [selectedType, setSelectedType] = useState(() => {
+  const defaults = {};
+
+  Object.keys(data).forEach((year) => {
+    Object.entries(data[year].semesters).forEach(([semKey, semData]) => {
+      ["spec1", "spec2", "single"].forEach((specKey) => {
+        if (semData[`specialization${specKey === "single" ? "" : specKey.slice(-1)}`]?.useRadio) {
+          const key = `${semKey}-${specKey}`;
+          defaults[key] = "super"; // 👈 default here
+        }
+      });
+    });
+  });
+
+  return defaults;
+});
 
   const toggleDropdown = (key) => {
     setOpenDropdown((prev) => ({ ...prev, [key]: !prev[key] }));

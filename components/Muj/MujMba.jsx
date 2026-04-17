@@ -310,7 +310,7 @@ export default function Page() {
                                          viewport={{ once: true }}
                                          className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
                                        >
-                                        Manipal Jaipur online MBA
+                                        Manipal Jaipur Online MBA
      
                                        </MotionWrapper>
                            
