@@ -57,8 +57,7 @@ export default function KnowledgeSection({ latestNews = [], latestBlogs = [] }) 
                       alt={blog.title}
                       fill
                       className="object-cover hover:scale-105 transition duration-300"
-                      unoptimized
-                      sizes="(max-width:768px) 100vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
                   <div className="p-4">
@@ -116,7 +115,7 @@ export default function KnowledgeSection({ latestNews = [], latestBlogs = [] }) 
                         width={80}
                         height={60}
                         className="object-cover rounded-lg shrink-0"
-                        unoptimized
+                        sizes="80px"
                       />
 
                       <div className="flex-1 min-w-0">

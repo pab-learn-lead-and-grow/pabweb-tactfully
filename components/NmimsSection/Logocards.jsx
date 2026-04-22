@@ -21,8 +21,9 @@ export default function UniversityCards({ logos }) {
                 src={logo.src}
                 alt={logo.alt}
                 width={120}
-                height={120}
+                height={60}
                 className="h-full w-auto object-contain"
+                sizes="120px"
               />
             </div>
 

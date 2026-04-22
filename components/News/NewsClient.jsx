@@ -154,7 +154,7 @@ export default function NewsClient({ trending, latest, categories }) {
                         alt={item.title}
                         fill
                         className="object-cover"
-                        unoptimized
+                        sizes="100px"
                       />
                     </div>
                     <div>
@@ -200,8 +200,7 @@ export default function NewsClient({ trending, latest, categories }) {
                       priority
                       fetchPriority="high"
                       className="object-cover group-hover:scale-105 transition duration-300"
-                      sizes="(max-width:768px) 100vw, 33vw"
-                      unoptimized
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
                   <div className="p-4">

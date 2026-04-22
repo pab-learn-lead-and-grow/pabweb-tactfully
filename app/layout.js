@@ -90,6 +90,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <head>
+        <link rel="preconnect" href="https://bkcaoaoebbzrhbsfkjbm.supabase.co" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://bkcaoaoebbzrhbsfkjbm.supabase.co" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PJYRD1BLTD"
           strategy="afterInteractive"

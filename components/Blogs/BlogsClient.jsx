@@ -193,13 +193,13 @@ export default function BlogsClient({ trending, latest, categories }) {
               {trending.map((item) => (
                 <Link key={item.blogs_id} href={`/blogs/${item.slug}`}>
                   <div className="flex gap-4 items-start hover:bg-white p-3 rounded-lg transition">
-                    <div className="relative w-[100px] aspect-video rounded-lg overflow-hidden flex-shrink-0">
+                      <div className="relative w-[100px] aspect-video rounded-lg overflow-hidden flex-shrink-0">
                       <Image
                         src={item.image_url}
                         alt={item.title}
                         fill
                         className="object-cover"
-                        unoptimized
+                        sizes="100px"
                       />
                     </div>
                     <div>
@@ -240,9 +240,9 @@ export default function BlogsClient({ trending, latest, categories }) {
 
           <div className="bg-[#3C087E]/5 rounded-xl p-4 md:p-6 flex items-center gap-3">
             <button
-              aria-label="Pill prev"
+              aria-label="Scroll categories left"
               onClick={() => scrollPills("left")}
-              className="w-4 md:w-8 h-4 md:h-8 rounded-full bg-black flex items-center justify-center"
+              className="w-4 md:w-8 h-4 md:h-8 rounded-full bg-black flex items-center justify-center flex-shrink-0"
             >
               <ChevronLeft strokeWidth={2} className="text-white w-4 h-4 md:w-5 md:h-5" />
             </button>
@@ -271,9 +271,9 @@ export default function BlogsClient({ trending, latest, categories }) {
             </div>
 
             <button
-              aria-label="Pill next"
+              aria-label="Scroll categories right"
               onClick={() => scrollPills("right")}
-              className="w-4 md:w-8 h-4 md:h-8 rounded-full bg-black flex items-center justify-center"
+              className="w-4 md:w-8 h-4 md:h-8 rounded-full bg-black flex items-center justify-center flex-shrink-0"
             >
               <ChevronRight strokeWidth={2} className="text-white w-4 h-4 md:w-5 md:h-5" />
             </button>
@@ -289,8 +289,7 @@ export default function BlogsClient({ trending, latest, categories }) {
                       alt={item.title}
                       fill
                       className="object-cover hover:scale-105 transition duration-300"
-                      unoptimized
-                      sizes="(max-width:768px) 100vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
                   <div className="p-4">
