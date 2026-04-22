@@ -118,7 +118,7 @@ async function getDynamicRoutes() {
   }));
 
   const blogArticles = (blogsRes.data || []).map((item) => ({
-    url: `${baseUrl}/blog/${item.slug}/`,
+    url: `${baseUrl}/blogs/${item.slug}/`,
     lastModified: item.published_at ? new Date(item.published_at) : new Date(),
     changeFrequency: "monthly",
     priority: 0.7,
