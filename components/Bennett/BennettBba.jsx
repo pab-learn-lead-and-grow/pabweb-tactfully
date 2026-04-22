@@ -737,18 +737,18 @@ export default function Page() {
           </div>
 
           {/* RIGHT IMAGE WITH CURVED SHAPE */}
-                  <div className="relative w-full h-full flex md:justify-end">
-           <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-full">
-             <Image
-               src="/bennett/aboutBennett.png"
+          <div className="relative w-full h-full flex md:justify-end">
+            <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-[400px]">
+              <Image
+                src="/bennett/aboutBennett.png"
                 alt="Students learning Bennett University Online BBA program"
-               fill
-               className="rounded-2xl md:rounded-bl-full object-cover"
-               sizes="(max-width: 768px) 100vw, 50vw"
-               priority
-             />
-           </div>
-         </div>
+                fill
+                className="rounded-2xl md:rounded-bl-full object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
       {/* ======= SNAPSHOT SECTION ======= */}

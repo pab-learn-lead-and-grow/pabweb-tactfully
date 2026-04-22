@@ -1,10 +1,18 @@
+import { cache } from 'react';
 import { supabase } from "@/lib/supabaseClient";
 import PageContent from "@/components/Pages/PageContent";
 import Link from "next/link";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+const BUCKET_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/Pages`;
 
 export const revalidate = 3600;
+
+const getImageUrl = (path) => {
+  if (!path) return null;
+  if (path.startsWith("http")) return path;
+  return `${BUCKET_URL}/${path}`;
+};
 
 function buildPageSchema(page, imageUrl, siteUrl) {
   if (!page) return null;
@@ -27,17 +35,39 @@ function buildPageSchema(page, imageUrl, siteUrl) {
   };
 }
 
-export async function generateMetadata({ params }) {
-  const { slug } = await params;
-
+const getPageData = cache(async (slug) => {
   const { data: page } = await supabase
     .from("pages")
-    .select("title, meta_title, meta_description, image_url, published_at")
+    .select("page_id, title, slug, content, image_url, meta_title, meta_description, meta_keywords, published_at, created_at, updated_at")
     .eq("slug", slug)
     .eq("is_published", true)
     .single();
 
-  if (!page) {
+  if (!page) return null;
+
+  const imageUrl = getImageUrl(page.image_url);
+  const pageSchema = buildPageSchema(page, imageUrl, siteUrl);
+  const formattedDate = page.published_at
+    ? new Date(page.published_at).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : null;
+
+  return {
+    page,
+    imageUrl,
+    pageSchema,
+    formattedDate,
+  };
+});
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const data = await getPageData(slug);
+
+  if (!data) {
     return {
       title: "Page Not Found | Radhya Education Academy",
       alternates: {
@@ -46,16 +76,7 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const BUCKET_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/Pages`;
-
-  const getImageUrl = (path) => {
-    if (!path) return null;
-    if (path.startsWith("http")) return path;
-    return `${BUCKET_URL}/${path}`;
-  };
-
-  const imageUrl = getImageUrl(page.image_url);
-  const pageSchema = buildPageSchema(page, imageUrl, siteUrl);
+  const { page, imageUrl, pageSchema } = data;
 
   return {
     title: page.meta_title || page.title,
@@ -81,15 +102,9 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const { slug } = await params;
+  const data = await getPageData(slug);
 
-  const { data: page } = await supabase
-    .from("pages")
-    .select("page_id, title, slug, content, image_url, meta_title, meta_description, meta_keywords, published_at, created_at, updated_at")
-    .eq("slug", slug)
-    .eq("is_published", true)
-    .single();
-
-  if (!page) {
+  if (!data) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -106,31 +121,12 @@ export default async function Page({ params }) {
     );
   }
 
-  const BUCKET_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/Pages`;
-
-  const getImageUrl = (path) => {
-    if (!path) return null;
-    if (path.startsWith("http")) return path;
-    return `${BUCKET_URL}/${path}`;
-  };
-
-  const imageUrl = getImageUrl(page.image_url);
-  const pageSchema = buildPageSchema(page, imageUrl, siteUrl);
-
-  const formattedDate = page.published_at
-    ? new Date(page.published_at).toLocaleDateString("en-GB", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      })
-    : null;
-
   return (
     <PageContent
-      page={page}
-      imageUrl={imageUrl}
-      pageSchema={pageSchema}
-      formattedDate={formattedDate}
+      page={data.page}
+      imageUrl={data.imageUrl}
+      pageSchema={data.pageSchema}
+      formattedDate={data.formattedDate}
     />
   );
 }

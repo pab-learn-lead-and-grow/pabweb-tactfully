@@ -670,10 +670,20 @@ const topicsData = {
                         </p>
                         </div>
             
-                     src="/bennett/aboutBennett.png"
-                     alt="Students learning Bennett University Online MBA program"
+                    <div className="relative w-full h-full flex md:justify-end">
+                      <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-[400px]">
+                        <Image
+                          src="/bennett/aboutBennett.png"
+                          alt="Students learning Bennett University Online MBA program"
+                          fill
+                          className="rounded-2xl md:rounded-bl-full object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          priority
+                        />
+                      </div>
                     </div>
-                  </section>
+                  </div>
+                </section>
                  {/* ======= SNAPSHOT SECTION ======= */}
                       <SnapshotSection
                       stats={[

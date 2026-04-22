@@ -146,7 +146,7 @@ try {
             5 min ago
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold text-black">
-            Inside Sales Executive
+            Inside Sales Executive (Experienced)
           </h1>
           <p className="text-black mt-2 text-sm mb-6">
             Lead generation, cold calling, counseling prospects, end-to-end sales.

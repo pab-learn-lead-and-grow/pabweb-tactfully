@@ -1,11 +1,34 @@
+import { cache } from 'react';
 import { supabase } from "@/lib/supabaseClient";
 import CategoryNewsClient from "@/components/News/CategoryNewsClient";
 import NewsContent from "@/components/News/NewsContent";
 import { getCategoryNews } from "@/app/actions/getCategoryNews";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+const BUCKET_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/News`;
 
 export const revalidate = 3600;
+
+const getCoverImageUrl = (path) => {
+  if (!path) return null;
+  const cleanPath = path.trim();
+  if (cleanPath.startsWith("http")) return cleanPath;
+  return `${BUCKET_URL}/${cleanPath}`;
+};
+
+const timeAgo = (dateString) => {
+  if (!dateString) return "";
+  const now = new Date();
+  const past = new Date(dateString);
+  const diff = Math.floor((now - past) / 1000);
+  const minutes = Math.floor(diff / 60);
+  const hours = Math.floor(diff / 3600);
+  const days = Math.floor(diff / 86400);
+  if (minutes < 60) return `${minutes} min ago`;
+  if (hours < 24) return `${hours} hr ago`;
+  if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
+  return past.toLocaleDateString("en-GB");
+};
 
 function buildArticleSchema(article, imageUrl, siteUrl) {
   if (!article) return null;
@@ -37,120 +60,34 @@ function buildArticleSchema(article, imageUrl, siteUrl) {
   };
 }
 
-export async function generateMetadata({ params }) {
-  const { slug } = await params;
-  
+const getNewsRouteData = cache(async (slug) => {
   const { data: category } = await supabase
     .from("news_categories")
-    .select("category_name, slug, metaTitle, metaDescription, categoryTitle")
-    .eq("slug", slug)
-    .single();
-
-  if (category) {
-    return {
-      title: category.metaTitle || `${category.category_name} News | Radhya Education Academy`,
-      description: category.metaDescription || `Latest ${category.category_name} news and updates from Radhya Education Academy`,
-      alternates: {
-        canonical: `${siteUrl}/news/${slug}/`,
-      },
-    };
-  }
-
-  const { data: article } = await supabase
-    .from("news")
-    .select("title, excerpt, image_url, published_at")
-    .eq("slug", slug)
-    .single();
-
-  if (article) {
-    const BUCKET_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/News`;
-    const imageUrl = article.image_url?.startsWith("http") 
-      ? article.image_url 
-      : `${BUCKET_URL}/${article.image_url}`;
-
-    const articleSchema = buildArticleSchema(article, imageUrl, siteUrl);
-
-    return {
-      title: `${article.title}`,
-      description: article.excerpt || "Read the latest news and articles from Radhya Education Academy",
-      alternates: {
-        canonical: `${siteUrl}/news/${slug}/`,
-      },
-      openGraph: {
-        title: article.title,
-        description: article.excerpt,
-        url: `${siteUrl}/news/${slug}/`,
-        siteName: "Radhya Education Academy",
-        type: "article",
-        images: imageUrl ? [{ url: imageUrl }] : [],
-      },
-      other: {
-        "schema-article": JSON.stringify(articleSchema),
-      },
-    };
-  }
-
-  return {
-    title: "Not Found | Radhya Education Academy",
-    alternates: {
-      canonical: `${siteUrl}/news/${slug}/`,
-    },
-  };
-}
-
-const timeAgo = (dateString) => {
-  if (!dateString) return "";
-  const now = new Date();
-  const past = new Date(dateString);
-  const diff = Math.floor((now - past) / 1000);
-  const minutes = Math.floor(diff / 60);
-  const hours = Math.floor(diff / 3600);
-  const days = Math.floor(diff / 86400);
-  if (minutes < 60) return `${minutes} min ago`;
-  if (hours < 24) return `${hours} hr ago`;
-  if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
-  return past.toLocaleDateString("en-GB");
-};
-
-export default async function NewsPage({ params }) {
-  const { slug } = await params;
-  
-  const { data: category } = await supabase
-    .from("news_categories")
-    .select("category_id, category_name, slug, content, categoryTitle")
+    .select("category_id, category_name, slug, metaTitle, metaDescription, categoryTitle, content")
     .eq("slug", slug)
     .single();
 
   if (category) {
     const { categories, news, categoryName } = await getCategoryNews(slug);
-
-    return (
-      <CategoryNewsClient
-        categories={categories}
-        news={news}
-        categoryName={categoryName || category.category_name}
-        categoryTitle={category.categoryTitle}
-        slug={slug}
-        categoryContent={category.content || null}
-      />
-    );
+    return {
+      type: 'category',
+      category,
+      categories,
+      news,
+      categoryName: categoryName || category.category_name,
+      categoryTitle: category.categoryTitle,
+      categoryContent: category.content || null,
+    };
   }
 
   const { data: article } = await supabase
     .from("news")
-    .select("news_id, slug, title, content, image_url, published_at, primary_category_id")
+    .select("news_id, slug, title, content, image_url, published_at, primary_category_id, excerpt")
     .eq("slug", slug)
     .single();
 
   if (!article) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-[#270652] mb-4">Not Found</h1>
-          <p className="text-gray-600">The page you're looking for doesn't exist.</p>
-        </div>
-      </div>
-    );
+    return { type: 'not_found' };
   }
 
   const { data: categoryMap } = await supabase
@@ -226,27 +163,103 @@ export default async function NewsPage({ params }) {
     }
   }
 
-  const BUCKET_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/News`;
-
-  const getCoverImageUrl = (path) => {
-    if (!path) return null;
-    const cleanPath = path.trim();
-    if (cleanPath.startsWith("http")) return cleanPath;
-    return `${BUCKET_URL}/${cleanPath}`;
-  };
-
   const imageUrl = getCoverImageUrl(article.image_url);
   const articleFormattedDate = timeAgo(article.published_at);
   const articleSchema = buildArticleSchema(article, imageUrl, siteUrl);
 
+  return {
+    type: 'article',
+    article,
+    categoryData,
+    relatedNews,
+    imageUrl,
+    articleFormattedDate,
+    articleSchema,
+  };
+});
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const data = await getNewsRouteData(slug);
+
+  if (data.type === 'category') {
+    return {
+      title: data.category.metaTitle || `${data.category.category_name} News | Radhya Education Academy`,
+      description: data.category.metaDescription || `Latest ${data.category.category_name} news and updates from Radhya Education Academy`,
+      alternates: {
+        canonical: `${siteUrl}/news/${slug}/`,
+      },
+    };
+  }
+
+  if (data.type === 'article') {
+    const { article, imageUrl } = data;
+    const articleSchema = buildArticleSchema(article, imageUrl, siteUrl);
+
+    return {
+      title: article.title,
+      description: article.excerpt || "Read the latest news and articles from Radhya Education Academy",
+      alternates: {
+        canonical: `${siteUrl}/news/${slug}/`,
+      },
+      openGraph: {
+        title: article.title,
+        description: article.excerpt,
+        url: `${siteUrl}/news/${slug}/`,
+        siteName: "Radhya Education Academy",
+        type: "article",
+        images: imageUrl ? [{ url: imageUrl }] : [],
+      },
+      other: {
+        "schema-article": JSON.stringify(articleSchema),
+      },
+    };
+  }
+
+  return {
+    title: "Not Found | Radhya Education Academy",
+    alternates: {
+      canonical: `${siteUrl}/news/${slug}/`,
+    },
+  };
+}
+
+export default async function NewsPage({ params }) {
+  const { slug } = await params;
+  const data = await getNewsRouteData(slug);
+
+  if (data.type === 'category') {
+    return (
+      <CategoryNewsClient
+        categories={data.categories}
+        news={data.news}
+        categoryName={data.categoryName}
+        categoryTitle={data.categoryTitle}
+        slug={slug}
+        categoryContent={data.categoryContent}
+      />
+    );
+  }
+
+  if (data.type === 'not_found' || !data.article) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-[#270652] mb-4">Not Found</h1>
+          <p className="text-gray-600">The page you&apos;re looking for doesn&apos;t exist.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <NewsContent 
-      article={article}
-      articleFormattedDate={articleFormattedDate}
-      categoryData={categoryData}
-      related={relatedNews}
-      imageUrl={imageUrl}
-      articleSchema={articleSchema}
+      article={data.article}
+      articleFormattedDate={data.articleFormattedDate}
+      categoryData={data.categoryData}
+      related={data.relatedNews}
+      imageUrl={data.imageUrl}
+      articleSchema={data.articleSchema}
     />
   );
 }

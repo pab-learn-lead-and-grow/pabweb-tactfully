@@ -1,5 +1,6 @@
 'use server';
 
+import { cache } from 'react';
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -14,9 +15,7 @@ const supabaseServer = supabaseUrl && supabaseServiceKey
     })
   : null;
 
-let singleBlogCache = {};
-let singleBlogCacheTimestamp = {};
-const SINGLE_BLOG_CACHE_DURATION = 5 * 60 * 1000;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
 function getImageUrl(path) {
   if (!path) return "/help.png";
@@ -28,37 +27,56 @@ function getImageUrl(path) {
   return data?.publicUrl || "/help.png";
 }
 
-export async function getBlogBySlug(slug) {
+const timeAgo = (dateString) => {
+  if (!dateString) return "";
+  const now = new Date();
+  const past = new Date(dateString);
+  const diff = Math.floor((now - past) / 1000);
+  const minutes = Math.floor(diff / 60);
+  const hours = Math.floor(diff / 3600);
+  const days = Math.floor(diff / 86400);
+  if (minutes < 60) return `${minutes} min ago`;
+  if (hours < 24) return `${hours} hr ago`;
+  if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
+  return past.toLocaleDateString("en-GB");
+};
+
+function buildBlogSchema(article, imageUrl) {
+  const publishedDate = article.published_at 
+    ? new Date(article.published_at).toISOString().split('T')[0]
+    : null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.title,
+    ...(publishedDate && { "datePublished": publishedDate }),
+    ...(imageUrl && { "image": imageUrl }),
+    "description": article.excerpt,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Radhya Education Academy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/radhyaLogo.png`
+      }
+    }
+  };
+}
+
+const getBlogBySlug = cache(async (slug) => {
   const cleanSlug = slug.trim();
   
-  const now = Date.now();
-  
-  if (singleBlogCache[cleanSlug] && (now - singleBlogCacheTimestamp[cleanSlug]) < SINGLE_BLOG_CACHE_DURATION) {
-    return singleBlogCache[cleanSlug];
-  }
-  
   if (!supabaseServer) {
-    return singleBlogCache[cleanSlug] || null;
+    return null;
   }
   
   try {
-    let { data: article } = await supabaseServer
+    const { data: article } = await supabaseServer
       .from("blogs")
       .select("blogs_id, slug, title, content, excerpt, image_url, published_at, primary_category_id, \"metaTitle\", \"metaDescription\"")
       .eq("slug", cleanSlug)
       .single();
-
-    if (!article) {
-      const { data: articles } = await supabaseServer
-        .from("blogs")
-        .select("blogs_id, slug, title, content, excerpt, image_url, published_at, primary_category_id, \"metaTitle\", \"metaDescription\"")
-        .ilike("slug", `${cleanSlug}%`)
-        .limit(1);
-      
-      if (articles && articles.length > 0) {
-        article = articles[0];
-      }
-    }
 
     if (!article) {
       return null;
@@ -127,20 +145,6 @@ export async function getBlogBySlug(slug) {
           .eq("category_id", primaryCategoryId)
           .single();
         
-        const timeAgo = (dateString) => {
-          if (!dateString) return "";
-          const now = new Date();
-          const past = new Date(dateString);
-          const diff = Math.floor((now - past) / 1000);
-          const minutes = Math.floor(diff / 60);
-          const hours = Math.floor(diff / 3600);
-          const days = Math.floor(diff / 86400);
-          if (minutes < 60) return `${minutes} min ago`;
-          if (hours < 24) return `${hours} hr ago`;
-          if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
-          return past.toLocaleDateString("en-GB");
-        };
-
         const relatedWithCat = (relatedData || []).map(item => ({
           ...item,
           slug: item.slug?.trim() || "",
@@ -154,45 +158,10 @@ export async function getBlogBySlug(slug) {
       }
     }
 
-    const BUCKET_URL = `${supabaseUrl}/storage/v1/object/public/Blogs`;
     const imageUrl = getImageUrl(article.image_url);
+    const articleSchema = buildBlogSchema(article, imageUrl);
 
-    const publishedDate = article.published_at 
-      ? new Date(article.published_at).toISOString().split('T')[0]
-      : null;
-
-    const articleSchema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": article.title,
-      ...(publishedDate && { "datePublished": publishedDate }),
-      ...(imageUrl && { "image": imageUrl }),
-      "description": article.excerpt,
-      "publisher": {
-        "@type": "Organization",
-        "name": "Radhya Education Academy",
-        "logo": {
-          "@type": "ImageObject",
-          "url": `${process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com"}/radhyaLogo.png`
-        }
-      }
-    };
-
-    const timeAgo = (dateString) => {
-      if (!dateString) return "";
-      const now = new Date();
-      const past = new Date(dateString);
-      const diff = Math.floor((now - past) / 1000);
-      const minutes = Math.floor(diff / 60);
-      const hours = Math.floor(diff / 3600);
-      const days = Math.floor(diff / 86400);
-      if (minutes < 60) return `${minutes} min ago`;
-      if (hours < 24) return `${hours} hr ago`;
-      if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
-      return past.toLocaleDateString("en-GB");
-    };
-
-    const result = {
+    return {
       article,
       categoryData,
       related: relatedBlogs,
@@ -200,84 +169,10 @@ export async function getBlogBySlug(slug) {
       articleSchema,
       articleFormattedDate: timeAgo(article.published_at)
     };
-
-    singleBlogCache[cleanSlug] = result;
-    singleBlogCacheTimestamp[cleanSlug] = now;
-    return result;
   } catch (err) {
     console.error("getBlogBySlug error:", err);
-    return singleBlogCache[cleanSlug] || null;
+    return null;
   }
-}
+});
 
-export async function getBlogMetadata(slug) {
-  const cleanSlug = slug.trim();
-  
-  if (!supabaseServer) {
-    return { title: "Not Found", description: "" };
-  }
-  
-  try {
-    let { data: article } = await supabaseServer
-      .from("blogs")
-      .select("title, excerpt, image_url, published_at, \"metaTitle\", \"metaDescription\"")
-      .eq("slug", cleanSlug)
-      .single();
-
-    if (!article) {
-      const { data: articles } = await supabaseServer
-        .from("blogs")
-        .select("title, excerpt, image_url, published_at, \"metaTitle\", \"metaDescription\"")
-        .ilike("slug", `${cleanSlug}%`)
-        .limit(1);
-      
-      if (articles && articles.length > 0) {
-        article = articles[0];
-      }
-    }
-
-    if (!article) {
-      return { title: "Not Found", description: "" };
-    }
-
-    article.title = article.title?.trim() || "";
-    article.excerpt = article.excerpt?.trim() || "";
-    article.image_url = article.image_url?.trim() || "";
-
-    const BUCKET_URL = `${supabaseUrl}/storage/v1/object/public/Blogs`;
-    const imageUrl = article.image_url?.startsWith("http") 
-      ? article.image_url 
-      : `${BUCKET_URL}/${article.image_url}`;
-
-    const publishedDate = article.published_at 
-      ? new Date(article.published_at).toISOString().split('T')[0]
-      : null;
-
-    const articleSchema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": article.title,
-      ...(publishedDate && { "datePublished": publishedDate }),
-      ...(imageUrl && { "image": imageUrl }),
-      "description": article.excerpt,
-      "publisher": {
-        "@type": "Organization",
-        "name": "Radhya Education Academy",
-        "logo": {
-          "@type": "ImageObject",
-          "url": `${process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com"}/radhyaLogo.png`
-        }
-      }
-    };
-
-    return {
-      title: article.metaTitle?.trim() || article.title,
-      description: article.metaDescription?.trim() || article.excerpt || "Read the latest blogs and articles from Radhya Education Academy",
-      imageUrl,
-      articleSchema
-    };
-  } catch (err) {
-    console.error("getBlogMetadata error:", err);
-    return { title: "Not Found", description: "" };
-  }
-}
+export { getBlogBySlug };

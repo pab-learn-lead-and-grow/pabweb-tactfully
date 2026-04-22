@@ -4,7 +4,7 @@ import HomePage from "@/components/Radhya/HomePage";
 import { getLatestNews } from "./actions/getNews";
 import { getLatestBlogsHome } from "./actions/getBlogHome";
 
-export const dynamic = 'force-static';
+export const revalidate = 60;
 
 export const metadata = {
   title: "Best Online & Distance Education Consultant in India",

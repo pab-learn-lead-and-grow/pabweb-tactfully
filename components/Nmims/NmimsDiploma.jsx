@@ -934,7 +934,7 @@ export default function Page() {
      
            <p className="text-[#3C3C43] max-w-[350px] text-base">
              Highlight your professional success with official certificate from
-             NMIMS NCDOE
+             NMIMS CDOE
            </p>
      
            {/* IMAGE that appears ONLY on mobile, above CTA */}

@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 export const metadata = {
   title: "Terms & Conditions || Radhya Education",
-  description: "Terms and Conditions for Radhya Education",
+  description: "Review the Terms and Conditions of Radhya Education Academy to understand user responsibilities, website usage, and policies for accessing our services and information.",
    alternates: {
     canonical: "https://radhyaeducationacademy.com/terms-and-conditions/",
   },

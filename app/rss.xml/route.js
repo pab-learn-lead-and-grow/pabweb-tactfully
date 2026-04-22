@@ -2,7 +2,9 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/rss`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/rss`, {
+      next: { revalidate: 3600 }
+    });
     const { data: items } = await res.json();
 
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";

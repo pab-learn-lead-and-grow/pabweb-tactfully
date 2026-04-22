@@ -16,7 +16,7 @@ const supabaseServer = supabaseUrl && supabaseServiceKey
 
 let homeBlogsCache = null;
 let homeBlogsCacheTimestamp = 0;
-const HOME_BLOGS_CACHE_DURATION = 5 * 60 * 1000;
+const HOME_BLOGS_CACHE_DURATION = 1 * 60 * 1000;
 
 function getImageUrl(path) {
   if (!path) return "/help.png";

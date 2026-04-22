@@ -58,7 +58,13 @@ export default function Footer() {
   return (
 <footer className="w-full bg-white p-5 flex min-h-[90vh] xl:min-h-[50vh] items-center">
       <div className="mx-auto w-full max-w-7xl">
-        {/* --- Main Section --- */}
+         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6  border-t-2 pb-2 border-b-2">
+          {/* --- Top Section --- */}
+          <div className="col-span-3">
+            --- needs to be edited here ---
+          </div>
+         </div>
+        {/* --- Bottom Main Section --- */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6  border-t-2 pb-2 border-b-2">
           {/* --- Left Section (Logo, Social, Address) --- */}
           <div className="col-span-2">
@@ -69,7 +75,7 @@ export default function Footer() {
                 alt="Radhya Logo"
                 width={250}
                 height={60}
-className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
+                className="block w-40 lg:w-[180px] xl:w-[220px] h-auto"
               />
               </a>
             </div>

@@ -16,7 +16,7 @@ const supabaseServer = supabaseUrl && supabaseServiceKey
 
 let newsCache = null;
 let newsCacheTimestamp = 0;
-const NEWS_CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+const NEWS_CACHE_DURATION = 1 * 60 * 1000; // 1 minute
 
 function getImageUrl(path) {
   if (!path) return "/help.png";
