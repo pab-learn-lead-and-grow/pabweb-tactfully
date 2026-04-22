@@ -33,7 +33,6 @@ ${(items || []).map((item) => `    <item>
       <pubDate>${item.published_at ? new Date(item.published_at).toUTCString() : new Date().toUTCString()}</pubDate>
       <dc:creator><![CDATA[Radhya Education Academy]]></dc:creator>
       ${item.categoryName ? `<category><![CDATA[${item.categoryName}]]></category>` : ""}
-      ${item.image_url ? `<media:content url="${item.image_url}" medium="image"/>` : ""}
     </item>`).join("\n")}
 
   </channel>
