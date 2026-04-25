@@ -182,7 +182,7 @@ export default function Page() {
   const stats = [
     { value: "6", label: "Months Duration" },
     { value: "1", label: "Semester" },
-    { value: "2", label: "Years Validity" },
+    { value: "1", label: "Year Validity" },
   ];
   return (
     <main className="flex flex-col items-center w-full bg-white">
