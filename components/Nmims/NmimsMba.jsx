@@ -550,7 +550,7 @@ export default function Page() {
                  viewport={{ once: true }}
                  className="text-white text-[12px] md:text-[16px] italic font-light"
                >
-                 Master of Business Administration
+                 Online Master of Business Administration
                </MotionWrapper>
      
                {/* TITLE + DESCRIPTION */}
@@ -561,9 +561,11 @@ export default function Page() {
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ duration: 0.7 }}
                    viewport={{ once: true }}
-                   className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
+                   className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[56px] font-[Inter] font-bold mt-1 leading-tight"
                  >
-                   NMIMS Online MBA
+                   
+NMIMS Online MBA :
+Fees, Eligibility & Admission Dates 2026
                  </MotionWrapper>
      
                  <MotionWrapper
@@ -640,18 +642,12 @@ export default function Page() {
                   About NMIMS
                 </h2>
     
-                <p className="text-black leading-relaxed text-sm md:text-[18px] mb-10">
-                  SVKM's Narsee Monjee Institute of Management was established in
-                  1981 and was granted Deemed-to-be-University status by the
-                  University Grants Commission in 2003. With over four decades of
-                  excellence in education, NMIMS has evolved into a
-                  multidisciplinary centre of learning known for its strong academic
-                  foundation and innovative approach. The university provides a rich
-                  and balanced environment that fosters both intellectual and
-                  personal growth, while also promoting exposure to research and
-                  academics. Moreover, it offers students valuable opportunities for
-                  hands-on learning, enabling them to understand and experience the
-                  practical aspects of various industry functions.
+                <p className="text-black leading-relaxed text-sm sm:text-base mb-10">
+                 SVKM’s Narsee Monjee Institute of Management Studies (NMIMS), established in 1981 and granted Deemed-to-be-University status by the University Grants Commission (UGC) in 2003, has evolved into a leading multidisciplinary institution with over four decades of academic excellence. Today, Narsee Monjee Institute of Management Studies (NMIMS CDOE) is recognised as a reputed private university in Mumbai, offering industry-relevant online programs through its Centre for Distance and Online Education (CDOE).<br />
+
+The university offers a 2-year NMIMS Online MBA program designed for working professionals and graduates, combining strong academic foundations with practical exposure. Students can choose from popular specializations such as Marketing Management, Business Management, Financial Management, Human Resource Management, and Operations & Data Science Management. The program follows a flexible online learning model supported by case-based learning, live sessions, and industry-oriented curriculum.<br />
+
+As per the official NMIMS Online platform, the total NMIMS Online MBA fees are approximately ₹1,96,000 (one-time payment), with flexible options of ₹1,05,000 per year or ₹55,000 per semester. Additionally, students are required to pay an admission processing fee of ₹1,200 and an initial registration amount of ₹10,000, along with nominal exam and project fees per attempt.
                 </p>
               </div>
     
@@ -767,7 +763,7 @@ export default function Page() {
             viewport={{ once: true }}
             className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#270652]"
           >
-            Eligibility for NMIMS Online MBA
+            NMIMS Online MBA Eligibility 2026
           </MotionWrapper>
 
           {/* Card container */}

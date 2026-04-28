@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactCompiler: true,
 
   // ✅ Enforce trailing slash (important for SEO consistency)
   trailingSlash: true,

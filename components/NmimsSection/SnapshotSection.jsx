@@ -3,7 +3,7 @@ import AnimatedCounter from "@/components/NmimsSection/AnimatedCounter";
 
 export default function SnapshotSection({ stats }) {
   return (
-    <section className="w-full xl:mt-16 px-4 md:px-10 lg:px-20 font-[Inter]">
+    <section className="w-full xl:mt-16 px-4 md:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto">
         
         {/* STATIC HEADING */}

@@ -44,7 +44,6 @@ export default function Hero({ className }) {
                 width={800}
                 height={400}
                 priority
-                fetchPriority="high"
                 quality={75}
                 sizes="(max-width: 640px) 90vw, (max-width: 768px) 500px, (max-width: 1024px) 600px, (max-width: 1280px) 700px, 800px"
                 className="w-full max-w-125 md:max-w-150 lg:max-w-175 xl:max-w-200 drop-shadow-2xl"

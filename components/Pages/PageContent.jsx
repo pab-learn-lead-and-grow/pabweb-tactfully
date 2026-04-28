@@ -84,8 +84,7 @@ export default function PageContent({ page, imageUrl, pageSchema, formattedDate 
                className="object-cover transition-transform duration-300 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 80vw"
                 priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            />           
           </div>
         )}
 
