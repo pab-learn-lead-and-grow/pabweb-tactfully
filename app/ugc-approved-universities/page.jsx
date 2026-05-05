@@ -1,4 +1,5 @@
 import UgcUniversitiesSection from "@/components/UgcApprovedUniversities";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -14,7 +15,7 @@ export const metadata = {
     " Explore UGC approved universities in India for online and distance education. Check verified list, courses, eligibility, and choose the right university.",
 
   alternates: {
-    canonical: "/ugc-approved-universities/",
+    canonical: `${siteUrl}/ugc-approved-universities/`,
   },
 
   keywords: [
@@ -51,5 +52,15 @@ export const metadata = {
 };
 
 export default function UgcApprovedUniversitiesPage() {
-  return <UgcUniversitiesSection />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "UGC Approved Universities", item: `${siteUrl}/ugc-approved-universities/` },
+        ]}
+      />
+      <UgcUniversitiesSection />
+    </>
+  );
 }

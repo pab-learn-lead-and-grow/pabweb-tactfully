@@ -1,4 +1,5 @@
 import CounsellorVerification from "@/components/Counsellor";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -15,7 +16,7 @@ export const metadata = {
     " Verify your education counsellor online. Check if your admission advisor is authorized, genuine, and trusted before taking admission in any university.",
 
   alternates: {
-    canonical: "/counsellor-verification/",
+    canonical: `${siteUrl}/counsellor-verification/`,
   },
 
   keywords: [
@@ -52,5 +53,15 @@ export const metadata = {
 };
 
 export default function CounsellorVerificationPage() {
-  return <CounsellorVerification />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Counsellor Verification", item: `${siteUrl}/counsellor-verification/` },
+        ]}
+      />
+      <CounsellorVerification />
+    </>
+  );
 }

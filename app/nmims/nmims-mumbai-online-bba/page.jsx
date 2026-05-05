@@ -1,4 +1,5 @@
 import NmimsBba from "@/components/Nmims/NmimsBba";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -8,13 +9,13 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "NMIMS Mumbai Online BBA Program | Admission and Fees",
+  title: "NMIMS Online BBA 2026: Fees, Admission & Specializations",
 
   description:
     "NMIMS Online BBA from SVKM's Narsee Monjee Institute of Management Studies offers a UGC-approved business administration degree with flexible online learning, industry-relevant curriculum, and career support for students.",
 
   alternates: {
-    canonical: "/nmims/nmims-mumbai-online-bba/",
+    canonical: `${siteUrl}/nmims/nmims-mumbai-online-bba/`,
   },
 
   keywords: [
@@ -28,7 +29,7 @@ export const metadata = {
   ],
 
   openGraph: {
-    title: "NMIMS Online BBA | Radhya Education Academy",
+    title: "NMIMS Online BBA 2026: Fees, Admission & Specializations",
     description:
       "Explore NMIMS Online BBA with flexible learning, industry-focused curriculum, and UGC-approved recognition.",
     url: `${siteUrl}/nmims/nmims-mumbai-online-bba/`,
@@ -45,5 +46,16 @@ export const metadata = {
 };
 
 export default function NmimsOnlineBbaPage() {
-  return <NmimsBba />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "NMIMS University", item: `${siteUrl}/nmims/` },
+          { name: "NMIMS Online BBA", item: `${siteUrl}/nmims/nmims-mumbai-online-bba/` },
+        ]}
+      />
+      <NmimsBba />
+    </>
+  );
 }

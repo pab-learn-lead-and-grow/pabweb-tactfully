@@ -1,4 +1,5 @@
 import JobDetails from "@/components/Career/InsideSalesEx";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Apply for the Inside Sales Executive Experienced role at Radhya Education. Grow your career in education sales with competitive incentives, leadership opportunities, and a high-performance work environment.",
 
   alternates: {
-    canonical: "/jobs-at-radhya/inside-sales-experienced-job/",
+    canonical: `${siteUrl}/jobs-at-radhya/inside-sales-experienced-job/`,
   },
 
   keywords: [
@@ -43,5 +44,16 @@ export const metadata = {
 };
 
 export default function InsideSalesExPage() {
-  return <JobDetails />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Careers", item: `${siteUrl}/jobs-at-radhya/` },
+          { name: "Inside Sales Executive (Experienced)", item: `${siteUrl}/jobs-at-radhya/inside-sales-experienced-job/` },
+        ]}
+      />
+      <JobDetails />
+    </>
+  );
 }

@@ -2,6 +2,8 @@ import { cache } from 'react';
 import { supabase } from "@/lib/supabaseClient";
 import PageContent from "@/components/Pages/PageContent";
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
+import { extractFAQFromMarkdown, buildFAQSchema } from '@/lib/extractFAQFromMarkdown';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 const BUCKET_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/Pages`;
@@ -47,6 +49,8 @@ const getPageData = cache(async (slug) => {
 
   const imageUrl = getImageUrl(page.image_url);
   const pageSchema = buildPageSchema(page, imageUrl, siteUrl);
+  const faqs = extractFAQFromMarkdown(page.content);
+  const faqSchema = buildFAQSchema(faqs);
   const formattedDate = page.published_at
     ? new Date(page.published_at).toLocaleDateString("en-GB", {
         day: "numeric",
@@ -59,6 +63,7 @@ const getPageData = cache(async (slug) => {
     page,
     imageUrl,
     pageSchema,
+    faqSchema,
     formattedDate,
   };
 });
@@ -70,9 +75,7 @@ export async function generateMetadata({ params }) {
   if (!data) {
     return {
       title: "Page Not Found | Radhya Education Academy",
-      alternates: {
-        canonical: `${siteUrl}/${slug}/`,
-      },
+      robots: { index: false, follow: false },
     };
   }
 
@@ -122,11 +125,20 @@ export default async function Page({ params }) {
   }
 
   return (
-    <PageContent
-      page={data.page}
-      imageUrl={data.imageUrl}
-      pageSchema={data.pageSchema}
-      formattedDate={data.formattedDate}
-    />
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: data.page.title, item: `${siteUrl}/${slug}/` },
+        ]}
+      />
+      <PageContent
+        page={data.page}
+        imageUrl={data.imageUrl}
+        pageSchema={data.pageSchema}
+        faqSchema={data.faqSchema}
+        formattedDate={data.formattedDate}
+      />
+    </>
   );
 }

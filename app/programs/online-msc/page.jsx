@@ -1,4 +1,5 @@
 import OnlineMsc from "@/components/Programs/onlineMsc";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -32,7 +33,7 @@ export const metadata = {
     "Explore Online MSc programs with top universities, updated fees, eligibility, and career scope in science, technology, and research fields.",
 
   alternates: {
-    canonical: "/programs/online-msc/",
+    canonical: `${siteUrl}/programs/online-msc/`,
   },
 
   keywords: [
@@ -75,6 +76,13 @@ export const metadata = {
 export default function OnlineMscPage() {
    return (
       <>
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", item: siteUrl },
+            { name: "Programs", item: `${siteUrl}/programs/` },
+            { name: "Online MSc", item: `${siteUrl}/programs/online-msc/` },
+          ]}
+        />
         <script
           type="application/ld+json"
           suppressHydrationWarning

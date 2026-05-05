@@ -41,7 +41,7 @@ export default function CareerServices() {
   return (
     <section className="w-full bg-white mt-15 py-5 px-6 md:px-12 lg:px-20">
       {/* Heading */}
-      <h2 className="text-center text-[#270652] font-[Inter] text-[32px] md:text-5xl lg:text-[54px] xl:text-[64px] font-bold mb-5 lg:mb-12">
+      <h2 className="text-center text-[#270652] font-sans text-[32px] md:text-5xl lg:text-[54px] xl:text-[64px] font-bold mb-5 lg:mb-12">
         Career Services
       </h2>
 
@@ -66,7 +66,7 @@ export default function CareerServices() {
               className="text-center flex flex-col items-center"
             >
               <div className="mb-4">{item.icon}</div>
-              <h3 className="text-black font-extrabold font-[Inter] text-xl mb-2">
+              <h3 className="text-black font-extrabold font-sans text-xl mb-2">
                 {item.title}
               </h3>
               <p className="text-[#3C3C43] text-sm max-w-60 mx-auto leading-relaxed">
@@ -87,7 +87,7 @@ export default function CareerServices() {
                 className="text-center flex flex-col items-center max-w-[250px]"
               >
                 <div className="mb-4">{item.icon}</div>
-                <h3 className="text-black font-extrabold font-[Inter] text-xl mb-2">
+                <h3 className="text-black font-extrabold font-sans text-xl mb-2">
                   {item.title}
                 </h3>
                 <p className="text-[#3C3C43] text-sm leading-relaxed">

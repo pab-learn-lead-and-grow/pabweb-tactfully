@@ -1,4 +1,5 @@
 import OnlineBcomHons from "@/components/Programs/onlineBcomHons";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -32,7 +33,7 @@ export const metadata = {
     "Discover Online B.Com (Hons.) programs with top colleges, updated fees, eligibility, and career opportunities. Build a strong foundation in commerce.",
 
   alternates: {
-    canonical: "/programs/online-bcom-honours/",
+    canonical: `${siteUrl}/programs/online-bcom-honours/`,
   },
 
   keywords: [
@@ -75,6 +76,13 @@ export const metadata = {
 export default function OnlineBcomHonsPage() {
   return (
      <>
+       <BreadcrumbSchema
+         items={[
+           { name: "Home", item: siteUrl },
+           { name: "Programs", item: `${siteUrl}/programs/` },
+           { name: "Online BCom Honours", item: `${siteUrl}/programs/online-bcom-honours/` },
+         ]}
+       />
        <script
          type="application/ld+json"
           suppressHydrationWarning

@@ -1,4 +1,5 @@
 import OnlineBajmc from "@/components/Programs/onlineBajmc";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -33,7 +34,7 @@ export const metadata = {
     "Explore Online BAJMC programs with top colleges, updated fees, eligibility, and career opportunities in media, journalism, and communication.",
 
   alternates: {
-    canonical: "/programs/online-bajmc/",
+    canonical: `${siteUrl}/programs/online-bajmc/`,
   },
 
   keywords: [
@@ -76,6 +77,13 @@ export const metadata = {
 export default function OnlineBajmcPage() {
    return (
       <>
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", item: siteUrl },
+            { name: "Programs", item: `${siteUrl}/programs/` },
+            { name: "Online BAJMC", item: `${siteUrl}/programs/online-bajmc/` },
+          ]}
+        />
         <script
           type="application/ld+json"
           suppressHydrationWarning

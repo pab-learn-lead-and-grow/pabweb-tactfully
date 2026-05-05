@@ -1,4 +1,5 @@
 import CareerPage from "@/components/Career/CareerPage";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Explore exciting career opportunities at Radhya Education. Join our team and build your career in the fast-growing online education and career guidance industry.",
 
   alternates: {
-    canonical: "/jobs-at-radhya/",
+    canonical: `${siteUrl}/jobs-at-radhya/`,
   },
 
   keywords: [
@@ -43,5 +44,15 @@ export const metadata = {
 };
 
 export default function Career() {
-  return <CareerPage />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Careers", item: `${siteUrl}/jobs-at-radhya/` },
+        ]}
+      />
+      <CareerPage />
+    </>
+  );
 }

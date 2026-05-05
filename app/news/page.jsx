@@ -1,5 +1,6 @@
 import NewsClient from "@/components/News/NewsClient";
 import { getNewsData } from "@/app/actions/getNewsData";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -14,7 +15,7 @@ export const metadata = {
     "Stay updated with the latest news, trends, and insights in online education, distance learning, and career guidance from top universities in India.",
 
   alternates: {
-    canonical: "/news/",
+    canonical: `${siteUrl}/news/`,
   },
 
   openGraph: {
@@ -38,10 +39,18 @@ export default async function NewsPage() {
   const { trending, latest, categories } = await getNewsData();
 
   return (
-    <NewsClient
-      trending={trending}
-      latest={latest}
-      categories={categories}
-    />
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "News", item: `${siteUrl}/news/` },
+        ]}
+      />
+      <NewsClient
+        trending={trending}
+        latest={latest}
+        categories={categories}
+      />
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import JobDetails from "@/components/Career/InsideSalesFr";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Apply for the Inside Sales Executive Fresher role at Radhya Education. Kickstart your career in education sales with professional training, career growth opportunities, and performance incentives.",
 
   alternates: {
-    canonical: "/jobs-at-radhya/inside-sales-fresher-job/",
+    canonical: `${siteUrl}/jobs-at-radhya/inside-sales-fresher-job/`,
   },
 
   keywords: [
@@ -43,5 +44,16 @@ export const metadata = {
 };
 
 export default function InsideSalesFrPage() {
-  return <JobDetails />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Careers", item: `${siteUrl}/jobs-at-radhya/` },
+          { name: "Inside Sales Executive (Fresher)", item: `${siteUrl}/jobs-at-radhya/inside-sales-fresher-job/` },
+        ]}
+      />
+      <JobDetails />
+    </>
+  );
 }

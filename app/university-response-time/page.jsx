@@ -1,5 +1,6 @@
 import HelpSection from "@/components/UniversityResponse/HelpSection";
 import UniversityResponseTime from "@/components/UniversityResponse/UniversityResponseTime";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -15,7 +16,7 @@ export const metadata = {
     "Compare response time of online universities in India. Find which universities reply fastest for admission queries, counseling & support.",
 
   alternates: {
-    canonical: "/university-response-time/",
+    canonical: `${siteUrl}/university-response-time/`,
   },
 
   keywords: [
@@ -47,6 +48,12 @@ export const metadata = {
 export default function UniversityResponsePage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "University Response Time", item: `${siteUrl}/university-response-time/` },
+        ]}
+      />
       <UniversityResponseTime />
       <HelpSection />
     </>

@@ -1,4 +1,5 @@
 import OnlineBca from "@/components/Programs/onlineBca";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -33,7 +34,7 @@ export const metadata = {
     "Explore Online BCA programs in India with updated fees, eligibility, and admission details. Start your career in IT and software development.",
 
   alternates: {
-    canonical: "/programs/online-bca/",
+    canonical: `${siteUrl}/programs/online-bca/`,
   },
 
   keywords: [
@@ -76,6 +77,13 @@ export const metadata = {
 export default function OnlineBcaPage() {
   return (
      <>
+       <BreadcrumbSchema
+         items={[
+           { name: "Home", item: siteUrl },
+           { name: "Programs", item: `${siteUrl}/programs/` },
+           { name: "Online BCA", item: `${siteUrl}/programs/online-bca/` },
+         ]}
+       />
        <script
          type="application/ld+json"
          suppressHydrationWarning

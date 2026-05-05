@@ -30,12 +30,32 @@ export default function FAQSection() {
     }
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
   };
 
   return (
     <div className=" bg-white px-6 sm:px-8 lg:px-4">
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
       <div className="w-full md:p-5 lg:p-[60px] mx-auto">
         {/* Header */}
         <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold text-[#270652] mb-8 leading-tight">

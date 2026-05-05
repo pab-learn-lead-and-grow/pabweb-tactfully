@@ -1,4 +1,5 @@
 import JainMa from "@/components/Jain/JainMa";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "JAIN Online MA is a UGC-approved postgraduate arts degree offering flexible online learning, industry-relevant curriculum, and academic support for career advancement.",
 
   alternates: {
-    canonical: "/jain/jain-online-ma/",
+    canonical: `${siteUrl}/jain/jain-online-ma/`,
   },
 
   keywords: [
@@ -43,5 +44,16 @@ export const metadata = {
 };
 
 export default function Jain() {
-  return <JainMa />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "JAIN University", item: `${siteUrl}/jain/` },
+          { name: "JAIN Online MA", item: `${siteUrl}/jain/jain-online-ma/` },
+        ]}
+      />
+      <JainMa />
+    </>
+  );
 }

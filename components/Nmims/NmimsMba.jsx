@@ -561,7 +561,7 @@ export default function Page() {
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ duration: 0.7 }}
                    viewport={{ once: true }}
-                   className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[56px] font-[Inter] font-bold mt-1 leading-tight"
+                   className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[56px] font-sans font-bold mt-1 leading-tight"
                  >
                    
 NMIMS Online MBA :
@@ -584,7 +584,7 @@ Fees, Eligibility & Admission Dates 2026
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ duration: 0.7 }}
                    viewport={{ once: true }}
-                   className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4 lg:-mx-5 xl:-mx-15 gap-y-5 font-[Inter] w-full"
+                   className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4 lg:-mx-5 xl:-mx-15 gap-y-5 font-sans w-full"
                  >
                    {stats.map((stat, idx) => (
                      <div
@@ -643,12 +643,9 @@ Fees, Eligibility & Admission Dates 2026
                 </h2>
     
                 <p className="text-black leading-relaxed text-sm sm:text-base mb-10">
-                 SVKM’s Narsee Monjee Institute of Management Studies (NMIMS), established in 1981 and granted Deemed-to-be-University status by the University Grants Commission (UGC) in 2003, has evolved into a leading multidisciplinary institution with over four decades of academic excellence. Today, Narsee Monjee Institute of Management Studies (NMIMS CDOE) is recognised as a reputed private university in Mumbai, offering industry-relevant online programs through its Centre for Distance and Online Education (CDOE).<br />
+SVKM’s Narsee Monjee Institute of Management Studies (NMIMS), established in 1981 and granted Deemed-to-be-University status by the University Grants Commission (UGC) in 2003, has grown into a leading multidisciplinary institution with over four decades of academic excellence. Today, Narsee Monjee Institute of Management Studies (NMIMS CDOE) is recognised as a reputed private university in Mumbai, delivering industry-relevant online programs through its Centre for Distance and Online Education (CDOE).<br />
 
-The university offers a 2-year NMIMS Online MBA program designed for working professionals and graduates, combining strong academic foundations with practical exposure. Students can choose from popular specializations such as Marketing Management, Business Management, Financial Management, Human Resource Management, and Operations & Data Science Management. The program follows a flexible online learning model supported by case-based learning, live sessions, and industry-oriented curriculum.<br />
-
-As per the official NMIMS Online platform, the total NMIMS Online MBA fees are approximately ₹1,96,000 (one-time payment), with flexible options of ₹1,05,000 per year or ₹55,000 per semester. Additionally, students are required to pay an admission processing fee of ₹1,200 and an initial registration amount of ₹10,000, along with nominal exam and project fees per attempt.
-                </p>
+The university offers a 2-year NMIMS Online MBA program tailored for working professionals and graduates, combining strong academic foundations with practical industry exposure. Students can choose from in-demand specializations such as Marketing Management, Businesss Analytics, Business Management, Financial Management, IT Management, Human Resource Management, and Operations & Data Science Management, all delivered through a flexible online learning model with live sessions and case-based learning.</p>
               </div>
     
               {/* RIGHT IMAGE WITH CURVED SHAPE */}
@@ -752,7 +749,7 @@ As per the official NMIMS Online platform, the total NMIMS Online MBA fees are a
 />
 
 
-<section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
+<section className="w-full px-4 md:px-10 lg:px-20 py-16 font-sans">
         <div className="max-w-7xl mx-auto">
           {/* Title animation */}
           <MotionWrapper
@@ -813,7 +810,7 @@ As per the official NMIMS Online platform, the total NMIMS Online MBA fees are a
         ctaText="Ready to Learn ? Click Here"
       />
 
-      <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
+      <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-sans relative">
         {/* Faded Background Heading */}
         <p className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
           EXAMINATION PROCESS
@@ -916,7 +913,7 @@ As per the official NMIMS Online platform, the total NMIMS Online MBA fees are a
         </div>
       </section>
 
-      <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
+      <section className="w-full px-4 md:px-10 lg:px-20 font-sans">
         <div className="max-w-4xl mx-auto p-6 md:p-10">
           {/* Heading */}
           <h2 className="text-[24px] md:text-[40] font-bold italic text-[#270652] mb-12 text-center">
@@ -954,7 +951,7 @@ As per the official NMIMS Online platform, the total NMIMS Online MBA fees are a
       </section>
             <CareerServices  />
     
-     <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
+     <section className="w-full font-sans mt-20 flex items-center justify-center">
     <div className="px-2 w-full">
     <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
 
@@ -1018,7 +1015,7 @@ As per the official NMIMS Online platform, the total NMIMS Online MBA fees are a
 
 
 
-      <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-[Inter]">
+      <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-sans">
         <MotionWrapper
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1094,7 +1091,7 @@ As per the official NMIMS Online platform, the total NMIMS Online MBA fees are a
       />
 
       <section className="w-full px-6 md:px-18">
-  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center py-10 font-[Inter] gap-10">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center py-10 font-sans gap-10">
 
     {/* LEFT CONTENT */}
     <div className="space-y-5">
@@ -1155,7 +1152,7 @@ As per the official NMIMS Online platform, the total NMIMS Online MBA fees are a
 </section>
 
 
-  <section className="w-full bg-white font-[Inter] px-6 md:px-12 lg:px-20 mt-8">
+  <section className="w-full bg-white font-sans px-6 md:px-12 lg:px-20 mt-8">
   <MotionWrapper
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -1291,7 +1288,7 @@ As per the official NMIMS Online platform, the total NMIMS Online MBA fees are a
                 transition={{ duration: 0.5 }}
                 className="
                     text-[#270652] 
-                      font-bold font-[Inter] 
+                      font-bold font-sans 
                       text-[32px] md:text-5xl lg:text-[64px] 
                       leading-tight"
               >
@@ -1469,7 +1466,7 @@ As per the official NMIMS Online platform, the total NMIMS Online MBA fees are a
 
       <ServicesByRadhya />
 
-  <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter]">
+  <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-sans">
   {/* TITLE */}
   <h2 className="text-[#270652] font-bold text-center text-[32px] md:text-[48px] lg:text-[64px] mb-8">
     Important Dates
@@ -1528,7 +1525,7 @@ As per the official NMIMS Online platform, the total NMIMS Online MBA fees are a
 </section>
 
 
-      {/*<section className="w-full px-4 md:px-10 lg:px-20 py-16 font-[Inter]">
+      {/*<section className="w-full px-4 md:px-10 lg:px-20 py-16 font-sans">
         <div className="max-w-5xl mx-auto">
           <MotionWrapper
           as="h2"

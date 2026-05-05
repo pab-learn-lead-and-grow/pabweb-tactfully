@@ -1,4 +1,5 @@
 import AmityMsc from "@/components/Amity/AmityMsc";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Amity Online MSc in Data Science is a UGC-approved postgraduate program offering flexible online learning, industry-relevant curriculum, and career opportunities in analytics and data science.",
 
   alternates: {
-    canonical: "/amity/amity-online-msc-data-science/",
+    canonical: `${siteUrl}/amity/amity-online-msc-data-science/`,
   },
 
   keywords: [
@@ -48,5 +49,16 @@ export const metadata = {
 };
 
 export default function Amity() {
-  return <AmityMsc />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Amity University", item: `${siteUrl}/amity/` },
+          { name: "Amity Online MSc Data Science", item: `${siteUrl}/amity/amity-online-msc-data-science/` },
+        ]}
+      />
+      <AmityMsc />
+    </>
+  );
 }

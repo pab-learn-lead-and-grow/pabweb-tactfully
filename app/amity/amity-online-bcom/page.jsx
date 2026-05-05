@@ -1,4 +1,5 @@
 import AmityBcom from "@/components/Amity/AmityBcom";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Amity Online BCom is a UGC-approved undergraduate commerce degree offering flexible online learning, industry-focused curriculum, and career opportunities in finance, accounting, and business.",
 
   alternates: {
-    canonical: "/amity/amity-online-bcom/",
+    canonical: `${siteUrl}/amity/amity-online-bcom/`,
   },
 
   keywords: [
@@ -48,5 +49,16 @@ export const metadata = {
 };
 
 export default function Amity() {
-  return <AmityBcom />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Amity University", item: `${siteUrl}/amity/` },
+          { name: "Amity Online BCom", item: `${siteUrl}/amity/amity-online-bcom/` },
+        ]}
+      />
+      <AmityBcom />
+    </>
+  );
 }

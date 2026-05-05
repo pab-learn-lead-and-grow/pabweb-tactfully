@@ -1,4 +1,5 @@
 import TermsAndCondition from "@/components/Radhya/TermsAndCondition";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
 export const dynamic = "force-static";
@@ -25,6 +26,14 @@ export const metadata = {
 
 export default function terms(){
     return(
-        <TermsAndCondition />
+        <>
+            <BreadcrumbSchema
+                items={[
+                    { name: "Home", item: siteUrl },
+                    { name: "Terms & Conditions", item: `${siteUrl}/terms-and-conditions/` },
+                ]}
+            />
+            <TermsAndCondition />
+        </>
     );
 }

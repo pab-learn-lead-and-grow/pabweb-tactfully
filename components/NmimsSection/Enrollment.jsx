@@ -22,7 +22,7 @@ export default function Enrollment({
     setActiveIndex((prev) => (prev === index ? null : index));
 
   return (
-    <section className="w-full bg-linear-to-r from-[#270652] to-[#180135] font-[Inter] mt-10 px-4 md:px-12 lg:px-20 py-16">
+    <section className="w-full bg-linear-to-r from-[#270652] to-[#180135] font-sans mt-10 px-4 md:px-12 lg:px-20 py-16">
       <div className="p-6 md:p-12">
         {/* TITLE BLOCK */}
         <div className="text-center mb-10">

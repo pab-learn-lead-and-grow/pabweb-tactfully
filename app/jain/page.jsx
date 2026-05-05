@@ -1,4 +1,5 @@
 import JainPage from "@/components/Jain/JainPage";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 export const dynamic = "force-static";
@@ -11,7 +12,7 @@ export const metadata = {
     "Explore JAIN University Online courses including MBA, BBA, BCom and other UG & PG programs. UGC-approved degrees with flexible online learning and industry-focused curriculum.",
 
   alternates: {
-    canonical: "/jain/",
+    canonical: `${siteUrl}/jain/`,
   },
 
   keywords: [
@@ -42,5 +43,15 @@ export const metadata = {
 };
 
 export default function Jain() {
-  return <JainPage />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "JAIN University", item: `${siteUrl}/jain/` },
+        ]}
+      />
+      <JainPage />
+    </>
+  );
 }

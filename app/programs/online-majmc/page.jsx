@@ -1,4 +1,5 @@
 import OnlineMajmc from "@/components/Programs/onlineMajmc";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -32,7 +33,7 @@ export const metadata = {
     "Discover Online MAJMC programs with top colleges, updated fees, eligibility, and career opportunities in journalism and mass communication.",
 
   alternates: {
-    canonical: "/programs/online-majmc/",
+    canonical: `${siteUrl}/programs/online-majmc/`,
   },
 
   keywords: [
@@ -75,6 +76,13 @@ export const metadata = {
 export default function OnlineMajmcPage() {
   return (
      <>
+       <BreadcrumbSchema
+         items={[
+           { name: "Home", item: siteUrl },
+           { name: "Programs", item: `${siteUrl}/programs/` },
+           { name: "Online MAJMC", item: `${siteUrl}/programs/online-majmc/` },
+         ]}
+       />
        <script
          type="application/ld+json"
           suppressHydrationWarning

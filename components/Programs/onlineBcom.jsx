@@ -177,7 +177,7 @@ export default function BCom() {
                         </p>
       </section>
 
-        <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-[Inter]">
+        <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-sans">
                      <MotionWrapper
                    as="h2"
                    initial={{ opacity: 0, x: -40 }}

@@ -31,7 +31,8 @@ export default function BlogContent({
   categoryData, 
   related, 
   imageUrl,
-  articleSchema
+  articleSchema,
+  faqSchema
 }) {
   const [showModal, setShowModal] = useState(false);
 
@@ -72,6 +73,13 @@ export default function BlogContent({
           id="article-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+      )}
+      {faqSchema && (
+        <Script
+          id="faq-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
       <div className="mt-10 max-w-6xl mx-auto py-12 p-5 lg:p-15">
@@ -168,7 +176,7 @@ export default function BlogContent({
           <CounsellingForm onClose={() => setShowModal(false)} />
         )}
       </div>
-       <section className="w-full mt-10 px-4 md:px-10 lg:px-20 font-[Inter]">
+       <section className="w-full mt-10 px-4 md:px-10 lg:px-20 font-sans">
               <div className="max-w-7xl mx-auto">
                 {/* HEADING */}
                 <MotionWrapper

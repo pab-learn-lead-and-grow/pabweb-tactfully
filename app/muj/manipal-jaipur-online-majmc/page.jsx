@@ -1,4 +1,5 @@
 import MujMajmc from "@/components/Muj/MujMajmc";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 export const dynamic = "force-static";
 export const metadata = {
@@ -33,6 +34,15 @@ export const metadata = {
 };
 export default function Muj() {
     return (
-        <MujMajmc />
+        <>
+            <BreadcrumbSchema
+                items={[
+                    { name: "Home", item: siteUrl },
+                    { name: "Manipal Jaipur University", item: `${siteUrl}/muj/` },
+                    { name: "Manipal Jaipur Online MAJMC", item: `${siteUrl}/muj/manipal-jaipur-online-majmc/` },
+                ]}
+            />
+            <MujMajmc />
+        </>
     );
 }

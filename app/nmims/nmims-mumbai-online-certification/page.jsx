@@ -1,4 +1,5 @@
 import NmimsCert from "@/components/Nmims/NmimsCert";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -14,7 +15,7 @@ export const metadata = {
     "Explore NMIMS online certification programs designed to build industry-relevant skills. Flexible learning options help students and working professionals upgrade their careers.",
 
   alternates: {
-    canonical: "/nmims/nmims-mumbai-online-certification/",
+    canonical: `${siteUrl}/nmims/nmims-mumbai-online-certification/`,
   },
 
   keywords: [
@@ -45,5 +46,16 @@ export const metadata = {
 };
 
 export default function NmimsCertificationPage() {
-  return <NmimsCert />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "NMIMS University", item: `${siteUrl}/nmims/` },
+          { name: "NMIMS Online Certification", item: `${siteUrl}/nmims/nmims-mumbai-online-certification/` },
+        ]}
+      />
+      <NmimsCert />
+    </>
+  );
 }

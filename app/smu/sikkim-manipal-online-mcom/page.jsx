@@ -1,4 +1,5 @@
 import SmuMcom from "@/components/Smu/SmuMcom";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -14,7 +15,7 @@ export const metadata = {
     "SMU Online MCom from Sikkim Manipal University is a UGC-approved Master of Commerce degree offering flexible online learning, industry-focused curriculum, and career opportunities in finance, accounting, and business.",
 
   alternates: {
-    canonical: "/smu/sikkim-manipal-online-mcom/",
+    canonical: `${siteUrl}/smu/sikkim-manipal-online-mcom/`,
   },
 
   keywords: [
@@ -45,5 +46,16 @@ export const metadata = {
 };
 
 export default function SmuOnlineMcomPage() {
-  return <SmuMcom />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Sikkim Manipal University", item: `${siteUrl}/smu/` },
+          { name: "SMU Online MCom", item: `${siteUrl}/smu/sikkim-manipal-online-mcom/` },
+        ]}
+      />
+      <SmuMcom />
+    </>
+  );
 }

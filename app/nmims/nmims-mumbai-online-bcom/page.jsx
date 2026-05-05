@@ -1,4 +1,5 @@
 import NmimsBcom from "@/components/Nmims/NmimsBcom";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -8,13 +9,13 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "NMIMS Mumbai Online BCom Program | Admission and Fees",
+  title: "NMIMS Online BCom 2026: Fees, Admission & Specializations",
 
   description:
     "NMIMS Online BCom from SVKM's Narsee Monjee Institute of Management Studies offers a UGC-approved commerce degree with flexible online learning, industry-relevant curriculum, and career support for students and working professionals.",
 
   alternates: {
-    canonical: "/nmims/nmims-mumbai-online-bcom/",
+    canonical: `${siteUrl}/nmims/nmims-mumbai-online-bcom/`,
   },
 
   keywords: [
@@ -28,7 +29,7 @@ export const metadata = {
   ],
 
   openGraph: {
-    title: "NMIMS Online BCom | Radhya Education Academy",
+    title: "NMIMS Online BCom 2026: Fees, Admission & Specializations",
     description:
       "Explore NMIMS Online BCom with flexible learning, industry-focused curriculum, and UGC-approved recognition.",
     url: `${siteUrl}/nmims/nmims-mumbai-online-bcom/`,
@@ -45,5 +46,16 @@ export const metadata = {
 };
 
 export default function NmimsOnlineBcomPage() {
-  return <NmimsBcom />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "NMIMS University", item: `${siteUrl}/nmims/` },
+          { name: "NMIMS Online BCom", item: `${siteUrl}/nmims/nmims-mumbai-online-bcom/` },
+        ]}
+      />
+      <NmimsBcom />
+    </>
+  );
 }

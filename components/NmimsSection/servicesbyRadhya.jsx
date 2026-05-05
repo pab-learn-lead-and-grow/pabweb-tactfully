@@ -41,7 +41,7 @@ export default function ServicesByRadhya() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-[#270652] text-[36px] lg:text-[64px] md:text-[48px] font-bold font-[Inter] leading-10 whitespace-nowrap"
+            className="text-[#270652] text-[36px] lg:text-[64px] md:text-[48px] font-bold font-sans leading-10 whitespace-nowrap"
           >
             Services by Radhya
           </MotionWrapper>

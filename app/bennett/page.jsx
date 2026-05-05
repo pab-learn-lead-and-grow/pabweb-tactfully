@@ -1,4 +1,5 @@
 import BennettPage from "@/components/Bennett/BennettPage";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -14,7 +15,7 @@ export const metadata = {
     "Explore Bennett University Online courses including MBA & BBA with updated 2026 fees, eligibility, admission process, and reviews. Compare programs and get expert counselling today.",
 
   alternates: {
-    canonical: "/bennett/",
+    canonical: `${siteUrl}/bennett/`,
   },
 
   keywords: [
@@ -52,5 +53,15 @@ export const metadata = {
 };
 
 export default function Bennett() {
-  return <BennettPage />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Bennett University", item: `${siteUrl}/bennett/` },
+        ]}
+      />
+      <BennettPage />
+    </>
+  );
 }

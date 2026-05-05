@@ -1,4 +1,5 @@
 import BennettMba from "@/components/Bennett/BennettMba";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -14,7 +15,7 @@ export const metadata = {
     "Check Bennett University Online MBA fees, eligibility, syllabus, placements & reviews for 2026. Compare with top universities and apply with expert guidance.",
 
   alternates: {
-    canonical: "/bennett/bennett-online-mba/",
+    canonical: `${siteUrl}/bennett/bennett-online-mba/`,
   },
 
   keywords: [
@@ -51,5 +52,16 @@ export const metadata = {
 };
 
 export default function Bennett() {
-  return <BennettMba />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Bennett University", item: `${siteUrl}/bennett/` },
+          { name: "Bennett Online MBA", item: `${siteUrl}/bennett/bennett-online-mba/` },
+        ]}
+      />
+      <BennettMba />
+    </>
+  );
 }

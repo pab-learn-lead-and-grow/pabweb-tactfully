@@ -1,11 +1,12 @@
 import AmityBcomInt from "@/components/Amity/AmityBcomInt";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Amity University Online BCom I Fees & Admission 2026",
+  title: "Amity University Online BCom IFAC Fees & Admission 2026",
   
 
   description:
@@ -51,5 +52,16 @@ export const metadata = {
 };
 
 export default function Amity() {
-  return <AmityBcomInt />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Amity University", item: `${siteUrl}/amity/` },
+          { name: "Amity Online BCom International", item: `${siteUrl}/amity/amity-online-bcom-international-finance-and-accounting/` },
+        ]}
+      />
+      <AmityBcomInt />
+    </>
+  );
 }

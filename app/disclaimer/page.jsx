@@ -1,4 +1,5 @@
 import Disclaimer from "@/components/Radhya/DisclaimerPage";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Read the Disclaimer of Radhya Education Academy outlining the limitations of liability, website usage terms, and accuracy of information provided on our platform.",
 
   alternates: {
-    canonical: "/disclaimer/",
+    canonical: `${siteUrl}/disclaimer/`,
   },
 
   openGraph: {
@@ -33,5 +34,15 @@ export const metadata = {
 };
 
 export default function DisclaimerPage() {
-  return <Disclaimer />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Disclaimer", item: `${siteUrl}/disclaimer/` },
+        ]}
+      />
+      <Disclaimer />
+    </>
+  );
 }

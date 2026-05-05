@@ -32,7 +32,7 @@ export default function WhyChooseUs({
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         viewport={{ once: false }}
-        className="text-[32px] font-[Inter] flex flex-col items-center justify-center text-center lg:text-[56px] xl:text-[64px] font-bold text-[#270652] mb-2"
+        className="text-[32px] font-sans flex flex-col items-center justify-center text-center lg:text-[56px] xl:text-[64px] font-bold text-[#270652] mb-2"
       >
         {title}
       </MotionWrapper>

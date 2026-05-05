@@ -1,5 +1,6 @@
 import UniversityList from "@/components/UniversityList";
 import { getUniversities } from "../actions/getUniversities";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const revalidate = 3600; // ISR: Revalidate every hour
 
@@ -15,7 +16,7 @@ export const metadata = {
     "Compare top UGC-approved universities in India offering online and distance education programs. Check recognition, fees, courses, and specializations to choose the right university.",
 
   alternates: {
-    canonical: "/online-universities-directory-india/",
+    canonical: `${siteUrl}/online-universities-directory-india/`,
   },
 
   keywords: [
@@ -48,5 +49,15 @@ export const metadata = {
 export default async function UniversitiesPage() {
   const universities = await getUniversities();
 
-  return <UniversityList initialData={universities} />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Online Universities Directory India", item: `${siteUrl}/online-universities-directory-india/` },
+        ]}
+      />
+      <UniversityList initialData={universities} />
+    </>
+  );
 }

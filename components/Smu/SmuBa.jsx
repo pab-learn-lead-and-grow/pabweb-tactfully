@@ -303,9 +303,9 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-[Inter] font-bold mt-1 leading-tight"
+              className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-sans font-bold mt-1 leading-tight"
             >
-              Sikkim Manipal Online BA Degree
+              Sikkim Manipal University Online BA Degree
             </MotionWrapper>
 
             <MotionWrapper
@@ -328,7 +328,7 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4 lg:-mx-5 xl:-mx-15 gap-y-5 font-[Inter] w-full"
+              className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4 lg:-mx-5 xl:-mx-15 gap-y-5 font-sans w-full"
             >
               {stats.map((stat, idx) => (
                 <div
@@ -413,7 +413,7 @@ export default function Page() {
         </div>
       </section>
       {/* ======= SNAPSHOT SECTION ======= */}
-      <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+      <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-sans">
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <MotionWrapper
@@ -863,7 +863,7 @@ export default function Page() {
         }}
       />
 
-      <section className="w-full font-[Inter] px-4 md:px-10 lg:px-20 py-12">
+      <section className="w-full font-sans px-4 md:px-10 lg:px-20 py-12">
         <div className="p-6 md:p-10">
           {/* Heading */}
           <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#270652] mb-4 md:mb-7">
@@ -929,7 +929,7 @@ export default function Page() {
         ctaText="Ready to Learn ? Click Here"
       />
 
-      <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
+      <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-sans relative">
         {/* Faded Background Heading */}
         <h2 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
           EXAMINATION PROCESS
@@ -1034,7 +1034,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
+      <section className="w-full px-4 md:px-10 lg:px-20 font-sans">
         <div className="max-w-6xl mx-auto p-6 md:p-10">
           {/* HEADING */}
           <h2 className="text-[24px] md:text-[40px] font-bold italic text-[#270652] mb-12 text-center">
@@ -1093,7 +1093,7 @@ export default function Page() {
 
       <MujCareerServices benefits={benefits} />
 
-      <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
+      <section className="w-full font-sans mt-20 flex items-center justify-center">
         <div className="px-2 w-full">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
             {/* LEFT SIDE TEXT */}
@@ -1150,7 +1150,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-[Inter]">
+      <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-sans">
         <MotionWrapper
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1194,7 +1194,7 @@ export default function Page() {
       />
 
       <section className="w-full flex items-center justify-center pt-10 px-6 md:px-18">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-sans lg:gap-20">
           {/* LEFT CONTENT */}
           <div className="space-y-5">
             <p className="text-[#1F1717] mb-1 mt-5 text-sm font-medium">
@@ -1249,7 +1249,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="w-full bg-white mt-10 lg:mt-20 px-4 md:px-12 lg:px-20 font-[Inter]">
+      <section className="w-full bg-white mt-10 lg:mt-20 px-4 md:px-12 lg:px-20 font-sans">
         {/* Small Header */}
         <MotionWrapper
           as="h2"
@@ -1266,7 +1266,7 @@ export default function Page() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-[#270652] font-bold text-3xl sm:text-4xl md:text-5xl font-[Inter] lg:text-5xl leading-tight mb-12 max-w-6xl"
+          className="text-[#270652] font-bold text-3xl sm:text-4xl md:text-5xl font-sans lg:text-5xl leading-tight mb-12 max-w-6xl"
         >
           The program offers strong academics, interactive learning, and full
           flexibility to help professionals grow confidently.
@@ -1472,7 +1472,7 @@ export default function Page() {
                 transition={{ duration: 0.5 }}
                 className="
                                     text-[#270652] 
-                                      font-bold font-[Inter] 
+                                      font-bold font-sans 
                                       text-[32px] md:text-5xl lg:text-[64px] 
                                       leading-tight"
               >
@@ -1651,7 +1651,7 @@ export default function Page() {
 
       <section className="w-full px-4 md:px-10 lg:px-20 py-10">
         {/* TITLE */}
-        <h2 className="text-[#270652] font-bold flex flex-row items-center justify-center font-[Inter] md:text-[42px] text-[36px] mb-8">
+        <h2 className="text-[#270652] font-bold flex flex-row items-center justify-center font-sans md:text-[42px] text-[36px] mb-8">
           Important Dates
         </h2>
 

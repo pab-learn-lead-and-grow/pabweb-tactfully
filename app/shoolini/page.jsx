@@ -1,4 +1,5 @@
 import ShooliniPage from "@/components/Shoolini/ShooliniPage";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -14,7 +15,7 @@ export const metadata = {
     "Explore Shoolini online programs including MBA, BBA, and BCom. Shoolini University offers UGC-approved degrees with NAAC A++ accreditation and industry-focused curriculum.",
 
   alternates: {
-    canonical: "/shoolini/",
+    canonical: `${siteUrl}/shoolini/`,
   },
 
   openGraph: {
@@ -35,5 +36,15 @@ export const metadata = {
 };
 
 export default function ShooliniUniversityPage() {
-  return <ShooliniPage />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Shoolini University", item: `${siteUrl}/shoolini/` },
+        ]}
+      />
+      <ShooliniPage />
+    </>
+  );
 }

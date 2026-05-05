@@ -133,7 +133,7 @@ const Syllabus = ({ title = "Program Syllabus", years, data }) => {
 
   return (
     <div className="mt-10 lg:mt-20">
-      <div className="max-w-6xl mx-auto font-[Inter]">
+      <div className="max-w-6xl mx-auto font-sans">
         {/* Heading */}
         <h2 className="text-[36px] md:text-[48px] lg:text-[64px] font-extrabold text-center text-[#270652] mb-8">
           {title}

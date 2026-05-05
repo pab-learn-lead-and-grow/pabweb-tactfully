@@ -1,4 +1,5 @@
 import AmityUgPg from "@/components/Amity/AmityUgPg";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Amity Online Dual Degree Program allows students to pursue two UGC-approved degrees simultaneously with flexible online learning and career-focused curriculum.",
 
   alternates: {
-    canonical: "/amity/amity-online-integrated-programs/",
+    canonical: `${siteUrl}/amity/amity-online-integrated-programs/`,
   },
 
   keywords: [
@@ -48,5 +49,16 @@ export const metadata = {
 };
 
 export default function Amity() {
-  return <AmityUgPg />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Amity University", item: `${siteUrl}/amity/` },
+          { name: "Amity Online Integrated Programs", item: `${siteUrl}/amity/amity-online-integrated-programs/` },
+        ]}
+      />
+      <AmityUgPg />
+    </>
+  );
 }

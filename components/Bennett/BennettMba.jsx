@@ -594,7 +594,7 @@ const topicsData = {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.7 }}
                       viewport={{ once: true }}
-                      className="text-white text-[20px] md:text-4xl lg:text-5xl font-[Inter] font-bold mt-1 leading-tight"
+                      className="text-white text-[20px] md:text-4xl lg:text-5xl font-sans font-bold mt-1 leading-tight"
                     >
                      Bennett University Online MBA 2026: Fees, Admission, Eligibility, Syllabus & Review
                     </MotionWrapper>
@@ -610,7 +610,7 @@ const topicsData = {
                     </MotionWrapper>
         
                     {/* STATS */}
-                  <MotionWrapper className="grid grid-cols-3 divide-x-2 divide-white mt-5 -mx-5 lg:-mx-10 gap-y-2 font-[Inter] w-full">
+                  <MotionWrapper className="grid grid-cols-3 divide-x-2 divide-white mt-5 -mx-5 lg:-mx-10 gap-y-2 font-sans w-full">
           {stats.map((stat, idx) => (
             <div
               key={idx}
@@ -765,7 +765,7 @@ const topicsData = {
 />
 
 
-      <section className="w-full font-[Inter] px-4 md:px-10 lg:px-20 py-12">
+      <section className="w-full font-sans px-4 md:px-10 lg:px-20 py-12">
         <div className="p-6 md:p-10">
           {/* Heading */}
           <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#270652] mb-4 md:mb-7">
@@ -812,7 +812,7 @@ const topicsData = {
         ctaText="Ready to Learn ? Click Here"
       />
 
-    <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
+    <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-sans relative">
                                         {/* Faded Background Heading */}
                                         <h2 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
                                           EXAMINATION PROCESS
@@ -915,7 +915,7 @@ const topicsData = {
      
            <MujCareerServices benefits={benefits}/>
      
-           <section className="w-full font-[Inter] mt-20 flex items-center justify-center">
+           <section className="w-full font-sans mt-20 flex items-center justify-center">
              <div className="px-2 w-full">
                <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
                  {/* LEFT SIDE TEXT */}
@@ -973,7 +973,7 @@ const topicsData = {
              </div>
            </section>
 
-             <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-[Inter]">
+             <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-sans">
                    <MotionWrapper
                      initial={{ opacity: 0, y: 30 }}
                      whileInView={{ opacity: 1, y: 0 }}
@@ -1051,7 +1051,7 @@ Scholarships are provided as tuition fee waivers and are granted after successfu
            />
 
        <section className="w-full flex items-center justify-center px-6 pt-10 md:px-18">
-             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] lg:gap-10">
+             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-sans lg:gap-10">
                {/* LEFT CONTENT */}
                <div className="space-y-5">
                  <p className="text-[#1F1717] mb-1 mt-5 text-sm font-medium">
@@ -1107,7 +1107,7 @@ Scholarships are provided as tuition fee waivers and are granted after successfu
              </div>
            </section>
      
-           <section className="w-full bg-white mt-20 px-4 md:px-12 lg:px-20 font-[Inter]">
+           <section className="w-full bg-white mt-20 px-4 md:px-12 lg:px-20 font-sans">
              {/* Small Header */}
              <MotionWrapper
                initial={{ opacity: 0, y: 10 }}
@@ -1123,7 +1123,7 @@ Scholarships are provided as tuition fee waivers and are granted after successfu
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.6 }}
-               className="text-[#270652] font-bold text-3xl sm:text-4xl md:text-5xl font-[Inter] lg:text-5xl leading-tight mb-12 max-w-6xl"
+               className="text-[#270652] font-bold text-3xl sm:text-4xl md:text-5xl font-sans lg:text-5xl leading-tight mb-12 max-w-6xl"
              >
                The program offers strong academics, interactive learning, and full
                flexibility to help professionals grow confidently.
@@ -1318,7 +1318,7 @@ Scholarships are provided as tuition fee waivers and are granted after successfu
                      transition={{ duration: 0.5 }}
                      className="
                                          text-[#270652] 
-                                           font-bold font-[Inter] 
+                                           font-bold font-sans 
                                            text-[32px] md:text-5xl lg:text-[64px] 
                                            leading-tight"
                    >
@@ -1454,7 +1454,7 @@ Scholarships are provided as tuition fee waivers and are granted after successfu
 
      <section className="w-full px-4 md:px-10 lg:px-20 py-10">
         {/* TITLE */}
-        <h2 className="text-[#270652] font-bold flex flex-row items-center justify-center font-[Inter] md:text-[42px] text-[36px] mb-8">
+        <h2 className="text-[#270652] font-bold flex flex-row items-center justify-center font-sans md:text-[42px] text-[36px] mb-8">
           Important Dates
         </h2>
 

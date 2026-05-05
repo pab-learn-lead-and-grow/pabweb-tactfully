@@ -25,7 +25,7 @@ export default function SyllabusSection({
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-[32px] md:text-[64px] leading-[110%] font-extrabold font-[Inter] text-center text-[#270652] mb-10"
+        className="text-[32px] md:text-[64px] leading-[110%] font-extrabold font-sans text-center text-[#270652] mb-10"
       >
         {title}
       </motion.h2>

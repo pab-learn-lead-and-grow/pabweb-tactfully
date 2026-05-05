@@ -1,4 +1,5 @@
 import AmityPage from "@/components/Amity/AmityPage";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Explore Amity University Online courses including MBA, BBA, BCA and other UGC-approved UG & PG degree programs with flexible online learning.",
 
   alternates: {
-    canonical: "/amity/",
+    canonical: `${siteUrl}/amity/`,
   },
 
   keywords: [
@@ -48,5 +49,15 @@ export const metadata = {
 };
 
 export default function Amity() {
-  return <AmityPage />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Amity University", item: `${siteUrl}/amity/` },
+        ]}
+      />
+      <AmityPage />
+    </>
+  );
 }

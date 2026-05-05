@@ -1,4 +1,5 @@
 import AmityMca from "@/components/Amity/AmityMca";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Amity Online MCA is a UGC-approved postgraduate computer applications degree offering flexible online learning, industry-focused curriculum, and career opportunities in IT and software development.",
 
   alternates: {
-    canonical: "/amity/amity-online-mca/",
+    canonical: `${siteUrl}/amity/amity-online-mca/`,
   },
 
   keywords: [
@@ -48,5 +49,16 @@ export const metadata = {
 };
 
 export default function Amity() {
-  return <AmityMca />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Amity University", item: `${siteUrl}/amity/` },
+          { name: "Amity Online MCA", item: `${siteUrl}/amity/amity-online-mca/` },
+        ]}
+      />
+      <AmityMca />
+    </>
+  );
 }

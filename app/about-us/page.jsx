@@ -1,4 +1,5 @@
 import AboutUs from "@/components/Radhya/AboutUs";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -13,7 +14,7 @@ export const metadata = {
     "Learn about Radhya Education Academy, a trusted education partner helping students choose the right online degrees through expert counselling, university partnerships, and career guidance.",
 
   alternates: {
-    canonical: "/about-us/",
+    canonical: `${siteUrl}/about-us/`,
   },
 
   keywords: [
@@ -52,6 +53,12 @@ export const metadata = {
 export default function About() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "About Us", item: `${siteUrl}/about-us/` },
+        ]}
+      />
       <AboutUs />
     </>
   );

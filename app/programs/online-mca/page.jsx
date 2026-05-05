@@ -1,4 +1,5 @@
 import OnlineMca from "@/components/Programs/onlineMca";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -33,7 +34,7 @@ title: "Online MCA India 2026: Fees, Colleges & Admission",
     "Discover Online MCA programs with top colleges, updated fees, eligibility, and career scope in IT, software development, and technology roles.",
 
   alternates: {
-    canonical: "/programs/online-mca/",
+    canonical: `${siteUrl}/programs/online-mca/`,
   },
 
   keywords: [
@@ -83,6 +84,13 @@ title: "Online MCA India 2026: Fees, Colleges & Admission",
 export default function OnlineMcaPage() {
   return (
      <>
+       <BreadcrumbSchema
+         items={[
+           { name: "Home", item: siteUrl },
+           { name: "Programs", item: `${siteUrl}/programs/` },
+           { name: "Online MCA", item: `${siteUrl}/programs/online-mca/` },
+         ]}
+       />
        <script
          type="application/ld+json"
          suppressHydrationWarning

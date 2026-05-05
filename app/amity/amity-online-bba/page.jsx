@@ -1,4 +1,5 @@
 import AmityBba from "@/components/Amity/AmityBba";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Amity Online BBA is a UGC-approved undergraduate business administration degree offering flexible online learning, industry-focused curriculum, and career opportunities in management and business.",
 
   alternates: {
-    canonical: "/amity/amity-online-bba/",
+    canonical: `${siteUrl}/amity/amity-online-bba/`,
   },
 
   keywords: [
@@ -48,5 +49,16 @@ export const metadata = {
 };
 
 export default function Amity() {
-  return <AmityBba />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Amity University", item: `${siteUrl}/amity/` },
+          { name: "Amity Online BBA", item: `${siteUrl}/amity/amity-online-bba/` },
+        ]}
+      />
+      <AmityBba />
+    </>
+  );
 }

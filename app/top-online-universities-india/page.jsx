@@ -1,4 +1,5 @@
 import CollegeCards from "@/components/CollegeCards";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Explore top online universities in India for MBA, BBA & more. Compare UGC approved colleges, fees, rankings & placements. Find the best online degree today.",
 
   alternates: {
-    canonical: "/top-online-universities-india/",
+    canonical: `${siteUrl}/top-online-universities-india/`,
   },
 
   keywords: [
@@ -42,5 +43,15 @@ export const metadata = {
 };
 
 export default function CollegeData() {
-  return <CollegeCards />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Top Online Universities India", item: `${siteUrl}/top-online-universities-india/` },
+        ]}
+      />
+      <CollegeCards />
+    </>
+  );
 }

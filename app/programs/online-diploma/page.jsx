@@ -1,4 +1,5 @@
 import OnlineDiploma from "@/components/Programs/onlineDiploma";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -32,7 +33,7 @@ export const metadata = {
     "Explore online diploma courses in India with top programs, fees, eligibility, and career opportunities. Upgrade your skills with flexible learning.",
 
   alternates: {
-    canonical: "/programs/online-diploma/",
+    canonical: `${siteUrl}/programs/online-diploma/`,
   },
 
   keywords: [
@@ -75,6 +76,13 @@ export const metadata = {
 export default function OnlineDiplomaPage() {
    return (
       <>
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", item: siteUrl },
+            { name: "Programs", item: `${siteUrl}/programs/` },
+            { name: "Online Diploma", item: `${siteUrl}/programs/online-diploma/` },
+          ]}
+        />
         <script
           type="application/ld+json"
           suppressHydrationWarning

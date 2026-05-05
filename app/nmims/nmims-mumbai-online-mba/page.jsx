@@ -1,10 +1,11 @@
 import NmimsMba from "@/components/Nmims/NmimsMba";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
 export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: "NMIMS Mumbai Online MBA Program | Admission and Fees",
+  title: "NMIMS Online MBA 2026: Fees, Admission & Specializations",
   description:
     "NMIMS Online MBA helps you earn a UGC-approved management degree online with flexible learning, industry-relevant curriculum and support for working professionals",
   alternates: {
@@ -20,7 +21,7 @@ export const metadata = {
     "UGC approved online MBA",
   ],
   openGraph: {
-  title: "NMIMS Online MBA – UGC Approved Program | Radhya Education Academy",
+  title: "NMIMS Online MBA 2026: Fees, Admission & Specializations",
   description:
     "NMIMS Online MBA helps you earn a UGC-approved management degree online with flexible learning and industry-relevant curriculum.",
   url: "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-mba/",
@@ -35,6 +36,15 @@ export const metadata = {
 };
 export default function Nmims() {
     return (
-        <NmimsMba />
+        <>
+            <BreadcrumbSchema
+                items={[
+                    { name: "Home", item: siteUrl },
+                    { name: "NMIMS University", item: `${siteUrl}/nmims/` },
+                    { name: "NMIMS Online MBA", item: `${siteUrl}/nmims/nmims-mumbai-online-mba/` },
+                ]}
+            />
+            <NmimsMba />
+        </>
     );
 }

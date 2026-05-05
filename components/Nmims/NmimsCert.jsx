@@ -250,9 +250,9 @@ export default function Page() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                     viewport={{ once: true }}
-                    className="text-white text-[20px] md:text-3xl lg:text-4xl xl:text-[54px] font-[Inter] font-bold mt-1 leading-tight"
+                    className="text-white text-[20px] md:text-3xl lg:text-4xl xl:text-[56px] font-sans font-bold mt-1 leading-tight"
                   >
-                    NMIMS Online Certificate Program
+                    NMIMS Online Certificate Program : Fees, Eligibility & Admission Dates 2026
                   </MotionWrapper>
       
                   <MotionWrapper
@@ -265,7 +265,7 @@ export default function Page() {
                    Explore the essentials of business management with this 6-month certificate program designed to offer a strong preview of the business world.
                   </MotionWrapper>
       
-                  <MotionWrapper className="grid grid-cols-3 divide-x-2 divide-white mt-5 -mx-5 lg:-mx-10 gap-y-2 font-[Inter] w-full">
+                  <MotionWrapper className="grid grid-cols-3 divide-x-2 divide-white mt-5 -mx-5 lg:-mx-10 gap-y-2 font-sans w-full">
   {stats.map((stat, idx) => (
     <div
       key={idx}
@@ -428,7 +428,7 @@ export default function Page() {
   topicsData={topicsData}
 />
      
-     <section className="w-full px-4 md:px-10 lg:px-20 py-12 lg:py-24 font-[Inter]">
+     <section className="w-full px-4 md:px-10 lg:px-20 py-12 lg:py-24 font-sans">
              <div className="max-w-7xl mx-auto">
                {/* Title animation */}
                <MotionWrapper
@@ -489,7 +489,7 @@ export default function Page() {
             ctaText="Ready to Learn ? Click Here"
           />
     
-          <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter] relative">
+          <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-sans relative">
                            {/* Faded Background Heading */}
                            <h2 className="absolute top-6 left-1/2 -translate-x-1/2 text-[30px] md:text-[60px] lg:text-[64px] text-[#270652]/10 opacity-90 select-none tracking-tight whitespace-nowrap">
                              EXAMINATION PROCESS
@@ -592,7 +592,7 @@ export default function Page() {
                            </div>
                          </section>
                    
-                         <section className="w-full px-4 md:px-10 lg:px-20 font-[Inter]">
+                         <section className="w-full px-4 md:px-10 lg:px-20 font-sans">
                            <div className="max-w-4xl mx-auto p-6 md:p-10">
                              {/* Heading */}
                              <h2 className="text-[24px] md:text-[40] font-bold italic text-[#270652] mb-12 text-center">
@@ -630,7 +630,7 @@ export default function Page() {
                          </section>
           <CareerServices />
 
-      <section className="w-full font-[Inter] py-20 flex justify-center">
+      <section className="w-full font-sans py-20 flex justify-center">
         <div className="w-full max-w-7xl px-4 md:px-10">
           {/* WRAPPER */}
           <div className="flex flex-col lg:flex-row justify-between gap-10">
@@ -772,7 +772,7 @@ export default function Page() {
             />
 
       <section className="w-full py-10 px-6 md:px-18">
-  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-[Inter] gap-10">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center font-sans gap-10">
 
     {/* LEFT CONTENT */}
     <div className="space-y-5">
@@ -831,7 +831,7 @@ export default function Page() {
 
   </div>
 </section>
-     <section className="w-full bg-white font-[Inter] px-6 md:px-12 lg:px-20 mt-8">
+     <section className="w-full bg-white font-sans px-6 md:px-12 lg:px-20 mt-8">
   <MotionWrapper
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -964,7 +964,7 @@ export default function Page() {
                       transition={{ duration: 0.5 }}
                       className="
                           text-[#270652] 
-                            font-bold font-[Inter] 
+                            font-bold font-sans 
                             text-[32px] md:text-5xl lg:text-[64px] 
                             leading-tight"
                     >
@@ -1135,7 +1135,7 @@ export default function Page() {
     
           <ServicesByRadhya />
     
-      <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-[Inter]">
+      <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-sans">
       {/* TITLE */}
       <h2 className="text-[#270652] font-bold text-center text-[32px] md:text-[48px] lg:text-[64px] mb-8">
         Important Dates

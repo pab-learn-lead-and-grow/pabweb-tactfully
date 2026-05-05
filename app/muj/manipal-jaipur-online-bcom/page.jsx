@@ -1,4 +1,5 @@
 import MujBcom from "@/components/Muj/MujBcom";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 export const dynamic = "force-static";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Manipal University Jaipur Online BCom offers a UGC-approved Bachelor of Commerce degree with flexible online learning, industry-relevant curriculum, and career support for students.",
 
   alternates: {
-    canonical: "/muj/manipal-jaipur-online-bcom/",
+    canonical: `${siteUrl}/muj/manipal-jaipur-online-bcom/`,
   },
 
   keywords: [
@@ -43,5 +44,16 @@ export const metadata = {
 };
 
 export default function MujOnlineBcomPage() {
-  return <MujBcom />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Manipal Jaipur University", item: `${siteUrl}/muj/` },
+          { name: "Manipal Jaipur Online BCom", item: `${siteUrl}/muj/manipal-jaipur-online-bcom/` },
+        ]}
+      />
+      <MujBcom />
+    </>
+  );
 }

@@ -1,4 +1,5 @@
 import JainBca from "@/components/Jain/JainBca";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "JAIN Online BCA is a UGC-approved undergraduate computer applications degree offering flexible online learning, industry-relevant curriculum, and career opportunities in the IT and software sector.",
 
   alternates: {
-    canonical: "/jain/jain-online-bca/",
+    canonical: `${siteUrl}/jain/jain-online-bca/`,
   },
 
   keywords: [
@@ -43,5 +44,16 @@ export const metadata = {
 };
 
 export default function Jain() {
-  return <JainBca />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "JAIN University", item: `${siteUrl}/jain/` },
+          { name: "JAIN Online BCA", item: `${siteUrl}/jain/jain-online-bca/` },
+        ]}
+      />
+      <JainBca />
+    </>
+  );
 }

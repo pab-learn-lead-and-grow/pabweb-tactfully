@@ -19,7 +19,7 @@ export default function LearningApproach({
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-[32px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-[Inter] font-bold text-[#270652] mb-4">
+        <h2 className="text-[32px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-sans font-bold text-[#270652] mb-4">
           {title}
         </h2>
 

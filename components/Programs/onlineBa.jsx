@@ -187,7 +187,7 @@ export default function ba() {
           "Prepares students for higher studies, government exams, and diverse career opportunities.",
         ]}
       />
-      <section className="w-full px-4 md:px-10 lg:px-20 py-12 font-[Inter]">
+      <section className="w-full px-4 md:px-10 lg:px-20 py-12 font-sans">
         <div className="max-w-7xl mx-auto">
           {/* Title animation */}
           <MotionWrapper
@@ -241,7 +241,7 @@ export default function ba() {
           </MotionWrapper>
         </div>
       </section>
-      <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-[Inter]">
+      <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-sans">
         <MotionWrapper
           as="h2"
           initial={{ opacity: 0, x: -40 }}

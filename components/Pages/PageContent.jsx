@@ -25,7 +25,7 @@ function PageCTA({ onOpen }) {
   );
 }
 
-export default function PageContent({ page, imageUrl, pageSchema, formattedDate }) {
+export default function PageContent({ page, imageUrl, pageSchema, faqSchema, formattedDate }) {
   const [showModal, setShowModal] = useState(false);
 
   const universities = [
@@ -67,11 +67,18 @@ export default function PageContent({ page, imageUrl, pageSchema, formattedDate 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
         />
       )}
+      {faqSchema && (
+        <Script
+          id="faq-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <article>
         
         <div className="mt-10 max-w-6xl mx-auto py-12 p-5 lg:p-15">
           <header className="mb-8">
-            <p className="text-3xl md:text-[36px] lg:text-5xl max-w-7xl font-bold text-[#270652] mb-4 leading-tight">
+            <p className="text-3xl md:text-[36px] lg:text-4xl max-w-7xl font-bold text-[#270652] mb-4 leading-tight">
               {page.title}
             </p>
            
@@ -123,7 +130,7 @@ export default function PageContent({ page, imageUrl, pageSchema, formattedDate 
       {showModal && (
         <CounsellingForm onClose={() => setShowModal(false)} />
       )}
-       <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+       <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-sans">
                                        <div className="max-w-7xl mx-auto">
                                          {/* HEADING */}
                                          <MotionWrapper

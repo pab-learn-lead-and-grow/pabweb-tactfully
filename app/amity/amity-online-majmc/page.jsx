@@ -1,4 +1,5 @@
 import AmityMajmc from "@/components/Amity/AmityMajmc";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Amity Online MAJMC is a UGC-approved postgraduate journalism and mass communication degree offering flexible online learning, industry-focused curriculum, and career opportunities in media and communication.",
 
   alternates: {
-    canonical: "/amity/amity-online-majmc/",
+    canonical: `${siteUrl}/amity/amity-online-majmc/`,
   },
 
   keywords: [
@@ -48,5 +49,16 @@ export const metadata = {
 };
 
 export default function Amity() {
-  return <AmityMajmc />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Amity University", item: `${siteUrl}/amity/` },
+          { name: "Amity Online MAJMC", item: `${siteUrl}/amity/amity-online-majmc/` },
+        ]}
+      />
+      <AmityMajmc />
+    </>
+  );
 }

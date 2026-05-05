@@ -1,4 +1,5 @@
 import ContactPage from "@/components/Radhya/ContactPage";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Contact Radhya Education Academy for expert guidance on online degree programs, university admissions, and personalized career counselling support.",
 
   alternates: {
-    canonical: "/contact-us/",
+    canonical: `${siteUrl}/contact-us/`,
   },
 
   keywords: [
@@ -43,5 +44,15 @@ export const metadata = {
 };
 
 export default function ContactUs() {
-  return <ContactPage />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Contact Us", item: `${siteUrl}/contact-us/` },
+        ]}
+      />
+      <ContactPage />
+    </>
+  );
 }

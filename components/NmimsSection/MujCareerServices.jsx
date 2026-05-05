@@ -6,7 +6,7 @@ export default function CareerServicesSection({ title = "Career Services",
   benefits = [],
 }) {
   return (
-    <section className="w-full bg-white mt-15 py-5 px-6 md:px-12 lg:px-20 font-[Inter]">
+    <section className="w-full bg-white mt-15 py-5 px-6 md:px-12 lg:px-20 font-sans">
       {/* HEADING */}
       <MotionWrapper
         as="h2"

@@ -1,4 +1,5 @@
 import AmityBa from "@/components/Amity/AmityBa";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Amity Online BA is a UGC-approved undergraduate arts degree offering flexible online learning, industry-focused curriculum, and academic support for career development.",
 
   alternates: {
-    canonical: "/amity/amity-online-ba/",
+    canonical: `${siteUrl}/amity/amity-online-ba/`,
   },
 
   keywords: [
@@ -48,5 +49,16 @@ export const metadata = {
 };
 
 export default function Amity() {
-  return <AmityBa />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Amity University", item: `${siteUrl}/amity/` },
+          { name: "Amity Online BA", item: `${siteUrl}/amity/amity-online-ba/` },
+        ]}
+      />
+      <AmityBa />
+    </>
+  );
 }

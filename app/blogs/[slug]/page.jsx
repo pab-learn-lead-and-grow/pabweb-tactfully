@@ -1,5 +1,6 @@
 import { getBlogBySlug } from "@/app/actions/getBlogBySlug";
 import BlogContent from "@/components/Blogs/BlogContent";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
@@ -12,9 +13,7 @@ export async function generateMetadata({ params }) {
   if (!data) {
     return {
       title: "Not Found | Radhya Education Academy",
-      alternates: {
-        canonical: `${siteUrl}/blogs/${slug}/`,
-      },
+      robots: { index: false, follow: false },
     };
   }
 
@@ -56,13 +55,23 @@ export default async function BlogPage({ params }) {
   }
 
   return (
-    <BlogContent 
-      article={data.article}
-      articleFormattedDate={data.articleFormattedDate}
-      categoryData={data.categoryData}
-      related={data.related}
-      imageUrl={data.imageUrl}
-      articleSchema={data.articleSchema}
-    />
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Blogs", item: `${siteUrl}/blogs/` },
+          { name: data.article.title, item: `${siteUrl}/blogs/${slug}/` },
+        ]}
+      />
+      <BlogContent 
+        article={data.article}
+        articleFormattedDate={data.articleFormattedDate}
+        categoryData={data.categoryData}
+        related={data.related}
+        imageUrl={data.imageUrl}
+        articleSchema={data.articleSchema}
+        faqSchema={data.faqSchema}
+      />
+    </>
   );
 }

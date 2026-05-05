@@ -1,4 +1,5 @@
 import SmuMca from "@/components/Smu/SmuMca";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
  export const dynamic = "force-static";
  
@@ -14,7 +15,7 @@ export const metadata = {
     "SMU Online MCA from Sikkim Manipal University is a UGC-approved Master of Computer Applications degree offering flexible online learning, industry-focused curriculum, and career support for IT professionals.",
 
   alternates: {
-    canonical: "/smu/sikkim-manipal-online-mca/",
+    canonical: `${siteUrl}/smu/sikkim-manipal-online-mca/`,
   },
 
   keywords: [
@@ -45,5 +46,16 @@ export const metadata = {
 };
 
 export default function SmuOnlineMcaPage() {
-  return <SmuMca />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Sikkim Manipal University", item: `${siteUrl}/smu/` },
+          { name: "SMU Online MCA", item: `${siteUrl}/smu/sikkim-manipal-online-mca/` },
+        ]}
+      />
+      <SmuMca />
+    </>
+  );
 }

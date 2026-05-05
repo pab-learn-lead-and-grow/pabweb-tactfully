@@ -1,4 +1,5 @@
 import AmityBca from "@/components/Amity/AmityBca";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Amity Online BCA is a UGC-approved undergraduate computer applications degree offering flexible online learning, industry-focused curriculum, and career opportunities in IT and software development.",
 
   alternates: {
-    canonical: "/amity/amity-online-bca/",
+    canonical: `${siteUrl}/amity/amity-online-bca/`,
   },
 
   keywords: [
@@ -48,5 +49,16 @@ export const metadata = {
 };
 
 export default function Amity() {
-  return <AmityBca />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Amity University", item: `${siteUrl}/amity/` },
+          { name: "Amity Online BCA", item: `${siteUrl}/amity/amity-online-bca/` },
+        ]}
+      />
+      <AmityBca />
+    </>
+  );
 }

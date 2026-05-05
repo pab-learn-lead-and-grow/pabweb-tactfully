@@ -1,4 +1,5 @@
 import PrivacyPolicy from "@/components/Radhya/PrivacyPolicy";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -14,7 +15,7 @@ export const metadata = {
     "Read the Privacy Policy of Radhya Education Academy to understand how we collect, use, and protect your personal information when using our website and services.",
 
   alternates: {
-    canonical: "/privacy-policy/",
+    canonical: `${siteUrl}/privacy-policy/`,
   },
 
   openGraph: {
@@ -35,5 +36,15 @@ export const metadata = {
 };
 
 export default function PrivacyPolicyPage() {
-  return <PrivacyPolicy />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Privacy Policy", item: `${siteUrl}/privacy-policy/` },
+        ]}
+      />
+      <PrivacyPolicy />
+    </>
+  );
 }

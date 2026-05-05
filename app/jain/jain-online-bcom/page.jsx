@@ -1,4 +1,5 @@
 import JainBcom from "@/components/Jain/JainBcom";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "JAIN Online BCom is a UGC-approved undergraduate commerce degree offering flexible online learning, industry-relevant curriculum, and career opportunities in finance, accounting, and business.",
 
   alternates: {
-    canonical: "/jain/jain-online-bcom/",
+    canonical: `${siteUrl}/jain/jain-online-bcom/`,
   },
 
   keywords: [
@@ -43,5 +44,16 @@ export const metadata = {
 };
 
 export default function Jain() {
-  return <JainBcom />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "JAIN University", item: `${siteUrl}/jain/` },
+          { name: "JAIN Online BCom", item: `${siteUrl}/jain/jain-online-bcom/` },
+        ]}
+      />
+      <JainBcom />
+    </>
+  );
 }

@@ -1,4 +1,5 @@
 import ExecutiveMBA from "@/components/Programs/MbaWx";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -31,7 +32,7 @@ export const metadata = {
     "Explore Online MBA for Working Professionals (MBA WX) in India with fees, eligibility, top universities and career benefits. Compare executive MBA programs designed for experienced professionals.",
 
   alternates: {
-    canonical: "/programs/online-mba-wx/",
+    canonical: `${siteUrl}/programs/online-mba-wx/`,
   },
 
   keywords: [
@@ -73,6 +74,13 @@ export const metadata = {
 export default function MbaWxPage() {
   return (
      <>
+       <BreadcrumbSchema
+         items={[
+           { name: "Home", item: siteUrl },
+           { name: "Programs", item: `${siteUrl}/programs/` },
+           { name: "Online MBA WX", item: `${siteUrl}/programs/online-mba-wx/` },
+         ]}
+       />
        <script
          type="application/ld+json"
           suppressHydrationWarning

@@ -1,4 +1,5 @@
 import OnlineMa from "@/components/Programs/onlineMa";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -33,7 +34,7 @@ title: "Online MA India 2026: Fees, Colleges & Admission",
     "Discover Online MA programs with top colleges, updated fees, eligibility, and career opportunities in arts, humanities, and specialized domains.",
 
   alternates: {
-    canonical: "/programs/online-ma/",
+    canonical: `${siteUrl}/programs/online-ma/`,
   },
 
   keywords: [
@@ -75,6 +76,13 @@ title: "Online MA India 2026: Fees, Colleges & Admission",
 export default function OnlineMaPage() {
   return (
      <>
+       <BreadcrumbSchema
+         items={[
+           { name: "Home", item: siteUrl },
+           { name: "Programs", item: `${siteUrl}/programs/` },
+           { name: "Online MA", item: `${siteUrl}/programs/online-ma/` },
+         ]}
+       />
        <script
          type="application/ld+json"
           suppressHydrationWarning

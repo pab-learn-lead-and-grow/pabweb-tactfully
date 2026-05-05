@@ -1,4 +1,5 @@
 import NmimsDiploma from "@/components/Nmims/NmimsDiploma";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -8,13 +9,13 @@ const siteUrl =
 export const metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: "NMIMS Mumbai Online Diploma Programs | Admission and Fees",
+  title: "NMIMS Online Diploma 2026: Fees, Eligibility & Admission",
 
   description:
     "Explore NMIMS online diploma programs designed for working professionals. Gain industry-focused skills with flexible learning and career-oriented curriculum.",
 
   alternates: {
-    canonical: "/nmims/nmims-mumbai-online-diploma/",
+    canonical: `${siteUrl}/nmims/nmims-mumbai-online-diploma/`,
   },
 
   keywords: [
@@ -28,7 +29,7 @@ export const metadata = {
   ],
 
   openGraph: {
-    title: "NMIMS Online Diploma Programs | Radhya Education Academy",
+    title: "NMIMS Online Diploma 2026: Fees, Eligibility & Admission",
     description:
       "Discover NMIMS online diploma programs designed for professionals seeking flexible and industry-focused learning.",
     url: `${siteUrl}/nmims/nmims-mumbai-online-diploma/`,
@@ -45,5 +46,16 @@ export const metadata = {
 };
 
 export default function NmimsDiplomaPage() {
-  return <NmimsDiploma />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "NMIMS University", item: `${siteUrl}/nmims/` },
+          { name: "NMIMS Online Diploma", item: `${siteUrl}/nmims/nmims-mumbai-online-diploma/` },
+        ]}
+      />
+      <NmimsDiploma />
+    </>
+  );
 }

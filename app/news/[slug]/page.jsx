@@ -3,6 +3,8 @@ import { supabase } from "@/lib/supabaseClient";
 import CategoryNewsClient from "@/components/News/CategoryNewsClient";
 import NewsContent from "@/components/News/NewsContent";
 import { getCategoryNews } from "@/app/actions/getCategoryNews";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
+import { extractFAQFromMarkdown, buildFAQSchema } from '@/lib/extractFAQFromMarkdown';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 const BUCKET_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/News`;
@@ -166,6 +168,8 @@ const getNewsRouteData = cache(async (slug) => {
   const imageUrl = getCoverImageUrl(article.image_url);
   const articleFormattedDate = timeAgo(article.published_at);
   const articleSchema = buildArticleSchema(article, imageUrl, siteUrl);
+  const faqs = extractFAQFromMarkdown(article.content);
+  const faqSchema = buildFAQSchema(faqs);
 
   return {
     type: 'article',
@@ -175,6 +179,7 @@ const getNewsRouteData = cache(async (slug) => {
     imageUrl,
     articleFormattedDate,
     articleSchema,
+    faqSchema,
   };
 });
 
@@ -218,9 +223,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: "Not Found | Radhya Education Academy",
-    alternates: {
-      canonical: `${siteUrl}/news/${slug}/`,
-    },
+    robots: { index: false, follow: false },
   };
 }
 
@@ -230,14 +233,23 @@ export default async function NewsPage({ params }) {
 
   if (data.type === 'category') {
     return (
-      <CategoryNewsClient
-        categories={data.categories}
-        news={data.news}
-        categoryName={data.categoryName}
-        categoryTitle={data.categoryTitle}
-        slug={slug}
-        categoryContent={data.categoryContent}
-      />
+      <>
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", item: siteUrl },
+            { name: "News", item: `${siteUrl}/news/` },
+            { name: data.categoryName, item: `${siteUrl}/news/${slug}/` },
+          ]}
+        />
+        <CategoryNewsClient
+          categories={data.categories}
+          news={data.news}
+          categoryName={data.categoryName}
+          categoryTitle={data.categoryTitle}
+          slug={slug}
+          categoryContent={data.categoryContent}
+        />
+      </>
     );
   }
 
@@ -253,13 +265,23 @@ export default async function NewsPage({ params }) {
   }
 
   return (
-    <NewsContent 
-      article={data.article}
-      articleFormattedDate={data.articleFormattedDate}
-      categoryData={data.categoryData}
-      related={data.relatedNews}
-      imageUrl={data.imageUrl}
-      articleSchema={data.articleSchema}
-    />
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "News", item: `${siteUrl}/news/` },
+          { name: data.article.title, item: `${siteUrl}/news/${slug}/` },
+        ]}
+      />
+      <NewsContent 
+        article={data.article}
+        articleFormattedDate={data.articleFormattedDate}
+        categoryData={data.categoryData}
+        related={data.relatedNews}
+        imageUrl={data.imageUrl}
+        articleSchema={data.articleSchema}
+        faqSchema={data.faqSchema}
+      />
+    </>
   );
 }

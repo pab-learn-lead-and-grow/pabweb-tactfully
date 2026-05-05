@@ -246,7 +246,7 @@ const universities = [
         </div>
       </section>
       {/* ======= SNAPSHOT SECTION ======= */}
-        <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+        <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-sans">
                           <div className="max-w-7xl mx-auto">
                             {/* HEADING */}
                             <MotionWrapper
@@ -436,7 +436,7 @@ const universities = [
 
       <FAQ faqs={faqs} />
 
-        <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-[Inter]">
+        <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-sans">
                                 <div className="max-w-7xl mx-auto">
                                   {/* HEADING */}
                                   <MotionWrapper

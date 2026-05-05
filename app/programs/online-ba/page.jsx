@@ -1,4 +1,5 @@
 import OnlineBa from "@/components/Programs/onlineBa";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -33,7 +34,7 @@ export const metadata = {
     "Explore Online BA courses in India with top colleges, updated fees, eligibility, and career options in arts, humanities, and social sciences.",
 
   alternates: {
-    canonical: "/programs/online-ba/",
+    canonical: `${siteUrl}/programs/online-ba/`,
   },
 
   keywords: [
@@ -75,6 +76,13 @@ export const metadata = {
 export default function OnlineBaPage() {
   return (
      <>
+       <BreadcrumbSchema
+         items={[
+           { name: "Home", item: siteUrl },
+           { name: "Programs", item: `${siteUrl}/programs/` },
+           { name: "Online BA", item: `${siteUrl}/programs/online-ba/` },
+         ]}
+       />
        <script
          type="application/ld+json"
          suppressHydrationWarning

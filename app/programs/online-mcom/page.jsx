@@ -1,4 +1,5 @@
 import OnlineMcom from "@/components/Programs/onlineMcom";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -32,7 +33,7 @@ export const metadata = {
     "Explore Online M.Com colleges in India with updated fees, eligibility, and admission details. Advance your career in finance, accounting, and commerce.",
 
   alternates: {
-    canonical: "/programs/online-mcom/",
+    canonical: `${siteUrl}/programs/online-mcom/`,
   },
 
   keywords: [
@@ -75,6 +76,13 @@ export const metadata = {
 export default function OnlineMcomPage() {
   return (
      <>
+       <BreadcrumbSchema
+         items={[
+           { name: "Home", item: siteUrl },
+           { name: "Programs", item: `${siteUrl}/programs/` },
+           { name: "Online MCom", item: `${siteUrl}/programs/online-mcom/` },
+         ]}
+       />
        <script
          type="application/ld+json"
          suppressHydrationWarning

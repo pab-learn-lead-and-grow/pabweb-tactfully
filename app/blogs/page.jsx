@@ -1,5 +1,6 @@
 import BlogsClient from "@/components/Blogs/BlogsClient";
 import { getBlogData } from "@/app/actions/getBlogData";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -14,7 +15,7 @@ export const metadata = {
     "Read insightful blogs about online education, distance learning, career guidance, and university programs in India.",
 
   alternates: {
-    canonical: "/blogs/",
+    canonical: `${siteUrl}/blogs/`,
   },
 
   openGraph: {
@@ -38,10 +39,18 @@ export default async function BlogsPage() {
   const { trending, latest, categories } = await getBlogData();
 
   return (
-    <BlogsClient
-      trending={trending}
-      latest={latest}
-      categories={categories}
-    />
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Blogs", item: `${siteUrl}/blogs/` },
+        ]}
+      />
+      <BlogsClient
+        trending={trending}
+        latest={latest}
+        categories={categories}
+      />
+    </>
   );
 }

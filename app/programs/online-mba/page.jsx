@@ -1,4 +1,5 @@
 import OnlineMba from "@/components/Programs/onlineMba";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -33,7 +34,7 @@ export const metadata = {
     "Explore Online MBA in India with fees, eligibility, top universities, syllabus and placement opportunities. Compare UGC-approved colleges and choose the best MBA program.",
 
   alternates: {
-    canonical: "/programs/online-mba/",
+    canonical: `${siteUrl}/programs/online-mba/`,
   },
 
   keywords: [
@@ -75,6 +76,13 @@ export default function OnlineMbaPage() {
 
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Programs", item: `${siteUrl}/programs/` },
+          { name: "Online MBA", item: `${siteUrl}/programs/online-mba/` },
+        ]}
+      />
       <script
         type="application/ld+json"
         suppressHydrationWarning

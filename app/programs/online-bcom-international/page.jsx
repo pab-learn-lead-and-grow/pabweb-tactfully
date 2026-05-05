@@ -1,4 +1,5 @@
 import OnlineBcomInt from "@/components/Programs/onlineBcomInt";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -32,7 +33,7 @@ export const metadata = {
     "Explore Online B.Com International programs with global curriculum, top colleges, fees, and career opportunities in international business.",
 
   alternates: {
-    canonical: "/programs/online-bcom-international/",
+    canonical: `${siteUrl}/programs/online-bcom-international/`,
   },
 
   keywords: [
@@ -75,6 +76,13 @@ export const metadata = {
 export default function OnlineBcomIntPage() {
    return (
       <>
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", item: siteUrl },
+            { name: "Programs", item: `${siteUrl}/programs/` },
+            { name: "Online BCom International", item: `${siteUrl}/programs/online-bcom-international/` },
+          ]}
+        />
         <script
           type="application/ld+json"
           suppressHydrationWarning

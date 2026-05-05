@@ -1,4 +1,5 @@
 import SmuMa from "@/components/Smu/SmuMa";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const dynamic = "force-static";
 
@@ -14,7 +15,7 @@ export const metadata = {
     "SMU Online MA from Sikkim Manipal University is a UGC-approved Master of Arts degree offering flexible online learning, academic support, and a career-focused curriculum.",
 
   alternates: {
-    canonical: "/smu/sikkim-manipal-online-ma/",
+    canonical: `${siteUrl}/smu/sikkim-manipal-online-ma/`,
   },
 
   keywords: [
@@ -45,5 +46,16 @@ export const metadata = {
 };
 
 export default function SmuOnlineMaPage() {
-  return <SmuMa />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Sikkim Manipal University", item: `${siteUrl}/smu/` },
+          { name: "SMU Online MA", item: `${siteUrl}/smu/sikkim-manipal-online-ma/` },
+        ]}
+      />
+      <SmuMa />
+    </>
+  );
 }

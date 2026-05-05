@@ -1,4 +1,5 @@
 import JainMba from "@/components/Jain/JainMba";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "JAIN Online MBA is a UGC-approved management degree designed for working professionals. Learn through flexible online classes, industry-focused curriculum, and career-oriented specializations.",
 
   alternates: {
-    canonical: "/jain/jain-online-mba/",
+    canonical: `${siteUrl}/jain/jain-online-mba/`,
   },
 
   keywords: [
@@ -43,5 +44,16 @@ export const metadata = {
 };
 
 export default function Jain() {
-  return <JainMba />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "JAIN University", item: `${siteUrl}/jain/` },
+          { name: "JAIN Online MBA", item: `${siteUrl}/jain/jain-online-mba/` },
+        ]}
+      />
+      <JainMba />
+    </>
+  );
 }

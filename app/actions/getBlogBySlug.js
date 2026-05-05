@@ -2,6 +2,7 @@
 
 import { cache } from 'react';
 import { createClient } from "@supabase/supabase-js";
+import { extractFAQFromMarkdown, buildFAQSchema } from '@/lib/extractFAQFromMarkdown';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -160,6 +161,8 @@ const getBlogBySlug = cache(async (slug) => {
 
     const imageUrl = getImageUrl(article.image_url);
     const articleSchema = buildBlogSchema(article, imageUrl);
+    const faqs = extractFAQFromMarkdown(article.content);
+    const faqSchema = buildFAQSchema(faqs);
 
     return {
       article,
@@ -167,6 +170,7 @@ const getBlogBySlug = cache(async (slug) => {
       related: relatedBlogs,
       imageUrl,
       articleSchema,
+      faqSchema,
       articleFormattedDate: timeAgo(article.published_at)
     };
   } catch (err) {

@@ -1,4 +1,5 @@
 import JobDetails from "@/components/Career/DigitalMarketing";
+import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -12,7 +13,7 @@ export const metadata = {
     "Apply for the Digital Marketing Specialist role at Radhya Education. Manage Google Ads and Meta Ads campaigns, optimize paid marketing performance, and grow your career in the education marketing industry.",
 
   alternates: {
-    canonical: "/jobs-at-radhya/digital-marketing-job/",
+    canonical: `${siteUrl}/jobs-at-radhya/digital-marketing-job/`,
   },
 
   keywords: [
@@ -43,5 +44,16 @@ export const metadata = {
 };
 
 export default function DigitalMarketingPage() {
-  return <JobDetails />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", item: siteUrl },
+          { name: "Careers", item: `${siteUrl}/jobs-at-radhya/` },
+          { name: "Digital Marketing Specialist", item: `${siteUrl}/jobs-at-radhya/digital-marketing-job/` },
+        ]}
+      />
+      <JobDetails />
+    </>
+  );
 }
