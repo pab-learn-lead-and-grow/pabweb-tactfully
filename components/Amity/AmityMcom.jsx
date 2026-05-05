@@ -1440,7 +1440,7 @@ export default function Page() {
         <div className="w-full overflow-hidden">
           {/* HEADER ROW */}
           <div className=" max-w-5xl flex items-center justify-center bg-[#d68E0E]/10 text-[#D68E0E] font-semibold text-center m-auto px-10 lg:px-30 py-8 text-[14px] md:text-[24px] rounded-xl">
-            <p>ADMISSION OPEN FOR JANUARY 26 SESSION</p>
+            <p>ADMISSION OPEN FOR JULY 2026 SESSION</p>
           </div>
         </div>
       </section>
