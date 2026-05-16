@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
@@ -25,6 +25,21 @@ function BlogCTA({ onOpen }) {
   );
 }
 
+const timeAgo = (dateString) => {
+  if (!dateString) return "";
+  const now = new Date();
+  const past = new Date(dateString);
+  const diff = Math.floor((now - past) / 1000);
+  const minutes = Math.floor(diff / 60);
+  const hours = Math.floor(diff / 3600);
+  const days = Math.floor(diff / 86400);
+  if (diff < 60) return "just now";
+  if (minutes < 60) return `${minutes} min ago`;
+  if (hours < 24) return `${hours} hr ago`;
+  if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
+  return past.toLocaleDateString("en-GB");
+};
+
 export default function BlogContent({ 
   article, 
   articleFormattedDate,
@@ -35,6 +50,8 @@ export default function BlogContent({
   faqSchema
 }) {
   const [showModal, setShowModal] = useState(false);
+  const [clientDate, setClientDate] = useState(articleFormattedDate);
+  useEffect(() => { setClientDate(timeAgo(article?.published_at)); }, [article?.published_at]);
 
     const universities = [
     {
@@ -96,7 +113,7 @@ export default function BlogContent({
               <span>•</span>
             </>
           )}
-          <span>{articleFormattedDate}</span>
+          <span>{clientDate}</span>
         </div>
 
         {imageUrl && (

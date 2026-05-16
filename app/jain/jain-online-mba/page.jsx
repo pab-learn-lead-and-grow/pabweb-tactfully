@@ -13,7 +13,7 @@ export const metadata = {
     "JAIN Online MBA is a UGC-approved management degree designed for working professionals. Learn through flexible online classes, industry-focused curriculum, and career-oriented specializations.",
 
   alternates: {
-    canonical: `${siteUrl}/jain/jain-online-mba/`,
+    canonical: `https://radhyaeducationacademy.com/jain/jain-online-mba/`,
   },
 
   keywords: [
@@ -30,7 +30,7 @@ export const metadata = {
     title: "JAIN Online MBA | UGC-Approved MBA Degree Program",
     description:
       "Explore JAIN University Online MBA program with flexible online learning, industry-relevant curriculum, and a UGC-approved management degree.",
-    url: `${siteUrl}/jain/jain-online-mba/`,
+    url: `https://radhyaeducationacademy.com/jain/jain-online-mba/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

@@ -13,7 +13,7 @@ export const metadata = {
     "JAIN Online BCom is a UGC-approved undergraduate commerce degree offering flexible online learning, industry-relevant curriculum, and career opportunities in finance, accounting, and business.",
 
   alternates: {
-    canonical: `${siteUrl}/jain/jain-online-bcom/`,
+    canonical: `https://radhyaeducationacademy.com/jain/jain-online-bcom/`,
   },
 
   keywords: [
@@ -30,7 +30,7 @@ export const metadata = {
     title: "JAIN Online BCom | UGC-Approved Commerce Degree",
     description:
       "Explore JAIN University Online BCom program with flexible online learning, industry-focused curriculum, and a UGC-approved undergraduate commerce degree.",
-    url: `${siteUrl}/jain/jain-online-bcom/`,
+    url: `https://radhyaeducationacademy.com/jain/jain-online-bcom/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

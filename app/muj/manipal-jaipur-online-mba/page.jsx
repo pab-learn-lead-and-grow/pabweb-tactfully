@@ -14,7 +14,7 @@ export const metadata = {
     "Manipal University Jaipur Online MBA offers a UGC-approved management degree with flexible online learning, industry-focused curriculum, and career support for professionals and working executives.",
 
   alternates: {
-    canonical: `${siteUrl}/muj/manipal-jaipur-online-mba/`,
+    canonical: `https://radhyaeducationacademy.com/muj/manipal-jaipur-online-mba/`,
   },
 
   keywords: [
@@ -31,7 +31,7 @@ export const metadata = {
     title: "Manipal University Jaipur Online MBA | Radhya Education Academy",
     description:
       "Explore MUJ Online MBA with flexible learning, industry-focused curriculum, and UGC-approved recognition.",
-    url: `${siteUrl}/muj/manipal-jaipur-online-mba/`,
+    url: `https://radhyaeducationacademy.com/muj/manipal-jaipur-online-mba/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

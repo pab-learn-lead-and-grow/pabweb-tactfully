@@ -486,7 +486,7 @@ export default function Page() {
               viewport={{ once: true }}
               className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[56px] font-sans font-bold mt-1 leading-tight"
             >
-              AMITY Online MBA : Fees, Eligibility & Admission Dates 2026
+              AMITY Online BA : Fees, Eligibility & Admission Dates 2026
             </MotionWrapper>
 
             <MotionWrapper

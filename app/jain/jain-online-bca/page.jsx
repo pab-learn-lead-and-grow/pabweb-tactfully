@@ -13,7 +13,7 @@ export const metadata = {
     "JAIN Online BCA is a UGC-approved undergraduate computer applications degree offering flexible online learning, industry-relevant curriculum, and career opportunities in the IT and software sector.",
 
   alternates: {
-    canonical: `${siteUrl}/jain/jain-online-bca/`,
+    canonical: `https://radhyaeducationacademy.com/jain/jain-online-bca/`,
   },
 
   keywords: [
@@ -30,7 +30,7 @@ export const metadata = {
     title: "JAIN Online BCA | UGC-Approved Computer Applications Degree",
     description:
       "Explore JAIN University Online BCA program with flexible online learning, industry-focused curriculum, and a UGC-approved undergraduate degree.",
-    url: `${siteUrl}/jain/jain-online-bca/`,
+    url: `https://radhyaeducationacademy.com/jain/jain-online-bca/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

@@ -1,4 +1,4 @@
-export default function FAQ({ faqs }) {
+export default function FAQ({ faqs,  heading = "Frequently Asked Questions", }) {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -14,7 +14,6 @@ export default function FAQ({ faqs }) {
 
   return (
     <section className="w-full px-4 md:px-10 py-16 bg-white">
-      
       {/* Schema */}
       <script
         type="application/ld+json"
@@ -25,30 +24,23 @@ export default function FAQ({ faqs }) {
 
       {/* Heading */}
       <h2 className="text-2xl md:text-4xl font-bold text-[#270652] mb-10 text-center">
-        Frequently Asked Questions
+        {heading}
       </h2>
 
       {/* FAQ Container */}
       <div className="max-w-4xl mx-auto">
-
         {faqs.map((faq, i) => (
-        <details key={i} className="border-b py-5 group">
-          
-          <summary className="cursor-pointer font-semibold text-lg text-black flex justify-between items-center">
-            {faq.q}
-            <span className="transition-transform duration-300 group-open:rotate-45">
-              +
-            </span>
-          </summary>
+          <details key={i} className="border-b py-5 group">
+            <summary className="cursor-pointer flex justify-between items-center list-none">
+              <h3 className="font-semibold text-lg text-black">{faq.q}</h3>
 
-          <p className="mt-3 text-black leading-relaxed">
-            {faq.a}
-          </p>
-
-        </details>
-      ))}
-
-
+              <span className="transition-transform duration-300 group-open:rotate-45 text-black text-xl">
+                +
+              </span>
+            </summary>
+            <p className="mt-3 text-black leading-relaxed">{faq.a}</p>
+          </details>
+        ))}
       </div>
     </section>
   );

@@ -13,7 +13,7 @@ export const metadata = {
     "JAIN Online MCA is a UGC-approved postgraduate computer applications degree offering flexible online learning, industry-focused curriculum, and career opportunities in the IT sector.",
 
   alternates: {
-    canonical: `${siteUrl}/jain/jain-online-mca/`,
+    canonical: `https://radhyaeducationacademy.com/jain/jain-online-mca/`,
   },
 
   keywords: [
@@ -30,7 +30,7 @@ export const metadata = {
     title: "JAIN Online MCA | UGC-Approved Computer Applications Degree",
     description:
       "Explore JAIN University Online MCA program with flexible online learning, industry-relevant curriculum, and a UGC-approved postgraduate degree.",
-    url: `${siteUrl}/jain/jain-online-mca/`,
+    url: `https://radhyaeducationacademy.com/jain/jain-online-mca/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },

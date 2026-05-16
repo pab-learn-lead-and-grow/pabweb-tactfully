@@ -38,14 +38,19 @@ function buildPageSchema(page, imageUrl, siteUrl) {
 }
 
 const getPageData = cache(async (slug) => {
-  const { data: page } = await supabase
+  const { data: page, error } = await supabase
     .from("pages")
     .select("page_id, title, slug, content, image_url, meta_title, meta_description, meta_keywords, published_at, created_at, updated_at")
-    .eq("slug", slug)
+    .eq("slug", slug.trim())
     .eq("is_published", true)
     .single();
 
-  if (!page) return null;
+  if (error || !page) {
+    if (error && error.code !== 'PGRST116') {
+      console.error(`getPageData error for slug "${slug}":`, error);
+    }
+    return null;
+  }
 
   const imageUrl = getImageUrl(page.image_url);
   const pageSchema = buildPageSchema(page, imageUrl, siteUrl);
@@ -82,15 +87,16 @@ export async function generateMetadata({ params }) {
   const { page, imageUrl, pageSchema } = data;
 
   return {
+    metadataBase: new URL(siteUrl),
     title: page.meta_title || page.title,
     description: page.meta_description || `Read more about ${page.title}`,
     alternates: {
-      canonical: `${siteUrl}/${slug}/`,
+      canonical: `${siteUrl}/${page.slug}/`,
     },
     openGraph: {
       title: page.meta_title || page.title,
       description: page.meta_description,
-      url: `${siteUrl}/${slug}/`,
+      url: `${siteUrl}/${page.slug}/`,
       siteName: "Radhya Education Academy",
       type: "website",
       ...(imageUrl && { images: [{ url: imageUrl }] }),
@@ -129,7 +135,7 @@ export default async function Page({ params }) {
       <BreadcrumbSchema
         items={[
           { name: "Home", item: siteUrl },
-          { name: data.page.title, item: `${siteUrl}/${slug}/` },
+          { name: data.page.title, item: `${siteUrl}/${data.page.slug}/` },
         ]}
       />
       <PageContent

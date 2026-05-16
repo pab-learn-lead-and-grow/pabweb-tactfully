@@ -18,8 +18,8 @@
           ];
 
           const pageColumns = [];
-          for (let i = 0; i < pages.length; i += 6) {
-            pageColumns.push(pages.slice(i, i + 6));
+          for (let i = 0; i < pages.length; i += 7) {
+            pageColumns.push(pages.slice(i, i + 7));
           }
 
           const links = [

@@ -10,10 +10,10 @@ export const metadata = {
   title: "Amity University Online MA Fees & Admission 2026",
 
   description:
-    "Amity Online MA is a UGC-approved postgraduate arts degree offering flexible online learning, industry-focused curriculum, and academic support for career growth.",
+    "Explore Amity University Online MA program with specializations in humanities and social sciences, flexible postgraduate learning, placement support, and UGC-entitled online education.",
 
   alternates: {
-    canonical: `${siteUrl}/amity/amity-online-ma/`,
+    canonical: `https://radhyaeducationacademy.com/amity/amity-online-ma/`,
   },
 
   keywords: [
@@ -30,7 +30,7 @@ export const metadata = {
     title: "Amity Online MA | UGC-Approved Postgraduate Arts Degree",
     description:
       "Explore Amity University Online MA program with flexible learning, industry-relevant curriculum, and a UGC-approved postgraduate degree.",
-    url: `${siteUrl}/amity/amity-online-ma/`,
+    url: `https://radhyaeducationacademy.com/amity/amity-online-ma/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },
