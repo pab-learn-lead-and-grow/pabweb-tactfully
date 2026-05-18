@@ -6,6 +6,7 @@ import CounsellingModal from "../Radhya/CounsellingModal";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import ContactNmims from "../Nmims/ContactNmims";
 import FAQ from "../NmimsSection/FAQ";
+import HideOnSection from "../NmimsSection/HideOnSection";
 
 export default function page() {
   const faqs = [
@@ -68,10 +69,10 @@ export default function page() {
 
         {/* CONTENT */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
 
             {/* LEFT DIV */}
-            <div>
+            <div className="lg:col-span-8 min-w-0">
               <MotionWrapper
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -90,8 +91,8 @@ export default function page() {
                 viewport={{ once: true }}
                 className="text-white text-[28px] md:text-5xl font-bold mt-2 leading-tight"
               >
-                Online MBA Manipal: Fees, Admission 2026, Eligibility &
-                Placements
+                Online MBA Manipal: Fees, Admission 2026, Eligibility,
+                Placements & Review
               </MotionWrapper>
 
               <MotionWrapper
@@ -128,20 +129,16 @@ export default function page() {
               </MotionWrapper>
             </div>
 
-            {/* RIGHT DIV */}
-            <div className="w-full flex justify-center lg:justify-end">
-              <div className="w-full max-w-md">
-                <ContactNmims />
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
-      <>
-<div className="grid lg:grid-cols-[1fr_400px] gap-2">
-  <div>
+<section className="w-full py-10 relative">
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+     {/* LEFT CONTENT */}
+<div className="lg:col-span-8 min-w-0">
   <section className="max-w-6xl w-full mt-10 lg:mt-15 px-4 mx-auto">
     <h2 className="text-[32px] md:text-4xl font-bold text-[#270652] mb-4">
       Online MBA Manipal - Overview, Accreditation & Key Highlights
@@ -2717,16 +2714,28 @@ export default function page() {
       .
     </div>
   </section>
-  </div>
-    <div className="lg:block justify-start sticky mt-15 max-w-[360px] relative overflow-visible">    
-        <ContactNmims />
-      </div>
-  </div>
-</>
 
-  <FAQ faqs={faqs} heading="Online MBA Manipal FAQs" />
+          <FAQ faqs={faqs} heading="Online MBA Manipal FAQs" />
+        
+
+      </div>
+
+      {/* STICKY SIDEBAR */}
+      <div className="hidden lg:block lg:col-span-4">
+  <div className="fixed top-24 h-fit pr-6 ">
+    <HideOnSection targetId="connect-today">
+    <ContactNmims />
+  </HideOnSection>
+  </div>
+</div>
+
+    </div>
+
+  </div>
+ <div id="connect-today">
   <ConnectToday />
+</div>
+</section>
 </main>
   );
 }
-

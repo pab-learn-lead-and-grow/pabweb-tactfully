@@ -132,7 +132,9 @@ export default function RootLayout({ children }) {
      <body className={`${inter.className} scrollbar-hide`}>
         <Navbar />
         {children}
-        <Footer />
+        <div id="global-footer">
+  <Footer />
+</div>
       </body>
     </html>
   );

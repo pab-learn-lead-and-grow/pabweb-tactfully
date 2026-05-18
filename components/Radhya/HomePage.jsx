@@ -20,7 +20,6 @@ const ContactSection = dynamic(() => import("./ContactSection"), {
 const LogoSection = dynamic(() => import("./LogoSection"), {
   loading: () => <div className="h-32 bg-gray-100 animate-pulse"></div>
 });
-
 export default function HomePage({ latestNews = [], latestBlogs = [] }) {
 
 const logos = [

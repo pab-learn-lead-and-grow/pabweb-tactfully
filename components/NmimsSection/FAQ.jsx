@@ -1,4 +1,6 @@
-export default function FAQ({ faqs,  heading = "Frequently Asked Questions", }) {
+import { forwardRef } from "react";
+
+const FAQ = forwardRef(function FAQ({ faqs,  heading = "Frequently Asked Questions", }, ref) {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -13,7 +15,7 @@ export default function FAQ({ faqs,  heading = "Frequently Asked Questions", }) 
   };
 
   return (
-    <section className="w-full px-4 md:px-10 py-16 bg-white">
+    <section ref={ref} className="w-full px-4 md:px-10 py-16 bg-white">
       {/* Schema */}
       <script
         type="application/ld+json"
@@ -44,4 +46,6 @@ export default function FAQ({ faqs,  heading = "Frequently Asked Questions", }) 
       </div>
     </section>
   );
-}
+});
+
+export default FAQ;

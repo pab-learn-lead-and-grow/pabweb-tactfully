@@ -25,7 +25,7 @@ const CATEGORIES = [
           "ranked top 30 by NIRF", "Mumbai"
         ],
         image: "/nmims.png",
-        path: "/nmims/nmims-mumbai-online-mba"
+        path: "/nmims-online-mba",
       },
       {
         id: "manipal-mba",

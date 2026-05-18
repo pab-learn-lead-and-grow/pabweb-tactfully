@@ -9,12 +9,13 @@
           const { categories } = await getNewsCategories();
 
         const onlineMbaPages = [
-            { name: "NMIMS Online MBA", path: "/nmims/nmims-mumbai-online-mba/" },
+            { name: "NMIMS Online MBA", path: "/nmims-online-mba", },
             { name: "AMITY Online MBA", path: "/amity/amity-online-mba/" },
             { name: "MUJ Online MBA", path: "/muj/manipal-jaipur-online-mba/" },
             { name: "SMU Online MBA", path: "/smu/sikkim-manipal-online-mba/" },
             { name: "Bennett Online MBA", path: "/bennett/bennett-online-mba/" },
             { name: "Jain Online MBA", path: "/jain/jain-online-mba/" },
+            { name: "Manipal Online MBA", path: "/online-mba-manipal/" },
           ];
 
           const pageColumns = [];
@@ -83,7 +84,7 @@
       People also search for
     </h3>
 
-    <div className="grid grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-6 w-full">
+    <div className="grid grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-2 w-full">
       {pageColumns.map((column, idx) => (
         <ul key={idx} className="space-y-1 text-[11px] md:text-xs text-black">
           {column.map((page) => (

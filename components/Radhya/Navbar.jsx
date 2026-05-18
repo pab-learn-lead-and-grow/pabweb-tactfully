@@ -137,7 +137,7 @@ const handleProgramAction = (program) => {
           id: 1,
           title: "Masters of Business Administration",
           logo: "/nmims.png",
-          path: "/nmims/nmims-mumbai-online-mba",
+          path: "/nmims-online-mba",
         },
         {
           id: 2,
