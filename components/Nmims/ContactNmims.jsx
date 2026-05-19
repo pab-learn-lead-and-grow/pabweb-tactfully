@@ -120,7 +120,7 @@ export default function ContactNmims({
 
   if (submitted) {
     return (
-      <section className="w-full bg-gradient-to-b from-white to-purple-50 p-4">
+      <section className="w-full bg-gradient-to-b from-white to-purple-100 p-4">
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
@@ -146,7 +146,7 @@ export default function ContactNmims({
   }
 
   return (
-    <section className="w-full bg-white text-black placeholder:text-gray-800  rounded-xl p-4">
+    <section className="w-full bg-white text-black placeholder:text-gray-800 rounded-xl p-4 border border-gray-300 animate-soft-blink shadow-lg">
       <div className="max-w-3xl mx-auto flex flex-col ">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#9542FF] to-[#180135] bg-clip-text text-transparent">

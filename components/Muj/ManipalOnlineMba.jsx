@@ -34,7 +34,7 @@ export default function page() {
 
   return (
     <main className="flex flex-col items-center w-full bg-white overflow-visible">
-      <section className="relative min-h-[50vh] w-full ">
+      <section className="relative min-h-dvh w-full ">
         {/*Hero Section Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -109,24 +109,24 @@ export default function page() {
                 recorded learning with industry-relevant curriculum, making it a
                 better alternative to options like manipal distance mba. In this
                 guide, explore key details like fees, admission 2026,
-                eligibility, syllabus, placements, and career scope to help you
+                eligibility, syllabus, placements, & career scope to help you
                 choose the right path.
               </MotionWrapper>
 
               <MotionWrapper
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                viewport={{ once: true }}
-                className="mt-8"
-              >
-                <CounsellingModal>
-                  <button className="flex items-center gap-2 bg-[#EEA727] font-semibold text-[#3C087E] px-5 py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-105">
-                    Download Brochure
-                    <Download className="w-5 h-5" />
-                  </button>
-                </CounsellingModal>
-              </MotionWrapper>
+                              initial={{ opacity: 0, y: 25 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.7 }}
+                              viewport={{ once: true }}
+                              className="mt-8 hidden md:block"
+                            >
+                              <CounsellingModal>
+                                                <button className="flex  items-center gap-2 bg-[#EEA727] font-semibold text-[#3C087E] px-5 py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-105">
+                                                  Download Brochure
+                                                  <Download className="w-5 h-5" />
+                                                </button>
+                                              </CounsellingModal>
+                            </MotionWrapper>
             </div>
 
           </div>
@@ -2722,7 +2722,7 @@ export default function page() {
 
       {/* STICKY SIDEBAR */}
       <div className="hidden lg:block lg:col-span-4">
-  <div className="fixed top-24 h-fit pr-6 ">
+  <div className="fixed top-24 h-fit pr-6">
     <HideOnSection targetId="connect-today">
     <ContactNmims />
   </HideOnSection>
@@ -2736,6 +2736,14 @@ export default function page() {
   <ConnectToday />
 </div>
 </section>
+<div className="fixed bottom-0 left-0 right-0 z-50 md:hidden shadow-lg p-3">
+  <CounsellingModal>
+    <button className="flex items-center mx-auto px-10 justify-center gap-2 bg-[#EEA727] text-[#3C087E] font-semibold py-3 rounded-xl">
+      Download Brochure
+      <Download className="w-5 h-5" />
+    </button>
+  </CounsellingModal>
+</div>
 </main>
   );
 }
