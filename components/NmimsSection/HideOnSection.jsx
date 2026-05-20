@@ -1,35 +1,47 @@
-// components/Common/HideOnSection.jsx
-
 "use client";
 
 import { useEffect, useState } from "react";
 
-export default function HideOnSection({ children }) {
+export default function HideOnSection({
+  children,
+  targetIds = [],
+}) {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const connectToday = document.getElementById("connect-today");
-      const footer = document.getElementById("global-footer");
-
       let shouldHide = false;
 
-      // Hide when ConnectToday enters viewport
-      if (connectToday) {
-        const connectTop =
-          connectToday.getBoundingClientRect().top;
+      // Hide when any target section is visible
+      targetIds.forEach((id) => {
+        const section = document.getElementById(id);
 
-        if (connectTop <= window.innerHeight * 0.8) {
-          shouldHide = true;
+        if (section) {
+          const rect = section.getBoundingClientRect();
+
+          const isVisible =
+            rect.top < window.innerHeight &&
+            rect.bottom > 0;
+
+          if (isVisible) {
+            shouldHide = true;
+          }
         }
-      }
+      });
 
-      // Keep hidden when footer appears
+      // Hide when footer appears
+      const footer =
+        document.getElementById("global-footer");
+
       if (footer) {
-        const footerTop =
-          footer.getBoundingClientRect().top;
+        const footerRect =
+          footer.getBoundingClientRect();
 
-        if (footerTop <= window.innerHeight) {
+        const footerVisible =
+          footerRect.top < window.innerHeight &&
+          footerRect.bottom > 0;
+
+        if (footerVisible) {
           shouldHide = true;
         }
       }
@@ -46,10 +58,16 @@ export default function HideOnSection({ children }) {
     handleScroll();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+      window.removeEventListener(
+        "resize",
+        handleScroll
+      );
     };
-  }, []);
+  }, [targetIds]);
 
   return (
     <div
