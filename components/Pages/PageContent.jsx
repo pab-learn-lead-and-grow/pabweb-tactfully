@@ -131,7 +131,7 @@ export default function PageContent({
 
               {/* PAGE CONTENT */}
               {page.content ? (
-                <div className="prose prose-lg max-w-none text-gray-900">
+                <div className="prose prose-lg text-justify max-w-none text-gray-900">
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeRaw]}
