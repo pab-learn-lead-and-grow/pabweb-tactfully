@@ -257,13 +257,13 @@ html {
 }
 
 .prose a {
-  color: #0e0e0e;
-  font-weight: 500; 
+  color: #3c087e;
+  font-weight: 700; 
   text-decoration: none; 
 }
 
 .prose a:hover {
-  color: #3c087e;
+  
   text-decoration: underline;
 }
 
