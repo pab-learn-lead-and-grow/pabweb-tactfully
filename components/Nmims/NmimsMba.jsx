@@ -23,6 +23,7 @@ import FeesCarousel from "../NmimsSection/FeesCrousel";
 import SnapshotSection from "../NmimsSection/SnapshotSection";
 import SyllabusSection from "../NmimsSection/Syllabus";
 import CounsellingModal from "../Radhya/CounsellingModal";
+import Link from "next/link";
 import React from "react";
 import CareerServices from "../NmimsSection/CareerServices";
 import Enrollment from "../NmimsSection/Enrollment";
