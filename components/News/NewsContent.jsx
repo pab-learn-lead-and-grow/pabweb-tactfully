@@ -217,33 +217,33 @@ export default function NewsContent({
         </div>
       </article>
 
-      <section
-        id="universities-section"
-        className="w-full mt-8 md:mt-16 font-sans"
-      >
-        <div className="max-w-7xl mx-auto">
-          {/* HEADING */}
-          <MotionWrapper
-            as="h2"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-[28px] sm:text-[36px] md:text-5xl leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
-          >
-            Explore other top universities
-          </MotionWrapper>
-        </div>
-        <div className="h-[120px]">
-          <UniversityCards logos={universities} />
-        </div>
-      </section>
+            {/* UNIVERSITIES SECTION */}
+           <section
+           id="universities-section"
+            className="w-full mt-8 md:mt-16 mb-8 font-sans">
+             <div className="max-w-7xl mx-auto">
+               <MotionWrapper
+                 as="h2"
+                 initial={{ opacity: 0, y: -30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.6 }}
+                 viewport={{ once: true }}
+                 className="text-[28px] sm:text-[36px] md:text-5xl leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
+               >
+                 Explore other top universities
+               </MotionWrapper>
+             </div>
+     
+             <div className="min-h-60 md:min-h-65">
+               <UniversityCards logos={universities} />
+             </div>
+           </section>
 
       <ConnectToday />
       {/* MOBILE STICKY CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t shadow-lg p-3">
         <CounsellingModal>
-          <button className="w-full flex items-center justify-center gap-2 bg-[#EEA727] text-[#3C087E] font-semibold py-3 rounded-xl">
+          <button className="w-full flex items-center justify-center gap-2 bg-[#EEA727] text-[#3C087E] animate-soft-blink font-semibold py-3 rounded-xl">
             Download Brochure
             <Download className="w-5 h-5" />
           </button>

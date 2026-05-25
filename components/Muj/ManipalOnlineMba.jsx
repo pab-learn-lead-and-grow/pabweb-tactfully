@@ -3007,7 +3007,7 @@ export default function page() {
       </section>
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden shadow-lg p-3">
         <CounsellingModal>
-          <button className="flex items-center mx-auto px-10 justify-center gap-2 bg-[#EEA727] text-[#3C087E] font-semibold py-3 rounded-xl">
+          <button className="flex items-center mx-auto px-10 justify-center gap-2 bg-[#EEA727] text-[#3C087E] animate-soft-blink font-semibold py-3 rounded-xl">
             Download Brochure
             <Download className="w-5 h-5" />
           </button>

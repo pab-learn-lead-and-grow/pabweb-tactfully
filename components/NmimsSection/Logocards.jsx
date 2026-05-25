@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function UniversityCards({ logos }) {
 
   return (
-    <div className="relative w-full overflow-hidden relative">
+    <div className="relative w-full overflow-hidden">
       
       {/* SCROLLER */}
       <div className="marquee flex min-w-max whitespace-nowrap animate-marquee gap-6 py-4 px-2">

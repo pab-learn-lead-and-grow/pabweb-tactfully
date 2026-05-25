@@ -3,7 +3,7 @@ import CounsellingModal from "../Radhya/CounsellingModal";
 export default function ConnectToday() {
 
   return (
-    <section className="w-full h-60 md:h-90 bg-[#3C087E] mt-5 md:mt-8 xl:mt-20 py-20 flex flex-col items-center text-left">
+    <section className="w-full min-h-[260px] md:min-h-[360px] bg-[#3C087E] mt-5 md:mt-8 xl:mt-20 py-20 flex flex-col items-center text-left">
       <h2 className="text-xl md:text-4xl font-sans font-bold text-white max-w-4xl leading-tight text-center px-4">
         Connect Today for expert-led,
         <br />

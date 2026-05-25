@@ -364,25 +364,25 @@ const universities = [
 
       <FAQ faqs={faqs} />
 
-        <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-sans">
-                         <div className="max-w-7xl mx-auto">
-                           {/* HEADING */}
-                           <MotionWrapper
-                           as="h2"
-                             initial={{ opacity: 0, y: -30 }}
-                             whileInView={{ opacity: 1, y: 0 }}
-                             transition={{ duration: 0.6 }}
-                             viewport={{ once: true }}
-                             className="text-[28px] sm:text-[36px] md:text-[54px] lg:text-[64px] leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
-                           >
-                             Explore other top universities
-                           </MotionWrapper>
-                         </div>
-                       </section>
-            
-                        <div className="h-[120px]">
-                   <UniversityCards logos={universities} />
-                  </div>
+             {/* UNIVERSITIES SECTION */}
+            <section className="w-full mt-8 md:mt-16 mb-8 font-sans">
+              <div className="max-w-7xl mx-auto">
+                <MotionWrapper
+                  as="h2"
+                  initial={{ opacity: 0, y: -30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-[28px] sm:text-[36px] md:text-5xl leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
+                >
+                  Explore other top universities
+                </MotionWrapper>
+              </div>
+      
+              <div className="min-h-60 md:min-h-65">
+                <UniversityCards logos={universities} />
+              </div>
+            </section>
 
       <ConnectToday />
      
