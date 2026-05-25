@@ -11,6 +11,10 @@ import Script from "next/script";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import UniversityCards from "../NmimsSection/Logocards";
 import MotionWrapper from "../Radhya/MotionWrapper";
+import HideOnSection from "../NmimsSection/HideOnSection";
+import ContactNmims from "../Nmims/ContactNmims";
+import CounsellingModal from "../Radhya/CounsellingModal";
+import { Download } from "lucide-react";
 
 function BlogCTA({ onOpen }) {
   return (
@@ -51,7 +55,11 @@ export default function BlogContent({
 }) {
   const [showModal, setShowModal] = useState(false);
   const [clientDate, setClientDate] = useState(articleFormattedDate);
-  useEffect(() => { setClientDate(timeAgo(article?.published_at)); }, [article?.published_at]);
+  useEffect(() => {
+  if (article?.published_at) {
+    setClientDate(timeAgo(article.published_at));
+  }
+}, [article?.published_at]);
 
     const universities = [
     {
@@ -99,7 +107,14 @@ export default function BlogContent({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      <div className="mt-10 max-w-6xl mx-auto py-12 p-5 lg:p-15">
+
+      <article>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-10">
+          {/* MAIN GRID */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            {/* LEFT CONTENT */}
+            <div className="lg:col-span-8 mt-15 min-w-0">
         <h2 className="text-3xl lg:text-4xl font-bold text-[#3C087E] mb-4">
           {article.title}
         </h2>
@@ -189,31 +204,62 @@ export default function BlogContent({
           )}
         </div>
 
+        </div>
+
         {showModal && (
           <CounsellingForm onClose={() => setShowModal(false)} />
         )}
-      </div>
-       <section className="w-full mt-10 px-4 md:px-10 lg:px-20 font-sans">
-              <div className="max-w-7xl mx-auto">
-                {/* HEADING */}
-                <MotionWrapper
-                  as="h2"
-                  initial={{ opacity: 0, y: -30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="text-[28px] sm:text-[36px] md:text-5xl leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
-                >
-                  Explore other top universities
-                </MotionWrapper>
+           {/* RIGHT SIDEBAR */}
+            <div className="hidden lg:block lg:col-span-4">
+              <div className="sticky top-24 w-full h-fit">
+                <HideOnSection  targetIds={[
+    "connect-today",
+    "universities-section",
+  ]}>
+                  <ContactNmims />
+                </HideOnSection>
               </div>
-            </section>
-      
-            <div className="h-[120px]">
-              <UniversityCards logos={universities} />
             </div>
+
+          </div>
+        </div>
+      </article>
+
+       {/* UNIVERSITIES SECTION */}
+      <section
+      id="universities-section"
+       className="w-full mt-8 md:mt-16 font-sans">
+        <div className="max-w-7xl mx-auto">
+          <MotionWrapper
+            as="h2"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-[28px] sm:text-[36px] md:text-5xl leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
+          >
+            Explore other top universities
+          </MotionWrapper>
+        </div>
+
+        <div className="h-[120px]">
+          <UniversityCards logos={universities} />
+        </div>
+      </section>
       
             <ConnectToday />
+
+            <ConnectToday />
+
+{/* MOBILE STICKY CTA */}
+<div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t shadow-lg p-3">
+  <CounsellingModal>
+    <button className="w-full flex items-center justify-center gap-2 bg-[#EEA727] text-[#3C087E] font-semibold py-3 rounded-xl">
+      Download Brochure
+      <Download className="w-5 h-5" />
+    </button>
+  </CounsellingModal>
+</div>
     </>
   );
 }

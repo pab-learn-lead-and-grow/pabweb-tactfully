@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import {
   Download,
@@ -37,7 +36,6 @@ import UnivCourses from "../Radhya/UnivCourses";
 import SpecializationSection from "../Programs/SpecializationSection";
 
 export default function Page() {
-
   const whyCards = [
     {
       logo: Users,
@@ -99,8 +97,6 @@ export default function Page() {
       desc: "On Document approval, Payment approval & Student verification your admission will be confirmed, and a 'student number' will be issued to you by the University.",
     },
   ];
-
-  
 
   const learningCards = [
     {
@@ -180,42 +176,42 @@ export default function Page() {
   ];
 
   const specializationsData = [
-  {
-    slug: "finance",
-    specialization_name: "Financial Management",
-    cover_image: "/specializations/finance.png",
-  },
-  {
-    slug: "media",
-    specialization_name: "Marketing Management",
-    cover_image: "/specializations/marketing.png",
-  },
-  {
-    slug: "business",
-    specialization_name: "Business Management",
-    cover_image: "/specializations/business.png",
-  },
-  {
-    slug: "hr",
-    specialization_name: "Human Resource Management",
-    cover_image: "/specializations/hr.png",
-  },
-   {
-    slug: "logistics",
-    specialization_name: "Operation and Data Science Management",
-    cover_image: "/specializations/data.png",
-  },
-   {
-    slug: "it",
-    specialization_name: "Information Technology Management",
-    cover_image: "/specializations/software.png",
-  },
-   {
-    slug: "analytics",
-    specialization_name: "Business Analytics",
-    cover_image: "/specializations/analytics.png",
-  },
-];
+    {
+      slug: "finance",
+      specialization_name: "Financial Management",
+      cover_image: "/specializations/finance.png",
+    },
+    {
+      slug: "media",
+      specialization_name: "Marketing Management",
+      cover_image: "/specializations/marketing.png",
+    },
+    {
+      slug: "business",
+      specialization_name: "Business Management",
+      cover_image: "/specializations/business.png",
+    },
+    {
+      slug: "hr",
+      specialization_name: "Human Resource Management",
+      cover_image: "/specializations/hr.png",
+    },
+    {
+      slug: "logistics",
+      specialization_name: "Operation and Data Science Management",
+      cover_image: "/specializations/data.png",
+    },
+    {
+      slug: "it",
+      specialization_name: "Information Technology Management",
+      cover_image: "/specializations/software.png",
+    },
+    {
+      slug: "analytics",
+      specialization_name: "Business Analytics",
+      cover_image: "/specializations/analytics.png",
+    },
+  ];
 
   const subjects = [
     { id: 1, name: "Business Management" },
@@ -381,76 +377,76 @@ export default function Page() {
       ],
     },
     5: {
-  1: [
-    "Business Communication",
-    "Financial Accounting",
-    "Marketing Management",
-    "Micro Economics and Macro Economics",
-    "Organisational Behaviour",
-    "Quantitative Methods-I"
-  ],
-  2: [
-    "Business Analytics",
-    "Cost & Management Accounting",
-    "Legal Aspects of Business",
-    "Strategic Management",
-    "Human Resource Management",
-    "Operations Management"
-  ],
-  3: [
-    "Corporate Finance",
-    "Research Methodology",
-    "Project Pre-Work",
-    "Data Analytics for Business",
-    "Machine Learning for Managers",
-    "Business Process Modelling and Management",
-    "Visual Analytics"
-  ],
-  4: [
-    "Corporate Sustainability",
-    "Indian Ethos & Ethics",
-    "International Business",
-    "Project",
-    "Operational and Supply Chain Analytics",
-    "Digital Leadership in the Age of Industry 5.0",
-    "Consumer Data Analytics"
-  ]
+      1: [
+        "Business Communication",
+        "Financial Accounting",
+        "Marketing Management",
+        "Micro Economics and Macro Economics",
+        "Organisational Behaviour",
+        "Quantitative Methods-I",
+      ],
+      2: [
+        "Business Analytics",
+        "Cost & Management Accounting",
+        "Legal Aspects of Business",
+        "Strategic Management",
+        "Human Resource Management",
+        "Operations Management",
+      ],
+      3: [
+        "Corporate Finance",
+        "Research Methodology",
+        "Project Pre-Work",
+        "Data Analytics for Business",
+        "Machine Learning for Managers",
+        "Business Process Modelling and Management",
+        "Visual Analytics",
+      ],
+      4: [
+        "Corporate Sustainability",
+        "Indian Ethos & Ethics",
+        "International Business",
+        "Project",
+        "Operational and Supply Chain Analytics",
+        "Digital Leadership in the Age of Industry 5.0",
+        "Consumer Data Analytics",
+      ],
     },
-    6:{
-  1: [
-    "Business Communication",
-    "Financial Accounting",
-    "Marketing Management",
-    "Micro Economics and Macro Economics",
-    "Organisational Behaviour",
-    "Quantitative Methods-I"
-  ],
-  2: [
-    "Business Analytics",
-    "Cost & Management Accounting",
-    "Legal Aspects of Business",
-    "Strategic Management",
-    "Human Resource Management",
-    "Operations Management"
-  ],
-  3: [
-    "Corporate Finance",
-    "Research Methodology",
-    "Project Pre-Work",
-    "Cybersecurity",
-    "Data Privacy, Security & Governance",
-    "Technology Risk & Compliance Management",
-    "Applying Agile Concepts in Program Management"
-  ],
-  4: [
-    "Corporate Sustainability",
-    "Indian Ethos & Ethics",
-    "International Business",
-    "Project",
-    "Digital Product Design and Development",
-    "Business Process Transformation",
-    "AI Concepts and Applications in Business"
-  ]
+    6: {
+      1: [
+        "Business Communication",
+        "Financial Accounting",
+        "Marketing Management",
+        "Micro Economics and Macro Economics",
+        "Organisational Behaviour",
+        "Quantitative Methods-I",
+      ],
+      2: [
+        "Business Analytics",
+        "Cost & Management Accounting",
+        "Legal Aspects of Business",
+        "Strategic Management",
+        "Human Resource Management",
+        "Operations Management",
+      ],
+      3: [
+        "Corporate Finance",
+        "Research Methodology",
+        "Project Pre-Work",
+        "Cybersecurity",
+        "Data Privacy, Security & Governance",
+        "Technology Risk & Compliance Management",
+        "Applying Agile Concepts in Program Management",
+      ],
+      4: [
+        "Corporate Sustainability",
+        "Indian Ethos & Ethics",
+        "International Business",
+        "Project",
+        "Digital Product Design and Development",
+        "Business Process Transformation",
+        "AI Concepts and Applications in Business",
+      ],
     },
     7: {
       1: [
@@ -497,180 +493,206 @@ export default function Page() {
   ];
   return (
     <main className="flex flex-col items-center w-full bg-white">
-     <section className="relative min-h-[50vh] w-full ">
-             {/* Background Image */}
-             <div className="absolute inset-0">
-               <Image
-                 src="/nmims/nmimsUniv.png"
-                 alt="Campus"
-                 fill
-                 className="object-cover object-center"
-               />
-               <div className="absolute inset-0 bg-black/80" />
-             </div>
-             {/* LOGO – move to left screen edge, keep same height */}
-             <div className="relative z-10 w-full mt-20 md:mt-28">
-               <MotionWrapper
-                 initial={{ opacity: 0, x: -30 }}
-                 whileInView={{ opacity: 1, x: 0 }}
-                 transition={{ duration: 0.6 }}
-                 viewport={{ once: true }}
-                 className="flex"
-               >
-                 <div className="bg-white rounded-r-2xl shadow-md h-[60px] sm:h-[80px] lg:h-[100px] -mb-5 flex items-center px-3 sm:px-4">
-             <Image
-               src="/nmims.png"
-               alt="NMIMS Logo"
-               width={220}
-               height={100}
-               className="object-contain w-[140px] sm:w-[180px] lg:w-[220px]"
-             />
-                 </div>
-               </MotionWrapper>
-             </div>
-     
-             {/* CONTENT WRAPPER */}
-             <div className="relative z-10 max-w-7xl mx-auto p-6 sm:p-10">
-               {/* Most Loved */}
-               <MotionWrapper
-                 initial={{ opacity: 0, x: -20 }}
-                 whileInView={{ opacity: 1, x: 0 }}
-                 transition={{ duration: 0.6 }}
-                 viewport={{ once: true }}
-                 className="inline-block bg-[#FFB901] text-white text-[12px] lg:text-[18px] mt-8 lg:mt-6  mb-2 font-sm px-4 py-1 rounded-full"
-               >
-                 Most-Loved
-               </MotionWrapper>
-     
-               {/* Subtext */}
-               <MotionWrapper
-                 initial={{ opacity: 0, x: -20 }}
-                 whileInView={{ opacity: 1, x: 0 }}
-                 transition={{ duration: 0.6, delay: 0.1 }}
-                 viewport={{ once: true }}
-                 className="text-white text-[12px] md:text-[16px] italic font-light"
-               >
-                 Online Master of Business Administration
-               </MotionWrapper>
-     
-               {/* TITLE + DESCRIPTION */}
-               <div className="flex flex-col items-start">
-                 <MotionWrapper
-                 as="h1"
-                   initial={{ opacity: 0, y: -20 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   transition={{ duration: 0.7 }}
-                   viewport={{ once: true }}
-                   className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[56px] font-sans font-bold mt-1 leading-tight"
-                 >
-                   
-NMIMS Online MBA :
-Fees, Eligibility & Admission Dates 2026
-                 </MotionWrapper>
-     
-                 <MotionWrapper
-                   initial={{ opacity: 0 }}
-                   whileInView={{ opacity: 1 }}
-                   transition={{ duration: 0.7, delay: 0.2 }}
-                   viewport={{ once: true }}
-                   className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
-                 >
-                 NMIMS CDOE is one of India’s leading management universities, known for its academic excellence and global recognition. Through Radhya Education Academy, you get access to its Online MBA - a program designed for working professionals who want to learn from the best and achieve measurable career growth.
-                 </MotionWrapper>
-     
-                 {/* STATS */}
-                 <MotionWrapper
-                   initial={{ opacity: 0, y: 20 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   transition={{ duration: 0.7 }}
-                   viewport={{ once: true }}
-                   className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4 lg:-mx-5 xl:-mx-15 gap-y-5 font-sans w-full"
-                 >
-                   {stats.map((stat, idx) => (
-                     <div
-                       key={idx}
-                       className={`text-center py-2 lg:py-6 
+      <section className="relative min-h-[50vh] w-full ">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/nmims/nmimsUniv.png"
+            alt="Campus"
+            fill
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/80" />
+        </div>
+        {/* LOGO – move to left screen edge, keep same height */}
+        <div className="relative z-10 w-full mt-20 md:mt-28">
+          <MotionWrapper
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex"
+          >
+            <div className="bg-white rounded-r-2xl shadow-md h-[60px] sm:h-[80px] lg:h-[100px] -mb-5 flex items-center px-3 sm:px-4">
+              <Image
+                src="/nmims.png"
+                alt="NMIMS Logo"
+                width={220}
+                height={100}
+                className="object-contain w-[140px] sm:w-[180px] lg:w-[220px]"
+              />
+            </div>
+          </MotionWrapper>
+        </div>
+
+        {/* CONTENT WRAPPER */}
+        <div className="relative z-10 max-w-7xl mx-auto p-6 sm:p-10">
+          {/* Most Loved */}
+          <MotionWrapper
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="inline-block bg-[#FFB901] text-white text-[12px] lg:text-[18px] mt-8 lg:mt-6  mb-2 font-sm px-4 py-1 rounded-full"
+          >
+            Most-Loved
+          </MotionWrapper>
+
+          {/* Subtext */}
+          <MotionWrapper
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-white text-[12px] md:text-[16px] italic font-light"
+          >
+            Online Master of Business Administration
+          </MotionWrapper>
+
+          {/* TITLE + DESCRIPTION */}
+          <div className="flex flex-col items-start">
+            <MotionWrapper
+              as="h1"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[56px] font-sans font-bold mt-1 leading-tight"
+            >
+              NMIMS Online MBA : Fees, Eligibility & Admission Dates 2026
+            </MotionWrapper>
+
+            <MotionWrapper
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-gray-200 text-left text-[10px] md:text-[16px] lg:text-[18px] max-w-7xl mt-0 lg:mb-5 leading-relaxed"
+            >
+              NMIMS CDOE is one of India’s leading management universities,
+              known for its academic excellence and global recognition. Through
+              Radhya Education Academy, you get access to its Online MBA - a
+              program designed for working professionals who want to learn from
+              the best and achieve measurable career growth.
+            </MotionWrapper>
+
+            {/* STATS */}
+            <MotionWrapper
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-2 mt-5 md:grid-cols-2 lg:grid-cols-4 lg:-mx-5 xl:-mx-15 gap-y-5 font-sans w-full"
+            >
+              {stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className={`text-center py-2 lg:py-6 
        ${idx % 2 === 0 ? "border-r-2 border-white" : ""} 
        ${idx !== stats.length - 1 ? "lg:border-r-2 lg:border-white" : ""}
      `}
-                     >
-                       <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold text-white mb-1">
-                         {stat.value}
-                       </p>
-                       <p className="text-white text-[10px] md:text-[16px] lg:text-[18px] xl:text-[22px] font-bold">
-                         {stat.label}
-                       </p>
-                     </div>
-                   ))}
-                 </MotionWrapper>
-     
-                 {/* BUTTONS – CENTERED */}
-                 <MotionWrapper
-                   initial={{ opacity: 0, y: 25 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   transition={{ duration: 0.7 }}
-                   viewport={{ once: true }}
-                   className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
-                 >
-                     <CounsellingModal>
-               <button className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
-                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium">
-                             Download Brochure
-                             <Download className="w-4 h-4 md:w-5 md:h-5" />
-                           </button>
-                           </CounsellingModal>
-<CounsellingModal>
-  <button
-    className="bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
+                >
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold text-white mb-1">
+                    {stat.value}
+                  </p>
+                  <p className="text-white text-[10px] md:text-[16px] lg:text-[18px] xl:text-[22px] font-bold">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </MotionWrapper>
+
+            {/* BUTTONS – CENTERED */}
+            <MotionWrapper
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="flex flex-row gap-2 md:gap-4 mt-8 lg:mt-12 w-full items-center justify-center"
+            >
+              <CounsellingModal>
+                <button
+                  className="flex items-center justify-center gap-2  bg-[#3D077E] border-0 border-transparent shadow-[#FFFFFF]/35 transform  text-white  shadow-md
+                   transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg active:scale-100 text-[12px] md:text-[16px] xl:text-[22px] px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-blue-950 font-medium"
+                >
+                  Download Brochure
+                  <Download className="w-4 h-4 md:w-5 md:h-5" />
+                </button>
+              </CounsellingModal>
+              <CounsellingModal>
+                <button
+                  className="bg-[#F6A410] border-0 border-transparent shadow-[#FFFFFF]/35 transform text-white text-[12px] md:text-[16px] xl:text-[22px] shadow-md
     ease-out hover:scale-105 hover:shadow-lg active:scale-100 flex items-center justify-center gap-2
     px-2 py-2 md:px-6 md:py-3 whitespace-nowrap rounded-lg hover:bg-yellow-600 transition-all duration-300 font-medium"
-  >
-    Talk to an Expert
-    <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-  </button>
-</CounsellingModal>
-                 </MotionWrapper>
-               </div>
-             </div>
-           </section>
-    <section className="w-full bg-white py-10 px-4 lg:px-10 pt-0">
-            {/* ======= ABOUT NMIMS SECTION ======= */}
-            <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
-              {/* LEFT TEXT */}
-              <div>
-                <h2 className="text-[32px] md:text-4xl mt-10 lg:mt-15 lg:text-[64px] font-bold text-[#270652] mb-4">
-                  About NMIMS
-                </h2>
-    
-                <p className="text-black leading-relaxed text-sm sm:text-base mb-10">
-SVKM’s Narsee Monjee Institute of Management Studies (NMIMS), established in 1981 and granted Deemed-to-be-University status by the University Grants Commission (UGC) in 2003, has grown into a leading multidisciplinary institution with over four decades of academic excellence. Today, Narsee Monjee Institute of Management Studies (NMIMS CDOE) is recognised as a reputed private university in Mumbai, delivering industry-relevant online programs through its Centre for Distance and Online Education (CDOE).<br />
+                >
+                  Talk to an Expert
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                </button>
+              </CounsellingModal>
+            </MotionWrapper>
+          </div>
+        </div>
+      </section>
+      <section className="w-full bg-white py-10 px-4 lg:px-10 pt-0">
+        {/* ======= ABOUT NMIMS SECTION ======= */}
+        <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
+          {/* LEFT TEXT */}
+          <div>
+            <h2 className="text-[32px] md:text-4xl mt-10 lg:mt-15 lg:text-[64px] font-bold text-[#270652] mb-4">
+              About NMIMS
+            </h2>
 
-The university offers a 2-year NMIMS Online MBA program tailored for working professionals and graduates, combining strong academic foundations with practical industry exposure. Students can choose from in-demand specializations such as Marketing Management, Businesss Analytics, Business Management, Financial Management, IT Management, Human Resource Management, and Operations & Data Science Management, all delivered through a flexible online learning model with live sessions and case-based learning.</p>
-              </div>
-    
-              {/* RIGHT IMAGE WITH CURVED SHAPE */}
-             <div className="relative w-full h-full flex md:justify-end">
-      <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-full">
-        <Image
-          src="/nmims/aboutNmims.png"
-          alt="Students"
-          fill
-          className="rounded-2xl md:rounded-bl-full object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          priority
-        />
-      </div>
-    </div>
+            <p className="text-black leading-relaxed text-sm sm:text-base mb-10">
+              SVKM’s Narsee Monjee Institute of Management Studies (NMIMS),
+              established in 1981 and granted Deemed-to-be-University status by
+              the University Grants Commission (UGC) in 2003, has grown into a
+              leading multidisciplinary institution with over four decades of
+              academic excellence. Today, Narsee Monjee Institute of Management
+              Studies is recognised as a reputed private university in Mumbai,
+              delivering industry-relevant online programs through its{" "}
+              <Link
+                href="https://radhyaeducationacademy.com/nmims/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#3C087E] font-bold hover:underline"
+              >
+                NMIMS CDOE (Centre for Distance and Online Education)
+              </Link>{" "}
+              .<br />
+              The university offers a 2-year NMIMS Online MBA program tailored
+              for working professionals and graduates, combining strong academic
+              foundations with practical industry exposure. Students can choose
+              from in-demand specializations such as Marketing Management,
+              Businesss Analytics, Business Management, Financial Management, IT
+              Management, Human Resource Management, and Operations & Data
+              Science Management, all delivered through a flexible online
+              learning model with live sessions and case-based learning.
+            </p>
+          </div>
+
+          {/* RIGHT IMAGE WITH CURVED SHAPE */}
+          <div className="relative w-full h-full flex md:justify-end">
+            <div className="max-w-7xl overflow-hidden md:-mr-10 relative w-full h-[250px] md:h-full">
+              <Image
+                src="/nmims/aboutNmims.png"
+                alt="Students"
+                fill
+                className="rounded-2xl md:rounded-bl-full object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
       {/* ======= SNAPSHOT SECTION ======= */}
-               <SnapshotSection
-  stats={[
-    { value: 25, suffix: "%", label: "Average Salary Growth" },
-    { value: 82000, label: "Strong Global Alumni Network" },
-    { value: 500, suffix: "+", label: "Hiring Partners" },
-  ]}
-/>
+      <SnapshotSection
+        stats={[
+          { value: 25, suffix: "%", label: "Average Salary Growth" },
+          { value: 82000, label: "Strong Global Alumni Network" },
+          { value: 500, suffix: "+", label: "Hiring Partners" },
+        ]}
+      />
       <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
         {/* ===== Top Text Section ===== */}
         <div className="max-w-6xl text-left mx-auto">
@@ -731,29 +753,28 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
       </section>
 
       <WhyChooseUs title="Why Choose NMIMS Online MBA" cards={whyCards} />
-      
+
       <SpecializationSection
-  title="Specializations & Electives"
-  description={[
-    " NMIMS Online MBA offers industry-aligned specialisations designed to match current market demands and future career opportunities. Students can choose a specialization based on their interests and career goals, gaining in-depth knowledge and practical skills to stand out in a competitive business environment.",
-  ]}
-  programName="MBA"
-  specializations={specializationsData}
-/>
-    <SyllabusSection
-  title="NMIMS Online MBA Syllabus"
-  subjects={subjects}
-  semesters={semesters}
-  semSuffix={semSuffix}
-  topicsData={topicsData}
-/>
+        title="Specializations & Electives"
+        description={[
+          " NMIMS Online MBA offers industry-aligned specialisations designed to match current market demands and future career opportunities. Students can choose a specialization based on their interests and career goals, gaining in-depth knowledge and practical skills to stand out in a competitive business environment.",
+        ]}
+        programName="MBA"
+        specializations={specializationsData}
+      />
+      <SyllabusSection
+        title="NMIMS Online MBA Syllabus"
+        subjects={subjects}
+        semesters={semesters}
+        semSuffix={semSuffix}
+        topicsData={topicsData}
+      />
 
-
-<section className="w-full px-4 md:px-10 lg:px-20 py-16 font-sans">
+      <section className="w-full px-4 md:px-10 lg:px-20 py-16 font-sans">
         <div className="max-w-7xl mx-auto">
           {/* Title animation */}
           <MotionWrapper
-          as="h2"
+            as="h2"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -779,27 +800,30 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
               viewport={{ once: true }}
               className="text-black  text-[20px] md:text-3xl font-medium leading-tight md:w-3/5"
             >
-              Bachelor’s Degree (10+2+3) in any discipline from recognised University or an equivalent degree recognised by Association of Indian Universities (AIU) with minimum 50% marks at Graduation Level. (45% for SC/ST/OBC/PwD).
+              Bachelor’s Degree (10+2+3) in any discipline from recognised
+              University or an equivalent degree recognised by Association of
+              Indian Universities (AIU) with minimum 50% marks at Graduation
+              Level. (45% for SC/ST/OBC/PwD).
             </MotionWrapper>
 
-           {/* Right image animation */}
-                                                           <MotionWrapper
-                                                             initial={{ opacity: 0, x: 40 }}
-                                                             whileInView={{ opacity: 1, x: 0 }}
-                                                             transition={{ duration: 0.6, delay: 0.3 }}
-                                                             viewport={{ once: true }}
-                                                             className="md:w-[45%] w-full flex justify-end pr-0 mt-0 md:pr-0"
-                                                           >
-                                                             <Image
-                                                               src="/nmims/nmimsEligibility.png"
-                                                               alt="Eligibility criteria for NMIMS Online MBA admission"
-                                                               width={520}
-                                                               height={350}
-                                                               className="w-full max-w-105  h-auto rounded-xl object-contain"
-                                                               sizes="(max-width: 768px) 100vw, 520px"
-                                                             />
-                                                           </MotionWrapper>
-                     </MotionWrapper>
+            {/* Right image animation */}
+            <MotionWrapper
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="md:w-[45%] w-full flex justify-end pr-0 mt-0 md:pr-0"
+            >
+              <Image
+                src="/nmims/nmimsEligibility.png"
+                alt="Eligibility criteria for NMIMS Online MBA admission"
+                width={520}
+                height={350}
+                className="w-full max-w-105  h-auto rounded-xl object-contain"
+                sizes="(max-width: 768px) 100vw, 520px"
+              />
+            </MotionWrapper>
+          </MotionWrapper>
         </div>
       </section>
 
@@ -819,7 +843,7 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
         <div className="max-w-6xl mx-auto relative">
           {/* Main Animated Heading */}
           <MotionWrapper
-          as="h2"
+            as="h2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -862,7 +886,8 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
                 <div className="grid grid-cols-[30px_auto] gap-3 items-start ">
                   <span className="text-lg lg:text-2xl leading-none">✦</span>
                   <p className="text-left text-lg lg:text-2xl mb-6">
-                    Time-table will be assigned to the candidates prior to examination.
+                    Time-table will be assigned to the candidates prior to
+                    examination.
                   </p>
                 </div>
 
@@ -949,71 +974,61 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
           </div>
         </div>
       </section>
-            <CareerServices  />
-    
-     <section className="w-full font-sans mt-20 flex items-center justify-center">
-    <div className="px-2 w-full">
-    <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
+      <CareerServices />
 
-      {/* LEFT SIDE TEXT */}
-      <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
-        <h2 className="text-[#270652] text-[42px] md:text-[52px] lg:text-[60px] font-bold leading-[110%] mb-4">
-          Fees Structure for NMIMS Online MBA
-        </h2>
+      <section className="w-full font-sans mt-20 flex items-center justify-center">
+        <div className="px-2 w-full">
+          <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
+            {/* LEFT SIDE TEXT */}
+            <div className="w-full lg:w-[45%] text-center lg:text-left flex flex-col justify-center">
+              <h2 className="text-[#270652] text-[42px] md:text-[52px] lg:text-[60px] font-bold leading-[110%] mb-4">
+                Fees Structure for NMIMS Online MBA
+              </h2>
 
-        {/* Subtitle */}
-        <p className="text-[#2F2F30] text-sm md:text-base leading-tight lg:max-w-xl md:mb-6">
-          Pay conveniently to launch your leadership career
-        </p>
+              {/* Subtitle */}
+              <p className="text-[#2F2F30] text-sm md:text-base leading-tight lg:max-w-xl md:mb-6">
+                Pay conveniently to launch your leadership career
+              </p>
 
-        {/* CTA visible only on large screens */}
+              {/* CTA visible only on large screens */}
+              <CounsellingModal>
+                <button className="hidden lg:flex text-white bg-[#F6A410] font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit">
+                  Compare all Plans
+                </button>
+              </CounsellingModal>
+            </div>
+
+            {/* RIGHT SIDE CARDS */}
+            <div className="w-full lg:w-[35%] flex justify-center">
+              <FeesCarousel
+                cards={[
+                  {
+                    title: "Annual Payment",
+                    subtitle: "(no. of years 2)",
+                    program: "Online MBA",
+                    amount: "₹1,05,000/-",
+                    note: "",
+                  },
+                  {
+                    title: "Semester Wise",
+                    subtitle: "(no. of sem 4)",
+                    program: "Online MBA",
+                    amount: "₹55,000/-",
+                    note: "",
+                  },
+                ]}
+              />
+            </div>
+
+            {/* CTA below carousel on mobile only */}
             <CounsellingModal>
-              <button
-                
-                className="hidden lg:flex text-white bg-[#F6A410] font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit"
-              >
+              <button className="lg:hidden text-white bg-[#F6A410] font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
                 Compare all Plans
               </button>
-              </CounsellingModal>
-      </div>
-
-      {/* RIGHT SIDE CARDS */}
-      <div className="w-full lg:w-[35%] flex justify-center">
-        <FeesCarousel
-        cards = {[
-      {
-      title: "Annual Payment",
-      subtitle: "(no. of years 2)",
-      program: "Online MBA",
-      amount: "₹1,05,000/-",
-      note: "",
-      },
-      {
-      title: "Semester Wise",
-      subtitle: "(no. of sem 4)",
-      program: "Online MBA",
-      amount: "₹55,000/-",
-      note: "",
-      }
-    ]}
-
-     />
-      </div>
-
-      {/* CTA below carousel on mobile only */}
-           <CounsellingModal>
-            <button
-              className="lg:hidden text-white bg-[#F6A410] font-medium px-6 py-2 rounded-md shadow-lg transform hover:scale-105 duration-200 w-fit mx-auto mt-3"
-            >
-              Compare all Plans
-            </button>
             </CounsellingModal>
-
-    </div>
-  </div>
-</section>
-
-
+          </div>
+        </div>
+      </section>
 
       <section className="w-full px-4 md:px-12 lg:px-20 py-12 font-sans">
         <MotionWrapper
@@ -1091,184 +1106,182 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
       />
 
       <section className="w-full px-6 md:px-18">
-  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center py-10 font-sans gap-10">
-
-    {/* LEFT CONTENT */}
-    <div className="space-y-5">
-
-      <p className="text-[#1F1717] mb-1 mt-5 text-sm font-regular">Degree Sample</p>
-
-      <h2 className="text-[#270652] text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight">
-        NMIMS Online <br />
-        MBA
-        Certificate
-      </h2>
-
-      <p className="text-[#3C3C43] max-w-[350px] text-base">
-        Highlight your professional success with official certificate from
-        NMIMS CDOE
-      </p>
-
-      {/* IMAGE that appears ONLY on mobile, above CTA */}
-      <div className="md:hidden flex justify-center">
-        <Image
-          src="/nmims/nmimsMbaDegree.png"
-          alt="Certificate Preview"
-           width={300}
-                      height={200}
-                      className="w-full max-w-xs rounded-lg shadow-sm"
-                      sizes="(max-width: 768px) 90vw, 300px"
-                    />
-      </div>
-
-      {/* CTA BUTTON  */}
-          <div className="flex justify-center md:justify-start">
- <CounsellingModal>
-  <button
-    
-    className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200"
-  >
-    Know more
-  </button>
-  </CounsellingModal>
-</div>
-
-
-    </div>
-
-    {/* RIGHT IMAGE (visible only on md+ screens) */}
-    <div className="hidden md:flex justify-center mt-5 md:justify-end">
-      <Image
-        src="/nmims/nmimsMbaDegree.png"
-        alt="Certificate Preview"
-         width={400}
-        height={250}
-        className="w-full max-w-sm rounded-lg shadow-sm"
-        sizes="(max-width: 768px) 100vw, 400px"
-      />
-    </div>
-
-  </div>
-</section>
-
-
-  <section className="w-full bg-white font-sans px-6 md:px-12 lg:px-20 mt-8">
-  <MotionWrapper
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: true }}
-    className="max-w-7xl mx-auto"
-  >
-    {/* HEADING */}
-    <div className="max-w-7xl text-left mb-12">
-      <h2 className="text-black text-base font-medium">
-        What will you gain?
-      </h2>
-
-      <h2 className="text-3xl sm:text-3xl lg:text-[42px] max-w-7xl font-bold text-[#270652] leading-tight mt-2">
-        This isn't just another degree - it's a transformation in how you think,
-        work, and grow.
-      </h2>
-    </div>
-
-    {/* CONTENT ROW */}
-    <div className="flex flex-col lg:flex-row items-start gap-14">
-      {/* LEFT: Points */}
-      <div className="flex-1 max-w-xl flex flex-col gap-6">
-        {/* Point 1 */}
-        <MotionWrapper
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex items-start gap-7"
-        >
-          <div className="flex items-center justify-center bg-[#270652] text-white rounded-full w-15 h-15 shrink-0 p-3">
-            <Briefcase size={30} />
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold text-black">
-              Strategic Thinking
-            </h3>
-            <p className="text-gray-600 text-sm md:text-base">
-             Develop the ability to break down complex business problems and make confident, data-backed decisions. Learn to think ahead, anticipate challenges, and create strategies that drive long-term success.
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center py-10 font-sans gap-10">
+          {/* LEFT CONTENT */}
+          <div className="space-y-5">
+            <p className="text-[#1F1717] mb-1 mt-5 text-sm font-regular">
+              Degree Sample
             </p>
-          </div>
-        </MotionWrapper>
 
-        {/* Point 2 */}
-        <MotionWrapper
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          viewport={{ once: true }}
-          className="flex items-start gap-7"
-        >
-          <div className="flex items-center justify-center bg-[#270652] text-white rounded-full w-15 h-15 shrink-0 p-3">
-            <Users size={30} />
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold text-black">
-              Practical Business Insight
-            </h3>
-            <p className="text-gray-600 text-sm md:text-base">
-              Go beyond classroom theory with hands-on projects, case studies, and expert interactions. Understand how real companies operate, make decisions, and solve everyday challenges.
+            <h2 className="text-[#270652] text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight">
+              NMIMS Online <br />
+              MBA Certificate
+            </h2>
+
+            <p className="text-[#3C3C43] max-w-[350px] text-base">
+              Highlight your professional success with official certificate from
+              NMIMS CDOE
             </p>
-          </div>
-        </MotionWrapper>
 
-        {/* Point 3 */}
+            {/* IMAGE that appears ONLY on mobile, above CTA */}
+            <div className="md:hidden flex justify-center">
+              <Image
+                src="/nmims/nmimsMbaDegree.png"
+                alt="Certificate Preview"
+                width={300}
+                height={200}
+                className="w-full max-w-xs rounded-lg shadow-sm"
+                sizes="(max-width: 768px) 90vw, 300px"
+              />
+            </div>
+
+            {/* CTA BUTTON  */}
+            <div className="flex justify-center md:justify-start">
+              <CounsellingModal>
+                <button className="bg-[#F6A410] text-white font-medium text-sm px-10 py-2 rounded-lg shadow-lg transform hover:scale-105 duration-200">
+                  Know more
+                </button>
+              </CounsellingModal>
+            </div>
+          </div>
+
+          {/* RIGHT IMAGE (visible only on md+ screens) */}
+          <div className="hidden md:flex justify-center mt-5 md:justify-end">
+            <Image
+              src="/nmims/nmimsMbaDegree.png"
+              alt="Certificate Preview"
+              width={400}
+              height={250}
+              className="w-full max-w-sm rounded-lg shadow-sm"
+              sizes="(max-width: 768px) 100vw, 400px"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-white font-sans px-6 md:px-12 lg:px-20 mt-8">
         <MotionWrapper
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex items-start gap-7"
+          className="max-w-7xl mx-auto"
         >
-          <div className="flex items-center justify-center bg-[#270652] text-white rounded-full w-15 h-15 shrink-0 p-3">
-            <GraduationCap size={30} />
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold text-black">
-              Career Acceleration
-            </h3>
-            <p className="text-gray-600 text-sm md:text-base">
-             Gain the knowledge, credibility, and skillset that opens doors to higher roles and better opportunities.Fast-track your professional growth with a qualification that employers trust.
-            </p>
-          </div>
-        </MotionWrapper>
-      </div>
+          {/* HEADING */}
+          <div className="max-w-7xl text-left mb-12">
+            <h2 className="text-black text-base font-medium">
+              What will you gain?
+            </h2>
 
-     {/* RIGHT: Image */}
-<MotionWrapper
-  initial={{ opacity: 0, x: 40 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
-  className="
+            <h2 className="text-3xl sm:text-3xl lg:text-[42px] max-w-7xl font-bold text-[#270652] leading-tight mt-2">
+              This isn't just another degree - it's a transformation in how you
+              think, work, and grow.
+            </h2>
+          </div>
+
+          {/* CONTENT ROW */}
+          <div className="flex flex-col lg:flex-row items-start gap-14">
+            {/* LEFT: Points */}
+            <div className="flex-1 max-w-xl flex flex-col gap-6">
+              {/* Point 1 */}
+              <MotionWrapper
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="flex items-start gap-7"
+              >
+                <div className="flex items-center justify-center bg-[#270652] text-white rounded-full w-15 h-15 shrink-0 p-3">
+                  <Briefcase size={30} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-black">
+                    Strategic Thinking
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-base">
+                    Develop the ability to break down complex business problems
+                    and make confident, data-backed decisions. Learn to think
+                    ahead, anticipate challenges, and create strategies that
+                    drive long-term success.
+                  </p>
+                </div>
+              </MotionWrapper>
+
+              {/* Point 2 */}
+              <MotionWrapper
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.35 }}
+                viewport={{ once: true }}
+                className="flex items-start gap-7"
+              >
+                <div className="flex items-center justify-center bg-[#270652] text-white rounded-full w-15 h-15 shrink-0 p-3">
+                  <Users size={30} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-black">
+                    Practical Business Insight
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-base">
+                    Go beyond classroom theory with hands-on projects, case
+                    studies, and expert interactions. Understand how real
+                    companies operate, make decisions, and solve everyday
+                    challenges.
+                  </p>
+                </div>
+              </MotionWrapper>
+
+              {/* Point 3 */}
+              <MotionWrapper
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="flex items-start gap-7"
+              >
+                <div className="flex items-center justify-center bg-[#270652] text-white rounded-full w-15 h-15 shrink-0 p-3">
+                  <GraduationCap size={30} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-black">
+                    Career Acceleration
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-base">
+                    Gain the knowledge, credibility, and skillset that opens
+                    doors to higher roles and better opportunities.Fast-track
+                    your professional growth with a qualification that employers
+                    trust.
+                  </p>
+                </div>
+              </MotionWrapper>
+            </div>
+
+            {/* RIGHT: Image */}
+            <MotionWrapper
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="
     hidden lg:flex 
     w-[45%] xl:w-[50%] 
     justify-end
   "
->
-  <div className="relative w-full max-w-[600px]">
-    <Image
-      src="/careerGain.png"
-      alt="What will you gain"
-      width={650}
-      height={500}
-      className="object-contain w-full h-auto"
-      priority
-    />
-  </div>
-</MotionWrapper>
-
-    </div>
-  </MotionWrapper>
-</section>
-
-
+            >
+              <div className="relative w-full max-w-[600px]">
+                <Image
+                  src="/careerGain.png"
+                  alt="What will you gain"
+                  width={650}
+                  height={500}
+                  className="object-contain w-full h-auto"
+                  priority
+                />
+              </div>
+            </MotionWrapper>
+          </div>
+        </MotionWrapper>
+      </section>
 
       <section className="w-full bg-white py-10 lg:py-20 md:px-12 lg:px-20">
         <div className="w-full md:bg-linear-to-tr from-[#180135] to-[#3C087E] rounded-4xl py-12 px-6 md:px-10 lg:px-15">
@@ -1282,7 +1295,7 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
             {/* Title */}
             <div className="text-center md:mb-4 pb-3">
               <MotionWrapper
-              as="h2"
+                as="h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -1369,8 +1382,8 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
 
                 {/* CTA */}
                 <CounsellingModal>
-                <button
-                  className="
+                  <button
+                    className="
                     w-[200px] 
                     mt-6 py-3 px-6 
                     rounded-lg 
@@ -1380,83 +1393,84 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
                     self-center md:self-start
                     shadow-lg
                   "
-                >
-                  Know more
-                </button></CounsellingModal>
+                  >
+                    Know more
+                  </button>
+                </CounsellingModal>
               </MotionWrapper>
             </div>
           </MotionWrapper>
         </div>
       </section>
 
-         <UnivCourses
-                    heading="NMIMS Online Courses "
-                    courses={[
-                      {
-                        id: 1,
-                        universityLogo: "/nmims.png",
-                        universityName: "NMIMS",
-                        title: "Master of Business Administration",
-                        subtitle: "NMIMS Mumbai",
-                        tag: "Most-Loved",
-                        duration: "2 years",
-                        validity: "4 years",
-                        coursePath: "/nmims/nmims-mumbai-online-mba",
-                      },
-                      {
-                        id: 2,
-                        universityLogo: "/nmims.png",
-                        universityName: "NMIMS",
-                        title: "Bachelor of Business Administration",
-                        subtitle: "NMIMS Mumbai",
-                        tag: "Trending",
-                        duration: "3 years",
-                        validity: "6 years",
-                        coursePath: "/nmims/nmims-mumbai-online-bba",
-                      },
-                      {
-                        id: 3,
-                        universityLogo: "/nmims.png",
-                        universityName: "NMIMS",
-                        title: "Master of Business Admin.(WX)",
-                        subtitle: "NMIMS Mumbai",
-                        tag: "Most-Loved",
-                        duration: "2 years",
-                        validity: "4 years",
-                        coursePath: "/nmims/nmims-mumbai-online-mba-working-executives",
-                      },
-                      {
-                        id: 4,
-                        universityLogo: "/nmims.png",
-                        universityName: "NMIMS",
-                        title: "Bachelor of Commerce",
-                        subtitle: "NMIMS Mumbai",
-                        duration: "3 years",
-                        validity: "6 years",
-                        coursePath: "/nmims/nmims-mumbai-online-bcom",
-                      },
-                      {
-                        id: 5,
-                        universityLogo: "/nmims.png",
-                        universityName: "NMIMS",
-                        title: "Online Diploma",
-                        subtitle: "NMIMS Mumbai",
-                        duration: "1 year",
-                        validity: "2 years",
-                        coursePath: "/nmims/nmims-mumbai-online-diploma",
-                      },
-                      {
-                        id: 6,
-                        universityLogo: "/nmims.png",
-                        universityName: "NMIMS",
-                        title: "Certification in Business Management",
-                        subtitle: "NMIMS Mumbai",
-                        duration: "6 months",
-                        validity: "2 years",
-                        coursePath: "/nmims/nmims-mumbai-online-certification",
-                      },
-                    ]}
-                  />
+      <UnivCourses
+        heading="NMIMS Online Courses "
+        courses={[
+          {
+            id: 1,
+            universityLogo: "/nmims.png",
+            universityName: "NMIMS",
+            title: "Master of Business Administration",
+            subtitle: "NMIMS Mumbai",
+            tag: "Most-Loved",
+            duration: "2 years",
+            validity: "4 years",
+            coursePath: "/nmims/nmims-mumbai-online-mba",
+          },
+          {
+            id: 2,
+            universityLogo: "/nmims.png",
+            universityName: "NMIMS",
+            title: "Bachelor of Business Administration",
+            subtitle: "NMIMS Mumbai",
+            tag: "Trending",
+            duration: "3 years",
+            validity: "6 years",
+            coursePath: "/nmims/nmims-mumbai-online-bba",
+          },
+          {
+            id: 3,
+            universityLogo: "/nmims.png",
+            universityName: "NMIMS",
+            title: "Master of Business Admin.(WX)",
+            subtitle: "NMIMS Mumbai",
+            tag: "Most-Loved",
+            duration: "2 years",
+            validity: "4 years",
+            coursePath: "/nmims/nmims-mumbai-online-mba-working-executives",
+          },
+          {
+            id: 4,
+            universityLogo: "/nmims.png",
+            universityName: "NMIMS",
+            title: "Bachelor of Commerce",
+            subtitle: "NMIMS Mumbai",
+            duration: "3 years",
+            validity: "6 years",
+            coursePath: "/nmims/nmims-mumbai-online-bcom",
+          },
+          {
+            id: 5,
+            universityLogo: "/nmims.png",
+            universityName: "NMIMS",
+            title: "Online Diploma",
+            subtitle: "NMIMS Mumbai",
+            duration: "1 year",
+            validity: "2 years",
+            coursePath: "/nmims/nmims-mumbai-online-diploma",
+          },
+          {
+            id: 6,
+            universityLogo: "/nmims.png",
+            universityName: "NMIMS",
+            title: "Certification in Business Management",
+            subtitle: "NMIMS Mumbai",
+            duration: "6 months",
+            validity: "2 years",
+            coursePath: "/nmims/nmims-mumbai-online-certification",
+          },
+        ]}
+      />
 
       <Faculties
         heading="Learn from a distinguished group of academicians and industry leaders who bring real-world expertise to every lesson."
@@ -1466,64 +1480,65 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
 
       <ServicesByRadhya />
 
-  <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-sans">
-  {/* TITLE */}
-  <h2 className="text-[#270652] font-bold text-center text-[32px] md:text-[48px] lg:text-[64px] mb-8">
-    Important Dates
-  </h2>
+      <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-sans">
+        {/* TITLE */}
+        <h2 className="text-[#270652] font-bold text-center text-[32px] md:text-[48px] lg:text-[64px] mb-8">
+          Important Dates
+        </h2>
 
-  {/* TABLE WRAPPER */}
-  <div className="w-full">
-    <table className="w-full border-collapse table-fixed">
-      {/* HEADER */}
-      <thead>
-        <tr className="bg-[#F6A410] text-white text-[12px] md:text-[16px]">
-          <th className="py-3 px-2 text-left rounded-l-lg">PARTICULARS</th>
-          <th className="py-3 px-2 text-left rounded-r-lg">DATES</th>
-        </tr>
-      </thead>
+        {/* TABLE WRAPPER */}
+        <div className="w-full">
+          <table className="w-full border-collapse table-fixed">
+            {/* HEADER */}
+            <thead>
+              <tr className="bg-[#F6A410] text-white text-[12px] md:text-[16px]">
+                <th className="py-3 px-2 text-left rounded-l-lg">
+                  PARTICULARS
+                </th>
+                <th className="py-3 px-2 text-left rounded-r-lg">DATES</th>
+              </tr>
+            </thead>
 
-      {/* BODY */}
-     <tbody className="divide-y divide-[#D6D6D6]">
-        {[
-          { p: "Registration Starts", d: "19th March, 2026" },
-          {
-            p: "Admission Without Late Fees",
-            d: "19th March, 2026 to 10th August, 2026",
-          },
-          {
-            p: "Admission With Late Fees Of Rs. 500/-",
-            d: "11th August, 2026 to 31st August, 2026",
-          },
-          {
-            p: "Admission With Late Fees Of Rs. 1000/-",
-            d: "1st September, 2026 to 16th September, 2026",
-          },
-          { p: "Last Date of Admission", d: "16th September, 2026" },
-          { p: "Re-Registration Starts", d: "	19th March, 2026" },
-          {
-            p: "Re-Registration Without Late Fees",
-            d: "19th March, 2026 to 31st July, 2026",
-          },
-          {
-            p: "Re-Registration With Late Fees Of Rs. 1000/-",
-            d: "1st August, 2026 to 10th September, 20266",
-          },
-          { p: "Closure of Re-Registration", d: "10th September, 2026" },
-        ].map((row, i) => (
-          <tr
-            key={i}
-            className="text-[10px] text-black sm:text-[12px] md:text-[14px] lg:text-[16px]"
-          >
-            <td className="py-3 px-2 wrap-break-words">{row.p}</td>
-            <td className="py-3 px-2 wrap-break-words">{row.d}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</section>
-
+            {/* BODY */}
+            <tbody className="divide-y divide-[#D6D6D6]">
+              {[
+                { p: "Registration Starts", d: "19th March, 2026" },
+                {
+                  p: "Admission Without Late Fees",
+                  d: "19th March, 2026 to 10th August, 2026",
+                },
+                {
+                  p: "Admission With Late Fees Of Rs. 500/-",
+                  d: "11th August, 2026 to 31st August, 2026",
+                },
+                {
+                  p: "Admission With Late Fees Of Rs. 1000/-",
+                  d: "1st September, 2026 to 16th September, 2026",
+                },
+                { p: "Last Date of Admission", d: "16th September, 2026" },
+                { p: "Re-Registration Starts", d: "	19th March, 2026" },
+                {
+                  p: "Re-Registration Without Late Fees",
+                  d: "19th March, 2026 to 31st July, 2026",
+                },
+                {
+                  p: "Re-Registration With Late Fees Of Rs. 1000/-",
+                  d: "1st August, 2026 to 10th September, 20266",
+                },
+                { p: "Closure of Re-Registration", d: "10th September, 2026" },
+              ].map((row, i) => (
+                <tr
+                  key={i}
+                  className="text-[10px] text-black sm:text-[12px] md:text-[14px] lg:text-[16px]"
+                >
+                  <td className="py-3 px-2 wrap-break-words">{row.p}</td>
+                  <td className="py-3 px-2 wrap-break-words">{row.d}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       {/*<section className="w-full px-4 md:px-10 lg:px-20 py-16 font-sans">
         <div className="max-w-5xl mx-auto">
@@ -1608,7 +1623,6 @@ The university offers a 2-year NMIMS Online MBA program tailored for working pro
       <FAQ faqs={faqs} />
 
       <ConnectToday />
-   
     </main>
   );
 }

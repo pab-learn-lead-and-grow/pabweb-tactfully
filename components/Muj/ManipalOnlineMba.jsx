@@ -34,7 +34,7 @@ export default function page() {
 
   return (
     <main className="flex flex-col items-center w-full bg-white overflow-visible">
-      <section className="relative min-h-dvh w-full ">
+      <section className="relative min-h-[50vh] w-full ">
         {/*Hero Section Background Image */}
         <div className="absolute inset-0">
           <Image

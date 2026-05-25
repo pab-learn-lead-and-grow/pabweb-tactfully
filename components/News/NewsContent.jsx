@@ -11,6 +11,10 @@ import Script from "next/script";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import UniversityCards from "../NmimsSection/Logocards";
 import MotionWrapper from "../Radhya/MotionWrapper";
+import ContactNmims from "../Nmims/ContactNmims";
+import HideOnSection from "../NmimsSection/HideOnSection";
+import CounsellingModal from "../Radhya/CounsellingModal";
+import { Download } from "lucide-react";
 
 function BlogCTA({ onOpen }) {
   return (
@@ -25,18 +29,18 @@ function BlogCTA({ onOpen }) {
   );
 }
 
-export default function NewsContent({ 
-  article, 
+export default function NewsContent({
+  article,
   articleFormattedDate,
-  categoryData, 
-  related, 
+  categoryData,
+  related,
   imageUrl,
   articleSchema,
-  faqSchema
+  faqSchema,
 }) {
   const [showModal, setShowModal] = useState(false);
 
-   const universities = [
+  const universities = [
     {
       src: "/nmims.png",
       alt: "NMIMS",
@@ -61,9 +65,24 @@ export default function NewsContent({
       name: "Jain University",
       href: "/jain/",
     },
-    { src: "/bennett.png", href: "/bennett/", alt: "Bennett University", name: "Bennett University" },
-    { src: "/shoolini.png", href: "/shoolini/", alt: "Shoolini University", name: "Shoolini University" },
-    { src: "/smu.png", href: "/smu/", alt: "Sikkim Manipal University", name: "Sikkim Manipal University" },
+    {
+      src: "/bennett.png",
+      href: "/bennett/",
+      alt: "Bennett University",
+      name: "Bennett University",
+    },
+    {
+      src: "/shoolini.png",
+      href: "/shoolini/",
+      alt: "Shoolini University",
+      name: "Shoolini University",
+    },
+    {
+      src: "/smu.png",
+      href: "/smu/",
+      alt: "Sikkim Manipal University",
+      name: "Sikkim Manipal University",
+    },
   ];
 
   return (
@@ -82,126 +101,154 @@ export default function NewsContent({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-     <div className="mt-10 max-w-6xl mx-auto py-12 p-5 lg:p-15">
-      <h2 className="text-3xl lg:text-4xl font-bold text-[#3C087E] mb-4">
-        {article.title}
-      </h2>
+      <article>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-10">
+          {/* MAIN GRID */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* LEFT CONTENT */}
+            <div className="lg:col-span-8 mt-15 min-w-0">
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#3C087E] mb-4">
+                {article.title}
+              </h2>
 
-      <div className="flex items-center text-sm text-[#3C087E] gap-4 mb-2">
-        {categoryData && (
-          <>
-            <Link
-              href={`/news/${categoryData.slug}`}
-              className="text-[#3C087E] hover:text-[#3C087E] font-medium"
-            >
-              {categoryData.category_name}
-            </Link>
-            <span>•</span>
-          </>
-        )}
-        <span>{articleFormattedDate}</span>
-      </div>
-
-      {imageUrl && (
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-10">
-  <Image
-    src={imageUrl}
-    alt={article.title}
-    fill
-    className="object-cover transition-transform duration-300 hover:scale-105"
-    sizes="(max-width: 1024px) 100vw, 80vw"
-    priority
-  />
-</div>
-      )}
-
-      <div className="prose prose-lg max-w-none text-gray-800">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-          components={{
-            blockquote({ children }) {
-              return (
-                <blockquote className="border-l-4 border-[#345895] px-4 py-6 rounded-xl bg-gradient-to-r from-[#031424] to-[#3C087E] text-white">
-                  {children}
-                  <BlogCTA onOpen={() => setShowModal(true)} />
-                </blockquote>
-              );
-            },
-          }}
-        >
-          {article.content}
-        </ReactMarkdown>
-      </div>
-
-      <div className="flex justify-center py-10">
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-[#EEA727] text-white px-8 py-3 rounded-full font-semibold shadow-md hover:scale-105 animate-soft-blink transition"
-        >
-          Get Free Career Guidance
-        </button>
-      </div>
-
-      <div className="mt-10">
-        <h2 className="text-2xl lg:text-3xl font-bold text-[#3C087E] mb-8 border-l-4 border-[#FFB901] pl-4">
-          In Case You Missed It
-        </h2>
-
-        {related.length === 0 ? (
-          <p className="text-gray-500">No related articles found.</p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {related.map((item) => (
-              <Link
-                key={item.news_id}
-                href={`/news/${item.slug}`}
-                className="hover:underline"
-              >
-                <div>
-                  <h3 className="font-semibold text-lg text-black">
-                    {item.title}
-                  </h3>
-
-                  <div className="flex items-center text-xs text-gray-500 gap-3 mt-1">
-                    <span>{item.categoryName}</span>
+              <div className="flex items-center text-sm text-[#3C087E] gap-4 mb-2">
+                {categoryData && (
+                  <>
+                    <Link
+                      href={`/news/${categoryData.slug}`}
+                      className="text-[#3C087E] hover:text-[#3C087E] font-medium"
+                    >
+                      {categoryData.category_name}
+                    </Link>
                     <span>•</span>
-                    <span>{item.formattedDate}</span>
-                  </div>
+                  </>
+                )}
+                <span>{articleFormattedDate}</span>
+              </div>
+
+              {imageUrl && (
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-10">
+                  <Image
+                    src={imageUrl}
+                    alt={article.title}
+                    fill
+                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 80vw"
+                    priority
+                  />
                 </div>
-              </Link>
-            ))}
+              )}
+
+              <div className="prose prose-lg max-w-none text-gray-800">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                  components={{
+                    blockquote({ children }) {
+                      return (
+                        <blockquote className="border-l-4 border-[#345895] px-4 py-6 rounded-xl bg-gradient-to-r from-[#031424] to-[#3C087E] text-white">
+                          {children}
+                          <BlogCTA onOpen={() => setShowModal(true)} />
+                        </blockquote>
+                      );
+                    },
+                  }}
+                >
+                  {article.content}
+                </ReactMarkdown>
+              </div>
+
+              <div className="flex justify-center py-10">
+                <button
+                  onClick={() => setShowModal(true)}
+                  className="bg-[#EEA727] text-white px-8 py-3 rounded-full font-semibold shadow-md hover:scale-105 animate-soft-blink transition"
+                >
+                  Get Free Career Guidance
+                </button>
+              </div>
+
+              <div className="mt-10">
+                <h2 className="text-2xl lg:text-3xl font-bold text-[#3C087E] mb-8 border-l-4 border-[#FFB901] pl-4">
+                  In Case You Missed It
+                </h2>
+
+                {related.length === 0 ? (
+                  <p className="text-gray-500">No related articles found.</p>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {related.map((item) => (
+                      <Link
+                        key={item.news_id}
+                        href={`/news/${item.slug}`}
+                        className="hover:underline"
+                      >
+                        <div>
+                          <h3 className="font-semibold text-lg text-black">
+                            {item.title}
+                          </h3>
+
+                          <div className="flex items-center text-xs text-gray-500 gap-3 mt-1">
+                            <span>{item.categoryName}</span>
+                            <span>•</span>
+                            <span>{item.formattedDate}</span>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {showModal && (
+                <CounsellingForm onClose={() => setShowModal(false)} />
+              )}
+            </div>
+            {/* RIGHT SIDEBAR */}
+            <div className="hidden lg:block lg:col-span-4">
+              <div className="sticky top-24 w-full h-fit">
+                <HideOnSection
+                  targetIds={["connect-today", "universities-section"]}
+                >
+                  <ContactNmims />
+                </HideOnSection>
+              </div>
+            </div>
           </div>
-        )}
+        </div>
+      </article>
+
+      <section
+        id="universities-section"
+        className="w-full mt-8 md:mt-16 font-sans"
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* HEADING */}
+          <MotionWrapper
+            as="h2"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-[28px] sm:text-[36px] md:text-5xl leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
+          >
+            Explore other top universities
+          </MotionWrapper>
+        </div>
+        <div className="h-[120px]">
+          <UniversityCards logos={universities} />
+        </div>
+      </section>
+
+      <ConnectToday />
+      {/* MOBILE STICKY CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t shadow-lg p-3">
+        <CounsellingModal>
+          <button className="w-full flex items-center justify-center gap-2 bg-[#EEA727] text-[#3C087E] font-semibold py-3 rounded-xl">
+            Download Brochure
+            <Download className="w-5 h-5" />
+          </button>
+        </CounsellingModal>
       </div>
-
-      {showModal && (
-        <CounsellingForm onClose={() => setShowModal(false)} />
-      )}
-    </div>
-
-      <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-sans">
-                                           <div className="max-w-7xl mx-auto">
-                                             {/* HEADING */}
-                                             <MotionWrapper
-                                             as="h2"
-                                               initial={{ opacity: 0, y: -30 }}
-                                               whileInView={{ opacity: 1, y: 0 }}
-                                               transition={{ duration: 0.6 }}
-                                               viewport={{ once: true }}
-                                               className="text-[28px] sm:text-[36px] md:text-5xl leading-[120%] font-bold text-[#270652] mb-3 md:mb-8 text-center"
-                                             >
-                                               Explore other top universities
-                                             </MotionWrapper>
-                                           </div>
-                                         </section>
-                              
-                                          <div className="h-[120px]">
-                                     <UniversityCards logos={universities} />
-                                    </div>
-                            
-          
-                <ConnectToday />
     </>
   );
 }

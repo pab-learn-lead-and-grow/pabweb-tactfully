@@ -39,7 +39,7 @@ export default function KnowledgeSection({ latestNews = [], latestBlogs = [] }) 
         {/* BLOGS */}
         <div className="lg:col-span-2">
           <div className="mb-10">
-            <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold text-[#270652]">
+            <h2 className="text-[28px] md:text-4xl lg:text-5xl  font-bold text-[#270652]">
               Knowledge Corner
             </h2>
             <p className="text-black text-sm md:text-base mt-4 max-w-2xl">

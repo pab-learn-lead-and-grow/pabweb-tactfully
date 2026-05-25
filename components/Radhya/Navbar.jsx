@@ -1505,7 +1505,7 @@ return (
               </div>
 
               <Link
-                href="/#blogs"
+                href="/blogs"
                 onClick={() => {
                   handleLinkClick();
                   handleMobileCloseAll();
@@ -1566,7 +1566,7 @@ return (
 
 <Link
   className="block py-2 px-2 rounded hover:bg-purple-50 text-gray-900"
-  href="/#blogs"
+  href="/blogs"
   onClick={() => {
     handleLinkClick();
     handleMobileCloseAll();

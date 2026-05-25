@@ -24,7 +24,7 @@ export default function AllInOneSection() {
       <div className=" max-w-full mx-auto px-4 md:px-8 lg:px-16 bg-white text-center">
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-[50px] xl:text-[54px] 2xl:text-[64px] font-bold text-[#270652] text-center mx-auto leading-snug">
+        <h2 className="text-[28px] md:text-4xl lg:text-5xl  font-bold text-[#270652] text-center mx-auto leading-snug">
          {TITLE}
         </h2>
 
