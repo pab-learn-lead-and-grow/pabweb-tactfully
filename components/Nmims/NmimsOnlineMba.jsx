@@ -48,7 +48,7 @@ export default function page() {
     },
     {
       title: "NMIMS Online MBA in Business Management",
-      link: "https://radhyaeducationacademy.com/business-analytics-vs-business-management-2026/",
+      link: "https://radhyaeducationacademy.com/blogs/nmims-online-mba-business-management-2026/",
       desc: "The NMIMS Online MBA in Business Management is designed to develop leadership, strategic thinking, and managerial skills. This online MBA in business management helps students understand business operations, decision-making, and organizational growth.",
       desc2: "The NMIMS Online MBA Business Management program is suitable for professionals aiming for leadership and managerial roles across industries. It offers strong career opportunities in business strategy, consulting, and management roles.",
       img: "/specializations/business.png",
@@ -64,7 +64,7 @@ export default function page() {
     },
     {
       title: "NMIMS Online MBA in Business Analytics",
-      link: "https://radhyaeducationacademy.com/business-analytics-vs-business-management-2026/",
+      link: "https://radhyaeducationacademy.com/blogs/nmims-online-mba-business-analytics-2026/",
       desc: "The NMIMS Online MBA in Business Analytics focuses on data interpretation, business intelligence, and analytical decision-making. This online MBA in business analytics helps students understand how to use data for strategic business growth.",
       desc2: "With increasing demand for analytics professionals, the NMIMS Online MBA Business Analytics program is a trending specialization. It prepares learners for roles in data analysis, business intelligence, and analytics consulting.",
       img: "/specializations/analytics.png",
