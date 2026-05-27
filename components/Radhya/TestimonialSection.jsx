@@ -1,6 +1,12 @@
 "use client";
 
-import { ArrowRight, ChevronLeft, ChevronRight, Star, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  TrendingUp,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function TestimonialsSection() {
@@ -11,10 +17,10 @@ export default function TestimonialsSection() {
       title: "Marketing Manager, TechNova Ass.",
       text: "The counselling session from Radhya education helped me realise which specialisation actually fits my career goals. I joined the NMIMS Online MBA in Marketing and could immediately apply what I learned to my work. It's flexible, practical, and truly growth-focused.",
       rating: 5,
-       salaryBefore: "4.2 LPA",
+      salaryBefore: "4.2 LPA",
       salaryAfter: "8.9 LPA",
       growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      date: "15-10-2024",
     },
     {
       id: 2,
@@ -22,10 +28,10 @@ export default function TestimonialsSection() {
       title: "Business Analyst, Infosync Analytics",
       text: "As a working professional with a full-time job, I never thought I could manage an MBA. Radhya education made the process simple, from selecting the university to scheduling sessions. The ROI guidance was a game-changer - it felt like a career investment, not just education.",
       rating: 5,
-       salaryBefore: "4.2 LPA",
-      salaryAfter: "8.9 LPA",
-      growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      salaryBefore: "3.9 LPA",
+      salaryAfter: "8.5 LPA",
+      growth: "2.2x Salary Growth",
+      date: "12-02-2025",
     },
     {
       id: 3,
@@ -33,10 +39,10 @@ export default function TestimonialsSection() {
       title: "Operations Lead, WareConnect India",
       text: "What I liked most about Radhya education was their honest approach - no hard selling, just clear insights about what would work for my profile. The flight of knowledge made me see how each skill ties to real outcomes.",
       rating: 5,
-       salaryBefore: "4.2 LPA",
-      salaryAfter: "8.9 LPA",
-      growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      salaryBefore: "5.0 LPA",
+      salaryAfter: "13.5 LPA",
+      growth: "2.7x Salary Growth",
+      date: "28-01-2025",
     },
     {
       id: 4,
@@ -44,10 +50,10 @@ export default function TestimonialsSection() {
       title: "HR Specialist, PeopleFirst Consulting",
       text: "The mentorship from Radhya education gave me the clarity I needed. I didn't just pick an MBA program; I understood how it would impact my career ROI. Within months, I started seeing improvements at work.",
       rating: 5,
-       salaryBefore: "4.2 LPA",
-      salaryAfter: "8.9 LPA",
-      growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      salaryBefore: "6.2 LPA",
+      salaryAfter: "12.7 LPA",
+      growth: "2.0x Salary Growth",
+      date: "16-02-2025",
     },
     {
       id: 5,
@@ -55,10 +61,10 @@ export default function TestimonialsSection() {
       title: "Finance Executive, Axis Bank",
       text: "I've seen many education platforms, but Radhya education stands out for one reason - they understand working professionals. Everything, from the call with the counsellor to the study guidance, felt designed for my schedule.",
       rating: 5,
-       salaryBefore: "4.2 LPA",
-      salaryAfter: "8.9 LPA",
-      growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      salaryBefore: "4.5 LPA",
+      salaryAfter: "9.8 LPA",
+      growth: "2.2x Salary Growth",
+      date: "28-02-2025",
     },
     {
       id: 6,
@@ -66,10 +72,10 @@ export default function TestimonialsSection() {
       title: "Digital Strategist, Creatify Media",
       text: "Choosing the NMIMS Online MBA through Radhya education was one of my best career decisions. The counsellor helped me choose the right specialisation, and the guidance on practical application made all the difference.",
       rating: 4,
-       salaryBefore: "4.2 LPA",
-      salaryAfter: "8.9 LPA",
-      growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      salaryBefore: "4.2 LPA",
+      salaryAfter: "10.9 LPA",
+      growth: "2.6x Salary Growth",
+      date: "01-03-2025",
     },
     {
       id: 7,
@@ -77,10 +83,10 @@ export default function TestimonialsSection() {
       title: "Business Development Associate, Webkul",
       text: "Choosing the Amity Online MBA through Radhya education was one of my best career decisions. This course helped me choose the right career path, and the guidance on practical application made all the difference.",
       rating: 4,
-       salaryBefore: "4.2 LPA",
-      salaryAfter: "8.9 LPA",
-      growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      salaryBefore: "3.8 LPA",
+      salaryAfter: "9.5 LPA",
+      growth: "2.5x Salary Growth",
+      date: "02-05-2025",
     },
     {
       id: 8,
@@ -88,10 +94,10 @@ export default function TestimonialsSection() {
       title: "Product Executive, Innovatech Solutions",
       text: "Radhya education helped me connect my learning with real business challenges. The counsellor's guidance on choosing the right MBA specialisation gave me clarity I was missing for years. I now feel more confident about my career direction.",
       rating: 5,
-       salaryBefore: "4.2 LPA",
-      salaryAfter: "8.9 LPA",
-      growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      salaryBefore: "3.5 LPA",
+      salaryAfter: "9.8 LPA",
+      growth: "2.8x Salary Growth",
+      date: "15-05-2025",
     },
     {
       id: 9,
@@ -99,10 +105,10 @@ export default function TestimonialsSection() {
       title: "Content Strategist, BrandNest Studio",
       text: "The counselling experience was extremely professional and personalised. Radhya education didn't push programs blindly — they helped me understand how each option would affect my long-term career growth.",
       rating: 5,
-       salaryBefore: "4.2 LPA",
-      salaryAfter: "8.9 LPA",
+      salaryBefore: "5.3 LPA",
+      salaryAfter: "11.1 LPA",
       growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      date: "23-05-2025",
     },
     {
       id: 10,
@@ -110,10 +116,10 @@ export default function TestimonialsSection() {
       title: "Supply Chain Analyst, LogiCore Systems",
       text: "What stood out for me was the clarity around ROI and skill relevance. Radhya education made sure I wasn't just enrolling in a degree, but investing in the right career move.",
       rating: 5,
-       salaryBefore: "4.2 LPA",
+      salaryBefore: "4.2 LPA",
       salaryAfter: "8.9 LPA",
       growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      date: "02-06-2025",
     },
     {
       id: 11,
@@ -121,10 +127,10 @@ export default function TestimonialsSection() {
       title: "Corporate Trainer, LearnSphere",
       text: "The structured guidance and honest counselling approach helped me avoid confusion. I finally chose a program that aligned with both my professional goals and personal schedule.",
       rating: 4,
-       salaryBefore: "4.2 LPA",
+      salaryBefore: "4.2 LPA",
       salaryAfter: "8.9 LPA",
       growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      date: "27-08-2025",
     },
     {
       id: 12,
@@ -132,10 +138,10 @@ export default function TestimonialsSection() {
       title: "Operations Manager, CoreLine Industries",
       text: "Radhya education made online learning feel purposeful. The counsellor explained how each subject links to real workplace outcomes, which motivated me to stay consistent with my studies.",
       rating: 5,
-       salaryBefore: "4.2 LPA",
-      salaryAfter: "8.9 LPA",
-      growth: "2.1x Salary Growth",
-      date: "15-10-2002",
+      salaryBefore: "6.0 LPA",
+      salaryAfter: "12.3 LPA",
+      growth: "2.0x Salary Growth",
+      date: "24-12-2025",
     },
   ];
 
@@ -162,7 +168,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-     <div className="w-full bg-white overflow-hidden">
+    <div className="w-full bg-white overflow-hidden">
       <div className="w-full mx-auto">
         {/* Heading */}
         <div className="mb-10 w-full mx-auto p-5 lg:px-15  max-w-7xl">
@@ -207,7 +213,7 @@ export default function TestimonialsSection() {
                           {
                             length: Math.max(
                               0,
-                              Number(testimonial.rating) || 0
+                              Number(testimonial.rating) || 0,
                             ),
                           },
                           (_, i) => (
@@ -216,7 +222,7 @@ export default function TestimonialsSection() {
                               size={16}
                               className="fill-yellow-400 text-yellow-400"
                             />
-                          )
+                          ),
                         )}
                       </div>
                     </div>
@@ -243,10 +249,7 @@ export default function TestimonialsSection() {
                       </h4>
                     </div>
 
-                    <ArrowRight
-                      className="text-[#3C087E] shrink-0"
-                      size={34}
-                    />
+                    <ArrowRight className="text-[#3C087E] shrink-0" size={34} />
 
                     <div className="text-right">
                       <p className="text-sm mb-1 text-[#333333]">
@@ -264,7 +267,7 @@ export default function TestimonialsSection() {
                     {testimonial.growth}
                   </div>
                 </div>
-              )
+              ),
             )}
           </div>
         </div>
