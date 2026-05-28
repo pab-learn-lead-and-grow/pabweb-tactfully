@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "../components/Radhya/Navbar";
 import Footer from "../components/Radhya/Footer";
 import Script from "next/script";
+import CounsellingModal from "@/components/Radhya/CounsellingModal";
 
 
 
@@ -132,6 +133,7 @@ export default function RootLayout({ children }) {
      <body className={`${inter.className} scrollbar-hide`}>
         <Navbar />
         {children}
+        <CounsellingModal />
         <div id="global-footer">
   <Footer />
 </div>

@@ -2,6 +2,7 @@
 import { Resend } from "resend";
 import { sanitizeInput, validateEmail } from "@/lib/security";
 import { newsletterRateLimiter } from "@/lib/rateLimiter";
+import { supabase } from "@/lib/supabaseClient";
 
 export async function POST(request) {
   try {
@@ -46,7 +47,26 @@ export async function POST(request) {
 
     const sanitizedEmail = sanitizeInput(email);
 
-    // Send email notifications (only on successful insert)
+    // Insert into Supabase
+    const { error: dbError } = await supabase
+      .from("newsletter_subscribers")
+      .insert({ email: sanitizedEmail });
+
+    if (dbError) {
+      if (dbError.code === "23505") {
+        console.log("ℹ️ Email already subscribed:", sanitizedEmail);
+      } else {
+        console.error("❌ Supabase insert error:", dbError);
+        return new Response(
+          JSON.stringify({ success: false, error: "Database error. Please try again." }),
+          { status: 500, headers: { "Content-Type": "application/json" } }
+        );
+      }
+    } else {
+      console.log("✅ Subscriber saved to database:", sanitizedEmail);
+    }
+
+    // Send email notifications
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
       const adminEmail = [process.env.ADMIN_EMAIL || "contact@radhyaeducationacademy.com"];
