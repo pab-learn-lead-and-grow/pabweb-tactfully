@@ -9,7 +9,7 @@ export default function CounsellingModal({ children }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpen(true);
-    }, 10000); // 10 seconds
+    }, 5000); // 5 seconds
 
     return () => clearTimeout(timer);
   }, []);
