@@ -867,7 +867,7 @@ return (
           <div className="flex items-center gap-4">
             <a href="/" className="block">
               <Image
-                src="/radhyaLogo.png"
+                src="/radhyaLogo.webp"
                 alt="Radhya Logo"
                 width={180}
                 height={60}

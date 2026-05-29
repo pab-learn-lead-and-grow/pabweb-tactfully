@@ -185,7 +185,7 @@ export default async function Footer() {
             <div className="col-span-2 flex justify-start items-start mt-4 text-left">
               <a href="/" className="block">
                 <Image
-                  src="/RadhyaLogo.webp"
+                  src="/radhyaLogo.webp"
                   alt="Radhya Logo"
                   width={300}
                   height={60}
