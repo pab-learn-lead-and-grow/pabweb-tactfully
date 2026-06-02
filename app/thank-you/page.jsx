@@ -1,4 +1,5 @@
 import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
+import Script from "next/script";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
@@ -42,6 +43,13 @@ export const metadata = {
 export default function ThankYou() {
   return (
     <>
+    <Script id="fb-lead-event" strategy="afterInteractive">
+    {`
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead');
+      }
+    `}
+  </Script>
       <BreadcrumbSchema
         items={[
           { name: "Home", item: siteUrl },
