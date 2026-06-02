@@ -98,16 +98,7 @@ export default function ContactNmims({
         throw new Error(result.error || "Failed to submit form.");
       }
 
-      setSubmitted(true);
-      setForm({
-        name: "",
-        email: "",
-        university: "",
-        course: "",
-        phone: "",
-        message: "",
-      });
-      if (onSuccess) onSuccess();
+      window.location.href = "/thank-you";
     } catch (err) {
       console.error("Form submission error:", err);
       setErrors({

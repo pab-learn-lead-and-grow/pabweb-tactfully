@@ -43,14 +43,7 @@ export default function HelpSection() {
       if (!result.success) {
         setStatus(result.error || "Something went wrong.");
       } else {
-        setStatus("✅ Message sent successfully!");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
+        window.location.href = "/thank-you";
       }
     } catch (error) {
       setStatus("❌ Something went wrong. Please try again.");

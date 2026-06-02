@@ -76,14 +76,7 @@ const handleSubmit = async (e) => {
         
       }
 
-      setStatus("✅ Message sent successfully!");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
+      window.location.href = "/thank-you";
     } catch (error) {
       console.error("Contact form error:", error);
       setStatus("❌ Error sending message: " + error.message);

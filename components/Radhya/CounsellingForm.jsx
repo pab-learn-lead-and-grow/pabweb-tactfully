@@ -76,8 +76,7 @@ const [errors, setErrors] = useState({});
         throw new Error(result.error || "Submission failed");
       }
 
-      alert("✅ Form submitted successfully!");
-      onClose();
+      window.location.href = "/thank-you";
     } catch (error) {
       alert("Error submitting form: " + error.message);
     } finally {
