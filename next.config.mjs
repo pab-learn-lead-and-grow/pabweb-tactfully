@@ -271,6 +271,12 @@ const nextConfig = {
 
   async redirects() {
     return [
+	// ✅ YOUR NEW REDIRECT
+    {
+      source: "/top-online-mba-colleges-india-2026",
+      destination: "https://radhyaeducationacademy.com/top-online-universities-india/",
+      permanent: true,
+    },
       {
         source: "/:path*",
         has: [
