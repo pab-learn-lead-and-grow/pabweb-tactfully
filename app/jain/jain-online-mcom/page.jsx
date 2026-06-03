@@ -12,7 +12,7 @@ export const metadata = {
     "JAIN Online MCom is a UGC-approved postgraduate commerce degree offering flexible online learning, industry-focused curriculum, and strong career support for commerce graduates.",
 
   alternates: {
-    canonical: `https://radhyaeducationacademy.com/jain/jain-online-mcom/`,
+    canonical: `${siteUrl}/jain/jain-online-mcom/`,
   },
 
   keywords: [

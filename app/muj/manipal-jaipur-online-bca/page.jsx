@@ -9,7 +9,7 @@ export const metadata = {
   description:
     "Manipal Jaipur Online BCA offers a UGC-approved computer applications degree with flexible online learning, industry-relevant curriculum and career support",
   alternates: {
-    canonical: "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-bca/",
+    canonical: `${siteUrl}/muj/manipal-jaipur-online-bca/`,
   },
     keywords: [
     "Manipal Jaipur Online BCA",

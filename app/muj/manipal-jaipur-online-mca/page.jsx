@@ -10,7 +10,7 @@ export const metadata = {
   description:
     "Manipal Jaipur Online MCA offers a UGC-approved postgraduate computer applications degree with flexible online learning, industry-relevant curriculum and career support",
   alternates: {
-    canonical: "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-mca/",
+    canonical: `${siteUrl}/muj/manipal-jaipur-online-mca/`,
   },
     keywords: [
     "Manipal Jaipur Online MCA",

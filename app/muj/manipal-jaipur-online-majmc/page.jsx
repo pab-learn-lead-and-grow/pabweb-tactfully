@@ -8,7 +8,7 @@ export const metadata = {
   description:
     "Manipal Jaipur Online MAJMC offers a UGC-approved journalism and mass communication degree with flexible online learning, practical curriculum and career support",
   alternates: {
-    canonical: "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-majmc/",
+    canonical: `${siteUrl}/muj/manipal-jaipur-online-majmc/`,
   },
     keywords: [
     "Manipal Jaipur Online MAJMC",

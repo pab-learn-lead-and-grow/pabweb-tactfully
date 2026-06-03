@@ -9,7 +9,7 @@ export const metadata = {
   description:
     "Explore Online MBA Manipal including fees, admission 2026, eligibility, syllabus, placements, and salary. Learn about Manipal University Online MBA course, specializations, and more.",
   alternates: {
-    canonical: "https://radhyaeducationacademy.com/online-mba-manipal/",
+    canonical: `${siteUrl}/online-mba-manipal/`,
   },
     keywords: [
     "online mba manipal",

@@ -9,7 +9,7 @@ export const metadata = {
   description:
     "NMIMS Online MBA 2026: fees, admission process, eligibility, placements, specializations & reviews. Check if it’s the right choice for working professionals in India.",
   alternates: {
-    canonical: "https://radhyaeducationacademy.com/nmims-online-mba/",
+    canonical: `${siteUrl}/nmims-online-mba/`,
   },
     keywords: [
     "NMIMS Online MBA",

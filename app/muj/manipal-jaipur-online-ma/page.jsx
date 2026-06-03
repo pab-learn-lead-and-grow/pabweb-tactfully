@@ -9,7 +9,7 @@ export const metadata = {
   description:
     "Manipal Jaipur Online MA offers a UGC-approved postgraduate degree with flexible online learning, industry-relevant curriculum and academic support",
   alternates: {
-    canonical: "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-ma/",
+    canonical: `${siteUrl}/muj/manipal-jaipur-online-ma/`,
   },
     keywords: [
     "Manipal Jaipur Online MA",

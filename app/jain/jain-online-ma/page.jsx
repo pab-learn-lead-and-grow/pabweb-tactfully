@@ -13,7 +13,7 @@ export const metadata = {
     "JAIN Online MA is a UGC-approved postgraduate arts degree offering flexible online learning, industry-relevant curriculum, and academic support for career advancement.",
 
   alternates: {
-    canonical: `https://radhyaeducationacademy.com/jain/jain-online-ma/`,
+    canonical: `${siteUrl}/jain/jain-online-ma/`,
   },
 
   keywords: [

@@ -9,7 +9,7 @@ export const metadata = {
   description:
     "NMIMS Online MBA helps you earn a UGC-approved management degree online with flexible learning, industry-relevant curriculum and support for working professionals",
   alternates: {
-    canonical: "https://radhyaeducationacademy.com/nmims/nmims-mumbai-online-mba/",
+    canonical: `${siteUrl}/nmims/nmims-mumbai-online-mba/`,
   },
     keywords: [
     "NMIMS Online MBA",

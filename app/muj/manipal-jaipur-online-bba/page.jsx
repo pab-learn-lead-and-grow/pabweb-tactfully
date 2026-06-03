@@ -9,7 +9,7 @@ export const metadata = {
   description:
     "Manipal Jaipur Online BBA offers a UGC-approved undergraduate business degree with flexible online learning, industry-relevant curriculum and career support",
   alternates: {
-    canonical: "https://radhyaeducationacademy.com/muj/manipal-jaipur-online-bba/",
+    canonical: `${siteUrl}/muj/manipal-jaipur-online-bba/`,
   },
     keywords: [
     "Manipal Jaipur Online BBA",

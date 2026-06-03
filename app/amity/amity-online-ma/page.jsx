@@ -13,7 +13,7 @@ export const metadata = {
     "Explore Amity University Online MA program with specializations in humanities and social sciences, flexible postgraduate learning, placement support, and UGC-entitled online education.",
 
   alternates: {
-    canonical: `https://radhyaeducationacademy.com/amity/amity-online-ma/`,
+    canonical: `${siteUrl}/amity/amity-online-ma/`,
   },
 
   keywords: [

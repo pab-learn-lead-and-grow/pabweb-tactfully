@@ -13,8 +13,7 @@ export const metadata = {
     "Amity Online BCom International Finance & Accounting is a UGC-approved global commerce degree offering flexible online learning, international curriculum, and career opportunities in finance and accounting.",
 
   alternates: {
-    canonical:
-      "/amity/amity-online-bcom-international-finance-and-accounting/",
+    canonical: `${siteUrl}/amity/amity-online-bcom-international-finance-and-accounting/`,
   },
 
   keywords: [

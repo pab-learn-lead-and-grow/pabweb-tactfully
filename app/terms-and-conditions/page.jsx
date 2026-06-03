@@ -8,7 +8,7 @@ export const metadata = {
   title: "Terms & Conditions || Radhya Education",
   description: "Review the Terms and Conditions of Radhya Education Academy to understand user responsibilities, website usage, and policies for accessing our services and information.",
    alternates: {
-    canonical: "https://radhyaeducationacademy.com/terms-and-conditions/",
+    canonical: `${siteUrl}/terms-and-conditions/`,
   },
   openGraph: {
     title: "https://radhyaeducationacademy.com/terms-and-conditions/ - UGC Approved Program | Radhya Education Academy",

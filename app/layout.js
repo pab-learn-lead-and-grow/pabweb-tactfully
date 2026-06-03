@@ -71,11 +71,7 @@ export const metadata = {
     creator: "@radhyaeducation",
   },
 
-  alternates: isStaging
-    ? {}
-    : {
-        canonical: `${siteUrl}/`,
-      },
+  alternates: {},
 
   robots: isStaging
     ? {

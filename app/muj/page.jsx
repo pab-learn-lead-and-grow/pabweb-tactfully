@@ -8,7 +8,7 @@ export const metadata = {
   description:
     "Manipal Jaipur University offers UGC-approved online undergraduate and postgraduate degree programs with flexible learning and industry-relevant curriculum",
   alternates: {
-    canonical: "https://radhyaeducationacademy.com/muj/",
+    canonical: `${siteUrl}/muj/`,
   },
   openGraph: {
     title: "Manipal Jaipur University - UGC Approved Online Programs | Radhya Education Academy",

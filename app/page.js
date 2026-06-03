@@ -7,13 +7,16 @@ import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 
 export const revalidate = 60;
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
+
 export const metadata = {
   title: "Best Online & Distance Education Consultant in India",
   description:
     "Radhya Education Academy helps you choose the right online degree with expert counselling.",
+  alternates: {
+    canonical: `${siteUrl}/`,
+  },
 };
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
 export default async function Home() {
   const latestNews = await getLatestNews();
