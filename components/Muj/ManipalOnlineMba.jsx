@@ -77,7 +77,7 @@ export default function page() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="text-white text-sm md:text-base italic font-light"
+                className="text-[#EEA727] text-sm md:text-base italic font-light"
               >
                 Online Master of Business Administration
               </MotionWrapper>
@@ -90,8 +90,7 @@ export default function page() {
                 viewport={{ once: true }}
                 className="text-white text-[28px] md:text-5xl font-bold mt-2 leading-tight"
               >
-                Online MBA Manipal: Fees, Admission 2026, Eligibility,
-                Placements and Review
+                Online MBA Manipal: Eligibility, Fees, Placements, Admission 2026 and Review
               </MotionWrapper>
 
               <MotionWrapper
@@ -262,14 +261,11 @@ export default function page() {
                   <br />
                   In addition, the university is accredited by the{" "}
                   <b>NAAC with an A+ grade</b>, reflecting high academic
-                  standards and quality education.
-                  <br />
-                  <br />
-                  Other recognitions associated with the manipal university
+                  standards and quality education. Other recognitions associated with the manipal university
                   online mba include:
                 </p>
 
-                <ul className="list-disc pl-5 text-gray-900 mb-2">
+                <ul className="list-disc pl-5 text-gray-900 mt-2 mb-2">
                   <li>
                     <b>AICTE</b>-aligned guidelines for management education
                   </li>
@@ -959,9 +955,7 @@ export default function page() {
                     ROI (Return on Investment) Analysis
                   </h3>
                   When evaluating the online mba manipal fees, it is important
-                  to consider the return on investment (ROI).
-                  <br />
-                  The manipal online mba provides strong ROI due to:
+                  to consider the return on investment (ROI). The manipal online mba provides strong ROI due to:
                   <ul className="list-disc ml-5 mt-2 space-y-1">
                     <li>
                       <b>Affordable fee structure</b> compared to traditional
@@ -975,7 +969,7 @@ export default function page() {
                   <h4 className="text-base md:text-xl font-bold text-[#270652] mb-2 mt-2">
                     Expected ROI:
                   </h4>
-                  <ul className="list-disc ml-5 mt-2 font-bold space-y-1">
+                  <ul className="list-disc ml-5 mt-2 mb-2 font-bold space-y-1">
                     <li>Average salary after MBA: ₹5 - 12 LPA</li>
                     <li>High-performing candidates: ₹12 - 15 LPA+</li>
                   </ul>

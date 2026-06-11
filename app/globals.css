@@ -256,6 +256,17 @@ html {
   scroll-margin-top: 126px; 
 }
 
+.prose {
+  color: #000;
+  font-size: 0.875rem; /* text-sm */
+}
+
+@media (min-width: 640px) {
+  .prose {
+    font-size: 1rem; /* text-base */
+  }
+}
+
 .prose a {
   color: #3c087e;
   font-weight: 700; 

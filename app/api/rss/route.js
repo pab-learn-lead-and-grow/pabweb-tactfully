@@ -8,12 +8,14 @@ export async function GET() {
         .from("news")
         .select("news_id, title, slug, excerpt, image_url, published_at")
         .eq("is_published", true)
-        .limit(50),
+        .order("published_at", { ascending: false })
+        .limit(1000),
       supabase
         .from("blogs")
         .select("blogs_id, title, slug, excerpt, image_url, published_at")
         .eq("is_published", true)
-        .limit(50),
+        .order("published_at", { ascending: false })
+        .limit(1000),
     ]);
 
     if (newsRes.error) console.error("News query error:", newsRes.error);
