@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { CircleCheckBig, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 
-export default function CounsellingForm({ onClose }) {
+export default function CounsellingForm({ onClose, onSuccess }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -76,7 +76,11 @@ const [errors, setErrors] = useState({});
         throw new Error(result.error || "Submission failed");
       }
 
-      window.location.href = "/thank-you";
+      if (onSuccess) {
+        onSuccess(result);
+      } else {
+        window.location.href = "/thank-you";
+      }
     } catch (error) {
       alert("Error submitting form: " + error.message);
     } finally {

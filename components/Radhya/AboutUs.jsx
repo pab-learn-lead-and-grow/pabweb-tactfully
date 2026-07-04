@@ -5,7 +5,7 @@ import ConnectToday from "../NmimsSection/ConnectToday";
 export default function WhatSetsUsApart() {
   const items = [
     {
-      title: "One person who's got your back",
+      title: "Dedicated Counsellor From Day One",
       desc: "A dedicated point of contact who supports you through every step of your journey. No confusion. No chaos. Just clarity.",
       tags: ["Support", "Clarity", "Trust"],
       img: "/aboutUs/set1.png",
@@ -17,7 +17,7 @@ export default function WhatSetsUsApart() {
       img: "/aboutUs/set2.png",
     },
     {
-      title: "Growth-first learning",
+      title: "Career-Focused Program Recommendations",
       desc: "Guidance to choose online and offline programs that deliver real results, not just another certificate.",
       tags: ["Growth", "Outcomes", "Opportunity"],
       img: "/aboutUs/set3.png",
@@ -29,7 +29,7 @@ export default function WhatSetsUsApart() {
       img: "/aboutUs/set4.png",
     },
     {
-      title: "Progress that doesn’t pause",
+      title: "Support Beyond Admission",
       desc: "Regular check-ins to keep you moving forward and improving continuously.",
       tags: ["Accountability", "Consistency", "Momentum"],
       img: "/aboutUs/set5.png",
@@ -38,7 +38,7 @@ export default function WhatSetsUsApart() {
 
   return (
     <main>
-    <section className="w-full bg-white px-4 sm:px-8 md:px-12 lg:px-20 py-16 font-sans">
+    <section className="max-w-7xl mx-auto bg-white px-4 sm:px-8 md:px-12 lg:px-20 py-16 font-sans">
   {/* HEADER */}
  <MotionWrapper
   initial={{ opacity: 0, y: 16 }}
@@ -152,7 +152,7 @@ export default function WhatSetsUsApart() {
             In a world full of online and offline education opportunities, we stand out by making learning
             personal, practical, and aligned with real goals. We guide
             individuals to choose programs that genuinely support their
-            ambitions, rather than generic options.
+            ambitions.
           </p>
         </div>
 
@@ -199,12 +199,14 @@ export default function WhatSetsUsApart() {
 
         <p className="text-sm leading-relaxed opacity-95">
           We don't sell courses or push universities. We understand careers and
-          guide learners toward informed decisions that deliver real, lasting
-          outcomes.
+  guide learners toward informed decisions that deliver real, lasting
+  outcomes. Every recommendation is backed by personalized counselling,
+  transparent guidance, and a commitment to helping learners build rewarding
+  careers through the right educational choices.
         </p>
       </div>
 
-      <div className="mt-6 lg:mt-10 xl:mt-20 flex justify-center">
+      <div className="mt-4 flex justify-center">
         <Image
           src="/aboutUs/aboutCar.png"
           alt="Career"
@@ -216,10 +218,85 @@ export default function WhatSetsUsApart() {
     </MotionWrapper>
   </div>
 </section>
+<MotionWrapper
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4 }}
+  className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 mb-20"
+>
+  <div className="rounded-3xl bg-linear-to-br from-[#270562] to-[#3C087E] text-white p-8 md:p-12 shadow-xl overflow-hidden relative">
 
+    <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-white/5 blur-3xl" />
 
+    <div className="relative z-10 max-w-5xl">
 
-      <section className="w-full font-sans px-6 md:px-16 lg:px-24 py-16">
+      <span className="inline-flex px-4 py-2 rounded-full bg-white/10 text-[#EEA727] text-sm font-medium">
+        About Radhya Education Academy
+      </span>
+
+      <h2 className="text-[28px] md:text-4xl font-bold mt-2 mb-6">
+        Helping Students Make Smarter Education Decisions
+      </h2>
+
+      <p className="text-white/90 leading-8 text-base md:text-lg">
+        Radhya Education Academy is a career-focused education counselling
+        platform dedicated to helping students and working professionals
+        confidently choose the right university and program. We simplify the
+        decision-making process by comparing accredited universities,
+        understanding individual career goals, and providing personalized
+        counselling that goes beyond admissions. Our mission is to empower every
+        learner with transparent information, expert guidance, and continuous
+        support throughout their higher education journey.
+      </p>
+
+    </div>
+
+  </div>
+</MotionWrapper>
+<MotionWrapper
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4 }}
+  className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 mb-10"
+>
+  <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+
+    {[
+      {
+        value: "10,000+",
+        label: "Students Guided",
+      },
+      {
+        value: "50+",
+        label: "University Partners",
+      },
+      {
+        value: "100+",
+        label: "Programs Compared",
+      },
+      {
+        value: "4.8/5",
+        label: "Average Student Rating",
+      },
+    ].map((item) => (
+      <div
+        key={item.label}
+        className="rounded-2xl border border-[#3C087E] p-8 shadow-lg text-center hover:-translate-y-2 transition-all duration-300"
+      >
+        <h3 className="text-4xl font-bold text-[#EEA727]">
+          {item.value}
+        </h3>
+
+        <p className="mt-3 text-[#3C087E] ">
+          {item.label}
+        </p>
+      </div>
+    ))}
+
+  </div>
+</MotionWrapper>
+
+      <section className="max-w-7xl mx-auto font-sans px-6 md:px-16 lg:px-24 py-16">
         {/* HEADING */}
        <MotionWrapper
   initial={{ opacity: 0, y: 20 }}
@@ -239,7 +316,7 @@ export default function WhatSetsUsApart() {
   </h2>
 </MotionWrapper>
 
-        <p className="text-[#333333] text-sm md:text-md lg:text-[22px] mb-12">
+        <p className="text-[#333333] text-sm md:text-base lg:text-xl mb-12">
           We turn direction into transformation.
         </p>
 
@@ -295,6 +372,140 @@ export default function WhatSetsUsApart() {
           })}
         </div>
       </section>
+
+ <MotionWrapper
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4 }}
+  className="max-w-7xl mx-auto px-4 sm:px-8 bg-[#3C087E]/10  lg:px-16 py-20"
+>
+  <div
+    className="
+      grid
+      grid-cols-1
+      md:grid-cols-[2fr_1.5fr_1.5fr]
+      gap-8
+      items-start
+    "
+  >
+    {/* ================= LEFT CONTENT ================= */}
+
+    <div className="md:pr-6">
+
+      <h2 className="mt-5 text-3xl md:text-5xl font-bold leading-tight text-[#270652]">
+        Meet Our Expert Counsellors
+      </h2>
+
+      <p className="mt-6 text-base md:text-lg leading-8 text-gray-700 max-w-xl">
+        Behind every successful admission is a counsellor who understands your
+        goals, listens to your aspirations, and helps you choose the right
+        university with complete transparency, expert advice, and personalized
+        guidance throughout your education journey.
+      </p>
+
+    </div>
+
+    {/* ================= CARD 1 ================= */}
+
+    <div
+      className="
+        rounded-3xl
+        border
+        border-[#3C087E]/10
+        bg-white
+        shadow-lg
+        overflow-hidden
+        transition-all
+        duration-300
+        hover:-translate-y-2
+        hover:shadow-2xl
+        h-full
+      "
+    >
+
+      <div className="p-6 flex flex-col">
+
+        <h3 className="text-2xl font-bold text-[#270652]">
+          Mayank Sharma
+        </h3>
+
+        <p className="mt-1 text-[#D68E0E] font-semibold">
+          Senior Career Counsellor
+        </p>
+
+        <p className="mt-4 text-sm leading-7 text-gray-600 flex-grow">
+          Specializes in Online MBA admissions, university comparisons,
+          scholarship guidance,specialization guidance and career planning for working professionals.
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+
+          <span className="rounded-full bg-[#3C087E]/10 px-3 py-1 text-xs font-medium text-[#3C087E]">
+            Online MBA
+          </span>
+
+          <span className="rounded-full bg-[#EEA727]/15 px-3 py-1 text-xs font-medium text-[#D68E0E]">
+            Career Guidance
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* ================= CARD 2 ================= */}
+
+    <div
+      className="
+        rounded-3xl
+        border
+        border-[#3C087E]/10
+        bg-white
+        shadow-lg
+        overflow-hidden
+        transition-all
+        duration-300
+        hover:-translate-y-2
+        hover:shadow-2xl
+        h-full
+      "
+    >
+
+      <div className="p-6 flex flex-col">
+
+        <h3 className="text-2xl font-bold text-[#270652]">
+          Priya Mehta
+        </h3>
+
+        <p className="mt-1 text-[#D68E0E] font-semibold">
+          Admission & University Advisor
+        </p>
+
+        <p className="mt-4 text-sm leading-7 text-gray-600 flex-grow">
+          Helps students compare universities, understand eligibility,
+          evaluate programmes, and complete admissions with confidence and
+          personalized support.
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+
+          <span className="rounded-full bg-[#3C087E]/10 px-3 py-1 text-xs font-medium text-[#3C087E]">
+            Admissions
+          </span>
+
+          <span className="rounded-full bg-[#EEA727]/15 px-3 py-1 text-xs font-medium text-[#D68E0E]">
+            University Comparison
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</MotionWrapper>
       <section className="w-full bg-white px-6 md:px-16 lg:px-24 py-20 font-sans">
         <div className="max-w-7xl mx-auto ">
           {/* VISION */}

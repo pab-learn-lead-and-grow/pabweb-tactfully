@@ -9,23 +9,23 @@ export default function Hero({ className }) {
       <div className="bg-linear-to-r from-[#3C087E]/10 to-[#F4B400]/10 rounded-b-[50px] md:rounded-b-[100px]">
         <div className="w-full mx-auto pt-[100px]">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl lg:text-8xl font-bold leading-tight">
+            <p className="text-4xl md:text-5xl lg:text-8xl font-bold leading-tight">
               <span className="bg-[linear-gradient(90deg,#FFB901_0%,#AD6F35_35.58%,#57216D_52.4%,#3C087E_100%)] bg-clip-text text-transparent">
                 #GyaanKiUdaan
               </span>
-            </h2>
-
-            <p className="mt-4 text-[#121212] text-[16px] lg:text-[22px] xl:text-[24px] font-medium mx-auto">
-              Empowering Minds, Elevating Futures{" "}
-              <br className="block lg:hidden" />
-              Through The Flight Of Knowledge.
             </p>
+
+            <h1 className="mt-4 text-[#121212] text-[16px] lg:text-[22px] xl:text-[24px] font-medium mx-auto">
+              Expert Online MBA Counselling,{" "}
+              <br className="block lg:hidden" />
+              University Comparison & Admission Support
+            </h1>
 
             <div className="relative z-10 mt-6 flex items-center justify-center gap-2 md:gap-4">
              <CounsellingModal >
                <button className="px-3 py-1 md:px-4 md:py-2 text-[12px] md:text-md lg:text-[16px] hover:scale-105 rounded-lg bg-[#F6A410] border-0 border-transparent shadow-[#db990a] transform text-white font-semibold shadow-md transition-all duration-300 ease-out"
               >
-                Explore Programs →
+                Compare Universities →
               </button>
              </CounsellingModal>
 

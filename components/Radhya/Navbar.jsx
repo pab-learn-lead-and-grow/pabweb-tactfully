@@ -859,7 +859,7 @@ const handleProgramAction = (program) => {
   };
 
 return (
-    <div className="fixed top-0 left-0 right-0  md:px-9 z-50">
+    <div className="fixed max-w-7xl mx-auto top-0 left-0 right-0  md:px-9 z-50">
       <nav className="w-full xl:w-[90%] mx-auto h-[64px] lg:max-h-[72px] bg-white rounded-4xl shadow-sm border border-white/20">
         
 

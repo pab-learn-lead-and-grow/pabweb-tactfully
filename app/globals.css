@@ -320,3 +320,15 @@ html {
   font-weight: 400;
   cursor: pointer;
 }
+
+.progress-ring {
+  stroke-dasharray: 276.46;      /* 2π × 44 */
+  stroke-dashoffset: 276.46;
+  animation: progressRing 3s linear forwards;
+}
+
+@keyframes progressRing {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

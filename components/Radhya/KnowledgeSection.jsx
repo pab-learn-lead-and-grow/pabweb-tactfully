@@ -33,8 +33,8 @@ export default function KnowledgeSection({ latestNews = [], latestBlogs = [] }) 
   const visibleBlogs = blogs.slice(0, 4);
 
   return (
-    <section id="blogs" className="bg-white p-5 lg:p-[60px] mb-2">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 xl:gap-10 max-w-7xl mx-auto">
+    <section id="blogs" className="bg-white p-5 lg:p-[60px] mb-2 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 xl:gap-10 ">
         
         {/* BLOGS */}
         <div className="lg:col-span-2">
@@ -103,38 +103,41 @@ export default function KnowledgeSection({ latestNews = [], latestBlogs = [] }) 
           <div className="overflow-hidden h-[880px]">
             <div className={isPaused ? '' : 'animate-marquee-slow'}>
               <div className="flex flex-col gap-3">
-                {[...latestNews, ...latestNews].map((item, idx) => (
-                  <Link
-                    key={`${item.news_id}-${idx}`}
-                    href={`/news/${item.slug}`}
-                  >
-                    <div className="flex gap-3 items-start hover:bg-white p-2 rounded-lg transition cursor-pointer">
-                      <Image
-                        src={item.image_url}
-                        alt={item.title}
-                        width={80}
-                        height={60}
-                        className="object-cover rounded-lg shrink-0"
-                        sizes="80px"
-                      />
+               {(() => {
+          const latest12 = latestNews.slice(0, 12);
+          return [...latest12].map((item, idx) => (
+            <Link
+              key={`${item.news_id}-${idx}`}
+              href={`/news/${item.slug}`}
+            >
+              <div className="flex gap-3 items-start hover:bg-white p-2 rounded-lg transition cursor-pointer">
+                <Image
+                  src={item.image_url}
+                  alt={item.title}
+                  width={80}
+                  height={60}
+                  className="object-cover rounded-lg shrink-0"
+                  sizes="80px"
+                />
 
-                      <div className="flex-1 min-w-0">
-                        <p className="text-[10px] text-gray-500 mb-0.5">
-                          {item.categoryName}
-                        </p>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[10px] text-gray-500 mb-0.5">
+                    {item.categoryName}
+                  </p>
 
-                        <p className="text-sm font-medium text-gray-900 line-clamp-2">
-                          {item.title}
-                        </p>
+                  <p className="text-sm font-medium text-gray-900 line-clamp-2">
+                    {item.title}
+                  </p>
 
-                        <div className="flex items-center gap-1 mt-0.5 text-[10px] text-gray-500">
-                          <Clock size={10} />
-                          <span>{timeAgo(item.published_at)}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
+                  <div className="flex items-center gap-1 mt-0.5 text-[10px] text-gray-500">
+                    <Clock size={10} />
+                    <span>{timeAgo(item.published_at)}</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ));
+        })()}
               </div>
             </div>
           </div>

@@ -2,12 +2,9 @@
 
 import {
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
   Star,
   TrendingUp,
 } from "lucide-react";
-import { useState } from "react";
 
 export default function TestimonialsSection() {
   const testimonials = [
@@ -15,7 +12,7 @@ export default function TestimonialsSection() {
       id: 1,
       name: "Rohan Mehta",
       title: "Marketing Manager, TechNova Ass.",
-      text: "The counselling session from Radhya education helped me realise which specialisation actually fits my career goals. I joined the NMIMS Online MBA in Marketing and could immediately apply what I learned to my work. It's flexible, practical, and truly growth-focused.",
+      text: "The counselling session from Team Radhya helped me realise which specialization actually fits my career goals. I joined the NMIMS Online MBA in Marketing and could immediately apply what I learned to my work.",
       rating: 5,
       salaryBefore: "4.2 LPA",
       salaryAfter: "8.9 LPA",
@@ -26,7 +23,7 @@ export default function TestimonialsSection() {
       id: 2,
       name: "Priya Nayar",
       title: "Business Analyst, Infosync Analytics",
-      text: "As a working professional with a full-time job, I never thought I could manage an MBA. Radhya education made the process simple, from selecting the university to scheduling sessions. The ROI guidance was a game-changer - it felt like a career investment, not just education.",
+      text: "As a working professional, I never thought I could manage an MBA. Radhya Education counselling team made the process simple, from selecting university to scheduling sessions. ROI felt like a career investment, not just education.",
       rating: 5,
       salaryBefore: "3.9 LPA",
       salaryAfter: "8.5 LPA",
@@ -145,46 +142,24 @@ export default function TestimonialsSection() {
     },
   ];
 
-  const CARDS_PER_PAGE = 3;
-  const [currentPage, setCurrentPage] = useState(0);
-
-  const totalPages = Math.max(
-    1,
-    Math.ceil(testimonials.length / CARDS_PER_PAGE),
-  );
-
-  const startIndex = currentPage * CARDS_PER_PAGE;
-  const visibleTestimonials = testimonials.slice(
-    startIndex,
-    startIndex + CARDS_PER_PAGE,
-  );
-
-  const handlePrev = () => {
-    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
-  };
-
   return (
     <div className="w-full bg-white overflow-hidden">
       <div className="w-full mx-auto">
         {/* Heading */}
         <div className="mb-10 w-full mx-auto p-5 lg:px-15  max-w-7xl">
           <h2 className="text-[28px] md:text-4xl lg:text-5xl font-bold text-[#270652] text-center">
-            Learners Love Wall
+            Real Student Success Stories
           </h2>
         </div>
 
         {/* Marquee Wrapper */}
         <div className="overflow-hidden relative w-full">
-          <div className="marquee flex w-max animate-marquee gap-5 py-4">
-            {[...testimonials, ...testimonials, ...testimonials].map(
+          <div className="marquee flex w-max animate-marquee gap-5 ">
+            {[...testimonials].map(
               (testimonial, idx) => (
                 <div
                   key={idx}
-                  className="min-w-[320px] md:min-w-[380px] max-w-[380px] border border-purple-600 rounded-xl p-3 flex flex-col bg-white shadow-md hover:shadow-xl transition"
+                  className="min-w-[320px] max-w-[380px] border border-purple-600 rounded-xl p-3 flex flex-col bg-white shadow-md hover:shadow-xl transition"
                 >
                   {/* Top Section */}
                   <div className="flex items-start gap-3 mb-3">
@@ -204,11 +179,11 @@ export default function TestimonialsSection() {
                         {testimonial.name}
                       </h4>
 
-                      <p className="text-[#333333] text-xs sm:text-sm mb-1">
+                      <p className="text-[#333333] text-xs mb-1">
                         {testimonial.title}
                       </p>
 
-                      <div className="flex gap-1 mb-2">
+                      <div className="flex gap-1">
                         {Array.from(
                           {
                             length: Math.max(
@@ -229,11 +204,11 @@ export default function TestimonialsSection() {
                   </div>
 
                   {/* Testimonial Block */}
-                  <div className="text-[#333333] bg-[#3C087E]/5 rounded-xl p-3 text-sm sm:text-base leading-relaxed grow whitespace-normal">
+                  <div className="text-[#333333] bg-[#3C087E]/5 rounded-xl p-3 text-xs sm:text-sm leading-relaxed">
                     {testimonial.text}
 
                     {/* Date */}
-                    <div className="text-right text-xs mt-4 text-[#666] font-medium">
+                    <div className="text-right text-xs mt-2 text-[#666] font-medium">
                       {testimonial.date}
                     </div>
                   </div>
@@ -241,28 +216,28 @@ export default function TestimonialsSection() {
                   {/* Salary Section */}
                   <div className="flex justify-between items-center mt-3 p-2">
                     <div>
-                      <p className="text-sm mb-1 text-[#333333]">
+                      <p className="text-xs sm:text-sm mb-1 text-[#333333]">
                         Salary Before
                       </p>
-                      <h4 className="text-xl font-bold text-black">
+                      <h4 className="text-base font-bold text-black">
                         Rs {testimonial.salaryBefore}
                       </h4>
                     </div>
 
-                    <ArrowRight className="text-[#3C087E] shrink-0" size={34} />
+                    <ArrowRight className="text-[#3C087E] shrink-0" size={28} />
 
                     <div className="text-right">
-                      <p className="text-sm mb-1 text-[#333333]">
+                      <p className="text-xs sm:text-sm mb-1 text-[#333333]">
                         Salary After
                       </p>
-                      <h4 className="text-xl font-bold text-green-600">
+                      <h4 className="text-base font-bold text-green-600">
                         Rs {testimonial.salaryAfter}
                       </h4>
                     </div>
                   </div>
 
                   {/* Growth Badge */}
-                  <div className="mx-auto mt-2 bg-green-50 border border-green-100 rounded-full px-4 py-1 flex items-center gap-2 text-green-600 font-semibold text-sm">
+                  <div className="mx-auto mt-2 bg-green-50 border border-green-100 rounded-full px-4 py-1 flex items-center gap-2 text-green-600 font-semibold text-xs sm:text-sm">
                     <TrendingUp size={16} />
                     {testimonial.growth}
                   </div>

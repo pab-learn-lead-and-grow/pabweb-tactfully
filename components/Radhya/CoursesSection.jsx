@@ -612,10 +612,13 @@ export default function CoursesSection() {
   };
 
 return (
-    <section className="p-5 lg:px-[60px] relative">
-      <h2 className="font-bold text-[28px] md:text-4xl lg:text-5xl  leading-tight text-[#270652] mb-6">
-     Courses that fit your hustle
+    <section className="p-5 max-w-7xl mx-auto lg:px-[60px] relative">
+      <h2 className="font-bold text-[28px] md:text-4xl lg:text-5xl mb-2 leading-tight text-[#270652]">
+         Explore Online Programs that fit your hustle
       </h2>
+      <p className="text-sm sm:text-base mb-6 text-justify text-gray-900">
+        Compare Online MBA, Executive MBA, MCA, BBA, and other UGC-approved online programmes offered by India's leading universities. Explore fees, curriculum, specializations, and admission details to find the right programme for your goals.
+      </p>
 
       {/* Pill selector */}
       <div className="bg-[#3C087E]/5 rounded-xl p-4 md:p-6 flex items-center gap-3">
@@ -661,52 +664,52 @@ return (
       </div>
 
       {/* Cards carousel */}
-      <div className="mt-8 relative flex items-center">
-        {/* Left nav */}
-        <button
-          onClick={prevCards}
-          disabled={cardIndex === 0}
-          aria-label="Prev cards"
-          className="prev-btn hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#3C087E] text-white items-center justify-center shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <ChevronLeft size={18} strokeWidth={2} color="#fff" />
-        </button>
+<div className="mt-8 flex items-center gap-4">
+  {/* Left nav */}
+  <button
+    onClick={prevCards}
+    disabled={cardIndex === 0}
+    aria-label="Prev cards"
+    className="prev-btn hidden sm:flex shrink-0 z-20 w-12 h-12 rounded-full bg-[#3C087E] text-white items-center justify-center shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    <ChevronLeft size={18} strokeWidth={2} color="#fff" />
+  </button>
 
-        {/* Right nav */}
-        <button
-          onClick={nextCards}
-          disabled={cardIndex >= items.length - itemsPerView}
-          aria-label="Next cards"
-          className="next-btn hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#3C087E] text-white items-center justify-center shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+  {/* Cards container */}
+  <div className="overflow-hidden flex-1 min-w-0" ref={containerRef}>
+    <div
+      className="flex transition-transform duration-500 ease-out"
+      style={{
+        transform: `translateX(-${cardIndex * (CARD_WIDTH + GAP)}px)`,
+        gap: `${GAP}px`,
+      }}
+    >
+      {items.map((p) => (
+        <div
+          key={p.id}
+          className="shrink-0"
+          style={{ width: `${CARD_WIDTH}px` }}
         >
-          <ChevronRight size={18} strokeWidth={2} color="#fff" />
-        </button>
-
-        {/* Cards container */}
-        <div className="overflow-hidden w-full sm:px-16" ref={containerRef}>
-          <div
-            className="flex transition-transform duration-500 ease-out"
-            style={{
-              transform: `translateX(-${cardIndex * (CARD_WIDTH + GAP)}px)`,
-              gap: `${GAP}px`,
-            }}
-          >
-            {items.map((p) => (
-              <div
-                key={p.id}
-                className="shrink-0"
-                style={{ width: `${CARD_WIDTH}px` }}
-              >
-                <ProgramCard
-                  program={p}
-                  onDive={() => handleDiveDeeper(p)}
-                  onDownload={() => handleDownloadBrochure(p)}
-                />
-              </div>
-            ))}
-          </div>
+          <ProgramCard
+            program={p}
+            onDive={() => handleDiveDeeper(p)}
+            onDownload={() => handleDownloadBrochure(p)}
+          />
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Right nav */}
+  <button
+    onClick={nextCards}
+    disabled={cardIndex >= items.length - itemsPerView}
+    aria-label="Next cards"
+    className="next-btn hidden sm:flex shrink-0 z-20 w-12 h-12 rounded-full bg-[#3C087E] text-white items-center justify-center shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    <ChevronRight size={18} strokeWidth={2} color="#fff" />
+  </button>
+</div>
 
       {/* Mobile navigation */}
       <div className="mt-4 flex items-center justify-center gap-2 sm:hidden">

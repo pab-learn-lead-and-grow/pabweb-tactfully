@@ -25,20 +25,22 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-  default: "Best Online & Distance Education Consultant in India",
+  default: "Best Online MBA Counselling & University Comparison in India",
 },
 
   description:
-    "Explore online programs from top universities with personalized counselling from Radhya Education Academy.",
+    "Compare India's top UGC-approved Online MBA universities. Get personalized guidance, university comparison & career-focused recommendations.",
 
   keywords: [
-    "online education",
-    "distance learning",
-    "online MBA",
-    "UGC approved universities",
-    "career counselling",
-    "online degree programs",
-  ],
+"online MBA counselling",
+"online MBA",
+"UGC approved online universities",
+"online MBA admission",
+"online MBA comparison",
+"career counselling",
+"online universities",
+"executive MBA"
+],
 
   authors: [{ name: "Radhya Education Academy" }],
 
@@ -48,9 +50,9 @@ export const metadata = {
     url: siteUrl,
     siteName: "Radhya Education Academy",
     title:
-      "Radhya Education Academy | Best Online & Distance Education Consultancy",
+      "Expert Online MBA Counselling & University Comparison",
     description:
-      "Explore online programs from top universities with personalized counselling from Radhya Education Academy",
+      "Compare India's top UGC-approved Online MBA universities. Get personalized guidance, university comparison & career-focused recommendations.",
     images: [
       {
         url: "/radhyaLogo.png",
@@ -66,7 +68,7 @@ export const metadata = {
     title:
       "Radhya Education Academy | Best Online & Distance Education Consultancy",
     description:
-      "Explore online programs from top universities with personalized counselling from Radhya Education Academy",
+      "Compare India's top UGC-approved Online MBA universities. Get personalized guidance, university comparison & career-focused recommendations.",
     images: ["/radhyaLogo.png"],
     creator: "@radhyaeducation",
   },
@@ -113,7 +115,7 @@ export default function RootLayout({ children }) {
               "@id": "https://radhyaeducationacademy.com/#organization",
               "name": "Radhya Education Academy",
               "url": "https://radhyaeducationacademy.com",
-              "description": "Education consultancy helping students with Online MBA, Distance Education and career guidance.",
+              "description": "Radhya Education Academy is an education counselling platform helping students and working professionals compare UGC-approved online universities and choose the right Online MBA and higher education programmes through personalized expert guidance.",
               "areaServed": "India",
               "sameAs": []
             })

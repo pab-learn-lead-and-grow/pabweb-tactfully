@@ -56,16 +56,14 @@ export default function FAQSection() {
           __html: JSON.stringify(faqSchema),
         }}
       />
-      <div className="w-full md:p-5 lg:p-[60px] mx-auto">
+      <div className="max-w-7xl mx-auto md:p-5">
         {/* Header */}
-        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold text-[#270652] mb-8 leading-tight">
-          What.<br />
-          The.<br />
-          FAQ?
+         <h2 className="font-bold text-[28px] md:text-4xl lg:text-5xl mb-2 leading-tight text-[#270652]">
+          Frequently Asked Questions about Online MBA
         </h2>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-4 max-w-5xl">
           {faqs.map((faq, index) => (
             <div
               key={index}

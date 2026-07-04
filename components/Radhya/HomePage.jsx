@@ -8,6 +8,9 @@ import TestimonialsSection from "./TestimonialSection";
 const AllInOneSection = dynamic(() => import("./All-in-one"), {
   loading: () => <div className="h-64 bg-gray-100 animate-pulse"></div>
 });
+const UniversityComparison = dynamic(() => import("./comparison"), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse"></div>
+});
 const CoursesSection = dynamic(() => import("./CoursesSection"), {
   loading: () => <div className="h-64 bg-gray-100 animate-pulse"></div>
 });
@@ -36,12 +39,12 @@ const logos = [
     <div className="flex flex-col bg-white font-sans">
       <HeroSection />
 
-      <div className="h-[120px]">
-        <LogoSection logos={logos}/>
-      </div>
+      <LogoSection logos={logos}/>
+      
 
       <CoursesSection />
       <AllInOneSection />
+      <UniversityComparison />
 
       {/* ✅ Knowledge Section (clean) */}
       <KnowledgeSection latestNews={latestNews} latestBlogs={latestBlogs} />
