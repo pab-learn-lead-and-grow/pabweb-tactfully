@@ -97,8 +97,8 @@ export default function mba(){
   
     return(
          <main className="flex flex-col items-center w-full bg-white">
-              <section className="bg-white py-12 lg:py-24">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 px-4 items-center mt-10 lg:mt-0">
+              <section className="bg-white py-12 lg:pt-24">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 px-4 items-center mt-10">
   {/* LEFT TEXT */}
           <div>
             <h1 className="text-[28px] md:text-4xl lg:text-[40px] text-center md:text-left font-bold text-[#270652] mb-4">
@@ -125,12 +125,12 @@ export default function mba(){
         </div>
       </section>
 
-      <section className="bg-white py-12 lg:py-20">
+      <section className="bg-white py-12">
   <div className="max-w-7xl mx-auto px-4 lg:px-10">
     <h2 className="text-3xl sm:text-4xl lg:text-[56px] xl:text-[64px] font-bold text-[#270652] leading-tight mb-6">
           Who Should Pursue an Online MBA?
         </h2>
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:mb-10 items-center">
 
       {/* LEFT SIDE */}
       <div>
@@ -186,8 +186,8 @@ export default function mba(){
           "Access to placement support, career services, and networking opportunities with professionals and alumni."
         ]}
       />
-      <section className="w-full px-4 md:px-10 lg:px-20 py-12 font-sans">
-            <div className="max-w-7xl mx-auto">
+      <section className="max-w-7xl mx-auto px-4 md:px-10 lg:px-20 py-12 font-sans">
+            <div>
               {/* Title animation */}
               <MotionWrapper
               as ="h2"

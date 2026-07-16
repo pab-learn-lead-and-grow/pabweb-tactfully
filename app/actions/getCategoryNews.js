@@ -28,11 +28,15 @@ export async function getCategoryNews(slug) {
     const { data: currentCategory } = await supabaseServer
       .from("news_categories")
       .select("category_id, category_name, slug")
-      .eq("slug", slug)
+      .eq("slug", slug.trim())
       .single();
 
     if (!currentCategory) {
-      return { categories: categoryData || [], news: [], categoryName: "" };
+      const trimmedFallback = (categoryData || []).map((cat) => ({
+        ...cat,
+        slug: cat.slug?.trim() || '',
+      }));
+      return { categories: trimmedFallback, news: [], categoryName: "" };
     }
 
     const { data: newsInCategory } = await supabaseServer
@@ -63,7 +67,8 @@ export async function getCategoryNews(slug) {
 
     const formattedNews = (newsData || []).map((item) => ({
       ...item,
-      categorySlug: currentCategory.slug,
+      slug: item.slug?.trim() || '',
+      categorySlug: currentCategory.slug?.trim() || '',
       categoryName: currentCategory.category_name,
     }));
 
@@ -75,8 +80,13 @@ export async function getCategoryNews(slug) {
       return { ...item, image_url: data?.publicUrl };
     });
 
+    const trimmedCategories = (categoryData || []).map((cat) => ({
+      ...cat,
+      slug: cat.slug?.trim() || '',
+    }));
+
     return {
-      categories: categoryData || [],
+      categories: trimmedCategories,
       news: attachImages,
       categoryName: currentCategory.category_name,
     };

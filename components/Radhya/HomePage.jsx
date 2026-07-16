@@ -56,9 +56,9 @@ const logos = [
       <FaqSection/>
 
       <section className="w-full h-60 md:h-90 bg-[#3C087E] mt-5 md:mt-8 xl:mt-20 py-20 flex flex-col items-center text-left">
-        <h1 className="text-xl md:text-4xl font-bold text-white max-w-4xl text-center px-4">
+        <p className="text-xl md:text-4xl font-bold text-white max-w-4xl text-center px-4">
           Get Expert Career Counselling for the Right Online, Offline & Distance Learning Courses
-        </h1>
+        </p>
 
         <CounsellingModal>
           <button className="mt-5 md:mt-15 text-white py-3 px-5 rounded-xl bg-[#EEA727] shadow-md hover:scale-105 transition font-semibold">

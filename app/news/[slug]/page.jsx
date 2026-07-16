@@ -66,14 +66,14 @@ const getNewsRouteData = cache(async (slug) => {
   const { data: category } = await supabase
     .from("news_categories")
     .select("category_id, category_name, slug, metaTitle, metaDescription, categoryTitle, content")
-    .eq("slug", slug)
+    .eq("slug", slug.trim())
     .single();
 
   if (category) {
-    const { categories, news, categoryName } = await getCategoryNews(slug);
+    const { categories, news, categoryName } = await getCategoryNews(slug.trim());
     return {
       type: 'category',
-      category,
+      category: { ...category, slug: category.slug?.trim() || '' },
       categories,
       news,
       categoryName: categoryName || category.category_name,
@@ -85,7 +85,7 @@ const getNewsRouteData = cache(async (slug) => {
   const { data: article } = await supabase
     .from("news")
     .select("news_id, slug, title, content, image_url, published_at, primary_category_id, excerpt")
-    .eq("slug", slug)
+    .eq("slug", slug.trim())
     .single();
 
   if (!article) {
@@ -173,9 +173,18 @@ const getNewsRouteData = cache(async (slug) => {
 
   return {
     type: 'article',
-    article,
-    categoryData,
-    relatedNews,
+    article: {
+      ...article,
+      slug: article.slug?.trim() || '',
+    },
+    categoryData: categoryData
+      ? { ...categoryData, slug: categoryData.slug?.trim() || '' }
+      : null,
+    relatedNews: relatedNews.map(item => ({
+      ...item,
+      slug: item.slug?.trim() || '',
+      categorySlug: item.categorySlug?.trim() || '',
+    })),
     imageUrl,
     articleFormattedDate,
     articleSchema,
