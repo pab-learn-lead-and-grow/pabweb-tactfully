@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import FAQ from "../NmimsSection/FAQ";
+import { fireLeadEvent, getPageAttribution } from "@/lib/analytics";
 
 export default function HelpSection() {
   const [formData, setFormData] = useState({
@@ -35,14 +36,30 @@ export default function HelpSection() {
         body: JSON.stringify({
           ...formData,
           source: "University Response Page",
+          ...getPageAttribution(),
+          cta_name: "Help Section",
         }),
       });
 
       const result = await response.json();
 
+      if (response.status === 409) {
+        alert("You have already submitted this form. Our team will get in touch with you shortly.");
+        window.location.href = "/thank-you";
+        return;
+      }
+
       if (!result.success) {
         setStatus(result.error || "Something went wrong.");
       } else {
+        fireLeadEvent({
+          form_type: "Help",
+          cta_name: "Help Section",
+          phone: formData.phone,
+          email: formData.email,
+          name: `${formData.firstName} ${formData.lastName}`,
+        });
+
         window.location.href = "/thank-you";
       }
     } catch (error) {

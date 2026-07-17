@@ -200,7 +200,7 @@ export default function NewsContent({
               </div>
 
               {showModal && (
-                <CounsellingForm onClose={() => setShowModal(false)} />
+                <CounsellingForm onClose={() => setShowModal(false)} cta_name="News Content" />
               )}
             </div>
             {/* RIGHT SIDEBAR */}

@@ -177,7 +177,7 @@ export default function PageContent({
 
       {/* MODAL */}
       {showModal && (
-        <CounsellingForm onClose={() => setShowModal(false)} />
+        <CounsellingForm onClose={() => setShowModal(false)} cta_name="Page Content" />
       )}
 
             {/* UNIVERSITIES SECTION */}

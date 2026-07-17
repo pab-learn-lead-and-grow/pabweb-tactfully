@@ -2,8 +2,9 @@
 import { useState, useEffect } from "react";
 import { CircleCheckBig, ShieldCheck } from "lucide-react";
 import Image from "next/image";
+import { fireLeadEvent, getPageAttribution } from "@/lib/analytics";
 
-export default function CounsellingForm({ onClose, onSuccess }) {
+export default function CounsellingForm({ onClose, onSuccess, cta_name = "Counselling Form" }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -67,14 +68,34 @@ const [errors, setErrors] = useState({});
       const response = await fetch("/api/counselling", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          ...getPageAttribution(),
+          cta_name,
+        }),
       });
 
       const result = await response.json();
 
       if (!response.ok || !result.success) {
-        throw new Error(result.error || "Submission failed");
+        if (response.status === 409) {
+          alert("You have already submitted this form. Our expert counsellors will reach out to you shortly.");
+          window.location.href = "/thank-you";
+          return;
+        }
+        const detail = result.details ? result.details.join(", ") : "";
+        throw new Error(`${result.error}${detail ? ": " + detail : ""}`);
       }
+
+      fireLeadEvent({
+        form_type: "Counselling",
+        university: formData.university,
+        course: formData.course,
+        cta_name,
+        phone: formData.phone,
+        email: formData.email,
+        name: formData.name,
+      });
 
       if (onSuccess) {
         onSuccess(result);

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CircleCheckBig, ShieldCheck } from "lucide-react";
 import { sanitizeFormData, validateCounsellingForm } from "@/lib/security";
+import { fireLeadEvent, getPageAttribution } from "@/lib/analytics";
 
 export default function ContactNmims({
   title = "Contact Us",
@@ -90,13 +91,30 @@ export default function ContactNmims({
           phoneCode: "+91",
           phone: sanitized.phone,
           message: sanitized.message,
+          ...getPageAttribution(),
+          cta_name: title,
         }),
       });
 
       const result = await response.json();
       if (!response.ok || !result.success) {
+        if (response.status === 409) {
+          alert("You have already submitted this form. Our expert counsellors will reach out to you shortly.");
+          window.location.href = "/thank-you";
+          return;
+        }
         throw new Error(result.error || "Failed to submit form.");
       }
+
+      fireLeadEvent({
+        form_type: "Counselling",
+        university: sanitized.university,
+        course: sanitized.course,
+        cta_name: title,
+        phone: sanitized.phone,
+        email: sanitized.email,
+        name: sanitized.name,
+      });
 
       window.location.href = "/thank-you";
     } catch (err) {

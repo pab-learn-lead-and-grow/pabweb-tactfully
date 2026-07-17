@@ -17,6 +17,6 @@ export default function AutoPopupModal() {
   }, [pathname]); // runs on every route change
 
   return open ? (
-    <CounsellingForm onClose={() => setOpen(false)} />
+    <CounsellingForm onClose={() => setOpen(false)} cta_name="Auto Popup" />
   ) : null;
 }

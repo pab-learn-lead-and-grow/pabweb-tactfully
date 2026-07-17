@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Mail, Phone, Clock, MapPin } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
+import { fireLeadEvent, getPageAttribution } from "@/lib/analytics";
 
 export default function ContactSection() {
 
@@ -38,7 +39,21 @@ const handleSubmit = async (e) => {
     }
 
     try {
+      // Check for duplicate email
+      const { data: existing } = await supabase
+        .from("contact_messages")
+        .select("id")
+        .eq("email", email)
+        .maybeSingle();
+
+      if (existing) {
+        setStatus("✅ You have already contacted us. Our team will reach out to you shortly.");
+        setLoading(false);
+        return;
+      }
+
       // Insert into contact_messages table
+      const attribution = getPageAttribution();
       const { data, error } = await supabase.from("contact_messages").insert([
         {
           first_name: firstName,
@@ -46,6 +61,8 @@ const handleSubmit = async (e) => {
           email,
           phone,
           message,
+          cta_name: "Contact Page",
+          ...attribution,
         },
       ]);
 
@@ -75,6 +92,14 @@ const handleSubmit = async (e) => {
         console.error("Email notification error:", emailError);
         
       }
+
+      fireLeadEvent({
+        form_type: "Contact",
+        cta_name: "Contact Page",
+        phone,
+        email,
+        name: `${firstName} ${lastName}`,
+      });
 
       window.location.href = "/thank-you";
     } catch (error) {

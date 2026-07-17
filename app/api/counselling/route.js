@@ -11,7 +11,8 @@ import { counsellingRateLimiter } from "@/lib/rateLimiter";
 /**
  * POST /api/counselling
  * Expects JSON body:
- * { name, email, university, course, phoneCode, phone, message }
+ * { name, email, university, course, phoneCode, phone, message, cta_name,
+ *   page_path, page_location, page_title, utm_source, utm_medium, utm_campaign }
  */
 
 export async function POST(request) {
@@ -42,7 +43,7 @@ export async function POST(request) {
     }
 
     const formData = await request.json();
-    const { name, email, university, course, phoneCode, phone, message } = formData || {};
+    const { name, email, university, course, phoneCode, phone, message, cta_name, page_path, page_location, page_title, utm_source, utm_medium, utm_campaign } = formData || {};
 
     // Sanitize all input data
     const sanitizedData = sanitizeFormData({
@@ -58,6 +59,7 @@ export async function POST(request) {
     // Validate form data
     const validation = validateCounsellingForm(sanitizedData);
     if (!validation.isValid) {
+      console.error("Counselling form validation failed:", validation.errors, "Data:", { name, email, university, course, phone: phone?.replace(/./g, "*"), phoneCode });
       return new Response(
         JSON.stringify({ 
           success: false, 
@@ -68,6 +70,22 @@ export async function POST(request) {
       );
     }
 
+
+// Check for duplicate email
+   const { data: existing } = await supabase
+     .from("counselling_form")
+     .select("id, created_at")
+     .eq("email", sanitizedData.email)
+     .order("created_at", { ascending: false })
+     .limit(1)
+     .maybeSingle();
+
+   if (existing) {
+     return new Response(
+       JSON.stringify({ success: false, error: "This email has already been submitted." }),
+       { status: 409, headers: { "Content-Type": "application/json" } }
+     );
+   }
 
 // Insert row into counselling_form
    const { data, error } = await supabase
@@ -80,6 +98,13 @@ export async function POST(request) {
       course: sanitizedData.course,
       phone: `${sanitizedData.phoneCode || '+91'} ${sanitizedData.phone}`,
       queries: sanitizedData.message || null,
+      cta_name: cta_name || null,
+      page_path: page_path || null,
+      page_location: page_location || null,
+      page_title: page_title || null,
+      utm_source: utm_source || null,
+      utm_medium: utm_medium || null,
+      utm_campaign: utm_campaign || null,
     },
   ])
   .select();

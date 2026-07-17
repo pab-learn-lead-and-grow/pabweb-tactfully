@@ -207,7 +207,7 @@ export default function BlogContent({
         </div>
 
         {showModal && (
-          <CounsellingForm onClose={() => setShowModal(false)} />
+          <CounsellingForm onClose={() => setShowModal(false)} cta_name="Blog Content" />
         )}
            {/* RIGHT SIDEBAR */}
             <div className="hidden lg:block lg:col-span-4">

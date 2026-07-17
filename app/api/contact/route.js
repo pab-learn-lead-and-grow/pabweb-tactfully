@@ -11,7 +11,8 @@ import { contactRateLimiter } from "@/lib/rateLimiter";
 /**
  * POST /api/contact
  * Expects JSON body:
- * { firstName, lastName, email, phone, message }
+ * { firstName, lastName, email, phone, message, cta_name,
+ *   page_path, page_location, page_title, utm_source, utm_medium, utm_campaign }
  */
 
 export async function POST(request) {
@@ -42,7 +43,7 @@ export async function POST(request) {
     }
 
     const formData = await request.json();
-    const { firstName, lastName, email, phone, message, source } = formData || {};
+    const { firstName, lastName, email, phone, message, source, cta_name, page_path, page_location, page_title, utm_source, utm_medium, utm_campaign } = formData || {};
 
     // Sanitize all input data
     const sanitizedData = sanitizeFormData({
@@ -66,6 +67,20 @@ export async function POST(request) {
       );
     }
 
+    // Check for duplicate email
+    const { data: existing } = await supabase
+      .from("contact_messages")
+      .select("id")
+      .eq("email", sanitizedData.email)
+      .maybeSingle();
+
+    if (existing) {
+      return new Response(
+        JSON.stringify({ success: false, error: "This email has already been submitted." }),
+        { status: 409, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
     // Insert into contact_message table (singular, like counselling_form)
     const { data, error } = await supabase
       .from("contact_messages")
@@ -77,6 +92,13 @@ export async function POST(request) {
           phone: sanitizedData.phone,
           message: sanitizedData.message,
           source: source || "Contact Page",
+          cta_name: cta_name || null,
+          page_path: page_path || null,
+          page_location: page_location || null,
+          page_title: page_title || null,
+          utm_source: utm_source || null,
+          utm_medium: utm_medium || null,
+          utm_campaign: utm_campaign || null,
         },
       ])
       .select();

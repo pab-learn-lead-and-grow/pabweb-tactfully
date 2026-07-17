@@ -732,7 +732,7 @@ return (
         </button>
       </div>
 
-      {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} />}
+      {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} cta_name="Courses Section" />}
     </section>
   );
 }

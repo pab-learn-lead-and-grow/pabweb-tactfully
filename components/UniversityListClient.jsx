@@ -120,7 +120,7 @@ export default function UniversityListClient({ initialData = [] }) {
       </div>
 
       {showForm && (
-        <CounsellingForm onClose={() => setShowForm(false)} />
+        <CounsellingForm onClose={() => setShowForm(false)} cta_name="University List" />
       )}
 
     </div>
