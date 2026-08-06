@@ -1,6 +1,8 @@
 import { supabase } from "@/lib/supabaseClient";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const [newsRes, blogsRes] = await Promise.all([
@@ -47,7 +49,7 @@ export async function GET() {
       { success: true, data: allItems },
       {
         headers: {
-          "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
+          "Cache-Control": "no-store",
         },
       }
     );

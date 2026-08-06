@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/rss`, {
-      next: { revalidate: 3600 }
+      next: { revalidate: 0 }
     });
     const { data: items } = await res.json();
 
@@ -41,7 +43,7 @@ ${(items || []).map((item) => `    <item>
     return new NextResponse(rss, {
       headers: {
         "Content-Type": "application/xml; charset=utf-8",
-        "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+        "Cache-Control": "no-store",
       },
     });
   } catch (error) {

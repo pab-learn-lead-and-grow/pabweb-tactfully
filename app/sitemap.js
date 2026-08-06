@@ -1,5 +1,7 @@
 import { supabase } from "@/lib/supabaseClient";
 
+export const dynamic = "force-dynamic";
+
 const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
