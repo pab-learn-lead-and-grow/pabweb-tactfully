@@ -28,7 +28,8 @@ export async function GET() {
       type: "news",
       categorySlug: "",
       categoryName: "",
-      url: `/news/${item.slug}`,
+      slug: item.slug?.trim() || "",
+      url: `/news/${item.slug?.trim() || ''}`,
     }));
 
     const blogsData = (blogsRes.data || []).map((item) => ({
@@ -36,7 +37,8 @@ export async function GET() {
       type: "blog",
       categorySlug: "",
       categoryName: "",
-      url: `/blogs/${item.slug}`,
+      slug: item.slug?.trim() || "",
+      url: `/blogs/${item.slug?.trim() || ''}`,
     }));
 
     const allItems = [...newsData, ...blogsData].sort(

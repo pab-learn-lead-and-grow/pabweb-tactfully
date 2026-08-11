@@ -119,35 +119,35 @@ async function getDynamicRoutes() {
   ]);
 
   const newsArticles = (newsRes.data || []).map((item) => ({
-    url: `${baseUrl}/news/${item.slug}/`,
+    url: `${baseUrl}/news/${item.slug?.trim() || ''}/`,
     lastModified: item.published_at ? new Date(item.published_at) : new Date(),
     changeFrequency: "daily",
     priority: 0.9,
   }));
 
   const blogArticles = (blogsRes.data || []).map((item) => ({
-    url: `${baseUrl}/blogs/${item.slug}/`,
+    url: `${baseUrl}/blogs/${item.slug?.trim() || ''}/`,
     lastModified: item.published_at ? new Date(item.published_at) : new Date(),
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
   const newsCategories = (newsCategoriesRes.data || []).map((item) => ({
-    url: `${baseUrl}/news/${item.slug}/`,
+    url: `${baseUrl}/news/${item.slug?.trim() || ''}/`,
     lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
     changeFrequency: "weekly",
     priority: 0.8,
   }));
 
   const blogCategories = (blogCategoriesRes.data || []).map((item) => ({
-    url: `${baseUrl}/blogs/${item.slug}/`,
+    url: `${baseUrl}/blogs/${item.slug?.trim() || ''}/`,
     lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
     changeFrequency: "weekly",
     priority: 0.7,
   }));
 
   const slugPages = (pagesRes.data || []).map((item) => ({
-    url: `${baseUrl}/${item.slug}/`,
+    url: `${baseUrl}/${item.slug?.trim() || ''}/`,
     lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
     changeFrequency: "weekly",
     priority: 0.8,

@@ -70,6 +70,6 @@ sitemap: `${baseUrl}/sitemap-index.xml`,
         allow: "/",
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap-index.xml`,
   };
 }

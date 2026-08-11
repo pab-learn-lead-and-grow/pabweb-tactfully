@@ -31,14 +31,14 @@ export async function GET() {
   const categories = categoriesRes.data || [];
 
   const newsUrls = news.map((item) => ({
-    loc: `${baseUrl}/news/${item.slug}/`,
+    loc: `${baseUrl}/news/${item.slug?.trim() || ''}/`,
     lastmod: item.published_at,
     publicationDate: item.published_at,
     title: item.title,
   }));
 
   const categoryUrls = categories.map((item) => ({
-    loc: `${baseUrl}/news/${item.slug}/`,
+    loc: `${baseUrl}/news/${item.slug?.trim() || ''}/`,
     lastmod: item.updated_at,
     publicationDate: item.updated_at,
     title: item.category_name,

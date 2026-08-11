@@ -196,6 +196,51 @@ const nextConfig = {
         ],
       },
       {
+        source: "/sitemap.xml",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, max-age=0",
+          },
+        ],
+      },
+      {
+        source: "/sitemap-index.xml",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, max-age=0",
+          },
+        ],
+      },
+      {
+        source: "/news-sitemap.xml",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, max-age=0",
+          },
+        ],
+      },
+      {
+        source: "/rss.xml",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, max-age=0",
+          },
+        ],
+      },
+      {
+        source: "/api/rss",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, max-age=0",
+          },
+        ],
+      },
+      {
         source: "/(.*)",
         headers: [
           {
