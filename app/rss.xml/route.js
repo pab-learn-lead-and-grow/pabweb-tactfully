@@ -1,13 +1,38 @@
 import { NextResponse } from "next/server";
+import { supabase } from "@/lib/supabaseClient";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/rss`, {
-      next: { revalidate: 0 }
-    });
-    const { data: items } = await res.json();
+    const [newsRes, blogsRes] = await Promise.all([
+      supabase
+        .from("news")
+        .select("news_id, title, slug, excerpt, image_url, published_at")
+        .eq("is_published", true)
+        .order("published_at", { ascending: false })
+        .limit(1000),
+      supabase
+        .from("blogs")
+        .select("blogs_id, title, slug, excerpt, image_url, published_at")
+        .eq("is_published", true)
+        .order("published_at", { ascending: false })
+        .limit(1000),
+    ]);
+
+    const newsData = (newsRes.data || []).map((item) => ({
+      ...item,
+      url: `/news/${item.slug?.trim() || ''}`,
+    }));
+
+    const blogsData = (blogsRes.data || []).map((item) => ({
+      ...item,
+      url: `/blogs/${item.slug?.trim() || ''}`,
+    }));
+
+    const items = [...newsData, ...blogsData].sort(
+      (a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+    );
 
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 

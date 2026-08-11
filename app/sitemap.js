@@ -95,7 +95,7 @@ const staticRoutes = [
 ];
 
 async function getDynamicRoutes() {
-  const [newsRes, blogsRes, newsCategoriesRes, blogCategoriesRes, pagesRes] = await Promise.all([
+  const [newsRes, blogsRes, newsCategoriesRes, pagesRes] = await Promise.all([
     supabase
       .from("news")
       .select("slug, published_at")
@@ -108,9 +108,6 @@ async function getDynamicRoutes() {
       .order("published_at", { ascending: false }),
     supabase
       .from("news_categories")
-      .select("slug, updated_at"),
-    supabase
-      .from("blogs_categories")
       .select("slug, updated_at"),
     supabase
       .from("pages")
@@ -139,13 +136,6 @@ async function getDynamicRoutes() {
     priority: 0.8,
   }));
 
-  const blogCategories = (blogCategoriesRes.data || []).map((item) => ({
-    url: `${baseUrl}/blogs/${item.slug?.trim() || ''}/`,
-    lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
-    changeFrequency: "weekly",
-    priority: 0.7,
-  }));
-
   const slugPages = (pagesRes.data || []).map((item) => ({
     url: `${baseUrl}/${item.slug?.trim() || ''}/`,
     lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
@@ -153,7 +143,7 @@ async function getDynamicRoutes() {
     priority: 0.8,
   }));
 
-  return [...newsArticles, ...blogArticles, ...newsCategories, ...blogCategories, ...slugPages];
+  return [...newsArticles, ...blogArticles, ...newsCategories, ...slugPages];
 }
 
 export default async function sitemap() {
