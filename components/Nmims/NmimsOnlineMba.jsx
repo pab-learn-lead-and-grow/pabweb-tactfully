@@ -295,7 +295,14 @@ export default function page() {
   className="text-[#3C087E] font-bold hover:underline"
 >
  NAAC A++ accreditation
-</Link>{" "} with an impressive score of 3.6 for the fourth consecutive cycle, along with a prestigious 5-star rating since its inception, highlighting its consistent excellence in online education and flexible management learning. The university is also regularly featured among the top 10 business schools in India, further strengthening its credibility. Over the years, NMIMS Online MBA has received multiple recognitions, including the Golden Peacock Award (2007), the National Award for Excellence in Education (2021), and the Education Innovation Award by Entrepreneur India (2022). Positive NMIMS Online MBA reviews from students and working professionals further reinforce its reputation for quality learning and strong career outcomes.
+</Link>{" "} with an impressive score of 3.6 for the fourth consecutive cycle, along with a prestigious 5-star rating since its inception, highlighting its consistent excellence in online education and flexible management learning. The university is also regularly featured among the top 10 business schools in India, further strengthening its credibility. Over the years, NMIMS Online MBA has received multiple recognitions, including the Golden Peacock Award (2007), the National Award for Excellence in Education (2021), and the Education Innovation Award by Entrepreneur India (2022). Positive  {" "} <Link
+  href="https://radhyaeducationacademy.com/blogs/nmims-online-mba-is-it-worth-it/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#3C087E] font-bold hover:underline"
+>
+NMIMS Online MBA reviews
+</Link>{" "} from students and working professionals further reinforce its reputation for quality learning and strong career outcomes.
           <br />
           <br />
           The <b>2-year NMIMS Online MBA</b> from NMIMS CDOE is designed for professionals seeking flexible management education without affecting their work commitments. As a pioneer in distance and online education, NMIMS has been offering accessible learning solutions since the mid-1990s and achieved <b>Deemed-to-be-University</b> status in 2003. The programme provides live classes, recorded sessions, digital learning resources, and an industry-oriented curriculum through an advanced online platform. With multiple specialisations and a learner-centric approach, NMIMS Online MBA continues to be a preferred choice for students and professionals across cities and rural areas looking for a recognised and career-focused online MBA in India.
@@ -334,9 +341,17 @@ export default function page() {
          NMIMS Online MBA Admission 2026
         </h2>
         <p className="text-sm sm:text-base font-regular leading-relaxed text-justify text-gray-900">
-        Admissions for the NMIMS Online MBA at NMIMS CDOE (Centre for Distance and Online Education) are conducted twice a year for the January and July academic sessions. <strong >For the July 2026 session, registrations started on 19th March 2026 </strong>. Candidates can complete their NMIMS Online MBA admission without late fees until 10th August 2026. 
+        Admissions for the NMIMS Online MBA at NMIMS CDOE (Centre for Distance and Online Education) are conducted twice a year for the January and July academic sessions. <strong >For the July 2026 session, registrations started on 19th March 2026 </strong>. Candidates can complete their 
+        {" "} <Link
+  href="https://radhyaeducationacademy.com/news/nmims-online-mba-admission-deadline-2026/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#3C087E] font-bold hover:underline"
+>
+NMIMS Online MBA admission
+</Link>{" "} without late fees until 10th August 2026. 
         <br /><br />
-       After this, late fee of <strong>₹500 is applicable from 11th August to 31st August 2026</strong>, followed by <strong>₹1000 from 1st September to 16th September 2026</strong>, which is the final admission date. As seats are limited in this {" "} <Link
+       After this, late fee of <strong>₹500 is applicable from 11th August to 24th August 2026</strong>, followed by <strong>₹1000 from 25th August to 8th September 2026</strong>, which is the final admission date. As seats are limited in this {" "} <Link
   href="https://radhyaeducationacademy.com/programs/online-mba/"
   target="_blank"
   rel="noopener noreferrer"
@@ -347,7 +362,14 @@ export default function page() {
         <br /><br />
           The admission process for the Online MBA NMIMS program is completely online and based on academic qualifications. There is <strong>no entrance exam required</strong>, making it accessible for students and professionals looking for flexible online MBA courses in India. Candidates can apply through the official NMIMS admission portal and choose from flexible NMIMS Online MBA fees payment options.
           <br /><br />
-          Re-registration for existing students begins on 19th March 2026 and can be completed without late fees until 31st July 2026. A late fee of ₹1000 is applicable from 1st August to 10th September 2026, with closure on 10th September 2026.
+          Re-registration for existing students begins on 19th March 2026 and can be completed without late fees until 31st July 2026. A late fee of ₹1000 is applicable from 1st August to 10th September 2026, with closure on 10th September 2026. Read our complete {" "} <Link
+  href="https://radhyaeducationacademy.com/blogs/nmims-online-mba-admission-checklist-2026/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#3C087E] font-bold hover:underline"
+>
+NMIMS Online MBA admission checklist
+</Link>{" "} guide.
           </p>
 
         {/* TABLE WRAPPER */}
@@ -367,28 +389,35 @@ export default function page() {
             {/* BODY */}
             <tbody className="divide-y divide-[#D6D6D6] border-b border-gray-300">
               {[
-                { p: "Registration Starts", d: "19th March, 2026" },
+                { p: "Registration Starts", 
+                  d: "19th March, 2026" 
+                },
                 {
                   p: "Admission Without Late Fees",
                   d: "19th March, 2026 to 10th August, 2026",
                 },
                 {
                   p: "Admission With Late Fees Of Rs. 500/-",
-                  d: "11th August, 2026 to 31st August, 2026",
+                  d: "11th August, 2026 to 24th August, 2026",
                 },
                 {
                   p: "Admission With Late Fees Of Rs. 1000/-",
-                  d: "1st September, 2026 to 16th September, 2026",
+                  d: "25th August, 2026 to 8th September, 2026",
                 },
-                { p: "Last Date of Admission", d: "16th September, 2026" },
-                { p: "Re-Registration Starts", d: "	19th March, 2026" },
+                {
+                  p: "Last Date of Admission",
+                  d: "8th September, 2026",
+                },
+                { p: "Re-Registration Starts", 
+                  d: "	19th March, 2026" 
+                },
                 {
                   p: "Re-Registration Without Late Fees",
                   d: "19th March, 2026 to 31st July, 2026",
                 },
                 {
                   p: "Re-Registration With Late Fees Of Rs. 1000/-",
-                  d: "1st August, 2026 to 10th September, 20266",
+                  d: "1st August, 2026 to 10th September, 2026",
                 },
                 { p: "Closure of Re-Registration", d: "10th September, 2026" },
               ].map((row, i) => (
@@ -575,7 +604,21 @@ export default function page() {
       </div>
 
        <p className="text-gray-900 text-sm md:text-base leading-relaxed text-justify mt-4 max-w-6xl">
-       <b> NOTE : </b> This flexible structure makes it one of the most preferred online MBA programs for working professionals in India.
+       <b> NOTE : </b> This flexible structure makes it one of the most preferred online MBA programs for working professionals in India. Read dedicated article about the {" "} <Link
+  href="https://radhyaeducationacademy.com/blogs/nmims-online-mba-fees-2026/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#3C087E] font-bold hover:underline"
+>
+NMIMS Online MBA Fees
+</Link>{" "} and <Link
+  href="https://radhyaeducationacademy.com/blogs/nmims-online-mba-refund-policy-2026/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#3C087E] font-bold hover:underline"
+>
+Refund Policy
+</Link>{" "} before applying for the course.
        </p>
 
        <h3 className="text-2xl md:text-3xl font-bold text-[#270652] mt-10">
@@ -770,10 +813,24 @@ export default function page() {
             viewport={{ once: true }}
             className="text-black text-sm sm:text-base max-w-5xl mx-auto text-justify"
           >
-            NMIMS Online MBA is recognised for its interactive learning environment and industry-oriented teaching methodologies designed specifically for working professionals and online learners. Through its advanced <b>Learning Management System (LMS)</b>, students receive access to live interactive lectures, recorded video sessions, e-books, assignments, discussion forums, and digital study materials that support flexible online learning.
+            NMIMS Online MBA is recognised for its interactive learning environment and industry-oriented teaching methodologies designed specifically for working professionals and online learners. Through its advanced  {" "} <Link
+  href="https://radhyaeducationacademy.com/blogs/nmims-online-mba-learning-platform-review/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#3C087E] font-bold hover:underline"
+>
+Learning Management System (LMS)
+</Link>{" "}, students receive access to live interactive lectures, recorded video sessions, e-books, assignments, discussion forums, and digital study materials that support flexible online learning.
             <br />
             <br />
-            The NMIMS MBA exam online process is designed for convenience and accessibility. Online examinations are generally conducted on weekends, helping students balance academic and professional commitments effectively. The learning platform ensures that students pursuing online MBA from NMIMS can experience flexible and career-focused education from anywhere.
+             {" "} <Link
+  href="https://radhyaeducationacademy.com/blogs/nmims-online-mba-examination-pattern-2026/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#3C087E] font-bold hover:underline"
+>
+The NMIMS MBA exam online process
+</Link>{" "} is designed for convenience and accessibility. Online examinations are generally conducted on weekends, helping students balance academic and professional commitments effectively. The learning platform ensures that students pursuing online MBA from NMIMS can experience flexible and career-focused education from anywhere.
           </MotionWrapper>
         </div>
       </section>
@@ -797,7 +854,14 @@ export default function page() {
       <p className="text-gray-900 w-full text-base">
         The <b>NMIMS Online MBA Program Certificate</b> is awarded by
         SVKM’s NMIMS (Deemed-to-be University), a highly reputed institution
-        in India. It is a <b>UGC-DEB entitled degree</b> with strong national
+        in India. It is a  {" "} <Link
+  href="https://radhyaeducationacademy.com/ugc-approved-universities/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#3C087E] font-bold hover:underline"
+>
+UGC-DEB entitled degree
+</Link>{" "} with strong national
         and international recognition. NMIMS holds <b>UGC autonomy</b>, a
         <b> NAAC A++ accreditation</b>, and is{" "}
         <b>ranked 24th in Management by NIRF</b>, highlighting its academic
@@ -867,7 +931,14 @@ export default function page() {
 </Link>{" "} 
  for students and working professionals.
         <br/>
-         <br/>Each specialization in the NMIMS Online MBA course is developed under the guidance of industry experts and academic leaders, ensuring a strong blend of theoretical knowledge and practical application. The curriculum combines core management subjects with specialization-specific learning, supported by case studies, projects, and insights from experienced faculty. With a flexible learning approach and industry-focused structure, the NMIMS Online MBA specializations help learners build domain expertise and prepare for high-growth roles in today’s competitive business environment.
+         <br/>Each specialization in the NMIMS Online MBA course is developed under the guidance of industry experts and academic leaders, ensuring a strong blend of theoretical knowledge and practical application. The curriculum combines core management subjects with specialization-specific learning, supported by case studies, projects, and insights from experienced faculty. With a flexible learning approach and industry-focused structure, the  {" "} <Link
+  href="https://radhyaeducationacademy.com/news/nmims-online-mba-new-specializations-2026/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#3C087E] font-bold hover:underline"
+>
+NMIMS Online MBA specializations
+</Link>{" "} help learners build domain expertise and prepare for high-growth roles in today’s competitive business environment.
         </p>
 
         {/* CONTENT BLOCKS */}

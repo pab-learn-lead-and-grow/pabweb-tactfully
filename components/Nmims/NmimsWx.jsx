@@ -1556,46 +1556,46 @@ export default function Page() {
             {/* BODY */}
             <tbody className="divide-y divide-[#D6D6D6]">
               {[
-                { p: "Application Start Date", d: "	27.04.2026" },
+                { p: "Application Start Date", d: "	20.07.2026" },
                 {
                   p: "payment Start Date",
-                  d: "	29.04.2026",
+                  d: "	20.07.2026",
                 },
                 {
                   p: "Last Date For Application",
-                  d: "02.07.2026",
+                  d: "30.09.2026",
                 },
                 {
                   p: "Last Date For Loan Application",
-                  d: "03.07.2026",
+                  d: "05.10.2026",
                 },
                 {
                   p: "Last Date For Interview",
-                  d: "07.07.2026",
+                  d: "07.10.2026",
                 },
                 {
                   p: "Interview Result Declaration",
-                  d: "09.07.2026",
+                  d: "08.10.2026",
                 },
                 {
                   p: "Last Date Of Document Submission",
-                  d: "11.07.2026",
+                  d: "10.10.2026",
                 },
                 {
                   p: "Last Date For Loan Approval",
-                  d: "13.07.2026",
+                  d: "13.10.2026",
                 },
                 {
                   p: "Last Date For Program Fee Payment",
-                  d: "14.07.2026",
+                  d: "14.10.2026",
                 },
                 {
                   p: "Last Date Of Admission",
-                  d: "15.07.2026",
+                  d: "15.10.2026",
                 },
                 {
                   p: "Lecture Start Date",
-                  d: "27.07.2026",
+                  d: "26.10.2026",
                 },
               ].map((row, i) => (
                 <tr

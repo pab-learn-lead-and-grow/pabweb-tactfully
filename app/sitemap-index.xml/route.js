@@ -3,7 +3,7 @@ export const dynamic = "force-dynamic";
 const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacademy.com";
 
-export default async function sitemapIndex() {
+export async function GET() {
   const sections = [
     {
       loc: `${baseUrl}/sitemap.xml`,

@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabaseClient";
+import { supabaseServer } from "@/lib/supabaseServer";
 
 export const dynamic = "force-dynamic";
 
@@ -95,21 +95,23 @@ const staticRoutes = [
 ];
 
 async function getDynamicRoutes() {
+  if (!supabaseServer) return [];
+
   const [newsRes, blogsRes, newsCategoriesRes, pagesRes] = await Promise.all([
-    supabase
+    supabaseServer
       .from("news")
       .select("slug, published_at")
       .eq("is_published", true)
       .order("published_at", { ascending: false }),
-    supabase
+    supabaseServer
       .from("blogs")
       .select("slug, published_at")
       .eq("is_published", true)
       .order("published_at", { ascending: false }),
-    supabase
+    supabaseServer
       .from("news_categories")
       .select("slug, updated_at"),
-    supabase
+    supabaseServer
       .from("pages")
       .select("slug, updated_at")
       .eq("is_published", true),

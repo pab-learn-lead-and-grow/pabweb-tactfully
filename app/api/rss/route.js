@@ -45,8 +45,6 @@ export async function GET() {
       (a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
     );
 
-    console.log("RSS - News:", newsRes.data?.length, "Blogs:", blogsRes.data?.length);
-
     return NextResponse.json(
       { success: true, data: allItems },
       {

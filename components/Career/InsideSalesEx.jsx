@@ -160,7 +160,7 @@ try {
             </span>
             <span className="flex items-center gap-2">
               <Wallet className="w-4 h-4 text-[#D68E0E]" />
-              ₹2,40,000–3,00,000
+              ₹2,40,000-3,00,000
             </span>
             <span className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-[#D68E0E]" /> Madhya Pradesh

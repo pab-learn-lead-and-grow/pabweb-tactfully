@@ -29,7 +29,7 @@ export const metadata = {
 },
 
   description:
-    "Compare India's top UGC-approved Online MBA universities. Get personalized guidance, university comparison & career-focused recommendations.",
+    "Explore India's top UGC-approved Online MBA universities with Radhya Education Academy. Compare fees, courses and eligibility with personalized expert guidance.",
 
   keywords: [
 "online MBA counselling",

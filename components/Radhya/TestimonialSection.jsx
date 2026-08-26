@@ -17,7 +17,7 @@ export default function TestimonialsSection() {
       salaryBefore: "4.2 LPA",
       salaryAfter: "8.9 LPA",
       growth: "2.1x Salary Growth",
-      date: "15-10-2024",
+      date: "15-03-2026",
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ export default function TestimonialsSection() {
       salaryBefore: "3.9 LPA",
       salaryAfter: "8.5 LPA",
       growth: "2.2x Salary Growth",
-      date: "12-02-2025",
+      date: "12-02-2026",
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ export default function TestimonialsSection() {
       salaryBefore: "5.0 LPA",
       salaryAfter: "13.5 LPA",
       growth: "2.7x Salary Growth",
-      date: "28-01-2025",
+      date: "28-05-2026",
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
       salaryBefore: "6.2 LPA",
       salaryAfter: "12.7 LPA",
       growth: "2.0x Salary Growth",
-      date: "16-02-2025",
+      date: "16-10-2025",
     },
     {
       id: 5,
@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
       salaryBefore: "4.5 LPA",
       salaryAfter: "9.8 LPA",
       growth: "2.2x Salary Growth",
-      date: "28-02-2025",
+      date: "03-12-2025",
     },
     {
       id: 6,
@@ -72,7 +72,7 @@ export default function TestimonialsSection() {
       salaryBefore: "4.2 LPA",
       salaryAfter: "10.9 LPA",
       growth: "2.6x Salary Growth",
-      date: "01-03-2025",
+      date: "01-03-2026",
     },
     {
       id: 7,
@@ -94,7 +94,7 @@ export default function TestimonialsSection() {
       salaryBefore: "3.5 LPA",
       salaryAfter: "9.8 LPA",
       growth: "2.8x Salary Growth",
-      date: "15-05-2025",
+      date: "15-07-2025",
     },
     {
       id: 9,
@@ -105,7 +105,7 @@ export default function TestimonialsSection() {
       salaryBefore: "5.3 LPA",
       salaryAfter: "11.1 LPA",
       growth: "2.1x Salary Growth",
-      date: "23-05-2025",
+      date: "23-08-2025",
     },
     {
       id: 10,
@@ -116,7 +116,7 @@ export default function TestimonialsSection() {
       salaryBefore: "4.2 LPA",
       salaryAfter: "8.9 LPA",
       growth: "2.1x Salary Growth",
-      date: "02-06-2025",
+      date: "02-06-2026",
     },
     {
       id: 11,

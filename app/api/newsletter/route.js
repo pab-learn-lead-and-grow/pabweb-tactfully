@@ -167,7 +167,6 @@ export async function POST(request) {
         `,
       });
 
-      console.log("✅ Newsletter emails sent successfully");
     } catch (emailError) {
       console.error("❌ Failed to send newsletter emails:", emailError);
       console.error("Email error details:", emailError.message);

@@ -1377,7 +1377,7 @@ export default function Page() {
 
       <ServicesByRadhya />
 
-      <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-sans">
+         <section className="w-full px-4 md:px-10 lg:px-20 py-10 font-sans">
         {/* TITLE */}
         <h2 className="text-[#270652] font-bold text-center text-[32px] md:text-[48px] lg:text-[64px] mb-8">
           Important Dates
@@ -1406,21 +1406,26 @@ export default function Page() {
                 },
                 {
                   p: "Admission With Late Fees Of Rs. 500/-",
-                  d: "11th August, 2026 to 31st August, 2026",
+                  d: "11th August, 2026 to 24th August, 2026",
                 },
                 {
                   p: "Admission With Late Fees Of Rs. 1000/-",
-                  d: "1st September, 2026 to 16th September, 2026",
+                  d: "25th  August, 2026 to 8th September, 2026",
                 },
-                { p: "Last Date of Admission", d: "16th September, 2026" },
-                { p: "Re-Registration Starts", d: "	19th March, 2026" },
+                {
+                  p: "Last Date of Admission",
+                  d: "8th September, 2026",
+                },
+                { p: "Re-Registration Starts", 
+                  d: "	19th March, 2026" 
+                },
                 {
                   p: "Re-Registration Without Late Fees",
                   d: "19th March, 2026 to 31st July, 2026",
                 },
                 {
                   p: "Re-Registration With Late Fees Of Rs. 1000/-",
-                  d: "1st August, 2026 to 10th September, 2026",
+                  d: "1st August, 2026 to 10th September, 20266",
                 },
                 { p: "Closure of Re-Registration", d: "10th September, 2026" },
               ].map((row, i) => (

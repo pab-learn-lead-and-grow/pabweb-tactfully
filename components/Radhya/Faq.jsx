@@ -48,7 +48,7 @@ export default function FAQSection() {
   };
 
   return (
-    <div className=" bg-white px-6 sm:px-8 lg:px-4">
+    <div className=" bg-white px-6 sm:px-8 lg:px-4 mx-auto">
       {/* FAQ Schema */}
       <script
         type="application/ld+json"

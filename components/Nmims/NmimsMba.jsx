@@ -664,7 +664,7 @@ export default function Page() {
               for working professionals and graduates, combining strong academic
               foundations with practical industry exposure. Students can choose
               from in-demand specializations such as Marketing Management,
-              Businesss Analytics, Business Management, Financial Management, IT
+              Business Analytics, Business Management, Financial Management, IT
               Management, Human Resource Management, and Operations & Data
               Science Management, all delivered through a flexible online
               learning model with live sessions and case-based learning.
@@ -1510,14 +1510,19 @@ export default function Page() {
                 },
                 {
                   p: "Admission With Late Fees Of Rs. 500/-",
-                  d: "11th August, 2026 to 31st August, 2026",
+                  d: "11th August, 2026 to 24th August, 2026",
                 },
                 {
                   p: "Admission With Late Fees Of Rs. 1000/-",
-                  d: "1st September, 2026 to 16th September, 2026",
+                  d: "25th  August, 2026 to 8th September, 2026",
                 },
-                { p: "Last Date of Admission", d: "16th September, 2026" },
-                { p: "Re-Registration Starts", d: "	19th March, 2026" },
+                {
+                  p: "Last Date of Admission",
+                  d: "8th September, 2026",
+                },
+                { p: "Re-Registration Starts", 
+                  d: "	19th March, 2026" 
+                },
                 {
                   p: "Re-Registration Without Late Fees",
                   d: "19th March, 2026 to 31st July, 2026",

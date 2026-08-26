@@ -1,5 +1,6 @@
 
 import HeroSection from "./HeroSection";
+import Featured from "./Featured";
 import dynamic from "next/dynamic";
 import CounsellingModal from "./CounsellingModal";
 import KnowledgeSection from "./KnowledgeSection";
@@ -54,8 +55,9 @@ const logos = [
 
       <ContactSection />
       <FaqSection/>
+      <Featured />
 
-      <section className="w-full h-60 md:h-90 bg-[#3C087E] mt-5 md:mt-8 xl:mt-20 py-20 flex flex-col items-center text-left">
+      <section className="w-full h-60 md:h-90 bg-[#3C087E] mt-5 py-20 flex flex-col items-center text-left">
         <p className="text-xl md:text-4xl font-bold text-white max-w-4xl text-center px-4">
           Get Expert Career Counselling for the Right Online, Offline & Distance Learning Courses
         </p>

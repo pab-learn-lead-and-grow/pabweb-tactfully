@@ -35,6 +35,6 @@ export default function LogoSection({ logos }) {
         ))}
       </div>
     </div>
-    </section>
+  </section>
   );
 }
