@@ -612,9 +612,9 @@ export default function CoursesSection() {
   };
 
 return (
-    <section className="p-5 max-w-7xl mx-auto lg:px-[60px] relative">
+    <section className="p-5 lg:px-12 relative">
       <h2 className="font-bold text-[28px] md:text-4xl lg:text-5xl mb-2 leading-tight text-[#270652]">
-         Explore Online Programs that fit your hustle
+         Explore online programs that fit your hustle
       </h2>
       <p className="text-sm sm:text-base mb-6 text-justify text-gray-900">
         Compare Online MBA, Executive MBA, MCA, BBA, and other UGC-approved online programmes offered by India's leading universities. Explore fees, curriculum, specializations, and admission details to find the right programme for your goals.
@@ -732,7 +732,7 @@ return (
         </button>
       </div>
 
-      {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} cta_name="Courses Section" />}
+      {isModalOpen && <CounsellingForm onClose={() => setIsModalOpen(false)} />}
     </section>
   );
 }
