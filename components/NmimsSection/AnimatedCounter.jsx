@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 
 export default function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
-  const [value, setValue] = useState(0);
+  const [display, setDisplay] = useState(end);
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef(null);
 
@@ -15,19 +15,21 @@ export default function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
 
-          let start = 0;
-          const increment = end / (duration / 16);
+          const start = Date.now();
 
-          const counter = setInterval(() => {
-            start += increment;
+          const step = () => {
+            const elapsed = Date.now() - start;
+            const progress = Math.min(elapsed / duration, 1);
+            setDisplay(Math.floor(progress * end));
 
-            if (start >= end) {
-              clearInterval(counter);
-              setValue(end);
+            if (progress < 1) {
+              requestAnimationFrame(step);
             } else {
-              setValue(Math.floor(start));
+              setDisplay(end);
             }
-          }, 16);
+          };
+
+          requestAnimationFrame(step);
         }
       },
       { threshold: 0.4 }
@@ -40,7 +42,7 @@ export default function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
 
   return (
     <span ref={ref}>
-      {value}
+      {display}
       {suffix}
     </span>
   );
