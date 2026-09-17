@@ -5,9 +5,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacad
 export const dynamic = "force-static";
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: "NMIMS Online MBA 2026: Fees, Admission, Placements & Review",
+  title: "NMIMS Online MBA 2026: Fees, Admission, Placements and Review",
   description:
-    "NMIMS Online MBA 2026: fees, admission process, eligibility, placements, specializations & reviews. Check if it’s the right choice for working professionals in India.",
+    "NMIMS Online MBA 2026: fees, admission process, eligibility, placements, specializations and reviews. Check if it's the right choice for working professionals in India.",
   alternates: {
     canonical: `${siteUrl}/nmims-online-mba/`,
   },
