@@ -377,6 +377,7 @@ NMIMS Online MBA admission checklist
           <h3 className="text-2xl md:text-3xl font-bold text-[#270652] mb-4">
           Important Dates for January Session 2027
         </h3>
+                
           <table className="w-full border-collapse table-fixed">
             {/* HEADER */}
             <thead>
@@ -431,6 +432,16 @@ NMIMS Online MBA admission checklist
               ))}
             </tbody>
           </table>
+          <p className="text-sm sm:text-sm font-regular leading-relaxed mt-4 italic text-gray-900">
+                  **All dates mentioned above have been sourced from the official{" "} <Link
+  href="https://online.nmims.edu//"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#3C087E] font-bold hover:underline"
+>
+NMIMS CDOE
+</Link>{" "} website and should be verified before applying.** </p>
+
         </div>
       </section>
       <section className="max-w-7xl px-4 md:px-10 lg:px-20 py-10 mt-10 lg:mt-15">
