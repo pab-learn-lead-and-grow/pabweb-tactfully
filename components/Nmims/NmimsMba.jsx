@@ -782,7 +782,7 @@ export default function Page() {
             viewport={{ once: true }}
             className="inline-block text-[32px] md:text-5xl lg:text-[64px] font-bold text-[#270652]"
           >
-            NMIMS Online MBA Eligibility 2026
+            NMIMS Online MBA Eligibility 2027
           </MotionWrapper>
 
           {/* Card container */}
@@ -1503,35 +1503,35 @@ export default function Page() {
             {/* BODY */}
             <tbody className="divide-y divide-[#D6D6D6]">
               {[
-                { p: "Registration Starts", d: "19th March, 2026" },
+                { p: "Registration Starts", d: "24th September 2026" },
                 {
                   p: "Admission Without Late Fees",
-                  d: "19th March, 2026 to 10th August, 2026",
+                  d: "24th September 2026 to 14th February 2027",
                 },
                 {
                   p: "Admission With Late Fees Of Rs. 500/-",
-                  d: "11th August, 2026 to 24th August, 2026",
+                  d: "15th February 2027 to 28th February 2027",
                 },
                 {
                   p: "Admission With Late Fees Of Rs. 1000/-",
-                  d: "25th  August, 2026 to 8th September, 2026",
+                  d: "1st March 2027 to 16th March 2027",
                 },
                 {
                   p: "Last Date of Admission",
-                  d: "8th September, 2026",
+                  d: "16th March 2027",
                 },
                 { p: "Re-Registration Starts", 
-                  d: "	19th March, 2026" 
+                  d: "	24th September 2026" 
                 },
                 {
                   p: "Re-Registration Without Late Fees",
-                  d: "19th March, 2026 to 31st July, 2026",
+                  d: "24th September 2026 to 24th February 2027",
                 },
                 {
                   p: "Re-Registration With Late Fees Of Rs. 1000/-",
-                  d: "1st August, 2026 to 10th September, 20266",
+                  d: "25th February 2027 to 12th March 2027",
                 },
-                { p: "Closure of Re-Registration", d: "10th September, 2026" },
+                { p: "Closure of Re-Registration", d: "12th March 2027" },
               ].map((row, i) => (
                 <tr
                   key={i}

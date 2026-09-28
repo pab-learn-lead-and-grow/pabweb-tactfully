@@ -95,7 +95,7 @@ export default function page() {
   },
   {
     q: "What is the last date to apply for NMIMS Online MBA 2026?",
-    a: "For the July 2026 session, candidates can apply without late fees until 10th August 2026. With a late fee of ₹500, applications are accepted until 31st August 2026, and with ₹1000 late fees, the final last date of admission is 16th September 2026.",
+    a: "For the January 2027 session, candidates can apply without late fees until 14th february 2027. With a late fee of ₹500, applications are accepted until 28th february 2027, and with ₹1000 late fees, the final last date of admission is 16th March 2027.",
   },
   {
     q: "Are EMI options available for NMIMS Online MBA fees?",
@@ -338,10 +338,10 @@ NMIMS Online MBA reviews
       <section className="max-w-7xl px-4 md:px-10 lg:px-20 py-10 mt-10 lg:mt-15 text-center">
         {/* TITLE */}
          <h2 className="text-[32px] md:text-4xl font-bold text-[#270652] mb-4">
-         NMIMS Online MBA Admission 2026
+         NMIMS Online MBA Admission 2027
         </h2>
         <p className="text-sm sm:text-base font-regular leading-relaxed text-justify text-gray-900">
-        Admissions for the NMIMS Online MBA at NMIMS CDOE (Centre for Distance and Online Education) are conducted twice a year for the January and July academic sessions. <strong >For the July 2026 session, registrations started on 19th March 2026 </strong>. Candidates can complete their 
+        Admissions for the NMIMS Online MBA at NMIMS CDOE (Centre for Distance and Online Education) are conducted twice a year for the January and July academic sessions. <strong >For the January 2027 session, registrations started on 24th September 2026 </strong>. Candidates can complete their 
         {" "} <Link
   href="https://radhyaeducationacademy.com/news/nmims-online-mba-admission-deadline-2026/"
   target="_blank"
@@ -349,9 +349,9 @@ NMIMS Online MBA reviews
   className="text-[#3C087E] font-bold hover:underline"
 >
 NMIMS Online MBA admission
-</Link>{" "} without late fees until 10th August 2026. 
+</Link>{" "} without late fees until 14th February 2027. 
         <br /><br />
-       After this, late fee of <strong>₹500 is applicable from 11th August to 24th August 2026</strong>, followed by <strong>₹1000 from 25th August to 8th September 2026</strong>, which is the final admission date. As seats are limited in this {" "} <Link
+       After this, late fee of <strong>₹500 is applicable from 15th February 2027 to 28th February 2027</strong>, followed by <strong>₹1000 from 1st March 2027 to 16th march 2027</strong>, which is the final admission date. As seats are limited in this {" "} <Link
   href="https://radhyaeducationacademy.com/programs/online-mba/"
   target="_blank"
   rel="noopener noreferrer"
@@ -362,7 +362,7 @@ NMIMS Online MBA admission
         <br /><br />
           The admission process for the Online MBA NMIMS program is completely online and based on academic qualifications. There is <strong>no entrance exam required</strong>, making it accessible for students and professionals looking for flexible online MBA courses in India. Candidates can apply through the official NMIMS admission portal and choose from flexible NMIMS Online MBA fees payment options.
           <br /><br />
-          Re-registration for existing students begins on 19th March 2026 and can be completed without late fees until 31st July 2026. A late fee of ₹1000 is applicable from 1st August to 10th September 2026, with closure on 10th September 2026. Read our complete {" "} <Link
+          Re-registration for existing students begins on 24th September 2026 and can be completed without late fees until 24th February 2027. A late fee of ₹1000 is applicable from 25th February 2027 to 12th March 2027, with closure on 12th March 2027. Read our complete {" "} <Link
   href="https://radhyaeducationacademy.com/blogs/nmims-online-mba-admission-checklist-2026/"
   target="_blank"
   rel="noopener noreferrer"
@@ -375,7 +375,7 @@ NMIMS Online MBA admission checklist
         {/* TABLE WRAPPER */}
         <div className="w-full mt-10">
           <h3 className="text-2xl md:text-3xl font-bold text-[#270652] mb-4">
-          Important Dates for July Session 2026
+          Important Dates for January Session 2027
         </h3>
           <table className="w-full border-collapse table-fixed">
             {/* HEADER */}
@@ -390,36 +390,36 @@ NMIMS Online MBA admission checklist
             <tbody className="divide-y divide-[#D6D6D6] border-b border-gray-300">
               {[
                 { p: "Registration Starts", 
-                  d: "19th March, 2026" 
+                  d: "24th September, 2026" 
                 },
                 {
                   p: "Admission Without Late Fees",
-                  d: "19th March, 2026 to 10th August, 2026",
+                  d: "24th September, 2026 to 14th February, 2027",
                 },
                 {
                   p: "Admission With Late Fees Of Rs. 500/-",
-                  d: "11th August, 2026 to 24th August, 2026",
+                  d: "15th February, 2027 to 28th February, 2027",
                 },
                 {
                   p: "Admission With Late Fees Of Rs. 1000/-",
-                  d: "25th August, 2026 to 8th September, 2026",
+                  d: "1st March, 2027 to 16th March, 2027",
                 },
                 {
                   p: "Last Date of Admission",
-                  d: "8th September, 2026",
+                  d: "16th March, 2027",
                 },
                 { p: "Re-Registration Starts", 
-                  d: "	19th March, 2026" 
+                  d: "	24th September, 2026" 
                 },
                 {
                   p: "Re-Registration Without Late Fees",
-                  d: "19th March, 2026 to 31st July, 2026",
+                  d: "24th September, 2026 to 24th February, 2027",
                 },
                 {
                   p: "Re-Registration With Late Fees Of Rs. 1000/-",
-                  d: "1st August, 2026 to 10th September, 2026",
+                  d: "25th February, 2027 to 12th March, 2027",
                 },
-                { p: "Closure of Re-Registration", d: "10th September, 2026" },
+                { p: "Closure of Re-Registration", d: "12th March, 2027" },
               ].map((row, i) => (
                 <tr
                   key={i}
@@ -564,7 +564,7 @@ NMIMS Online MBA admission checklist
 
             <div className="bg-[#3C087E] w-full max-w-5xl mt-10 mb-4">
        <h3 className="text-2xl md:text-3xl  font-bold text-white py-4">
-           NMIMS CDOE Online MBA Fee Structure 2025 - 26
+           NMIMS CDOE Online MBA Fee Structure 2026 - 27
           </h3>
       </div>
 

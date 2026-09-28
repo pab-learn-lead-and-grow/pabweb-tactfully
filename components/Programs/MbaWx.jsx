@@ -79,7 +79,7 @@ export default function ExecutiveMBA() {
 
           <div>
            <h1 className="text-[28px] md:text-4xl lg:text-[40px] text-center md:text-left font-bold text-[#270652] mb-4">
-              Executive MBA in India 2026: Top Colleges, Fees, Eligibility & Admission
+              Executive MBA in India 2027: Top Colleges, Fees, Eligibility & Admission
             </h1>
 
             <p className="text-black leading-relaxed font-inter  text-center md:text-left text-xs lg:text-[18px] mb-4">
