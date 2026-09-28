@@ -271,8 +271,14 @@ const nextConfig = {
 
   async redirects() {
     return [
+	{
+	  source: "/nmims/nmims-online-mba/",
+	  destination: "/nmims-online-mba/",
+	  permanent: true,
+	},
+	{
 	// ✅ YOUR NEW REDIRECT
-    {
+  
       source: "/top-online-mba-colleges-india-2026",
       destination: "https://radhyaeducationacademy.com/top-online-universities-india/",
       permanent: true,
