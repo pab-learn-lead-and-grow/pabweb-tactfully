@@ -36,7 +36,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
                 viewport={{ once: true }}
                 className=" backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
-                <div className="w-64 aspect-square relative overflow-hidden bg-[#270652]">
+                <div className="w-full aspect-square relative overflow-hidden bg-[#270652]">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -69,7 +69,7 @@ export default function Faculties({ heading, topFaculty, bottomFaculty }) {
               viewport={{ once: true }}
               className=" backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
-             <div className="w-64 aspect-square relative overflow-hidden bg-[#270652]">
+             <div className="w-full aspect-square relative overflow-hidden bg-[#270652]">
                   <Image
                     src={member.image}
                     alt={member.name}

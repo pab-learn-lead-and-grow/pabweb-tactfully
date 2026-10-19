@@ -11,6 +11,7 @@ import ContactSection from "../Radhya/ContactSection";
 import UnivCourses from "../Radhya/UnivCourses";
 import { ArrowUpWideNarrow, Boxes, ChartNoAxesColumn, ContactRound, GalleryVertical, Headphones } from "lucide-react";
 import UniversityCards from "../NmimsSection/Logocards";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
     const steps = [
@@ -232,6 +233,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+          
        {/* ======= SNAPSHOT SECTION ======= */}
             <section className="w-full mt-8 xl:mt-16  px-4 md:px-10 lg:px-20 font-sans">
               <div className="max-w-7xl mx-auto">
@@ -407,6 +409,48 @@ export default function Page() {
         steps={steps}
         defaultOpen={2} // Step 3 open by default
       />
+
+     <UniversityDetails
+  universityName="Manipal University Jaipur (MUJ)"
+  title="Manipal University Jaipur Online Highlights"
+  description="Explore Manipal University Jaipur's online programmes, accreditations, digital learning resources, specialisations, and career support services."
+  highlights={[
+    {
+      label: "Established In",
+      value: "2011",
+    },
+    {
+      label: "Learning Mode",
+      value: "100% Online",
+    },
+    {
+      label: "Recognition",
+      value: "UGC-Entitled Online Degrees | NAAC A+",
+    },
+    {
+      label: "Programs Offered",
+      value: "UG, PG, Certificate and Diploma Programmes",
+    },
+    {
+      label: "Learning Resources",
+      value:
+        "Recorded learning modules, digital learning resources, and access to paid Coursera courses and professional certifications, subject to programme terms",
+    },
+    {
+      label: "Career Services",
+      value:
+         "Placement assistance, AI-powered placement portal, resume-building support, mock interviews, employability assessments and placement drives.",
+    },
+    {
+      label: "Hiring Partners",
+      value: "Recruiters across multiple industries",
+    },
+    {
+      label: "EMI Facility",
+      value: "Flexible financing and EMI options available",
+    },
+  ]}
+/>
 
       <MujCareerServices  benefits={benefits} />
 

@@ -11,6 +11,7 @@ import ContactSection from "../Radhya/ContactSection";
 import UnivCourses from "../Radhya/UnivCourses";
 import { ContactRound, FileUser, MessagesSquare, Users } from "lucide-react";
 import UniversityCards from "../NmimsSection/Logocards";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
    const benefits = [
@@ -372,6 +373,51 @@ With more than three decades of academic excellence and cutting-edge, technology
         steps={steps}
         defaultOpen={2} // Step 3 open by default
       />
+
+   
+<UniversityDetails
+  universityName="JAIN Online"
+  title="JAIN Online University Highlights"
+  description="Explore JAIN Online's academic programmes, flexible digital learning experience, student support, and career development services."
+  highlights={[
+    {
+      label: "University",
+      value: "JAIN (Deemed-to-be University), Bengaluru",
+    },
+    {
+      label: "Learning Mode",
+      value: "100% Online",
+    },
+    {
+      label: "Recognition",
+      value: "UGC-Entitled Online Degrees | NAAC A++",
+    },
+    {
+      label: "Programs Offered",
+      value: "Online MBA, BBA, BCA, B.Com, MCA, MA, M.Com, and Other Programmes",
+    },
+    {
+      label: "Learning Resources",
+      value:
+        "Recorded lectures, live weekend classes, digital learning resources, mentor-led projects, and online learning support",
+    },
+    {
+      label: "Career Services",
+      value:
+        "Dedicated career support, job board access, personalised resume and LinkedIn reviews, career mentorship, and hiring support",
+    },
+    {
+      label: "Career Development",
+      value:
+        "Mock interview preparation, career guidance, and access to relevant job opportunities",
+    },
+    {
+      label: "EMI Facility",
+      value: "No-Cost EMI Options Available on Eligible Programmes",
+    },
+  ]}
+/>
+
 
       <MujCareerServices  benefits={benefits}  />
 

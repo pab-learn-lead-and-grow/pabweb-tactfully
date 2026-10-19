@@ -35,6 +35,7 @@ import Faculties from "../NmimsSection/Faculties";
 import WhyChooseUs from "../NmimsSection/WhyChooseUs";
 import UnivCourses from "../Radhya/UnivCourses";
 import SpecializationSection from "../Programs/SpecializationSection";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
   const whyCards = [
@@ -643,7 +644,7 @@ export default function Page() {
               About NMIMS
             </h2>
 
-            <p className="text-black leading-relaxed text-sm sm:text-base mb-10">
+            <p className="text-black leading-relaxed text-sm sm:text-base">
               SVKM’s Narsee Monjee Institute of Management Studies (NMIMS),
               established in 1981 and granted Deemed-to-be-University status by
               the University Grants Commission (UGC) in 2003, has grown into a
@@ -686,6 +687,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+
       {/* ======= SNAPSHOT SECTION ======= */}
       <SnapshotSection
         stats={[
@@ -755,6 +757,31 @@ export default function Page() {
 
       <WhyChooseUs title="Why Choose NMIMS Online MBA" cards={whyCards} />
 
+            <UniversityDetails
+              universityName="NMIMS Online"
+              description="Get an overview of NMIMS Online Highlights, including its recognitions, online learning ecosystem, programs, and student support services."
+              highlights={[
+                { label: "Established In", value: "1994" },
+                { label: "Learning Mode", value: "100% Online" },
+                { label: "Recognition", value: "NAAC A++" },
+                {
+                  label: "Programs Offered",
+                  value: "UG, PG, Certificate, Diploma",
+                },
+                {
+                  label: "Learning Resources",
+                  value:
+                    "24×7 access to recorded lectures, e-books, digital library, journals, lecture transcripts",
+                },
+                {
+                  label: "Career Services",
+                  value:
+                    "Career coaching, resume writing workshops, mock interviews, aptitude & psychometric assessments, job portal access, and career counseling.",
+                },
+                { label: "Hiring Partners", value: "500+ Hiring Partners" },
+                { label: "EMI Facility", value: "Yes" },
+              ]}
+            />
       <SpecializationSection
         title="Specializations & Electives"
         description={[

@@ -10,6 +10,7 @@ import ConnectToday from "../NmimsSection/ConnectToday";
 import Faculties from "../NmimsSection/Faculties";
 import ContactSection from "../Radhya/ContactSection";
 import UnivCourses from "../Radhya/UnivCourses";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 import UniversityCards from "../NmimsSection/Logocards";
 import { BanknoteArrowUp, BriefcaseBusiness, ContactRound, FileUser, MessagesSquare, Users } from "lucide-react";
 
@@ -237,7 +238,7 @@ const universities = [
       </section>
       <section className="w-full bg-white px-10 xl:px-15 py-12 ">
         {/* ======= ABOUT Bennett SECTION ======= */}
-        <div className="w-full mx-auto lg:mb-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="w-full mx-auto lg:mb-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* LEFT TEXT */}
           <div>
             <h2 className="text-[32px] md:text-4xl lg:text-[44px]  text-center md:text-left font-bold text-[#270652] mb-4">
@@ -261,7 +262,50 @@ const universities = [
                    </div>
         </div>
       </section>
-       <section className="w-full bg-purple-50 roundedd-xl py-12 px-4 md:px-10 lg:px-20">
+
+      <UniversityDetails
+  universityName="Bennett Online"
+  title="Bennett University Online Highlights"
+  description="Explore Bennett University's online MBA, BBA programmes, specialisations and learning options."
+  highlights={[
+    {
+      label: "Established In",
+      value: "2016",
+    },
+    {
+      label: "Learning Mode",
+      value: "100% Online",
+    },
+    {
+      label: "Recognition",
+      value: "UGC-approved | NAAC A+",
+    },
+    {
+      label: "Programs Offered",
+      value:
+        "Online BBA & Online MBA programmes",
+    },
+    {
+      label: "Learning Resources",
+      value:
+        "eBooks, case studies, presentations, digital study materials, e-journals, research databases, and academic publications",
+    },
+    {
+      label: "Student Support",
+      value:
+        "Dedicated academic and administrative support through ticketing, email, and helpline services",
+    },
+    {
+      label: "Learning Model",
+      value: "UGC-Aligned Four-Quadrant Learning Framework",
+    },
+    {
+      label: "EMI Facility",
+      value: "No Cost EMI Option Available",
+    },
+  ]}
+/>
+       <section className="w-full bg-purple-50 roundedd-xl py-12 px-4 md:px-10 mt-10">
        <h2 className="text-[#270652] text-2xl md:text-3xl lg:text-5xl xl:text-[60px] font-bold mb-6">
             Why Choose Bennett University Online?
           </h2>

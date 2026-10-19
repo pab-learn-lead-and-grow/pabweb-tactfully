@@ -38,6 +38,7 @@ import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
 import Link from "next/link";
 import UnivCourses from "../Radhya/UnivCourses";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
   const learningCards = [
@@ -1072,7 +1073,7 @@ const topicsData = {
                       </section>
                                    
             
-                  <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-20 gap-12">
+                  <section className="w-full bg-white p-10 py-12 flex flex-col lg:mb-10 gap-12">
                     {/* ===== Top Text Section ===== */}
                     <div className="max-w-6xl text-left mx-auto">
                       <h2 className="text-xl md:text-2xl font-regular lg:text-[36px] leading-normal text-gray-900">
@@ -1146,7 +1147,52 @@ const topicsData = {
 />
 
 
-      <section className="w-full font-sans px-4 md:px-10 lg:px-20">
+      
+
+       <UniversityDetails
+        universityName="Amity Online"
+        title="Amity Online University Highlights"
+        description="Explore Amity Online's accreditations, digital learning ecosystem, MBA programmes, academic support, and career services."
+        highlights={[
+          {
+            label: "Established In",
+            value: "2005",
+          },
+          {
+            label: "Learning Mode",
+            value: "100% Online",
+          },
+          {
+            label: "Recognition",
+            value: "UGC-Entitled Online Degrees",
+          },
+          {
+            label: "Programs Offered",
+            value: "UG, PG, and Certificate Programmes",
+          },
+          {
+            label: "Learning Resources",
+            value:
+              "Live and recorded lectures, interactive learning content, digital resources, beSocial virtual campus, and 24/7 AI academic support through Prof. AMI",
+          },
+          {
+            label: "Career Services",
+            value:
+              "AI-powered resume builder, personalised job matching, mock interviews, career coaching, employability assessments, workshops, and placement assistance",
+          },
+          {
+            label: "Hiring Partners",
+            value: "450+ Hiring Partners",
+          },
+          {
+            label: "EMI Facility",
+            value: "24-Month No-Cost EMI",
+          },
+        ]}
+      />
+
+
+      <section className="w-full font-sans px-4 md:px-10 lg:px-20 mt-10">
         <div className="p-6 md:p-10">
           {/* Heading */}
           <h2 className="text-[32px] sm:text-4xl md:text-[54px] lg:text-[64px] font-bold text-[#270652] mb-4 md:mb-7">

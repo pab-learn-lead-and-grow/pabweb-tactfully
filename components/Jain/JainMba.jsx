@@ -40,6 +40,7 @@ import CounsellingModal from "../Radhya/CounsellingModal";
 import SyllabusSection from "../NmimsSection/Syllabus";
 import FeesCarousel from "../NmimsSection/FeesCrousel";
 import UnivCourses from "../Radhya/UnivCourses";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
   const learningCards = [
@@ -1207,7 +1208,7 @@ const semSuffix = {
      
  <section className="w-full bg-white py-10 px-4 lg:px-10 pt-0">
         {/* ======= ABOUT JAIN SECTION ======= */}
-        <div className="w-full mx-auto lg:mb-20 md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
+        <div className="w-full mx-auto md:mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
             <h2 className="text-[32px] md:text-4xl lg:text-[64px] mt-10 lg:mt-15 font-bold text-[#270652] mb-4">
@@ -1235,8 +1236,50 @@ const semSuffix = {
                             </div>
                    </div>
                  </section>
+                  <UniversityDetails
+        universityName="JAIN Online"
+        title="JAIN Online University Highlights"
+        description="Explore JAIN Online's academic programmes, flexible digital learning experience, student support, and career development services."
+        highlights={[
+          {
+            label: "University",
+            value: "JAIN (Deemed-to-be University), Bengaluru",
+          },
+          {
+            label: "Learning Mode",
+            value: "100% Online",
+          },
+          {
+            label: "Recognition",
+            value: "UGC-Entitled Online Degrees | NAAC A++",
+          },
+          {
+            label: "Programs Offered",
+            value: "Online MBA, BBA, BCA, B.Com, MCA, MA, M.Com, and Other Programmes",
+          },
+          {
+            label: "Learning Resources",
+            value:
+              "Recorded lectures, live weekend classes, digital learning resources, mentor-led projects, and online learning support",
+          },
+          {
+            label: "Career Services",
+            value:
+              "Dedicated career support, job board access, personalised resume and LinkedIn reviews, career mentorship, and hiring support",
+          },
+          {
+            label: "Career Development",
+            value:
+              "Mock interview preparation, career guidance, and access to relevant job opportunities",
+          },
+          {
+            label: "EMI Facility",
+            value: "No-Cost EMI Options Available on Eligible Programmes",
+          },
+        ]}
+      />
            {/* ======= SNAPSHOT SECTION ======= */}
-                           <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 font-sans">
+                           <section className="w-full md:mt-16  px-4 md:px-10 lg:px-20 mt-10 font-sans">
                              <div className="max-w-7xl mx-auto">
                                {/* HEADING */}
                                <MotionWrapper
@@ -1360,6 +1403,8 @@ const semSuffix = {
                </div>
              </div>
            </section>
+
+           
       <WhyChooseUs title="Why Choose JAIN Online MBA" cards={whyCards} />
 
      

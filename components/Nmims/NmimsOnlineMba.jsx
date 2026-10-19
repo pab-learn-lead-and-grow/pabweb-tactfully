@@ -13,6 +13,7 @@ import ContactNmims from "./ContactNmims";
 import AnimatedCounter from "@/components/NmimsSection/AnimatedCounter";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import FAQ from "../NmimsSection/FAQ";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function page() {
   const stats = [
@@ -276,6 +277,31 @@ export default function page() {
           </div>
         </div>
       </section>
+      <UniversityDetails
+              universityName="NMIMS Online"
+              description="Get an overview of NMIMS Online Highlights, including its recognitions, online learning ecosystem, programs, and student support services."
+              highlights={[
+                { label: "Established In", value: "1994" },
+                { label: "Learning Mode", value: "100% Online" },
+                { label: "Recognition", value: "NAAC A++" },
+                {
+                  label: "Programs Offered",
+                  value: "UG, PG, Certificate, Diploma",
+                },
+                {
+                  label: "Learning Resources",
+                  value:
+                    "24×7 access to recorded lectures, e-books, digital library, journals, lecture transcripts",
+                },
+                {
+                  label: "Career Services",
+                  value:
+                    "Career coaching, resume writing workshops, mock interviews, aptitude & psychometric assessments, job portal access, and career counseling.",
+                },
+                { label: "Hiring Partners", value: "500+ Hiring Partners" },
+                { label: "EMI Facility", value: "Yes" },
+              ]}
+            />
       <section className="max-w-6xl text-left px-4 mt-10 lg:mt-15 mx-auto">
         <h2 className="text-[32px] md:text-4xl font-bold text-[#270652] mb-4">
           NMIMS Online MBA Accreditations & Recognitions

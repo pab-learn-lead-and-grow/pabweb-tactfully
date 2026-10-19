@@ -42,6 +42,7 @@ import FAQ from "../NmimsSection/FAQ";
 import Link from "next/link";
 import UnivCourses from "../Radhya/UnivCourses";
 import SnapshotSection from "../NmimsSection/SnapshotSection";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
   const learningCards = [
@@ -746,6 +747,48 @@ const topicsData = {
 
       <WhyChooseUs title="Why Choose Bennett Online MBA"  subtitle="The Online MBA program is designed to provide flexibility, practical exposure, and career growth opportunities for professionals in a digital-first economy." cards={whyCards}  />
 
+    <UniversityDetails
+                    universityName="Bennett Online"
+                    title="Bennett University Online Highlights"
+                    description="Explore Bennett University's online MBA programme, specialisations and learning options."
+                    highlights={[
+                      {
+                        label: "Established In",
+                        value: "2016",
+                      },
+                      {
+                        label: "Learning Mode",
+                        value: "100% Online",
+                      },
+                      {
+                        label: "Recognition",
+                        value: "UGC-approved | NAAC A+",
+                      },
+                      {
+                        label: "Programs Offered",
+                        value:
+                          "Online BBA & Online MBA programmes",
+                      },
+                      {
+                        label: "Learning Resources",
+                        value:
+                          "eBooks, case studies, presentations, digital study materials, e-journals, research databases, and academic publications",
+                      },
+                      {
+                        label: "Student Support",
+                        value:
+                          "Dedicated academic and administrative support through ticketing, email, and helpline services",
+                      },
+                      {
+                        label: "Learning Model",
+                        value: "UGC-Aligned Four-Quadrant Learning Framework",
+                      },
+                      {
+                        label: "EMI Facility",
+                        value: "No Cost EMI Option Available",
+                      },
+                    ]}
+                  />
 
  <SpecializationSection
   title="Specializations & Electives"

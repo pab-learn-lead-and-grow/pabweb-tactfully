@@ -12,6 +12,7 @@ import UnivCourses from "../Radhya/UnivCourses";
 import { BanknoteArrowUp, BriefcaseBusiness, ContactRound, FileUser, MessagesSquare, Users } from "lucide-react";
 import LogoSection from "../Radhya/LogoSection";
 import UniversityCards from "../NmimsSection/Logocards";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
 
@@ -219,7 +220,7 @@ const universities = [
         </div>
       </section>
       <section className="w-full bg-white px-10 xl:px-15 ">
-        {/* ======= ABOUT NMIMS SECTION ======= */}
+        {/* ======= ABOUT SHOOLINI SECTION ======= */}
         <div className="w-full mx-auto lg:mb-20 mb-15 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* LEFT TEXT */}
           <div>
@@ -245,6 +246,52 @@ const universities = [
                    </div>
         </div>
       </section>
+      
+<UniversityDetails
+  universityName="Shoolini Online"
+  title="Shoolini University Online Highlights"
+  description="Explore Shoolini University's online programmes, flexible learning ecosystem, industry mentorship, career preparation, and student support."
+  highlights={[
+    {
+      label: "University",
+      value: "Shoolini University, Himachal Pradesh",
+    },
+    {
+      label: "Learning Mode",
+      value: "100% Online",
+    },
+    {
+      label: "Recognition",
+      value: "UGC-Entitled Online Degrees | NAAC A+",
+    },
+    {
+      label: "Programs Offered",
+      value:
+        "Online MBA, MBA Premium, BBA, BCA, MCA, MA, M.Sc. Data Science, and Other Online Programmes",
+    },
+    {
+      label: "Learning Resources",
+      value:
+        "Learning Management System (LMS), personalised self-learning materials, live sessions, recorded learning resources, and faculty interaction",
+    },
+    {
+      label: "Career Services",
+      value:
+        "Career Tigers platform, AI-powered interview preparation, mock interviews, employability assessments, job matching, and career-readiness support",
+    },
+    {
+      label: "Industry Mentorship",
+      value:
+        "Masterclasses and mentorship opportunities featuring experienced industry leaders",
+    },
+    {
+      label: "Fee Payment Model",
+      value:
+        "Pay After Placement option advertised for eligible online programmes; terms and payment structure vary by programme",
+    },
+  ]}
+/>
+
       {/* ======= SNAPSHOT SECTION ======= */}
         <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-sans">
                           <div className="max-w-7xl mx-auto">

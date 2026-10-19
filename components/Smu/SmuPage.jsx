@@ -11,6 +11,7 @@ import ContactSection from "../Radhya/ContactSection";
 import UnivCourses from "../Radhya/UnivCourses";
 import { ArrowUpWideNarrow, Boxes, ChartNoAxesColumn, ContactRound, GalleryVertical, Headphones } from "lucide-react";
 import UniversityCards from "../NmimsSection/Logocards";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
     const steps = [
@@ -237,8 +238,9 @@ const universities = [
 </div>
         </div>
       </section>
+    
       {/* ======= SNAPSHOT SECTION ======= */}
-                       <section className="w-full mt-8 md:mt-16  px-4 md:px-10 lg:px-20 font-sans">
+                       <section className="w-full mt-8 sm:mt-16  px-4 md:px-10 lg:px-20 font-sans">
                          <div className="max-w-7xl mx-auto">
                            {/* HEADING */}
                            <MotionWrapper
@@ -310,6 +312,51 @@ const universities = [
                            </MotionWrapper>
                          </div>
                        </section>
+
+                       <UniversityDetails
+  universityName="Sikkim Manipal Online"
+  title="Sikkim Manipal University Online Highlights"
+  description="Explore Sikkim Manipal University's online programmes, flexible digital learning experience, academic resources, student support, and career opportunities."
+  highlights={[
+    {
+      label: "Established In",
+      value: "1995",
+    },
+    {
+      label: "Learning Mode",
+      value: "100% Online Learning with Live Classes and On-Demand Video Lectures",
+    },
+    {
+      label: "Recognition",
+      value: "UGC-Entitled Online Degrees | NAAC A+",
+    },
+    {
+      label: "Programs Offered",
+      value:
+        "Online MBA, BBA, B.Com, B.A., MCA, M.Com, and M.A. Programmes",
+    },
+    {
+      label: "Learning Resources",
+      value:
+        "Learning Management System (LMS), e-library, live classes, on-demand video lectures, assignments, and project work",
+    },
+    {
+      label: "Student Support",
+      value:
+        "Dedicated course mentors, 24×7 student support, academic guidance, and access to the SMU alumni network",
+    },
+    {
+      label: "Career Services",
+      value:
+        "Placement assistance and career support, including placement-related guidance and opportunities for eligible learners",
+    },
+    {
+      label: "EMI Facility",
+      value:
+        "No-Cost EMI and Flexible Financing Options, Subject to Applicable Terms",
+    },
+  ]}
+/>
 
   <UnivCourses
   heading="SMU Online Courses "

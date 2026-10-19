@@ -11,6 +11,7 @@ import ContactSection from "../Radhya/ContactSection";
 import UnivCourses from "../Radhya/UnivCourses";
 import { ArrowUpWideNarrow, Boxes, BriefcaseBusiness, ContactRound, GalleryVertical, Headphones, MessagesSquare, Users } from "lucide-react";
 import UniversityCards from "../NmimsSection/Logocards";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
    const benefits = [
@@ -470,6 +471,48 @@ export default function Page() {
         steps={steps}
         defaultOpen={2} // Step 3 open by default
       />
+
+      <UniversityDetails
+  universityName="Amity Online"
+  title="Amity Online University Highlights"
+  description="Explore Amity Online's accreditations, digital learning ecosystem, MBA programmes, academic support, and career services."
+  highlights={[
+    {
+      label: "Established In",
+      value: "2005",
+    },
+    {
+      label: "Learning Mode",
+      value: "100% Online",
+    },
+    {
+      label: "Recognition",
+      value: "UGC-Entitled Online Degrees",
+    },
+    {
+      label: "Programs Offered",
+      value: "UG, PG, and Certificate Programmes",
+    },
+    {
+      label: "Learning Resources",
+      value:
+        "Live and recorded lectures, interactive learning content, digital resources, beSocial virtual campus, and 24/7 AI academic support through Prof. AMI",
+    },
+    {
+      label: "Career Services",
+      value:
+        "AI-powered resume builder, personalised job matching, mock interviews, career coaching, employability assessments, workshops, and placement assistance",
+    },
+    {
+      label: "Hiring Partners",
+      value: "450+ Hiring Partners",
+    },
+    {
+      label: "EMI Facility",
+      value: "24-Month No-Cost EMI",
+    },
+  ]}
+/>
 
       <MujCareerServices  benefits={benefits}  />
 

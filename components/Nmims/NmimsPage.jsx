@@ -5,6 +5,7 @@ import MotionWrapper from "../Radhya/MotionWrapper";
 import SnapshotSection from "../NmimsSection/SnapshotSection";
 import CareerServices from "../NmimsSection/CareerServices";
 import Enrollment from "../NmimsSection/Enrollment";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 import FAQ from "../NmimsSection/FAQ";
 import ConnectToday from "../NmimsSection/ConnectToday";
 import Faculties from "../NmimsSection/Faculties";
@@ -165,7 +166,7 @@ const universities = [
             </h2>
 
             <p className="text-black leading-relaxed font-inter  text-center md:text-left text-xs lg:text-[18px] mb-10">
-              SVKM's Narsee Monjee Institute of Management was established in
+              SVKM&apos;s Narsee Monjee Institute of Management was established in
               1981 and was granted Deemed-to-be-University status by the
               University Grants Commission in 2003. With over four decades of
               excellence in education, NMIMS has evolved into a
@@ -275,6 +276,32 @@ const universities = [
         subtitle="Here's how."
         steps={steps}
         defaultOpen={2} // Step 3 open by default
+      />
+
+      <UniversityDetails
+        universityName="NMIMS Online"
+        description="Get an overview of NMIMS Online Highlights, including its recognitions, online learning ecosystem, programs, and student support services."
+        highlights={[
+          { label: "Established In", value: "1994" },
+          { label: "Learning Mode", value: "100% Online" },
+          { label: "Recognition", value: "NAAC A++" },
+          {
+            label: "Programs Offered",
+            value: "UG, PG, Certificate, Diploma",
+          },
+          {
+            label: "Learning Resources",
+            value:
+              "24×7 access to recorded lectures, e-books, digital library, journals, lecture transcripts",
+          },
+          {
+            label: "Career Services",
+            value:
+              "Career coaching, resume writing workshops, mock interviews, aptitude & psychometric assessments, job portal access, and career counseling.",
+          },
+          { label: "Hiring Partners", value: "500+ Hiring Partners" },
+          { label: "EMI Facility", value: "Yes" },
+        ]}
       />
 
       <CareerServices  />

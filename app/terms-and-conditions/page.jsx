@@ -5,23 +5,24 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://radhyaeducationacad
 export const dynamic = "force-static";
 
 export const metadata = {
-  title: "Terms & Conditions || Radhya Education",
-  description: "Review the Terms and Conditions of Radhya Education Academy to understand user responsibilities, website usage, and policies for accessing our services and information.",
-   alternates: {
+  title: "Terms & Conditions | Radhya Education Academy",
+  description: "Review the Terms and Conditions of Radhya Education Academy covering website usage, user responsibilities, third-party content, and applicable policies.",
+  alternates: {
     canonical: `${siteUrl}/terms-and-conditions/`,
   },
   openGraph: {
-    title: "https://radhyaeducationacademy.com/terms-and-conditions/ - UGC Approved Program | Radhya Education Academy",
-    description: "Learn about this UGC-approved online degree program at Radhya Education Academy",
-    url: "https://radhyaeducationacademy.com/terms-and-conditions/",
+    title: "Terms & Conditions | Radhya Education Academy",
+    description: "Review the Terms and Conditions of Radhya Education Academy covering website usage, user responsibilities, third-party content, and applicable policies.",
+    url: `${siteUrl}/terms-and-conditions/`,
     siteName: "Radhya Education Academy",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Radhya Education Academy - Online Programs",
-    description: "Explore UGC-approved online degree programs from top universities",
-  }
+    title: "Terms & Conditions | Radhya Education Academy",
+    description:
+      "Review the Terms and Conditions of Radhya Education Academy covering website usage, user responsibilities, and applicable policies.",
+  },
 };
 
 export default function terms(){

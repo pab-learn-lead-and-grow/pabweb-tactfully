@@ -41,6 +41,7 @@ import FAQ from "../NmimsSection/FAQ";
 import MujCareerServices from "../NmimsSection/MujCareerServices";
 import CourseCurriculumSection from "@/components/NmimsSection/CourseCurriculumSection";
 import UnivCourses from "../Radhya/UnivCourses";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
   const learningCards = [
@@ -557,6 +558,48 @@ export default function Page() {
       </section>
 
       <WhyChooseUs title="Why Choose MUJ Online MBA" cards={whyCards}  />
+
+      <UniversityDetails
+        universityName="Manipal University Jaipur (MUJ)"
+        title="Manipal University Jaipur Online Highlights"
+        description="Explore Manipal University Jaipur's online programmes, accreditations, digital learning resources, specialisations, and career support services."
+        highlights={[
+          {
+            label: "Established In",
+            value: "2011",
+          },
+          {
+            label: "Learning Mode",
+            value: "100% Online",
+          },
+          {
+            label: "Recognition",
+            value: "UGC-Entitled Online Degrees | NAAC A+",
+          },
+          {
+            label: "Programs Offered",
+            value: "UG, PG, Certificate and Diploma Programmes",
+          },
+          {
+            label: "Learning Resources",
+            value:
+              "Recorded learning modules, digital learning resources, and access to paid Coursera courses and professional certifications, subject to programme terms",
+          },
+          {
+            label: "Career Services",
+            value:
+               "Placement assistance, AI-powered placement portal, resume-building support, mock interviews, employability assessments and placement drives.",
+          },
+          {
+            label: "Hiring Partners",
+            value: "Recruiters across multiple industries",
+          },
+          {
+            label: "EMI Facility",
+            value: "Flexible financing and EMI options available",
+          },
+        ]}
+      />
 
       <CourseCurriculumSection
       title="MUJ Online MBA Syllabus"

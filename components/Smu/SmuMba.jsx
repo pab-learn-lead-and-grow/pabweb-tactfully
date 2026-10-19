@@ -38,6 +38,7 @@ import CourseCurriculumSection from "@/components/NmimsSection/CourseCurriculumS
 import MotionWrapper from "../Radhya/MotionWrapper";
 import FeesCarousel from "../NmimsSection/FeesCrousel";
 import UnivCourses from "../Radhya/UnivCourses";
+import UniversityDetails from "../NmimsSection/UniversityDetails";
 
 export default function Page() {
   const curriculumData = {
@@ -688,6 +689,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      
       <WhyChooseUs title="Why Choose SMU Online MBA" cards={whyCards} />
 
       <CourseCurriculumSection
@@ -695,6 +697,51 @@ export default function Page() {
         years={[1, 2]}
         data={curriculumData}
       />
+
+       <UniversityDetails
+                universityName="Sikkim Manipal Online"
+                title="Sikkim Manipal University Online Highlights"
+                description="Explore Sikkim Manipal University's online programmes, flexible digital learning experience, academic resources, student support, and career opportunities."
+                highlights={[
+                  {
+                    label: "Established In",
+                    value: "1995",
+                  },
+                  {
+                    label: "Learning Mode",
+                    value: "100% Online Learning with Live Classes and On-Demand Video Lectures",
+                  },
+                  {
+                    label: "Recognition",
+                    value: "UGC-Entitled Online Degrees | NAAC A+",
+                  },
+                  {
+                    label: "Programs Offered",
+                    value:
+                      "Online MBA, BBA, B.Com, B.A., MCA, M.Com, and M.A. Programmes",
+                  },
+                  {
+                    label: "Learning Resources",
+                    value:
+                      "Learning Management System (LMS), e-library, live classes, on-demand video lectures, assignments, and project work",
+                  },
+                  {
+                    label: "Student Support",
+                    value:
+                      "Dedicated course mentors, 24×7 student support, academic guidance, and access to the SMU alumni network",
+                  },
+                  {
+                    label: "Career Services",
+                    value:
+                      "Placement assistance and career support, including placement-related guidance and opportunities for eligible learners",
+                  },
+                  {
+                    label: "EMI Facility",
+                    value:
+                      "No-Cost EMI and Flexible Financing Options, Subject to Applicable Terms",
+                  },
+                ]}
+              />
 
       <section className="w-full font-sans px-4 md:px-10 lg:px-20 py-12">
         <div className="p-6 md:p-10">
@@ -779,6 +826,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+
 
       <LearningApproach
         title="Learning Approach"
