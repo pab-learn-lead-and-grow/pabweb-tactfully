@@ -6,6 +6,8 @@ const baseUrl =
 const hostname = new URL(baseUrl).hostname;
 const isStaging = hostname.startsWith("staging.");
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   if (isStaging) {
     return new Response("", { status: 404 });
