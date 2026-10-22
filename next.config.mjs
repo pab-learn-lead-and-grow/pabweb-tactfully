@@ -150,6 +150,16 @@ const nextConfig = {
       destination: "/blogs/nmims-online-mba-salary-growth-2026/",
       permanent: true,
     },
+    {
+  source: "/blogs/bvdu-online-mba",
+  destination: "/blogs/bharati-vidyapeeth-online-mba/",
+  permanent: true,
+},
+{
+  source: "/blogs/manipal-jaipur-online-mba-fees",
+  destination: "/blogs/manipal-jaipur-online-mba-fees-2026/",
+  permanent: true,
+},
 	{
 	// ✅ YOUR NEW REDIRECT
   
