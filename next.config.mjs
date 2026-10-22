@@ -145,6 +145,11 @@ const nextConfig = {
 	  destination: "/nmims-online-mba/",
 	  permanent: true,
 	},
+   {
+      source: "/blogs/nmims-online-mba-salary-growth",
+      destination: "/blogs/nmims-online-mba-salary-growth-2026/",
+      permanent: true,
+    },
 	{
 	// ✅ YOUR NEW REDIRECT
   
