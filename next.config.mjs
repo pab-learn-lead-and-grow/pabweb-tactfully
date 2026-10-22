@@ -196,6 +196,11 @@ const nextConfig = {
       permanent: true,
     },
     {
+  source: "/online-mba",
+  destination: "/programs/online-mba/",
+  permanent: true,
+},
+    {
       source: "/best-online-mba-programs-in-india",
       destination: "https://radhyaeducationacademy.com/blogs/best-online-mba-programs-in-india/",
       permanent: true,
