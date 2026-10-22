@@ -160,6 +160,11 @@ const nextConfig = {
   destination: "https://radhyaeducationacademy.com/blogs/manipal-jaipur-online-mba-fees-2026/",
   permanent: true,
 },
+{
+  source: "/blogs/narsee-monjee-online-mba-fees",
+  destination: "https://radhyaeducationacademy.com/news/narsee-monjee-online-mba-fees/",
+  permanent: true,
+},
 	{
       source: "/top-online-mba-colleges-india-2026",
       destination: "https://radhyaeducationacademy.com/top-online-universities-india/",
