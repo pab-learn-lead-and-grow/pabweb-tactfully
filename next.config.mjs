@@ -191,6 +191,21 @@ const nextConfig = {
       permanent: true,
     },
     {
+      source: "/best-online-mba-programs-in-india",
+      destination: "https://radhyaeducationacademy.com/blogs/best-online-mba-programs-in-india/",
+      permanent: true,
+    },
+    {
+      source: "/dayananda-sagar-university-online-mba",
+      destination: "https://radhyaeducationacademy.com/blogs/dayananda-sagar-university-online-mba/",
+      permanent: true,
+    },
+    {
+      source: "/mdu-distance-education-admission-last-date-2026",
+      destination: "https://radhyaeducationacademy.com/news/mdu-distance-education-admission-last-date-2026/",
+      permanent: true,
+    },
+    {
         source: "/:path*",
         has: [
           {
