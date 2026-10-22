@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { getBlogBySlug } from "@/app/actions/getBlogBySlug";
 import BlogContent from "@/components/Blogs/BlogContent";
 import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
@@ -44,14 +45,7 @@ export default async function BlogPage({ params }) {
   const data = await getBlogBySlug(slug);
 
   if (!data) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-[#270652] mb-4">Not Found</h1>
-          <p className="text-gray-600">The page you&apos;re looking for doesn&apos;t exist.</p>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   return (

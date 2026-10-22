@@ -142,32 +142,55 @@ const nextConfig = {
     return [
 	{
 	  source: "/nmims/nmims-online-mba/",
-	  destination: "/nmims-online-mba/",
+	  destination: "https://radhyaeducationacademy.com/nmims-online-mba/",
 	  permanent: true,
 	},
    {
       source: "/blogs/nmims-online-mba-salary-growth",
-      destination: "/blogs/nmims-online-mba-salary-growth-2026/",
+      destination: "https://radhyaeducationacademy.com/blogs/nmims-online-mba-salary-growth-2026/",
       permanent: true,
     },
     {
   source: "/blogs/bvdu-online-mba",
-  destination: "/blogs/bharati-vidyapeeth-online-mba/",
+  destination: "https://radhyaeducationacademy.com/blogs/bharati-vidyapeeth-online-mba/",
   permanent: true,
 },
 {
   source: "/blogs/manipal-jaipur-online-mba-fees",
-  destination: "/blogs/manipal-jaipur-online-mba-fees-2026/",
+  destination: "https://radhyaeducationacademy.com/blogs/manipal-jaipur-online-mba-fees-2026/",
   permanent: true,
 },
 	{
-	// ✅ YOUR NEW REDIRECT
-  
       source: "/top-online-mba-colleges-india-2026",
       destination: "https://radhyaeducationacademy.com/top-online-universities-india/",
       permanent: true,
     },
-      {
+    {
+      source: "/is-online-mba-valid-abroad-from-india",
+      destination: "https://radhyaeducationacademy.com/blogs/is-online-mba-valid-abroad-from-india/",
+      permanent: true,
+    },
+    {
+      source: "/how-to-choose-best-online-mba-university-india",
+      destination: "https://radhyaeducationacademy.com/blogs/how-to-choose-best-online-mba-university-india/",
+      permanent: true,
+    },
+    {
+      source: "/news/aicte",
+      destination: "https://radhyaeducationacademy.com/news/aicte-news/",
+      permanent: true,
+    },
+    {
+      source: "/news/ugc",
+      destination: "https://radhyaeducationacademy.com/news/ugc-news/",
+      permanent: true,
+    },
+    {
+      source: "/news/online-mba",
+      destination: "https://radhyaeducationacademy.com/news/online-mba-news/",
+      permanent: true,
+    },
+    {
         source: "/:path*",
         has: [
           {

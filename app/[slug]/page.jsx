@@ -1,7 +1,7 @@
 import { cache } from 'react';
+import { notFound } from 'next/navigation';
 import { supabase } from "@/lib/supabaseClient";
 import PageContent from "@/components/Pages/PageContent";
-import Link from "next/link";
 import BreadcrumbSchema from "@/components/Schema/BreadcrumbSchema";
 import { extractFAQFromMarkdown, buildFAQSchema } from '@/lib/extractFAQFromMarkdown';
 
@@ -114,20 +114,7 @@ export default async function Page({ params }) {
   const data = await getPageData(slug);
 
   if (!data) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-[#270652] mb-4">Page Not Found</h1>
-          <p className="text-gray-600 mb-6">The page you&apos;re looking for doesn&apos;t exist or has been removed.</p>
-          <Link
-            href="/"
-            className="inline-block bg-[#3C087E] text-white px-6 py-3 rounded-lg hover:bg-[#270652] transition"
-          >
-            Go Home
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   return (

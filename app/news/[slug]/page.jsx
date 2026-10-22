@@ -1,4 +1,5 @@
 import { cache } from 'react';
+import { notFound } from 'next/navigation';
 import { supabase } from "@/lib/supabaseClient";
 import CategoryNewsClient from "@/components/News/CategoryNewsClient";
 import NewsContent from "@/components/News/NewsContent";
@@ -263,14 +264,7 @@ export default async function NewsPage({ params }) {
   }
 
   if (data.type === 'not_found' || !data.article) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-[#270652] mb-4">Not Found</h1>
-          <p className="text-gray-600">The page you&apos;re looking for doesn&apos;t exist.</p>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   return (
