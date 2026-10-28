@@ -2,6 +2,8 @@
 const nextConfig = {
 
   trailingSlash: true,
+  
+  skipTrailingSlashRedirect: true,
 
   compress: true,
 

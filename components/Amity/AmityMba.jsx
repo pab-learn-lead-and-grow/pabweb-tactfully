@@ -902,7 +902,7 @@ const topicsData = {
                       viewport={{ once: true }}
                       className="text-white text-[20px] md:text-4xl lg:text-5xl xl:text-[56px] font-sans font-bold mt-1 leading-tight"
                     >
-                     AMITY Online MBA : Fees, Eligibility & Admission Dates 2026
+                     Amity Online MBA 2026: Fees, Eligibility, Syllabus & Admission
                     </MotionWrapper>
         
                     <MotionWrapper
@@ -1249,6 +1249,20 @@ const topicsData = {
               </li>
             </ul>
           </div>
+           {/* Fee Note */}
+          <div className="mb-5">
+            <p className="text-gray-700 text-[12px] md:text-2xl mb-2 leading-tight">
+              For the complete eligibility requirements, including educational qualifications, minimum marks, and other admission conditions, read our detailed guide to 
+              <Link
+                  href="https://radhyaeducationacademy.com/amity-online-mba-eligibility-criteria/"
+                  target="_blank"
+                  className="text-inherit italic underline hover:text-[#270652]"
+                >
+                  {" "} Amity Online MBA Eligibility Criteria
+                </Link>.
+              
+            </p>
+          </div>
         </div>
       </section>
 
@@ -1438,41 +1452,51 @@ const topicsData = {
                      <br />
                      Choose your preferred fee payment option
                    </p>
-     
-                   {/* CTA visible only on large screens */}
-                   <button className="hidden lg:flex text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit">
-                     Compare all Plans
-                   </button>
+                   <Link
+                     href="https://radhyaeducationacademy.com/amity-online-mba-fees-roi-placements/"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="hidden lg:flex text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit"
+                   >
+                     View Detailed Breakup
+                   </Link>
                  </div>
      
                  {/* RIGHT SIDE CARDS */}
                  <div className="w-full lg:w-[35%] flex justify-center">
                    <FeesCarousel
                    cards = {[
+                    {
+          title: "One Time Payment",
+          amount: "₹2,07,000/-",
+          sub: "Inclusive of all taxes",
+        },
         {
           title: "Annual Payment",
-          amount: "₹1,99,000/-",
+          amount: "₹1,06,880/-",
           sub: "Inclusive of all taxes",
         },
         {
           title: "Semester Wise",
-          amount: "₹49,750/-",
+          amount: "₹56,300/-",
           sub: "Inclusive of all taxes",
         },
         {
           title: "EMI starting at",
-          amount: "₹8,292/-",
+          amount: "₹8,906/-",
           sub: "per month [Terms & Conditions apply]",
         },
       ]} 
       />
                  </div>
-     
-                 {/* CTA below carousel on mobile only */}
-                <CounsellingModal>
-                   <button className="lg:hidden text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3">
-                   Compare all Plans
-                 </button></CounsellingModal>
+                 <Link
+                   href="https://radhyaeducationacademy.com/amity-online-mba-fees-roi-placements/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="lg:hidden text-white bg-[#F6A104] border-0 border-transparent font-medium px-6 py-2 rounded-md shadow-md transform hover:scale-105 duration-200 w-fit mx-auto mt-3"
+                 >
+                   View Detailed Breakup
+                 </Link>
                </div>
              </div>
            </section>
