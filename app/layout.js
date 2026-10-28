@@ -153,6 +153,24 @@ export default function RootLayout({ children }) {
           />
         </noscript>
         {/* End Meta Pixel Code */}
+         <Script id="tawk-to-chat" strategy="afterInteractive">
+          {`
+            var Tawk_API = window.Tawk_API || {};
+            var Tawk_LoadStart = new Date();
+
+            (function () {
+              var s1 = document.createElement("script");
+              var s0 = document.getElementsByTagName("script")[0];
+
+              s1.async = true;
+              s1.src = "https://embed.tawk.to/6ae1e6071de17b347450ba92/1k616l43a";
+              s1.charset = "UTF-8";
+              s1.setAttribute("crossorigin", "*");
+
+              s0.parentNode.insertBefore(s1, s0);
+            })();
+          `}
+        </Script>
       </head>
      <body className={`${inter.className} scrollbar-hide`}>
         <Navbar />
